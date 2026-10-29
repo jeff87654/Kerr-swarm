@@ -4,6 +4,8 @@ Worldbuilding for a far-future human civilization living around a Kerr black hol
 
 This repository is the source of truth for the design docs. The older Google Drive mirror is retired.
 
+The docs are also published as a browsable world bible at **https://jeff87654.github.io/Kerr-swarm/**, rebuilt from `docs/` on every push to `main` (see [`site/`](site/README.md)). The markdown stays the only source: edit the docs, not the site.
+
 ## Canon decisions
 
 When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the mature civilization, and the newer detailed docs (`element-cycles`, `raft-habitat`, `drum-transport`, `governance`, `economy`) beat older ones. Ring-era docs stay valid for ring-era numbers. Decisions from the consistency audit and the stress test of 29 Oct 2026:
@@ -53,3 +55,7 @@ All in [`docs/`](docs/).
 - [hole-choice.md](docs/hole-choice.md): stellar, mid-sized or galactic-core hole
 - [swarm-rings.md](docs/swarm-rings.md): the orange-slice ring layout
 - [ring-weave.md](docs/ring-weave.md): a woven ring layout to remove knot nights
+
+**Reference**
+- [glossary.md](docs/glossary.md): short definitions of the setting's named things
+- [diagrams/](docs/diagrams/): the Lantern and the Shade, a raft, a nation drum, the Glide

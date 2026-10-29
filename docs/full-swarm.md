@@ -51,6 +51,9 @@
 - **Around Sgr A*, a ring era would have come first,** at ~18 AU around the starved hole (hole-choice.md). It had to end when feeding began, because the feed goes in at 4–40 AU, right where that swarm sits.
 
 ## Layout
+
+![The Lantern and the Shade, cut through the spin axis](diagrams/lantern-shade.svg "The Lantern and the Shade, cut through the hole's spin axis. Radii to scale; the hole, disk and rafts are not.")
+
 | Zone | Radius | What's there | Mass |
 |---|---|---|---|
 | Hole and disk | Disk ~4–40 AU (where the feed goes in) | Sgr A*, thin disk at 30% of Eddington | 4.3 × 10⁶ M☉ |
