@@ -40,6 +40,7 @@
   - The CMZ's gas and the bar's inflow (~1–6 × 10⁷ M☉ of heavy elements per Gyr) could more than double that. The disk's white dwarfs carry carbon and oxygen for ~2–2.5 Gyr of growth, if drums can lean on those two elements.
 - **Hydrogen isn't imported at first.**
   - Stripped, the cluster's stars leave ~2.1 × 10⁷ M☉ of hydrogen and helium; its white dwarfs, ~10–15% of its mass, are kept as ore.
+  - **It's stored as brown dwarfs.** Kept as gas it would form stars within ~30,000 years, drag the Shade out of orbit and block the beams; kept as ice it would boil off anywhere within 100 pc. So it's re-merged into ~4 × 10⁸ bodies of ~0.05 M☉, below the hydrogen-burning limit, parked at ~10–30 pc. Gravity holds them for Gyr (escape speed ~440 km/s), and lifting fuel off one costs ~10¹¹ J/kg, ~3 × 10⁻⁶ of its yield in the disk (full-swarm.md).
   - That covers the shields (2.2 t per person in 3 km drums, ~1.4 × 10⁶ M☉ today, growing with the population) and the hole's fuel for ~820 Myr, by which time the hole and the civilization have grown ~3.5×. (2 km drums' 3.3 t shields would have cut that to ~750 Myr.)
   - After that, fuel joins the stream at ~0.03 M☉/yr and rising.
 
@@ -194,7 +195,7 @@ Payloads leave circular orbits by cancelling nearly all their orbital speed, the
 - **Mass model:**
   - Sgr A* (4.3 × 10⁶ M☉).
   - The Shade (5.7 × 10⁶ M☉ with 3 km drums, a uniform shell at 0.9–1.25 pc). The first version used 6.7 × 10⁶, which put arrivals ~2% faster.
-  - The nuclear star cluster's mass, kept as stored gas (2.5 × 10⁷ M☉, Plummer, 4 pc).
+  - The nuclear star cluster's mass (2.5 × 10⁷ M☉, Plummer, 4 pc). Its hydrogen is now kept as brown dwarfs at ~10–30 pc, which lowers arrival speeds somewhat (up to ~15% with the cluster's mass dropped entirely).
   - The nuclear stellar disk as a thin exponential disk (1.05 × 10⁹ M☉, scale length 88.6 pc), evaluated in its plane.
   - A Hernquist bulge (5 × 10⁹–1.5 × 10¹⁰ M☉, scale 0.6–1 kpc) bracketing the inner rotation curve (~140–200 km/s at 100–200 pc).
   - Dropping the cluster's mass lowers arrival speeds by ~15%.

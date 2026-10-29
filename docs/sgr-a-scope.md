@@ -94,7 +94,7 @@ Full design in full-swarm.md. In brief:
 | Spin 0.998 (η 32%) | 0.0009 M☉/yr | 0.009 M☉/yr | 0.03 M☉/yr |
 
 - **Feeding spins the hole up** toward ~0.998, raising efficiency over time: at 30% it gets there in ~150–170 Myr.
-- **Supply.** The nuclear star cluster's stars, stripped, leave ~2.1 × 10⁷ M☉ of hydrogen and helium; its white dwarfs, ~10–15% of its mass, are kept as ore (matter-delivery.md).
+- **Supply.** The nuclear star cluster's stars, stripped, leave ~2.1 × 10⁷ M☉ of hydrogen and helium; its white dwarfs, ~10–15% of its mass, are kept as ore. The gas is stored as brown dwarfs at ~10–30 pc (matter-delivery.md).
   - Held at 30%, that feeds the hole and shields the growing population for ~820 Myr, while the hole grows ~3.5×.
   - Then fuel is imported: the Galaxy's own inflow to the central parsecs is ~0.03 M☉/yr today, and the frontier's stream can carry more.
 - **Growth.** At the limit the hole doubles every ~60 Myr.

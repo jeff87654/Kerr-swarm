@@ -71,7 +71,7 @@ If the civilization is big enough to use ~30–100% of the hole's Eddington lumi
 | Luminosity (0.3–1 Eddington) | 1–3 × 10⁵ L☉ | 1–3 × 10⁸ L☉ | 4–14 × 10¹⁰ L☉ |
 | Disk light peaks at | ~4–5 keV (soft X-rays); ~90% above 1 keV | ~0.5–0.7 keV; ~75% in 0.1–1 keV | ~80–110 eV (extreme UV); ~90% in 10–300 eV |
 | Plus a hot corona | 5–20% hard X-rays (more in the "very high" state) | 5–15% | ~5% |
-| Grazing angle for mirrors | <1° (~100 m² of mirror per m² of aperture) | ~5–10° | ~15–25° |
+| Grazing angle for mirrors | <1° (~100 m² of mirror per m² of aperture) | ~5–10° | ~3–5° (most of the light is above ~100 eV) |
 | Efficiency, planning (range), 400 K skin | ~28% (22–35%) | ~32% (24–42%) | ~34% (25–45%) |
 | Efficiency across the Lantern (2 kW/m² average) | ~26% | ~30% | ~32% |
 | Lantern radius (2 kW/m² average) | 260–480 AU | 0.04–0.07 pc | 0.82–1.5 pc |
@@ -80,7 +80,7 @@ If the civilization is big enough to use ~30–100% of the hole's Eddington lumi
 | Heavy elements needed (6.7 t/person) | 8–26 M☉ | 1–3.2 × 10⁴ M☉ | 4.3–14 × 10⁶ M☉ |
 | Fuel | ~10⁻⁷ M☉/yr | ~10⁻⁴ M☉/yr | ~0.02–0.06 M☉/yr |
 
-- **Efficiency converges on ~30–35%.** The light is now absorbed in microns (no iron), and the glowing surfaces are hot enough that focusing isn't limited by the source. But soft X-rays and extreme UV reflect only at grazing angles, and each bounce loses ~15–25%. That caps optics at ~75–80%, times a ~1,500 K turbine at ~45%. A SiC skin (~20–25% on this light, less for extreme UV absorbed right at the surface) is the fallback.
+- **Efficiency converges on ~30–35%.** The light is now absorbed in microns (no iron), and the glowing surfaces are hot enough that focusing isn't limited by the source. But soft X-rays and extreme UV reflect only at shallow grazing angles (~3–5° for a fed supermassive hole's ~100–300 eV light), and each bounce loses ~20–30%. That caps optics at ~75–80%, times a ~1,500 K turbine at ~45%. A SiC skin (~20–25% on this light, less for extreme UV absorbed right at the surface) is the fallback.
 - **It never beats the starved mid-sized hole (43%)**, whose infrared reflects ~98% off ordinary mirrors. The optimistic end (hotter furnaces, better grazing optics) reaches ~45%.
 - **The hard part is scale, not physics.**
   - Orbits take millennia, so rings fail (they need orbits under ~16 years) and knot nights would last centuries. The answer is to split light from life: collectors hover in a closed shell, the Lantern, and habitats live outside it in its shade on beamed power (full-swarm.md). Nobody sees a night.

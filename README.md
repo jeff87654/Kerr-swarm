@@ -6,13 +6,20 @@ This repository is the source of truth for the design docs. The older Google Dri
 
 ## Canon decisions
 
-When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the mature civilization, and the newer detailed docs (`element-cycles`, `raft-habitat`, `drum-transport`, `governance`, `economy`) beat older ones. Ring-era docs stay valid for ring-era numbers. Decisions from the consistency audit of 29 Oct 2026:
+When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the mature civilization, and the newer detailed docs (`element-cycles`, `raft-habitat`, `drum-transport`, `governance`, `economy`) beat older ones. Ring-era docs stay valid for ring-era numbers. Decisions from the consistency audit and the stress test of 29 Oct 2026:
 
-- **Raft area:** 3 m² per person, sized for the 2 kWe life. A raft at the full common budget would need ~3.5 m² for its radiators.
-- **Growth horizon:** ~2 Gyr (hole grows ~19×). Drums take ~75% of their metal from white dwarfs (`element-cycles.md`); 1.1 Gyr is only the all-solar-mix case.
+- **Raft area:** 3 m² per person, sized for the 2 kWe life. A raft at the full common budget would need ~3.5 m² for its radiators. Rafts near the Shade's inner edge take ~3.3–3.6 m², since reflected Lantern glow lands on their radiators.
+- **Growth horizon:** ~1–2 Gyr (hole grows ~19×): ~2 Gyr if the hole spins up to 0.998, ~0.9–1.6 Gyr if magnetized flows hold it at ~0.93–0.99. Drums take ~75% of their metal from white dwarfs (`element-cycles.md`); 1.1 Gyr is only the all-solar-mix case at full spin.
 - **Metal:** the 30% civilization holds ~4.3 × 10⁶ M☉ of heavy elements.
 - **Travel shields:** sealed water only. Polyethylene is banned because it leaks hydrogen.
 - `hole-choice.md` uses 4.06 kWe per person for the fed-hole rows. Cryocoolers pause only while boil-off is used or stored.
+- **Hydrogen store:** the cluster's stripped hydrogen and helium is kept as ~4 × 10⁸ brown dwarfs at ~10–30 pc, not as gas or ice.
+- **Lantern mirrors:** ~3–5° grazing, since a spun-up disk's light is mostly above ~100 eV.
+- **The Burn:** the beam can focus to destroy a raft. It's possible but held to be a crime against the whole Shade, which unites the other rafts against whoever orders it.
+- **Rules of the road:** orbits kept round (eccentricity under ~0.003); one collision is a 10³³–10³⁶ J blast that can cascade.
+- **Electronics:** data halls and power electronics sit in water-walled vaults; rectennas use radiation-hard diodes.
+- **Disk weather:** dips of tens of percent are ridden out on methanol (~140 kg a person for a month at 20%), then rationed.
+- **Genome drift:** accepted. Huge rafts drift little; mutation load is an open question.
 
 ## Docs
 

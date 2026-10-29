@@ -25,7 +25,7 @@
 At daily-life.md's 2 kWe (1.70 kWe beamed, 0.30 of batch compute on the Lantern):
 - **Front:** ~1.95 m² of rectenna (1.70 kWe × 1.03 margin ÷ 90% rectenna, at ~1 kW/m² of microwaves), plus ~0.15 m² of drum cap behind the moat's front tank.
 - **Back:** ~1.9 m² of 300 K radiator for the hull's 0.80 kW (one-sided), ~0.65 m² at 350 K for the data halls' 0.50 kW, and a few tenths more, running hotter, for the Yards, rectenna losses and track losses: ~2.8–3.2 m² in all.
-- **So the back sets the raft at ~3 m² per person,** ~2,950 kg/m². The common budget needs ~3.5 m² on the back (see Open questions).
+- **So the back sets the raft at ~3 m² per person,** ~2,950 kg/m². Near the Shade's inner edge, Lantern glow reflected off outer rafts' fronts adds ~10–30% to radiator loads, so inner rafts take ~3.3–3.6 m². The common budget needs ~3.5 m² on the back (see Open questions).
 
 ### What changes with drum size
 At 2 kW and 3 m² per person:
@@ -70,6 +70,7 @@ At 2 kW and 3 m² per person:
   - As an annulus spinning with the drum, it would reach ~11.5 km from the axis, against 12.2 km to the cell's edge. That leaves only the cell's corners (~0.65 m² per person) for ~0.9–1.3 m² of hotter radiators. At the common budget the annuli (~12.9 km) would overlap their neighbours'.
   - Fixed panels can tile the whole back: ~390 km² at 300 K for the hull, the rest hotter for the data halls, Yards and rectenna losses.
 - **The mid-raft between drums** holds the truss, power lines, the Glide's lanes and tubes, the data halls (interactive compute, ~100 GW per cell) and the Yards (industry and recycling, ~58 GW per cell). Their heat goes to hotter panels in the back layer.
+  - The mid-raft is an X-ray flood: silicon takes ~2–15 MGy a year there, which kills ordinary chips in hours and hardened ones in months. So data halls, inverters and controllers sit in water-walled vaults (~1.5 t/m² of wall, ~0.1–0.5 kg per person). Rectennas, which face the Lantern, use diamond or GaN diodes and are replaced on a schedule.
 - **The shell.** 50 m of liquid hydrogen at 20 K (~450 Mt), kept cold by ~3.4 GW of cryocoolers. Outside it, the moat: ~53 Mt of the drum's ~80 Mt of water, ~0.5 m deep over the sides and front cap, which keeps the Lantern's X-rays out of the jacket and reflects a quarter to a third of them back into the mid-raft (habitat-design.md). The rest is inside: the Hollow's lake, trim tanks and a reserve.
 - **The view.**
   - A glide is the one time most people see outside: 140 seconds of free flight through the mid-raft, a dark hall 3.75 km deep between the rectenna and radiator layers, flooded with the Lantern's hard X-rays.

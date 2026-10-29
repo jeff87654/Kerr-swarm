@@ -28,7 +28,8 @@
 | Population | Light and metal are fixed | Shared only if beam follows heads. If it follows places, each raft decides for itself (economy.md) |
 
 - **Everything else** (homes, food, law, rents, birth rights, the Hollow) is raft and drum business (economy.md).
-- **The rules of the road can be thin.** A raft meets another only every ~10,000 years, predicted centuries ahead, and dodges with ~1 m/s (full-swarm.md). Three rules carry the weight:
+- **The rules of the road can be thin, but they're absolute.** A raft meets another only every ~10,000 years, predicted centuries ahead, and dodges with ~1 m/s (full-swarm.md). But across the Shade that's ~10⁵–10⁷ collision courses a year, and one miss is a 10³³–10³⁶ J blast whose debris can cascade. Four rules carry the weight:
+  - **Keep orbits round.** Eccentricity under ~0.003 cuts collision courses ~10×, since most come from rafts drifting radially into each other face to face.
   - **Who yields,** set by custom, as on Earth's seas.
   - **No orbit into the Lantern.** The shell hovers rather than orbits, so anything orbiting meets it at ~150 km/s, ~11 GJ per kg.
   - **Balance.** A lopsided Shade tugs the hole off-centre, and the Lantern has to follow it (full-swarm.md).
@@ -119,6 +120,7 @@ Each range spans the Shade from its inner edge to its outer edge, where inner ra
 | Feed throttle | Injectors → everyone | Months (close injection) to millennia (far) | A deep, lasting cut sinks the Lantern too, over ~6,000–8,000 years |
 | Relay refusal | Lantern → the Shade | At once | Adds ~2 years to 8 |
 | Upkeep strike | The Shade's foundries → Lantern | As fast as collectors wear out | None, if the Lantern mends itself |
+| The Burn | Lantern → a raft | 3–16 months, the light delay; nothing stops it once sent | A patch's beam focuses to a ~6–30 km spot (~10¹³–10¹⁵ W/m²); even spread over everywhere a dodging raft could be, it's ~50× sunlight. Kills a raft outright, and unites the rest of the Shade against whoever ordered it |
 | Kinetic strike | Shade → Lantern | ~800–2,800 years in flight from the inner Shade at 30–100 km/s | A raft punching through wrecks ~10⁻¹⁴ of the shell |
 | Re-aimed stream | Frontier → Lantern | ~1 Myr of falling, in view | A payload ~0.4–0.7 km/s low at launch hits the Lantern at ~450 km/s |
 | Metal embargo | Frontier → core | ~1 Myr, since that much is in flight | Growth is ~10⁻⁹ a year; the core barely notices |
@@ -163,6 +165,7 @@ Founders who expect to lose power someday have reason to build in checks, as con
 - **The Utility.** The Lantern runs a fixed charter: beam by place, cuts only by a process published years ahead, amendments by supermajority of rafts over decades. Politics lives on the rafts and in orbit families. The great crises are amendments, and fights over who interprets the code.
 - **The keepers.** A hereditary or professional order tends the Lantern's machines and reads its code from rafts at the Shade's inner edge, the only people who understand it. Its legitimacy rests on competence and ritual, like Bali's water-temple priests, who scheduled irrigation for whole watersheds (Lansing). The danger is a caste.
 - **The great powers.** A handful of blocs divide the shell, each big enough to darken the rafts beneath it. Rafts drift beneath them like ships along foreign coasts, changing sovereigns every few millennia as their orbits carry them on.
+- **The Burn is the unspoken weapon.** The Lantern's beams sit deep in their near field across the whole gap, so a patch can focus on a raft and destroy it, and no raft can dodge or shield against it. Nothing in the hardware forbids it. It's held back by horror rather than physics: the Burn is the one act every raft treats as a crime against all, and any bloc that orders it can expect the rest of the Shade to unite against it, by upkeep strike, kinetic strike and relays routed around its patches. It has happened, if at all, rarely enough to be history.
 - **The armed peace.** Sails make the Dark survivable, and debris parked on orbits that could be bent into the shell makes the Lantern vulnerable. Formal government stays thin, and order rests on deterrence and long memories.
 - **Expect several in turn.** The Lantern will outlive every government that claims it. A charter with no amendment path, enforced by the machines themselves, could lock one in; otherwise the useful choice is which era to set stories in.
 
