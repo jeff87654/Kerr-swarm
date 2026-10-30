@@ -60,6 +60,9 @@ At 2 kW and 3 m² per person:
   - The choice is made per raft, not per drum (raft-transport.md: drums glide only to drums with the same rim speed).
 
 ## How a drum sits in its cell
+
+![A raft in side section](diagrams/raft-cell.svg "A raft in section: rectennas in front, radiators behind, drums standing in the mid-raft between.")
+
 - **The cell.** A nation drum owns ~600 km² of raft, a square ~24.5 km on a side (raft-transport.md's grid, set by the Glide's lanes).
 - **The layers** (raft-transport.md): rectennas in front, radiators behind, and 3.75 km of mid-raft between them. The drum stands in the mid-raft with its axis toward the Lantern: front cap in the rectenna layer behind the moat's front tank, back cap at the radiator layer, rim in the raft's plane.
 - **Three ports.**
@@ -91,6 +94,9 @@ At 2 kW and 3 m² per person:
 | Banked oxygen | ~7 Mt |
 
 ## Districts
+
+![A nation drum cut along its axis](diagrams/drum-section.svg "The districts are bands of gravity: the Keel at the rim, then the Low, Middle and High decks, and the Hollow.")
+
 | Band | Gravity · residents | Mostly |
 |---|---|---|
 | The Keel (decks 1–15) | ~1 g · no homes | Food plant, water, reserves, station rings |

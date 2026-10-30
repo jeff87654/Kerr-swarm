@@ -22,6 +22,9 @@
 - **Drum sides,** the problem this doc first turned up (the Lantern is a wide X-ray source, so a drum's sides take ~0.4–0.7× the X-ray power of its front), are settled in habitat-design.md: a drum's own water shields them (the moat).
 
 ## Setting
+
+![A raft in side section](diagrams/raft-cell.svg "A raft in section: rectennas in front, radiators behind, and 3.75 km of mid-raft between.")
+
 - **Spacing.** At ~3 m² per person, a nation drum (~200 M) gets ~600 km² of raft: drums ~24.5 km apart on a square grid. A 0.1 AU raft holds ~6 × 10¹⁹ people (~3 × 10¹¹ drums); the ~1.6 AU cap ~1.5 × 10²² (~7 × 10¹³ drums).
 - **Drums stand,** axis toward the Lantern, their water in a moat over the front cap and sides (habitat-design.md). Rims lie in the raft's plane.
 - **All drums spin the same way,** so neighbours share tangent lines (below). The raft's net spin is harmless: turning each drum once per orbit, to keep facing the Lantern, takes ~3.5 × 10⁶ N·m.
@@ -45,6 +48,9 @@
 
 ## The Glide
 ### How it works
+
+![The Glide seen from the Lantern](diagrams/glide.svg "The Glide, seen from the Lantern: drums share tangent lanes, and a car let go at one rim is caught by the next.")
+
 - A rim spinning at ω moves along its own tangent at ωR. Two drums spinning the same way share their outer tangent lines, and where a line touches each rim, that rim is moving along the line at the same speed.
 - So a car let go at one touch point coasts in a straight line to the next and arrives at exactly the speed of the rim it meets. Nothing is spent or lost: the first drum's spin slows by the car's momentum and the second's speeds up by the same.
 - Each lane grazes every drum in its row (or column), so it's a lane through the whole row. The top of a row runs one way and the bottom the other; columns likewise.

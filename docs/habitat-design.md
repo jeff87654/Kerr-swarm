@@ -10,6 +10,9 @@
 - Shield: liquid-hydrogen jacket ~3.5 t/m² (~50 m thick) on hull and end caps. This is a rough estimate for ~20 mSv/yr; rock shielding would need 10–11 t/m² (Globus & Strout). Cryopanels in the guard vacuum between hull and jacket freeze whatever the hull leaks, so the jacket is the drum's cold trap and nothing vents (element-cycles.md).
 
 ## Geometry
+
+![A nation drum cut along its axis](diagrams/drum-section.svg "The 3 km nation drum cut along its axis, showing its districts, the Hollow, jacket and moat.")
+
 - Squat cylinder: rim radius R at 1 g; length ≈ 1.25 R. This is passively spin-stable (I_axis/I_transverse ≈ 1.3) and loses its margin past ~1.5 R.
 - Concentric decks every 4 m from the rim (1 g) inward to R/2 (0.5 g). Each deck is a self-supporting hoop-tensioned membrane.
 - Core (r < R/2): "the Hollow", a pressurized open space. On a raft its zero-g axis holds the sunline, with axle halls for plant at its two ends; docks are at the rim quays (raft-habitat.md). It costs ~50 kg/person.
