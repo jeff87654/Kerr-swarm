@@ -53,7 +53,7 @@ All in [`docs/`](docs/).
 - [daily-life.md](docs/daily-life.md): a day on 2 kWe
 - [economy.md](docs/economy.md): dividends, wages, places and birth rights
 - [governance.md](docs/governance.md): who holds the Lantern
-- [people.md](docs/people.md): bodies, proofreading, and how births follow deaths
+- [people.md](docs/people.md): bodies, proofreading, how births follow deaths, counted drums, and leaving
 - [open-drums.md](docs/open-drums.md): the free, flourishing drums and how they live well on 2 kWe
 - [ashgrove.md](docs/ashgrove.md): narrative sketch of a family in a nation drum
 
