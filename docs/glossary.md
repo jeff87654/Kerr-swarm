@@ -270,6 +270,30 @@ The norm on most rafts that anyone may glide out of any drum. It keeps most coun
 
 Matches: right of the Glide
 
+### Open drums
+
+Drums that hold births to deaths without coercion and keep their rings open both ways, about a quarter of drums at a quiet time. They run a Margin under par, post a Ledger, and spend more of their wallets on each other's time. See open-drums.md.
+
+Matches: open drum, open drums
+
+### The Margin
+
+The 2–4% of an open drum's places it keeps empty on purpose, as guest flats, refuge and first homes lent to young couples. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
+
+Matches: the Margin, Margin flat, Margin flats
+
+### The Ledger
+
+An open drum's board at every station ring: places, people, the Margin, births, deaths, guests, and each newborn's name beside the dead whose place they took. The open counterpart of the Count. See open-drums.md.
+
+Matches: the Ledger
+
+### Guest-right
+
+A compact among open drums, joined by most steady drums, that any traveller may stay three nights in a Margin flat and eat at the halls. With cheap cyclers it makes the wander year possible. See open-drums.md.
+
+Matches: guest-right, wander year
+
 ### The Dark
 
 A beam cut. The raft drops to a survival load and, without glow sails, lasts ~55 days. Light delay means a cut can't be called off in time, so it is a sentence whose length is set when it's ordered, not a siege. See governance.md, economy.md.
@@ -395,6 +419,12 @@ Matches: Lovage
 A counted drum across the rows from Sorrel, nine years into a birth stop after a blight hit its overspent households. See people.md, ashgrove.md.
 
 Matches: Rue
+
+### Chervil
+
+An open drum across the rows from Sorrel on Herb Row, 3% under par since a birth stop ~340 years ago. See open-drums.md.
+
+Matches: Chervil
 
 ### Merrow
 

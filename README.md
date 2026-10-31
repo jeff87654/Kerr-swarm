@@ -23,6 +23,7 @@ When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the
 - **Disk weather:** dips of tens of percent are ridden out on methanol (~140 kg a person for a month at 20%), then rationed.
 - **Genome drift:** accepted. Huge rafts drift little.
 - **Bodies and births** (31 Oct 2026, `people.md`): proofreading of every embryo is the norm, not a law, and clears mutation load. Each drum gets a fixed share of beam and runs its own birth system. Places mostly pass to heirs; pool drums with birth rights are the minority.
+- **Open drums** (31 Oct 2026, `open-drums.md`): about a quarter of drums hold births to deaths without coercion, keep a Margin of 2–4% under par, and grant guest-right as well as the right of the Glide. Chervil on Herb Row is the example.
 
 ## Docs
 
@@ -51,6 +52,7 @@ All in [`docs/`](docs/).
 - [economy.md](docs/economy.md): dividends, wages, places and birth rights
 - [governance.md](docs/governance.md): who holds the Lantern
 - [people.md](docs/people.md): bodies, proofreading, and how births follow deaths
+- [open-drums.md](docs/open-drums.md): the free, flourishing drums and how they live well on 2 kWe
 - [ashgrove.md](docs/ashgrove.md): narrative sketch of a family in a nation drum
 
 **Earlier eras and alternatives**
