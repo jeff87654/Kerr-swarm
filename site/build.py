@@ -18,6 +18,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 from markdown_it import MarkdownIt
@@ -62,6 +63,20 @@ def git_sha():
         return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()
     except Exception:
         return "local"
+
+
+# ---------------------------------------------------------------- game
+GAME = ROOT / "games" / "three-nights"
+
+
+def build_game(out):
+    """Build Three Nights Anywhere into out/three-nights/. Returns True if built."""
+    script = GAME / "tools" / "build.py"
+    if not script.is_file():
+        return False
+    subprocess.run([sys.executable, str(script), "--standalone", str(out / "three-nights")],
+                   check=True, stdout=subprocess.DEVNULL)
+    return True
 
 
 # ---------------------------------------------------------------- README
@@ -364,6 +379,8 @@ def nav_html(groups, current):
             cur = ' aria-current="page" class="is-current"' if current == "diagrams" else ""
             out.append(f'<li><a href="diagrams.html"{cur}>Diagrams</a></li>')
         out.append("</ul></div>")
+    if (GAME / "tools" / "build.py").is_file():
+        out.append('<div class="nav-group"><p class="nav-label">Play</p><ul><li><a href="three-nights/">Three Nights Anywhere</a></li></ul></div>')
     out.append("</nav>")
     return "".join(out)
 
@@ -481,6 +498,7 @@ def build(out, fragment_index=False):
     shutil.copytree(ASSETS, out / "assets")
     if (DOCS / "diagrams").is_dir():
         shutil.copytree(DOCS / "diagrams", out / "diagrams")
+    game = build_game(out)
 
     # backlinks
     cites = {s: set() for s in docs}
@@ -612,6 +630,10 @@ def build(out, fragment_index=False):
     if figs:
         extra_links.append('<li><a class="card" href="diagrams.html"><span class="card-title">Diagrams</span>'
                            f'<span class="card-blurb">All {len(figs)} diagrams in one place</span><span class="card-meta">gallery</span></a></li>')
+    if game:
+        extra_links.append('<li><a class="card" href="three-nights/"><span class="card-title">Three Nights Anywhere</span>'
+                           '<span class="card-blurb">A game: wander Merrow for a year on guest-right, three nights a drum, and send cards home</span>'
+                           '<span class="card-meta">play</span></a></li>')
     if extra_links:
         group_html.append(f'<section class="topic"><h2 id="more">More</h2><ul class="cards">{"".join(extra_links)}</ul></section>')
     total = sum(d.words for d in order)

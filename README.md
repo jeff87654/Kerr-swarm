@@ -66,3 +66,7 @@ All in [`docs/`](docs/).
 **Reference**
 - [glossary.md](docs/glossary.md): short definitions of the setting's named things
 - [diagrams/](docs/diagrams/): the Lantern and the Shade, a raft, a nation drum, the Glide
+
+## Games
+
+- [Three Nights Anywhere](games/three-nights/): a browser game of a wander year across Merrow, three nights a drum on guest-right. [Play it on the site](https://jeff87654.github.io/Kerr-swarm/three-nights/). Its generated drums and customs are not canon; its 16 hand-written drums follow the docs.
