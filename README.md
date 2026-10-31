@@ -24,6 +24,7 @@ When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the
 - **Genome drift:** accepted. Huge rafts drift little.
 - **Bodies and births** (31 Oct 2026, `people.md`): proofreading of every embryo is the norm, not a law, and clears mutation load. Each drum gets a fixed share of beam and runs its own birth system. Places mostly pass to heirs; pool drums with birth rights are the minority.
 - **Open drums** (31 Oct 2026, `open-drums.md`): about a quarter of drums hold births to deaths without coercion, keep a Margin of 2–4% under par, and grant guest-right as well as the right of the Glide. Chervil on Herb Row is the example.
+- **Eating out** (31 Oct 2026, `eating-out.md`): restaurants are rated in apple-seed stars; waste-heat (65 °C) cooking and low-g cooking are recognised styles; animals are a rare luxury (one henhouse on Herb Row); osmotic produce ("orchard pearls") exists as a recent Lovage invention; Tansy, Yarrow and Borage are on Herb Row.
 
 ## Docs
 
@@ -46,6 +47,7 @@ All in [`docs/`](docs/).
 - [xray-power.md](docs/xray-power.md): turning the hole's X-rays into electricity
 - [food-system.md](docs/food-system.md): the Mill, the Vats and the Garden
 - [cuisine.md](docs/cuisine.md): what the kitchens make and what it costs
+- [eating-out.md](docs/eating-out.md): the Crosswise Guide, an in-world guide to restaurants on Herb Row
 
 **Society**
 - [daily-life.md](docs/daily-life.md): a day on 2 kWe
