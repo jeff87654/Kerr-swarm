@@ -356,6 +356,18 @@ A seasoning of the nine essential amino acids, set on every Mill table, their bi
 
 Matches: the Nine
 
+### The Crosswise Guide
+
+The Herb Row Eating Society's restaurant guide. It rates places in apple-seed stars, after the star of seeds in an apple cut crosswise: one is worth the glide, two worth a cycler, three worth going dark for. The Ladle marks the best commons food. See eating-out.md.
+
+Matches: Crosswise Guide, Crosswise
+
+### Waste-heat cooking
+
+Slow cooking on the food plant's free 65 °C loop: onsen-style custards, amazake, black garlic, broths held below a simmer. Searing and frying draw power; holding costs nothing. See eating-out.md.
+
+Matches: waste-heat cooking
+
 ## Earlier eras
 
 ### Ring era
@@ -425,6 +437,18 @@ Matches: Rue
 An open drum across the rows from Sorrel on Herb Row, 3% under par since a birth stop ~340 years ago. See open-drums.md.
 
 Matches: Chervil
+
+### Tansy
+
+A steady drum one glide from Sorrel along Herb Row, known for its strawberries, the longest strain library on the Row, and the Row's only henhouse. See eating-out.md.
+
+Matches: Tansy
+
+### Yarrow and Borage
+
+Drums further along Herb Row: Yarrow a maker drum (home of Nine, a Mill-only tasting menu), Borage a fair drum (home of Lightfall, which cooks recipes received by laser). See eating-out.md.
+
+Matches: Yarrow, Borage
 
 ### Merrow
 
