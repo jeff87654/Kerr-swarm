@@ -1,6 +1,6 @@
 # People: bodies and births
 
-*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs. The names (proofreading, holdings, the wild-born) are proposals. Biology figures are approximate.*
+*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs; a few people emigrate, but it's hard. The names (proofreading, holdings, the wild-born) are proposals. Biology figures are approximate.*
 
 ## Summary
 - **Chance does almost nothing; selection and medicine do everything.** At ~10²⁰ people a raft, a neutral variant would take ~10²⁰ generations to spread by luck. Rafts in the same conditions evolve almost identically.
@@ -75,13 +75,27 @@ The common system, and closest to how most land-limited societies on Earth worke
 - **The wild-born** are children conceived and carried outside the clinics: unproofread, unregistered, often unplaced. Since proofreading is a norm and not a law, some are the children of refusers, not lawbreakers. People confuse the two.
 - **A drum that wants control** can make proofreading free for licensed births and charge for the rest, without punishing anyone outright.
 
+### Leaving
+Emigration is no outlet: a few go, and it's hard. Someone short of floor and food can't afford the trip, and a drum won't let metal leave.
+
+| Trip | Cost per person | Time | What else it takes |
+|---|---|---|---|
+| To a passing raft | A 100–300 km/s capsule throw, ~10–90 GJ (raft-transport.md): ~2,800–25,000 kWh, 4 months to 3 years of a wallet | Days, but only to rafts passing within a few AU | A catch ramp on the other raft, and a place there, so in practice a swap |
+| To a chosen raft across the Shade | The same throw | Thousands of years at ~300 km/s across ~2 pc | A habitat for the trip: not a capsule ride |
+| To the frontier, in person | Climbing back out to 100–200 pc against the falling stream: ~80 GJ/kg, ~1.6 × 10⁸ kWh for ~7 t of person, shield and life support (~20,000 years of a wallet) | ~1 Myr, the payloads' fall run backwards (matter-delivery.md) | A self-supporting habitat, so a whole drum leaves together, taking its metal |
+| To the frontier, as a genome | Nearly free: a genome is information | Centuries by laser | An outpost willing to grow and raise the child |
+
+- **Most emigrants are swaps with passing rafts,** arranged across light-minutes to light-days for the few days a raft is near.
+- **A drum leaving whole** for the frontier is a once-in-an-era event, and its metal walks out with it, so the raft has a say.
+- **The cheap way to the frontier is to send a child, not go.** A would-be emigrant can sign over a genome; an outpost grows and raises the child. Whether outposts want Shade children, and whether this counts as a birth anywhere, is open.
+
 ### What births do to the gene pool
 - **Selection needs uneven family sizes.** Strict two-each drums barely evolve. Holdings and tradable rights let some families have more, so over ~10,000 years most drums drift toward people who want children badly, which tightens the pressure on whatever system they use.
 - **Celibate callings select against whatever draws people to them.**
 
 ## Open questions
 - How often people move far across a raft, which sets whether a raft has regional looks among refusers.
-- Whether there's a frontier to emigrate to: one-way passage to the mining outposts (matter-delivery.md) would give the Shade a safety valve.
+- Whether frontier outposts take Shade children as genomes, and on what terms.
 - How dark the coercive drums get, and what other drums do about them.
 - Whether the residential dose should come down from ~20 mSv/yr.
 - How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers.
@@ -93,6 +107,7 @@ The common system, and closest to how most land-limited societies on Earth worke
 - An advantage s spreads across a grid at ~σ√(2s) per generation: ~0.14 drums a generation at σ = 1 drum, s = 0.01, ~4 × 10⁶ generations across 600,000 drums. Well mixed: ~(2/s) ln 2N ≈ 9,000 generations.
 - An unselected gene is knocked out by mutation pressure in ~10⁵–10⁶ generations.
 - Unchecked growth: three children a couple, ~1.5× a generation, ~1.2% a year, doubling in ~60 years.
+- Leaving: wallet ~0.9 kW ≈ 7,900 kWh a year. Climbing out to the frontier ≈ ½(v_arrival² − v_orbit²) ≈ ½(440² − 160²) km²/s² ≈ 84 GJ/kg, the catch figure run backwards; × 7 t ≈ 5.9 × 10¹⁴ J ≈ 1.6 × 10⁸ kWh. Crossing ~2 pc at 300 km/s ≈ 6,500 years.
 - Germline doubling dose ~1 Gy; 20 mSv/yr × 30 years ≈ 0.6 Sv.
 
 ## Sources
