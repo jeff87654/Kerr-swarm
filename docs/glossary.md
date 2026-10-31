@@ -467,3 +467,53 @@ Matches: Eleven Days
 Galleries behind the drum, outside the jacket, where every Sorrel child sees the stars once. See ashgrove.md.
 
 Matches: the Window
+
+## Across Merrow
+
+### The Passing
+
+A festival held while another raft passes close to Merrow: choirs and kitchens trade songs and recipes with it across the light delay. A raft comes within ~2 AU about once in four years. See wander-year.md.
+
+Matches: the Passing
+
+### Selkie
+
+A raft that passed Merrow at ~2 AU, 16.6 light-minutes away, during Marit Vell's wander year. See wander-year.md.
+
+Matches: Selkie
+
+### The raft loaf
+
+Spelt's yearly mother starter, built from the spoons of starter that wanderers leave in its crock room and registered with the strain library. Every wanderer gets a heel of it for the road. See wander-year.md.
+
+Matches: raft loaf
+
+### Sloe and Kittiwake
+
+Drums on Merrow's Hedge and Gull Rows: Sloe a wood drum of silent woods, where people carry slates; Kittiwake a maker drum that makes wing-sleeves and teaches flying across the axis. See wander-year.md.
+
+Matches: Sloe, Kittiwake
+
+### Gloaming and Squall
+
+Neighbours on Merrow's Weather Row: Gloaming a fair drum that paints dusks and returns its terrace rents; Squall a steady drum with a wave-making swell on its Hollow lake. See wander-year.md.
+
+Matches: Gloaming, Squall
+
+### Carillon and Dulse
+
+Hall drums across Merrow: Carillon on Bell Row, a drum of choirs; Dulse on Kelp Row, on the far side, which pulls noodles on third-g terraces. See wander-year.md.
+
+Matches: Carillon, Dulse
+
+### Madder and Ochre
+
+Neighbours on Merrow's Pigment Row, which grinds colours for the raft: Madder a counted drum that has just kept a Margin and gone open; Ochre a steady drum whose back crews take a guest for a shift. See wander-year.md.
+
+Matches: Madder, Ochre
+
+### Spelt
+
+A maker drum on Merrow's Grain Row, home of Pell the baker and the raft loaf. See wander-year.md.
+
+Matches: Spelt
