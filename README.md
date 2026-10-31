@@ -56,6 +56,7 @@ All in [`docs/`](docs/).
 - [people.md](docs/people.md): bodies, proofreading, how births follow deaths, counted drums, and leaving
 - [open-drums.md](docs/open-drums.md): the free, flourishing drums and how they live well on 2 kWe
 - [ashgrove.md](docs/ashgrove.md): narrative sketch of a family in a nation drum
+- [wander-year.md](docs/wander-year.md): narrative sketch of a year crossing Merrow on guest-right, told in thirteen cards home
 
 **Earlier eras and alternatives**
 - [hole-choice.md](docs/hole-choice.md): stellar, mid-sized or galactic-core hole

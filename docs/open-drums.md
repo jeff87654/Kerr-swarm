@@ -59,7 +59,7 @@ A wallet is 21.6 kWh a day (daily-life.md). Almost everything people remember co
 ### Open both ways
 - **Out:** the right of the Glide (people.md). Anyone may leave, and a swap takes days.
 - **In: guest-right.** Any traveller from a drum that grants the same may stay three nights in a Margin flat and eat at the halls. Open drums keep a compact of guest-right across the raft, and most steady drums join it. It nets to zero, since every drum is host and sender.
-- **The wander year.** Guest-right plus cyclers at ~1 kWh a leg means a young person can cross a 0.1 AU raft and back, sleeping in a new drum each week, for ~13 kWh. Most young people in open drums go at about twenty. Coming home is a festival.
+- **The wander year.** Guest-right plus cyclers at ~1 kWh a leg means a young person can cross a 0.1 AU raft and back, sleeping in a new drum each week, for ~13 kWh. Most young people in open drums go at about twenty. Coming home is a festival. Marit Vell's, told in the cards she sent home, is wander-year.md.
 - **Refuge.** Open drums take people fleeing rungs 4–6 into Margin places (people.md's refuge swaps).
 
 ### Against Earth's happiest countries
