@@ -258,6 +258,18 @@ Children conceived and carried outside the clinics: unproofread, unregistered, o
 
 Matches: wild-born
 
+### Counted drums
+
+Drums that license births and enforce it, about 1% of drums at a quiet time and many more after a raft-wide shock. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against places. See people.md.
+
+Matches: counted drum, counted drums, the Count, the fitting
+
+### The right of the Glide
+
+The norm on most rafts that anyone may glide out of any drum. It keeps most counted drums mild. See people.md.
+
+Matches: right of the Glide
+
 ### The Dark
 
 A beam cut. The raft drops to a survival load and, without glow sails, lasts ~55 days. Light delay means a cut can't be called off in time, so it is a sentence whose length is set when it's ordered, not a siege. See governance.md, economy.md.
@@ -377,6 +389,12 @@ Matches: Sorrel
 Sorrel's neighbour, one glide away. It auctions its high decks and Hollow hours, spends the rents on a bigger commons (a sunline at full brightness for twelve hours), and lets birth rights be sold. See ashgrove.md.
 
 Matches: Lovage
+
+### Rue
+
+A counted drum across the rows from Sorrel, nine years into a birth stop after a blight hit its overspent households. See people.md, ashgrove.md.
+
+Matches: Rue
 
 ### Merrow
 

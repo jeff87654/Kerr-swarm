@@ -1,6 +1,6 @@
 # People: bodies and births
 
-*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs; a few people emigrate, but it's hard. The names (proofreading, holdings, the wild-born) are proposals. Biology figures are approximate.*
+*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs; a few people emigrate, but it's hard. Jeff's decisions of 31 Oct 2026 on coercive drums (counted drums): about 1% of drums at a quiet time, in waves after raft-wide shocks; most rafts guarantee the right of the Glide; the raft answers with sanctions and holds the beam back only for the worst; the darkest drums are rare and shunned; Rue on Herb Row is the example. The names (proofreading, holdings, the wild-born, counted drums, the Count, the fitting, the right of the Glide) are proposals. Biology figures are approximate.*
 
 ## Summary
 - **Chance does almost nothing; selection and medicine do everything.** At ~10²⁰ people a raft, a neutral variant would take ~10²⁰ generations to spread by luck. Rafts in the same conditions evolve almost identically.
@@ -8,7 +8,8 @@
 - **Proofreading clears them.** The norm everywhere: every embryo is sequenced and its new mutations are put back to match its parents, along with known disease variants. It's a norm, not a law, and some drums refuse it.
 - **So people look like all of humanity mixed together, for as long as the civilization lasts.** The average is medium brown, every old feature recombined, the range as wide as Earth's. Nobody tans, jaws are small, bones are light and nearly everyone wears corrected eyes. Any emigrant can marry anyone, anywhere in the Shade.
 - **Places pass to heirs.** A household's places are its land. Children live on the family's shares until a death in the household frees a place. People marry when they hold places, so they marry late, and families that have extra children live thinner.
-- **Drums choose their own birth systems.** Each gets a fixed share of beam, so a drum that overbreeds hurts only itself. Most run on inheritance and custom; some keep a pool with formal birth rights (Sorrel and Lovage in ashgrove.md); a few coerce.
+- **Drums choose their own birth systems.** Each gets a fixed share of beam, so a drum that overbreeds hurts only itself. Most run on inheritance and custom; some keep a pool with formal birth rights (Sorrel and Lovage in ashgrove.md); about 1% coerce.
+- **Counted drums license births and enforce it.** Most fit a contraceptive implant at fourteen and stop births for a decade or two; the darkest are rare and shunned. Whether people can glide out decides how dark they get.
 - **The clinics see nearly every birth.** Children born outside them, the wild-born, are unproofread and often unplaced.
 
 ## Who breeds with whom
@@ -68,7 +69,84 @@ The common system, and closest to how most land-limited societies on Earth worke
 
 - **Pool drums** (Sorrel, Lovage) are reformers' drums: equal between families, and they need a registry and an answer for the unplaced child.
 - **Custom is weak here** because the Shade lacks the outlet most Earth societies leaned on: there's nowhere to emigrate. Swaps between rafts free no places, and new places come one at a time. What remains are honours for the childless (Hollow hours, a high-deck flat), and childless callings with real standing.
-- **Coercive drums** appear where a drum has overshot and a Dark is coming. Other drums see them as criminal.
+- **Coercive drums** (counted drums) appear where a drum has overshot and nobody will bail it out. See Counted drums below.
+
+### Counted drums
+A counted drum decides who may have a child, and enforces it. People call them that for the Count, the board at every station ring that shows people against places.
+
+**Why drums count.**
+- **Deaths set the births.** A nation drum loses ~1.7 M people a year, so that's how many children it can have.
+
+| Children per couple | Growth | 10% over places in | Lean 1 kWe life in |
+|---|---|---|---|
+| 2.25 | 0.34%/yr | ~28 yr | ~200 yr |
+| 2.5 | 0.64%/yr | ~15 yr | ~110 yr |
+| 3.0 | 1.16%/yr | ~8 yr | ~60 yr |
+
+- **Overshoot is survivable for a long time.** At 10% over, each person has ~1.8 kWe and the 55-day reserve covers ~50 days; real danger starts near 1.5–2× places. So counting starts over the trend, not hunger, and every counted drum overstates its emergency.
+- **The raft bails out disasters, not overbreeding.** A 0.1 AU raft gains ~8 × 10¹⁰ places a year, so a drum that loses 10 M places to an accident can be rehoused from about an hour of the raft's growth, spread across ~4 × 10⁷ drums by tube. Nobody hands places to a drum that bred past its share, or every drum would.
+- **Holdings drums hide overshoot** in thin households until a blight or a Dark hits them all at once, like Ireland in 1845. Most counted drums start as overspent holdings drums after a bad year.
+- **Raft-wide shocks** (a Dark, a raft-wide blight) leave nobody with slack, so many drums tip into counting together.
+- **Some count one group.** On Earth most coercive sterilisation targeted minorities and the poor. The Shade's obvious targets are refuser families and their wild-born, and a drum at par can still count them.
+
+**The ladder.** Drums usually climb one rung at a time. Above rung 4, neighbours stop calling it a drum's own business.
+
+| Rung | What the drum does | Earth echo | How others see it |
+|---|---|---|---|
+| 1 Price | Proofreading free for licensed births, charged for others | Singapore's "Stop at Two" | Policy |
+| 2 Penalty | Unlicensed parents lose wallet, Hollow hours, deck seniority, posts | China's "social maintenance fees" | Harsh but legitimate |
+| 3 The fitting | A reversible implant for everyone at fourteen, removed at the clinic on licence | China's mandatory IUDs | Contested; many call it reasonable in a crisis |
+| 4 Forced procedures | Unlicensed pregnancies ended; sterilisation after a quota | China 1983 (~21 M sterilisations), India 1976–77 (~8 M), Peru 1996–2000 (~270,000) | Criminal to most drums |
+| 5 Unpersoning | Wild-born get no place, register entry, school or commons share, or are taken and fostered | China's *heihaizi*; Romania's orphanages | Atrocity; neighbours act |
+| 6 Removing the living | Expulsion onto neighbours' lanes; a fixed age of death; death lotteries | Tikopia's sea voyages; Tokugawa *mabiki*; Trollope's *The Fixed Period* | A small Burn: every drum's enemy |
+
+- **Rung 3 is the typical counted drum:** licences by lottery, the fitting, and a birth stop of one to two decades. It's what a reform council, not a tyrant, ends up with.
+- **Long lives tempt rung 6.** A full stop clears 10% overshoot in ~12 years at 120-year lives, ~40 at 400. A fixed age of 100 in a 120-year drum would remove a sixth of it at once.
+- **Expulsion barely works.** A place doesn't travel, so neighbours gain mouths and no metal, and they can refuse to catch the cars. Dumping people on the Glide is an attack on the next drum.
+- **Control is easy in a drum.** The clinics see nearly every pregnancy, the commons meters show a household eating for five on four places within weeks, the place register records every heir, and nine station rings are the only doors. Against it: 200 M people can hide a lot, home births need no machines, and every drum hears how others live.
+- **The quiet nightmare** is a counted drum that edits embryos toward wanting fewer children, and stops needing implants.
+
+**Life in one.** Rue, across the rows from Sorrel on Herb Row (ashgrove.md), is nine years into a stop.
+- It was a holdings drum where three children had come back into fashion. At ~14% over, a *Fusarium* blight took two vat lines, its thin households went short for a season, and the council that came out of that year posted the first Count and cut births to a quarter of deaths.
+- Its Count now reads ~215 M people on 200 M places, ~7.6% over, 450,000 licences against ~1.79 M deaths a year: par in ~11 years. People bet on the date.
+- At fourteen every child goes to the clinic for the fitting, now a rite with a family dinner. Licences go by lottery to couples who both hold places, first children first, and can't be sold.
+- Low-deck schools stand half-empty; in fifteen years Rue will have a hollow in its workforce.
+- The well-off have Lovage births: they buy a birth right in Lovage and place the child there with relatives. Poorer couples hide pregnancies, and Rue's wild-born are mostly theirs.
+- Rue is richer per head than its neighbours, so the childfree swap in and would-be parents swap out. Each swap makes its rule a little more chosen.
+
+**Legitimacy.** Counting holds when the Count is public and falling, the burden falls equally by lottery, it follows a shock people remember, it has an end date, and people can leave. It fails when the powerful are exempt, it outlives the shock as a bureaucracy's income, it targets one group, or the rings are shut. China's one-child rule lasted 35 years, past its own rationale; India's sterilisation drive cost the government the 1977 election.
+
+**The right of the Glide.** Most rafts guarantee that anyone may glide out of any drum. That keeps most counted drums at rungs 2–3, since the people most likely to resist leave. But a place doesn't travel, so leaving without a swap makes someone an unplaced lodger elsewhere: exit works for those who can find a swap, and fails the poor, who are counted hardest. A raft without the right, where drums can shut their rings, is where the dark drums are.
+
+**What neighbours and the raft do.**
+
+| Tool | Held by | Used against |
+|---|---|---|
+| Refuge swaps: places from the pool for people fleeing | Neighbour drums | Rungs 4–6 |
+| Placing wild-born children, or buying them rights | Neighbours, charities | Rung 5 |
+| Gate embargo on produce, strains and parts | Neighbours | Rungs 3+ |
+| Clinicians refusing licence checks, by Shade-wide norm | The medical guild | Rungs 3–4 |
+| Cutting the Glide and tubes | The raft | Rungs 5–6 |
+| Holding back the beam share | The raft, which holds the contract | Rung 6 only |
+
+- **The raft sanctions; it doesn't dock beam** for anything less than rung 6, since that would undo the fixed shares this section rests on.
+- **Neighbours are tempted to pay for coercion.** A counted drum at rung 3 keeps its people home; one that collapses sends them onto the Glide. Drums beside a counted one often quietly prefer it to count. Herb Row talks about Rue that way.
+
+**How common.** Share counting ≈ how often a drum hits a serious overshoot or shock × the chance it answers by coercion × how long that lasts.
+
+| | Rare | Canon | Common |
+|---|---|---|---|
+| Serious overshoot or shock, per drum | 1 / 3,000 yr | 1 / 1,000 yr | 1 / 300 yr |
+| Answered by coercion | 10% | 30% | 50% |
+| How long it lasts | 20 yr | 40 yr | 80 yr |
+| Share of drums counting | ~0.07% | **~1%** | ~13% |
+| In a glide metro of ~80 drums | 1 in ~20 metros | ~1 | ~10 |
+| At rungs 5–6 | 1 in ~14,000 drums | 1 in ~800 | 1 in ~80 |
+
+- **About one in every glide metro,** so nearly everyone has a counted drum a glide or two away, and about one drum in 800 is at rung 5–6. Earth's 1950–2020 rate was ~0.6% of state-years.
+- **Waves.** After a Dark or a raft-wide blight the share on that raft can reach 10–30% for a generation. A story set just after a Dark has counted drums on every row.
+- **More common with age.** Drums drift toward people who want children badly (What births do to the gene pool), and long lives slow every repair. An old Shade likely has more counted drums than a young one.
+- **Every drum has counted at some point:** at the canon rate, ~40 years in every 3,000. Most keep an old Count board in a museum.
 
 ### The clinics and the wild-born
 - **Proofreading makes nearly every birth visible.** In a pool drum the clinic is where the right is checked; in a holdings drum it records which household the child belongs to.
@@ -96,7 +174,6 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 ## Open questions
 - How often people move far across a raft, which sets whether a raft has regional looks among refusers.
 - Whether frontier outposts take Shade children as genomes, and on what terms.
-- How dark the coercive drums get, and what other drums do about them.
 - Whether the residential dose should come down from ~20 mSv/yr.
 - How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers.
 
@@ -109,10 +186,12 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 - Unchecked growth: three children a couple, ~1.5× a generation, ~1.2% a year, doubling in ~60 years.
 - Leaving: wallet ~0.9 kW ≈ 7,900 kWh a year. Climbing out to the frontier ≈ ½(v_arrival² − v_orbit²) ≈ ½(440² − 160²) km²/s² ≈ 84 GJ/kg, the catch figure run backwards; × 7 t ≈ 5.9 × 10¹⁴ J ≈ 1.6 × 10⁸ kWh. Crossing ~2 pc at 300 km/s ≈ 6,500 years.
 - Germline doubling dose ~1 Gy; 20 mSv/yr × 30 years ≈ 0.6 Sv.
+- Counted drums: growth (children ÷ 2)^(1/35 yr) − 1; 10% over in ln 1.1 ÷ rate; 1 kWe in ln 2 ÷ rate. Rue: 228 M at the stop, births at a quarter of deaths for 9 years ≈ −1.4 M a year → ~215 M; to par at ~1.34 M a year ≈ 11 years. Raft growth 1.4 × 10⁻⁹ a year × 6 × 10¹⁹ ≈ 8.4 × 10¹⁰ places a year; 10 M places ≈ 1 hour of it, or a year's growth of ~3.6 × 10⁷ drums (a patch ~150,000 km across). Prevalence = rate × probability × duration; Earth ≈ 75 coercive state-years ÷ (~190 states × 70 yr).
 
 ## Sources
 - M. Lynch 2016, "Mutation and human exceptionalism: our future genetic load," Genetics 204: 7 (relaxed selection, ~1% a generation).
 - J. Hajnal 1965, "European marriage patterns in perspective" (late marriage gated by holdings).
 - R. Firth, *We, the Tikopia* (1936) (population control on a closed island).
 - K. Boulding 1964, *The Meaning of the Twentieth Century* (tradable birth licences; see economy.md).
-- Exploration docs behind this one: [What the Shade's people look like](https://claude.ai/artifact/4rMUZZCCKtYWC21aXTBrR6) and [How births work in the Shade](https://claude.ai/artifact/C3RuHCVSv1nMy9D9Dazg7A).
+- S. Greenhalgh & E. Winckler 2005, *Governing China's Population*; M. Connelly 2008, *Fatal Misconception*; E. Tarlo 2003, *Unsettling Memories* (India's Emergency); G. Kligman 1998, *The Politics of Duplicity* (Romania); T. C. Smith 1977, *Nakahara* (Tokugawa family limitation); A. Trollope 1882, *The Fixed Period*; A. O. Hirschman 1970, *Exit, Voice, and Loyalty*.
+- Exploration docs behind this one: [What the Shade's people look like](https://claude.ai/artifact/4rMUZZCCKtYWC21aXTBrR6) and [How births work in the Shade](https://claude.ai/artifact/C3RuHCVSv1nMy9D9Dazg7A) and [Counted drums](https://claude.ai/artifact/DdcVpacxNQfk9JpfKLcdVP).
