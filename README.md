@@ -21,7 +21,8 @@ When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the
 - **Rules of the road:** orbits kept round (eccentricity under ~0.003); one collision is a 10³³–10³⁶ J blast that can cascade.
 - **Electronics:** data halls and power electronics sit in water-walled vaults; rectennas use radiation-hard diodes.
 - **Disk weather:** dips of tens of percent are ridden out on methanol (~140 kg a person for a month at 20%), then rationed.
-- **Genome drift:** accepted. Huge rafts drift little; mutation load is an open question.
+- **Genome drift:** accepted. Huge rafts drift little.
+- **Bodies and births** (31 Oct 2026, `people.md`): proofreading of every embryo is the norm, not a law, and clears mutation load. Each drum gets a fixed share of beam and runs its own birth system. Places mostly pass to heirs; pool drums with birth rights are the minority.
 
 ## Docs
 
@@ -49,6 +50,7 @@ All in [`docs/`](docs/).
 - [daily-life.md](docs/daily-life.md): a day on 2 kWe
 - [economy.md](docs/economy.md): dividends, wages, places and birth rights
 - [governance.md](docs/governance.md): who holds the Lantern
+- [people.md](docs/people.md): bodies, proofreading, and how births follow deaths
 - [ashgrove.md](docs/ashgrove.md): narrative sketch of a family in a nation drum
 
 **Earlier eras and alternatives**
