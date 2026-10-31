@@ -230,15 +230,33 @@ Matches: commons, wallet, wallets
 
 ### The place
 
-The one share each person holds: ~6.7 t of habitat, a share of the beam and ~3 m² of the raft's back. It can't be sold or pledged; its yields (rooms, wallet kWh, Hollow hours, its birth right) can. At death it returns to the drum's pool. See economy.md.
+The one share each person holds: ~6.7 t of habitat, a share of the beam and ~3 m² of the raft's back. It can't be sold or pledged; its yields (rooms, wallet kWh, Hollow hours, its birth right) can. At death it usually passes to an heir in the household; some drums return every place to a pool. See economy.md, people.md.
 
 Matches: none
 
 ### Birth rights
 
-Each place carries one birth right, so a couple has two children; a nation drum gains a new place only about once every three and a half years. Whether rights can be sold is the sharpest choice in the setting. See economy.md, governance.md.
+In pool drums, each place carries one birth right, so a couple has two children; a nation drum gains a new place only about once every three and a half years. Whether rights can be sold is the sharpest choice in the setting. Most drums use holdings instead. See economy.md, people.md.
 
 Matches: birth right, birth rights
+
+### Holdings
+
+The common way drums hold births to deaths: places pass to heirs, children live on their household's shares until a death in the family frees a place, and people marry when they hold places. See people.md, economy.md.
+
+Matches: holdings
+
+### Proofreading
+
+The Shade-wide norm, not a law: every embryo is sequenced and its new mutations are put back to match its parents, along with known disease variants. It clears mutation load and keeps the Shade one species. See people.md.
+
+Matches: proofreading, proofread, unproofread
+
+### The wild-born
+
+Children conceived and carried outside the clinics: unproofread, unregistered, often unplaced. Some are lawbreakers' children, some refusers'. See people.md.
+
+Matches: wild-born
 
 ### The Dark
 

@@ -335,7 +335,7 @@ Not in the baseline. A Blandford–Znajek (BZ) tap draws on the hole's rotation 
 - **Machine country.** Nobody lives on the Lantern, and minds stay biological in this setting, so it has machines but no citizens. People govern it only through its standing rules, written and audited from months to years away. Those rules are its real constitution, and whoever writes, amends and reads them holds the civilization's deepest power (governance.md).
 - **Core and frontier.** The civilization is ~8 light-years across, widening by about a light-year every 100–200 Myr. Its metal comes from the nuclear stellar disk, 100–200 pc out, centuries of light-delay away. Outposts can live on their stars' light, so neither side can coerce the other on any human timescale (governance.md).
 - **A slow frontier at home.** New rafts are built at the Shade's outer edge. Over hundreds of millions of years the oldest rafts end up deep inside, and the newest are always the farthest from the Lantern.
-- **Bodies drift little.** In rafts of 10¹⁹ people or more, a neutral mutation takes ~4N generations to fix by chance, far longer than the civilization's age, so isolated rafts don't drift apart into species, though the gene pool grows hugely varied. Selection still works, and works well at this size: people adapt to drum gravity, heliox and lamplight within a few hundred thousand years. Each child still carries ~1–2 new harmful mutations, so the setting accepts some genome drift; how load is cleared (ordinary selection, embryo repair, or slow decline) is open.
+- **Bodies stay human.** In rafts of 10¹⁹ people or more, a neutral mutation takes ~4N generations to fix by chance, far longer than the civilization's age. With births held to deaths, natural selection is weak too, so each child's ~1–2 new harmful mutations are cleared by proofreading: every embryo is sequenced and its new mutations put back. It's the norm, not a law. People look like all of humanity mixed together and stay one interfertile species across the Shade (people.md).
 - Daily life on a raft, at the common budget and at 2 kWe, is in daily-life.md; the economy is in economy.md.
 
 ## Open questions
@@ -350,7 +350,6 @@ Not in the baseline. A Blandford–Znajek (BZ) tap draws on the hole's rotation 
 - How compute really splits between the rafts and the Lantern (planning: half each). Every kWe moved to the rafts costs ~1.2 kW of light.
 - Large-scale dynamics of the Shade, how far the hole wanders inside it, and how the Lantern's centring keeps up.
 - Fuel and metal once the cluster's gas runs out (~820 Myr in): the Galaxy's inflow, the frontier's stream, or a slower feed.
-- How mutation load is cleared over ~100 Myr of biological humans.
 
 ## Method
 - Luminosity: 0.3 × 1.26 × 10³¹ W per M☉ × 4.3 × 10⁶ M☉ = 1.6 × 10³⁷ W (4.2 × 10¹⁰ L☉).

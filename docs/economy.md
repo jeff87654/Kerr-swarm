@@ -8,7 +8,7 @@
 - **Every price is an energy cost, a rent or someone's time.** Made things cost their kWh (daily-life.md's price list). Fixed things earn rents: floor, the Hollow, high decks, places for children. People's time costs what others will pay for it.
 - **Three ledgers:** kWh, a yearly flow, is the money; mass, a fixed stock, is property; places, one per person, are citizenship and children.
 - **Income is a dividend plus work.** The commons (~1.1 kW) and an equal beam dividend (~0.9 kW, the wallet) cover a whole life. Work is how a wallet grows. If people spend a quarter of their wallets on each other's time, an hour costs ~3 kWh, a little more than a Vat-table dinner.
-- **Children are the dearest thing.** A nation drum gains a new place about once every three and a half years; all other births wait on deaths. Each place carries one birth right, so a couple has two children. Whether rights can be sold is the sharpest choice in the setting.
+- **Children are the dearest thing.** A nation drum gains a new place about once every three and a half years; all other births wait on deaths. Most drums let places pass to heirs, so a household's births follow its own deaths; some keep a pool with one birth right per place (people.md). Whether such rights can be sold is the sharpest choice in the setting.
 - **Savings earn nothing.** With growth at ~10⁻⁹ a year, interest is ~zero: a kWh lent for a thousand years comes back a kWh. Fortunes don't compound; they're rents or reputations. The only capital that grows is information.
 - **Each scale trades something different:** the drum services, the raft goods, the Shade information and beam, the frontier metal, on million-year contracts.
 - **The Lantern is utility, bank and sovereign.** Its beam ledger settles every payment between rafts. Light delay makes the Dark a sentence rather than a siege: an unscheduled cut lasts at least twice the delay (6 months to 2.8 years), longer than a raft can live through, so a cut's length has to be set when it's ordered. Glow sails, heat engines run on the Lantern's own glow, would let a raft away from the disk plane outlast a cut on rations and make it a siege again (governance.md).
@@ -88,7 +88,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Every person holds one place:** ~6.7 t of habitat (100 m² of floor and a share of the food plant, shield, reserve and raft), a share of the beam (~2 kWe), and ~3 m² of the raft's back.
 - **It can't be sold or pledged.** Selling it would mean selling your air.
 - **Its yields can be traded:** rooms, wallet kWh, heat allowance, Hollow hours and its birth right.
-- **At death it returns to the drum's pool,** which houses the next birth. Heirlooms go to heirs.
+- **At death it usually passes to an heir** in the household, so nobody is turned out when the householders die (people.md). Places with no heir return to the drum's pool. Some drums return every place to the pool and run birth rights instead (see Children).
 
 ### Metal is the land
 - **New places almost never come.** After the hole spins up, growth is ~1.4 × 10⁻⁹ a year (matter-delivery.md): one new place per nation drum every ~3.6 years, or every ~1.3 while the hole spins up. All other births wait on deaths.
@@ -126,7 +126,9 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Births per nation drum per year | 2.5 M | 1.7 M | 1.0 M | 500,000 |
 | Share under 18 | 22% | 15% | 9% | 4.5% |
 
-- **Birth rights (proposal).** Each place carries one claim to a place for a child, so a couple has two children: replacement, as daily-life.md assumes. A birth draws a place from the pool now, and the parent's own place refills it at their death; the pool keeps a buffer for the gap.
+- **Drums choose how births follow deaths** (people.md). Each gets a fixed share of the beam, so overbreeding thins only its own shares.
+- **Holdings, the common system.** Places pass to heirs. Children live on their household's shares until a death in the family frees a place, couples marry when they hold places, and a family with extra children lives thinner.
+- **Birth rights, in pool drums.** Every place returns to the pool at death and carries one claim to a place for a child, so a couple has two children: replacement, as daily-life.md assumes. A birth draws a place from the pool now, and the parent's own place refills it at their death; the pool keeps a buffer for the gap.
 - **Can rights be sold?**
 
 | | Tradable | Giftable only | Unused rights go to a lottery |
@@ -137,7 +139,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 
 - **Boulding's 1964 proposal is the tradable version** (Earth anchors).
 - **Long lives make children rarer, not fewer per couple.** At 400 years a drum sees ~1,400 births a day, and one resident in 22 is a child.
-- **An unplaced child is the hardest case.** A birth without a right still needs a place, taken from the pool at someone else's expense. How the drum answers the parents is the setting's sharpest law.
+- **An unplaced child is the hardest case.** In a pool drum, a birth without a right still needs a place, taken from the pool at someone else's expense. How the drum answers the parents is the setting's sharpest law. In a holdings drum the child simply thins its own household.
 
 ## Saving and interest
 - **No growth, no interest.** In Samuelson's consumption-loan model, money's interest rate equals the population's growth rate (Earth anchors). Here that's ~10⁻⁹ a year: a kWh lent for a thousand years comes back as 1.0000014 kWh.
@@ -193,12 +195,12 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 ## A life on the ledger
 | Stage | What happens | Ledger |
 |---|---|---|
-| Birth | A place from the pool, freed by a death somewhere in the drum; a parent's birth right is spent | +1 place |
+| Birth | Lives on the household's shares until a death in the family frees a place (in pool drums, a place from the pool and a parent's birth right) | +1 person |
 | Childhood | The Low decks, near the stations; school and clinic from the commons; the dividend goes to the household | — |
 | Coming of age | The full dividend in one's own name | 21.6 kWh a day |
-| Working life | Work for wallet and standing; save for express legs, a sofa, Hollow hours; raise two children | Wages in; birth right spent, given or sold |
+| Working life | Work for wallet and standing; save for express legs, a sofa, Hollow hours; raise two children | Wages in; places inherited; in pool drums, a birth right spent, given or sold |
 | Later life | Up to the high decks, if the drum allots them by age; let rooms; hand down heirlooms | Rents in |
-| Death | The place returns to the pool, and a child is born into it | −1 place |
+| Death | The place passes to an heir in the household, or returns to the pool if there is none | −1 person |
 
 ## Rich and poor
 | | Empty wallet | Typical | Rich |
@@ -210,7 +212,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Compute | Public only | ~10 kWh a day | Whole worlds |
 | Space | One place's share of home | A family flat | A high deck, rented rooms, Hollow hours |
 | Service | Robots | Robots; a person for occasions | People: cooks, tutors, tailors |
-| Children | Two | Two | Three or more, if rights are sold |
+| Children | Two, or more on thin shares | Two | Three or more, if places or rights allow |
 
 - **Poverty is a thin wallet, not hunger or the dark.**
 - **The plainest signs of wealth** are light (daily-life.md), speed, new mass and people.
@@ -246,7 +248,7 @@ All made, Oct 2026:
 - **food-system.md:** its "rationing and pricing" open question is settled: the commons' food credit is a Mill-table day, and the rest is priced in kWh. Alcohol policy stays open.
 
 ## Open questions
-- Can birth rights be sold?
+- Can birth rights be sold, in pool drums?
 - Who collects rents on fixed goods?
 - How long people live.
 - Who runs the Lantern, and whether beam follows places or heads (governance.md sets out the dials).
