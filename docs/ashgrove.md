@@ -19,6 +19,7 @@ A drum's formal address is a pair of grid numbers that nobody says aloud. A long
 Each drum is a nation of about 200 million and sets its own rules inside the same beam per place (economy.md). Neighbours a free glide apart can differ a lot:
 - **Sorrel** runs the standard commons and a full dividend. It allots its fixed goods by age, so the old get the high decks and the most Hollow time. Birth rights can be given but not sold. Gin is sold almost at cost, with thiamine in it, as in the salt.
 - **Lovage** auctions its high decks and Hollow hours and spends the rents on a bigger commons, most visibly a sunline held at full brightness for twelve hours instead of six. Its birth rights can be sold. Spirits are taxed hard.
+- **Rue,** across the rows, is a counted drum nine years into a birth stop (people.md). Its children are fitted with implants at fourteen, its Count is posted on every platform, and Herb Row is quietly glad it counts rather than collapses.
 - Sorrelers find Lovage dazzling and a little vulgar. Lovage finds Sorrel dim and a little drunk. Anyone who minds can swap homes; the Glide is free.
 
 ### Sorrel
