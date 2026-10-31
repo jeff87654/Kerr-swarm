@@ -10,6 +10,7 @@
 - **Places pass to heirs.** A household's places are its land. Children live on the family's shares until a death in the household frees a place. People marry when they hold places, so they marry late, and families that have extra children live thinner.
 - **Drums choose their own birth systems.** Each gets a fixed share of beam, so a drum that overbreeds hurts only itself. Most run on inheritance and custom; some keep a pool with formal birth rights (Sorrel and Lovage in ashgrove.md); about 1% coerce.
 - **Counted drums license births and enforce it.** Most fit a contraceptive implant at fourteen and stop births for a decade or two; the darkest are rare and shunned. Whether people can glide out decides how dark they get.
+- **Open drums are the bright side.** About a quarter of drums hold births to deaths freely, keep a small Margin under par and open their rings both ways (open-drums.md).
 - **The clinics see nearly every birth.** Children born outside them, the wild-born, are unproofread and often unplaced.
 
 ## Who breeds with whom
@@ -68,6 +69,7 @@ The common system, and closest to how most land-limited societies on Earth worke
 | Earth echo | Northwest Europe, Japan's *ie* | China's licences, Boulding's proposal | Tikopia, monastic Tibet | Tokugawa famines, China's worst years |
 
 - **Pool drums** (Sorrel, Lovage) are reformers' drums: equal between families, and they need a registry and an answer for the unplaced child.
+- **Open drums** (open-drums.md) are holdings drums where custom does work: a Margin of empty places lent to young couples, the gift of a place to a couple outside the family, and tables of childless aunts around every child.
 - **Custom is weak here** because the Shade lacks the outlet most Earth societies leaned on: there's nowhere to emigrate. Swaps between rafts free no places, and new places come one at a time. What remains are honours for the childless (Hollow hours, a high-deck flat), and childless callings with real standing.
 - **Coercive drums** (counted drums) appear where a drum has overshot and nobody will bail it out. See Counted drums below.
 
