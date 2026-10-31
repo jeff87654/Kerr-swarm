@@ -1,0 +1,6966 @@
+{
+ "places": [
+  {
+   "name": "{block} Mill Hall",
+   "style": "hall",
+   "k": [
+    "steady",
+    "thin",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "{block}, at the foot of {street}",
+   "blurb": "The free Mill table three times a day, at long tables under felt. The robots cook to the standard recipe and the regulars correct it at the table with vinegar, chili and several decades of argument.",
+   "dishes": [
+    [
+     "Lamp-dawn jook with chili crisp and sour-starch puffs",
+     0.96
+    ],
+    [
+     "Cold glass noodles and jelly cubes in black vinegar",
+     1.05
+    ],
+    [
+     "A bowl of the Nine on every table",
+     0.17
+    ]
+   ],
+   "tip": "Come at lamp-dawn, before the night crews finish the chili crisp."
+  },
+  {
+   "name": "The Long Table",
+   "style": "hall",
+   "k": [
+    "hall",
+    "fair",
+    "maker"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 3.5,
+   "where": "the {block} hall, two doors off {street}",
+   "blurb": "Four hundred seats at one table, a paid cook and a crew of volunteers who mostly came for the talk. Strangers are seated together on purpose. If you get on too well, an aunt moves you along.",
+   "dishes": [
+    [
+     "Pressure-cooker curry over Mill rice, glossed with cultivated pork fat",
+     1.4
+    ],
+    [
+     "Whatever the aunts made: one family dish from each volunteer",
+     0.5
+    ],
+    [
+     "Mill lager, poured from the end of the table",
+     0.38
+    ]
+   ],
+   "tip": "Offer to carry the pots back: it is the quickest way to be told the family recipes."
+  },
+  {
+   "name": "The Quiet Hall",
+   "style": "hall",
+   "k": [
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 2.5,
+   "where": "the {block} hall, at the edge of the wood",
+   "blurb": "Nobody talks at supper here, so you hear the spoons, the lids and the drum's fans. The cook chalks the menu on a slate by the door and rubs each line out as its pot empties.",
+   "dishes": [
+    [
+     "Jook of Mill jasmine rice with herbs from the pot",
+     0.6
+    ],
+    [
+     "Mycelium broth, held below a simmer since morning",
+     0.7
+    ],
+    [
+     "Steamed starch cake with black sugar",
+     0.3
+    ]
+   ],
+   "tip": "Borrow a slate at the door; writing thanks to the cook on it counts as a speech here."
+  },
+  {
+   "name": "Aunts' Kitchen",
+   "style": "hall",
+   "k": [
+    "hall",
+    "maker",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 2.5,
+   "where": "off {street}, deck {deck}",
+   "blurb": "A small hall where each volunteer cooks one dish from their own table and the paid cook makes rice for everyone. A different supper every night, and the same aunts.",
+   "dishes": [
+    [
+     "Rice from the hall's big cooker, sticky and jasmine-scented",
+     0.35
+    ],
+    [
+     "An aunt's dish: braised curd in black vinegar, or whatever came",
+     0.9
+    ],
+    [
+     "One tomato, cut eight ways for the table",
+     0.5
+    ],
+    [
+     "Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "Ask whose dish is whose, and every aunt will tell you, starting with their grandmother."
+  },
+  {
+   "name": "Felt Hall",
+   "style": "hall",
+   "k": [
+    "hall",
+    "fair",
+    "maker",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 3.0,
+   "where": "the {block} hall, under the {street} arcade",
+   "blurb": "Named for its ceiling, which three generations of the block have felted, mended and argued over. You can hear the person opposite without leaning in, which in a hall this size is a luxury.",
+   "dishes": [
+    [
+     "Red palm-style stew with fried jelly cubes and a starch swallow",
+     1.5
+    ],
+    [
+     "Sourdough heel with cultured butter",
+     0.4
+    ],
+    [
+     "Crème caramel, lidded",
+     0.45
+    ]
+   ],
+   "tip": "Look up as you sit: the newest patch is over the pass, and whoever sewed it is probably serving."
+  },
+  {
+   "name": "Ring {ring} Hall",
+   "style": "hall",
+   "k": [
+    "open"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 2.5,
+   "where": "Station Ring {ring}, one deck above the Quaysides",
+   "blurb": "The hall that feeds the freight crews, the Gate staff and whoever has just glided in. The tables face the Ledger, so supper comes with the year's births and deaths scrolling past.",
+   "dishes": [
+    [
+     "Noodles in a peppery Mill broth, the ring counter's big sister",
+     0.96
+    ],
+    [
+     "Mycelium skewers off the induction rail, salted",
+     0.7
+    ],
+    [
+     "Pint of Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "When a crew is called to a train they leave mid-bowl, and the pickles are then anyone's."
+  },
+  {
+   "name": "The Rota",
+   "style": "hall",
+   "k": [
+    "steady",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "the {block} Court, ground deck",
+   "blurb": "Each night a different household from the block cooks, under a rota older than anyone on it. Some nights are famous and some are rice and apologies. The board by the door says whose turn it is.",
+   "dishes": [
+    [
+     "The house dish of whoever's turn it is",
+     1.2
+    ],
+    [
+     "Sticky rice with chili crisp",
+     0.35
+    ],
+    [
+     "Lactic sour from the block's crock",
+     0.15
+    ]
+   ],
+   "tip": "Check the board before you come, as locals plan their week round three names on it."
+  },
+  {
+   "name": "The Second Sitting",
+   "style": "hall",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the Keel, beside the Ring {ring} lifts",
+   "blurb": "The free Mill table in the lamp-night, for the people who run the laundries, the Yards and the batch work. The jook has sat on the loop since dusk and is softer for it. Warm, quiet and full of yawning.",
+   "dishes": [
+    [
+     "Midnight jook, held on the loop since dusk",
+     0.6
+    ],
+    [
+     "Fried jelly cubes in sweet-savoury broth",
+     0.5
+    ],
+    [
+     "Milk tea with Mill creamer",
+     0.12
+    ]
+   ],
+   "tip": "Come after one, when the laundry shift arrives with pickles."
+  },
+  {
+   "name": "Pot and Choir",
+   "style": "hall",
+   "k": [
+    "hall"
+   ],
+   "stars": 2,
+   "ladle": true,
+   "price": 3.5,
+   "where": "the {block} hall, deck {deck}",
+   "blurb": "A cooked hall whose volunteers are also its choir, so the soup comes round between verses. The ceiling is felted in three colours and the room still rings. Some wanderers route a whole year through here.",
+   "dishes": [
+    [
+     "Hot pot for six, lidded: curds, glass noodles and greens",
+     1.8
+    ],
+    [
+     "Steamed buns with mycelium and black sugar",
+     0.5
+    ],
+    [
+     "Mill lager by the jug",
+     0.38
+    ]
+   ],
+   "tip": "Hum if you know it, and clap at the end of the meal, never the end of a song."
+  },
+  {
+   "name": "The Children's Hall",
+   "style": "hall",
+   "k": [
+    "hall",
+    "maker",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} school, deck {deck}",
+   "blurb": "The school hall at noon, where the oldest class serves the youngest and any visitor who asks. Portions are measured by children, so they vary. The jelly cubes are cut to the width of a ruler.",
+   "dishes": [
+    [
+     "Cold glass noodles in chili oil, mild on request",
+     0.9
+    ],
+    [
+     "Starch jelly cubes, cut by the oldest class",
+     0.15
+    ],
+    [
+     "Amazake in a lidded cup",
+     0.2
+    ]
+   ],
+   "tip": "Thank your server by name: there is a chart on the wall and it matters a great deal."
+  },
+  {
+   "name": "Elders' Hall",
+   "style": "hall",
+   "k": [
+    "steady",
+    "hall",
+    "fair",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "deck {hdeck}, among the elders' flats",
+   "blurb": "A hall on the high decks where the food is soft, the lamps are good and the talk is long. The cooks are in their eighties and cook as they always have. A guest under thirty gets fussed over.",
+   "dishes": [
+    [
+     "Mycelium braised in koji tare until it falls apart",
+     0.9
+    ],
+    [
+     "Custard set on the loop, with black sugar",
+     0.35
+    ],
+    [
+     "Jasmine tea, refilled without asking",
+     0.15
+    ]
+   ],
+   "tip": "Bring herbs, since each sprig earns a story and probably a second custard."
+  },
+  {
+   "name": "The Shift Hall",
+   "style": "hall",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the Keel, between the Mill and the vat halls",
+   "blurb": "The food plant's own canteen, where the Mill crews eat what came off the line that morning. On a good day it is the freshest food in the drum, made a hundred metres from your bowl.",
+   "dishes": [
+    [
+     "Noodles extruded an hour ago, in glycine-alanine broth",
+     0.96
+    ],
+    [
+     "Sour-starch puffs from the test oven",
+     0.3
+    ],
+    [
+     "Mill lager from the brewing line's test tank",
+     0.38
+    ]
+   ],
+   "tip": "Ask the crews what failed spec today; off-spec sugar glass is the best thing in the room."
+  },
+  {
+   "name": "The Wide Lid",
+   "style": "hall",
+   "k": [
+    "hall",
+    "steady",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.8,
+   "where": "the {block} hall, off {street}",
+   "blurb": "One pot the width of a table sits in the middle of the room, under a lid that takes two people to lift. Everyone ladles from it. Heliox would have it cold in minutes, so the lid goes back between turns.",
+   "dishes": [
+    [
+     "The big pot: red stew with curds, glass noodles and swallow",
+     1.3
+    ],
+    [
+     "Pickled cucumber, two thin slices",
+     0.15
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Wait for the lid, because lifting it out of turn earns a look from the whole room."
+  },
+  {
+   "name": "Court Supper",
+   "style": "hall",
+   "k": [
+    "open",
+    "hall",
+    "fair",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} Court, after the block court",
+   "blurb": "Once a week the block meets in its atrium to settle the rota and the light, then eats. Supper is the free table plus whatever people carried down from their flats. Votes have been won on the pickles.",
+   "dishes": [
+    [
+     "Night stew with a starch swallow, from the commons",
+     1.5
+    ],
+    [
+     "Jars from the flats: pickles, chili crisp, someone's aged cheese",
+     0.4
+    ],
+    [
+     "Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "Sit through the vote: supper starts the moment the light question is settled, and not before."
+  },
+  {
+   "name": "The Guest Pot",
+   "style": "hall",
+   "k": [
+    "open"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 0,
+   "where": "the wanderers' hall by Station Ring {ring}",
+   "blurb": "Wanderers add a spoon of something from their last drum to the hall's stockpot, and the cook tastes each one and decides whether it stays. Most of it does. The broth tastes of half the raft and changes nightly.",
+   "dishes": [
+    [
+     "A bowl of the guest pot, over glass noodles",
+     0.96
+    ],
+    [
+     "Sticky rice ball with a seam of chili crisp",
+     0.3
+    ],
+    [
+     "Amazake, warm from the loop",
+     0.2
+    ]
+   ],
+   "tip": "Add something small and say where it came from; the cook keeps a book."
+  },
+  {
+   "name": "Dish and Story",
+   "style": "hall",
+   "k": [
+    "hall",
+    "maker"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.5,
+   "where": "the teaching kitchen, {block}, deck {deck}",
+   "blurb": "A cooked hall with a teaching kitchen at one end: a class of twenty makes supper for two hundred, under one patient cook. Results vary. The dumplings are honest about who folded them.",
+   "dishes": [
+    [
+     "Crystal dumplings folded by the class, some of them handsome",
+     0.6
+    ],
+    [
+     "Mycelium braised in miso, taught slowly",
+     0.9
+    ],
+    [
+     "Cendol-style jelly in coconut-style cream",
+     0.3
+    ]
+   ],
+   "tip": "Ask to join the class: guests may fold, and nobody inspects the pleats until the end."
+  },
+  {
+   "name": "Ring {ring} Hatch",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "Station Ring {ring}, at the platform end",
+   "blurb": "The ring counter: a cup of Mill broth and a sticky rice ball, free, for crews, commuters and anyone off a glide. This one's broth is black-peppery and a little sour, and the regulars defend it with feeling.",
+   "dishes": [
+    [
+     "A cup of the house broth, peppery and sour",
+     0.15
+    ],
+    [
+     "Sticky rice ball",
+     0.15
+    ]
+   ],
+   "tip": "Drink it on the platform, because glide cars do not take hot soup and the crews will tell you why."
+  },
+  {
+   "name": "The Quay Fryer",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the Quaysides by Station Ring {ring}",
+   "blurb": "A hatch with one fryer and a queue of freight crews: sour-starch puffs, krupuk and jelly cubes, salted while they still crackle. Frying draws power, so they fry in batches and you wait for yours.",
+   "dishes": [
+    [
+     "Sour-starch cheese-bread puffs, a paper cone of six",
+     0.35
+    ],
+    [
+     "Krupuk with chili crisp",
+     0.2
+    ],
+    [
+     "Fried jelly cubes in salt and black vinegar",
+     0.25
+    ]
+   ],
+   "tip": "Wait for the next batch, as the puffs on the rack have already gone quiet."
+  },
+  {
+   "name": "Gate Side",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.2,
+   "where": "outside the Gate, Station Ring {ring}",
+   "blurb": "A stall for people waiting while the Gate sequences their starters and crocks. Clearance takes an hour if you are lucky, so the bowls are deep and nobody hurries you off the stools.",
+   "dishes": [
+    [
+     "Noodles in broth, the slow kind, for slow clearances",
+     0.96
+    ],
+    [
+     "Tea in a lidded cup, refilled while you wait",
+     0.15
+    ],
+    [
+     "Black sugar mochi, two to a paper",
+     0.25
+    ]
+   ],
+   "tip": "Sit where you can see the clearance board, and keep your lid on while you wait."
+  },
+  {
+   "name": "Catch Cups",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.3,
+   "where": "the inbound platform, Station Ring {ring}",
+   "blurb": "A hatch at the end of the catch cradle, selling hot drinks to people who have just had a full g come back over two seconds. Sweet, warm and steadying. Some elders say it is the only reason they glide.",
+   "dishes": [
+    [
+     "Warm amazake, sweetened for shaky legs",
+     0.2
+    ],
+    [
+     "Ginger milk tea",
+     0.15
+    ],
+    [
+     "A sugar biscuit stamped with the ring number",
+     0.1
+    ]
+   ],
+   "tip": "Sit on the bench a moment before you stand; the counter is ten paces away and will wait."
+  },
+  {
+   "name": "The Dumpling Window",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.9,
+   "where": "the Quaysides, behind the freight scales",
+   "blurb": "Crystal dumplings by the half-dozen, steamed in lidded baskets and handed over still lidded. The wrappers are Mill starch; the filling is mycelium and garden chive, which explains the queue.",
+   "dishes": [
+    [
+     "Six crystal dumplings, mycelium and garden chive",
+     0.6
+    ],
+    [
+     "Black vinegar and chili oil to dip",
+     0.05
+    ],
+    [
+     "Jasmine tea",
+     0.15
+    ]
+   ],
+   "tip": "Keep the basket lidded until you sit, or the dumplings cool before you find a bench."
+  },
+  {
+   "name": "The Bun Hatch",
+   "style": "counter",
+   "k": [
+    "steady",
+    "thin",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the lift lobby on deck {deck}, by {street}",
+   "blurb": "Steamed buns at the lift doors, for people with a cab to catch. The dough is gluten and Mill starch, proved overnight on the waste-heat loop. The black sugar bun leaks if you are not careful.",
+   "dishes": [
+    [
+     "Steamed bun with pulled mycelium in hoisin-style glaze",
+     0.45
+    ],
+    [
+     "Black sugar bun",
+     0.25
+    ],
+    [
+     "Warm soy-style milk",
+     0.15
+    ]
+   ],
+   "tip": "Eat the black sugar bun leaning forward, because a mended collar shows syrup."
+  },
+  {
+   "name": "Crepe Corner",
+   "style": "counter",
+   "k": [
+    "thin",
+    "steady",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "where {street} meets the lift core, deck {deck}",
+   "blurb": "Tapioca crepes off an induction plate, folded round whatever is in the tins: coconut-style cream and black sugar, or blight cheese and chili. The plate is the only hot thing on the stall, and the cook guards it.",
+   "dishes": [
+    [
+     "Tapioca crepe with coconut-style cream and black sugar",
+     0.3
+    ],
+    [
+     "Tapioca crepe with blight cheese and chili crisp",
+     0.35
+    ],
+    [
+     "Lactic soda",
+     0.1
+    ]
+   ],
+   "tip": "Order two and eat the first standing, since the second comes off a properly hot plate."
+  },
+  {
+   "name": "Late Lift Counter",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the lift core at the end of {street}",
+   "blurb": "Jook to go, in lidded cups with a felt sleeve, for people coming off the lamp-night shift. The cups come back washed or they do not come back. The counter keeps a tally and says nothing.",
+   "dishes": [
+    [
+     "Jook in a lidded cup with the Nine and spring onion",
+     0.5
+    ],
+    [
+     "Two sour-starch puffs",
+     0.12
+    ],
+    [
+     "Milk tea",
+     0.12
+    ]
+   ],
+   "tip": "Return your cup, because the counter knows whose it was and remembers for years."
+  },
+  {
+   "name": "The Toastie Hatch",
+   "style": "counter",
+   "k": [
+    "steady",
+    "thin",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.9,
+   "where": "Station Ring {ring}, the outbound platform",
+   "blurb": "Cheese toasties pressed on an induction plate until the edges lace. Eat yours on the platform: crumbs float for the whole glide, and the next riders will know exactly what you had.",
+   "dishes": [
+    [
+     "Cheese toastie on sourdough, edges laced",
+     0.8
+    ],
+    [
+     "Toastie with black garlic and chili",
+     0.85
+    ],
+    [
+     "A slice of pickled cucumber",
+     0.08
+    ]
+   ],
+   "tip": "Finish it before your car is called, as nobody wants your crumbs at zero g."
+  },
+  {
+   "name": "Skewer Rail",
+   "style": "counter",
+   "k": [
+    "steady",
+    "fair",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the Quaysides, under the departures board",
+   "blurb": "Mycelium and protein-flour skewers seared on an induction rail one row at a time, because searing draws power and the stall pays for it. Salt, koji glaze or chili, and a cup of broth to stand them in.",
+   "dishes": [
+    [
+     "Three mycelium skewers in koji glaze",
+     0.7
+    ],
+    [
+     "Protein-flour skewer brushed with cultivated chicken fat",
+     0.4
+    ],
+    [
+     "A cup of broth to stand them in",
+     0.1
+    ]
+   ],
+   "tip": "Ask for the end of the rail, where the skewers get a second pass and the glaze catches."
+  },
+  {
+   "name": "The Lidded Tin",
+   "style": "counter",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.7,
+   "where": "Station Ring {ring}, by the cycler capsule lifts",
+   "blurb": "A counter for people catching a slow cycler, selling food that behaves without weight: soup in bulbs, bread in nets, dumplings in string bags. The staff have watched a great many people learn this the hard way.",
+   "dishes": [
+    [
+     "Soup in a bulb with a straw",
+     0.2
+    ],
+    [
+     "Four bread rolls in a net",
+     0.5
+    ],
+    [
+     "Dumplings in a string bag",
+     0.3
+    ]
+   ],
+   "tip": "Buy the net of rolls, since anything that crumbs becomes a cloud by your first evening aboard."
+  },
+  {
+   "name": "Platform Pie",
+   "style": "counter",
+   "k": [
+    "steady",
+    "thin",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the Quaysides by Station Ring {ring}",
+   "blurb": "Hand pies in a lard-style crust, filled with curried mycelium or black sugar custard. Pastry is the cheapest thing in the drum and the stall knows it: the crust is generous and the filling is a rumour.",
+   "dishes": [
+    [
+     "Curried mycelium hand pie",
+     0.5
+    ],
+    [
+     "Black sugar custard hand pie",
+     0.4
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Take the custard pie warm from the loop shelf; the cold ones are for crews who forgot."
+  },
+  {
+   "name": "Loop Kitchen",
+   "style": "waste-heat",
+   "k": [
+    "steady",
+    "open"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.4,
+   "where": "the Keel, beside the vat halls' heat exchangers",
+   "blurb": "Everything here cooks on the 65 °C loop, slowly and for nothing, and the board is written by the clock: what has held since lamp-dawn, since yesterday, since last week. Only the bread is toasted.",
+   "dishes": [
+    [
+     "Mycelium held at 60 °C overnight, sliced thick, with miso butter",
+     0.9
+    ],
+    [
+     "Onsen custard with koji tare",
+     0.45
+    ],
+    [
+     "Amazake, brewed since yesterday",
+     0.2
+    ],
+    [
+     "Sourdough toast, the one hot thing",
+     0.3
+    ]
+   ],
+   "tip": "Order whatever has held longest; the board counts it in hours and regulars go by the biggest number."
+  },
+  {
+   "name": "The Slow Pot",
+   "style": "waste-heat",
+   "k": [
+    "any"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 2.2,
+   "where": "deck {deck}, off {street}",
+   "blurb": "A master stock held below a simmer on the loop for two hundred and eleven years, topped up daily and never boiled. Curds, mycelium and noodles are poached in it to order. It darkens a little every decade.",
+   "dishes": [
+    [
+     "Mycelium poached in the master stock, sliced, with spring onion",
+     0.95
+    ],
+    [
+     "Curds poached in the stock, glassy with fat",
+     0.6
+    ],
+    [
+     "A cup of the stock, to drink",
+     0.1
+    ],
+    [
+     "Rice to soak up the rest",
+     0.3
+    ]
+   ],
+   "tip": "Ask to see the stock ledger: every top-up since the founding, by date and by cook."
+  },
+  {
+   "name": "Amazake House",
+   "style": "waste-heat",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the lower Quaysides, Station Ring {ring}",
+   "blurb": "Sweet rice drinks brewed overnight at 60 °C, where koji works best and the loop costs nothing. Plain, ginger, black sugar or sour. Nothing here is boiled, and the owners regard a kettle as a small failure.",
+   "dishes": [
+    [
+     "Warm amazake, plain",
+     0.2
+    ],
+    [
+     "Amazake with black sugar and a pinch of salt",
+     0.25
+    ],
+    [
+     "Rice cake toasted on the plate",
+     0.15
+    ]
+   ],
+   "tip": "Try the sour one last: amazake left another day with a lactic culture, and the best thing on the board."
+  },
+  {
+   "name": "Five Weeks",
+   "style": "waste-heat",
+   "k": [
+    "steady",
+    "maker",
+    "fair"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.2,
+   "where": "{street}, three doors from the lift core",
+   "blurb": "Named for how long the garlic sits on the loop before it turns soft, black and sweet. Garlic is a Garden crop bought by the head, so it is the dearest thing on plates that cost almost nothing to cook.",
+   "dishes": [
+    [
+     "Black garlic toast on sourdough with cultured butter",
+     0.55
+    ],
+    [
+     "Mycelium steak with black garlic jus",
+     1.0
+    ],
+    [
+     "Black garlic ice cream, non-dairy",
+     0.3
+    ]
+   ],
+   "tip": "Buy a head to take home; it comes wrapped in paper and keeps for months on a larder shelf."
+  },
+  {
+   "name": "The Hot Room",
+   "style": "waste-heat",
+   "k": [
+    "steady",
+    "thin",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.5,
+   "where": "the Keel, in the old pipe gallery",
+   "blurb": "A canteen in the gallery where the loop's pipes run, warm enough that soup would stay hot without a lid. Everyone uses a lid anyway. Plant workers come in pink and leave pinker.",
+   "dishes": [
+    [
+     "Broth held below a simmer since the morning shift",
+     0.3
+    ],
+    [
+     "Glass noodles and curds to drop in",
+     0.6
+    ],
+    [
+     "Steamed bun, proved on the pipes",
+     0.25
+    ],
+    [
+     "Amazake",
+     0.2
+    ]
+   ],
+   "tip": "Hang your coat by the door, since steam in a lining takes a day to dry."
+  },
+  {
+   "name": "Sixty-Three",
+   "style": "waste-heat",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.6,
+   "where": "the Quaysides by Station Ring {ring}",
+   "blurb": "Named for the temperature at which everything here sets, where vat egg barely holds and custard trembles. Four custards, savoury to sweet, then one hot thing seared on the plate in front of you.",
+   "dishes": [
+    [
+     "Onsen custard with koji tare and spring onion",
+     0.45
+    ],
+    [
+     "Steamed-style custard with mycelium and garden chive, set on the loop",
+     0.5
+    ],
+    [
+     "Black sugar custard, barely set",
+     0.35
+    ],
+    [
+     "The hot thing: a seared curd, salted",
+     0.3
+    ]
+   ],
+   "tip": "Eat them in the order they come, as the cooks have timed the sequence to the minute."
+  },
+  {
+   "name": "Held",
+   "style": "waste-heat",
+   "k": [
+    "steady",
+    "fair",
+    "maker"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 7.5,
+   "where": "deck {hdeck}, above the {block} Court",
+   "blurb": "Twelve courses, each held on the loop at its own temperature for its own time, from a custard set at 61 °C for an hour to cultivated beef held at 58 °C for three days. The cooks own more thermometers than knives. Nothing boils.",
+   "dishes": [
+    [
+     "Vat egg custard, 61 °C for an hour, with garden chive",
+     0.45
+    ],
+    [
+     "Cultivated beef held at 58 °C for three days, one thick slice",
+     1.2
+    ],
+    [
+     "Black garlic and a single seared shiitake",
+     0.4
+    ],
+    [
+     "Amazake sorbet over warm koji cream",
+     0.35
+    ]
+   ],
+   "tip": "Book three days ahead, because the beef for your sitting goes on the loop the day you book."
+  },
+  {
+   "name": "Overnight",
+   "style": "waste-heat",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} breakfast room, off {street}",
+   "blurb": "A commons breakfast room where everything went on the loop the night before: jook held until it turns to silk, sweet starch porridge, amazake. Keeping it warm costs the drum nothing, so it opens whenever you wake.",
+   "dishes": [
+    [
+     "Overnight jook, silk-smooth, with chili crisp and the Nine",
+     0.96
+    ],
+    [
+     "Sweet starch porridge with black sugar",
+     0.4
+    ],
+    [
+     "Amazake",
+     0.2
+    ]
+   ],
+   "tip": "Come before seven, when the jook has held nine hours and the regulars say it peaks."
+  },
+  {
+   "name": "Below a Simmer",
+   "style": "waste-heat",
+   "k": [
+    "steady",
+    "wood",
+    "open"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.4,
+   "where": "the {block} Court, the deck {deck} terrace",
+   "blurb": "Clear broths only, held under a simmer for a day so nothing clouds. Five on the board at once, from glycine-sweet to sour and peppery, with noodles or rice to drop into any of them. People come here to taste, not talk.",
+   "dishes": [
+    [
+     "A flight of clear broths, three small cups",
+     0.3
+    ],
+    [
+     "Glass noodles or rice to add",
+     0.4
+    ],
+    [
+     "Curds poached in the broth of your choice",
+     0.5
+    ]
+   ],
+   "tip": "Start with the palest broth and work darker, the way the cooks taste each morning."
+  },
+  {
+   "name": "The Hot Bench",
+   "style": "waste-heat",
+   "k": [
+    "thin",
+    "steady",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.6,
+   "where": "the Quaysides, by the freight lifts",
+   "blurb": "Mycelium confit, held in fat at 65 °C for twelve hours until it pulls apart, piled on rice for crews coming off shift. The bench along the wall is warmed by the pipe underneath, and nobody leaves it quickly.",
+   "dishes": [
+    [
+     "Mycelium confit on rice, with pickles",
+     1.2
+    ],
+    [
+     "A ladle of the confit fat over your rice",
+     0.15
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Ask for the crisped end; they sear one batch an hour for it and there is never enough."
+  },
+  {
+   "name": "The Incubator",
+   "style": "waste-heat",
+   "k": [
+    "maker",
+    "steady",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.3,
+   "where": "the Keel, in the strain library's old incubation room",
+   "blurb": "A café in a room built to keep cultures warm, which it still does: yoghurt set overnight, tempeh-style cakes grown on the shelves, and a miso that has been in the corner longer than the café.",
+   "dishes": [
+    [
+     "Yoghurt set overnight, with berry purée",
+     0.45
+    ],
+    [
+     "Tempeh-style cake, sliced and seared",
+     0.5
+    ],
+    [
+     "Miso soup from the corner crock",
+     0.2
+    ]
+   ],
+   "tip": "Sit against the spinward wall, which backs onto the incubators and is the warmest seat in the Keel."
+  },
+  {
+   "name": "Bath and Bowl",
+   "style": "waste-heat",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.6,
+   "where": "the {block} baths, deck {deck}",
+   "blurb": "A long soak in loop-heated water, a lidded bowl in a robe, then a nap on a warm bench, sold as one ticket. The bath is the cheapest part. The bowl changes daily and is held on the same pipes as the water.",
+   "dishes": [
+    [
+     "The day's bowl: noodles in a broth that never boiled",
+     0.96
+    ],
+    [
+     "Onsen custard on the side",
+     0.45
+    ],
+    [
+     "A cold lactic soda after the heat",
+     0.1
+    ]
+   ],
+   "tip": "Take the nap: the bench runs off the same loop and the ticket includes it."
+  },
+  {
+   "name": "Third Terrace",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "steady"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 6.0,
+   "where": "the Hollow's back end wall, the third-g terrace",
+   "blurb": "A terrace at a third of a g, with the far bank of the Hollow hanging overhead as the sunline dims to dusk. Soufflés stand a hand higher here and fall slower, and the kitchen builds the whole menu round that.",
+   "dishes": [
+    [
+     "Third-g soufflé on precision casein, still standing at the table",
+     0.8
+    ],
+    [
+     "Mycelium steak, seared, with béarnaise",
+     1.4
+    ],
+    [
+     "A cherry tomato for each guest, warm from the lamp",
+     0.1
+    ],
+    [
+     "Pulled sugar that hangs in long threads",
+     0.2
+    ]
+   ],
+   "tip": "Book the dusk sitting, when the sunline dims overhead and the soufflé arrives with the lamps."
+  },
+  {
+   "name": "The Tall Soufflé",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "open",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 3.5,
+   "where": "the front end wall, fourth tier, a third of a g",
+   "blurb": "One dish in nine flavours: a soufflé baked at a third of a g, where a foam weighs a third of what it does on the low decks. It rises a hand higher than it would down there and takes its time falling.",
+   "dishes": [
+    [
+     "Cheese soufflé on precision casein",
+     0.8
+    ],
+    [
+     "Black sugar soufflé with cold custard poured in",
+     0.75
+    ],
+    [
+     "Lamp-grown cress, the only crunch",
+     0.3
+    ],
+    [
+     "Coffee",
+     0.15
+    ]
+   ],
+   "tip": "Order the second soufflé when the first arrives, since the oven takes exactly as long as you will."
+  },
+  {
+   "name": "Night Netting",
+   "style": "low-g",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.8,
+   "where": "the Spindle in the lamp-night, by the back flying hall",
+   "blurb": "When the Spindle opens at lamp-night, a crew strings a net between two anchor lines and serves supper inside it to people in wing-sleeves. Everything comes in bulbs, bags or skins, and the crumbs are swept up with a fan.",
+   "dishes": [
+    [
+     "Broth in a bulb, sent up hot from the lift lobby",
+     0.2
+    ],
+    [
+     "Six dumplings in a string bag",
+     0.4
+    ],
+    [
+     "Mochi, which does not crumb",
+     0.2
+    ]
+   ],
+   "tip": "Clip your sleeve to the net before you eat; one sneeze and you are drifting across the axis with your soup."
+  },
+  {
+   "name": "The Bend",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "steady",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the back end wall, the quarter-g terrace bar",
+   "blurb": "A terrace bar where drinks are poured from two metres up and the stream bends a hand's width off its aim on the way down. The pourers allow for it. Newcomers hold their glass under the bottle and get wet.",
+   "dishes": [
+    [
+     "Long-poured gin and lactic soda",
+     0.25
+    ],
+    [
+     "Long-poured jasmine tea, for the sober",
+     0.15
+    ],
+    [
+     "Krupuk and chili crisp",
+     0.2
+    ],
+    [
+     "Sugar-glass shards over cold jelly",
+     0.15
+    ]
+   ],
+   "tip": "Let the pourer place your glass; the right spot depends on which way the bar faces, and only the staff remember."
+  },
+  {
+   "name": "Top Tier Kiosk",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "open",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.5,
+   "where": "the top garden terrace of the front end wall",
+   "blurb": "A kiosk on the highest terrace, where a child can jump the height of a house and the adults pretend not to try. Lidded picnic boxes to eat on the grass, with the Hollow curving away on every side.",
+   "dishes": [
+    [
+     "Picnic box: rice balls, pickles, a wedge of cheese, a pastry",
+     1.0
+    ],
+    [
+     "One strawberry, in the box's corner",
+     0.1
+    ],
+    [
+     "Lactic soda in a stoppered bottle",
+     0.1
+    ]
+   ],
+   "tip": "Keep a hand on the box lid; up here a knock sends it drifting slowly down onto the next terrace."
+  },
+  {
+   "name": "Featherweight",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "maker",
+    "steady"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 3.0,
+   "where": "the back end wall, the tenth-g terrace",
+   "blurb": "A pastry kitchen at a tenth of a g, where meringue stands as tall as the cook can pipe it and laminated dough rises without crushing its own layers. The pastry is cheap; the hours of the two cooks are not.",
+   "dishes": [
+    [
+     "Meringue tower, piped a hand and a half high",
+     0.3
+    ],
+    [
+     "Hundred-layer pastry that never settled",
+     0.6
+    ],
+    [
+     "Soufflé omelette on vat egg",
+     0.6
+    ],
+    [
+     "Coffee poured from height",
+     0.15
+    ]
+   ],
+   "tip": "Do not take a tower home: it slumps a little on every deck the cab drops."
+  },
+  {
+   "name": "Flying Hall Canteen",
+   "style": "low-g",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the front flying hall, below the sleeve racks",
+   "blurb": "The free table at the foot of the flying hall, for people coming down from the netting with sore shoulders. The jook is made thick enough to stay on a spoon this near the axis.",
+   "dishes": [
+    [
+     "Thick jook with the Nine and chili crisp",
+     0.6
+    ],
+    [
+     "Rice balls in string bags, for the climb back",
+     0.3
+    ],
+    [
+     "Amazake in a lidded bulb",
+     0.2
+    ]
+   ],
+   "tip": "Take the lowest tables, where your weight has come back enough for soup to behave like soup."
+  },
+  {
+   "name": "Leap Supper",
+   "style": "low-g",
+   "k": [
+    "hall",
+    "fair",
+    "maker"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 3.0,
+   "where": "the dance terrace on the back end wall, a third of a g",
+   "blurb": "Supper between sets on the low-g dance terrace, where the reels leap and every landing comes down a hand's width spinward. Bowls have weighted bases, because a dancer landing near your table moves the air.",
+   "dishes": [
+    [
+     "Curry noodles with cultivated chicken fat, in a weighted bowl",
+     1.4
+    ],
+    [
+     "Starch jelly in black syrup",
+     0.2
+    ],
+    [
+     "Mill lager in a lidded mug",
+     0.38
+    ]
+   ],
+   "tip": "Sit antispinward of the floor, where every leap drifts away from your table rather than into it."
+  },
+  {
+   "name": "The Upside Table",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "steady",
+    "open"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 4.0,
+   "where": "the end wall's sixth tier, a fifth of a g",
+   "blurb": "From this terrace the Hollow is a tube of lawns, lake and woods running away on every side, with picnickers upside down overhead. The food is plain and good. Nobody comes for the food.",
+   "dishes": [
+    [
+     "Mycelium skewers with a koji glaze",
+     0.7
+    ],
+    [
+     "Cucumber, cold and salted",
+     0.45
+    ],
+    [
+     "Sourdough with cultured butter",
+     0.4
+    ],
+    [
+     "Gin and lactic soda",
+     0.25
+    ]
+   ],
+   "tip": "Ask for a seat facing along the axis, where the lake hangs straight overhead."
+  },
+  {
+   "name": "The Upper Tier",
+   "style": "low-g",
+   "k": [
+    "fair",
+    "steady"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 11.0,
+   "where": "the highest kitchen on the back end wall, a sixth of a g",
+   "blurb": "Ten courses cooked where a sixth of a g lets sugar pull into threads a metre long and soufflés stand as tall as their dishes are wide. Ten cooks, thirty seats, booked months ahead. Guests are shown the kitchen and asked to jump.",
+   "dishes": [
+    [
+     "Spun sugar pulled a metre long at the pass",
+     0.25
+    ],
+    [
+     "Sixth-g cheese soufflé, as tall as its dish is wide",
+     0.9
+    ],
+    [
+     "Cultivated steak, 120 g, basted in cultured butter",
+     1.75
+    ],
+    [
+     "Half an orchard pear, cut at the table",
+     2.2
+    ]
+   ],
+   "tip": "Say yes when they ask you to jump in the kitchen; the cooks count it as a course."
+  },
+  {
+   "name": "The Crock Wall",
+   "style": "bakery",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.3,
+   "where": "{street}, by the {block} lift core",
+   "blurb": "A bakery with a wall of three hundred labelled crocks: the block's own starters, fed here overnight on the loop for a small fee while their families sleep. The house loaf comes from whichever crock the baker likes best that week.",
+   "dishes": [
+    [
+     "The week's loaf, from a neighbour's starter",
+     1.1
+    ],
+    [
+     "Sourdough heel with cultured butter and salt",
+     0.4
+    ],
+    [
+     "Coffee",
+     0.15
+    ]
+   ],
+   "tip": "Ask whose crock made this week's loaf, and expect its family history at length."
+  },
+  {
+   "name": "Spoon and Crumb",
+   "style": "bakery",
+   "k": [
+    "open",
+    "maker",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "Station Ring {ring}, at the top of the platform lifts",
+   "blurb": "A station bakery with a shelf of starter crocks for wanderers: take a spoon, leave a spoon. The bread changes as the shelf does. In a good year the house loaf has a little of forty drums in it.",
+   "dishes": [
+    [
+     "The shelf loaf, never the same twice",
+     0.9
+    ],
+    [
+     "Croissant laminated with cultured butter",
+     0.55
+    ],
+    [
+     "Milk tea",
+     0.12
+    ]
+   ],
+   "tip": "Bring a spoon of starter from your last drum and the baker will trade you a heel of today's loaf."
+  },
+  {
+   "name": "Lamp-Dawn Bakery",
+   "style": "bakery",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.7,
+   "where": "{street}, deck {deck}",
+   "blurb": "Opens at five, before the lamps come up, on the drum's cheapest power. The croissants come out as the street lamps ramp up at half past six. By seven the shelf is crumbs and apologies.",
+   "dishes": [
+    [
+     "Croissant laminated with cultured butter",
+     0.55
+    ],
+    [
+     "Black sugar knot",
+     0.3
+    ],
+    [
+     "Coffee",
+     0.15
+    ]
+   ],
+   "tip": "Come at twenty past six, before the lamps ramp up and the queue wakes."
+  },
+  {
+   "name": "The Starch Oven",
+   "style": "bakery",
+   "k": [
+    "thin",
+    "counted",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the {block} arcade, by the Mill Hall",
+   "blurb": "Mill-only baking: starch-and-fibre loaves, sour-starch cheese puffs and tapioca flatbreads, with no gluten in the building. The cheapest bakery in the drum, and the one people with long memories of blights trust.",
+   "dishes": [
+    [
+     "Sour-starch cheese puffs, a bag of ten",
+     0.45
+    ],
+    [
+     "Soft starch loaf, sliced",
+     0.35
+    ],
+    [
+     "Tapioca flatbread with chili crisp",
+     0.2
+    ]
+   ],
+   "tip": "Eat the puffs on the spot, since by the next deck they have gone from crisp to chewy."
+  },
+  {
+   "name": "The Pie Shelf",
+   "style": "bakery",
+   "k": [
+    "steady",
+    "thin",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.9,
+   "where": "off {street}, near the {block} Court",
+   "blurb": "Pies in lard-style crusts, stacked under lids on a heated shelf. Pastry is cheap and the shelf is long. The savoury pies hold curried mycelium, the sweet ones berry purée, and in both the crust is the point.",
+   "dishes": [
+    [
+     "Mycelium and gravy pie",
+     0.7
+    ],
+    [
+     "Berry pie with a lattice top",
+     0.5
+    ],
+    [
+     "A jug of custard to share",
+     0.3
+    ]
+   ],
+   "tip": "Ask for the end pie, which sits nearest the element and has the darkest bottom crust in the drum."
+  },
+  {
+   "name": "Laminate",
+   "style": "bakery",
+   "k": [
+    "steady",
+    "fair",
+    "maker"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 1.8,
+   "where": "deck {hdeck}, under the {block} arcade",
+   "blurb": "Croissants laminated by hand to eighty-one layers of cultured butter, and nothing on the counter that is not laminated. Butter is the dear line, so every pastry is weighed. People cross the raft for them and say they were passing.",
+   "dishes": [
+    [
+     "The croissant, eighty-one layers",
+     0.6
+    ],
+    [
+     "Kouign-amann with black sugar",
+     0.7
+    ],
+    [
+     "Laminated cheese twist",
+     0.55
+    ],
+    [
+     "Coffee",
+     0.15
+    ]
+   ],
+   "tip": "Come at nine for the second bake, as the first goes to high-deck elders who queue in silence and buy dozens."
+  },
+  {
+   "name": "Night Bakery",
+   "style": "bakery",
+   "k": [
+    "thin",
+    "steady",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the lamp-night arcade off {street}",
+   "blurb": "Bakes through the lamp-night, when power is cheapest, and sells from a hatch to laundry crews and insomniacs. The bread is plain and very good. The baker talks to anyone awake.",
+   "dishes": [
+    [
+     "Hot roll, split and buttered",
+     0.25
+    ],
+    [
+     "Bun with chili crisp baked in",
+     0.2
+    ],
+    [
+     "Milk tea",
+     0.12
+    ]
+   ],
+   "tip": "Knock twice at the hatch after two; the baker naps between batches and wakes for regulars."
+  },
+  {
+   "name": "The Steamer",
+   "style": "bakery",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "{block}, at the corner of {street}",
+   "blurb": "A bakery with no oven, only steamers: yeast-raised rice cakes with a honeycomb crumb, buns, and sweet starch cakes in paper cases. Steam is cheap when the water already starts at 65 °C.",
+   "dishes": [
+    [
+     "Yeast-raised steamed rice cake, still warm",
+     0.3
+    ],
+    [
+     "Steamed bun with sweet curd filling",
+     0.35
+    ],
+    [
+     "Pandan-style starch cake",
+     0.2
+    ]
+   ],
+   "tip": "Buy the rice cake warm; cold, it is merely good."
+  },
+  {
+   "name": "The Flatbread Hatch",
+   "style": "bakery",
+   "k": [
+    "thin",
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the {block} night market, at the end of {street}",
+   "blurb": "Flatbreads slapped onto an induction plate and blistered in under a minute, then folded round whatever the tins hold. The plate draws power, so the cook keeps it full.",
+   "dishes": [
+    [
+     "Flatbread with chili crisp and garden chive",
+     0.3
+    ],
+    [
+     "Flatbread folded round blight cheese",
+     0.35
+    ],
+    [
+     "Lactic soda",
+     0.1
+    ]
+   ],
+   "tip": "Join the queue when it is long, because a full plate is a hot plate."
+  },
+  {
+   "name": "Crumb Court",
+   "style": "bakery",
+   "k": [
+    "open",
+    "hall",
+    "fair",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.9,
+   "where": "the {block} Court, ground deck",
+   "blurb": "A bakery in the corner of the atrium, under terraces of herb shelves. Pastry is the staple here and nobody apologises for it: four croissants, two tarts, and a cucumber sandwich on Fridays that sells out in minutes.",
+   "dishes": [
+    [
+     "Croissant with a sesame-style crust",
+     0.6
+    ],
+    [
+     "Custard tart, set on the loop",
+     0.45
+    ],
+    [
+     "Friday cucumber sandwich, crusts off",
+     0.6
+    ]
+   ],
+   "tip": "Be there at ten on Friday; the cucumber sandwiches are counted out one a head."
+  },
+  {
+   "name": "The Rusk House",
+   "style": "bakery",
+   "k": [
+    "steady",
+    "counted",
+    "thin",
+    "wood"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the Keel, beside the survival reserve stores",
+   "blurb": "Hard breads for larders: rusks, crispbread and hard rings that keep for years. Most of the trade is households restocking after Knotnight. The café corner sells yesterday's rusks dunked in today's tea.",
+   "dishes": [
+    [
+     "Rusks dunked in milk tea",
+     0.3
+    ],
+    [
+     "Crispbread with aged cheese",
+     0.5
+    ],
+    [
+     "A larder ring, hard enough to need the tea",
+     0.2
+    ]
+   ],
+   "tip": "A bag of rusks is a host gift that says you thought about their larder."
+  },
+  {
+   "name": "The Proving Shelf",
+   "style": "bakery",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.7,
+   "where": "the Keel, beside the loop's main return",
+   "blurb": "A bakery that proves its dough on shelves above the loop's return pipe, which keeps a steady 30 °C day and night for nothing. The baker says the bread can tell. The cinnamon knots are better than they need to be.",
+   "dishes": [
+    [
+     "Cinnamon knot, glazed",
+     0.35
+    ],
+    [
+     "Country loaf, by the half",
+     0.55
+    ],
+    [
+     "Coffee",
+     0.15
+    ]
+   ],
+   "tip": "Buy the knots before noon, when the shelves fill with tomorrow's dough and the seats go with them."
+  },
+  {
+   "name": "Across the Grain",
+   "style": "vat",
+   "k": [
+    "steady",
+    "fair",
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.5,
+   "where": "Station Ring {ring} Quaysides, upstairs",
+   "blurb": "A mycelium steakhouse that slices across the fibre, the way butchers once did, and sears each steak on induction while you watch. Basted in butter and cultivated beef fat, it reads as beef to everyone, none of whom has had beef.",
+   "dishes": [
+    [
+     "Mycelium steak, seared, basted with cultivated beef fat",
+     0.95
+    ],
+    [
+     "Frites and béarnaise with garden tarragon",
+     0.7
+    ],
+    [
+     "A glass of red from plant-cell grapes",
+     0.25
+    ]
+   ],
+   "tip": "Ask for it cut thin across the fibre; the thick cut is for people who like to chew while they talk."
+  },
+  {
+   "name": "The Cheese Room",
+   "style": "vat",
+   "k": [
+    "steady",
+    "maker",
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.0,
+   "where": "the Keel, in the cool room beside the precision vats",
+   "blurb": "Cheeses aged in the coolest room in the Keel, on shelves that have held cheese for nine centuries. Precision casein, Mill butterfat and old cultures, and a cheesemonger who knows which blight each line survived.",
+   "dishes": [
+    [
+     "A board of four cheeses, each with its vintage",
+     1.3
+    ],
+    [
+     "Crackers and black sugar paste",
+     0.2
+    ],
+    [
+     "A glass of lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Say what you taste in each cheese before the monger tells you; guesses are kept in a book."
+  },
+  {
+   "name": "Shio",
+   "style": "vat",
+   "k": [
+    "steady",
+    "maker",
+    "fair"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 3.8,
+   "where": "deck {deck}, off {street}",
+   "blurb": "Eight seats round a koji room you can see through glass. Everything is marinated in shio-koji, aged on koji or fermented with it, down to the dessert. The cook keeps four strains and talks about them like grandchildren.",
+   "dishes": [
+    [
+     "Mycelium cured three days in shio-koji, seared once",
+     1.0
+    ],
+    [
+     "Koji-aged cultivated pork fat over hot rice",
+     0.7
+    ],
+    [
+     "Miso caramel over non-dairy ice cream",
+     0.35
+    ],
+    [
+     "Warm sake, Mill starch and koji",
+     0.2
+    ]
+   ],
+   "tip": "Take the corner seat by the glass, where the koji room's warmth comes through."
+  },
+  {
+   "name": "The Curd",
+   "style": "vat",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.3,
+   "where": "{street}, deck {deck}",
+   "blurb": "Tofu-style curds pressed from protein flour every morning and sold warm: fried, braised, or silken in syrup. Protein flour is cheap, so the only dear thing here is the presser's early start.",
+   "dishes": [
+    [
+     "Warm silken curd in black syrup",
+     0.35
+    ],
+    [
+     "Mapo-style curd with chili and sanshool",
+     0.7
+    ],
+    [
+     "Fried curd skins, salted",
+     0.3
+    ],
+    [
+     "Rice",
+     0.3
+    ]
+   ],
+   "tip": "Order the mapo medium, because hot here is calibrated for regulars who stopped feeling sanshool years ago."
+  },
+  {
+   "name": "Set",
+   "style": "vat",
+   "k": [
+    "fair",
+    "steady",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the {block} arcade, under the clock",
+   "blurb": "A dairy bar of things that set: panna cotta on precision gelatin, crème caramel, yoghurt custard, junket. Each wobbles at its own rate, and the counter staff can tell them apart by the tremble.",
+   "dishes": [
+    [
+     "Panna cotta that melts at mouth temperature",
+     0.45
+    ],
+    [
+     "Crème caramel, lidded",
+     0.45
+    ],
+    [
+     "Yoghurt with berry purée",
+     0.45
+    ]
+   ],
+   "tip": "Tap the counter gently when the tray arrives and the staff will name each dessert by its shiver."
+  },
+  {
+   "name": "The Burger Line",
+   "style": "vat",
+   "k": [
+    "thin",
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.2,
+   "where": "the Quaysides, by Station Ring {ring}",
+   "blurb": "Hybrid burgers: mycelium for the chew, cultivated beef fat for the taste of an animal nobody here has met. Seared on induction eight at a time and lidded the second they leave the plate.",
+   "dishes": [
+    [
+     "Hybrid burger with aged cheese and pickles",
+     1.3
+    ],
+    [
+     "Frites with a pot of mayonnaise",
+     0.5
+    ],
+    [
+     "Lactic cola",
+     0.1
+    ]
+   ],
+   "tip": "Eat it at the counter with the lid close by, as heliox sets the cheese within a minute."
+  },
+  {
+   "name": "The Hanging Room",
+   "style": "vat",
+   "k": [
+    "steady",
+    "maker",
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.4,
+   "where": "the Keel, behind the strain library",
+   "blurb": "Koji-aged mycelium charcuterie, hung in a room kept as damp as a good cellar. Ham cut as thin as paper, bacon cured with smoke-style phenols, a salami that took nine months. Sliced to order onto a cold board.",
+   "dishes": [
+    [
+     "The board: ham, salami and pressed bacon, cut thin",
+     1.2
+    ],
+    [
+     "Pickled garden shallots",
+     0.3
+    ],
+    [
+     "Sourdough and cultured butter",
+     0.45
+    ]
+   ],
+   "tip": "Ask to see the hanging room; the cutter takes guests in once the door has been shut long enough."
+  },
+  {
+   "name": "Cake and Culture",
+   "style": "vat",
+   "k": [
+    "thin",
+    "counted",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.1,
+   "where": "the {block} night market, under the arcade",
+   "blurb": "Tempeh-style cakes grown on Mill starch in trays on the loop shelves, then sliced and fried in a sweet-hot glaze. Cheap, filling and nutty without a nut in the building.",
+   "dishes": [
+    [
+     "Fried tempeh-style cake in sweet chili glaze",
+     0.6
+    ],
+    [
+     "Rice with pickles",
+     0.35
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Ask for it extra crisp; they fry those one tray at a time and the cook likes being asked."
+  },
+  {
+   "name": "Pull",
+   "style": "vat",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.2,
+   "where": "off {street}, deck {deck}",
+   "blurb": "Personal pizzas on gluten dough with precision casein that melts and stretches the way the old pictures promise. The oven draws power and the cook keeps it full. A fresh tomato on top is extra, and nobody begrudges it.",
+   "dishes": [
+    [
+     "Personal pizza with casein cheese and tomato purée",
+     1.8
+    ],
+    [
+     "Fresh tomato on top, sliced",
+     0.5
+    ],
+    [
+     "Lactic soda",
+     0.1
+    ]
+   ],
+   "tip": "Share the fresh tomato across the table; ordering one for yourself is noticed."
+  },
+  {
+   "name": "Rendered",
+   "style": "vat",
+   "k": [
+    "steady",
+    "fair",
+    "maker"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 3.5,
+   "where": "deck {deck}, by the {block} Court",
+   "blurb": "The same mycelium five ways, each basted in a different cultivated fat: pork, beef, chicken, duck-style and lamb-style. A lesson in how much of an animal lives in its fat, and the menu says as much.",
+   "dishes": [
+    [
+     "Five slices of mycelium, five cultivated fats",
+     1.4
+    ],
+    [
+     "Rice cooked in the drippings",
+     0.4
+    ],
+    [
+     "A glass of red",
+     0.25
+    ],
+    [
+     "Sour pickles, to reset",
+     0.15
+    ]
+   ],
+   "tip": "Taste them blind first, as the cook suggests: most people place the chicken and nobody places the lamb."
+  },
+  {
+   "name": "Miso House",
+   "style": "vat",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.6,
+   "where": "{street}, by the lift core",
+   "blurb": "A room of miso crocks, some older than the street, and a menu of things that go with miso, which is everything. The soup is ladled from a pot held on the loop all day. The crocks sell by the spoon.",
+   "dishes": [
+    [
+     "Miso soup with curds and spring onion",
+     0.3
+    ],
+    [
+     "Miso-glazed mycelium, seared",
+     0.85
+    ],
+    [
+     "Rice with miso butter",
+     0.35
+    ]
+   ],
+   "tip": "Buy a spoon of the oldest crock for your larder; it travels well in waxed paper."
+  },
+  {
+   "name": "The Yoghurt Window",
+   "style": "vat",
+   "k": [
+    "steady",
+    "open",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the {block} arcade, by the school",
+   "blurb": "A hatch selling yoghurt by the cup to children after school and aunts before work. Three cultures, each registered with the strain library, each with its own sourness. The berry purée is plant-cell and the children do not care.",
+   "dishes": [
+    [
+     "Yoghurt with berry purée",
+     0.45
+    ],
+    [
+     "Drinking yoghurt, salted",
+     0.3
+    ],
+    [
+     "Yoghurt with black sugar crunch",
+     0.4
+    ]
+   ],
+   "tip": "Ask politely for a taste of all three cultures, which the window gives to anyone who does."
+  },
+  {
+   "name": "The Rack Room",
+   "style": "garden",
+   "k": [
+    "steady",
+    "maker",
+    "fair"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 4.5,
+   "where": "the Keel, among the Garden racks",
+   "blurb": "Six tables between the Garden's LED racks, under light pink enough to make everyone look feverish. Every plate has something cut within the hour, and the menu says how many lamp-hours grew it.",
+   "dishes": [
+    [
+     "Salad cut this hour: leaves, cress and pea shoots",
+     0.6
+    ],
+    [
+     "Cucumber, cold and salted, cut thick",
+     0.45
+    ],
+    [
+     "Tomato with cultured butter and salt",
+     0.65
+    ],
+    [
+     "Strawberries with cold custard",
+     0.9
+    ]
+   ],
+   "tip": "Ask the grower to cut your herbs at the table; it costs nothing more and the smell is half the meal."
+  },
+  {
+   "name": "The Allotment Table",
+   "style": "garden",
+   "k": [
+    "open",
+    "steady",
+    "fair",
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.5,
+   "where": "the Hollow floor, the {block} strip",
+   "blurb": "The block keeps a strip of Hollow floor in its rotation, and on its day it cooks what is ripe at a trestle between the rows. The light is free; the ground is not, so everything is grown close and eaten closer.",
+   "dishes": [
+    [
+     "Whatever is ripe, raw, with salt and cultured butter",
+     0.8
+    ],
+    [
+     "Pea shoots wilted into noodles",
+     0.6
+    ],
+    [
+     "Herb-pot pesto on sourdough",
+     0.4
+    ]
+   ],
+   "tip": "Help pick before supper and you get the first radish, which is both the custom and the best one."
+  },
+  {
+   "name": "The Glass Case",
+   "style": "garden",
+   "k": [
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "{street}, in the greengrocer's back room",
+   "blurb": "Four tables behind a greengrocer's, where tomatoes from the glass case out front are cut and served on warm sourdough. Each is weighed and named for its rack. The case is lit like a jeweller's window and priced like one.",
+   "dishes": [
+    [
+     "A whole tomato, sliced, on warm sourdough with oil",
+     0.8
+    ],
+    [
+     "Three cherry tomatoes, warm from the lamp",
+     0.3
+    ],
+    [
+     "Pickled green tomato, a sliver",
+     0.15
+    ]
+   ],
+   "tip": "Let the grocer choose your tomato, since asking for the biggest marks you as a visitor."
+  },
+  {
+   "name": "Pea Shoot",
+   "style": "garden",
+   "k": [
+    "thin",
+    "counted",
+    "steady",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the {block} arcade, by the lift core",
+   "blurb": "The cheapest crunch in the drum: pea shoots, microgreens and cress, grown a week under lamps and cut by the handful. A week of light costs far less than a month of it, so a bowl of green comes in under half a kWh.",
+   "dishes": [
+    [
+     "Bowl of pea shoots in sesame-style dressing",
+     0.25
+    ],
+    [
+     "Microgreens over cold glass noodles",
+     0.6
+    ],
+    [
+     "Cress sandwich on Mill bread",
+     0.3
+    ]
+   ],
+   "tip": "Order the shoots at lamp-dawn, when the morning cut arrives and they still squeak."
+  },
+  {
+   "name": "The Green Table",
+   "style": "garden",
+   "k": [
+    "steady",
+    "fair"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 4.0,
+   "where": "deck {hdeck}, at the bright end of {street}",
+   "blurb": "Dinner where the dear course is the salad: leaves, cucumber, a tomato and herbs from the drum's own racks, dressed at the table and eaten slowly. The pastry course after is a palate cleanser, priced like one.",
+   "dishes": [
+    [
+     "The salad: leaves, cucumber and tomato, dressed at the table",
+     1.0
+    ],
+    [
+     "Mycelium steak with herb butter",
+     1.0
+    ],
+    [
+     "Pastry course: a croissant cut in four",
+     0.15
+    ],
+    [
+     "Garden mint tea",
+     0.1
+    ]
+   ],
+   "tip": "Eat the salad slowly; the regulars make it last twenty minutes and the staff notice who rushes."
+  },
+  {
+   "name": "Cucumber Club",
+   "style": "garden",
+   "k": [
+    "fair",
+    "steady",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.5,
+   "where": "the Hollow's edge, near the lake lifts",
+   "blurb": "A members' room whose fee is one cucumber a week, which the club cuts and shares among whoever turns up. Cold, thick and salted, with gin. It has argued about the right thickness for longer than its minutes go back.",
+   "dishes": [
+    [
+     "Cucumber, cold, cut thick, salted",
+     0.45
+    ],
+    [
+     "Gin with a slice of cucumber",
+     0.25
+    ],
+    [
+     "Cucumber sandwiches on Mill bread",
+     0.5
+    ]
+   ],
+   "tip": "Ask for the thick cut, because asking for thin starts a discussion that runs past closing."
+  },
+  {
+   "name": "The Herb Shelf",
+   "style": "garden",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.4,
+   "where": "off {street}, deck {deck}",
+   "blurb": "A small kitchen that cooks the free table's dishes and covers them in herbs, which cost almost nothing by the gram: basil, shiso, coriander, dill and chive by the fistful. The cheapest way in the drum to eat something green.",
+   "dishes": [
+    [
+     "Glass noodles under a fistful of herbs",
+     0.75
+    ],
+    [
+     "Jook with shiso and coriander",
+     0.65
+    ],
+    [
+     "Herb omelette on vat egg",
+     0.6
+    ]
+   ],
+   "tip": "Bring a sprig from your host's shelf and the cook will put it in your bowl."
+  },
+  {
+   "name": "Chili House",
+   "style": "garden",
+   "k": [
+    "thin",
+    "steady",
+    "hall",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.8,
+   "where": "the {block} night market, at the end of {street}",
+   "blurb": "Fresh chilies from the racks, rare enough that the menu gives each its rack number and its heat. Everything else is Mill food built to carry them. Fresh chili tastes nothing like capsaicin from the flavourist's shelf, which is the point.",
+   "dishes": [
+    [
+     "Fresh green chili sliced over curds and rice",
+     0.7
+    ],
+    [
+     "Blistered peppers, salted",
+     0.5
+    ],
+    [
+     "Noodles with fresh chili and garlic oil",
+     0.8
+    ]
+   ],
+   "tip": "Order the mildest pepper first, since the heat scale counts upward and the cook is watching."
+  },
+  {
+   "name": "The Orchard Floor",
+   "style": "garden",
+   "k": [
+    "steady",
+    "fair",
+    "open"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 12.0,
+   "where": "the Hollow orchard, by the lake",
+   "blurb": "One table under the Hollow's pear and apple trees, which get their light free from the sunline and their ground dear from the drum. Every course has tree fruit in it, and the last is an apple for every two guests, cut crosswise at the table.",
+   "dishes": [
+    [
+     "Pear sliced paper-thin over aged cheese",
+     1.2
+    ],
+    [
+     "Cultivated steak, 150 g, with a pear jus",
+     2.6
+    ],
+    [
+     "Strawberries under precision cream",
+     0.9
+    ],
+    [
+     "The apple, cut crosswise, one for every two guests",
+     2.2
+    ]
+   ],
+   "tip": "Watch the cut closely: the cook holds the star up for one breath, and then it is dessert."
+  },
+  {
+   "name": "Starch and Salt",
+   "style": "mill",
+   "k": [
+    "thin",
+    "counted",
+    "steady",
+    "hall"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.3,
+   "where": "{street}, deck {deck}",
+   "blurb": "Mill cooking the old starch-cuisine way: a big pale staple and a small fierce relish. Papeda-style starch, a fufu-style swallow, farofa-style crumbs toasted in fat, and four relishes in little lidded pots. The relish is the meal.",
+   "dishes": [
+    [
+     "Papeda-style starch with a sour yellow broth",
+     0.6
+    ],
+    [
+     "Farofa-style crumbs toasted in butter-style fat",
+     0.25
+    ],
+    [
+     "Four relishes: chili, sour, green, and the Nine",
+     0.3
+    ]
+   ],
+   "tip": "Take more relish than looks polite, as the cook judges guests by the state of the little pots."
+  },
+  {
+   "name": "The Swallow",
+   "style": "mill",
+   "k": [
+    "hall",
+    "open",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} Mill Hall, night sitting",
+   "blurb": "A Mill Hall that serves only its night stew and takes it seriously: three stews a night, each with a stretchy starch swallow pulled to order by a cook who says the pulling is the whole job. Free, and usually full.",
+   "dishes": [
+    [
+     "Red palm-style stew with a hand-pulled swallow",
+     1.5
+    ],
+    [
+     "Green herb stew, sour and peppery",
+     0.9
+    ],
+    [
+     "Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "Tear the swallow with one hand and use it as your spoon, the way the regulars do."
+  },
+  {
+   "name": "Sugar Glass",
+   "style": "mill",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.8,
+   "where": "{street}, by the {block} Court",
+   "blurb": "A confectioner of the Mill's best work: Karachi-style halwa, lokum, pulled sugar, toffee and sugar glass. Sugar is the cheapest calorie in the drum, and this shop handles it like a precious metal.",
+   "dishes": [
+    [
+     "Karachi-style halwa, chewy and bright",
+     0.3
+    ],
+    [
+     "Lokum dusted with starch, rose and mint",
+     0.2
+    ],
+    [
+     "Sugar glass shattered over cold jelly",
+     0.15
+    ],
+    [
+     "Pulled-sugar knot, still warm",
+     0.15
+    ]
+   ],
+   "tip": "Watch the sugar being pulled in the window on the hour; the broken knots are given away."
+  },
+  {
+   "name": "Twelve Formulas",
+   "style": "mill",
+   "k": [
+    "maker",
+    "steady",
+    "fair"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 6.0,
+   "where": "deck {deck}, in the flavourists' quarter",
+   "blurb": "A Mill-only tasting menu cooked by flavourists: starch, sugar, fat, amino acids and a rack of molecules measured in parts per million. Each course comes with its formula on a card. The plates hold under a kWh of food; the bill is the evening.",
+   "dishes": [
+    [
+     "Glycine-proline glaze over warm starch custard",
+     0.12
+    ],
+    [
+     "Jasmine aroma three ways, on extruded rice",
+     0.2
+    ],
+    [
+     "Sanshool sugar glass that tingles, then goes",
+     0.1
+    ],
+    [
+     "Compound chocolate from a cocoa formula in the archive",
+     0.3
+    ]
+   ],
+   "tip": "Keep the formula cards: flavourists elsewhere will cook from them, and some will argue with them."
+  },
+  {
+   "name": "The Jelly Shop",
+   "style": "mill",
+   "k": [
+    "thin",
+    "steady",
+    "counted",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the {block} arcade, by the Mill Hall",
+   "blurb": "Cold starch jellies cut and dressed to order: liangfen-style in chili oil and black vinegar, grass jelly in syrup, cubes with garlic and spring onion. A starch jelly is nine-tenths water, so a big bowl costs almost nothing.",
+   "dishes": [
+    [
+     "Liangfen-style jelly in chili oil and black vinegar",
+     0.25
+    ],
+    [
+     "Grass jelly in black syrup",
+     0.15
+    ],
+    [
+     "Jelly cubes with garlic and spring onion",
+     0.2
+    ]
+   ],
+   "tip": "Order the big bowl, since a jelly is mostly water and the price barely changes with size."
+  },
+  {
+   "name": "The Glass Noodle",
+   "style": "mill",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.9,
+   "where": "{street}, by the lift core",
+   "blurb": "Glass noodles cut from the extruder at the counter, served cold in chili oil and black vinegar or hot in a sweet-savoury broth. It is the free table's lunch, done by someone who cares about the cut.",
+   "dishes": [
+    [
+     "Cold glass noodles in chili oil and black vinegar",
+     0.7
+    ],
+    [
+     "Hot glass noodles in glycine broth with jelly cubes",
+     0.8
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Ask for the first strands off the extruder, which the cook calls the best of the morning."
+  },
+  {
+   "name": "The Nine Bar",
+   "style": "mill",
+   "k": [
+    "thin",
+    "counted",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.4,
+   "where": "the Quaysides, by Station Ring {ring}",
+   "blurb": "The Nine in a dozen versions: pastes, fat-coated sprinkles, a chili oil, a black vinegar, a salted caramel. Each masks the bitterness a different way. Regulars come in for one and leave with a tin.",
+   "dishes": [
+    [
+     "Tasting spoon of six Nines",
+     0.17
+    ],
+    [
+     "Rice ball with your choice of Nine",
+     0.3
+    ],
+    [
+     "The bar's chili oil Nine, by the tin",
+     0.4
+    ]
+   ],
+   "tip": "Try the caramel Nine last; it converts people who say the Nine tastes of medicine."
+  },
+  {
+   "name": "Almost",
+   "style": "mill",
+   "k": [
+    "steady",
+    "thin",
+    "hall",
+    "fair"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.5,
+   "where": "deck {deck}, off {street}",
+   "blurb": "A kitchen that makes the Mill imitate dear things, honestly labelled: a sugar-acid tomato that pops, a crackling crust that tastes of steak, an apple made of aroma and jelly. The menu calls each one almost, and is proud of every one.",
+   "dishes": [
+    [
+     "Almost tomato: a sugar-acid pearl with a skin",
+     0.15
+    ],
+    [
+     "Almost steak: crackling starch with meaty reaction flavour",
+     0.4
+    ],
+    [
+     "Almost apple: aroma jelly set in a star mould",
+     0.2
+    ]
+   ],
+   "tip": "Order the almost apple last, and cut it yourself, crosswise, as the staff will insist."
+  },
+  {
+   "name": "The Puffery",
+   "style": "mill",
+   "k": [
+    "thin",
+    "steady",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.4,
+   "where": "the {block} night market",
+   "blurb": "Krupuk-style crackers puffed in hot fat while you wait, in twelve flavours and three sizes, the biggest wider than your face. Crunch comes from oil and sugar here, and this stall has made a living from that for ninety years.",
+   "dishes": [
+    [
+     "Big krupuk, wider than your face",
+     0.25
+    ],
+    [
+     "Bag of small puffs, chili and lime-style",
+     0.15
+    ],
+    [
+     "Sour-starch puffs dusted with the Nine",
+     0.12
+    ]
+   ],
+   "tip": "Eat the big one before you board a cab, or its crumbs ride with you to the end of the line."
+  },
+  {
+   "name": "Kuih House",
+   "style": "mill",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "{street}, deck {deck}",
+   "blurb": "Kuih in forty colours and almost as many textures: layered, steamed, chewy and bouncing. Mill starch, sugar, coconut-style cream and a great deal of patience. The lapis is layered all day and cut only at noon.",
+   "dishes": [
+    [
+     "Kuih lapis, layered all day, cut at noon",
+     0.25
+    ],
+    [
+     "Seri muka, sticky below and green above",
+     0.2
+    ],
+    [
+     "Cendol-style jelly in coconut-style cream",
+     0.3
+    ]
+   ],
+   "tip": "Come at noon for the cutting; the first slice goes to the oldest person in the queue."
+  },
+  {
+   "name": "Last Knotnight",
+   "style": "larder",
+   "k": [
+    "steady",
+    "open",
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.0,
+   "where": "deck {hdeck}, two corners from the {block} Court",
+   "blurb": "This kitchen cooks the larder its block made at the last Knotnight, crock by crock, through the year. The menu shrinks as the shelves empty, and the last week before Knotnight is rusks and gossip.",
+   "dishes": [
+    [
+     "Miso-braised cured mycelium from a numbered crock",
+     0.9
+    ],
+    [
+     "Aged cheese with sugar-preserved berries",
+     0.6
+    ],
+    [
+     "Hard bread soaked in broth",
+     0.25
+    ]
+   ],
+   "tip": "Come early in the year, when the shelves are full and each crock is opened with a speech."
+  },
+  {
+   "name": "The Crock Cellar",
+   "style": "larder",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "the cellar under {street}",
+   "blurb": "Pickles from a hundred crocks, lacto-fermented and labelled with the date each was sealed: cucumber, shallot, radish and greens from the racks, and starch jellies soured for a month. Sourness is ranked on a board.",
+   "dishes": [
+    [
+     "Pickle plate, six crocks, mild to fierce",
+     0.5
+    ],
+    [
+     "Rice with pickle juice and chili crisp",
+     0.35
+    ],
+    [
+     "Lactic sour from the oldest crock",
+     0.15
+    ]
+   ],
+   "tip": "Ask for the fiercest crock last, with water nearby; the board's top score is earned."
+  },
+  {
+   "name": "The Keeping Room",
+   "style": "larder",
+   "k": [
+    "steady",
+    "wood",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.8,
+   "where": "deck {deck}, by the {block} stores",
+   "blurb": "Shelves built to the household rule of ninety days of dry goods, rotated. They cook from the oldest end of the shelf and sell you what keeps from the newest. The most practical dinner in the drum, and better than that sounds.",
+   "dishes": [
+    [
+     "Dried noodles in broth, from the oldest tin",
+     0.7
+    ],
+    [
+     "Aged cheese and hard rusks",
+     0.6
+    ],
+    [
+     "Preserved berry purée with cold custard",
+     0.4
+    ]
+   ],
+   "tip": "Buy a tin of the Nine on the way out; it is cheaper here than anywhere, and hosts notice the brand."
+  },
+  {
+   "name": "Eleven Days",
+   "style": "larder",
+   "k": [
+    "any"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.2,
+   "where": "deck {hdeck}, near the elders' lifts",
+   "blurb": "A menu of what the drum ate in the Eleven Days, cooked by people who were children then: larder food, the Nine, rusks and whatever came by glide from the neighbours. Once a week, for the old and the curious.",
+   "dishes": [
+    [
+     "Rusk soup with the Nine, as it was rationed",
+     0.3
+    ],
+    [
+     "Cheese from a neighbour's larder, sent by glide",
+     0.35
+    ],
+    [
+     "A sugar preserve saved for the eleventh day",
+     0.2
+    ]
+   ],
+   "tip": "Ask the cooks where they were on the first day; they will tell you, and that is the reason to come."
+  },
+  {
+   "name": "The Pantry Board",
+   "style": "larder",
+   "k": [
+    "steady",
+    "fair",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "{street}, off the {block} Court",
+   "blurb": "A board bar: cheese, cured mycelium, preserves and rusks, with sake and old lager. Everything on the board would survive a long dark, and the staff can tell you for how long.",
+   "dishes": [
+    [
+     "The board: two cheeses, cured ham, preserves, rusks",
+     1.1
+    ],
+    [
+     "Sake, cold",
+     0.2
+    ],
+    [
+     "Larder lager, a year in the cellar",
+     0.38
+    ]
+   ],
+   "tip": "Ask how long each thing on the board would keep; the staff answer in days without looking."
+  },
+  {
+   "name": "Preserve",
+   "style": "larder",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.8,
+   "where": "deck {deck}, by the lift core",
+   "blurb": "Jams and fruit leathers from plant-cell purées, cooked down in vacuum pans on the loop so the colour stays bright. The tea room at the back serves them on sourdough by the spoonful.",
+   "dishes": [
+    [
+     "Three jams on sourdough with cultured butter",
+     0.6
+    ],
+    [
+     "A strip of berry leather",
+     0.15
+    ],
+    [
+     "Black tea",
+     0.1
+    ]
+   ],
+   "tip": "Ask for the jam made from real rack strawberries, cooked once a year and sold by the spoon."
+  },
+  {
+   "name": "The Tin Shop",
+   "style": "larder",
+   "k": [
+    "thin",
+    "counted",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "the {block} arcade, under the clock",
+   "blurb": "A shop of tins: dried noodles, the Nine, preserves, hard cheese in wax. The counter at the back cooks from the tins for anyone who asks. Half the block eats here on nights they spent their wallet on something better.",
+   "dishes": [
+    [
+     "Dried noodles from a tin, in broth with the Nine",
+     0.6
+    ],
+    [
+     "Wax-rind cheese, a thick slice",
+     0.35
+    ],
+    [
+     "Plant-cell plums in syrup",
+     0.3
+    ]
+   ],
+   "tip": "Have the Nine on the side, because the cook's tin is older than yours and better."
+  },
+  {
+   "name": "Cellar Sours",
+   "style": "larder",
+   "k": [
+    "steady",
+    "hall",
+    "thin",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.7,
+   "where": "the cellar under the {block} Court",
+   "blurb": "A cellar of lactic sours, the larder's own drink: pale, tart and kept for years in crocks along the walls. Each crock is dated, and the oldest are poured only at Knotnight. Every glass comes with a bowl of pickles.",
+   "dishes": [
+    [
+     "A glass of this year's larder sour",
+     0.15
+    ],
+    [
+     "A glass of the five-year sour",
+     0.2
+    ],
+    [
+     "The bowl of pickles",
+     0.2
+    ]
+   ],
+   "tip": "Order the five-year sour second, once the first glass has taught you what young tastes like."
+  },
+  {
+   "name": "Fifty-Five Days",
+   "style": "larder",
+   "k": [
+    "counted",
+    "steady",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "the Keel, by the oxygen reserve",
+   "blurb": "Named for the air margin a drum has if the beam is cut. The menu is the larder a household would eat through it: dried noodles, aged cheese, miso, preserves, the Nine. Meant as a drill, eaten as comfort.",
+   "dishes": [
+    [
+     "Day One bowl: noodles, miso, the Nine",
+     0.6
+    ],
+    [
+     "Day Thirty plate: rusks, cheese, preserve",
+     0.6
+    ],
+    [
+     "Day Fifty-Five: one sugar sweet, saved",
+     0.1
+    ]
+   ],
+   "tip": "Order the Day Fifty-Five sweet even if you are full; the cook keeps a tally of who does."
+  },
+  {
+   "name": "The Vintage Table",
+   "style": "blight",
+   "k": [
+    "steady",
+    "counted",
+    "thin"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 2.6,
+   "where": "deck {deck}, off {street}",
+   "blurb": "The drum's blight years cooked as vintages, one a night, from the records: the Neurospora year's orange steak, the yeast year's starch loaves, the year the cultivated fat ran out. The list goes back four hundred years.",
+   "dishes": [
+    [
+     "Tonight's vintage: steak from whatever organism that year ate",
+     0.9
+    ],
+    [
+     "Blight cheese from the yeast year, griddled",
+     0.45
+    ],
+    [
+     "Starch custard, as eaten when the egg line went",
+     0.3
+    ],
+    [
+     "Mill lager brewed to that year's recipe",
+     0.38
+    ]
+   ],
+   "tip": "Ask for the vintage your hosts' grandparents talk about; with a day's notice the kitchen will cook it."
+  },
+  {
+   "name": "Fallback",
+   "style": "blight",
+   "k": [
+    "counted"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 0.9,
+   "where": "Station Ring {ring}, by the Count board",
+   "blurb": "A blight kitchen run by cooks under twenty-five, who learned the menu in the hard years and decided to keep it. Fried starch for chew, coconut-style cheese, the Nine as a seasoning rather than a penance. Full of people from three drums over.",
+   "dishes": [
+    [
+     "Crackling starch with chili and black vinegar",
+     0.35
+    ],
+    [
+     "Blight-cheese flatbread, griddled until it blisters",
+     0.45
+    ],
+    [
+     "Starch custard with black sugar",
+     0.25
+    ]
+   ],
+   "tip": "Tell the cooks which dish their parents would never have eaten; they collect the answers on the wall."
+  },
+  {
+   "name": "The Orange Year",
+   "style": "blight",
+   "k": [
+    "steady",
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.0,
+   "where": "the Quaysides by Station Ring {ring}",
+   "blurb": "A steakhouse that serves only Neurospora, the mould the drum switched to when its Fusarium line went down a generation ago. The steaks come out orange, nutty and faintly sweet. People who grew up on them order nothing else.",
+   "dishes": [
+    [
+     "Orange mycelium steak with black vinegar butter",
+     0.9
+    ],
+    [
+     "Oncom-style cake of the same mould on starch, fried",
+     0.4
+    ],
+    [
+     "Frites",
+     0.4
+    ]
+   ],
+   "tip": "Order the oncom-style cake with the steak: the same mould grown on starch, and better."
+  },
+  {
+   "name": "Mock Fruit",
+   "style": "blight",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "deck {deck}, by the school lifts",
+   "blurb": "Ten mock fruit pies, each built from crackers, sugar, acids and aroma in a lard-style crust. The apple is the famous one; the pear is better. All began as blight food and are now ordered for birthdays.",
+   "dishes": [
+    [
+     "Mock apple pie with cold custard",
+     0.4
+    ],
+    [
+     "Mock pear pie, lightly spiced",
+     0.4
+    ],
+    [
+     "Mock cherry tart",
+     0.35
+    ]
+   ],
+   "tip": "Order the mock pear; the apple is famous for its name, and the cooks know it."
+  },
+  {
+   "name": "Library Day",
+   "style": "blight",
+   "k": [
+    "steady",
+    "maker",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "the Keel, by the strain library doors",
+   "blurb": "When a blighted line comes back from library stock, the drum eats what it missed. This kitchen cooks that day every day: the first steak back, the first real cheese, the first proper loaf, served with a little ceremony.",
+   "dishes": [
+    [
+     "The first steak back: mycelium, seared, with butter",
+     0.95
+    ],
+    [
+     "First cheese: a young curd, barely aged",
+     0.33
+    ],
+    [
+     "First loaf, broken at the table",
+     0.3
+    ]
+   ],
+   "tip": "Break the loaf with whoever sits beside you, because the first one is always shared."
+  },
+  {
+   "name": "Blight Cheese Bar",
+   "style": "blight",
+   "k": [
+    "thin",
+    "counted",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.7,
+   "where": "the {block} night market",
+   "blurb": "Blight cheese, which is coconut-style fat, starch and cheese aroma, done every way the hard years taught: griddled, melted over noodles, fried in cubes. It melts more willingly than the real thing, as the regulars will tell you.",
+   "dishes": [
+    [
+     "Blight-cheese toastie, griddled until it blisters",
+     0.45
+    ],
+    [
+     "Noodles under melted blight cheese and chili",
+     0.6
+    ],
+    [
+     "Fried blight-cheese cubes",
+     0.3
+    ]
+   ],
+   "tip": "Start with the fried cubes, which come out of the fat hot enough to need the lid."
+  },
+  {
+   "name": "The Lent Table",
+   "style": "blight",
+   "k": [
+    "steady",
+    "fair",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.2,
+   "where": "{street}, deck {deck}",
+   "blurb": "When the cultivated-fat line goes down, a drum eats without the taste of animals for about forty days. This kitchen cooks that lean stretch all year and makes a case for it: mycelium in koji and garlic, and no fat that ever had a species.",
+   "dishes": [
+    [
+     "Mycelium in koji and garlic, no animal fat",
+     0.9
+    ],
+    [
+     "Curds in a sesame-style sauce",
+     0.5
+    ],
+    [
+     "Steamed greens from the racks",
+     0.4
+    ]
+   ],
+   "tip": "Eat the mycelium first, while your tongue still expects the fat and notices it gone."
+  },
+  {
+   "name": "Crackling",
+   "style": "blight",
+   "k": [
+    "counted",
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} Mill Hall",
+   "blurb": "A commons hall that never stopped cooking its blight menu. When the mycelium went, the cooks fried for chew, and the drum liked it: crackling starch, chili, black vinegar and rice, for nothing. Elders call it the good part of a bad year.",
+   "dishes": [
+    [
+     "Crackling starch steak under chili and black vinegar",
+     0.35
+    ],
+    [
+     "Sticky rice with the Nine",
+     0.4
+    ],
+    [
+     "Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "Eat the crackling first, before the vinegar softens it."
+  },
+  {
+   "name": "Second Line",
+   "style": "blight",
+   "k": [
+    "steady",
+    "maker",
+    "fair"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 2.4,
+   "where": "deck {hdeck}, by the {block} Court",
+   "blurb": "A restaurant that cooks with each line's backup organism by choice, so the drum knows what its fallback tastes like before it needs one: a reserve-line steak, a second-culture yoghurt, bread from the reserve gluten. The cook calls it rehearsal.",
+   "dishes": [
+    [
+     "Steak from the reserve line, a different chew",
+     0.9
+    ],
+    [
+     "Yoghurt from the second culture, sharper",
+     0.45
+    ],
+    [
+     "Bread from the reserve gluten, open crumb",
+     0.4
+    ]
+   ],
+   "tip": "Ask which line the cook expects to fail next; the answer comes with a shrug and a dessert."
+  },
+  {
+   "name": "The Far Table",
+   "style": "lightfall",
+   "k": [
+    "fair",
+    "steady",
+    "maker"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 4.0,
+   "where": "the Station Ring {ring} arcade",
+   "blurb": "A kitchen that has cooked from one raft only, six light-years away, for two centuries. It writes back with every menu, and the replies arrive twelve years later. The two kitchens have never met and are old friends.",
+   "dishes": [
+    [
+     "Six-year soup, sour and red, from across the Shade",
+     0.9
+    ],
+    [
+     "Flatbread from a starter that crossed as a file",
+     0.4
+    ],
+    [
+     "Their dessert, as best the cooks can read the measures",
+     0.4
+    ],
+    [
+     "Their tea, regrown from a genome",
+     0.15
+    ]
+   ],
+   "tip": "Read the newest letter from the other kitchen on the wall; it left their raft when you were about fourteen."
+  },
+  {
+   "name": "Arrival Board",
+   "style": "lightfall",
+   "k": [
+    "fair",
+    "hall",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 3.0,
+   "where": "{street}, deck {deck}",
+   "blurb": "A menu like a departures board run backwards: each dish lists the raft it came from, the year the recipe left and the year it arrived. Cooked as written, measures translated, nothing improved.",
+   "dishes": [
+    [
+     "Noodles in a broth from a raft three light-years off",
+     0.96
+    ],
+    [
+     "A cheese regrown from a file, crumbly and blue",
+     0.4
+    ],
+    [
+     "Sweet rice in a syrup nobody here can name",
+     0.3
+    ]
+   ],
+   "tip": "Order whatever arrived this month, as the cooks are still learning it and will talk you through every step."
+  },
+  {
+   "name": "The Receiving Room",
+   "style": "lightfall",
+   "k": [
+    "maker",
+    "hall",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.5,
+   "where": "the Keel, beside the long-letter office",
+   "blurb": "A test kitchen that cooks every recipe the drum receives in its first week, unedited, and serves the results at a long table. About one in five is kept. The rest are filed with notes.",
+   "dishes": [
+    [
+     "This week's arrival, whatever it turns out to be",
+     1.0
+    ],
+    [
+     "A second try at last week's, corrected",
+     0.8
+    ],
+    [
+     "Mill lager, for courage",
+     0.38
+    ]
+   ],
+   "tip": "Fill in a card on the dish, since the kitchen reads every one before deciding what to keep."
+  },
+  {
+   "name": "Passing Supper",
+   "style": "lightfall",
+   "k": [
+    "hall",
+    "fair",
+    "steady"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 4.5,
+   "where": "the choir hall on {street}",
+   "blurb": "During a Passing, when another raft swings within a few AU, this kitchen cooks its recipes within the hour they arrive and sends a menu back by return. Between Passings it serves the archive. People book for the next Passing years ahead.",
+   "dishes": [
+    [
+     "Whatever the passing raft sent this morning",
+     1.2
+    ],
+    [
+     "A dish sent to them, which they cooked last week",
+     0.9
+    ],
+    [
+     "The archive plate: three dishes from past Passings",
+     0.9
+    ]
+   ],
+   "tip": "Between Passings, order the archive plate and ask which dish made the choir cry."
+  },
+  {
+   "name": "The Genome Shelf",
+   "style": "lightfall",
+   "k": [
+    "maker",
+    "steady",
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 3.0,
+   "where": "the Keel, beside the strain library's receiving bench",
+   "blurb": "The strain library's overflow, with tables: cultures regrown from genomes received by laser, held while the Gate checks them and then, if they behave, eaten. The cheese board has a light-years column.",
+   "dishes": [
+    [
+     "Three cheeses from three rafts, with light-years",
+     1.0
+    ],
+    [
+     "Bread from a far raft's yeast, a week awake",
+     0.4
+    ],
+    [
+     "Koji rice from a line that crossed the Shade",
+     0.35
+    ]
+   ],
+   "tip": "Ask the Gate clerk at the corner table which culture failed its checks this week; there is always a story."
+  },
+  {
+   "name": "Old Light",
+   "style": "lightfall",
+   "k": [
+    "wood",
+    "steady",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.2,
+   "where": "deck {hdeck}, behind the archive",
+   "blurb": "Recipes received centuries ago and cooked as written, from rafts that may have changed past recognition since. The cooks treat it as history rather than cuisine, and say so. Some dishes have outlived the kitchens that sent them.",
+   "dishes": [
+    [
+     "A soup received six hundred years ago, unchanged",
+     0.6
+    ],
+    [
+     "Dumplings from a far archive, folded their way",
+     0.5
+    ],
+    [
+     "A sweet whose sender's name is all that is left",
+     0.3
+    ]
+   ],
+   "tip": "Read the footnotes, which say what became of each sending kitchen, where anyone knows."
+  },
+  {
+   "name": "Reply Kitchen",
+   "style": "lightfall",
+   "k": [
+    "fair",
+    "hall",
+    "maker"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 3.5,
+   "where": "the arcade by Station Ring {ring}",
+   "blurb": "Every night this kitchen cooks one recipe from a far raft, and the diners vote on which local dish to send back by laser. The replies take years. A board lists the exchanges still waiting for an answer.",
+   "dishes": [
+    [
+     "Tonight's far dish, cooked as received",
+     1.0
+    ],
+    [
+     "Three local candidates for the reply, small plates",
+     0.9
+    ],
+    [
+     "Sake to argue over",
+     0.2
+    ]
+   ],
+   "tip": "Vote for the plainest candidate, since the records say far rafts cook the plain ones best."
+  },
+  {
+   "name": "Translation",
+   "style": "lightfall",
+   "k": [
+    "steady",
+    "thin",
+    "open"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "{street}, by the lift core",
+   "blurb": "Far recipes with difficult measures: units nobody here uses, ingredients named in words with no match, steps that assume a different gravity. The menu prints each original beside its translation.",
+   "dishes": [
+    [
+     "Stew from a raft that spins at half a g, adjusted",
+     0.9
+    ],
+    [
+     "Bread rewritten for a different oven",
+     0.4
+    ],
+    [
+     "A sweet whose sugar came in an unknown unit, guessed",
+     0.3
+    ]
+   ],
+   "tip": "Read the original beside each translation: the cooks' guesses are marked in red and their arguments in the margin."
+  },
+  {
+   "name": "The Fortified",
+   "style": "gin",
+   "k": [
+    "steady",
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.8,
+   "where": "the cellar under {street}",
+   "blurb": "Every bottle here is tested for methanol at the bar, with a strip, in front of you: a custom kept from a bad year nobody discusses. The gin is cheap, clean and fortified with thiamine, like the salt.",
+   "dishes": [
+    [
+     "House gin over sugar-glass ice",
+     0.18
+    ],
+    [
+     "Gin and lactic tonic with a sliver of cucumber",
+     0.22
+    ],
+    [
+     "Krupuk and pickles",
+     0.25
+    ]
+   ],
+   "tip": "Watch the strip test once, and afterwards you will want it done every time, which is the idea."
+  },
+  {
+   "name": "Juniper Cellar",
+   "style": "gin",
+   "k": [
+    "steady",
+    "fair",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "deck {deck}, under the {block} arcade",
+   "blurb": "Forty gins, each a formula of a few milligrams of pinene, linalool and citrus esters in Mill spirit. The bar keeps a sprig of real juniper under glass, grown in the racks at absurd expense, and lets you smell it once.",
+   "dishes": [
+    [
+     "A flight of three gins, by formula",
+     0.54
+    ],
+    [
+     "Gin and soda with garden mint",
+     0.21
+    ],
+    [
+     "Salted sour-starch puffs",
+     0.15
+    ]
+   ],
+   "tip": "Smell the juniper before your first glass rather than after; the staff say it spoils the gins either way."
+  },
+  {
+   "name": "The Licensed Room",
+   "style": "gin",
+   "k": [
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.0,
+   "where": "{street}, at the bright end",
+   "blurb": "This drum taxes spirits hard, and here is where the tax goes: clean gin at four times the cost and a clinic nurse on the stool by the door. Locals grumble at the price. Nobody here has seen a methanol case in years.",
+   "dishes": [
+    [
+     "A taxed gin, measured to the drop",
+     0.7
+    ],
+    [
+     "A half of fortified lager",
+     0.4
+    ],
+    [
+     "Bar snacks with the second glass",
+     0.1
+    ]
+   ],
+   "tip": "Pay the tax with good grace; a drum that does not tax spends the difference at its clinic."
+  },
+  {
+   "name": "Bitters and Lids",
+   "style": "gin",
+   "k": [
+    "fair",
+    "steady",
+    "maker"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 1.6,
+   "where": "the {block} Court, under the top terrace",
+   "blurb": "A cocktail cellar where every drink arrives lidded, because heliox carries the aroma off an open glass in minutes. The lid comes off at the table and the room smells of what you ordered. The bartender keeps thirty years of formulas in a tin.",
+   "dishes": [
+    [
+     "The house sour, lidded, with a vat egg-white foam",
+     0.3
+    ],
+    [
+     "Gin, bitters and black sugar, stirred",
+     0.25
+    ],
+    [
+     "Smoke-style old fashioned, lidded until it reaches you",
+     0.3
+    ],
+    [
+     "Cheese crisps",
+     0.2
+    ]
+   ],
+   "tip": "Lift the lid slowly and keep your face close; the first breath is most of the drink."
+  },
+  {
+   "name": "The Sake Cellar",
+   "style": "gin",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.9,
+   "where": "the cellar under the {block} Mill Hall",
+   "blurb": "Sake brewed from Mill starch and the drum's own koji, in crocks along a wall that holds at 15 °C. Warm, cold or cloudy. The food is pickles and salted curd, which is what sake wants.",
+   "dishes": [
+    [
+     "Warm sake in a lidded flask",
+     0.2
+    ],
+    [
+     "Cloudy sake, cold",
+     0.2
+    ],
+    [
+     "Salted curd and pickles",
+     0.35
+    ]
+   ],
+   "tip": "Take the warm flask lidded and pour your own; it is the only warm thing in the cellar."
+  },
+  {
+   "name": "The Lager Hall",
+   "style": "gin",
+   "k": [
+    "hall",
+    "thin",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.8,
+   "where": "the {block} lager hall, off {street}",
+   "blurb": "Mill lager from a brewery behind the bar, pale, clean and cheaper by the pint than a tomato. The hall is loud and the felt is old. The bar food is fried, which costs more than the beer.",
+   "dishes": [
+    [
+     "Pint of Mill lager",
+     0.38
+    ],
+    [
+     "A plate of fried jelly cubes",
+     0.3
+    ],
+    [
+     "Krupuk",
+     0.15
+    ]
+   ],
+   "tip": "Order the fried plate early, since the fryer shuts at ten to save the bar's power."
+  },
+  {
+   "name": "Sours",
+   "style": "gin",
+   "k": [
+    "open",
+    "wood",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "deck {deck}, by the {block} baths",
+   "blurb": "Lactic sours and kombucha-style teas for people who want a drink without the gin: sharp, pale and alive, each culture registered with the strain library. Drunk after the baths, in robes, in near silence.",
+   "dishes": [
+    [
+     "A glass of the house sour",
+     0.15
+    ],
+    [
+     "Kombucha-style tea on garden mint",
+     0.15
+    ],
+    [
+     "A dish of salted puffs",
+     0.12
+    ]
+   ],
+   "tip": "Come straight from the baths in your robe, as everyone else does."
+  },
+  {
+   "name": "Thin Gin",
+   "style": "gin",
+   "k": [
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the cellar under {street}",
+   "blurb": "A thin drum's gin cellar: crowded, cheap and cheerful, gin at cost, and bar staff who keep a careful eye on who is drinking which way. The speakers play old recordings that sound spoken through a blanket.",
+   "dishes": [
+    [
+     "Gin at cost, with thiamine",
+     0.18
+    ],
+    [
+     "Gin and black sugar soda",
+     0.2
+    ],
+    [
+     "A bag of krupuk",
+     0.12
+    ]
+   ],
+   "tip": "Buy the bar staff a soda rather than a gin, which is the local way to say thanks."
+  },
+  {
+   "name": "The Wine Room",
+   "style": "gin",
+   "k": [
+    "steady",
+    "fair",
+    "maker"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.5,
+   "where": "deck {hdeck}, off {street}",
+   "blurb": "Wine fermented in the cellar from plant-cell grape purées, listed by culture rather than place, since there is nowhere for wine to come from. The reds are better than they have any reason to be. The cheese list is short and serious.",
+   "dishes": [
+    [
+     "A glass of the house red",
+     0.25
+    ],
+    [
+     "A glass of the old white, five years in crock",
+     0.3
+    ],
+    [
+     "Cheese and crackers",
+     0.5
+    ]
+   ],
+   "tip": "Ask for the culture notes rather than the tasting notes; the sommelier is a strain librarian and lights up."
+  },
+  {
+   "name": "The Formula Cellar",
+   "style": "gin",
+   "k": [
+    "maker",
+    "fair"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the flavourists' quarter, deck {deck}",
+   "blurb": "A cellar where the drum's flavourists test their spirit formulas on anyone willing: a pear gin with no pear in it, a cocoa spirit, a rice liqueur that tastes of pandan. Samples are free; full glasses are not.",
+   "dishes": [
+    [
+     "Pear gin, all aroma and no pear",
+     0.18
+    ],
+    [
+     "Cocoa spirit from plant-cell cocoa",
+     0.25
+    ],
+    [
+     "Pandan rice liqueur",
+     0.2
+    ],
+    [
+     "Salted starch crackers",
+     0.12
+    ]
+   ],
+   "tip": "Fill in the tasting card honestly, as the flavourists keep the rude ones and change the formulas."
+  },
+  {
+   "name": "Long Strand",
+   "style": "noodle",
+   "k": [
+    "hall",
+    "maker",
+    "fair"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 2.2,
+   "where": "the third-g terrace of the front end wall",
+   "blurb": "Noodles pulled on a terrace at a third of a g, where a hanging strand can stretch three times as long before its own weight tears it. Each bowl is a few long strands rather than many short ones. Slurping is encouraged; the felt is thick.",
+   "dishes": [
+    [
+     "Hand-pulled noodles in gelatin-rich broth with koji tare",
+     1.4
+    ],
+    [
+     "Long strands, dry, in chili oil",
+     1.1
+    ],
+    [
+     "Smacked cucumber with garlic",
+     0.5
+    ]
+   ],
+   "tip": "Watch a pull at the window before you order; the third swing is the one to see."
+  },
+  {
+   "name": "Night Ramen",
+   "style": "noodle",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 2.6,
+   "where": "{street}, open from ten until the lamps come up",
+   "blurb": "Ramen in the lamp-night for shift workers and the sleepless: gluten noodles, gelatin-rich broth with koji tare, protein-flour chashu glossed with cultivated pork fat, and a moulded vat egg. Six stools. The bowl stays lidded until it lands.",
+   "dishes": [
+    [
+     "Shoyu ramen with chashu and a vat egg",
+     1.77
+    ],
+    [
+     "Gyoza-style dumplings, seared on one side",
+     0.5
+    ],
+    [
+     "Mill lager",
+     0.38
+    ]
+   ],
+   "tip": "Take the end stool by the stockpot, where the cook talks and the second ladle of broth is free."
+  },
+  {
+   "name": "Glass and Broth",
+   "style": "noodle",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} Mill Hall's noodle counter",
+   "blurb": "The Mill Hall's noodle counter, run by a cook who cuts glass noodles by hand when the extruder would do it faster. The broth is the commons' sweet-savoury stock, cooked a little longer than the recipe says. Free, and worth the queue.",
+   "dishes": [
+    [
+     "Hand-cut glass noodles in sweet-savoury broth",
+     0.96
+    ],
+    [
+     "Jelly cubes fried in the broth's own fat",
+     0.3
+    ],
+    [
+     "The Nine, in a pot on the counter",
+     0.17
+    ]
+   ],
+   "tip": "Queue at the left hatch for the hand-cut noodles; the right hatch serves the extruded ones."
+  },
+  {
+   "name": "Knife-Cut",
+   "style": "noodle",
+   "k": [
+    "steady",
+    "thin",
+    "hall"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.5,
+   "where": "{street}, deck {deck}",
+   "blurb": "Noodles shaved straight from a block of gluten dough into the pot, each one thick in the middle and thin at the edges. The cook works at a blur and never looks at the knife. Visitors are asked to stand back.",
+   "dishes": [
+    [
+     "Knife-cut noodles in red braise with mycelium",
+     1.2
+    ],
+    [
+     "Knife-cut noodles in sour broth with greens",
+     1.1
+    ],
+    [
+     "Smacked cucumber",
+     0.45
+    ]
+   ],
+   "tip": "Stay behind the line painted on the floor; it was painted after someone stood closer."
+  },
+  {
+   "name": "Cold Noodle Bar",
+   "style": "noodle",
+   "k": [
+    "thin",
+    "steady",
+    "counted",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.9,
+   "where": "the Quaysides, by Station Ring {ring}",
+   "blurb": "Cold noodles in an icy broth of sugar, vinegar and mustard heat, for rooms kept warm against the heliox. The ice is frozen overnight on cheap power, and the bowls sit in it all day.",
+   "dishes": [
+    [
+     "Cold buckwheat-style noodles in icy vinegar broth",
+     0.8
+    ],
+    [
+     "Cold glass noodles with chili oil and cucumber",
+     0.9
+    ],
+    [
+     "Iced barley-style tea",
+     0.1
+    ]
+   ],
+   "tip": "Add the mustard a drop at a time; the jar on the counter is stronger than it smells."
+  },
+  {
+   "name": "Udon House",
+   "style": "noodle",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.6,
+   "where": "off {street}, near the {block} baths",
+   "blurb": "Thick gluten noodles trodden underfoot in cloth the old way, then cut and boiled in water drawn hot from the loop. They come in a broth of koji soy and sweet sake, with fried curd on top. The trodden dough is the house pride.",
+   "dishes": [
+    [
+     "Udon in koji-soy broth with sweet fried curd",
+     1.1
+    ],
+    [
+     "Curry udon with cultivated beef fat",
+     1.3
+    ],
+    [
+     "Crisp fritters of starch and garden greens",
+     0.4
+    ]
+   ],
+   "tip": "Come at four to watch the dough being trodden; there is a bench, and the cooks treat it as a show."
+  },
+  {
+   "name": "The Slurp",
+   "style": "noodle",
+   "k": [
+    "hall",
+    "steady",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.3,
+   "where": "the {block} arcade, under a felt ceiling",
+   "blurb": "In heliox a slurp carries, so noodle rooms hang felt. This one hangs three layers and still sounds like forty people breathing in at once. Plain broth noodles, quick and cheap, for people who eat fast.",
+   "dishes": [
+    [
+     "Noodles in broth, the plain bowl",
+     0.96
+    ],
+    [
+     "Noodles with chili crisp and the Nine",
+     0.9
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Slurp: the room is felted for it, and a quiet eater is taken for someone unhappy with the broth."
+  },
+  {
+   "name": "Noodle School",
+   "style": "noodle",
+   "k": [
+    "maker",
+    "hall"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 1.2,
+   "where": "the craft school kitchens, deck {deck}",
+   "blurb": "The drum's noodle school feeds the public at lunch with whatever the students made that morning, at the cost of the ingredients. The bowls are uneven and the broth is the teacher's.",
+   "dishes": [
+    [
+     "Students' hand-pulled noodles in the teacher's broth",
+     0.96
+    ],
+    [
+     "Dumplings pleated by the first-years",
+     0.4
+    ],
+    [
+     "Smacked cucumber",
+     0.45
+    ]
+   ],
+   "tip": "Leave something in the jar by the door, which pays for the students' wander years."
+  },
+  {
+   "name": "Laksa Lane",
+   "style": "noodle",
+   "k": [
+    "thin",
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.5,
+   "where": "the {block} night market, under the arcade",
+   "blurb": "Curry noodles in coconut-style cream with chili, sanshool and a sour edge, topped with fried curd and a spoon of sambal-style paste. Rich, cheap and a danger to a mended collar.",
+   "dishes": [
+    [
+     "Curry noodles in coconut-style cream with fried curd",
+     1.2
+    ],
+    [
+     "Extra sambal-style paste",
+     0.05
+    ],
+    [
+     "Iced lime-style soda",
+     0.1
+    ]
+   ],
+   "tip": "Wear something already stained and lean in, as the regulars do."
+  },
+  {
+   "name": "The Dan Dan Hatch",
+   "style": "noodle",
+   "k": [
+    "steady",
+    "thin",
+    "counted",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.1,
+   "where": "the lift lobby on deck {deck}",
+   "blurb": "Dry noodles in sesame-style paste, chili oil and sanshool, under crisped mycelium crumbs. Made in a hatch two metres wide, with one induction ring, one wok and one cook who has done this for forty years.",
+   "dishes": [
+    [
+     "Dan dan-style noodles with crisped mycelium",
+     0.9
+    ],
+    [
+     "Cucumber in garlic and black vinegar",
+     0.45
+    ],
+    [
+     "Sweet soy-style milk",
+     0.15
+    ]
+   ],
+   "tip": "Stir from the bottom twenty times before eating, because the sauce sits underneath and the cook counts."
+  },
+  {
+   "name": "Rice Sheet",
+   "style": "noodle",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "{street}, by the {block} Court",
+   "blurb": "Rice-sheet noodles steamed on cloth in thin layers, rolled round fillings, sliced and drowned in sweet soy. The steamers take loop water up to a boil, so the shop is warm and smells of starch.",
+   "dishes": [
+    [
+     "Rice-sheet rolls with mycelium and spring onion",
+     0.6
+    ],
+    [
+     "Plain rice-sheet rolls in sweet soy",
+     0.4
+    ],
+    [
+     "Jasmine tea",
+     0.15
+    ]
+   ],
+   "tip": "Order the plain rolls as well as the filled, since the regulars say the sheet is the dish."
+  },
+  {
+   "name": "The Bowl",
+   "style": "noodle",
+   "k": [
+    "steady",
+    "fair",
+    "open"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 3.2,
+   "where": "deck {deck}, off {street}",
+   "blurb": "One bowl, refined over forty years: broth held below a simmer for three days, noodles cut to the millimetre, chashu basted with cultivated pork fat, a vat egg cured in koji. Ten seats. The cook bows when you finish the broth.",
+   "dishes": [
+    [
+     "The bowl: three-day broth, koji tare, chashu, cured vat egg",
+     2.0
+    ],
+    [
+     "A second nest of noodles, dropped into your broth",
+     0.4
+    ],
+    [
+     "Cold barley-style tea",
+     0.1
+    ]
+   ],
+   "tip": "Finish the broth: the bow is the cook's whole review of you, and people cross the raft to earn it."
+  },
+  {
+   "name": "The Lidded Cup",
+   "style": "tea",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.4,
+   "where": "{street}, deck {deck}",
+   "blurb": "A tea room where every cup comes with a lid that fits, because in heliox an open cup cools in the time it takes to finish a sentence. Twenty teas, cell-culture and rack-grown, and a plate of rusks.",
+   "dishes": [
+    [
+     "Pot of cell-culture black tea, lidded",
+     0.12
+    ],
+    [
+     "Jasmine tea from the racks",
+     0.1
+    ],
+    [
+     "A plate of rusks",
+     0.15
+    ]
+   ],
+   "tip": "Put the lid back between sips, which locals do without thinking and visitors learn by the second cup."
+  },
+  {
+   "name": "The Pulled Cup",
+   "style": "tea",
+   "k": [
+    "thin",
+    "steady",
+    "counted",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.3,
+   "where": "the Quaysides, by Station Ring {ring}",
+   "blurb": "Milk tea pulled between two jugs at arm's length until it froths, with Mill creamer and black sugar. A cup costs about a tenth of a kWh and comes with a performance. The puller has a following.",
+   "dishes": [
+    [
+     "Pulled milk tea",
+     0.12
+    ],
+    [
+     "Pulled milk tea with tapioca pearls",
+     0.18
+    ],
+    [
+     "Sugar toast",
+     0.15
+    ]
+   ],
+   "tip": "Ask for it pulled long; the puller makes a show of it, and the queue does not mind."
+  },
+  {
+   "name": "Mended Pots",
+   "style": "tea",
+   "k": [
+    "steady",
+    "open",
+    "wood"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "deck {hdeck}, among the elders' flats",
+   "blurb": "A tea room on the high decks where the cups are old, the chairs older and the regulars older still. Every teapot has been broken and mended with gold-coloured resin, and the cakes are soft enough for anyone.",
+   "dishes": [
+    [
+     "Black tea in a mended pot",
+     0.12
+    ],
+    [
+     "Soft sponge with custard",
+     0.3
+    ],
+    [
+     "Steamed rice cake",
+     0.2
+    ]
+   ],
+   "tip": "Ask who mended your teapot; the name is on the base, and the mender may be at the next table."
+  },
+  {
+   "name": "Dusk Tea",
+   "style": "tea",
+   "k": [
+    "fair",
+    "open",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the end-wall terraces, the tier with the best view of the dusk",
+   "blurb": "A tea terrace that opens for the three-hour dusk and closes when the far bank's lamps come on. The tea is ordinary and the cakes are good. The painter's name for the evening is chalked on the board.",
+   "dishes": [
+    [
+     "Pot of oolong-style tea",
+     0.15
+    ],
+    [
+     "Black sugar cake",
+     0.3
+    ],
+    [
+     "Rice crackers",
+     0.1
+    ]
+   ],
+   "tip": "Sit facing along the axis, where the dusk runs the whole length of the Hollow towards you."
+  },
+  {
+   "name": "Two Leaves and a Bud",
+   "style": "tea",
+   "k": [
+    "steady",
+    "wood",
+    "maker"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 2.0,
+   "where": "the Keel, beside the tea racks",
+   "blurb": "Tea grown on the drum's own racks, picked as two leaves and a bud, then withered and rolled by hand in the next room. Most tea is cell culture and tastes fine. This tastes of a plant, and the bill is mostly the rolling.",
+   "dishes": [
+    [
+     "Rack-grown green tea, first picking",
+     0.12
+    ],
+    [
+     "Rack-grown black tea, rolled last month",
+     0.1
+    ],
+    [
+     "Sesame-style brittle",
+     0.15
+    ]
+   ],
+   "tip": "Ask for the second and third infusions; the leaves are dear, and the staff respect anyone who uses them up."
+  },
+  {
+   "name": "The Tea Urn",
+   "style": "tea",
+   "k": [
+    "steady",
+    "thin",
+    "counted",
+    "hall",
+    "fair",
+    "maker"
+   ],
+   "stars": 0,
+   "ladle": true,
+   "price": 0,
+   "where": "the {block} Mill Hall, by the door",
+   "blurb": "The Mill Hall's tea urn, which never goes cold: jasmine tea and milk tea, free all day, with a tray of sour-starch puffs someone always refills. Half the block's arguments start here and most of them end here.",
+   "dishes": [
+    [
+     "Jasmine tea from the urn",
+     0.1
+    ],
+    [
+     "Milk tea with Mill creamer",
+     0.12
+    ],
+    [
+     "Sour-starch puffs from the tray",
+     0.12
+    ]
+   ],
+   "tip": "If you take the last puff, refill the tray from the hatch; that is the whole rule."
+  },
+  {
+   "name": "Mochi and Tea",
+   "style": "tea",
+   "k": [
+    "any"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the {block} arcade, by the lift core",
+   "blurb": "Mochi pounded in the window, with matcha-style tea whisked to a froth. A machine does the pounding and a person does the turning, and the turner has all ten fingers and means to keep them.",
+   "dishes": [
+    [
+     "Fresh mochi with black sugar syrup",
+     0.2
+    ],
+    [
+     "Mochi stuffed with sweet curd",
+     0.25
+    ],
+    [
+     "Whisked matcha-style tea",
+     0.15
+    ]
+   ],
+   "tip": "Eat the mochi within ten minutes of the pounding; after that it is merely very good."
+  },
+  {
+   "name": "Slow Tea",
+   "style": "tea",
+   "k": [
+    "wood"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.8,
+   "where": "a clearing among the yews of the {drum} wood",
+   "blurb": "A tea house in the wood where tea is made and drunk in silence. The only instruction, on a slate by the door, says SIT. A pot takes an hour, and nobody looks at the time.",
+   "dishes": [
+    [
+     "A pot of rack-grown green tea, slowly",
+     0.1
+    ],
+    [
+     "Steamed rice cake, plain",
+     0.15
+    ]
+   ],
+   "tip": "Write your thanks on the slate as you leave; the tea master reads them all at lamp-night."
+  },
+  {
+   "name": "The Grounds",
+   "style": "tea",
+   "k": [
+    "steady",
+    "fair",
+    "thin"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "{street}, deck {deck}",
+   "blurb": "A coffee room for people who like coffee more than talk. Cell-culture coffee, roasted each morning in an induction drum and ground to order. The spent grounds go down to the Keel to grow mushrooms.",
+   "dishes": [
+    [
+     "Cup of cell-culture coffee",
+     0.15
+    ],
+    [
+     "Coffee with steamed milk",
+     0.25
+    ],
+    [
+     "Butter biscuit",
+     0.12
+    ]
+   ],
+   "tip": "Tip your grounds into the bin by the door; the mushroom growers collect at noon, and they check."
+  },
+  {
+   "name": "The Rival Pot",
+   "style": "tea",
+   "k": [
+    "steady",
+    "open",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.4,
+   "where": "Station Ring {ring}, on the glide platform",
+   "blurb": "A platform tea room serving two blends: the drum's own, and {nb}'s, which comes over by glide each morning. A chalk tally by the door records which one people choose. It has been close for ninety years.",
+   "dishes": [
+    [
+     "Our blend, milky and strong",
+     0.12
+    ],
+    [
+     "The {nb} blend, which locals call perfume",
+     0.12
+    ],
+    [
+     "Rusks for dunking",
+     0.15
+    ]
+   ],
+   "tip": "Order both and add your mark to the tally, because the staff take the vote seriously."
+  },
+  {
+   "name": "{block} Night Market",
+   "style": "market",
+   "k": [
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 0.8,
+   "where": "{street}, from lamp-night until two",
+   "blurb": "A thin drum's night market, which is to say the best cheap food in the drum, cooked on night power while the arcades are fullest. Forty stalls, one long aisle, and everyone shouting over felt that gave up years ago.",
+   "dishes": [
+    [
+     "Tapioca crepe with chili crisp and curd",
+     0.35
+    ],
+    [
+     "Skewer of seared mycelium",
+     0.25
+    ],
+    [
+     "Fried jelly cubes in a paper cone",
+     0.2
+    ],
+    [
+     "Lactic soda",
+     0.1
+    ]
+   ],
+   "tip": "Walk the whole aisle once before buying anything; the best stall is always the one with no sign."
+  },
+  {
+   "name": "The Lamp-Night Fry",
+   "style": "market",
+   "k": [
+    "thin",
+    "steady",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.6,
+   "where": "the {block} night market, the far end",
+   "blurb": "A frying stall that opens only in the lamp-night, when the drum's power is cheapest and frying costs least. Puffs, fritters, crisped curds. The stall-holder keeps a chart of the hourly price and fries to it.",
+   "dishes": [
+    [
+     "Crisped curds with chili salt",
+     0.3
+    ],
+    [
+     "Starch fritters with spring onion",
+     0.25
+    ],
+    [
+     "Sour-starch puffs",
+     0.12
+    ]
+   ],
+   "tip": "Come at one, when the power price bottoms out and the fryer runs hardest."
+  },
+  {
+   "name": "Under the Arcade",
+   "style": "market",
+   "k": [
+    "thin",
+    "hall",
+    "steady"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.8,
+   "where": "the {street} arcade, after the shops close",
+   "blurb": "When the shops on the arcade shut, their owners wheel out cookers and sell supper from the doorways. A tailor does dumplings, a lamp-mender does noodles, and the grocer does whatever is about to go soft.",
+   "dishes": [
+    [
+     "The tailor's dumplings, eight to a plate",
+     0.45
+    ],
+    [
+     "The lamp-mender's noodles",
+     0.7
+    ],
+    [
+     "The grocer's tomato, sliced, while it lasts",
+     0.5
+    ]
+   ],
+   "tip": "Buy from the grocer first, since whatever is about to go soft goes quickly."
+  },
+  {
+   "name": "The Queue",
+   "style": "market",
+   "k": [
+    "thin"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 0.7,
+   "where": "the {block} night market, the corner stall",
+   "blurb": "One stall with a queue that has not been shorter than forty people in living memory. Sticky rice, fried crisp, under a ladle of red braise and pickles. People ride a slow cycler for a week to stand in it.",
+   "dishes": [
+    [
+     "Crisp rice under red braise and pickles",
+     0.6
+    ],
+    [
+     "A rice ball for the queue",
+     0.15
+    ],
+    [
+     "Lactic soda",
+     0.1
+    ]
+   ],
+   "tip": "Talk to the people in the queue; it is how regulars pass the hour, and how strangers become regulars."
+  },
+  {
+   "name": "The Late Lid",
+   "style": "market",
+   "k": [
+    "thin",
+    "steady",
+    "counted",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "the {block} night market, under the lift core",
+   "blurb": "A hot pot stall: one pot in the middle of a round table for eight strangers, under a lid only the stall-holder may lift. You drop in what you bought. By the end everyone has eaten some of everyone's.",
+   "dishes": [
+    [
+     "A seat at the pot, with broth",
+     0.3
+    ],
+    [
+     "Basket of curds, noodles and greens to drop in",
+     0.6
+    ],
+    [
+     "Lactic sour",
+     0.15
+    ]
+   ],
+   "tip": "Keep to your own quarter of the pot, as a spoon wandering into a stranger's is noticed."
+  },
+  {
+   "name": "The Shift Change",
+   "style": "market",
+   "k": [
+    "steady",
+    "thin",
+    "counted"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the Keel concourse, at shift change",
+   "blurb": "A market that appears twice a day at the Keel's shift change and is gone within the hour. Everything is hand food: buns, rice balls, skewers, cups of soup. Crews eat walking, which costs food, and buy more.",
+   "dishes": [
+    [
+     "Steamed bun with mycelium",
+     0.45
+    ],
+    [
+     "Rice ball with a sour plum-style centre",
+     0.15
+    ],
+    [
+     "Cup of soup",
+     0.1
+    ]
+   ],
+   "tip": "Arrive five minutes before the change and the stalls are yours; one minute after, they belong to the crews."
+  },
+  {
+   "name": "Swap Night",
+   "style": "market",
+   "k": [
+    "open",
+    "maker",
+    "thin",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.4,
+   "where": "the {block} Court, on {weekday} nights",
+   "blurb": "A market where most things change hands for other things: jars of pickles, spoons of starter, cuttings from herb shelves, a cake for a mended sleeve. The food stalls take kays, grudgingly.",
+   "dishes": [
+    [
+     "Rice cake from the cake swap",
+     0.2
+    ],
+    [
+     "A bowl of whatever the soup stall is trading",
+     0.3
+    ],
+    [
+     "Herb tea from a swapped cutting",
+     0.05
+    ]
+   ],
+   "tip": "Bring a jar of anything: an empty-handed visitor is still fed, but a jar gets you the good soup."
+  },
+  {
+   "name": "Skewer Lane",
+   "style": "market",
+   "k": [
+    "thin",
+    "steady",
+    "fair"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 1.0,
+   "where": "the lane behind {street}",
+   "blurb": "A lane of skewer stalls under a ceiling darkened by generations of glaze. Mycelium, curd, protein-flour sausage and the odd garden pepper, seared on induction rails and brushed with whatever each stall swears by.",
+   "dishes": [
+    [
+     "Three mycelium skewers, koji glaze",
+     0.7
+    ],
+    [
+     "Protein-flour sausage on a stick",
+     0.4
+    ],
+    [
+     "Garden pepper, seared, when there is one",
+     0.25
+    ]
+   ],
+   "tip": "Try one skewer from every stall, then buy your second from the best; the stall-holders watch which way you walk back."
+  },
+  {
+   "name": "Sweet Lane",
+   "style": "market",
+   "k": [
+    "thin",
+    "steady",
+    "fair",
+    "hall"
+   ],
+   "stars": 0,
+   "ladle": false,
+   "price": 0.5,
+   "where": "the {block} night market, the sweet end",
+   "blurb": "The end of the market given over to sugar, the cheapest calorie in the drum: pulled toffee, cendol in coconut-style cream, mochi on sticks, sugar glass. Children run the stalls at weekends, one aunt to a stall.",
+   "dishes": [
+    [
+     "Pulled toffee on a stick",
+     0.15
+    ],
+    [
+     "Cendol-style jelly in coconut-style cream",
+     0.3
+    ],
+    [
+     "Mochi on a skewer, toasted",
+     0.2
+    ]
+   ],
+   "tip": "Buy from a stall the children run; they give honest change and terrible advice."
+  },
+  {
+   "name": "The Free Pot",
+   "style": "market",
+   "k": [
+    "thin",
+    "counted"
+   ],
+   "stars": 1,
+   "ladle": true,
+   "price": 0,
+   "where": "the middle of the {block} night market",
+   "blurb": "Among the paid stalls stands a commons pot, kept by the Mill Hall and stirred by whoever is passing: jook in the early night, stew after midnight, free to all. The stall-holders eat from it too.",
+   "dishes": [
+    [
+     "Market jook with whatever the stalls gave",
+     0.6
+    ],
+    [
+     "Midnight stew with a starch swallow",
+     1.0
+    ],
+    [
+     "Chili crisp from the stall opposite",
+     0.05
+    ]
+   ],
+   "tip": "Stir the pot once as you pass; the custom is older than the market, and somebody always notices."
+  },
+  {
+   "name": "The Star Table",
+   "style": "feast",
+   "k": [
+    "steady",
+    "fair"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 13.0,
+   "where": "deck {hdeck}, the brightest room on {street}",
+   "blurb": "Tables for two, and each table gets one orchard apple, which runs through all eight courses: the star cut crosswise first, the flesh in three dishes, the peel candied, the seeds potted for you to take home. The steak is almost an afterthought.",
+   "dishes": [
+    [
+     "The cut: your apple halved crosswise, the star shown",
+     2.2
+    ],
+    [
+     "Cultivated steak, 150 g, with apple-peel jus",
+     2.2
+    ],
+    [
+     "Apple soufflé on precision casein",
+     0.8
+    ],
+    [
+     "Candied peel and a pot of the seeds",
+     0.1
+    ]
+   ],
+   "tip": "Plant the seeds you are given: nothing will fruit in a flat, but the seedling is a story for years."
+  },
+  {
+   "name": "Twelve Covers",
+   "style": "feast",
+   "k": [
+    "steady",
+    "maker",
+    "fair"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 14.0,
+   "where": "deck {hdeck}, behind an unmarked door off {street}",
+   "blurb": "Twelve guests and six cooks, one evening a week. Each cook makes two courses and serves them in person, explaining what each cost and why. The bill is mostly their hours, and the menu prints the arithmetic.",
+   "dishes": [
+    [
+     "A course of rack-grown greens, one leaf of each kind",
+     0.6
+    ],
+    [
+     "Cultivated steak, 200 g, basted in cultured butter",
+     2.91
+    ],
+    [
+     "Black garlic ice cream under spun sugar",
+     0.4
+    ],
+    [
+     "A quarter of an orchard pear, cut at the table",
+     1.1
+    ]
+   ],
+   "tip": "Read the arithmetic on the back of the menu before dessert, because the cooks ask whether you agree with it."
+  },
+  {
+   "name": "The Dim Table",
+   "style": "feast",
+   "k": [
+    "wood"
+   ],
+   "stars": 3,
+   "ladle": false,
+   "price": 8.0,
+   "where": "the heart of the {drum} wood, under the oldest yews",
+   "blurb": "Ten courses served in silence at one table in the dim wood, by hand lamp, with orders and thanks written on slates. Without talk you taste everything. The last course is a single strawberry, and the slates afterwards are mostly about it.",
+   "dishes": [
+    [
+     "Jook of Mill jasmine rice, one perfect spoonful",
+     0.1
+    ],
+    [
+     "Mycelium held three days on the loop, sliced at the table",
+     0.9
+    ],
+    [
+     "Cultivated beef, one thin warm slice",
+     0.75
+    ],
+    [
+     "A single rack strawberry",
+     0.1
+    ]
+   ],
+   "tip": "Write one line to the cooks on your slate before you leave; it is the only review they read."
+  },
+  {
+   "name": "The Wedding Room",
+   "style": "feast",
+   "k": [
+    "any"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 9.0,
+   "where": "deck {hdeck}, off the {block} Court",
+   "blurb": "Booked mostly for weddings and namings, where the apple is cut crosswise at the table and the star held up for the room. Between weddings it serves the same menu to anyone who asks, and the staff still clap at the cut.",
+   "dishes": [
+    [
+     "Cultivated steak, 200 g, basted in cultured butter",
+     2.91
+    ],
+    [
+     "Side salad with a cherry tomato each",
+     0.69
+    ],
+    [
+     "The apple, one for two, cut crosswise",
+     2.2
+    ],
+    [
+     "A glass of the old white",
+     0.3
+    ]
+   ],
+   "tip": "Ask to sit near a wedding party if there is one; strangers at weddings are often handed a slice of the star."
+  },
+  {
+   "name": "The Shell Egg",
+   "style": "feast",
+   "k": [
+    "steady",
+    "fair"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 5.0,
+   "where": "the Keel, behind the henhouse glass",
+   "blurb": "A dozen hens on vat feed behind a glass wall, and a kitchen that cooks nothing but their eggs. Most guests have never seen a yolk sit whole in its white, so the cooks crack each one in front of you.",
+   "dishes": [
+    [
+     "One shell egg, fried, on sourdough",
+     1.9
+    ],
+    [
+     "Two-egg custard, set on the loop",
+     3.4
+    ],
+    [
+     "Yolk cured in koji, grated over rice",
+     1.8
+    ]
+   ],
+   "tip": "Order the fried egg rather than the custard, since the custard hides the one thing you came to see."
+  },
+  {
+   "name": "Booking Night",
+   "style": "feast",
+   "k": [
+    "open",
+    "hall",
+    "steady"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 9.6,
+   "where": "the {block} hall, upstairs, by booking",
+   "blurb": "A hall room that cooks the Booking Day feast every night, for exactly what a dark day saves: a steak, a salad, half an apple, cheese and wine. Locals come on the anniversaries of good years. Visitors come to see what the fuss is about.",
+   "dishes": [
+    [
+     "Cultivated steak, 200 g",
+     2.91
+    ],
+    [
+     "Salad with tomato and herbs",
+     0.75
+    ],
+    [
+     "Half an orchard apple, cut crosswise",
+     2.2
+    ],
+    [
+     "Cheese and a glass of wine",
+     0.6
+    ]
+   ],
+   "tip": "Go dark the day before you come; the room seats people wearing the black thread first."
+  },
+  {
+   "name": "The Bright Room",
+   "style": "feast",
+   "k": [
+    "fair",
+    "steady"
+   ],
+   "stars": 2,
+   "ladle": false,
+   "price": 10.0,
+   "where": "deck {hdeck}, at the bright end of {street}",
+   "blurb": "A dining room lit to a clear noon, a hundred thousand lux, so the food looks the way no lamp-lit kitchen has ever seen it. Light is the dear thing, and the bill charges it by the hour. The staff wear dark glasses.",
+   "dishes": [
+    [
+     "Rack salad, shown under full light first",
+     0.6
+    ],
+    [
+     "A whole tomato, sliced at the table",
+     0.5
+    ],
+    [
+     "Mycelium steak with herb butter",
+     1.0
+    ],
+    [
+     "Strawberries and precision cream",
+     0.9
+    ]
+   ],
+   "tip": "Look at your hands under the light before you eat; most guests have never seen their own colour at noon."
+  },
+  {
+   "name": "The Pear Room",
+   "style": "feast",
+   "k": [
+    "steady",
+    "open",
+    "hall"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 6.0,
+   "where": "the {block} Court, on the terrace under the pear wall",
+   "blurb": "A room on the atrium terrace below the block's espaliered pears, which the children pollinate with brushes. When the pears ripen the room serves them, a quarter each, with cheese and wine. Otherwise it serves good food and promises.",
+   "dishes": [
+    [
+     "A quarter of a Court pear with aged cheese",
+     1.4
+    ],
+    [
+     "Mycelium steak with black garlic butter",
+     1.0
+    ],
+    [
+     "Tea of dried pear skin",
+     0.05
+    ],
+    [
+     "A glass of the old white",
+     0.3
+    ]
+   ],
+   "tip": "Ask when the pears are due; the children who brushed the blossom keep the dates and will tell you."
+  },
+  {
+   "name": "The Steak Room",
+   "style": "feast",
+   "k": [
+    "steady",
+    "fair",
+    "thin"
+   ],
+   "stars": 1,
+   "ladle": false,
+   "price": 6.5,
+   "where": "the Station Ring {ring} arcade, upstairs",
+   "blurb": "Cultivated steak, 200 g, cut from a slab grown for a month, seared on induction and basted in cultured butter. It costs more than the rest of the menu put together, and the menu is printed so that you notice.",
+   "dishes": [
+    [
+     "Cultivated steak, 200 g, basted in cultured butter",
+     2.91
+    ],
+    [
+     "Frites and béarnaise",
+     0.7
+    ],
+    [
+     "Side salad",
+     0.59
+    ],
+    [
+     "Crème caramel",
+     0.45
+    ]
+   ],
+   "tip": "Order it rare; the slab grew for a month and the cook takes overcooking personally."
+  }
+ ],
+ "dishes": [
+  {
+   "t": "Lamp-dawn jook of Mill jasmine rice, with chili crisp, sour-starch puffs and the Nine",
+   "kwh": 0.96,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Plain jook with spring onion and a spoon of the Nine",
+   "kwh": 0.5,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Overnight jook, held on the loop until silky, with black vinegar and crisped shallot",
+   "kwh": 0.6,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Jook with a moulded vat egg and a saucer of pickles",
+   "kwh": 0.8,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Congee with cultivated chicken fat, ginger and spring onion",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Sourdough toast with cultured butter and berry jam",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Soft-scrambled vat egg on sourdough",
+   "kwh": 0.75,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Onsen custard: vat egg held at 63 °C for an hour, with koji tare",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Soft-set vat egg in a cup, with toast soldiers",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Herb omelette on vat egg, with chive from the shelf",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "One shell egg, fried, the yolk left to run, on sourdough",
+   "kwh": 1.9,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Croissant laminated with cultured butter",
+   "kwh": 0.55,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Black sugar knot, still warm",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Cinnamon roll on gluten dough, glazed",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Yeast-raised steamed rice cake with a honeycomb crumb",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Tapioca crepe with coconut-style cream and black sugar",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Sweet starch porridge with black sugar and a pinch of salt",
+   "kwh": 0.4,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Resistant-starch porridge with cultured cream",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Yoghurt with berry purée and toasted starch crumbs",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Yoghurt with two rack strawberries, sliced thin",
+   "kwh": 0.65,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Mycelium bacon crisped on induction, with toast",
+   "kwh": 0.85,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Breakfast plate: vat egg, mycelium sausage, half a griddled tomato",
+   "kwh": 1.5,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Kaya-style coconut custard jam on toast with butter",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Rusks dunked in milk tea",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Steamed bun with sweet curd filling",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Warm silken curd in ginger syrup",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Fried dough sticks with warm soy-style milk",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Pancakes on precision egg with Mill syrup and cultured butter",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Dosa-style fermented starch crepe with a green herb relish",
+   "kwh": 0.5,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Vat eggs baked in plant-cell tomato purée, with flatbread",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Mill granola: puffed starch clusters bound with toffee",
+   "kwh": 0.4,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Black garlic toast: garlic aged five weeks on the loop, on sourdough with butter",
+   "kwh": 0.55,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Rice ball with a seam of sour plum-style paste",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Cheese toast with spring onion, under the grill element",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Mycelium sausage roll in flaky pastry",
+   "kwh": 0.55,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Sour-starch cheese puffs, a basket of six",
+   "kwh": 0.35,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Amazake porridge, brewed overnight at 60 °C",
+   "kwh": 0.35,
+   "tier": "mill",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Breakfast hand roll: sticky rice, shiso and a smear of the Nine",
+   "kwh": 0.2,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Tamago-style rolled omelette on vat egg, sweet and layered",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Waffle with black sugar syrup and cultured cream",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Pea shoots on buttered toast, cut that morning",
+   "kwh": 0.45,
+   "tier": "mixed",
+   "kind": "breakfast"
+  },
+  {
+   "t": "Mill lager, a pint",
+   "kwh": 0.38,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "A gin, near cost, with thiamine",
+   "kwh": 0.18,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Gin over sugar-glass ice",
+   "kwh": 0.18,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Gin and lactic tonic with a sliver of cucumber",
+   "kwh": 0.22,
+   "tier": "mixed",
+   "kind": "drink"
+  },
+  {
+   "t": "Cup of cell-culture coffee",
+   "kwh": 0.15,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Coffee with steamed precision milk",
+   "kwh": 0.25,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Milk tea with Mill creamer",
+   "kwh": 0.12,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Pulled milk tea, frothed between two jugs",
+   "kwh": 0.12,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Long-pour jasmine tea",
+   "kwh": 0.15,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Rack-grown green tea, two leaves and a bud, hand-rolled",
+   "kwh": 0.1,
+   "tier": "garden",
+   "kind": "drink"
+  },
+  {
+   "t": "Warm amazake, brewed overnight on the loop",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Lactic sour from the larder crock",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Five-year larder sour, pale and sharp",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Lactic soda in a stoppered bottle",
+   "kwh": 0.1,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Kombucha-style tea on garden mint",
+   "kwh": 0.15,
+   "tier": "mixed",
+   "kind": "drink"
+  },
+  {
+   "t": "A glass of red from plant-cell grapes",
+   "kwh": 0.25,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "A glass of the old white, five years in crock",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Warm sake in a lidded flask, Mill starch and koji",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Cloudy sake, cold",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Hot chocolate on plant-cell cocoa and steamed milk",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Salted drinking yoghurt",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Warm soy-style milk, sweetened",
+   "kwh": 0.15,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Bubble tea with tapioca pearls and black sugar",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Iced barley-style tea",
+   "kwh": 0.05,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Herb tea from the shelf, whatever was cut",
+   "kwh": 0.05,
+   "tier": "garden",
+   "kind": "drink"
+  },
+  {
+   "t": "Garden mint tea, fresh leaves",
+   "kwh": 0.1,
+   "tier": "garden",
+   "kind": "drink"
+  },
+  {
+   "t": "Hard-seltzer-style beer, lime-style",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "A thimble of true perry, pressed from fallen orchard pears",
+   "kwh": 1.6,
+   "tier": "garden",
+   "kind": "drink"
+  },
+  {
+   "t": "Smoke-style old fashioned, lidded until it reaches you",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "The house sour, lidded, with a vat egg-white foam",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Whisked matcha-style tea",
+   "kwh": 0.15,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Brewed ginger beer, cloudy",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Plum-style wine from plant-cell purée",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "drink"
+  },
+  {
+   "t": "Black sugar soda",
+   "kwh": 0.1,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Pear gin, all aroma and no pear",
+   "kwh": 0.18,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Gin and soda with garden mint",
+   "kwh": 0.21,
+   "tier": "mixed",
+   "kind": "drink"
+  },
+  {
+   "t": "A cup of the ring counter's broth, to drink",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Broth in a lidded bulb, for the weightless line",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Lactic cola, flat by design",
+   "kwh": 0.1,
+   "tier": "mill",
+   "kind": "drink"
+  },
+  {
+   "t": "Night stew with a stretchy starch swallow",
+   "kwh": 1.5,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Red palm-style stew with fried jelly cubes and a hand-pulled swallow",
+   "kwh": 1.5,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Cold glass noodles and starch-jelly cubes in chili oil and black vinegar",
+   "kwh": 1.05,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Noodles in sweet-savoury broth with a meaty reaction flavour",
+   "kwh": 0.96,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Hot glass noodles in a sweet glycine-alanine broth",
+   "kwh": 0.8,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Papeda-style starch with a sour yellow broth",
+   "kwh": 0.6,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Fufu-style swallow with a groundnut-style stew",
+   "kwh": 1.1,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Farofa-style crumbs toasted in butter-style fat, over rice and stew",
+   "kwh": 0.8,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Fat-rich Mill curry over extruded jasmine rice",
+   "kwh": 0.9,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Sour-starch dumplings in red chili oil",
+   "kwh": 0.6,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Starch noodles tossed on induction with chili crisp",
+   "kwh": 0.85,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Green herb stew, sour and peppery, over rice",
+   "kwh": 0.9,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Sticky rice with chili crisp and the Nine",
+   "kwh": 0.5,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Crackling starch steak under chili and black vinegar",
+   "kwh": 0.35,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Blight-cheese toastie, griddled until it blisters",
+   "kwh": 0.45,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Noodles under melted blight cheese and chili",
+   "kwh": 0.6,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Agedashi-style fried jelly cubes in a hot broth",
+   "kwh": 0.5,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Starch dumplings in a clear broth held below a simmer all day",
+   "kwh": 0.7,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Shoyu ramen: gluten noodles, gelatin-rich broth, chashu and a vat egg",
+   "kwh": 1.77,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Miso ramen with cultivated pork fat and sweet curd",
+   "kwh": 1.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Tantanmen-style ramen in sesame-style broth with crisped mycelium",
+   "kwh": 1.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Three-day broth noodles with cultivated chicken fat, never boiled",
+   "kwh": 1.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Hand-pulled noodles in gelatin-rich broth with koji tare",
+   "kwh": 1.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Knife-cut noodles in red braise with mycelium",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Dan dan-style noodles with crisped mycelium crumbs",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Laksa-style curry noodles in coconut-style cream, with fried curd",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Udon in koji-soy broth with sweet fried curd",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Curry udon with cultivated beef fat",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Rice noodle soup with cultivated beef fat and a fistful of fresh herbs",
+   "kwh": 1.2,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium steak, seared, basted with butter and cultivated beef fat",
+   "kwh": 0.95,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium steak, frites and béarnaise with garden tarragon",
+   "kwh": 1.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium held at 60 °C overnight, sliced thick, with miso butter",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium cured three days in shio-koji, seared once",
+   "kwh": 1.0,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium confit on rice, held in fat at 65 °C for twelve hours",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Miso-glazed mycelium, seared, with rice",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Orange Neurospora steak with black vinegar butter",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Cultivated steak, 200 g, basted in cultured butter",
+   "kwh": 2.91,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Cultivated steak frites with béarnaise",
+   "kwh": 3.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Cultivated beef held at 58 °C for three days, one thick slice",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Cultivated beef tartare with a vat egg yolk and pickles",
+   "kwh": 1.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "All-cultivated burger, rare, in a sourdough bun",
+   "kwh": 2.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Hybrid burger with aged cheese and pickles",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Personal pizza with casein cheese and tomato purée",
+   "kwh": 1.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Personal pizza with a fresh tomato sliced on top",
+   "kwh": 2.3,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Mapo-style curd with chili and sanshool, over rice",
+   "kwh": 1.0,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Braised curd in black vinegar with spring onion",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Pressure-cooker curry over Mill rice, glossed with cultivated pork fat",
+   "kwh": 1.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Katsu-style curd cutlet with curry sauce and rice",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Fried protein-flour cutlet in a soft gluten bun",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Extruded chicken-style strips in a cream sauce over rice",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Protein-flour nuggets with sweet chili dip",
+   "kwh": 0.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Rice cooked in cultivated chicken fat, with sliced protein-flour chicken",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium strips in flatbread with garlic sauce and pickles",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Biryani-style rice with mycelium and saffron-style aroma",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Paella-style rice with cultivated fat, crisp at the bottom",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Risotto with precision butter and aged cheese",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Residue-grown mushrooms seared in butter, over risotto",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Lasagne of gluten sheets, casein cheese and tomato purée",
+   "kwh": 1.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Macaroni in a casein cheese sauce, crusted under the element",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Starch gnocchi in brown butter and sage from the shelf",
+   "kwh": 0.8,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Ravioli of curd and herbs in melted butter",
+   "kwh": 1.0,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Pierogi-style dumplings with curd and crisped shallot",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium stroganoff over buttered noodles",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium meatballs in plant-cell tomato purée",
+   "kwh": 1.1,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium sausages and starch mash with onion gravy",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium mince pie under a crust of starch mash",
+   "kwh": 1.2,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium and gravy pie in a lard-style crust",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Cheese fondue for two, with bread to dip, a head",
+   "kwh": 1.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Raclette-style cheese melted over starch dumplings and pickles",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Gratin of starch slices and casein cream",
+   "kwh": 1.0,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Bibimbap-style rice with mycelium, a vat egg and pickles",
+   "kwh": 1.3,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Hot pot for six, lidded: curds, glass noodles and greens, a head",
+   "kwh": 1.8,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Tempeh-style cake, fried in a sweet chili glaze, with rice",
+   "kwh": 0.95,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Oncom-style cake of Neurospora on starch, fried",
+   "kwh": 0.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Mycelium in koji and garlic, with no animal fat at all",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Koji-aged cultivated pork fat over hot rice",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Five slices of mycelium, each basted in a different cultivated fat",
+   "kwh": 1.4,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Udon-thick noodles in curry, with a tempura-style crisp of greens",
+   "kwh": 1.5,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "The salad: 150 g of leaves, cucumber and cherry tomatoes",
+   "kwh": 1.0,
+   "tier": "garden",
+   "kind": "main"
+  },
+  {
+   "t": "Side salad with a cherry tomato",
+   "kwh": 0.69,
+   "tier": "garden",
+   "kind": "main"
+  },
+  {
+   "t": "A whole tomato, sliced, on warm sourdough with oil and salt",
+   "kwh": 0.8,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Tomato soup made from real tomatoes, a small bowl",
+   "kwh": 1.2,
+   "tier": "garden",
+   "kind": "main"
+  },
+  {
+   "t": "Tomato and casein mozzarella with basil from the shelf",
+   "kwh": 0.9,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Pea shoots wilted into noodles with garlic oil",
+   "kwh": 0.6,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Microgreens over cold glass noodles",
+   "kwh": 0.6,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Fresh green chili sliced over curds and rice",
+   "kwh": 0.7,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Greens from the racks, tossed on induction with garlic",
+   "kwh": 0.6,
+   "tier": "garden",
+   "kind": "main"
+  },
+  {
+   "t": "Lettuce cups with spiced mycelium mince",
+   "kwh": 0.9,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Glass noodles under a fistful of herbs from the shelf",
+   "kwh": 0.75,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Cultivated steak, 150 g, with half a pear sliced alongside",
+   "kwh": 4.4,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Sour fish-sauce-style broth with glass noodles, from a far raft's recipe",
+   "kwh": 0.9,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "A far raft's stew, cooked as received, measures guessed",
+   "kwh": 0.9,
+   "tier": "mixed",
+   "kind": "main"
+  },
+  {
+   "t": "Weightless-line soup in a bulb, with noodles that swim",
+   "kwh": 0.7,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Day One larder bowl: dried noodles, miso and the Nine",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Dried noodles from a tin, in broth with the Nine",
+   "kwh": 0.6,
+   "tier": "mill",
+   "kind": "main"
+  },
+  {
+   "t": "Miso-braised cured mycelium from a numbered crock",
+   "kwh": 0.9,
+   "tier": "vat",
+   "kind": "main"
+  },
+  {
+   "t": "Krupuk with chili crisp",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Big krupuk, wider than your face",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Sour-starch puffs dusted with the Nine",
+   "kwh": 0.12,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Fried jelly cubes in salt and black vinegar",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Liangfen-style starch jelly in chili oil and black vinegar",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Jelly cubes with garlic and spring onion",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Warm sesame-style tofu under a sweet-savoury glaze",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "The bowl of the Nine, worked into a paste with chili oil",
+   "kwh": 0.17,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Sticky rice ball",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Rice crackers with chili crisp",
+   "kwh": 0.12,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Puffed-starch clusters in toffee, popcorn-style",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Frites with Mill aioli",
+   "kwh": 0.5,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Tapioca crepe folded round blight cheese and chili",
+   "kwh": 0.35,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Tapioca flatbread with chili crisp",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Starch fritters with spring onion",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Six crystal dumplings, mycelium and garden chive",
+   "kwh": 0.6,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Netted dumplings, crystal-wrapped, in a string bag",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "snack"
+  },
+  {
+   "t": "Gyoza-style dumplings, seared on one side",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Steamed bun with pulled mycelium in hoisin-style glaze",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Three mycelium skewers in koji glaze",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Protein-flour sausage on a stick",
+   "kwh": 0.4,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Fried curd skins, salted",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Crisped curds with chili salt",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Cheese toastie on sourdough, edges laced",
+   "kwh": 0.8,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Slice of aged cheese on a cracker",
+   "kwh": 0.4,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Board of three aged cheeses, each with its vintage",
+   "kwh": 1.0,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Cured mycelium ham, cut thin as paper",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Roasted protein-fat nuts, salted",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Moulded vat egg simmered in tea and koji soy",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Salted pretzel on gluten dough",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Curried mycelium hand pie",
+   "kwh": 0.5,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Samosa-style pastry of spiced starch and garden chili",
+   "kwh": 0.45,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Miso soup with curds and spring onion",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Cheese crisps, baked on the element",
+   "kwh": 0.2,
+   "tier": "vat",
+   "kind": "snack"
+  },
+  {
+   "t": "Cucumber, cold, cut thick, salted",
+   "kwh": 0.45,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "A radish with butter",
+   "kwh": 0.3,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "A single cherry tomato, warm from the lamp",
+   "kwh": 0.1,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Smacked cucumber with garlic and black vinegar",
+   "kwh": 0.5,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Blistered peppers, salted",
+   "kwh": 0.5,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Shiso hand roll around sticky Mill rice and a smear of the Nine",
+   "kwh": 0.2,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Herb-pot pesto on sourdough",
+   "kwh": 0.4,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Cucumber sandwiches on Mill bread, crusts off",
+   "kwh": 0.5,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Pickle plate: cucumber, shallot and radish from six crocks",
+   "kwh": 0.5,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Pickled garden shallots",
+   "kwh": 0.3,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Fritters of starch and rack greens",
+   "kwh": 0.4,
+   "tier": "mixed",
+   "kind": "snack"
+  },
+  {
+   "t": "Bowl of pea shoots in sesame-style dressing",
+   "kwh": 0.25,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "A head of black garlic, to spread on bread",
+   "kwh": 0.2,
+   "tier": "garden",
+   "kind": "snack"
+  },
+  {
+   "t": "Kuih lapis, layered all day, cut at noon",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Lokum dusted with starch, rose and mint",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Karachi-style halwa, chewy and bright",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Fresh mochi with black sugar syrup",
+   "kwh": 0.2,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Cendol-style jelly in coconut-style cream",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Sugar glass shattered over cold jelly",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Pulled toffee on a stick",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Fudge, cut in squares from a tray",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Compound chocolate, a small bar",
+   "kwh": 0.45,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Dark chocolate on plant-cell cocoa, a bar",
+   "kwh": 0.59,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Non-dairy ice cream, two scoops",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Ice cream on precision casein, with black sugar crunch",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Black garlic ice cream",
+   "kwh": 0.3,
+   "tier": "mixed",
+   "kind": "sweet"
+  },
+  {
+   "t": "Amazake sorbet over warm koji cream",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Grass jelly in black syrup",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Methylcellulose meringue, crisp and white, with no egg in it",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Rice pudding with Mill creamer and nutmeg",
+   "kwh": 0.35,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Jalebi-style coils in syrup",
+   "kwh": 0.25,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Marshmallow on Mill gelatin, toasted on the element",
+   "kwh": 0.15,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Orchard pearls: tiny sugar cells that crack like grapes",
+   "kwh": 0.4,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Mock apple pie: crackers, sugar, cream of tartar, cinnamon",
+   "kwh": 0.3,
+   "tier": "mill",
+   "kind": "sweet"
+  },
+  {
+   "t": "Mock pear pie, lightly spiced, with cold custard",
+   "kwh": 0.4,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Slice of tiramisu",
+   "kwh": 1.05,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Crème caramel, lidded",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Panna cotta that melts at mouth temperature",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Custard tart, set on the loop",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Black sugar custard, barely set",
+   "kwh": 0.35,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Third-g soufflé on precision casein, still standing at the table",
+   "kwh": 0.8,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Meringue on vat egg white, piped tall",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Knotnight pie: preserved berry purée under a lard-style crust, cold custard",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Kouign-amann with black sugar",
+   "kwh": 0.7,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Chocolate croissant on plant-cell cocoa",
+   "kwh": 0.65,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Doughnut filled with berry jam",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Steamed sponge with a jug of custard",
+   "kwh": 0.3,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Sticky toffee pudding with cultured cream",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Gummy sweets on precision gelatin, a paper bag",
+   "kwh": 0.2,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Brownie on plant-cell cocoa",
+   "kwh": 0.55,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Egg tart of vat egg custard in flaky pastry",
+   "kwh": 0.45,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Syrup pastry with roasted protein-fat nuts, baklava-style",
+   "kwh": 0.6,
+   "tier": "vat",
+   "kind": "sweet"
+  },
+  {
+   "t": "Strawberries with cold custard",
+   "kwh": 0.9,
+   "tier": "mixed",
+   "kind": "sweet"
+  },
+  {
+   "t": "One rack strawberry, rolled in sugar",
+   "kwh": 0.15,
+   "tier": "garden",
+   "kind": "sweet"
+  },
+  {
+   "t": "Three orchard cherries on a saucer",
+   "kwh": 0.6,
+   "tier": "garden",
+   "kind": "sweet"
+  },
+  {
+   "t": "A quarter of an orchard pear, cut at the table",
+   "kwh": 1.1,
+   "tier": "garden",
+   "kind": "sweet"
+  },
+  {
+   "t": "Half an orchard apple, cut crosswise to show the star",
+   "kwh": 2.2,
+   "tier": "garden",
+   "kind": "sweet"
+  },
+  {
+   "t": "An orchard apple, cut crosswise and shared round the table",
+   "kwh": 4.4,
+   "tier": "garden",
+   "kind": "sweet"
+  }
+ ],
+ "counter": [
+  {
+   "t": "a sticky rice ball with a seam of chili crisp",
+   "kwh": 0
+  },
+  {
+   "t": "a sprig of whatever the hall cut this morning, dropped into your broth",
+   "kwh": 0
+  },
+  {
+   "t": "a pinch of the Nine shaken over the broth, for the glide",
+   "kwh": 0
+  },
+  {
+   "t": "a second ladle of broth, because the counter-hand thinks you look peaky",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball wrapped in a strip of strain-library sea lettuce",
+   "kwh": 0
+  },
+  {
+   "t": "a cup of broth with a ribbon of sea lettuce from the strain library",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball pressed into a triangle round a thumbprint of sour plum-style paste",
+   "kwh": 0
+  },
+  {
+   "t": "a broth so peppery the regulars cough on purpose",
+   "kwh": 0
+  },
+  {
+   "t": "a sweet broth with a drop of black vinegar to argue with",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball rolled in toasted starch crumbs",
+   "kwh": 0
+  },
+  {
+   "t": "a paper twist of thiamine salt for your broth",
+   "kwh": 0
+  },
+  {
+   "t": "a broth with a slick of chili oil on top, unasked",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball still warm from the steamer, in paper stamped with the ring number",
+   "kwh": 0
+  },
+  {
+   "t": "the broth in a lidded cup you are trusted to bring back",
+   "kwh": 0
+  },
+  {
+   "t": "the broth, and a long opinion on why it beats {nb}'s",
+   "kwh": 0
+  },
+  {
+   "t": "the broth, and directions to your guest flat drawn on the napkin",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball with a crumb of blight cheese in the middle, made to the blight-year recipe",
+   "kwh": 0
+  },
+  {
+   "t": "a sour broth from the counter's larder crock, today only",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball with a sliver of pickled shallot pressed into the top",
+   "kwh": 0
+  },
+  {
+   "t": "the broth with a spoon of chili crisp from the counter-hand's own jar",
+   "kwh": 0
+  },
+  {
+   "t": "a broth seasoned with the last of yesterday's herb cuttings",
+   "kwh": 0
+  },
+  {
+   "t": "a cup of broth and a cup of jasmine tea, because the urn was on",
+   "kwh": 0
+  },
+  {
+   "t": "a sugar biscuit stamped with the ring number, for wanderers only",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball with a fleck of garden chive in it, which the counter mentions twice",
+   "kwh": 0
+  },
+  {
+   "t": "the broth with a spoon of glass noodles in it, since the pot needed finishing",
+   "kwh": 0
+  },
+  {
+   "t": "a broth that tastes of the hall's stew pot, which is what it was an hour ago",
+   "kwh": 0
+  },
+  {
+   "t": "a double rice ball, two pressed together, for anyone carrying a pack",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball with a crisp crust from the hot plate",
+   "kwh": 0
+  },
+  {
+   "t": "a broth held on the loop since lamp-dawn, sweet and clear",
+   "kwh": 0
+  },
+  {
+   "t": "a broth with a few fried jelly cubes bobbing in it",
+   "kwh": 0
+  },
+  {
+   "t": "the broth, with a lid and a word of warning about the catch",
+   "kwh": 0
+  },
+  {
+   "t": "a second rice ball for the drum after next, wrapped for the glide",
+   "kwh": 0
+  },
+  {
+   "t": "a sticky rice ball with a black sugar centre",
+   "kwh": 0
+  },
+  {
+   "t": "a cup of amazake instead of broth, for anyone who asks before seven",
+   "kwh": 0
+  },
+  {
+   "t": "the broth with black pepper ground over it at the hatch",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball folded round a smear of miso",
+   "kwh": 0
+  },
+  {
+   "t": "a broth the counter-hand calls the old recipe, which tastes of ginger and argument",
+   "kwh": 0
+  },
+  {
+   "t": "a rice ball and the name of the best cheap supper in the drum, written on the wrapper",
+   "kwh": 0
+  },
+  {
+   "t": "a cup of broth with a spoon of the hall's chili oil, because there was too much",
+   "kwh": 0
+  },
+  {
+   "t": "a moulded vat egg simmered in tea and koji soy",
+   "kwh": 0.35
+  },
+  {
+   "t": "a slice of pickled cucumber laid on the rice ball",
+   "kwh": 0.08
+  },
+  {
+   "t": "a cup of milk tea with Mill creamer",
+   "kwh": 0.12
+  },
+  {
+   "t": "a cup of cell-culture coffee for the platform",
+   "kwh": 0.15
+  },
+  {
+   "t": "a paper cone of sour-starch puffs",
+   "kwh": 0.25
+  },
+  {
+   "t": "a hand pie in a lard-style crust, still warm",
+   "kwh": 0.5
+  },
+  {
+   "t": "a steamed bun with pulled mycelium",
+   "kwh": 0.45
+  },
+  {
+   "t": "a slice of aged cheese folded into the rice ball",
+   "kwh": 0.33
+  },
+  {
+   "t": "a skewer of mycelium off the hatch's one induction rail",
+   "kwh": 0.25
+  },
+  {
+   "t": "a gin, for the platform only and never the glide",
+   "kwh": 0.18
+  },
+  {
+   "t": "a pint of Mill lager, mostly for crews coming off shift",
+   "kwh": 0.38
+  },
+  {
+   "t": "a tapioca crepe with black sugar",
+   "kwh": 0.3
+  },
+  {
+   "t": "a bag of krupuk for the cycler",
+   "kwh": 0.15
+  },
+  {
+   "t": "a net of four bread rolls for a weightless line",
+   "kwh": 0.5
+  },
+  {
+   "t": "soup in a bulb with a straw, for the slow cycler",
+   "kwh": 0.2
+  },
+  {
+   "t": "six dumplings in a string bag",
+   "kwh": 0.3
+  },
+  {
+   "t": "a single cherry tomato from a glass jar on the hatch",
+   "kwh": 0.1
+  },
+  {
+   "t": "a strip of berry leather",
+   "kwh": 0.15
+  },
+  {
+   "t": "a black sugar mochi",
+   "kwh": 0.2
+  },
+  {
+   "t": "a spoon of chili crisp in a twist of waxed paper",
+   "kwh": 0.05
+  },
+  {
+   "t": "a croissant from the station bakery, a day old and half price",
+   "kwh": 0.28
+  },
+  {
+   "t": "a cup of warm amazake for shaky legs after the catch",
+   "kwh": 0.2
+  },
+  {
+   "t": "a pocket tin of the Nine",
+   "kwh": 0.4
+  },
+  {
+   "t": "a lidded cup of jook to carry into the lift",
+   "kwh": 0.5
+  },
+  {
+   "t": "a skewer of fried jelly cubes",
+   "kwh": 0.15
+  },
+  {
+   "t": "a cheese toastie pressed while you wait",
+   "kwh": 0.8
+  },
+  {
+   "t": "a rice ball with a centre of crisped cultivated pork fat",
+   "kwh": 0.25
+  },
+  {
+   "t": "a cup of the hall's night stew, when there is some left",
+   "kwh": 0.6
+  },
+  {
+   "t": "a lactic soda in a stoppered bottle",
+   "kwh": 0.1
+  },
+  {
+   "t": "a jar of the counter's own chili crisp, to take away",
+   "kwh": 0.4
+  },
+  {
+   "t": "one crystal dumpling, hot",
+   "kwh": 0.1
+  },
+  {
+   "t": "a glazed pastry knot",
+   "kwh": 0.3
+  },
+  {
+   "t": "a rack strawberry in a paper cup, kept back for birthdays",
+   "kwh": 0.1
+  },
+  {
+   "t": "a spoon of cultivated chicken fat floated on your broth",
+   "kwh": 0.15
+  },
+  {
+   "t": "a sprig of mint to hold during the glide, not to eat",
+   "kwh": 0.03
+  },
+  {
+   "t": "a spoon of the counter's starter, wrapped for travel",
+   "kwh": 0.05
+  },
+  {
+   "t": "a wedge of Knotnight pie",
+   "kwh": 0.35
+  },
+  {
+   "t": "a herb cutting in a twist of damp paper, for your next host",
+   "kwh": 0.03
+  },
+  {
+   "t": "a clove of black garlic pressed into the rice ball",
+   "kwh": 0.05
+  },
+  {
+   "t": "a cup of the {nb} blend of tea, which arrives by glide each morning",
+   "kwh": 0.12
+  },
+  {
+   "t": "a bowl of noodles in the same broth, for anyone with a long wait",
+   "kwh": 0.96
+  },
+  {
+   "t": "a slice of crème caramel, lidded, from the hall upstairs",
+   "kwh": 0.45
+  }
+ ],
+ "hallnights": [
+  "hand-pulled noodles in a broth held since lamp-dawn, and a rice cake each for the wanderers",
+  "red stew with a starch swallow, pulled at the pass by a cook who takes requests",
+  "curry from the big pressure pot, with pickles from three aunts' crocks",
+  "hot pot under a lid that takes two to lift, and the choir singing between ladles",
+  "jook in the lamp-night for the laundry shift and anyone else still up",
+  "mycelium braised in miso for four hundred, and one cucumber cut for the whole table",
+  "whatever the aunts brought: eleven dishes, one each, and rice from the hall's cooker",
+  "the blight menu, cooked on its anniversary, with the old cooks telling the story",
+  "dumpling night: the hall folds them together, and guests are handed a tray",
+  "noodles in a clear broth, and a tomato cut thirty ways down the long table",
+  "a stew from a recipe a wanderer left last month, still being argued over",
+  "glass noodles cold in chili oil, and gin after six for anyone who wants it",
+  "a bowl from the guest pot, which tastes tonight of {nb} and somewhere further",
+  "bread from {nb}'s bakery, which the hall serves and says it bakes",
+  "mycelium steak for the whole hall, because a line came back from the library today",
+  "a Knotnight rehearsal: larder food only, lamps low, the children sealing crocks",
+  "pies in lard-style crusts on a {weekday}, with custard by the jug",
+  "the cook's mother's curry, which is why the queue starts at five",
+  "rice and three relishes, then a cake for a naming two tables down",
+  "noodles pulled on the terrace at a third of a g and carried down still lidded",
+  "onsen custards set on the loop all afternoon, and black garlic toast",
+  "a green soup of herb cuttings from every flat in the block, sharp and peppery",
+  "cold jelly cubes and hot broth, because the room is warm and the cook is tired",
+  "what the elders call Eleven Days stew, with more in it than they had then",
+  "ramen with chashu and a vat egg, eaten in silence, with slates by the door for thanks",
+  "broth and rice in silence, and the only sound is the lids",
+  "steamed buns by the hundred, folded by the school in the afternoon",
+  "{name}'s dumplings again, which nobody minds, with a broth to drop them in",
+  "{name}'s curd braised in black vinegar, and rice from the big cooker",
+  "noodles with fresh chili from the racks, one slice to a bowl",
+  "hot pot for every table, with the guests' bowls filled first",
+  "a send-off for the wanderers leaving tomorrow: rice cakes, gin and a speech nobody hears",
+  "the night stew, and a Court pear cut in eighths for the eldest at each table",
+  "a soup with sea lettuce from the strain library, which the cook is very proud of",
+  "dumplings, then the choir, then more dumplings",
+  "mapo curd with too much sanshool, and lager to put it out",
+  "rice cooked in cultivated chicken fat, and a folding lesson for anyone who stays to clear",
+  "a far raft's recipe cooked as received, and a show of hands on whether to keep it",
+  "a tasting of the new koji line, with cards for notes",
+  "noodles in broth for four hundred, and a second bowl for anyone who glided in today",
+  "mycelium skewers off the long rail, and pickles passed hand to hand",
+  "the Mill table done properly: swallow, stew, the Nine and a joke about the Nine",
+  "a stew of everything left in the crocks before the new larder goes in",
+  "curry udon for the shift crews, with the guests seated between them",
+  "jook, one song and an early night, because the block court sat late",
+  "a birthday cake for an aunt of ninety, cut so that everyone gets a sliver",
+  "glass noodles, jelly cubes and gossip, in roughly that order",
+  "a lidded pie for every table, and a mild dispute over the crusts",
+  "a soup from {far}, sent home as a recipe by a wanderer who ate it there",
+  "hand-pulled noodles and black sugar custard, cooked by the school's oldest class",
+  "rice, pickles and a broth held all day below a simmer, then tea",
+  "cucumber and gin night, which is mostly gin",
+  "a crackling-starch supper in memory of a blight year, with the elders' stories",
+  "one great stew for the block, and the guest who stirs it gets the first bowl",
+  "noodles cut by a visiting cook from {nb}, who has stayed nine days so far",
+  "sticky rice and red braise, and somebody's aunt playing a very long flute",
+  "steamed rice cakes for the wanderers to carry on the next glide",
+  "a lamps-down supper for Knotnight practice, with the larder made afterwards",
+  "shoyu ramen and a sliver of pear tart each, because the Court's wall gave more than expected",
+  "the {weekday} roast: mycelium basted in cultivated beef fat, gravy, and seconds for guests"
+ ]
+}
