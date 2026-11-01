@@ -1,0 +1,796 @@
+[
+ {
+  "id": "the-lake",
+  "name": "The Lake",
+  "kind": "water",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 5,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Three square kilometres of the drum's own water, two metres deep, curving up at both ends until the far shore stands on its side.",
+  "text": "The lake fills three Hours of the floor, Fox to Stag, and the middle three Rings: about 3 km² of water two metres deep, some six million tonnes of the drum's reserve. Along the axis it lies flat. Around the drum it curves up with the floor, so from the Fox shore the Stag end stands on its side, a quarter of the way round, with swimmers on it at right angles to you. The water is filtered clear to the bottom everywhere. At half a g the waves come in slow and tall, and the only waves are the ones people make. Until nine each morning the lake belongs to the elders. After that it belongs to whichever decks have the turn.",
+  "detail": "Elders only from lamp-dawn to nine. The water is about a degree cooler then than at dusk, and the elders count that as part of the privilege.",
+  "canon": "ashgrove.md",
+  "tags": [
+   "lake",
+   "swimming",
+   "half-g",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-jetty",
+  "name": "The Jetty",
+  "kind": "water",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 6,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A plank jetty off Bench Island in the middle of the lake, where a dive takes half again as long to fall.",
+  "text": "Otter, Ring 5 is the middle of the lake, so the jetty starts from an island: Bench Island, a cab pavilion that comes up through the lake bed with a lawn round it about the size of a court. The jetty runs forty metres out and ends in two boards, one and three metres up. At half a g a dive takes half again as long to fall, so you have time to think about it, and from the high board, time to regret it. Everything lands a little anti: from three metres, about a hand's width. Children learn to aim a hand's width spinward and come down straight. Getting out is the hard part, because heliox takes the heat off wet skin in a minute.",
+  "detail": "Boards open at nine, when the elders' hours end. One lifeguard on the jetty and one on a paddleboard. The island's pavilion is the quickest way to the water from the High decks.",
+  "who": {
+   "name": "Femi Strand",
+   "age": 34,
+   "role": "lifeguard",
+   "line": "Half a g gives you time to fix a bad dive. Nobody uses it. They spend it shouting."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "lake",
+   "diving",
+   "pavilion",
+   "Coriolis"
+  ]
+ },
+ {
+  "id": "the-elders-bench",
+  "name": "The Elders' Bench",
+  "kind": "rites",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 6,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A long bench on Bench Island, facing the water, where Sorrel's elders sit in order of age every morning at lamp-dawn.",
+  "text": "Every morning at six the lake is the elders', and the bench is where they sit before and after. It's forty metres of slatted timber facing the jetty, and by custom it fills by age: the oldest at the water end, the youngest landward. Every slat has been replaced at least once, and it's still the oldest seat in the Hollow. At six the sunline is dark and the far bank is pavilion lamps. By seven the light is warm and the lake has gone from black to grey; by nine it's white, and the line is too bright to look at. Most of the bench watches all three hours. Then the turn's decks come up, children run for the jetty, and the bench goes home to breakfast.",
+  "detail": "Elders only, 06:00 to 09:00, every day. No booking: you sit where your age puts you, and everyone shuffles along when someone older arrives.",
+  "who": {
+   "name": "Hedda Dace",
+   "age": 93,
+   "role": "retired back-crew hand",
+   "line": "At ninety-three I'm at the young end. I'll get to the water end eventually, one way or the other."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "elders",
+   "lamp-dawn",
+   "lake",
+   "custom"
+  ]
+ },
+ {
+  "id": "robe-house",
+  "name": "The Robe House",
+  "kind": "eat",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 7,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A long low house on the Stag shore that hands every swimmer a warm robe and a lidded cup of broth.",
+  "text": "Heliox draws heat off skin about four times faster than the old air did, so nobody in Sorrel gets out of the lake and stands about. They walk dripping to the Robe House, on the front shore at the Stag end, where robes come off warm rails and broth comes in cups with lids, as everything does. It's the same peppery Mill broth the ring counters pour, free on the commons. The robes are the drum's, washed in the lamp-night when power is cheapest, and some are older than the people wearing them. Inside it's the warmest room on the floor and smells of pepper and wet cloth. People sit in rows on the benches with their hands round their cups and watch the lake curve up and away.",
+  "detail": "Robe and first cup free on your turn; a second cup is 0.1 kays. Robes go back on the rail by the door. The drum counts them every night and is always two short.",
+  "tags": [
+   "lake",
+   "broth",
+   "warmth",
+   "lids"
+  ]
+ },
+ {
+  "id": "the-orchards",
+  "name": "The Orchards",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 3,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Nearly five square kilometres of apple trees across Heron, Owl and Bee, lit free by the sunline and kept in a rolling year.",
+  "text": "The orchards fill three Hours, Heron to Bee, from Ring 3 to Ring 7: nearly five square kilometres, mostly apples, with a few rows of pears and quince. The trees get their light free, because the Hollow is lit anyway. The apples still cost 4.4 kays at the greengrocer's, the same as the lamp-grown ones from the Keel's racks, and what the light didn't cost goes to the commons. Nothing outside tells a tree when to flower, so the crews tell it: sections are chilled, woken, brushed and picked in turn. Walk spinward from Heron to Bee and inside an hour you can pass a winter tent, a row in blossom and a row being picked, all under the same noon.",
+  "detail": "Orchard paths are open on your turn; the trees are not. Picking is by the crews and the rota. An apple from these rows is a gift, never a snack.",
+  "who": {
+   "name": "Benedek Arro",
+   "age": 47,
+   "role": "orchard crew lead",
+   "line": "People ask me which row is in winter this week. I tell them to follow the coats."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "apples",
+   "orchard",
+   "free light",
+   "food"
+  ]
+ },
+ {
+  "id": "the-pavilions",
+  "name": "The Pavilions",
+  "kind": "civic",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": 1500,
+  "wall": null,
+  "blurb": "About 1,300 lift cores come up through the floor as pavilions, one every 170 m; Ashgrove's comes up among the apples in Three, Bee.",
+  "text": "One lift core in four rises through the Hollow's floor and ends in a pavilion: a round roof on pillars, a ring of benches, a drinking fountain and the cab doors. There are about 1,300 of them, some 170 m apart, so wherever you stand there's one in sight. You come up into the Hollow through the ground. The doors open, and the first thing everyone does is look up and keep looking, because the land rises on both sides until it's overhead. Ashgrove's pavilion, in Three, Bee, comes up among apple trees, and Bee's families give directions from it. The Hollow fills faster than the Lattice does, so at the start of a turn the cabs come up in platoons and the benches empty in minutes.",
+  "detail": "Deck 361 to the floor takes about fourteen seconds. Pavilions are numbered by Ring and Hour, but everyone names them by what's nearest: the jetty, the bandstand, the third tent.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "cabs",
+   "arrival",
+   "pavilion",
+   "Lattice"
+  ]
+ },
+ {
+  "id": "winter-tents",
+  "name": "The Winter Tents",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 2,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Chilled tents over sections of orchard, held at four degrees for six weeks so the trees will bloom: the only winter in Sorrel you can walk into.",
+  "text": "Apple trees won't flower without a winter, and Sorrel has none, so the crews make one a section at a time. A tent of grey cloth goes over a few rows, the chillers bring it down to four degrees, and for six weeks the trees drop their leaves and sleep. Visitors may walk through on their turn, and they queue for it. At four degrees heliox takes the heat out of you so fast that it feels colder than anything in the old pictures, and it's the only place most Sorrelers ever see their breath. Leaves come down slowly at half a g and land a little anti, and children take them home. Then the tent moves on, and three weeks later the section is in blossom.",
+  "detail": "Coats are lent at the tent flap: thick, many times mended, smelling of the last hundred wearers. Fifteen minutes inside is the rule. Most people manage eight.",
+  "who": {
+   "name": "Ottoline Brisk",
+   "age": 29,
+   "role": "chiller technician",
+   "line": "They come in to see their breath. They stay to complain. Then they queue again next turn."
+  },
+  "tags": [
+   "apples",
+   "cold",
+   "winter",
+   "orchard"
+  ]
+ },
+ {
+  "id": "brush-rows",
+  "name": "Brush Rows",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 4,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Rows in blossom where every flower is pollinated by hand, from a step-ladder, with a soft brush.",
+  "text": "Nothing in Sorrel carries pollen but people. Every apple in the Hollow starts with someone on a step-ladder with a soft brush, dabbing pollen from one variety's flowers onto another's, flower by flower, tree by tree. It's slow, and it's the most popular volunteer rota on the floor, partly because it comes with hours in the orchard and partly because a row in blossom is the prettiest thing in the drum. School classes from Bee come up for a morning of it, and at half a g the smaller children can reach the top flowers from the ladder's top step, which they're told not to stand on. A good brusher does a tree in an hour. The crew can tell which tree was missed by which apples never come.",
+  "detail": "Join the brush rota and you get two hours in the rows outside your turn. Bring nothing: the brushes are the orchard's, numbered, and very old.",
+  "tags": [
+   "blossom",
+   "pollination",
+   "children",
+   "volunteers"
+  ]
+ },
+ {
+  "id": "the-old-graft",
+  "name": "The Old Graft",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 3,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A fenced row of russet apple trees grafted from one line for longer, the crews say, than the Register of Places has run.",
+  "text": "In Sorrel the best chair in a room is the oldest, and the best apple is the Sorrel russet: small, brown, rough-skinned, tasting of pear and nut. Every russet tree in the drum is a graft from a graft, back, the crews say, further than the Register's 23,000 years, and this row at the back of Owl's orchard is where they keep the line. Each tree wears a tag with the number of graftings between it and the first one anyone wrote down. The oldest tree standing is about two hundred years old, bent nearly double, and still gives a few hundred apples a year. None are sold. They go to Sorrel's oldest residents, one each on their birthday, as far down the list as the row allows.",
+  "detail": "The row is fenced and the gate opens only for the graft crew. From the path you can see it: the trees with tags, and the bent one in the middle.",
+  "who": {
+   "name": "Selma Ordway",
+   "age": 112,
+   "role": "retired grafter",
+   "line": "This line is older than the Register. In sixty years it has never once taken a graft from anyone in a hurry."
+  },
+  "tags": [
+   "apples",
+   "heirloom",
+   "oldest",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-lawns",
+  "name": "The Lawns",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 8,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Nearly seven square kilometres of grass across Swift, Badger and Moth, where most of Sorrel's turns are spent on a cloth.",
+  "text": "From Ring 2 to Ring 8 the three Hours from Swift to Moth are lawn: short grass, a few big trees, and nearly seven square kilometres of picnic. This is where a family on its turn spreads a cloth, takes the lids off and looks up. Food cools fast in heliox, so picnics come in lidded crocks in quilted bags, and the first rule of a Sorrel picnic is that the lid goes back on between helpings. Shadows here are sharp on their spinward and anti sides and soft toward the ends of the drum, because the light comes from a line, and they don't move all day. Under the trees at noon it's still brighter than any room in Sorrel.",
+  "detail": "Mown in the lamp-night by robots that are gone by lamp-dawn. Cloths and crocks can be borrowed at any pavilion, free, and go back folded, or the next family mentions it.",
+  "tags": [
+   "picnic",
+   "lawn",
+   "turn",
+   "light"
+  ]
+ },
+ {
+  "id": "kite-field",
+  "name": "The Kite Field",
+  "kind": "play",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 9,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A long lawn in Badger where kites are flown by walking, and aimed hopefully at Owl, three kilometres overhead.",
+  "text": "The air in a drum doesn't move by itself, so a kite in Sorrel is flown by walking. The field is marked in lanes along the axis, and fliers pace them backwards, slowly, paying out line, while the kite climbs on their walking speed and half a g. Children run theirs antispinward, where everything weighs a little less, and swear it helps. It does, a little. Three kilometres overhead are Owl's orchards, and every child in Badger has tried to fly a kite at them. None has come within two and a half kilometres. Owl's orchard crews keep a cloth laid out on the grass up there with one word on it, twenty metres a letter: MISSED.",
+  "detail": "Lanes run along the axis so walkers never cross. Kites can be borrowed at the pavilion. Line is limited to two hundred metres, which is the official reason nobody has hit Owl.",
+  "who": {
+   "name": "Ade Corran",
+   "age": 11,
+   "role": "kite flier",
+   "line": "If you walk anti it goes lighter. My brother says it's in my head. It isn't. I measured."
+  },
+  "tags": [
+   "kites",
+   "children",
+   "far bank",
+   "rivalry"
+  ]
+ },
+ {
+  "id": "the-far-bank",
+  "name": "The Far Bank",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 10,
+  "r": 1500,
+  "wall": null,
+  "blurb": "The other half of Sorrel, three kilometres straight up, upside down and sharp to the last tree; from the Moth lawns it's Bee.",
+  "text": "Everyone in the Hollow spends their first minutes looking up, and most spend a good part of their turn doing it. The floor rises on both sides until it's overhead, and up there, three kilometres away, upside down and perfectly sharp, is the other half of Sorrel: people, picnic cloths, kites, a game in progress. Filtered heliox carries no dust, so distance blurs nothing. From the Moth lawns it's Bee's orchards, with Ashgrove's pavilion among the apple trees if you know where to look. Every Hour watches its opposite all day. They wave with cloths, signal scores in letters twenty metres high, and argue across the Hollow about whose half the line favours. It favours neither. This is measured every Booking Day and settles nothing.",
+  "detail": "Field glasses are lent at every pavilion for nothing. With them you can see what's in someone's picnic three kilometres up, and people do.",
+  "who": {
+   "name": "Haru Fenn",
+   "age": 58,
+   "role": "field-glass lender at the Moth pavilion",
+   "line": "Bee's having cake again. Bee always has cake. Moth has never once seen them eat a salad."
+  },
+  "tags": [
+   "view",
+   "far bank",
+   "rivalry",
+   "Hours"
+  ]
+ },
+ {
+  "id": "half-g-track",
+  "name": "The Half-g Track",
+  "kind": "play",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 12,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Sorrel's great athletics track, where a sprinter on the heavy bend weighs a fifth more and records are kept by heading.",
+  "text": "The track in Lark has its straights along the axis, so they run true. The bends don't. Round one bend a sprinter is heading spinward and weighs about a fifth more; round the other, anti, about a fifth less. Runners call them the heavy bend and the light bend. Jumps are long at half a g: the pits are twice the length of the ones in old pictures, and the long jump runs along the axis, because a jump run anti comes down long and one run spinward comes down short. Sorrel keeps its records for axis, spin and anti. Overhead hangs Otter and the lake, and the elders on their bench say they time the runners from up there.",
+  "detail": "Open on your turn; the clubs train at lamp-dawn, when the floor is quiet. Records are posted at the pavilion by heading. A spinward record is the one people frame.",
+  "who": {
+   "name": "Joaquim Rell",
+   "age": 24,
+   "role": "sprinter for Lark",
+   "line": "Everyone's fast on the light bend. Races are won on the heavy one."
+  },
+  "tags": [
+   "athletics",
+   "Coriolis",
+   "records",
+   "half-g"
+  ]
+ },
+ {
+  "id": "spinball-fields",
+  "name": "The Spinball Fields",
+  "kind": "play",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 11,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Twelve spinball pitches in Wolf, where every throw breaks about twice as hard as it did at school.",
+  "text": "Every Sorreler learned spinball in a school hall near full weight. Up here the floor moves at a little over half the speed of a Low-deck hall's, so a hard throw spinward gains a third of its weight and dives, and one thrown anti loses more than a quarter and sails. It breaks about twice as hard as anyone remembers, and the first ten minutes of any game are adults throwing like children. The twelve pitches are laid at angles to each other on purpose: some run along the axis, some spinward, and teams toss for ends because it matters. Schools come up on their decks' turns. The Hour clubs play here after dusk, under the field lamps.",
+  "detail": "Pitches are booked with your deck's turn. The balls here are heavier than school balls, so that they break less. It doesn't work.",
+  "tags": [
+   "spinball",
+   "Coriolis",
+   "children",
+   "clubs"
+  ]
+ },
+ {
+  "id": "the-bandstand",
+  "name": "The Bandstand",
+  "kind": "culture",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 12,
+  "r": 1500,
+  "wall": null,
+  "blurb": "An open bandstand on the grounds, where the band waits for its last chord to come back off the far bank.",
+  "text": "Music in Sorrel lives in felt-hung rooms, and the Hollow has no felt. The bandstand in Lark is a round timber stage under a curved shell that throws the sound out over the grass, and heliox carries it bright and far. The pipes are long: the band's tubas stand as tall as the players. The bandstand's oldest custom is the far bank. A hard last chord goes up three kilometres and comes back off the far side of the Hollow nearly ten seconds later, faint, and the audience waits for it before anyone claps. On a busy turn the crowd's talk drowns it. On a quiet evening everyone holds still, and hears it.",
+  "detail": "Concerts on most turns at two and at seven. The band is unpaid and the benches are free; the custom is a pastry left on the edge of the stage.",
+  "who": {
+   "name": "Mirela Sand",
+   "age": 66,
+   "role": "bandmaster",
+   "line": "We finish loud and then we wait. Ten seconds is a long time to hold still with a tuba."
+  },
+  "tags": [
+   "music",
+   "heliox",
+   "echo",
+   "far bank"
+  ]
+ },
+ {
+  "id": "the-changeover",
+  "name": "The Changeover",
+  "kind": "civic",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 9,
+  "r": 1500,
+  "wall": null,
+  "blurb": "The quarter of an hour when one set of decks hands the Hollow to the next, felt most at the big pavilion at the back of the lawns.",
+  "text": "Every deck in Sorrel gets six hours in the Hollow about every eight weeks, and the turns change at the pavilions. A turn ends with a soft chime from every pavilion and fifteen minutes' grace. Families fold their cloths, children are prised off the kite lanes, and the cabs go down full while the next decks' cabs come up full beside them. For a few minutes the floor is half empty and sounds it. Sorrelers count their lives in turns. Children know the date of their deck's next one better than their own birthday, and elders, who have the lake every morning and more hours besides, are careful not to mention it to anyone from a Low deck.",
+  "detail": "Turns run on the lamp clock and are posted by deck; the chime goes fifteen minutes before the end. A turn can be swapped, and the classic gift is an hour of yours.",
+  "who": {
+   "name": "Esra Dunmore",
+   "age": 40,
+   "role": "mother of two on a Low deck",
+   "line": "They count down from eight weeks. Then they spend the first hour lying on their backs looking up. I'm not complaining. I do too."
+  },
+  "tags": [
+   "turn",
+   "rota",
+   "crowds",
+   "elders"
+  ]
+ },
+ {
+  "id": "front-wood",
+  "name": "The Front Wood",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 12,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A wood of yew, hornbeam, birch and hazel right round the front Dim End, where the light falls away toward the wall and evening comes first.",
+  "text": "Past the end of the sunline the floor's light falls away toward the front wall, until at the wall's foot it gets about a third of what the lake does. Sorrel planted the front Dim End with trees that like it dim, yew, hornbeam, birch and hazel, in a wood that runs right round the drum in Ring 1. Shadows in the Dim Ends lean toward the wall all day, the only long shadows in Sorrel. People come here for the evening part of their turn: to walk, to talk quietly, to sit on the roots. Ahead of you the front wall climbs tier on tier, and its rings of terraces curve round on both sides to meet overhead.",
+  "detail": "Paths are lamp-lit after dusk at about the brightness of a corridor. The woodwardens ask that nobody climbs the yews, some of which are older than the Count.",
+  "who": {
+   "name": "Aurek Sallow",
+   "age": 71,
+   "role": "woodwarden",
+   "line": "The middle of the floor is for being seen. The wood is for not being seen. Both are allowed on a turn."
+  },
+  "tags": [
+   "dim end",
+   "wood",
+   "evening",
+   "shade"
+  ]
+ },
+ {
+  "id": "fern-gardens",
+  "name": "The Fern Gardens",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 2,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Heron's shade gardens under the front wall: ferns taller than people, moss on old stone, and a bed of the herb the drum is named for.",
+  "text": "Right under the front wall, where the floor gets the least light in the Hollow, Heron keeps its shade gardens: ferns taller than a person, moss on old stone, hostas, ivy, and a bed of sorrel, which does well in the dim, like the drum named after it. A little stream is pumped round through the beds and chatters a shade higher than streams in old recordings. The light comes in from the Hollow side at a slant, so every frond leans away from the wall, toward the line. The lowest terrace stands over the garden like a cliff, with the terrace flats' windows in it. People come here in pairs and sit for a long time.",
+  "detail": "Heron's gardeners keep it. Children of Heron may pick one sorrel leaf each on their turn, and are watched while they choose.",
+  "who": {
+   "name": "Sabe Mirren",
+   "age": 88,
+   "role": "Heron gardener",
+   "line": "Everyone else in Sorrel wants more light. The ferns are the only ones who agree with me."
+  },
+  "tags": [
+   "dim end",
+   "shade garden",
+   "ferns",
+   "quiet"
+  ]
+ },
+ {
+  "id": "back-wood",
+  "name": "The Back Wood",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 8,
+  "r": 1500,
+  "wall": null,
+  "blurb": "Birch and tall bamboo right round the back Dim End, where turns that reach dusk drift, and where Sorrel proposes.",
+  "text": "The back Dim End is birch and bamboo, planted right round the drum in Ring 9, and it's where a turn goes when it reaches dusk. At three the line starts down. By five the back wood is grey while the middle of the floor is still bright, and couples drift back here as if by accident. Bamboo grows tall and thin at half a g, three storeys and more, and the paths between the stands are wide enough for two. Sorrelers say you propose in the back wood and marry on the front wall, the whole length of the Hollow later. Above the trees the back wall climbs to the axis, with the Spindle lift running up it toward the Windows.",
+  "detail": "Paths lamp-lit after dusk. The bamboo is cut every few years for garden canes. Swift's allotments get it first, which Moth's allotments mention every time.",
+  "tags": [
+   "dim end",
+   "bamboo",
+   "dusk",
+   "couples"
+  ]
+ },
+ {
+  "id": "lamp-walk",
+  "name": "The Lamp Walk",
+  "kind": "green",
+  "zone": "hollow",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 10,
+  "r": 1500,
+  "wall": null,
+  "blurb": "A path of low lamps right round the back Dim End, nine kilometres long, that is Sorrel's evening promenade.",
+  "text": "When the sunline goes out at six the Hollow is lamp-night, and the lamp walk comes on: a path right round the drum through the back Dim End, nine kilometres, with a low lamp every twenty paces at about the brightness of a corridor. It's Sorrel's evening promenade. You walk it in your own Hour and look up, and the same path is on the far bank overhead, a thin ring of lamps climbing round on both sides to meet above you. Along the axis the Spindle has opened, and the flyers' hand lamps drift down its length toward the wall. People walk slowly here, in pairs and threes, and go home quieter than they came.",
+  "detail": "Lamps from dusk until the floor closes. All the way round is about two and a half hours on foot. Walk it the whole way with someone and Sorrel considers you serious.",
+  "tags": [
+   "dim end",
+   "lamp-night",
+   "evening",
+   "promenade"
+  ]
+ },
+ {
+  "id": "front-wall",
+  "name": "The Front Wall",
+  "kind": "green",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 1,
+  "r": 1200,
+  "wall": "front",
+  "blurb": "The terraced front end wall: thirty tiers climbing from the floor toward the axis, lighter with every tier, and the quieter of Sorrel's two walls.",
+  "text": "From the middle of the floor the front wall looks like a target: rings of terraces round a netted bull's-eye, the flying hall at the axis. Close to, it's thirty tiers, each a ledge of path and garden running right round the wall, each lighter than the one below: half a g at the foot, a third by the wedding terrace, then a quarter, a tenth, and gardens at the top where you weigh a twentieth. This is the power end and the quieter wall. Its terraces hold the older flats, the elders' dawn and Sorrel's weddings, which Sorrel holds here because Lovage holds its own on its back wall, and nobody on either side will say who started it.",
+  "detail": "Reached by the tier stairs from the floor, or by the Spindle lift's terrace stops. Guests from other drums may come up at dusk without a turn.",
+  "canon": "raft-habitat.md",
+  "tags": [
+   "end wall",
+   "terraces",
+   "weddings",
+   "dawn"
+  ]
+ },
+ {
+  "id": "the-sill",
+  "name": "The Sill",
+  "kind": "home",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 11,
+  "r": 1420,
+  "wall": "front",
+  "blurb": "Terrace flats with windows on the Hollow, allotted to Sorrel's very oldest; the youngest resident on this tier is a hundred and fourteen.",
+  "text": "Almost nothing in Sorrel has a window. The flats set into the risers of the end walls do, and Sorrel gives them to the very oldest people it has. The Sill is the front wall's second tier, a little under half a g: nine kilometres of flats round the wall, each with one long window over the Hollow and a strip of garden outside the door. From the window you see the whole floor laid out and climbing away on both sides, and from this side of the wall the lake hangs on the far bank overhead. Flats here come free the way places do. When the letter comes, people say yes before they've finished reading it.",
+  "detail": "Visitors come as a resident's guest. A handrail runs every metre of the tier: at 0.47 g a fall carries less than half its rim energy, and is still a fall.",
+  "who": {
+   "name": "Agathe Noor",
+   "age": 116,
+   "role": "resident",
+   "line": "I waited a hundred and fourteen years for a window. Now I can't stop looking out of it. My tea's always cold."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "terrace flats",
+   "elders",
+   "windows",
+   "home"
+  ]
+ },
+ {
+  "id": "wedding-terrace",
+  "name": "The Wedding Terrace",
+  "kind": "rites",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 2,
+  "r": 1000,
+  "wall": "front",
+  "blurb": "The front wall's terrace at a third of a g, where Sorrel marries at dusk and the oldest guest cuts the apple.",
+  "text": "Sorrel marries on the Third, the front wall's terrace at a third of a g, and it marries at dusk. That's when guests from other drums may come up without a turn, and nearly every Sorrel wedding has some. The couple wear what they have, altered. The vows are short. Then the oldest person present, not an officiant, cuts the apple crosswise, holds up the star and takes the first slice. In Lovage that star is the only one most guests will ever see. In Sorrel everyone has been to the Window, so each of the couple says one thing they remember from it. Most say the River. The ones who say something else get talked about for years.",
+  "detail": "Booked through the Hollow Office, free, about a month ahead. Dancing runs on past six into lamp-night. The apple, at 4.4 kays, is the dearest thing at the wedding.",
+  "who": {
+   "name": "Tova Penhale",
+   "age": 102,
+   "role": "oldest guest at most weddings in her Hour",
+   "line": "Cut once, crosswise, and hold it up. People cry at the star. I cried at mine, and it was a terrible apple."
+  },
+  "tags": [
+   "weddings",
+   "third-g",
+   "apple",
+   "dusk"
+  ]
+ },
+ {
+  "id": "dawn-rail",
+  "name": "The Dawn Rail",
+  "kind": "rites",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 7,
+  "r": 1460,
+  "wall": "front",
+  "blurb": "A long rail on the front wall's lowest tier where elders who don't swim watch Sorrel's plain dawn come up.",
+  "text": "Not every elder wants the lake at six. The ones who don't come to the Dawn Rail, a waist-high rail along the front wall's lowest tier, and watch the dawn instead. Sorrel's dawn is plain on purpose: three hours of the same ramp, warm and then white, with no colours anyone composed. From the rail you watch the whole Hollow come up together, the far bank at the same pace as the floor below you, the lake going from black to grey to bright. The elders lean on the rail and say very little. Visitors from painted-dawn drums sometimes come to see what the fuss isn't about, and stay the whole three hours.",
+  "detail": "Elders only until nine, though nobody has ever been sent away. Tea comes up from the floor in lidded flasks on a rota that is older than anyone on it.",
+  "who": {
+   "name": "Cato Brenn",
+   "age": 97,
+   "role": "retired cab engineer",
+   "line": "Chervil paints its dawns. The fair drums paint their dusks. Ours just gets light, and I've never once wished it would do anything else."
+  },
+  "tags": [
+   "lamp-dawn",
+   "elders",
+   "plain dawn",
+   "view"
+  ]
+ },
+ {
+  "id": "the-quarter",
+  "name": "The Quarter",
+  "kind": "play",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 9,
+  "r": 750,
+  "wall": "front",
+  "blurb": "The front wall's quarter-g terrace, where Low-deck children learn to be light, starting with how to stop.",
+  "text": "At a quarter of a g you can clear two metres from a standing jump, take a flight of stairs in three strides, and carry a sofa if someone else steers. What you can't do is stop. Your feet press the ground a quarter as hard, so they grip a quarter as well, and a child who runs here the way they run on a Low deck sails straight past where they meant to turn. Every school in Sorrel brings its classes once. The first lesson, on long soft mats, is stopping: lean back early, take small steps, leave three times the room. By noon they're leaping, and every leap comes down nearly a forearm's length spinward of where it left.",
+  "detail": "School visits on weekday mornings, booked through the Hollow Office. Mats go out at eight and in at noon. Adults may join at the back of the class, and need to.",
+  "tags": [
+   "quarter-g",
+   "children",
+   "schools",
+   "Coriolis"
+  ]
+ },
+ {
+  "id": "tea-steps",
+  "name": "The Tea Steps",
+  "kind": "green",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 3,
+  "r": 160,
+  "wall": "front",
+  "blurb": "Tea gardens on the front wall's top tiers, at a twentieth of a g, lit mostly by the Hollow's own glow.",
+  "text": "The front wall's top tiers get little direct light: the line stops well short of the wall and barely shines along itself. What they get is the Hollow's own glow, the floor and walls throwing light back, and it's still brighter than any court on the decks. Tea likes it. The Tea Steps are rows of bushes on the last tiers below the flying hall, picked by hand, two leaves and a bud. At a twentieth of a g a dropped basket takes two seconds to land and comes down a hand's width anti. Walk spinward along the rows and you weigh about a quarter more, walk back and a quarter less, so pickers carry full baskets anti and walk back empty.",
+  "detail": "Picked every ten days by the Owl tea crew. The leaf is sold at the foot of the wall, and a cup costs about a kay, the same as rack tea from the Keel.",
+  "tags": [
+   "top gardens",
+   "tea",
+   "low g",
+   "Coriolis"
+  ]
+ },
+ {
+  "id": "back-wall",
+  "name": "The Back Wall",
+  "kind": "green",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 7,
+  "r": 1150,
+  "wall": "back",
+  "blurb": "The terraced back end wall, the heat end and the busier wall, which every eight-year-old in Sorrel rides up on the way to the Window.",
+  "text": "The back wall is the front wall's twin in shape and nothing like it in temper. Behind it the drum's heat goes out through the back axle, and up it runs the Spindle lift that every Sorrel child rides at about eight, with one adult, on the way to the Window. So the back wall's terraces are full of families waiting, children coming down quiet, and guests at dusk. Its third-g terrace has the reels, its quarter-g terrace the Slow Fountain, and its top gardens are where children jump the height of a house. On quiet nights the top tiers hum very faintly, from the axle hall's pumps, and the gardeners up there say the beans like it.",
+  "detail": "The Spindle lift to the axis leaves from the foot of the wall, by the Waiting Terrace. Guests may take the terraces at dusk without a turn, and most take this wall's.",
+  "canon": "raft-habitat.md",
+  "tags": [
+   "end wall",
+   "terraces",
+   "Window",
+   "guests"
+  ]
+ },
+ {
+  "id": "waiting-terrace",
+  "name": "The Waiting Terrace",
+  "kind": "rites",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 6,
+  "r": 1470,
+  "wall": "back",
+  "blurb": "A long terrace by the foot of the Spindle lift where families wait for their eight-year-olds to come back from the Window.",
+  "text": "A child goes to the Window with one adult, so everyone else waits here. The Waiting Terrace is the back wall's lowest tier beside the Spindle lift: benches, a tea counter, a long rail over the floor, and a board that shows each party up, out and on the way back. It takes two or three hours. Brothers and sisters play leaping games along the tier; parents pretend to read. When the lift doors open, the children who come out are quieter than the ones who went in, and most of them can't say what they saw. Everyone in Sorrel has waited here for someone, and nearly everyone has been waited for.",
+  "detail": "Tea is free for anyone waiting on a Window child. By custom whoever waited gets to ask the first question, and the child doesn't have to answer it.",
+  "who": {
+   "name": "Kofi Lune",
+   "age": 41,
+   "role": "father, waiting",
+   "line": "I came out of that lift at eight and couldn't tell my mother anything. Now I'm on the bench, and I know better than to ask."
+  },
+  "tags": [
+   "Window",
+   "families",
+   "children",
+   "rites"
+  ]
+ },
+ {
+  "id": "reel-terrace",
+  "name": "The Reel Terrace",
+  "kind": "culture",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 8,
+  "r": 1000,
+  "wall": "back",
+  "blurb": "The back wall's third-g terrace, where Sorrel's Long Reel drifts round the wall a hand's width a leap, starting each year from a brass stud.",
+  "text": "Dancing at a third of a g is mostly leaping, and every leap comes down a hand's width spinward of where it left. Lovage's young people have a reel that works its way round their terrace. Sorrel's is older, Sorrel says, and it keeps the score. The Long Reel is danced here once a year, on the night of Booking Day, and wherever the set has drifted to by the end, a brass stud goes into the paving. Next year starts from the stud. The terrace is over six kilometres round, and at a couple of hundred metres a night the reel goes all the way round in about thirty years. People who have been round once say so, and everyone knows what it means.",
+  "detail": "The reel starts from the stud at seven on Booking night, and anyone may join at the back of the set. Last year's stud is in Swift. The first stud, nobody can find.",
+  "who": {
+   "name": "Hanne Vos",
+   "age": 79,
+   "role": "caller of the Long Reel",
+   "line": "I've been round twice. My grandmother went round three times, and the third time she called it."
+  },
+  "tags": [
+   "dance",
+   "third-g",
+   "Booking Day",
+   "Coriolis"
+  ]
+ },
+ {
+  "id": "slow-fountain",
+  "name": "The Slow Fountain",
+  "kind": "water",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 4,
+  "r": 760,
+  "wall": "back",
+  "blurb": "Twelve jets on the back wall's quarter-g terrace that climb eight metres, hang for five seconds and come down three metres spinward.",
+  "text": "On the Quarter a jet of water climbs four times as high as it would at the rim and stays up four times as long, so the Slow Fountain's twelve jets stand eight metres tall and fall in long, slow arcs. They don't come down where they went up. Every jet leans spinward and lands about three metres on, and the pool is built off-centre to catch it. Children stand where the water is going to land and wait for it, which takes long enough to count to five. In heliox the splash is high and bright. The pumps take a couple of kilowatts, and the back wall votes every few years to keep them, always by a wide margin.",
+  "detail": "Free, and wet. Robes hang in a rack by the steps, because heliox chills a wet child in minutes. The jets run from nine to three, then the terrace goes quiet for the guests.",
+  "tags": [
+   "quarter-g",
+   "water",
+   "children",
+   "Coriolis"
+  ]
+ },
+ {
+  "id": "guest-tiers",
+  "name": "The Guest Tiers",
+  "kind": "green",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 12,
+  "r": 1300,
+  "wall": "back",
+  "blurb": "The back wall's lower tiers, where guests from other drums may sit at dusk without a turn, and Lovage watches a plain dusk in disbelief.",
+  "text": "Sorrel can't give its guests the floor, which is booked by deck, so it gives them the end walls at dusk. Anyone visiting from another drum may come up from three until the line is dark, and most come here, to the back wall's lower tiers, where the view runs the whole length of the Hollow. What they get is Sorrel's dusk: three hours of the same ramp down, white going warm going dark, with no colours anyone composed. Lovage visitors, whose noon runs on into the evening, find it dim and say the gin helps. Chervil visitors find it restful and say so, kindly. Everyone stays to the end, when the pavilion lamps come on across the floor and the far bank all at once.",
+  "detail": "Guests give their home drum at the stair, and that's all. Sorrel gin is 0.18 a glass at the tier counter, and after the fifth they bring you jook.",
+  "who": {
+   "name": "Yusuf Tarrant",
+   "age": 33,
+   "role": "a Lovage visitor",
+   "line": "At home the line's still at noon. Here it just goes. I come over every month to watch it go, and I can't tell you why."
+  },
+  "tags": [
+   "dusk",
+   "guests",
+   "Lovage",
+   "view"
+  ]
+ },
+ {
+  "id": "the-twentieth",
+  "name": "The Twentieth",
+  "kind": "play",
+  "zone": "wall",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 5,
+  "r": 150,
+  "wall": "back",
+  "blurb": "The back wall's top garden at a twentieth of a g, where a child can jump the height of a house and comes down in somebody's beans.",
+  "text": "At the top of the back wall, a hundred and fifty metres from the axis, you weigh a twentieth of what you would at the rim. The tier is a garden of beans, vines and tall shade herbs on strings, and it's the most famous playground in Sorrel. A child's standing jump here goes six metres up, the height of a house, takes nine seconds, and comes down four or five metres spinward of where it left, which children learn to aim for. Adults go higher and further and pretend not to. There's netting along the edge of the tier and a rule against jumping off it, both older than anyone's grandmother. Below, the Hollow runs away like the inside of a lit pipe, floor on every side.",
+  "detail": "By the Spindle lift's top terrace stop, then a short walk. Jumping in the marked lawn only. The vines are not for climbing, as every child is told and none has believed.",
+  "who": {
+   "name": "Emeka Fallow",
+   "age": 10,
+   "role": "on a Low-deck school trip",
+   "line": "You jump, and you're still going up when you've run out of things to say. Then you land in the beans."
+  },
+  "tags": [
+   "top gardens",
+   "jumping",
+   "low g",
+   "children"
+  ]
+ }
+]

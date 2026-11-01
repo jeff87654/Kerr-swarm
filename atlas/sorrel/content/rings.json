@@ -1,0 +1,83 @@
+[
+  {
+    "n": 1,
+    "name": "Ring One",
+    "nick": "the Front",
+    "lanes": "Lovage and Tansy",
+    "character": "The front of the drum, nearest the power end. Its streets run out against the front cap, and above its High decks the front end wall climbs in terraces with windows onto the Hollow. On the Hollow floor it holds the front Dim End, woods and shade gardens where the sunline's light falls away, so Ring One keeps early nights and long evening walks.",
+    "quaysides": "Station Ring One: glide trains for Lovage and Tansy, the Bag Hall that lends padded bags and crock crates, and the bronze plate at one, One, Hare.",
+    "known": "Quiet, shady and early to bed. Their streets all end at a wall, and they like it that way."
+  },
+  {
+    "n": 2,
+    "name": "Ring Two",
+    "nick": "the Tables",
+    "lanes": "Chervil and Rue",
+    "character": "A Ring of Low-deck schools and Middle-deck workshops between the Front and the orchards, with the lawns above it in Swift, Badger and Moth. It sits one glide from Chervil's long tables, and the habit has crept home: Ring Two's Mill Halls seat strangers together, and its people are the first in Sorrel to say good morning in a cab lobby.",
+    "quaysides": "Station Ring Two: trains to Chervil and Rue, sprig stalls for host gifts, and the Thursday crowd going over for ramen at a long table.",
+    "known": "Half Chervil already. They'll seat you next to a stranger and call it manners."
+  },
+  {
+    "n": 3,
+    "name": "Ring Three",
+    "nick": "Old Three",
+    "lanes": "Lovage and Tansy",
+    "character": "The Daces' Ring, and the busiest slice of Sorrel from top to bottom: family blocks on the Low decks, Ashgrove among them, workshop streets in the middle, elders' flats near the Hollow, and the orchards coming up through the floor in Heron, Owl and Bee. Ring Three thinks of itself as the drum's market town, and the rest of Sorrel mostly agrees.",
+    "quaysides": "Station Ring Three: the produce hall, the Gate on the inbound platform, Keel Baths Kitchen, and the hatch where the ring counters began. The busiest blocks in Sorrel.",
+    "known": "Market people. They'll sell you a tomato at lamp-dawn and tell you about it until noon."
+  },
+  {
+    "n": 4,
+    "name": "Ring Four",
+    "nick": "the Swap",
+    "lanes": "Chervil and Rue",
+    "character": "Where the lake begins: above Ring Four the Hollow's water starts in Fox, Otter and Stag, with the orchards and the grounds on either side. Below, it is a Ring of movers. More homes are swapped here than anywhere in Sorrel, through the swap office in its Quaysides, and its blocks are used to new neighbours with Rue accents and Chervil manners.",
+    "quaysides": "Station Ring Four: lanes to Chervil and Rue, and the swap office, where households who want each other's drums meet once to shake hands.",
+    "known": "You never know who'll be next door in Four, and neither do they."
+  },
+  {
+    "n": 5,
+    "name": "Ring Five",
+    "nick": "the Middle",
+    "lanes": "the tubes: cyclers and anywhere further",
+    "character": "The middle of the drum, as far from both ends as Sorrel goes. The lake's jetty and the elders' bench are on the Hollow floor above it, in Otter, and every morning at lamp-dawn Ring Five's High decks empty upward toward them. Its Low decks are full of inns, since travellers from far off land here and want a bed near the tubes.",
+    "quaysides": "Station Ring Five: the tube level, with capsules for the cycler ramps, the departure hall in Fox, and a scale that weighs every traveller and every bag.",
+    "known": "Everybody's goodbyes happen in Five. They cry at the scale, then again at the counter."
+  },
+  {
+    "n": 6,
+    "name": "Ring Six",
+    "nick": "the Early",
+    "lanes": "Chervil and Rue",
+    "character": "A commuters' Ring. Its people leave early for Chervil, where an hour of their time fetches twice what it does at home, and come back with Chervil's habits and Chervil's kays. The lake's back shore is above Ring Six, and the orchards run on past it. Its Middle decks are dense with workshops, and its Low decks with families who are up before the lamps.",
+    "quaysides": "Station Ring Six: the booking hall with its three-faced clock, the morning trains to Chervil and Rue, and the Sorting, which sends commuters home three to a cab.",
+    "known": "Up at five, home at six, and they will tell you what an hour pays in Chervil."
+  },
+  {
+    "n": 7,
+    "name": "Ring Seven",
+    "nick": "Crates",
+    "lanes": "Lovage and Tansy",
+    "character": "The last Ring of the orchards and the grounds, where the spinball fields end and the Keel below does Sorrel's heavy lifting. Ring Seven's people tend to work with their hands: menders, fitters, freight gangs, fabricator crews. Its streets smell of cut cellulose and machine oil, and every block keeps a trolley that belongs to everyone.",
+    "quaysides": "Station Ring Seven: Sorrel's freight halls, worn things going out to the Yards and stock coming back, and the Last Table, where menders claim what's leaving.",
+    "known": "If it's broken, take it to Seven. If it's beyond mending, they'll still want a look."
+  },
+  {
+    "n": 8,
+    "name": "Ring Eight",
+    "nick": "the Doorstep",
+    "lanes": "Chervil and Rue",
+    "character": "A quiet Ring of long streets, with the lawns in Swift, Badger and Moth above it and the back Dim End beyond. Its blocks are known for taking people in: lodgers, swappers, new neighbours of every kind, and once, two centuries ago, thirty thousand refugees, whose descendants still live here and still bring a cake to the refuge desk on the date.",
+    "quaysides": "Station Ring Eight: lanes to Chervil and Rue, weekend trains to Rue's Blight Kitchen, and the refuge desk, with its kettle on every hour the trains run.",
+    "known": "Kind, quiet and a little slow. They'll put the kettle on before you've said why you came."
+  },
+  {
+    "n": 9,
+    "name": "Ring Nine",
+    "nick": "the Back",
+    "lanes": "Lovage and Tansy",
+    "character": "The back of the drum, the heat end. Its streets run out against the back cap, and above its High decks the back end wall climbs to the Spindle lift that every Sorrel child rides once, at eight, on the way to the Window. The Hollow's back Dim End is its evening wood. Ring Nine stays up late and keeps the best noodles after midnight.",
+    "quaysides": "Station Ring Nine: the last train to Lovage at one, noodle stalls until it's gone, and a long bench in Lark for anyone waiting for the first train at five.",
+    "known": "Every child in Sorrel goes up their wall once. Ring Nine has never let anyone forget it."
+  }
+]

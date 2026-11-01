@@ -1,0 +1,1999 @@
+{
+ "trades": [
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A children's tailor on the school stair who cuts every seam with a hand's width folded in, and lets each pair out free the first time."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A coat mender with one rule painted over the counter: she will not reline a coat in the colour it already has."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A dye works where a re-dye costs less than a cup of coffee, and choosing the colour with the dyer's help costs an hour."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A chair remaker who keeps a ledger of every chair she has re-sprung, and can show you the ones that have come back for three generations."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A sofa remaker who chalks the sums on a slate for every young couple: a thousand kays for new, about two hundred to remake the old one."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A cobbler with a bench against the baths' warm wall, where you wait in your socks while your shoes get their third sole."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A wedding remaker who turns a grandmother's dress into a bride's in four fittings, and keeps a scrap of every one pinned to a board."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A collar-and-cuff shop, where the season changes at the neck and wrists for about two kays and the rest of the shirt stays as it was."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A darner who works at a corner table in the Mill Hall at noon and charges a tenth of a kay a hole, heels extra."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A weaver of spun cellulose whose loom runs only in the lamp-night, when kays are cheapest, and who sells her cloth by the gram."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A knitter who unravels the school's outgrown jumpers and knits them up again a size larger, in stripes of everybody's colours."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A lining shop with a wall of offcuts sorted by colour, where a new lining is chosen in an afternoon and argued about for a week."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "A wing-sleeve fitting room where a remade pair costs about eighteen kays and you stand with your arms out for half an hour while the fitter pins the fins."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A visible mender who patches in the brightest thread she has, on the principle that a mend should be proud of itself."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A suit library: good clothes for a wedding, a naming or a hearing, lent for the day and taken in or let out while you wait."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A children's shoe exchange where outgrown pairs go up a size for the price of a resole, with every owner's initials inked inside the tongue."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "A button shop with no new buttons: everything in its drawers came off something else, and the drawers are sorted by century."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A furniture library that lends long tables for weddings and namings, and keeps a book of every meal each table has been to."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A joiner who turns new feet for old chairs from offcuts on a lathe, so that a good chair can stand on its fourth set of feet."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A framer whose steadiest work is the first yearly note a family gets from the child named for their dead, framed in wood from an old chair."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A tool library whose oldest loan is a stepladder: its borrowing cards fill a drawer, and the first names on them are in an old hand nobody can read."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A toy library where every toy goes out with a mend card, and a child who mends one gets their name on the shelf it lives on."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A pram library where a new baby's family borrows a pram that has carried, by the list on its handle, two hundred and six babies."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A cot maker, one of the few people in the Ring who makes anything new, since a new cot is what a birth gets: about two hundred kays."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A mattress remaker who opens old mattresses, teases out the filling and closes them again in a day, smelling of clean bedding."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A haberdasher who sells black thread by the wrist-length, a hundredth of a kay, to people about to go dark."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A clearing service for the flats of the dead that always asks the family the same question first: which three things."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A spoon carver who works only in prunings from the drum's woods, and labels every spoon with the tree it came from."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "An embroiderer who stitches crew patches for retiring back-crew hands, a band of tiny stars across each, and has never seen a star herself."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A metal-return counter where every gram of copper in a broken lamp is weighed, logged and handed back to the drum, since losing one is a civic offence."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A grow-lamp fitter who will light your herb shelf for a watt or two a head and tell you, unasked, that your basil is leggy."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "A garden-light fitter who sizes private gardens by the square metre and warns every customer that four square metres costs nearly two kays a day."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A light-panel shop that sells the morning lamps the schools insist on, and mends the ones children have used as tables."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A lamp maker who builds wind-up hand lamps for the larder shelf, because her grandmother came out of the Eleven Days trusting nothing with a plug."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A flute teacher whose pupils practise behind a felt door, and who pays each neighbour a kay a term for the noise anyway."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A felt fitter who hangs rooms that ring, and claps once in every corner of your flat before she will give you a price."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A piano tuner who retunes every piano that moves between decks, though the strings don't care about weight and he has told the owners so."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A singing teacher who plays her pupils a bass from an old recording, muffled as if through a blanket, to show them what the air took."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A voice studio where elders record an hour of themselves talking for the family, since a voice is one of the few things Sorrel keeps."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A bookbinder who rebinds larder books, recipe books and rota books in covers cut from coats that are past mending."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A lettering shop that cuts name plaques for front doors, with a second line underneath, smaller, for the person whose place you took."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A register office where parents learn whose place their baby will take, and the clerk reads the name aloud before handing over the card."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A slate shop that mends cracked reading slates and sells second-hand ones with somebody else's margin notes left in, at no extra charge."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A tutoring room above the stair where an hour of mathematics costs three kays, and an hour of patience, the tutor says, is included."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A night school for adults that teaches one thing a term, this term the long letter, and marks nothing at all."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A map shop that sells paper cutaways of the whole drum, every deck drawn in, with the buyer's own flat inked in red while they wait."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A world room where anyone short of compute can rent an hour in a shared world for under half a kay, headsets wiped between sittings."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A clinic with a climbing frame in its waiting room, so that children who come in for a jab leave talking about the frame."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A midwives' house where each newborn's name is painted on the wall beside the name of the dead whose place they took, in the same hand."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "An after-school minder who takes six children at once, charges each family half a kay an hour, and makes everyone take their shoes off."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A night-sitting service for elders who can't sleep, whose sitters keep a pot of amazake warm on the loop for the small hours."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A hospice on the top deck of the neighbourhood, where the lamps in each room are dimmed by the person in the bed and nobody else."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A foot clinic whose chiropodist reminds everyone, kindly, that half a g is no excuse for not lifting your feet."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A balance school for people who have just gone up, where newcomers to the lightness learn to walk at half a g without bounding."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "An ash-glass maker who seals a pinch of the returned ash into a clear bead the size of a pea while the family waits."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A long-letter writer for hire, who will help you with the yearly note to the family whose dead your child is named for."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A naming room that lends families a long table, a lidded pot and a reader, who reads the dead's name first and the baby's after."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A clock mender who shortens the pendulums of clocks that come up with elders, since a clock carried up to half a g loses a quarter of every hour."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A scale mender who resets spring scales for the deck, since one carried up from the family decks reads a third light or worse."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A stationer who sells the card every eight-year-old fills in after the Window, with a blank space for what they saw, which most leave blank."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A greengrocer who sells salad by the leaf, weighed on a brass scale, and writes on the bag which rack in the Keel grew it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A herb shop where every pot is cut to order, and whatever is left over goes to the Mill Hall before noon."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A seed and strain counter where your sourdough gets a library number, and anyone who registers a starter leaves with a spoonful of someone else's."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A tea room that serves every pot under a knitted cosy in the twelve Hours' colours, and gives you the cosy of the Hour across the Hollow from yours."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A gin cellar that flavours its house gin each week with whatever the herb racks gave up, and chalks the week's herb on the door."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A noodle counter where one cook pulls noodles by hand in the window, and children press their noses to the glass to count the folds."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A bakery that bakes only in the lamp-night, when kays are cheapest, and sells yesterday's loaves at the door for half."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A koji room behind a curtain, where a cook turns trays of rice by hand on shelves warmed by the loop and sells shio-koji by the spoon."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A black garlic shop where every jar is labelled with the day its garlic went onto the 65 °C loop, five weeks before it went into the jar."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A cook for hire who arrives with her own lidded pots, cooks dinner for four in three hours, and costs about as much as the four dinners."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A sweet shop that sells lokum, pulled sugar and kuih lapis by the layer, and keeps a jar of broken sugar glass free for children."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A ferment shop whose crocks have names, not numbers; the oldest went into the Eleven Days full and came out empty, which is what it was for."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A mushroom grower who raises oyster mushrooms and lion's mane on spent coffee grounds from every café in the Ring, and pays for the grounds in mushrooms."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A starter sitter who will keep your sourdough fed while you're away on a cycler, a kay a week, and sends you a note if it sulks."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A larder checker who goes through your cupboard against the drum's ninety-day list for an hour's fee and leaves a sticker on the door when it passes."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A phage-watch counter where anyone can bring in a crock that smells wrong, and the answer, nine times in ten, is that it's fine."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A fabricator shop that prints a part overnight while kays are cheap, and charges by the gram, about a fortieth of a kay each."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A cleaning-robot mender with a shelf of robots waiting, each with a note from its household about what it keeps doing wrong."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A lid mender who fixes cracked dish lids and replaces lost knobs, since in this air a household without lids eats cold dinners."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A knife grinder who sharpens a knife for a tenth of a kay and will tell you, at no charge, that you've been cutting on the plate again."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A bath house with three pools at three temperatures and a sign on the coolest one that says it is for arguments."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A laundry that runs at one in the morning, when kays are cheapest, and sends shirts back folded with a sprig of mint in the pocket."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A plumber who mends the hot taps that run off the 65 °C loop and tests every job by making tea with it, then drinking the tea."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A berth-door fitter who keeps one door on a stand outside the shop, so that children can press the button and hear it seal."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A lost-property office for the cabs, where one drawer holds nothing but children's left shoes and nobody has ever explained the left."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A cushion maker on the High decks who stuffs every cushion a third lighter, since nobody up here sinks in as far, and gets letters from people who disagree."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A picnic shop that lends lidded baskets for the Hollow turn and fills one for five for about six kays, apple extra."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A gift desk where elders sign spare Hollow hours over to grandchildren, and the clerk writes the hours on a card in good ink."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A kite maker whose kites are built to be run with, since the Hollow has no wind, and whose best seller flies at a brisk walk."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "An espalier trainer who charges for fruit trees by the year rather than the hour, since a good espalier takes twenty years to finish."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A dance school where the lightness makes every leap last, and the teacher, ninety-one, still demonstrates the landings herself."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A spinball coach who runs a Saturday club in the long hall and teaches nothing but throwing anti for the whole first month."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A swimming school that teaches every child to swim before their first Hollow turn, so the lake's tall, slow waves come as a treat."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A running club that trains for the Round in the arcade at lamp-dawn and keeps separate stopwatches for spin and anti."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A barber whose chair is two hundred years old and whose price, three kays, has not changed in anybody's memory."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "An inn for visitors from other drums with twelve rooms, felt on every wall, and a breakfast of peppery broth that guests either love or argue about."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A cycler outfitter who packs for the slow lines: a sleeping bag with wall clips, bread nets, and a bungee strap for the daily hour."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A puppet theatre whose puppets are cut from old clothes, so that children sometimes recognise their own trousers playing the giant."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "An organ builder whose longest pipe stands propped in the stairwell outside, four decks tall, waiting for a room big enough to need it."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A reading room where elders read long letters aloud to each other two hours a day, and whoever reads gets the warm chair."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A brush maker whose finest brushes have a dozen fibres each and are sold to every class that has a fruit tree to pollinate."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A paper maker who pulps old letters into new sheets, so that every page carries a faint grey ghost of somebody else's handwriting."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A Knotnight crock shop that sells nothing for eleven months, then sells out of crocks, weights and lids in a single week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A meeting room for silence, open all hours, with felt on the walls, a jug of water and a sign asking you to leave the jug full."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A small chapel of the River, where a band of gold thread is sewn across a dark cloth and its few members sit under it on Booking Day."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Dark-drill warden's office with a hand-cranked horn, sounded on the first of the month, which no one has ever hurried for."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A games room where the board games have a house rule, posted by the door: any piece knocked off the board is moved one square anti."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A garden sitter who waters the bright gardens of elders away on a long cycler trip, and talks to their tomato vines, because she was asked to."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A hearing clinic for babies that tests every newborn's ears with a run of soft tones, bright and high in this air."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A wedding office where couples sign the register and choose which old table their wedding dinner will be eaten from."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A plant rehomer who finds new flats for the herb shelves and vines of elders who have died, and keeps a waiting list of young couples for them."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Summer Day caterer who takes orders all year for one day of cold food, and spends that day running between halls with chilled lids."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A flying tutor for the over-nineties, who teaches lengthwise flying in the flying hall's quiet hour and hasn't had a pupil hit the nets in years."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A {hour} colours shop that dyes scarves, cuffs and ribbons in the Hour's own colours, and sells three times as many the week of the Round."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A clinic that lends rather than prescribes: contrast, lithium and gadolinium go out on loan, and the clinic's drains are counted like a mine."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "An elders' outfitter who cuts robes a little fuller for the High decks, where everything hangs slower and a hem can take its time."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A carrier who moves an elder's things up when they go up, charges by the kilogram, and likes to point out that the load gets lighter on the way."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A sign painter who repaints the Mill Hall's menu board by hand every morning, though it has said the same three things for {years} years."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A record shop for old music, where everything from the old air sounds as if it was sung under a blanket and the regulars like it that way."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A wheelwright for prams, trolleys and wheelchairs who keeps every wheel she has ever replaced, threaded on a rod across the ceiling."
+  }
+ ],
+ "sounds": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a berth door sealing with a soft double click, then the cab's hum fading into the wall"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "children counting down a cab ride in bright, high voices, and losing count at the lean"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the Mill Hall's lids coming up all at once at the cook's call, ringing off the ceiling"
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "a heliox flute 1.2 metres long practising the same four bars behind a felt door"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the baths' pipes ticking as the warm loop comes up through them"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a spinball smacking the long hall's wall and a dozen children shouting anti"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a conversation from three corridors away, every word carried clear and thin by the heliox"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "express platoons passing behind the lobby wall, a hum you feel in the handrail before you hear it"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "an organ's lowest pipe, nearly twice the old length, more a feeling in the stair rail than a note"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "nothing at all in the reading room, where the felt takes every sound and keeps it"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "elders on a bench at the pavilion stair, in voices that carry further than they mean"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "a lathe in a back room, and the mender humming along to it a little flat"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a choir warming up on one bright note that rings round the arcade for two seconds after it stops"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a school hand bell, muffled in felt since the bare one rang for half a minute"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "pram wheels on the arcade tiles, and a baby objecting to all of it"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a lullaby through a bedroom wall, thin and sweet as a whistle"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "a sewing machine running in short bursts, like somebody thinking out loud"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a cleaning robot bumping the same skirting board three times, politely"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "a pendulum clock ticking slowly, and its owner insisting it is right"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "a dropped ball bouncing at little more than half a g, each bounce longer than your ear expects"
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "cards slapped down on a felt table, and somebody who has won again"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the lobby chime, and a cab door opening on another deck's voices"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a kettle on the 65 °C tap coming to the boil in under a minute"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a class reciting axis flies true, spin sinks, anti floats, slightly out of time"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a laugh that carries further and higher than its owner intended"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the long, even breath of the air handlers, which nobody notices until it pauses for its yearly test"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "a brass band rehearsing, its horns coiled nearly twice as long as the ones in old pictures"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "a chair two hundred years old creaking under somebody who is ninety-eight"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "freight carts rattling into the cab berths an hour before lamp-dawn"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "pots clinking on the warm shelf where the amazake is brewing"
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "a dance class landing all at once on a sprung floor, then the teacher counting again"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "a walking stick tapping along the arcade at a little more than a metre a second"
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "game tiles being shuffled, a bright clatter like a tray of cutlery"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a knife grinder's wheel singing high and thin on the corner"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "eight-year-olds practising the naming song, mostly together"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "a recorded voice playing softly in a felt room, and the family very quiet around it"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the cleaning robots' night round, a soft whirr and a bump at every door"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a newborn's cry from the midwives' house, bright enough to carry two streets"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a referee's whistle in the long hall, painfully bright in this air"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a bass in the choir, rare and treasured, holding a note under everybody else"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the chime that calls a deck's Hollow turn, and a corridor of doors opening at once"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "a long letter being read aloud, slowly, in the next room"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "lids rattling on a trolley of dinners going by"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the bath attendant calling the hour through the steam"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a greengrocer announcing that the tomatoes are in, and people actually running"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a school hall going quiet all at once when the lamps dim for the story"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "wet sandals squeaking between the baths and the changing room"
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "an argument about the light vote, in a stairwell that repeats every word"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "two old friends laughing at the same joke for the fortieth year running"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "a ball thrown anti against a wall, and the slap of a catch on the bend"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "music leaking from a world room, where somebody is losing gracefully"
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "a cello practising upstairs, brighter than any cello on an old recording"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a piano in an upstairs flat, which is to say the whole stair"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "children at a clapping game whose rhyme counts the Eleven Days"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "the hush of a deck at lamp-noon, with half its people up in the Hollow"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "the Hollow's crowd drifting down a pavilion stair, thousands of voices made small and bright"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "a loom clacking through the lamp-night, when the kays are cheap"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "singing from the gin cellar, in harmony, at about the fourth gin"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a hand lamp being wound up during the monthly Dark drill"
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "a toddler discovering the stairwell's echo and testing it for a quarter of an hour"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a deep bath filling, and somebody in the next cubicle singing over it"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "the slap of fresh noodles on a floured board, then the long pull"
+  },
+  {
+   "bands": [
+    "low",
+    "high"
+   ],
+   "text": "a grandmother teaching a grandchild to whistle, both laughing too much to manage it"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "a felt hanger tapping each wall with a knuckle and listening for the ring"
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "the scrape of a starter crock's lid, and somebody saying it smells fine"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "the soft thump of a slow leap landing, and an old woman saying that one counts"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "the falling note of cabs braking in the core as the evening winds down"
+  }
+ ],
+ "smells": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "amazake brewing overnight on the warm loop"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "black garlic five weeks on the loop, sweet and dark as treacle"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "koji from a back-room tray, warm and a little like chestnuts"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "yeast and hot starch from a bakery that bakes through the lamp-night"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "toasted sesame oil from the noodle counter"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "chili crisp frying, the one dear smell in the Mill Hall"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the baths: warm water, clean tile and somebody's mint soap"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "clean lake water on the towels of elders back from the lamp-dawn swim"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "basil under lamps, greener than basil has any right to smell"
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "tomato leaves, sharp and green, from somebody's bright garden"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "warm cellulose lint from the weaving shop"
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "fabricator plastic, faintly sweet, from a part printed overnight"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the air from the vents, which smells of nothing at all, very thoroughly"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "helium-dry lobby air and the faint rubber of the berth seals"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "peppery Mill broth from a hatch by the lift core"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "jook at lamp-dawn, and ginger"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a sourdough starter on a shop counter, sour and very much alive"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "miso, and the cool cellar it came out of"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "plasticine and orange peel from a nursery class"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "warm felt and old varnish in a music room"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "fresh shavings from a spoon carver's bench, the rarest smell in the Ring"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a lemon tree in a tub, and the oil on the hands of whoever pruned it"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "cut grass on the clothes of a deck coming back from its Hollow turn"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "hot glue and lacquer from a chair remaker's"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "shoe polish, warm from the cobbler's bench"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the starchy steam of glass noodles at noon"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "vat-egg custard setting slowly on the warm loop"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "cucumber cut thick, a smell like a small extravagance"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "lactic soda fizzing in the school canteen"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "poster paint and wet paper from a school's art room"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "warm milk and clean nappies from the midwives' house"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "ink and paper from the register office"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "hot metal and cutting oil from a lathe"
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "the dye works, sweetish and mineral"
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "starch and steam from a laundry pressing shirts for a wedding"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "jasmine tea and a little caramel"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "cell-grown coffee from a counter that opens before the lamps"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "juniper and gin at a cellar door"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "the damp cellar smell of oyster mushrooms on spent coffee grounds"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "moss and water from a fern wall"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "a shift worker home from the oxidisers, smelling of hot water and nothing else"
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "cardamom buns, which are cheap, so there are always cardamom buns"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "old books, old chairs and a tomato vine"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "eucalyptus steam from the baths' hot room"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "hot sugar from a sweet shop pulling toffee"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the clean machine smell of a cab fresh from the depot"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "fried jelly cubes, and the chili oil they swim in"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "hand cream and herb tea in the elders' card room"
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "hot glass from a bead maker's electric kiln"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "spilt Mill lager on a hall floor"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "kimchi crocks breathing in a shared cellar"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "shiso, sharp and minty, from the herb shop's door"
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "the one seared thing on every plate, from a kitchen that sears last"
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "toasted rice tea in a lidded pot"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "floor polish and rubber soles in the long hall"
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "lavender bags in a wardrobe of clothes older than their owner"
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "pickled ginger and rice vinegar from a ferment shop"
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "warm pool water on a swimming class going home"
+  }
+ ],
+ "rare": [
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "An organ whose longest pipe climbs a stairwell four decks deep, nearly twice the length of the biggest pipes in old pictures, because sound runs that much faster here. It is played on Booking Day, and its lowest note is felt in the handrails before anyone hears it."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A flat kept exactly as it was in the Eleven Days: the larder shelves empty, a hand lamp wound down to nothing, eleven days crossed off on the kitchen wall. It opens on Knotnight, and the children who file through are told to touch nothing, and don't."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "needs": null,
+   "text": "A wall of name plaques by the lift core, one for everyone who has died here in four centuries, each with a smaller plaque underneath for the child who took the place. Families polish their two names on the anniversary, and the newest plaques are the shiniest."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A stair where a girl from {name} trained for the Heavy Round, running it spinward every night for six years. Her chalk marks are still on the wall at every landing, and children run it for luck before a race, touching each mark on the way up."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "A Mill Hall whose head cook swapped in from Lovage {years} years ago and still makes everything a little sweet. The broth tastes like Lovage's ring counter, and the regulars carry their own pepper in their pockets, which she pretends not to see."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A disused service shaft eight decks deep where the school drops a ball once a year. It lands more than three metres anti of the plumb line, every year, and every year somebody's parent writes to say the shaft must be crooked."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "A brass periscope in a reading room that pokes up through a pavilion roof into the Hollow, so elders who can't manage the stairs can still look at the far bank, three kilometres overhead and perfectly sharp."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "An eggshell from the henhouse in Tansy, blown hollow and kept under glass in the Mill Hall since a bride brought it back from her wedding. Small children are lifted up to see it, and most of them ask what it was for."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "A bright garden of ten square metres left to the neighbourhood by a retired back-crew hand, lit like an overcast day for nearly five kays a day. Everyone tips into a jar to keep it lit, and the tomatoes go to whoever has been ill."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The oldest chair in the Ring, more than four hundred years old, which stands at the end of the Mill Hall's long table. Nobody sits in it except the oldest resident on Booking Day, and anyone who has lost someone that week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "A stairwell lined with outgrown cuffs, one from every child raised in the block for two centuries, each labelled with a name and a year. Read upward, the wall is a history of fashion: forty years of rust, then a long blue spell nobody can explain."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A room kept completely dark, with a red lamp at its door for the twenty minutes eyes need. Children back from the Window come to lie in it and look at nothing, and their parents wait outside, not asking."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "A cold cupboard holding the block's registered starters, a hundred and forty crocks, each labelled with a family name and the drum it came from. People visit their family's crock the way other drums visit graves, and some of them talk to it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A ceiling over a stair painted by a back-crew veteran from memory: the River in pale gold, the bruise along its edges, the Shelf above and below, and black shapes where the rafts are. It's the only picture of outside most people here see before the Window."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "A diving pool where elders who have never dived learn to, because at a little over half a g the drop from the board takes a third as long again and there is time to think about it. The oldest beginner on record was a hundred and six."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A retired cab in a lift lobby, six seats and its gimbal still working, kept as a playroom. Children take turns rocking it until the cabin leans, and the first rule painted inside is that you get out when the next child asks."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "needs": null,
+   "text": "A wedding table three hundred years old with the initials of every couple who have eaten their wedding dinner off it cut into the underside. Engaged couples lie on the floor with a hand lamp to find their grandparents."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "A choir whose youngest member is a hundred and one. They sing standing, since standing is easy at half a g, and they rehearse in a felt room with the door open so that the whole stair can hear them get it wrong and then right."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "A runnel of bath water running the length of an arcade on its way back to the heat exchangers, warm to the hand and clear to the bottom. Children race paper boats in it, and the paper goes back to the paper maker afterwards."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Eleven hand lamps on a shelf in the Mill Hall, one for each day of the Eleven Days, wound up and switched on each anniversary at lamp-night. Nobody says anything while they run down, which takes about an hour."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A curved hall where a whisper at one end arrives clear at the other, and a little sooner than it would have in the old air. Couples propose in it, which means everyone at the far end hears first, and the custom is to say nothing until the answer comes."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "needs": null,
+   "text": "The light-vote box, with the tally of every vote it has held carved inside its lid, the oldest strokes worn nearly smooth. Bright leads dim by one. Whoever opens it on a vote night reads the whole lid aloud first, and it takes a while."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "An old fixed-floor lift kept running beside the cab core for elders who dislike the lean. It climbs at six metres a second, never tilts, and so nudges every rider gently sideways the whole way up. Its regulars say that is how a lift should feel."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A case of back-crew patches going back three hundred years, each a square of cloth with a band of stitched stars, given by retired hands who lived here. Eight-year-olds are brought to see it the week before the Window, and told to look for the bruise."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "A fig tree in a lift lobby, lit by one lamp the stair pays for in turns. It gives about sixteen figs a year, which go round by a rota older than anyone on it, and the household whose turn it is gets a knock on the door."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A book of cold dishes written during the Summer, about eleven hundred years ago, copied out by hand every century since. The oldest copy that survives sits behind glass, and on Summer Day someone reads a recipe from it aloud before the cold food comes out."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A lamp-painter from a fair drum who swapped in and paints the stair's lamps into a dawn once a year. Sorrel thinks painted dawns are for show, and the stair agrees, and every year the whole stair is out on the landings before six to watch."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A cold room kept at four degrees for the Knotnight larder, the only cold place most children here have ever stood in. They go in with an adult to see their own breath, which they have read about, and come out delighted and shivering."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "A plaque on a family flat where the first child was born after the Count came down, about six hundred and twenty years ago. The same family still lives there, and its children are still, everyone agrees, a little smug about it."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "needs": null,
+   "text": "A peal of twelve bells in a stairwell, one for each Hour, tuned so that {hour}'s bell is the brightest. They ring the changes on Booking Day for an hour, and the felt fitters do very well in the week after."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A fountain whose two-metre jet comes down a couple of hands' widths spinward of where it went up, because the drum turns under it on the way. The basin was built off-centre to catch it, and visitors keep telling the residents it was built wrong."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A cold plunge pool at twelve degrees, which in a drum that keeps its rooms warm is considered an eccentricity. It has a club of nine members who use it every morning and do not recruit, and a bench beside it that is always warm."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A room hung with felt nine layers deep, the quietest room in the Ring, where people go to hear their own heartbeat. It is free, booked by the quarter hour, and nearly always booked, mostly by parents of small children."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "needs": null,
+   "text": "A library of recorded voices: an hour from every resident who has died here in three centuries, kept on file and on a shelf of old slates. On the yearly note day, families borrow their dead for the evening and give them back in the morning."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A yew in a tub, planted in the year of the Summer about eleven hundred years ago, which has outgrown its tub four times. The current tub has the dates of the other three cut round its rim, and room left for a fifth."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A lift lobby floored in a mosaic of the twelve Hours' colours, made from broken dish lids collected over two centuries. Each household that cracked one has its piece marked on a plan by the door, and children hunt for theirs."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A door frame in a family flat with three hundred years of children's heights pencilled up it, eleven families' worth, each mark dated and weighed at the rim. Whoever moves in signs a promise, with a witness, never to paint it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "A glass panel in a lift lobby that looks into the shaft, the only one in the Ring. Platoons of cabs flick past at twenty metres a second, close as beads on a string, and small children will stand at it for an hour without blinking."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "A cooked hall with one apple-seed star from the Crosswise Guide, framed by the door. Strangers from other drums queue on Saturdays, the regulars find this very trying, and the cook has started serving the regulars first, which the guide has noted."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "An arcade that runs along the line between two Hours, {hour} on one side and the next Hour spinward on the other. In the week of the Round the two pavements wear different colours, and crossing the arcade without one of each is thought careless."
+  }
+ ]
+}

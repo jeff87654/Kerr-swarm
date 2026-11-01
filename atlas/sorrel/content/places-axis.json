@@ -1,0 +1,537 @@
+[
+  {
+    "id": "back-flying-hall",
+    "name": "The back flying hall",
+    "kind": "play",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 9,
+    "hour": null,
+    "r": 0,
+    "wall": "back",
+    "blurb": "The busy end of the Spindle: a netted sock of air 300 m long at the back wall, where Sorrel learns to fly lengthwise.",
+    "text": "The back flying hall is a sock of netting round the axis, 150 m across and 300 m long, at the back wall. At its edge you weigh a fortieth of a g; near the middle, nothing. By day the sunline's end blazes beyond the far net and the Hollow's glow fills the rest like a bright overcast, with all of Sorrel's land round you, 1.5 km off on every side. The bare spar down the middle is warm to the hand by afternoon, since it carries the sunline's coolant to the back axle. This is the busy end: the hire, the Tea Room, families, first lessons. Often a line of eight-year-olds floats past, roped to a guide and holding an adult's sleeve, bound for the axle door.",
+    "detail": "By day you fly on your deck's Hollow turn. The inner net is drawn back at about 17:35, when the whole Spindle opens. The axle door is for crews and Window parties only.",
+    "who": {
+      "name": "Kofi Lindvall",
+      "age": 41,
+      "role": "flying teacher",
+      "line": "First lesson: hand on the spar, push off along it, never across. The second lesson is the same. Most children believe it once they've met the net."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "flying",
+      "wing-sleeves",
+      "children",
+      "zero-g"
+    ]
+  },
+  {
+    "id": "front-flying-hall",
+    "name": "The front flying hall",
+    "kind": "play",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 1,
+    "hour": null,
+    "r": 0,
+    "wall": "front",
+    "blurb": "The quiet end: no axle roar, a cool spar, the old flying in the mornings and a crosswise club in the afternoons.",
+    "text": "The front flying hall is the same netted sock as the back one, 300 m of it at the front wall, and has a different temper entirely. Behind its wall the front axle brings the power in without moving a drop of anything, so there is no rumble, and the bare spar here carries only current and stays cool to the touch. There's no tea room and no Window traffic. Mornings belong to the old: from nine to eleven most of the flyers are over ninety, moving like people who have stopped hurrying. In the afternoons a crosswise club strings hoops across the netting and practises the hard way, which most of Sorrel regards the way it regards a painted dawn. On Booking night the Length starts here.",
+    "detail": "Elders' mornings, 09:00 to 11:00, are custom, not rule. The crosswise club meets on Tuesday and Friday afternoons and will teach anyone who asks, which few do.",
+    "who": {
+      "name": "Pilar Ostrow",
+      "age": 97,
+      "role": "morning flyer",
+      "line": "My knees are ninety-seven. Up here nobody asks anything of them."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "flying",
+      "elders",
+      "crosswise",
+      "quiet"
+    ]
+  },
+  {
+    "id": "wing-sleeve-hire",
+    "name": "The wing-sleeve hire",
+    "kind": "make",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 9,
+    "hour": null,
+    "r": 10,
+    "wall": "back",
+    "blurb": "At the back gate: fabric fins from wrist to hip, hired by the turn, with your shoes kept as the deposit.",
+    "text": "The hire is the first thing you meet at the top of the back lifts: a counter, a wall of numbered cubbies and the smell of washed cloth. You hand over your shoes, which you won't need up here and which cost twenty kays new, and get a pair of wing-sleeves, fabric fins from wrist to hip that let you swim the air. Every pair has a number and carries its mends. Children want the new ones. Regulars ask for the oldest by number, and pair nine, remade eleven times, has a waiting list. The mender works at the back bench inside a net bag, because at the axis her offcuts drift away instead of falling.",
+    "detail": "A tenth of a kay for your turn, children's pairs half that. Shoes come back when the sleeves come back folded. Remade pairs are sold at about 18 kays.",
+    "canon": "ashgrove.md",
+    "tags": [
+      "wing-sleeves",
+      "mending",
+      "hire",
+      "thrift"
+    ]
+  },
+  {
+    "id": "axis-tea-room",
+    "name": "Axis Tea Room",
+    "kind": "eat",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 9,
+    "hour": null,
+    "r": 0,
+    "wall": "back",
+    "blurb": "A felt-hung room slung round the bare spar in the back flying hall, where nothing boils and the tea comes up by lift.",
+    "text": "Axis Tea Room is a netted, felt-hung room slung round the bare spar a hundred metres into the back flying hall. Bubbles barely rise here, so nothing boils: the tea is brewed down in the lift lobby at the foot of the wall, at half a g, and comes up the lift in lidded bulbs, three minutes from kettle to cup. You hook a foot under a rail and drink through the lid. The house pour is a show. The server floats a metre out and pours slowly in toward your cup, and the stream bends a hand's width spinward on the way. A missed pour becomes a ball of tea, which the regulars catch in an empty bulb. Crumbs float. Order the mochi.",
+    "detail": "Long-pour jasmine tea 0.15, netted dumplings in a string bag 0.25: about 0.4 kays a head. Open with the flying hall. One apple-seed star in the Crosswise Guide.",
+    "who": {
+      "name": "Halvar Nkem",
+      "age": 34,
+      "role": "pourer",
+      "line": "I miss about one pour in two hundred. It always goes spinward, and somebody always catches it."
+    },
+    "canon": "eating-out.md",
+    "tags": [
+      "tea",
+      "zero-g",
+      "Crosswise Guide",
+      "lidded"
+    ]
+  },
+  {
+    "id": "spindle-by-night",
+    "name": "The Spindle by night",
+    "kind": "play",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 5,
+    "hour": null,
+    "r": 40,
+    "wall": "back",
+    "blurb": "When the sunline falls below a seventh, the nets come back and the whole axis is open: 3.75 km of flying in the dark.",
+    "text": "At about twenty-five to six the dusk falls below a seventh of full, the nets across the inner ends of both flying halls are drawn back, and the whole Spindle opens: 3.75 km of near weightlessness, with the spar a dark cable down the middle of the air. People fly it with hand lamps of a watt or two, and from below they look like a slow line of lights 1.5 km up. Sorrel's rule is back on the spin side, front on the anti, so the two streams pass either side of the spar. Wardens with red lamps keep the edge, seventy-five metres out. At twenty-five past six the line climbs past a seventh again, the wardens sweep the middle and the nets close.",
+    "detail": "Open from about 17:35 to 06:25, some thirteen hours. Night flying goes by lift slot, not by deck turn. Every flyer carries a lit lamp, and anyone without one is fetched.",
+    "who": {
+      "name": "Nell Okonjo",
+      "age": 52,
+      "role": "night warden",
+      "line": "I fetch back about one flyer an hour. Never a child: children watch the spar. It's always somebody in love, looking the wrong way."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "night",
+      "flying",
+      "hand lamps",
+      "wardens"
+    ]
+  },
+  {
+    "id": "the-length",
+    "name": "The Length",
+    "kind": "rites",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 1,
+    "hour": null,
+    "r": 20,
+    "wall": "front",
+    "blurb": "Sorrel's Booking-night flight: front wall to back, the way the power goes, behind the oldest flyer's lamp.",
+    "text": "Chervil flies the Long Flight on Booking night, hundreds of thousands of lamps in shifts till lamp-dawn. Sorrel flies the Length instead: once, together, from the front wall, where the power comes in, to the back wall, where the heat goes out. The oldest flyer present carries the first lamp and nobody passes it, so the whole flight goes at an old person's pace, about half an hour for the 3.75 km. A few thousand fly it, in their blocks, lamps in hand, and from the terraces it looks like a single slow stroke of light drawn down the axis. At the back gate everyone gets a bulb of peppery broth, sent up from the lift lobby, and the first lamp is hung by the hire till next year.",
+    "detail": "Leaves the front gate at 22:00 on Booking night. The first lamp is a plain hand lamp, rewired so often that none of the original is left, which Sorrel counts in its favour.",
+    "who": {
+      "name": "Ottilie Sarr",
+      "age": 108,
+      "role": "carrier of the first lamp",
+      "line": "They give the lamp to the oldest, not the fastest. I've been both. This is better, and nobody can tell me to hurry."
+    },
+    "canon": null,
+    "tags": [
+      "Booking Day",
+      "festival",
+      "flying",
+      "elders",
+      "hand lamps"
+    ]
+  },
+  {
+    "id": "spindle-lifts",
+    "name": "The Spindle lifts",
+    "kind": "civic",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 9,
+    "hour": null,
+    "r": 30,
+    "wall": "back",
+    "blurb": "From the foot of each end wall to the axis: 1.5 km in a little over two minutes, while down goes sideways and then away.",
+    "text": "The Spindle lifts climb the end walls from their foot, at half a g, to the gates at the axis: 1.5 km in a little over two minutes at 12 m/s. The cabin leans as it climbs and your weight drains away, a third of a g, a quarter, a tenth. In the last 400 m the drum's turn pushes sideways harder than the spin pulls you down, and the cabin swings until down points across it. In the last 50 m the braking takes over: down swings toward the axis, then fades, and the doors open on a cabin of people holding the rail. Children are told to hold on at the swing. The Tea Room's bulbs ride up in a padded rack by the door.",
+    "detail": "Lobbies at the foot of both end walls, reached by cab from the decks below. Free, like any cab. Night flyers book a slot up and a slot down.",
+    "canon": "drum-transport.md",
+    "tags": [
+      "lifts",
+      "Coriolis",
+      "end walls",
+      "weight"
+    ]
+  },
+  {
+    "id": "sunline-spar",
+    "name": "The sunline spar",
+    "kind": "work",
+    "zone": "spindle",
+    "deck": null,
+    "deckTo": null,
+    "ring": 5,
+    "hour": null,
+    "r": 0,
+    "wall": "front",
+    "blurb": "A tensioned spar from axle to axle that carries Sorrel's sky by day and its spar crews by night.",
+    "text": "The sunline hangs on a tensioned spar that runs the whole 3.75 km of the axis, from the front axle to the back. Power comes in at the front end. For 2.85 km of the middle the spar carries the lamps: at full sun about 12 GW, a fifth of which ends as heat in the fixtures and goes to the back axle in the spar's own coolant. The last 450 m at each end is bare spar. In the lamp-night the spar crews ride it on a creeper car with an amber lamp, changing lamp tiles that have reached their date and checking joints and tension. The spar stays warm for an hour after dusk, and night flyers clear the spar side when the amber lamp comes along.",
+    "detail": "Tiles are changed on a schedule, never on failure, and each carries its fitting date on the back. Crews work 19:00 to 05:00; the creeper has right of way.",
+    "who": {
+      "name": "Yusuf Kell",
+      "age": 47,
+      "role": "spar crew",
+      "line": "The oldest tile I've taken off was fitted by my grandmother's crew. I asked to keep it. The Yards wanted it more."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "sunline",
+      "crews",
+      "lamp-night",
+      "light"
+    ]
+  },
+  {
+    "id": "front-axle-hall",
+    "name": "The front axle hall",
+    "kind": "work",
+    "zone": "axle",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": "front",
+    "blurb": "Power in: about 160 GW crosses a rotary joint here, and you would never know it by ear.",
+    "text": "Behind the front flying hall's wall, at the hub of the moat's front tank, Sorrel's power comes in. The cell's rectennas deliver about 340 GW. About 160 GW of it crosses the rotary joint here into the turning drum, and the rest goes to the data halls, the Yards and the tubes. This is the quiet end. Nothing flows but current, so you hear fans, your own breath and somebody writing on a slate, and the joint crew read their instruments instead of listening for trouble. On the wall hangs the booking log, a line for every Booking Day as far back as the hall's records go, and almost every line says flat. The line for 74 years ago has eleven days ruled through it.",
+    "detail": "Crews only, through a service door off the front gate. The joint turns with the drum, once every 110 seconds; its other half is fixed to the raft and never turns.",
+    "who": {
+      "name": "Amaru Lind",
+      "age": 55,
+      "role": "joint fitter",
+      "line": "People think the loud end is the hard one. Here, if something goes wrong, you don't hear it. You read it."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "power",
+      "beam",
+      "crews",
+      "Booking Day"
+    ]
+  },
+  {
+    "id": "back-axle-hall",
+    "name": "The back axle hall",
+    "kind": "work",
+    "zone": "axle",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": "back",
+    "blurb": "Heat out: pipes as wide as rooms carry a river of ammonia through the great rotary joint. The loudest place in Sorrel.",
+    "text": "Everything Sorrel does ends here as heat. Pipes as wide as rooms bring it from every deck as ammonia, about 220 cubic metres of liquid a second, a river's worth, and pass it through the great rotary joint into the still part of the raft and out to the radiators. The joint turns with the drum at 0.55 turns a minute, and its seam creeps past at a slow walk. This is the loudest place in the drum: pumps, the churn of boiling flow, a roar you feel in your teeth. Crews wear ear cups and talk by hand. Beside the joint hangs a length of cracked seal from the Summer, 1,100 years ago, when this joint lost a third of Sorrel's heat flow for forty days.",
+    "detail": "About 130,000 kg of ammonia a second, boiled in the hull and condensed in the radiators. Window parties cross the hall on a roped line, with a guide, to the despun chamber.",
+    "who": {
+      "name": "Saoirse Tamm",
+      "age": 38,
+      "role": "joint crew",
+      "line": "Two hundred and twenty cubic metres a second, every second of my life. Best river in Sorrel, and I've never seen a drop of it."
+    },
+    "canon": "ashgrove.md",
+    "tags": [
+      "heat",
+      "ammonia",
+      "noise",
+      "the Summer"
+    ]
+  },
+  {
+    "id": "despun-chamber",
+    "name": "The despun chamber",
+    "kind": "civic",
+    "zone": "axle",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": "back",
+    "blurb": "A round room on the axis that lets go of Sorrel's turn, so you can step out into the part of the raft where nothing turns.",
+    "text": "The way out of the spinning world is a round room on the axis, off the back axle hall, with handholds round its wall and a long port looking into the hall. The doors seal and the room begins to let go of Sorrel's turn. You feel nothing at all, since at the axis there is nothing to feel. But through the port the hall begins to wheel, slowly at first, then at its own pace, and first-timers grab a handhold as if that would help. It takes a little under two minutes. Then the far door opens onto the still side, where nothing turns. Crews make the crossing twice a shift and read through it.",
+    "detail": "Big enough for a whole Window party. Coming back it runs the other way: the hall slows in the port and stops, and you are turning with Sorrel again.",
+    "canon": "ashgrove.md",
+    "tags": [
+      "axle",
+      "transit",
+      "Windows",
+      "zero-g"
+    ]
+  },
+  {
+    "id": "shielded-track",
+    "name": "The shielded track",
+    "kind": "civic",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "A blind ride in an armoured car, out through the jacket and the radiator layer, inside Sorrel's own shadow.",
+    "text": "From the still side a short armoured car runs out on a shielded track: through a bore in the back cap's 50 m hydrogen jacket, then out among the radiator rows to the Windows and the crews' sled berths. The car is squat and walled with sealed water, and it has no windows at all, by design: the first window you look through out here should be the Window. Most of the shielding is Sorrel itself. Behind its back cap the whole drum stands between you and the Lantern's hard X-rays, and the track keeps inside that shadow. The ride is weightless and gentle, and crews call the car the blind car.",
+    "detail": "About two minutes each way. The same track serves the back crews' sled berths, so a Window party sometimes shares the platform with a shift going out.",
+    "canon": "ashgrove.md",
+    "tags": [
+      "transit",
+      "shielding",
+      "Windows",
+      "radiation"
+    ]
+  },
+  {
+    "id": "still-side",
+    "name": "The still side",
+    "kind": "work",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "The back crews' dock behind the back axle, where nothing turns: suit racks, sled berths, a dose board and an old bet board.",
+    "text": "Through the despun chamber you come out on the still side, the dock behind the back axle where the raft keeps its crews for the radiator layer. Nothing turns, so nothing is up: lockers open in every direction, suits hang from the walls in rows like coats, and the sleds wait in their berths. The dose board shows each hand's year so far, read out at every shift change. The bet board is older. Crews bet on which star a raft's edge will cover next, and when, and the stake is a cup of tea, settled at the Axis Tea Room. A few bets on it were placed by hands long since gone up, and the crews still honour them.",
+    "detail": "Crews and Window guides only. Shifts change at 06:00, 14:00 and 22:00, and every hand comes and goes through the despun chamber like a Window child.",
+    "canon": null,
+    "tags": [
+      "back crews",
+      "zero-g",
+      "bets",
+      "dose"
+    ]
+  },
+  {
+    "id": "radiator-layer",
+    "name": "The radiator layer",
+    "kind": "work",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "A black plain of panels across the whole back of the raft, where all of Sorrel's heat goes out to the sky.",
+    "text": "Behind Sorrel the back of the raft is a plain of black panels, flat in every direction to a horizon as straight as a rule. Sorrel's cell is 24.5 km on a side, and about 390 km² of it is panel at 300 K for the hull's heat, warm as a room. Hotter rows carry the data halls' heat at 350 K and the Yards' at up to 600 K. None of them glows, though a gloved hand near the hottest would feel it. The panels radiate one way only, aft, in the shadow of the raft's front, and the plain runs on past Sorrel's cell into the next drum's and the next, for the width of the raft. Above the horizon is the sky.",
+    "detail": "About 2 m² of hull radiator for every person in Sorrel. The panels are the raft's; the crews who keep the rows behind Sorrel work out of its back axle.",
+    "canon": "raft-habitat.md",
+    "tags": [
+      "radiators",
+      "heat",
+      "outside",
+      "stars"
+    ]
+  },
+  {
+    "id": "back-crews",
+    "name": "The back crews",
+    "kind": "work",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "The hands who keep the radiator panels, on sleds behind the raft, and see the stars on ordinary working days.",
+    "text": "The back crews keep the panels running: chasing ammonia leaks along the rows on sleds, changing pumps and patching punctures, in suits whose visors look aft. A leak shows in the sled lamps as a glittering plume, ammonia boiling and freezing at once as it meets the vacuum. Near the drum they work in Sorrel's own shadow. Further out a sled carries its own: a hood of sealed water that rides out in front of the panels while the crew work behind them. Shifts are eight hours, with the whole sky over your shoulder. Every hand has seen the River more times than they can count, and most of them would rather talk about pumps.",
+    "detail": "Eight-hour shifts out of the still side. By custom each hand stitches one star into the band on their crew patch for every year served. Forty is a lot.",
+    "who": {
+      "name": "Efua Lam",
+      "age": 44,
+      "role": "sled hand",
+      "line": "People ask me about the stars. I tell them about the pumps. The stars have never once needed me."
+    },
+    "canon": "ashgrove.md",
+    "tags": [
+      "back crews",
+      "stars",
+      "radiators",
+      "work"
+    ]
+  },
+  {
+    "id": "the-windows",
+    "name": "The Windows",
+    "kind": "rites",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "A dozen long low galleries behind the radiators, where every Sorrel child sees the stars once, at about eight.",
+    "text": "Every child in Sorrel comes here once, at about eight, with one adult of their choosing. The Windows are a dozen long low galleries on the aft face of the radiator layer, each seating about 150 on tiered couches before a long shutter. You wait twenty minutes in red light while your eyes wake up. Then the shutter opens on the River: a band of stars right across the sky, pale gold, the brightest of them orange, with brown-violet dust at its frayed edges that the crews call bruise. Above and below it lies the fainter Shelf. Here and there are black shapes where nothing shines, from specks to a fingernail at arm's length: other rafts, about a sixth of the sky. There is no near star.",
+    "detail": "Each gallery is named for an Hour and takes its own Hour's children: about 75 and their adults a round, five rounds a day, every eight-year-old in Sorrel.",
+    "who": {
+      "name": "Rielle Achter",
+      "age": 33,
+      "role": "Window guide",
+      "line": "Every adult in that room came once, at eight. I watch them more than the children. They're the ones who cry."
+    },
+    "canon": "ashgrove.md",
+    "tags": [
+      "stars",
+      "the River",
+      "children",
+      "rites"
+    ]
+  },
+  {
+    "id": "owls-window",
+    "name": "Owl's Window",
+    "kind": "rites",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "The Hour of the Owl's gallery, with the oldest couches behind the drum and a red room where the adults do the talking.",
+    "text": "Owl's Window has the oldest couches behind the drum, re-covered so many times that the log stopped counting, and Owl will tell you so. It also keeps a custom of its own for the red twenty minutes. The adult, who sat in this room once at eight, tells the child what they saw then and what they have made of it since. The red lamps are the dimmest in Sorrel, a few watts for the whole gallery, and heliox carries a whisper, so a hundred and fifty people whispering at once sound like water running. Some grandparents have been chosen so often that they ask for their usual couch.",
+    "detail": "Owl is Hour Three. The guide calls the red minutes aloud, since a lit clock would spoil the dark, and nobody opens the shutter early.",
+    "who": {
+      "name": "Joaquim Mbek",
+      "age": 91,
+      "role": "chosen eleven times",
+      "line": "Eleven times now: grandchildren, godchildren, a neighbour's boy whose own grandad had died. The River's the same every time. I'm not."
+    },
+    "canon": null,
+    "tags": [
+      "Windows",
+      "red light",
+      "rites",
+      "elders"
+    ]
+  },
+  {
+    "id": "data-hall-vaults",
+    "name": "The data-hall vaults",
+    "kind": "work",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "Water-walled vaults in the mid-raft where Sorrel's worlds, tutors and messages run, and almost nobody goes.",
+    "text": "Sorrel's worlds run outside Sorrel, in vaults out in the mid-raft walled with a metre and a half of sealed water, because out there the Lantern's hard X-rays would kill an ordinary chip in hours and a hardened one in months. Every tutor, slow world, shared evening and message in Sorrel passes through them, about 100 GW for the cell, and their heat leaves from the 350 K panels on the raft's back. Almost nobody goes. Robots swap the boards. Twice a year a vault crew rides out in a shielded car to service the wall tanks, whose water the X-rays split a little every day. Each tank has a recombiner, since the raft can't spare the hydrogen.",
+    "detail": "Going dark idles your share: 9.6 kays a day of compute that stays in your wallet. In the Eleven Days the vaults went dark with everything else.",
+    "who": {
+      "name": "Corin Amadi",
+      "age": 51,
+      "role": "vault hand",
+      "line": "Two hundred million people's evenings in there, and it sounds like a cold room. Quietest place I know, and everyone in Sorrel is in it."
+    },
+    "canon": "raft-habitat.md",
+    "tags": [
+      "compute",
+      "worlds",
+      "X-rays",
+      "machines"
+    ]
+  },
+  {
+    "id": "the-yards",
+    "name": "The Yards",
+    "kind": "make",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "Where things go to be remade: Sorrel's share of the raft's industry and recycling, out in the mid-raft.",
+    "text": "The Yards are where Sorrel's worn-out things go and its new ones come from: closed vacuum chambers in the mid-raft, drawing about 58 GW for the cell. Every year they remake about 100 kg for each person in Sorrel, some 20 Mt, out and back through the Quaysides by freight cab, mostly in the lamp-night, when kWh are cheapest and the Yards run hardest. Each pass recovers 98 to 99.5% of what goes in, and the residue goes round again. Their heat leaves from the hottest panels on the raft's back. New mass costs about 25 kays a kilogram because this is where it is made, and that is why Sorrel mends.",
+    "detail": "Send out a broken chair and you get back a credit for its good metal and fibre, less losses, never the chair. At most a billionth of what goes through escapes.",
+    "canon": "raft-habitat.md",
+    "tags": [
+      "recycling",
+      "industry",
+      "thrift",
+      "machines"
+    ]
+  },
+  {
+    "id": "the-glide",
+    "name": "The glide",
+    "kind": "play",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "140 seconds of weightless fall to the next drum, and the only view of outside most of Sorrel ever gets.",
+    "text": "Most of Sorrel sees outside only through a glide car's aft windows, behind a metre of clear water. Children count down to the release. The weight goes out of everyone in about a second, and the car falls free at 174 m/s across the mid-raft: a dark hall 3.75 km deep, with the radiator layer laid across the view like a ceiling. What you see are lights. Every drum wears a ring of quay lights round its waist, and the rings stand back rank behind rank to a vanishing point. Sorrel's shrinks behind you and the next one grows. After 140 seconds comes the catch, a cradle on a soft arm and a full g back over a second or two. Children laugh. Some elders won't glide.",
+    "detail": "Free, and it runs even in the Dark. Sorrel children hold a bead on a thread at the release to watch it hang in the air, and say anti when it drops at the catch.",
+    "canon": "raft-transport.md",
+    "tags": [
+      "glide",
+      "children",
+      "weightless",
+      "quay lights"
+    ]
+  },
+  {
+    "id": "rectenna-field",
+    "name": "The rectenna field",
+    "kind": "work",
+    "zone": "beyond",
+    "deck": null,
+    "deckTo": null,
+    "ring": null,
+    "hour": null,
+    "r": null,
+    "wall": null,
+    "blurb": "In front of Sorrel, about 390 km² of rectennas take the Lantern's beam. Nobody goes, and nobody looks.",
+    "text": "Round Sorrel's front cap and its tank of water, the front of the cell is a field of rectennas, about 390 km² of them, taking the Lantern's microwave beam at about a kilowatt a square metre and turning nine-tenths of it into current: about 340 GW for the cell, 160 GW of it for the drum. Nobody goes there. The beam would cook you, and the Lantern's hard X-rays strike the field face-on, lethal within minutes. Its diodes are diamond and gallium nitride, and machines replace them on a schedule. The power arriving today left the Lantern about eleven months ago, so nearly a year of Sorrel's lamps, kitchens and worlds is always on its way.",
+    "detail": "No window anywhere faces it, and nobody in Sorrel has seen it. The front axle crew watch its output on a board, and in the Eleven Days the board read zero.",
+    "canon": "raft-habitat.md",
+    "tags": [
+      "power",
+      "beam",
+      "outside",
+      "Lantern"
+    ]
+  }
+]

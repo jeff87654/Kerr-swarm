@@ -1,0 +1,763 @@
+[
+ {
+  "id": "quay-ring-seven",
+  "name": "The Quay, Ring Seven",
+  "kind": "civic",
+  "zone": "outside",
+  "deck": null,
+  "deckTo": null,
+  "ring": 7,
+  "hour": null,
+  "r": 3050,
+  "wall": null,
+  "blurb": "A band of track round Sorrel's waist, outside the jacket and the moat, where cradles let glide trains go toward Lovage and Tansy and catch them coming home.",
+  "text": "Nobody stands on the quay. It runs round the drum at 3,050 m, just outside the moat, in the mid-raft's X-ray flood, moving at 174 m/s, and only passengers see it, through a metre of water. Ring Seven's band serves Herb Row. Cradles ride the track and carry each train round to a touch point, where the rim is moving exactly along the lane, and let go: weight leaves in about a second. There are two touch points, on opposite sides of the drum, and each one catches trains from one neighbour as it sends them to the other, on a soft arm that hands back a full g over a second or two. Between the cradles run the quay lights, a steady warm white. Lovage's are brighter, naturally.",
+  "detail": "Glide trains run from the first at 05:00 to the last at 01:00. The quay wait is about 73 seconds going out and 37 coming in, and a cradle weighs you about 2% heavier.",
+  "who": {
+   "name": "Ines Achter",
+   "age": 51,
+   "role": "catch controller",
+   "line": "We've missed two catches in twenty years. Both trains went on to Tansy, and Tansy sent everyone back with strawberries."
+  },
+  "canon": "raft-transport.md",
+  "tags": [
+   "glide",
+   "quay",
+   "lovage",
+   "tansy"
+  ]
+ },
+ {
+  "id": "the-minutes-ring-four",
+  "name": "The Minutes, Ring Four",
+  "kind": "civic",
+  "zone": "outside",
+  "deck": null,
+  "deckTo": null,
+  "ring": 4,
+  "hour": null,
+  "r": 3025,
+  "wall": null,
+  "blurb": "Sixty short dark tunnels through the hydrogen jacket, five to each Hour, where glide trains go out to the quay and come home.",
+  "text": "Every station ring has sixty locks through the jacket, five to each Hour, and Sorrel calls them the Minutes: a train leaving Ring Four for Chervil or Rue by the twenty-third Minute goes out under Fox. Each is a short sloping tunnel through fifty metres of hydrogen at 20 K, with a door at each end. A train rolls in from its vacuum berth, the inner door shuts, the lock is checked against the cold, and the outer door, a slab of sealed water two metres thick, slides aside onto the quay. Each passage takes about a minute, which is the other reason for the name. There are no lamps. Children hold their breath from one door to the other and nearly always run out first.",
+  "detail": "Each lock cycles about once a minute, so at the busiest hour about one train a second passes through the jacket. The Minutes are numbered spinward from the start of Hare.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "jacket",
+   "locks",
+   "chervil",
+   "rue"
+  ]
+ },
+ {
+  "id": "guard-vacuum",
+  "name": "The Guard Vacuum",
+  "kind": "work",
+  "zone": "outside",
+  "deck": null,
+  "deckTo": null,
+  "ring": 8,
+  "hour": null,
+  "r": 3001,
+  "wall": null,
+  "blurb": "The narrow gap of nothing between Sorrel's hull and its jacket, where cryopanels freeze every atom the hull leaks and the Gleaners bring it home.",
+  "text": "Between the hull and the jacket's insulation lies a narrow vacuum lined with cryopanels: 20 K arrays behind 80 K shrouds. Whatever leaks through the hull freezes on them before it can go anywhere: oxygen mostly, then water and carbon dioxide, a little iodine, and traces of every kitchen in Sorrel. The crews who bring it home are the Gleaners, and what they bring home is the glean, about eight tonnes of oxygen a day. Nobody scrapes anything. A bank of panels is closed off and warmed a few degrees at a time, because oxygen frost with ozone in it can detonate if it's hurried, and the glean goes home as gas, to the air and the Mill. Helium never freezes here; it's pumped home as it comes.",
+  "detail": "No visitors: the vacuum has no door a person could use. Banks are warmed one at a time by crews of six, mostly Wolf, who read each gauge aloud. Their lockers are in Ring Eight.",
+  "who": {
+   "name": "Bao Lindqvist",
+   "age": 38,
+   "role": "Gleaner",
+   "line": "Every bank we warm assays a little garlic. Two hundred million kitchens, all leaking a bit. We send the garlic home with the rest."
+  },
+  "canon": "element-cycles.md",
+  "tags": [
+   "jacket",
+   "frost",
+   "element-cycles",
+   "keel-crews"
+  ]
+ },
+ {
+  "id": "the-moat",
+  "name": "The Moat",
+  "kind": "water",
+  "zone": "outside",
+  "deck": null,
+  "deckTo": null,
+  "ring": 2,
+  "hour": null,
+  "r": 3050,
+  "wall": null,
+  "blurb": "Half a metre of Sorrel's own water held outside the jacket: the drum's X-ray shield and its reservoir, which nobody has seen and everyone has drunk.",
+  "text": "Two-thirds of Sorrel's water lies outside the jacket: about 53 million tonnes, half a metre deep over the sides and the front cap, pressed against the outer wall at a full g. It keeps the Lantern's X-rays out of the cold hydrogen and throws a quarter or more of them back into the mid-raft. Nobody goes out to it. The moat-keepers work in the Keel, at the Crossings in Ring Two, where it comes in across the jacket, is cleaned, and runs through the hull's coolant loop, which holds it near 17 °C. The X-rays split fifty to a hundred tonnes of it a day into hydrogen and oxygen, and recombiners in every cell put them back together.",
+  "detail": "Nobody may go out to it. The moat's whole leak allowance is about twenty kilograms a year, two buckets out of 53 million tonnes, and its cells close a puncture in about a second.",
+  "who": {
+   "name": "Rafa Okonkwo",
+   "age": 63,
+   "role": "moat-keeper",
+   "line": "I've kept the moat thirty-one years and never touched it. I read it: gauges, assays, the recombiners' gas. It's like keeping a lake by letter."
+  },
+  "canon": "habitat-design.md",
+  "tags": [
+   "water",
+   "moat",
+   "shield"
+  ]
+ },
+ {
+  "id": "the-jacket",
+  "name": "The Jacket",
+  "kind": "work",
+  "zone": "outside",
+  "deck": null,
+  "deckTo": null,
+  "ring": 9,
+  "hour": null,
+  "r": 3025,
+  "wall": null,
+  "blurb": "Fifty metres of liquid hydrogen at 20 K wrapped round the whole drum: Sorrel's shield against cosmic rays, and the fuel it would burn in a Dark.",
+  "text": "The jacket is the largest thing Sorrel owns: about 450 million tonnes of liquid hydrogen, fifty metres thick over the hull and both end caps, kept at 20 K. It stops the cosmic rays that would otherwise pass through everyone in the drum. Nobody sees it. People know it only as the short dark of a glide train's Minute, and as the cold plant's bill: each watt of heat that creeps into the hydrogen costs about 47 watts to pump back out, which comes to 17 W a person. It is also the survival reserve's fuel. In a Dark the coolers stop, the jacket warms and boils a little, and every gram that boils off is burned in the fuel cells against the banked oxygen.",
+  "detail": "Each person's share is about 2.2 tonnes of hydrogen. A 55-day Dark would boil off about 4 kg a head, a little less than the fuel cells would burn. Nothing is vented.",
+  "canon": "habitat-design.md",
+  "tags": [
+   "jacket",
+   "shield",
+   "dark"
+  ]
+ },
+ {
+  "id": "air-halls",
+  "name": "The Air Halls",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 11,
+  "ring": 1,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "The electrolyser halls where the food plant begins: water split into hydrogen for the Mill and oxygen for every breath in the drum.",
+  "text": "Every breath in Sorrel was made in halls like these, on average a few months before it was breathed. Ring One's are the oldest: seven decks of solid-oxide stacks in insulated boxes, splitting water at about 800 °C. The hydrogen goes on to Methanol Row and the oxygen to the air, about 1.2 kg a person a day, nearly twice what anyone breathes; the rest feeds the Vats and the oxidisers. Roughly a quarter of all the power that enters the drum is spent here. The halls are hot, dry and loud with fans, and the crews walk the aisles reading stack voltages off the panels, because a tired stack shows it there first.",
+  "detail": "Open to visitors on the first Thursday of each month, from the Ring One lifts. The aisles run at about 35 °C, which in heliox feels hotter than it sounds.",
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "air",
+   "mill",
+   "electrolysis"
+  ]
+ },
+ {
+  "id": "methanol-row",
+  "name": "Methanol Row",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 8,
+  "ring": 2,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "A street of synthesis reactors where hydrogen from the Air Halls meets the drum's breathed-out carbon dioxide and becomes methanol, the food plant's one feedstock.",
+  "text": "Nearly everything Sorrel eats starts here as a clear liquid. Hydrogen from the Air Halls and carbon dioxide from the air scrubbers, the vats and the oxidisers meet over copper and zinc in reactors at about 250 °C, and come out as methanol: about 0.8 kg a person a day, 160,000 tonnes across the drum. The Row is a long street of reactor housings four decks high, with a walkway down the middle and every pipe painted in the old code: hydrogen red, carbon dioxide grey, methanol yellow. The catalyst beds hold some of the most carefully counted copper in Sorrel. Each bed carries a passport, and spent ones go out to the Yards to be stripped and made again, never thrown away.",
+  "detail": "No visitors past the first gallery: the old books call methanol wood alcohol, and a mouthful can blind. The Row makes about 160,000 tonnes a day for the Cascade, the Vats and the tank farm.",
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "methanol",
+   "mill"
+  ]
+ },
+ {
+  "id": "the-cascade",
+  "name": "The Cascade",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 8,
+  "ring": 3,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "The quietest hall in the food plant, where enzymes in tall columns turn methanol into sugar and starch without a living cell anywhere.",
+  "text": "Nothing in the Cascade is alive, which is why it's so quiet. Methanol from the Row is stripped to formaldehyde, and the hydrogen that comes off goes back to be used again. Then the liquid runs down through columns of fixed enzymes, each doing one small job, and comes out as three-carbon sugars, then six, then glucose, sucrose, lactose and starch. The crews tune the starch by the batch: waxy for mochi and sticky rice, high in amylose for glass noodles, slow and resistant for fibre. The columns stand in rows four decks tall. There is no stirring and no hiss, only the pumps, and the product end of the hall smells faintly of warm syrup.",
+  "detail": "The gallery over the columns is open on weekdays, 10:00 to 16:00. Most of what the Mill Halls serve began here: jook rice, glass noodles, swallows and starch jellies.",
+  "who": {
+   "name": "Odo Ferrand",
+   "age": 57,
+   "role": "cascade tuner",
+   "line": "People think sugar is sugar. Ask a mochi maker. A point or two of amylose either way and the whole Hour writes to complain."
+  },
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "mill",
+   "starch",
+   "sugar"
+  ]
+ },
+ {
+  "id": "nine-hall",
+  "name": "Nine Hall",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 6,
+  "deckTo": 7,
+  "ring": 1,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the Mill makes its amino acids and blends the Nine, the bitter seasoning on every table in Sorrel.",
+  "text": "The Mill builds all twenty amino acids by chemistry, uses enzymes to sort out the left-handed forms a body can use, and sends most of them up to the kitchens as sweet-savoury stock. The nine essential ones are bitter, and they end up in this hall, blended into the Nine: masked with salt, glutamate and fat, fortified with thiamine, and packed as paste and as coated sprinkle, about 4,000 tonnes a day. Every batch goes past a tasting panel of three, who agree that it is horrible and then check that it is the right horrible. The hall's door carries the oldest kitchen rule in the drum, cut into the steel: Don't brown your lysine.",
+  "detail": "Free to every Mill Hall, by the tin. A day's Nine is about 20 g and costs the drum about 0.17 kWh. Tastings are not offered, and nobody asks twice.",
+  "who": {
+   "name": "Petra Ilunga",
+   "age": 49,
+   "role": "taster",
+   "line": "Leucine's the bully. Tryptophan sulks. Get the salt right and they behave. Get it wrong and Sorrel says the Nine's off this week, and it is."
+  },
+  "canon": "cuisine.md",
+  "tags": [
+   "food-plant",
+   "mill",
+   "the-nine"
+  ]
+ },
+ {
+  "id": "long-vats",
+  "name": "The Long Vats",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 11,
+  "ring": 5,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Most of a kilometre of thermophilic vat halls where methanol-fed bacteria make Sorrel's protein flour, on three named lines that take turns.",
+  "text": "The Long Vats run spinward for most of a kilometre under Owl: closed steel vats in rows, jacketed and held at 65 °C, where bacteria eat methanol and become protein flour for curds, extruded chicken, noodles and bread. The heat is half the point. Few contaminants like it that hot, and what the vats shed goes into the 65 °C loop that warms every bath in Sorrel. Three lines take turns, a week each, so no phage can settle in: Long Clear, Sorrel's own and the oldest; Hedge, from Sloe on Hedge Row; and Tansy Gift, sent over after a blight and kept out of gratitude. Crews stand phage watch in shifts, reading sequencers, not vats.",
+  "detail": "Visitors' gallery on weekday afternoons; no entry to the vat floor. A protein-flour line lost to a blight regrows from library stock in about three days, and the Nine fills in meanwhile.",
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "vats",
+   "protein",
+   "waste-heat"
+  ]
+ },
+ {
+  "id": "steak-halls",
+  "name": "The Steak Halls",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 6,
+  "deckTo": 10,
+  "ring": 6,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's mycelium grows on Mill sugar: the pale Fusarium line that makes the drum's steaks, and the orange Neurospora line that once had to.",
+  "text": "Two fungal lines grow here, side by side and never mixed. Pale, Sorrel's Fusarium, makes nearly all the drum's mycelium steak, bacon and pulled strands: it grows on Mill sugar in long trays, knits into mats the colour of jook, and is pressed, sliced and given a few grams of cultivated fat so it reads as beef or pork. Orange, the Neurospora line, runs a single hall, small and always ready. In the orange-steak year a blight took Pale, and for a season Sorrel ate Orange: steaks a pinkish orange that tasted of nuts. The drum still cooks orange steaks on the anniversary, and Orange's hall runs flat out for a week to supply them.",
+  "detail": "Orange steaks are cooked all over Sorrel on the anniversary, at about the price of any mycelium steak, 0.84 kWh. A lost fungal line regrows from library stock in about a week.",
+  "canon": "cuisine.md",
+  "tags": [
+   "food-plant",
+   "vats",
+   "mycelium",
+   "orange-steak-year"
+  ]
+ },
+ {
+  "id": "the-dairy",
+  "name": "The Dairy",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 7,
+  "deckTo": 10,
+  "ring": 7,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel has never had a cow, but it has a Dairy: yeast vats making casein, whey, egg white and gelatin, with line numbers that skip a four.",
+  "text": "Nobody in Sorrel has seen a cow, and the halls are still called the Dairy. Methanol-fed yeast in tall vats make casein and whey for cheese and yogurt, egg proteins for custard, meringue and vat egg, gelatin, gluten for bread and noodles, and rennet. It is the Vat table's biggest bill, bigger than meat. The lines are numbered One, Two, Three, Five and Six. Line Four was the dairy yeast that failed about 640 years ago, when Sorrel was a holdings drum and the blight caught its thin households; the Count and seventeen years without births came after. The vat is still in use. The number has never been given out again.",
+  "detail": "No visitors past the line board. The blight menu is starch loaves, starch custards and blight cheese, which Sorrel makes better than it would like.",
+  "who": {
+   "name": "Amara Quist",
+   "age": 46,
+   "role": "line steward",
+   "line": "Every apprentice asks where Line Four is. I take them to the vat and tell them. Then I show them the phage watch."
+  },
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "vats",
+   "dairy",
+   "the-count"
+  ]
+ },
+ {
+  "id": "red-racks",
+  "name": "The Red Racks",
+  "kind": "green",
+  "zone": "keel",
+  "deck": 8,
+  "deckTo": 12,
+  "ring": 4,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Five decks of Garden racks under red-weighted lamps, where tomatoes, cucumbers, strawberries and herbs grow in air too thin in oxygen for the crews to breathe.",
+  "text": "The Red Racks glow the colour of a plum. The lamps are mostly red with a little blue, which is the light leaves use; under them a ripe tomato looks black and a hand looks grey, so the crews carry white hand lamps to judge colour. The racks are sealed rooms of stacked shelves, their air kept low in oxygen and high in carbon dioxide so the plants waste less of their light. Crews work in masks and talk through them in bright, muffled voices. There are no insects in Sorrel, so the tomatoes are pollinated by hand: every few days a crew member touches a humming wand to every truss. The strawberries get a soft brush.",
+  "detail": "Visitors only with a crew, after the mask drill, every time. A tomato from these racks reaches the greengrocers at about half a kWh. Cucumbers set fruit without pollen and are the crews' favourite.",
+  "who": {
+   "name": "Liesl Mbatha",
+   "age": 29,
+   "role": "rack hand",
+   "line": "My first week I came off shift and my sister's face was the wrong colour. It wasn't. The racks make everything else look green for an hour."
+  },
+  "canon": "food-system.md",
+  "tags": [
+   "garden",
+   "food-plant",
+   "light",
+   "tomatoes"
+  ]
+ },
+ {
+  "id": "tea-racks",
+  "name": "The Tea Racks",
+  "kind": "green",
+  "zone": "keel",
+  "deck": 10,
+  "deckTo": 12,
+  "ring": 8,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Rows of real tea bushes under lamps, plucked by hand two leaves and a bud at a time, for the dearest cup in Sorrel's ordinary life.",
+  "text": "Most of Sorrel's tea is grown as cells in a vat and tastes very like tea. This is the other kind: low bushes of real tea plant in waist-high troughs of inert grit, three decks of them under red-weighted lamps, trimmed flat as tables so every leaf gets its share of light. Pluckers work along the tables taking two leaves and a bud. The leaf is withered and then dried on the 65 °C loop in the next room, which smells of warm bread and cut grass at once. A cup of rack tea costs about a kWh, the price of two tomatoes, and Sorrelers buy it for namings, funerals and apologies.",
+  "detail": "The counter by the drying room sells rack tea by the cup, about a kWh, or by the 25 g packet. The first flush after Booking Day is gone in a morning.",
+  "canon": "food-system.md",
+  "tags": [
+   "garden",
+   "tea",
+   "food-plant"
+  ]
+ },
+ {
+  "id": "mushroom-rooms",
+  "name": "The Mushroom Rooms",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 9,
+  "deckTo": 11,
+  "ring": 9,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "Cool, wet, dim rooms where oyster, shiitake and lion's mane fruit on the food plant's leftovers: spent mycelium, rack stalks and the Ring's coffee grounds.",
+  "text": "These are some of the coldest rooms anyone in Sorrel works in, at 16 °C and nearly saturated, and in heliox that feels colder still: the pickers wear quilted coats and hats indoors. Shelves of pressed blocks fill the rooms, made from whatever the rest of the plant has finished with: spent mycelium from the Steak Halls, stalks and leaves from the racks, and the coffee grounds of every café in the Ring. Oyster mushrooms burst from the coffee blocks in grey frills, shiitake from the stalk blocks, lion's mane in white shaggy balls. The coffee rooms smell of yesterday's coffee, the rest of damp cloth and new bread. A spent block goes on to the oxidisers.",
+  "detail": "Picking starts at 05:00; the counter opens at 07:00 and is usually empty by nine. Sorrel grows only as many mushrooms as its leftovers allow, about 20 to 30 g a head a day.",
+  "who": {
+   "name": "Haruto Penn",
+   "age": 52,
+   "role": "picker",
+   "line": "People say it's cold down here. It's sixteen degrees. They've just never been anywhere that wasn't warm on purpose."
+  },
+  "canon": "food-system.md",
+  "tags": [
+   "food-plant",
+   "mushrooms",
+   "residues"
+  ]
+ },
+ {
+  "id": "strain-library",
+  "name": "The Strain Library",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 9,
+  "deckTo": 10,
+  "ring": 3,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's library of living lines: every vat culture and registered household starter, kept as a frozen vial and a genome, with an isolation vault you can visit.",
+  "text": "Every line the food plant runs is kept here twice: as vials in the cold rooms, whose freezers borrow their cold from the jacket's coolers, and as a genome on file, so any of them can be grown again within a week. Household starters are kept too. A family registers its sourdough, koji or yogurt, and the crock at home becomes both an heirloom and a file. Cultures that can't be trusted yet go to the isolation vault, behind two doors and a glass wall. Among them is a flask of yogurt a woman in Rue kept alive for sixty years, carrying a sleeping phage. A cured copy went home with her widower; the original stays here, where he can visit it.",
+  "detail": "Visiting window daily, 14:00 to 17:00. Registering a household starter is free and takes one spoonful; the library sends a card each year to say it's still held.",
+  "who": {
+   "name": "Yusuf Dahl",
+   "age": 61,
+   "role": "librarian",
+   "line": "People come to visit a culture the way they'd visit a grave, except it's alive. Some of them talk to it. I don't stop them."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "strain-library",
+   "starters",
+   "quarantine"
+  ]
+ },
+ {
+  "id": "tank-farm",
+  "name": "The Tank Farm",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 11,
+  "ring": 8,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "The biggest of Sorrel's nine methanol yards: the drum's granary and its battery, kept in pure helium and guarded, mostly out of habit.",
+  "text": "Sorrel keeps about 140 kg of methanol for every person, in nine yards, one to a Ring, and Eight's is the largest. It is the granary, half a year of feedstock for the Mill and the Vats, and the battery: when the hole flickers and the beam dims, fuel cells run on it and the drum barely notices. Each person's share of the plant handles a dozen lethal doses a day, so the yard is guarded, and its halls are filled with pure helium, as the line decks' tubes are, so that nothing in them can burn. Anyone inside wears a mask. The guards have an easy time. When gin costs less than an apple, nobody in Sorrel comes here for a drink.",
+  "detail": "No visitors: the halls are pure helium and entry is by mask and logbook. The first-aid lockers hold the modern antidote and, by tradition, a bottle of gin, the old one.",
+  "who": {
+   "name": "Olu Sandvik",
+   "age": 58,
+   "role": "yard guard",
+   "line": "Lovage guards its tank farm harder than we do and still loses people. We sell gin at cost. I mostly check masks."
+  },
+  "canon": "food-system.md",
+  "tags": [
+   "methanol",
+   "reserves",
+   "gin-problem"
+  ]
+ },
+ {
+  "id": "the-reserve",
+  "name": "The Reserve",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 10,
+  "ring": 5,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "The banked oxygen and fuel cells that would carry Sorrel's air through a Dark, and the crews who drill for one every month.",
+  "text": "If the beam stopped, this is what would keep Sorrel breathing: about 35 kg of oxygen banked for every person, held liquid in tanks the size of halls, colder than anything in the drum but the jacket, and banks of fuel cells that burn it with hydrogen boiled off the jacket. They run the survival load (fans, scrubbers, coolant pumps) on a twentieth of the usual power for about 55 days. It last ran for real in the Eleven Days, 74 years ago; that crew's names are on the wall by the fuel cells, in grease pencil, varnished over. Once a month, at 03:00, a Ring's air goes over to the fuel cells for an hour. Upstairs the only sign is the fans dropping a note.",
+  "detail": "Dark drills can be watched from the gallery; the next is posted at every Keel lift. Low-deck schools visit, and the children are allowed to press nothing.",
+  "who": {
+   "name": "Grete Oyelaran",
+   "age": 67,
+   "role": "reserve warden",
+   "line": "My grandmother ran these cells in the Eleven Days. She said the worst part was the quiet. We drill so nobody down here is surprised by it."
+  },
+  "canon": "full-swarm.md",
+  "tags": [
+   "reserves",
+   "dark",
+   "eleven-days",
+   "air"
+  ]
+ },
+ {
+  "id": "the-crossings",
+  "name": "The Crossings",
+  "kind": "water",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 2,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's main water works, where the moat comes in across the jacket in vacuum-sleeved pipes, is cleaned, and goes up to every tap in the drum.",
+  "text": "The pipes that bring the moat in cross fifty metres of 20 K hydrogen inside vacuum sleeves, and the water in them never stops moving. They surface here, on the rim deck at the front edge of Ring Two, in a hall of valves and filters where the water is cleaned, checked and sent up the drum. It arrives near 17 °C, the coldest water in Sorrel, and the tap in the crew room is the most popular in the Keel. The crews are Heron, as they have been since before the Summer. From about seven each morning the pumps send the tide up to the tanks at mid-drum, and the whole hall changes note; at night it comes home through the turbines here.",
+  "detail": "The tide goes up from about 07:00 and comes home through the turbines after 21:00. Ask at the crew room for a cup of moat water, the coldest in Sorrel: it's free.",
+  "canon": "raft-habitat.md",
+  "tags": [
+   "water",
+   "moat",
+   "water-works"
+  ]
+ },
+ {
+  "id": "the-sixty-five",
+  "name": "The Sixty-Five",
+  "kind": "water",
+  "zone": "keel",
+  "deck": 4,
+  "deckTo": 6,
+  "ring": 6,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "The exchanger hall where the Vats' waste heat becomes the 65 °C loop that warms every bath and kitchen tap in Sorrel.",
+  "text": "Sorrel's baths are heated by bacteria. The thermophilic vats run at 60 to 70 °C, and the heat they give off has to go somewhere, so it comes here: a hall of plate exchangers, pumps the size of cabs and lagged pipes as wide as a doorway, where it is handed to the loop every Sorreler calls the sixty-five. The loop leaves at 65 °C, climbs the drum to every bath, kitchen tap, onsen custard and black-garlic crock, and comes home at about 40. Heating a bath costs nothing; only the pumping and cleaning do. It is one of the warmest workplaces in the Keel, and the night crew keeps a crock of amazake warming on a flange.",
+  "detail": "Boiling a litre from the sixty-five costs about 0.045 kWh, against 0.10 from cold. The loop has gone cold once in living memory, in the Eleven Days.",
+  "canon": "food-system.md",
+  "tags": [
+   "waste-heat",
+   "baths",
+   "water"
+  ]
+ },
+ {
+  "id": "the-oxidisers",
+  "name": "The Oxidisers",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 3,
+  "deckTo": 6,
+  "ring": 6,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "Where everything Sorrel has finished with is taken down to water, gas and salt in supercritical water, so the food plant can build it again from molecules.",
+  "text": "No flame burns here. Waste, spent biomass, residues and, from the Down Hall above, the dead come into reactors of water held above 374 °C at more than two hundred times the pressure of the air, where everything organic oxidises in under a minute. What comes out is carbon dioxide for Methanol Row, clean water for the Crossings, nitrogen for the fixery, and brine and phosphate for the Salt House and the Vats. The crews' saying is that nothing in Sorrel is recycled: it is taken all the way down and started again. The reactors' enemy is scale. Calcium phosphate and carbonate build up on the walls, and every few weeks a train is taken out and washed with acid.",
+  "detail": "No visitors in the reactor halls. The intake gallery is open to apprentices on weekdays; the outlet gallery, where the water runs out clean, is the one people remember.",
+  "canon": "food-system.md",
+  "tags": [
+   "element-cycles",
+   "waste",
+   "oxidation"
+  ]
+ },
+ {
+  "id": "the-down-hall",
+  "name": "The Down Hall",
+  "kind": "rites",
+  "zone": "keel",
+  "deck": 8,
+  "deckTo": 9,
+  "ring": 6,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel says goodbye: in Sorrel you go up to retire and down to die, and the dead go down to the oxidisers and home into the drum.",
+  "text": "In Sorrel you go up to retire and down to die. The dead ride down in a cab with the stretcher level and the family beside them, and the weight comes back on everyone as they go, nearly double for a family from the High decks. Sorrel thinks that is right. Every Ring has a Down Hall; Six's is the oldest, twelve felt-hung rooms, one for each Hour. The dead go in a plain cellulose shroud, and their clothes go home with the living. Their recorded voice is played once. The Register's clerk reads their place back into the pool, the last time the name is theirs alone, a steel bell is struck, and the low door closes. Beyond it are the oxidisers: the dead come home.",
+  "detail": "Open day and night; nothing is charged. A week later the family may collect a pinch of white salts in a glass bead. The steel bell sounds as it did on Earth.",
+  "who": {
+   "name": "Marguerite Osei",
+   "age": 66,
+   "role": "down-keeper",
+   "line": "People brace for the weight on the way down. The ride back up is what gets them: everyone goes light, and nobody wants to."
+  },
+  "canon": null,
+  "tags": [
+   "funerals",
+   "going-down",
+   "register",
+   "element-cycles"
+  ]
+ },
+ {
+  "id": "the-take-apart",
+  "name": "The Take-Apart",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 5,
+  "deckTo": 8,
+  "ring": 7,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's recyclers: where worn-out things are taken apart by kind, every gram of scarce metal is checked against its passport, and the rest goes out to the Yards.",
+  "text": "Things in Sorrel are mended until they can't be, and then they come here. At long benches, robots and people take them apart by kind: aluminium from steel, cellulose from glass, the alnico out of motors, coated parts set aside. Everything was built to come apart, and most of it does, with a click. Scarce metals carry passports, and the passport room checks every gram of copper, platinum and neodymium against its papers before it goes out to the Yards; losing one is a civic offence, and the room has a long memory. Through a side door come the clinics' drains, which are a mine: iodine from scans, gadolinium, lithium, caught and lent out again.",
+  "detail": "Drop-off counter on the Ring Seven lift landing, open at all hours. Chairs are rarely accepted: the counter sends them up to the Last Table, where menders claim what's leaving.",
+  "who": {
+   "name": "Esme Kowal",
+   "age": 72,
+   "role": "passport clerk",
+   "line": "We lost three grams of platinum in my first year. Found it in a drain trap six weeks later. I still keep the photograph."
+  },
+  "canon": "element-cycles.md",
+  "tags": [
+   "recycling",
+   "passports",
+   "element-cycles"
+  ]
+ },
+ {
+  "id": "full-weight",
+  "name": "Full Weight",
+  "kind": "play",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 4,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "A four-deck hall at a full g, where athletes train heavier than they will ever compete and Low-deck children come down for their bone days.",
+  "text": "The floor is on the rim deck at the back edge of Ring Four, at a full g, as heavy as anywhere in Sorrel a person can stand. The hall is four decks tall, with a running track along the axis, a spinward lane for the Heavy Round's runners (a sprint there weighs a tenth more), jumping pits, ropes and a climbing wall. Low-deck schools bring each class down for a bone day once a fortnight, because every parent in Sorrel believes bones grow best near full weight. The clinics have never managed to show that a morning a fortnight does anything, and no parent has ever kept a child home from one. Children who jump 55 cm at home clear 50 here and say the floor is sticky.",
+  "detail": "Bone days on weekday mornings, by school booking; athletes from 15:00. Spinball breaks a little less at full weight, which Stag says makes it the honest game.",
+  "who": {
+   "name": "Ayo Tremaine",
+   "age": 39,
+   "role": "coach",
+   "line": "Round runners come down here to suffer. Children come down to be told they're growing. Both go home feeling lighter, which is the whole trick."
+  },
+  "canon": null,
+  "tags": [
+   "sport",
+   "children",
+   "weight",
+   "the-round"
+  ]
+ },
+ {
+  "id": "seconds",
+  "name": "Seconds",
+  "kind": "eat",
+  "zone": "keel",
+  "deck": 7,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "The Keel's shift canteen, open at all hours, where crews eat the food plant's seconds: everything that came out safe but wrong.",
+  "text": "Seconds serves what the food plant made safely but badly: noodles cut a hand too long, cheese that set too firm, sugar glass in a colour nobody ordered, trimmings from the Steak Halls, a batch of the Nine the panel thought too bitter for upstairs. The Mill table is free, as everywhere; the seconds are a third off and change by the hour. It's a long, low, warm room with benches, loud at every change of shift, and every dish comes under a lid as anywhere in Sorrel, though here the lids don't match. The board by the door says what's on and what's wrong with it. The Gleaners eat at the far table and get first pick, by custom.",
+  "detail": "Open day and night through all three shifts. Anyone may eat here, crew or not, but crews go first at the change of shift. Ask what's wrong with a dish: they enjoy telling you.",
+  "who": {
+   "name": "Bea Thorsen",
+   "age": 53,
+   "role": "cook",
+   "line": "Every dish on the board is fine to eat. Some are the wrong shape. You'd be amazed how many people upstairs won't touch a square noodle."
+  },
+  "canon": null,
+  "tags": [
+   "food",
+   "keel-crews",
+   "thrift"
+  ]
+ },
+ {
+  "id": "the-pump-shop",
+  "name": "The Pump Shop",
+  "kind": "make",
+  "zone": "keel",
+  "deck": 6,
+  "deckTo": 7,
+  "ring": 3,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the drum's pumps come to be rebuilt by hand inside their old casings, and the oldest casing outranks everything in the room.",
+  "text": "Every pump in Sorrel comes here sooner or later: hot-loop pumps, water pumps, coolant pumps from the hull's loop, the small ones that feed the vats. They arrive on night freight and go out mended, with new seals, bearings and impellers turned on the shop's lathes, inside the same casings. The casings are the shop's pride. Some were cast before the Count, their makers' marks worn nearly smooth, and they are fitted with more care than any new part. As everywhere in Sorrel, the oldest is the best. The oldest of all, too worn now to go back into service, stands on a plinth by the door, and every apprentice learns to strip a pump on it.",
+  "detail": "Visitors on Saturdays. The pump-stripping class for the curious costs about 3 kWh an hour, the going rate for anyone's time, and has a waiting list.",
+  "canon": null,
+  "tags": [
+   "workshops",
+   "mending",
+   "keel-crews"
+  ]
+ },
+ {
+  "id": "the-cold-plant",
+  "name": "The Cold Plant",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 3,
+  "ring": 9,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "The cryocooler halls that keep fifty metres of hydrogen at 20 K, spending forty-seven watts to pump each stray watt of heat back out of the jacket.",
+  "text": "Heat creeps into the jacket all the time, a little: about a third of a watt for every person in Sorrel, and a touch more that the moat lets through. Getting a watt out of something at 20 K costs about 47, so the cold plant draws some 3.4 GW, 17 W a head, around the clock. These halls at the back of Ring Nine are its biggest: rows of cryocoolers on the rim deck, their cold heads reaching down through the hull into the jacket, their warm ends handing heat to the coolant loop. The crews are mostly Wolf, and work in sixes. The coolers can pause in a Dark. The jacket boils a little, and the fuel cells burn every gram of what boils off.",
+  "detail": "Visitors' gallery on the landing above, Wednesdays. The slow chuff you hear is the coolers cycling, about once a second; the crews say they can tell a sick one by its rhythm.",
+  "canon": "raft-habitat.md",
+  "tags": [
+   "jacket",
+   "cold",
+   "keel-crews"
+  ]
+ },
+ {
+  "id": "the-blue-hall",
+  "name": "The Blue Hall",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 7,
+  "deckTo": 9,
+  "ring": 8,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Dark-grown algae vats making greens, yolk gold and the blue that colours Sorrel's sweets, and in a good year half its linings.",
+  "text": "The algae here grow in the dark, fed on Mill sugar instead of light, in black vats that come out green, gold, pink or a startling blue. The greens become purées and pasta; the gold is lutein, which colours vat egg yolk; the pink goes into anything pretending to be salmon. The blue is phycocyanin. It colours sweets and jellies, and a share goes up to the dyers, fixed so it won't wash out: that is hard algae blue, and in a year when it's the colour, half the linings in Sorrel come out of this hall. The dye allotment is set every Booking Day, and the dyers' queue at the Blue Hall's counter the next morning is a Sorrel institution.",
+  "detail": "The dyers' counter opens at 07:00 on the day after Booking Day and is usually sold out by noon. The blue in cendol, kuih lapis and the Mill Halls' jellies is made here.",
+  "canon": "cuisine.md",
+  "tags": [
+   "vats",
+   "algae",
+   "dye",
+   "fashion"
+  ]
+ },
+ {
+  "id": "the-still",
+  "name": "The Still",
+  "kind": "make",
+  "zone": "keel",
+  "deck": 10,
+  "deckTo": 11,
+  "ring": 1,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's gin is made and fortified, sold near cost so that nobody is tempted to cut their own: the drum's answer to the gin problem.",
+  "text": "Yeast turns Mill sugar into alcohol and keeps nearly all its energy doing it, so gin is almost free to make, and Sorrel chose to sell it that way. The Still ferments in plain tanks, distils under a partial vacuum so that the 65 °C loop can do the boiling (Sorrel's gin is, strictly, distilled on bath water) and flavours it with a few milligrams of the molecules that once came from juniper and coriander. Then comes the step Sorrel is known for: thiamine, as in the salt and the Nine, so that a heavy drinker living on Mill food doesn't go short. A bottle costs about 2.8 kWh, less than an apple. Bottles leave in pairs, the number Lovage lets a visitor carry in.",
+  "detail": "Nothing is sold at the Still; buy it upstairs, about 0.18 kWh a measure. The tasting room gives visitors over eighteen one free measure, with a bowl of jook beside it.",
+  "canon": "cuisine.md",
+  "tags": [
+   "gin",
+   "gin-problem",
+   "thiamine"
+  ]
+ },
+ {
+  "id": "the-salt-house",
+  "name": "The Salt House",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 4,
+  "deckTo": 5,
+  "ring": 7,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the drum's salt is won back from the oxidisers' brine, crystallised on warm pans and fortified with thiamine and iodine before it goes to the tables.",
+  "text": "All the salt in Sorrel has been through Sorrel before. The oxidisers' brine comes here, is sorted by electrodialysis and crystallised on long pans warmed by the 65 °C loop, into table salt, potassium salt and the rest; 999 grams in every thousand come back each pass. The room is white, bright and dry, and the floor crunches underfoot. Thiamine and a trace of iodine go into the table salt here, which is why the Thiamine's sign on Pear Street, and plenty of others, say Fortified, like our salt. The crews taste each batch off a fingertip, which is against the rules and has been for as long as there have been rules.",
+  "detail": "Table salt goes free to every Mill Hall, back on the tables within days of leaving the oxidisers. The viewing gallery over the pans is open on weekday afternoons.",
+  "canon": "element-cycles.md",
+  "tags": [
+   "salt",
+   "thiamine",
+   "element-cycles"
+  ]
+ },
+ {
+  "id": "the-board",
+  "name": "The Board",
+  "kind": "work",
+  "zone": "keel",
+  "deck": 12,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "The food plant's watch room, where a wall of lights shows every line in Sorrel and a blight menu is called when one of them goes dark.",
+  "text": "A long room on the top working deck of the Keel, felt-hung and dim, facing a wall with a light for every line Sorrel runs: each vat line, rack bay, Mill train and reserve bank. Machines run the plant. The Board watches the machines and makes the calls people won't leave to them. When phage watch finds something, it is the controller here who takes a line down, sends for library stock and calls the blight menu, which every Mill Hall in Sorrel serves from the next meal: the Nine back on the tables for a protein-flour line, blight cheese for the Dairy, fried crunch for the Steak Halls. Most nights nothing happens, and the controllers play cards.",
+  "detail": "Not open to visitors, but the wall can be seen through the glass from the landing. A light is green while its line runs and white while it regrows.",
+  "who": {
+   "name": "Sabine Ndiaye",
+   "age": 48,
+   "role": "night controller",
+   "line": "I've called four blight menus in twenty years. Every time the drum complains about the Nine for three days and then forgets. That's a good blight."
+  },
+  "canon": null,
+  "tags": [
+   "food-plant",
+   "blights",
+   "keel-crews"
+  ]
+ }
+]

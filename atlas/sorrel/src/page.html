@@ -1,0 +1,413 @@
+<title>The Sorrel Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A cutaway atlas of Sorrel, one nation drum of 200 million on Herb Row in the raft Merrow: every point on the drawing is a place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* Layout: an engineer's half-section of the drum is the page's spine. The drawing on the left (rim at the bottom: out is down), the place you opened beside it, and the Climb, every landmark from the quay to the axle, underneath. */
+:root {
+  --bg: #edf0ec;
+  --bg-2: #e2e7e2;
+  --bg-3: #cdd5ce;
+  --card: #f6f8f5;
+  --ink: #18222b;
+  --ink-2: #47535d;
+  --ink-3: #6f7b84;
+  --accent: #946508;
+  --lattice: #1d6a82;
+  --quay: #b85f17;
+  --bruise: #7a4d6b;
+  --pin: #b85f17;
+  --pin-edge: #1a232c;
+  --sel: #18222b;
+  /* the drawing */
+  --m-keel: #9b8d80;
+  --m-low: #d8c79f;
+  --m-mid: #b8c6b0;
+  --m-high: #c7c3da;
+  --m-line: #2b7f98;
+  --m-jacket: #d5e6ee;
+  --m-moat: #2f8f97;
+  --m-midraft: #262a31;
+  --m-layer: #6c757d;
+  --m-air-noon: #fbf6e4;
+  --m-air-dawn: #f0d9bd;
+  --m-air-night: #27304a;
+  --m-lake: #5e9fb2;
+  --m-orch: #86a85f;
+  --m-lawn: #a5c17d;
+  --m-grounds: #c9b47c;
+  --m-dim: #6c8463;
+  --m-wall: #b6b0a3;
+  --m-grid: rgba(24, 34, 43, 0.16);
+  --m-label: #26313b;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Literata", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1rem;
+  --step-1: 1.2rem;
+  --step-2: 1.55rem;
+  --step-3: 2.1rem;
+  --step-4: clamp(2.4rem, 6vw, 4.4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1319; --bg-2: #161c24; --bg-3: #2a333e; --card: #131920;
+    --ink: #e8e4d9; --ink-2: #aab1b7; --ink-3: #76808a;
+    --accent: #eec061; --lattice: #63b5cc; --quay: #f19a4b; --bruise: #bd88a5;
+    --pin: #f19a4b; --pin-edge: #0f1319; --sel: #fff6df;
+    --m-keel: #4f4741; --m-low: #6a5a3e; --m-mid: #3f4f40; --m-high: #4a4864;
+    --m-line: #4aa8c1; --m-jacket: #2c4250; --m-moat: #3a9ea6; --m-midraft: #07090c; --m-layer: #4d5660;
+    --m-air-noon: #4a4836; --m-air-dawn: #4a3a35; --m-air-night: #151b2c;
+    --m-lake: #3c7c90; --m-orch: #4f6b3b; --m-lawn: #5c7744; --m-grounds: #786a45; --m-dim: #33452f;
+    --m-wall: #5b574f; --m-grid: rgba(232, 228, 217, 0.13); --m-label: #e2ddd0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1319; --bg-2: #161c24; --bg-3: #2a333e; --card: #131920;
+  --ink: #e8e4d9; --ink-2: #aab1b7; --ink-3: #76808a;
+  --accent: #eec061; --lattice: #63b5cc; --quay: #f19a4b; --bruise: #bd88a5;
+  --pin: #f19a4b; --pin-edge: #0f1319; --sel: #fff6df;
+  --m-keel: #4f4741; --m-low: #6a5a3e; --m-mid: #3f4f40; --m-high: #4a4864;
+  --m-line: #4aa8c1; --m-jacket: #2c4250; --m-moat: #3a9ea6; --m-midraft: #07090c; --m-layer: #4d5660;
+  --m-air-noon: #4a4836; --m-air-dawn: #4a3a35; --m-air-night: #151b2c;
+  --m-lake: #3c7c90; --m-orch: #4f6b3b; --m-lawn: #5c7744; --m-grounds: #786a45; --m-dim: #33452f;
+  --m-wall: #5b574f; --m-grid: rgba(232, 228, 217, 0.13); --m-label: #e2ddd0;
+  color-scheme: dark;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--bg); }
+.wrap {
+  max-width: 1480px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+button, input, select { font: inherit; color: inherit; }
+a { color: var(--lattice); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* ---------- masthead ---------- */
+.masthead { padding-block: 28px 18px; }
+.kicker {
+  font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px;
+}
+.masthead h1 {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: var(--step-4); line-height: 0.95; letter-spacing: -0.01em; margin: 0;
+  text-transform: uppercase;
+}
+.masthead h1 .thin { font-weight: 400; font-stretch: 100%; letter-spacing: 0.02em; }
+.lede { font-size: var(--step-1); max-width: 62ch; margin: 14px 0 0; color: var(--ink); }
+.lede em { font-style: italic; color: var(--ink-2); }
+.facts {
+  display: flex; flex-wrap: wrap; gap: 6px 26px; margin: 16px 0 0; padding: 0;
+  font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2);
+}
+.facts div { display: flex; gap: 8px; align-items: baseline; }
+.facts dt { color: var(--ink-3); }
+.facts dd { margin: 0; color: var(--ink); font-weight: 500; }
+.walks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.walks .tool { font-size: 13.5px; padding: 8px 12px; }
+.walks .tool .mono { color: inherit; opacity: 0.7; }
+.walks-label { align-self: center; font-size: 12.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.tourbar { display: grid; gap: 8px; padding: 10px 12px; background: var(--bg-2); border: 1px solid var(--bg-3); border-radius: 3px; }
+.tournote { margin: 0; font-style: italic; color: var(--ink-2); }
+
+/* ---------- the atlas: drawing + card ---------- */
+.atlas {
+  display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+  gap: 18px; align-items: start; padding-block: 4px 28px;
+}
+.map-col { min-width: 0; display: grid; gap: 8px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tool {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--bg-3); background: var(--card); border-radius: 3px;
+  padding: 6px 10px; font-family: var(--font-mono); font-size: 13px; color: var(--ink);
+}
+button.tool { cursor: pointer; }
+button.tool:hover { border-color: var(--ink-3); }
+.tool.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 500; }
+.tool.primary:hover { background: var(--lattice); border-color: var(--lattice); }
+.hourpick { padding: 3px 4px 3px 4px; gap: 4px; }
+.hourpick button { border: 0; background: none; cursor: pointer; padding: 3px 6px; border-radius: 2px; color: var(--ink-2); }
+.hourpick button:hover { background: var(--bg-2); color: var(--ink); }
+#dial { width: 34px; height: 34px; display: block; cursor: pointer; }
+.hourpick .hourname { min-width: 9.5ch; text-align: center; color: var(--ink); }
+.hourname .mono { font-size: 11.5px; color: var(--ink-3); }
+.peek { display: none; }
+.hourname b { font-family: var(--font-display); font-stretch: 112%; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; }
+.clock input[type="range"] { width: 110px; accent-color: var(--accent); }
+.clock .when { min-width: 8.5ch; }
+.search { flex: 1 1 180px; min-width: 0; position: relative; }
+.search input {
+  width: 100%; border: 1px solid var(--bg-3); background: var(--card); border-radius: 3px;
+  padding: 7px 10px; font-family: var(--font-mono); font-size: 13px;
+}
+.results {
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 4px);
+  background: var(--card); border: 1px solid var(--bg-3); border-radius: 3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); max-height: 360px; overflow: auto;
+  list-style: none; margin: 0; padding: 4px;
+}
+.results li button {
+  display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; width: 100%; text-align: left;
+  border: 0; background: none; padding: 6px 8px; cursor: pointer; border-radius: 2px;
+}
+.results li button:hover, .results li button.on { background: var(--bg-2); }
+.results .r-name { font-weight: 600; }
+.results .r-where { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); grid-column: 1 / -1; }
+.results .r-kind { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.map-frame {
+  position: relative; height: clamp(380px, 74vh, 800px);
+  border: 1px solid var(--bg-3); background: var(--bg); overflow: hidden;
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+#map { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; }
+#map.grab { cursor: grabbing; }
+#map:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+.zoombox { position: absolute; right: 10px; bottom: 10px; display: grid; gap: 4px; }
+.zoombox button {
+  width: 34px; height: 34px; border: 1px solid var(--bg-3); background: var(--card); border-radius: 3px;
+  font-family: var(--font-mono); font-size: 17px; line-height: 1; cursor: pointer; color: var(--ink);
+}
+.zoombox button:hover { border-color: var(--ink-3); }
+.tip {
+  position: absolute; z-index: 5; pointer-events: none; max-width: 260px;
+  background: var(--card); color: var(--ink); border: 1px solid var(--bg-3); border-radius: 3px;
+  padding: 6px 9px; font-size: 13px; line-height: 1.35; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+.tip b { display: block; font-family: var(--font-display); font-stretch: 110%; font-size: 14px; }
+.tip .mono { font-size: 11.5px; color: var(--ink-3); }
+.map-foot {
+  display: flex; flex-wrap: wrap; gap: 4px 18px; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);
+}
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 11px; height: 11px; border: 1px solid var(--pin-edge); border-radius: 2px; }
+
+/* ---------- the card ---------- */
+.card-col {
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px);
+  max-height: calc(100vh - 24px - env(safe-area-inset-top, 0px)); overflow: auto;
+  background: var(--card); border: 1px solid var(--bg-3); border-radius: 3px;
+  min-width: 0;
+}
+.card { padding: 18px 20px 20px; display: grid; gap: 14px; }
+.card-top { display: grid; gap: 4px; }
+.card-kind {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3);
+  display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center;
+}
+.card-kind .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--pin); border: 1px solid var(--pin-edge); }
+.card-kind .gen { color: var(--lattice); }
+.card-name {
+  font-family: var(--font-display); font-stretch: 112%; font-weight: 750; font-size: var(--step-3);
+  line-height: 1.02; margin: 2px 0 0; letter-spacing: -0.005em;
+}
+.card-addr { font-family: var(--font-mono); font-size: 13px; color: var(--ink-2); }
+.card-addr b { color: var(--ink); font-weight: 500; }
+.card-type { font-style: italic; color: var(--ink-2); margin: 0; }
+.card-text { margin: 0; }
+.card-text p { margin: 0 0 0.6em; }
+.card-text p:last-child { margin: 0; }
+.sect { display: grid; gap: 3px; }
+.sect h3, .label {
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0;
+}
+.sect p { margin: 0; }
+.detail { border-top: 1px solid var(--bg-3); border-bottom: 1px solid var(--bg-3); padding-block: 9px; }
+.who { margin: 0; }
+.who q { font-style: italic; quotes: "\201C" "\201D"; }
+.who .whoname { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display: block; margin-top: 2px; }
+.gauges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--bg-3); border: 1px solid var(--bg-3); }
+.gauge { background: var(--card); padding: 7px 9px; display: grid; gap: 1px; }
+.gauge .v { font-family: var(--font-mono); font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.gauge .k { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.route ol { margin: 4px 0 0; padding-left: 1.3em; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display: grid; gap: 2px; }
+.route .total { font-family: var(--font-mono); font-size: 13px; }
+.route .total b { font-weight: 500; color: var(--ink); }
+.near ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+.linkbtn {
+  border: 0; background: none; padding: 0; cursor: pointer; text-align: left;
+  color: var(--lattice); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px;
+}
+.near .d { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-left: 6px; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2); border: 1px solid var(--bg-3); border-radius: 2px; padding: 1px 6px; }
+.canon { color: var(--bruise); border-color: currentColor; }
+.ledger {
+  border-top: 1px solid var(--bg-3); padding: 12px 20px 16px; display: grid; gap: 6px;
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2);
+}
+.ledger b { color: var(--ink); font-weight: 500; }
+.meter { height: 6px; background: var(--bg-2); border: 1px solid var(--bg-3); position: relative; }
+.meter i { position: absolute; inset: 0 auto 0 0; background: var(--accent); min-width: 2px; }
+.ledger .seen { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+
+/* ---------- the Climb ---------- */
+.climb { padding-block: 10px 40px; }
+.climb-head { display: grid; gap: 6px; margin-bottom: 14px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.climb-head h2 {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: var(--step-3);
+  text-transform: uppercase; margin: 0; line-height: 1;
+}
+.climb-head p { margin: 0; max-width: 70ch; color: var(--ink-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 2px; }
+.chip {
+  border: 1px solid var(--bg-3); background: var(--card); border-radius: 2px; padding: 4px 9px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2);
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip .n { color: var(--ink-3); margin-left: 4px; }
+.chip[aria-pressed="true"] .n { color: var(--bg-3); }
+.band { display: grid; grid-template-columns: minmax(150px, 230px) minmax(0, 1fr); gap: 10px 26px; padding-block: 18px; border-top: 1px solid var(--bg-3); }
+.band-head { display: grid; gap: 4px; align-content: start; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 10px); }
+.band-head h3 {
+  font-family: var(--font-display); font-stretch: 118%; font-weight: 750; font-size: var(--step-1);
+  text-transform: uppercase; letter-spacing: 0.02em; margin: 0; line-height: 1.1;
+}
+.band-head .swatch { width: 100%; height: 6px; border: 1px solid var(--bg-3); }
+.band-head p { margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); line-height: 1.45; }
+.entries { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 2px 22px; }
+.entry button {
+  width: 100%; text-align: left; border: 0; background: none; cursor: pointer; padding: 8px 8px 9px; border-radius: 2px;
+  display: grid; gap: 2px;
+}
+.entry button:hover { background: var(--bg-2); }
+.entry .e-name { font-family: var(--font-display); font-stretch: 108%; font-weight: 650; font-size: 1.04rem; line-height: 1.2; }
+.entry .e-addr { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); }
+.entry .e-blurb { font-size: 0.93rem; color: var(--ink-2); line-height: 1.42; }
+.entry .e-kind { color: var(--quay); }
+.empty { color: var(--ink-3); font-style: italic; }
+
+.notes { padding-block: 22px 46px; border-top: 1px solid var(--bg-3); color: var(--ink-2); font-size: 0.95rem; }
+.notes h2 { font-family: var(--font-display); font-stretch: 118%; font-weight: 750; font-size: var(--step-1); text-transform: uppercase; margin: 0 0 8px; color: var(--ink); }
+.notes .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 32px; }
+.notes p { margin: 0 0 0.7em; max-width: 68ch; }
+
+@media (max-width: 960px) {
+  .atlas { grid-template-columns: minmax(0, 1fr); }
+  .card-col { position: static; max-height: none; }
+  .map-frame { height: clamp(320px, 62vh, 620px); }
+  .peek {
+    position: absolute; left: 8px; right: 52px; bottom: 8px; z-index: 6;
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 10px;
+    text-align: left; cursor: pointer; padding: 7px 10px;
+    background: var(--card); color: var(--ink); border: 1px solid var(--bg-3); border-radius: 3px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+  .peek .pk-k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .peek .pk-n { font-family: var(--font-display); font-stretch: 110%; font-weight: 700; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .peek .pk-go { grid-row: 1 / 3; grid-column: 2; align-self: center; font-family: var(--font-mono); font-size: 12px; color: var(--lattice); }
+  .band { grid-template-columns: minmax(0, 1fr); }
+  .band-head { position: static; }
+}
+@media (max-width: 600px) {
+  .map-frame { height: auto; aspect-ratio: 1 / 1.2; max-height: 80vh; }
+  .walks { gap: 6px; }
+  .walks .tool { padding: 6px 10px; font-size: 12.5px; }
+}
+@media (max-width: 520px) {
+  .clock input[type="range"] { width: 84px; }
+  .card { padding: 16px 14px 18px; }
+  .ledger { padding: 12px 14px 16px; }
+  .entries { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="masthead wrap">
+  <p class="kicker">Herb Row · the raft Merrow · a nation drum</p>
+  <h1>The Sorrel <span class="thin">Atlas</span></h1>
+  <p class="lede">One spinning drum, 3 km in radius and 3.75 km long, holding two hundred million people on 376 decks. It has about <b id="lede-doors">70,000</b> neighbourhoods. Visit one a day and you would finish in <b id="lede-years">190</b> years. <em>Every point on this drawing is somewhere: tap it.</em></p>
+  <dl class="facts" id="facts"></dl>
+  <div class="walks" id="walks" hidden></div>
+</header>
+
+<main class="atlas wrap" id="atlas">
+  <section class="map-col" aria-label="Cutaway of Sorrel">
+    <div class="toolbar">
+      <div class="tool hourpick" role="group" aria-label="Which Hour the drawing cuts through">
+        <svg id="dial" viewBox="-20 -20 40 40" aria-hidden="true"></svg>
+        <button type="button" id="hour-prev" aria-label="Previous Hour">‹</button>
+        <button type="button" class="hourname" id="hour-name" aria-live="polite"></button>
+        <button type="button" id="hour-next" aria-label="Next Hour">›</button>
+      </div>
+      <label class="tool clock" for="clock">
+        <span class="mono when" id="clock-out">12:00</span>
+        <input type="range" id="clock" min="0" max="1439" step="5" value="720" aria-label="Lamp clock">
+      </label>
+      <button type="button" class="tool primary" id="anydoor">Open any door</button>
+      <div class="search">
+        <input type="search" id="q" placeholder="Search places, Hours, decks…" autocomplete="off" aria-label="Search the atlas">
+        <ul class="results" id="results" hidden></ul>
+      </div>
+    </div>
+    <div class="map-frame" id="frame">
+      <canvas id="map" aria-label="Half-section of the drum. Drag to pan, scroll or pinch to zoom, tap anywhere to open the place there."></canvas>
+      <div class="tip" id="tip" hidden></div>
+      <div class="zoombox">
+        <button type="button" id="zin" aria-label="Zoom in">+</button>
+        <button type="button" id="zout" aria-label="Zoom out">−</button>
+        <button type="button" id="zfit" aria-label="Show the whole drum">⤢</button>
+      </div>
+    </div>
+    <div class="map-foot">
+      <span id="cutnote">Half-section. The axis is at the top, the rim at the bottom.</span>
+      <span>Drag to move · scroll or pinch to zoom · tap anywhere to open it · arrow keys and +/− work too</span>
+      <span class="legend" id="legend"></span>
+    </div>
+  </section>
+  <aside class="card-col" id="cardcol" aria-live="polite">
+    <div id="card"></div>
+    <div class="ledger" id="ledger"></div>
+  </aside>
+</main>
+
+<section class="climb wrap" id="climb" aria-labelledby="climb-title">
+  <div class="climb-head">
+    <h2 id="climb-title">The Climb</h2>
+    <p>Every landmark in the atlas, in the order you would meet them going in: from the quay outside the hull, up through the Keel and 360 decks of streets, to the Hollow, the Spindle and the axle. Choose one to find it on the drawing.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filter by kind"></div>
+  </div>
+  <div id="climb-list"></div>
+</section>
+
+<footer class="notes wrap">
+  <div class="cols">
+    <div>
+      <h2>About the atlas</h2>
+      <p>Sorrel is the nation drum of the Kerr swarm world bible's narrative sketches: the Dace family lives in its Ashgrove neighbourhood, and the Crosswise Guide reviews its kitchens. The drum's numbers (radius, decks, gravity, cab speeds, light, prices) come from the world bible's design docs.</p>
+      <p>The landmarks were written for this atlas to fit those docs. The neighbourhoods behind every other door are generated from Sorrel's address, so the same door always opens on the same place, but they are sketches, not canon.</p>
+    </div>
+    <div>
+      <h2>How to read the drawing</h2>
+      <p>It is a cut through the drum along its axis, at one Hour. The front cap, where power comes in, is on the left; the back cap, where heat leaves for the radiators and the Windows, is on the right. Weight falls from 1 g at the rim to half a g on the Hollow's floor and nearly nothing at the axis.</p>
+      <p>Sorrelers give an address as deck, Ring and Hour: nine Rings along the axis, named for the station rings in the Keel, and twelve Hours around it, named for animals nobody in Sorrel has seen.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/*__DATA__*/
+</script>
+<script>
+/*__CODE__*/
+</script>

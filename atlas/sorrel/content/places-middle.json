@@ -1,0 +1,1078 @@
+[
+ {
+  "id": "register-of-places",
+  "name": "The Register of Places",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 196,
+  "deckTo": 200,
+  "ring": 5,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "Twenty-three thousand years of every place, every heir and every name in Sorrel, without a gap, under a five-deck vault in Stag.",
+  "text": "The Register is a hall five decks tall in Stag, Ring Five, lit at a steady reading brightness and quieter than any room its size, because its walls are hung in grey felt. It keeps the record of every place in Sorrel for about 23,000 years without a gap: who held it, who it passed to, and the name of every child born into it. The record lives in the data halls, in a copy on the Lantern, and on remade film in the vault under the floor. On the long wall hangs the old Count board from about 640 years ago, still showing its last morning: places, people, and births at zero for the seventeenth year. Children are brought to stand under it once.",
+  "detail": "Open to anyone, 08:00 to 20:00. Ask at the front desk for any place's line and a clerk will read it to you. The dead's names are public; the living's addresses are not.",
+  "who": {
+   "name": "Corin Vasko",
+   "age": 66,
+   "role": "registrar",
+   "line": "People ask which line is the oldest. They all are. Every place goes back to the first morning, and none has stayed empty long."
+  },
+  "canon": null,
+  "tags": [
+   "register",
+   "places",
+   "the-count",
+   "history"
+  ]
+ },
+ {
+  "id": "the-pool",
+  "name": "The Pool",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 197,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's birth rights are recorded, given and spent: a long counter, a small brass bell and a queue nobody minds.",
+  "text": "Two streets forward of the Register is the Pool, where Sorrel keeps its birth rights. Every place carries one. When someone dies their place comes back here, and a child is born into it when a parent spends a right. The long counter does three things: it records a right spent, on the clinic's word; it records a right given, which both people sign standing up; and it answers questions, mostly from couples doing sums. Rights can be given but never sold, so the gifts are the stories: a man who gave his to his oldest friend, a woman on Pear Street who gave hers to her sister in Chervil. When a gift is signed the clerk rings a small brass bell, and in heliox the whole hall hears it.",
+  "detail": "A gift needs both people at the counter, or one of them and a sealed letter. There is no fee. The clerk will not ask why, and will not let you sell it.",
+  "who": {
+   "name": "Nadia Eluned",
+   "age": 58,
+   "role": "pool clerk",
+   "line": "I ring the bell about twice a day. Once a year somebody tries to trade a right for a sofa, and goes home with neither."
+  },
+  "canon": null,
+  "tags": [
+   "birth-rights",
+   "pool",
+   "gifts"
+  ]
+ },
+ {
+  "id": "hollow-office",
+  "name": "The Hollow Office",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 247,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "The rota that gives every deck in Sorrel six hours under the sunline about every eight weeks, and the swap board that makes it bearable.",
+  "text": "Sorrel shares out the Hollow by deck, and this office in Otter keeps the rota: a six-hour turn for every deck about every eight weeks, two or three decks at a time, since the floor holds about 1.4 million at beach density. Elders get extra hours, and the lake at lamp-dawn every morning. Guests go up with their host deck's turn, or take the end-wall terraces at dusk. The rota itself takes the clerks a morning a year. The swap board takes them every day. It covers one wall: turns offered and wanted, a household's bright turn for another's dusk, a wedding party that needs a Tuesday. A turn can be swapped or given, never sold, and a Hollow hour given is still the grandest small gift in the drum.",
+  "detail": "Swaps must be posted two days ahead. Elders need no turn for the lake at lamp-dawn: they show their card at any pavilion. Guests sign in under their host's deck.",
+  "who": {
+   "name": "Pim Arkady",
+   "age": 44,
+   "role": "rota clerk",
+   "line": "Everyone thinks their deck got the dusk turn twice running. Sometimes they're right. I keep a drawer of apologies for those years."
+  },
+  "canon": null,
+  "tags": [
+   "hollow",
+   "rota",
+   "swaps",
+   "elders"
+  ]
+ },
+ {
+  "id": "lamp-office",
+  "name": "The Lamp Office",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 221,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Keeps Sorrel's lamp clock and its plain dawn, warm then white, and answers every letter asking for a painted one.",
+  "text": "Every lamp in Sorrel follows one clock, and it is kept here, in Hare at the front of the drum. The Office runs the sunline's three-hour dawn, its six hours of noon and its three-hour dusk, and the twenty-minute ramp that brings every home up at half past six, warm and then white. Sorrel thinks painted dawns are for show. The Office agrees in writing about a hundred times a year, to couples and children who ask for a pink one on a birthday, and each letter is answered by hand. The clock room is small, warm and lit at exactly 200 lux, like a flat. It has kept time through everything, including eleven days when it had no lamps to tell.",
+  "detail": "The night keeper sits from 23:00 to 06:30. Visitors may watch the dawn begin from the clock room at 05:55 on any weekday, if they write ahead.",
+  "who": {
+   "name": "Ottilie Sen",
+   "age": 71,
+   "role": "keeper of the lamp clock",
+   "line": "A dawn should be like a good host. You only notice it was there afterwards."
+  },
+  "canon": null,
+  "tags": [
+   "lamps",
+   "dawn",
+   "clock",
+   "sunline"
+  ]
+ },
+ {
+  "id": "heat-office",
+  "name": "The Heat Office",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 296,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "Finds unmetered lamps by their warmth on the hull's radiators, and is usually looking after a confiscated tomato.",
+  "text": "Every kWh spent inside the hull ends as heat, and every block's heat leaves through the coolant to the radiators behind the drum. The Heat Office, in Badger near the back, compares the two: what each block's meters say it bought, and what its coolant says it shed. A block that sheds more than it paid for has a lamp somebody forgot to tell the meter about. Then two inspectors walk the decks with heat cameras, looking for a warm wall. It is almost always tomatoes, or a lemon tree in a cupboard, and the fine is the kWh back plus a tenth. The office keeps a shelf of the plants it has rehomed, all doing well under metered light.",
+  "detail": "The coolant check runs every night at 02:00, when the drum is quietest. A tip-off counts for nothing without a warm wall: neighbours' quarrels are not the Office's business.",
+  "who": {
+   "name": "Rafe Ndolo",
+   "age": 49,
+   "role": "heat inspector",
+   "line": "Nobody steals light to read by. They steal it for something green. I've never confiscated anything I didn't end up watering."
+  },
+  "canon": null,
+  "tags": [
+   "heat",
+   "radiators",
+   "light",
+   "meters"
+  ]
+ },
+ {
+  "id": "assembly-hall",
+  "name": "The Assembly Hall",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 205,
+  "deckTo": 208,
+  "ring": 5,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's assembly of six hundred sits, in chairs that get older toward the front.",
+  "text": "Sorrel's assembly meets in a felt-hung hall four decks tall in Lark, just above the Round Arcade. Each Hour sends fifty members, chosen at the Hour's vote every six years, and most have held a post or two first: in Sorrel, standing is the qualification nobody writes down. The chairs are the point. Members sit by years served, and the chairs get older toward the front, so a new member's first seat was remade this century and a long-serving one sits in a chair older than the Count. The oldest member opens every sitting. The assembly sets the commons, the light share, the rota rules and the gin price, and every Booking Day it takes twenty minutes to agree that the beam is flat.",
+  "detail": "Sittings are open on Tuesdays and Thursdays from ten. The public gallery seats three hundred. Arrive early on light-vote days, when half the Middle decks want to watch.",
+  "canon": null,
+  "tags": [
+   "assembly",
+   "government",
+   "chairs"
+  ]
+ },
+ {
+  "id": "small-court",
+  "name": "The Small Court",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 167,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's court for quarrels too big for a block and too small for the assembly, known across the drum as the Chair Court.",
+  "text": "Three sit on every case: a magistrate of long standing and two neighbours drawn by lot, one from each party's Hour. The room in Owl is small, felted and warm, with a table nobody may put a cup on. Most cases are about rooms, Hollow swaps gone wrong, noise and heat, and a steady third are about furniture: who inherits a grandmother's chair when two grandchildren both remember being promised it. Places can't be fought over, since they go back to the pool, so the drum's heirloom quarrels all end up here. A hearing costs nothing and most take under an hour. The rulings are public, and the commonest is that the chair goes to whoever sits in it most, with visiting rights.",
+  "detail": "Hearings at ten on weekdays. Bring the thing in dispute if it fits through the door: chairs are welcome, sofas are drawn.",
+  "who": {
+   "name": "Margit Oyela",
+   "age": 69,
+   "role": "magistrate",
+   "line": "I've ruled on four hundred chairs. The trick is to watch who sits down when they think nobody's looking."
+  },
+  "canon": null,
+  "tags": [
+   "court",
+   "disputes",
+   "heirlooms"
+  ]
+ },
+ {
+  "id": "round-arcade",
+  "name": "The Round Arcade",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 201,
+  "deckTo": null,
+  "ring": 5,
+  "hour": null,
+  "r": null,
+  "wall": null,
+  "blurb": "An arcade that runs right round deck 201, 13.8 km, where the twelve Hours race the Round once a year.",
+  "text": "Most of the year the Round Arcade is a long, lamp-lit street of shops that happens to meet itself: 13.8 km round deck 201, at 0.73 g, with a trolley that takes about an hour to go all the way. Once a year it is cleared for the Round. The Heavy Round runs spinward, and a runner at full stride weighs about a tenth more than standing still. The Light Round runs antispinward, and the same runner floats a tenth lighter, lands long and spends the race fighting to keep each stride low. Spectators stand ten deep at the shopfronts. The finish is the start, so the last runners come home to the crowd that saw them off, and Sorrel claps them louder than the winners.",
+  "detail": "The Heavy Round is run in the morning and the Light Round after lunch, on the same day. Trolleys stop from 06:00; the shops stay open and sell lidded buns.",
+  "canon": null,
+  "tags": [
+   "the-round",
+   "race",
+   "coriolis",
+   "arcade"
+  ]
+ },
+ {
+  "id": "twelve-rooms",
+  "name": "The Twelve Rooms",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 201,
+  "deckTo": null,
+  "ring": 5,
+  "hour": null,
+  "r": null,
+  "wall": null,
+  "blurb": "Each Hour's club room for the Round, one in every wedge along the Arcade, each in its own colours.",
+  "text": "Every Hour keeps a club room on the Round Arcade, in its own wedge, and you can tell where you are by the colours on the door: Hare tawny and cream, Heron grey-blue and white, Owl violet and buff, Bee gold and black for reasons nobody can explain, Fox russet and white, Otter teal and white, Stag moss and bronze, Swift indigo and silver, Badger charcoal and chalk, Moth mauve and grey, Wolf crimson and slate, Lark green and brown. The rooms are old, warm and full of mended trophies. Rivalries run across the Hollow, so Bee and Moth, Fox and Wolf, Owl and Badger train with one eye on each other. Every club re-dyes its colours for Round day, and the Arcade smells of fresh dye for a week.",
+  "detail": "Each room serves its Hour's dish to members on Round day. Visitors from the opposite Hour are fed too, but last, and told so.",
+  "who": {
+   "name": "Dorrit Amsel",
+   "age": 54,
+   "role": "Otter club secretary",
+   "line": "Lark trains in green so we can see them coming from across the Hollow. We train in teal, so they can't."
+  },
+  "canon": null,
+  "tags": [
+   "the-round",
+   "hours",
+   "clubs",
+   "colours"
+  ]
+ },
+ {
+  "id": "round-records-board",
+  "name": "The Records Board",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 201,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "At the start line in Hare: Sorrel's running records, kept three ways, for axis, spin and anti.",
+  "text": "The Round starts and finishes in Hare, under a long board of white numerals that is the only scoreboard in Sorrel people stop to read on ordinary days. It keeps every record three ways. Axis records are run along the drum, where weight doesn't change. Spin records are run spinward, where every stride is heavier, and anti records antispinward, where every stride floats. The same runner is a different athlete on each, and the board is laid out so you can't compare them, which has never stopped anyone trying. The Light Round's record is the faster, and the Heavy Round's is the one runners boast about. Stag has held the Heavy Round record for thirty-one years and mentions it; Hare holds the Light and mentions that.",
+  "detail": "Records count only on Round day, with the Arcade cleared and the trolley parked. Times set the rest of the year go on a slate by the door, where they are honoured and ignored.",
+  "who": {
+   "name": "Ama Teague",
+   "age": 29,
+   "role": "anti record holder, the Light Round",
+   "line": "Anti is easy to run fast and hard to run well. You spend the whole race trying not to take off."
+  },
+  "canon": null,
+  "tags": [
+   "the-round",
+   "records",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "tide-tanks",
+  "name": "The Tide Tanks",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 186,
+  "deckTo": 187,
+  "ring": 2,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Where three million tonnes of moat water come in every morning to keep the spin trim while the commuters are out, and the walls go cool.",
+  "text": "When about 45 million Sorrelers glide out to work each morning, they carry some 3 Mt of the drum out through its rim, and Sorrel would slow by about a thousandth. So the drum pumps the same weight of moat water in, from outside the jacket to tanks at mid-drum, two decks deep, about 120 of them round the drum on decks 186 and 187. Everyone calls it the tide. It comes in from about seven, when the pipes breathe and the tank walls go cool to the hand, since the moat runs at about 17 °C. It goes out at night, after the last glides home, through turbines in the Keel that give back most of the pumping. Children here lean on the walls to feel it in.",
+  "detail": "The tide is fullest at about 10:00 and starts out after 21:00. The gauge in the Swift lobby on deck 186 is Sorrel's most-watched dial after the lamp clock.",
+  "who": {
+   "name": "Joss Imura",
+   "age": 52,
+   "role": "tide engineer",
+   "line": "If the tide's late, I know the glides are late before the platform does. The water always knows where everyone went."
+  },
+  "canon": "drum-transport.md",
+  "tags": [
+   "trim",
+   "tide",
+   "water",
+   "spin"
+  ]
+ },
+ {
+  "id": "tide-stair",
+  "name": "The Tide Stair",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 170,
+  "deckTo": 185,
+  "ring": 8,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "A public stair beside one of the tide pipes, where couples sit at night to hear the water go out.",
+  "text": "One of the pipes that carries the tide down to the Keel runs beside a public stair in Heron, for sixteen decks below the tanks. By day it is just a stair with a grey casing on one wall. After about nine at night, when the tide goes out, the casing starts to sound: a low, steady rush, felt in the rail more than heard, that lasts until about two. Couples sit on the landings to listen to it. Children dare each other to lay an ear to the casing at the top and count to a hundred. Somebody on deck 177 keeps a cushion on that landing for the regulars, and replaces it whenever it walks.",
+  "detail": "The stair is open all night. Keep your voice down after 22:00: heliox carries every word sixteen decks, and the regulars will tell you so in writing.",
+  "canon": null,
+  "tags": [
+   "tide",
+   "stair",
+   "night",
+   "sound"
+  ]
+ },
+ {
+  "id": "moth-organ",
+  "name": "The Moth Organ",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 225,
+  "deckTo": 229,
+  "ring": 7,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "A great organ in heliox, whose biggest pipes stand nearly eighteen metres tall in an atrium cut five decks high to hold them.",
+  "text": "In heliox, sound runs nearly twice as fast as in the old air, so an organ pipe has to be nearly twice as long to sound the same note. The Moth Organ's 32-foot stop needs pipes of about 17.5 m, and its atrium was cut five decks tall to hold them, floor on deck 225 and ceiling 20 m up. The biggest pipes stand along the back wall like grey columns. The lowest note is felt in the benches before it is heard, and at 0.70 g the whole floor seems to hum with it. Its oldest pipes are reckoned at about three thousand years, remade and re-voiced more times than anyone has counted. On Thursday evenings it plays for whoever comes, and most of Moth comes.",
+  "detail": "Thursday recitals at 19:00, free; the organist is paid from the Hour's fund. The blowers take about 5 kWh an evening, which the Moth club pays and mentions.",
+  "who": {
+   "name": "Benedek Faure",
+   "age": 61,
+   "role": "organist",
+   "line": "The bottom C is slow to speak in a room this size, so I play it a beat early. Forty years and it still feels like cheating."
+  },
+  "canon": null,
+  "tags": [
+   "organ",
+   "music",
+   "heliox",
+   "atrium"
+  ]
+ },
+ {
+  "id": "felt-hall",
+  "name": "The Felt Hall",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 233,
+  "deckTo": 235,
+  "ring": 3,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's great concert hall, hung three layers deep in felt so that heliox doesn't ring every note into the next.",
+  "text": "Heliox rooms ring. Sound runs nearly twice as fast and voices come out bright, so a bare hall turns a quartet into a quarrel. The Felt Hall in Fox is Sorrel's answer: 1,400 seats in a room hung floor to ceiling in grey felt three layers deep, so a cello sounds warm and a whisper from the stage reaches the back row without arriving twice. Its instruments are built for the air: deep-bodied strings, flutes as long as a child is tall, a bass flute folded twice and still taller than its player. Every forty years the felt is changed, and the old felt goes to the tailors on Cuff Lane, where it turns up in coat linings across Sorrel, still smelling faintly of rosin.",
+  "detail": "Orchestra seats are about 1.5 kWh, which pays sixty players for their evenings and their rehearsals. Friday quartets cost a tenth of that.",
+  "canon": null,
+  "tags": [
+   "music",
+   "felt",
+   "heliox",
+   "concert"
+  ]
+ },
+ {
+  "id": "long-stage",
+  "name": "The Long Stage",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 271,
+  "deckTo": 273,
+  "ring": 6,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A theatre where nobody shouts, because heliox carries a whisper to the back row, and the programme explains what rain was.",
+  "text": "The Long Stage seats six hundred in a steep felted room in Wolf, and its actors are famous for never raising their voices. In heliox a whisper carries to the back, so the house style is close and quiet, and a shout is saved for once a season. It plays the drum's own plays and very old ones in translation, older than any drum and full of things nobody in Sorrel has seen, so the programme has a page of notes: rain, a horse, the sun going down, the sea. At 0.64 g a stage fight is slow and high, and a fall takes longer than the audience expects. The fight master teaches actors to land a little spinward of their mark and look as if they meant it.",
+  "detail": "Evenings at 19:30, about a kWh a seat. Saturday matinees are half that, and full of schoolchildren brought up from the Low decks to hear what quiet sounds like.",
+  "who": {
+   "name": "Yusra Kell",
+   "age": 38,
+   "role": "actor",
+   "line": "My first year I shouted one line, and a man in row nine covered his ears. He came back every night after that, to check."
+  },
+  "canon": null,
+  "tags": [
+   "theatre",
+   "heliox",
+   "plays"
+  ]
+ },
+ {
+  "id": "reading-decks",
+  "name": "The Reading Decks",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 250,
+  "deckTo": 252,
+  "ring": 4,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "Three decks of reading rooms in Heron, holding every book anyone has asked for and posting what came in by light today.",
+  "text": "Information is the only capital that grows, and the Reading Decks are where Sorrel goes to sit with it. Copies cost nothing, so the stock is everything, and what the library actually spends on is rooms, quiet and librarians. Three decks of long felted reading rooms in Heron are lit at 500 lux, softer at the edges, with chairs older than the oldest librarian. A printed book is mass, at about 25 kWh a kilogram, so the paper volumes are kept like heirlooms and lent by hand. By the front desk an arrivals board lists what came in by light that day from other rafts: songs, recipes, papers, a play, sent from somewhere between a light-hour and a light-decade away.",
+  "detail": "Open 07:00 to 23:00. Paper books go out for a fortnight and come back in a felt bag. The arrivals board is copied to every Mill Hall in Sorrel at noon.",
+  "canon": null,
+  "tags": [
+   "library",
+   "books",
+   "information"
+  ]
+ },
+ {
+  "id": "lantern-desk",
+  "name": "The Lantern Desk",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 255,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrelers send research to the Lantern as batch work, and collect the answers about two years later.",
+  "text": "Interactive compute runs on the raft, but the Lantern does the slow work: long simulations, deep searches, the questions that can wait. Merrow's patch of it is about eleven light-months away, so a question sent from this small office in Lark comes back in a little under two years at best. The desk keeps a ledger of questions in flight, about nine thousand at any time, each with the sender's name and a contact in case the sender has moved, gone up or died. A good share of answers are collected by somebody else: a grandchild, a colleague, a whole class that inherited a project. By custom the clerk reads each answer's first line aloud at the counter, to whoever is there.",
+  "detail": "Questions go free from the commons' share of Lantern work, after a review of about a month. Answers wait at the desk for twenty years, then go to the Reading Decks.",
+  "who": {
+   "name": "Dov Amari",
+   "age": 57,
+   "role": "desk clerk",
+   "line": "A woman asked if a pear could bloom without its winter. Two years later her son collected the answer. It was no, with a reading list."
+  },
+  "canon": null,
+  "tags": [
+   "lantern",
+   "research",
+   "batch-work"
+  ]
+ },
+ {
+  "id": "sound-archive",
+  "name": "The Sound Archive",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 274,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Every recording Sorrel has kept, including the old ones that sound spoken through a blanket, and a booth of the old air to hear why.",
+  "text": "The Archive in Owl keeps Sorrel's recordings: assembly sittings, every Round, choirs, lullabies, and a great many voices left by families who wanted them kept. The oldest come from the old air, and to Sorrel ears they sound spoken through a blanket, low and soft-edged. So the Archive keeps a small booth of real air, nitrogen and oxygen, behind a double door. Visitors step in, say their own name, and hear it come out deeper and duller than they have ever heard it. Children laugh. Adults go quiet and try again. Upstairs, a felted listening room lit like a flat plays anything in the collection on request, and the archivists will find you a grandmother by her first name and her deck.",
+  "detail": "The air booth takes two at a time, for three minutes, and is refilled every evening. Families may leave a recording free, and it will be kept as long as the drum stands.",
+  "who": {
+   "name": "Liesl Obi",
+   "age": 46,
+   "role": "archivist",
+   "line": "People come in to hear a grandmother's recording and stay to hear their own name in the air booth. Nobody likes how they sound in either."
+  },
+  "canon": null,
+  "tags": [
+   "archive",
+   "recordings",
+   "heliox"
+  ]
+ },
+ {
+  "id": "flute-row",
+  "name": "Flute Row",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 146,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "A street of flute makers in Lark, where every pipe is tuned in the shop's own air and beginners are measured first.",
+  "text": "Flute Row is a short street of seven workshops in Lark, each with a long bench and a rack of tubes. A heliox flute is about 1.2 m long, nearly twice the length of the flutes in old pictures, because sound runs that much faster here, and every one is tuned in the shop's own warm air. Beginners are measured before they are sold anything: your arms must reach the far keys. The street sounds of scales all day, bright and thin-edged, through doors hung with felt. The makers remake more than they make. Most flutes in Sorrel are older than their players, and a good one has been rekeyed four or five times and carries every owner's initials inside the head joint.",
+  "detail": "A remade student flute is about 30 kWh, half of it metal and half the maker's hours. Fittings and rekeying run at about 3 kWh an hour. Closed on Mondays.",
+  "who": {
+   "name": "Ilan Moraes",
+   "age": 63,
+   "role": "flute maker",
+   "line": "A flute that's played every day stays in tune for years. One that sits in a cupboard goes flat out of spite."
+  },
+  "canon": null,
+  "tags": [
+   "flutes",
+   "music",
+   "workshops",
+   "heliox"
+  ]
+ },
+ {
+  "id": "blue-street",
+  "name": "Blue Street",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 158,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "The dyers' street in Bee, where this season's hard algae blue began and wet cloth hangs drying over your head.",
+  "text": "Colour weighs nothing, so in Sorrel it is where fashion lives, and most of it starts here. Blue Street is two hundred metres of dye shops in Bee, with dye vats at the back and racks of wet cloth strung across the street to dry in the warm air, so that you walk under it. This season's hard algae blue came out of one vat here last year and is now in half the coat linings in Ashgrove. Nobody chose it. A batch came out darker than meant, a tailor liked it, and by Knotnight it was everywhere. Re-dyeing a dress costs less than a cup of coffee. The street changes colour every season, and its floor never quite washes clean.",
+  "detail": "Bring the garment clean and dry. A re-dye takes a day and about a tenth of a kWh in dye; the dyer's time is extra, at about 3 kWh an hour, so bring several.",
+  "who": {
+   "name": "Perpetua Yan",
+   "age": 35,
+   "role": "dyer",
+   "line": "Next season will be a green. I don't know which green. Nobody will until somebody's vat goes wrong in the right way."
+  },
+  "canon": null,
+  "tags": [
+   "dye",
+   "colour",
+   "fashion",
+   "algae-blue"
+  ]
+ },
+ {
+  "id": "cuff-lane",
+  "name": "Cuff Lane",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 176,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "The tailors' lane in Swift: relining, letting out, taking in, and weighting hems for the lighter decks.",
+  "text": "Cuff Lane is a crooked street of tailors in Swift, each shop a long table, a cutting light and a wall of offcuts sorted by colour. They reline coats in this season's blue, let out trousers, turn collars and move pockets. They also weight hems. Cloth hangs on its own weight, so a coat cut on a Low deck at 0.9 g sits a little stiff and flared up here at 0.77, and stiffer still on the High decks. Cuff Lane sews a few grams of fine chain into the hems of anyone moving up, and takes it out again for anyone moving down. The tailors can tell where a coat was cut by the way it hangs.",
+  "detail": "A relining is about 5 kWh in cloth and two hours of time, about 11 kWh in all. Hem weights are free with any alteration. Bring the coat's history if you know it.",
+  "who": {
+   "name": "Mei Castellan",
+   "age": 48,
+   "role": "tailor",
+   "line": "I relined a coat last week with four owners' mends in it. I left every one. You don't sew over people."
+  },
+  "canon": null,
+  "tags": [
+   "tailors",
+   "mending",
+   "clothes"
+  ]
+ },
+ {
+  "id": "chair-hospital",
+  "name": "The Chair Hospital",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 129,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's old chairs go to be re-sprung, re-glued and re-covered, and come home older and better.",
+  "text": "In Sorrel the best chair in a room is the oldest, and this is where the oldest chairs go when they creak. The Chair Hospital is a long workshop in Hare with a ward of chairs under sheets, each with a card on its back: owner, age, complaint. A new chair costs about 125 kWh, the price of fifty dinners, so nobody throws one out. The remakers re-spring, re-glue, turn new feet on the lathe from offcuts and re-cover in whatever the owner chooses. Each one signs and dates the underside of the seat frame before the chair goes home, so turning an old chair over is like reading a family's letters. The oldest on the ward this month is six hundred years old.",
+  "detail": "A re-spring and re-cover is about 40 kWh, most of it time. The ward takes deliveries by cab at the side door, any morning before ten.",
+  "who": {
+   "name": "Barto Sato",
+   "age": 70,
+   "role": "chair remaker",
+   "line": "I found eleven signatures under one seat, the first from before the Count. I signed under the last one, small, like a guest."
+  },
+  "canon": null,
+  "tags": [
+   "chairs",
+   "remaking",
+   "heirlooms",
+   "workshops"
+  ]
+ },
+ {
+  "id": "lampwrights-arcade",
+  "name": "Lampwrights' Arcade",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 219,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's lamp makers, near the front of the drum, where every lamp runs for a week on the test wall before it goes home.",
+  "text": "Lampwrights' Arcade is a covered street of lamp makers in Moth, near the front of the drum, and most of its work is for the Lamp Office. They make and remake every kind of lamp Sorrel uses: home panels that ramp warm then white, grow lamps for herb shelves, hand lamps for the Spindle at night, and the morning panels children sit by for twenty minutes before school. Every new or remade lamp runs for a week on the test wall at the end of the arcade, a hundred metres of light in every colour Sorrel allows, which is not many. Lamps last a long time and are mended, not replaced, so most shops hold more parts than lamps.",
+  "detail": "A remade hand lamp is about 5 kWh. Herb-shelf lamps are mended free for anyone over eighty, by a custom nobody remembers starting.",
+  "canon": null,
+  "tags": [
+   "lamps",
+   "workshops",
+   "light"
+  ]
+ },
+ {
+  "id": "dark-stair",
+  "name": "The Dark Stair",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 150,
+  "deckTo": 162,
+  "ring": 9,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "The memorial to the Eleven Days: a core stair kept as it was, walked once a year by device light alone.",
+  "text": "In the Eleven Days, 74 years ago, the beam stopped and Sorrel dropped to its survival load. There were no lamps, kitchens or worlds, and the cabs crawled, two trips a day. People walked the stairs, and the only light was whatever their devices had in them. This stair in Fox, thirteen decks of it, is kept as it was. Its landing lamps are gone, and each landing has a small plate with a day's number and the name of someone who climbed it then. On the anniversary the stair opens at lamp-night and people climb it by the light of a device screen, slowly, at 0.8 g, counting landings in the dark. Most go in silence. Some sing, because somebody did then.",
+  "detail": "Open to walk on the anniversary from 23:00 to 06:00, and by arrangement on other days. Children under twelve hold an adult's hand. No hand lamps on the stair.",
+  "who": {
+   "name": "Galen Ostrowe",
+   "age": 82,
+   "role": "retired cab engineer",
+   "line": "I was eight. My mother's screen lasted three days, then we used my uncle's. I still count landings out loud. I can't help it."
+  },
+  "canon": null,
+  "tags": [
+   "eleven-days",
+   "memorial",
+   "stairs",
+   "history"
+  ]
+ },
+ {
+  "id": "cold-table",
+  "name": "The Cold Table",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 279,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's Summer Day hall, near the back cap, where the drum remembers its one summer with cold food and no lids.",
+  "text": "About 1,100 years ago a fault in the back-cap rotary joint cut the drum's heat flow by a third for forty days. Sorrel dimmed its lamps and kitchens to match, and the rooms still ran three or four degrees warm: the only summer Sorrel has ever had. The Cold Table, in Moth near the back of the drum, is a long hall that keeps it. On one wall hangs the Summer's temperature log, forty days in a clerk's neat hand. On Summer Day the hall sets out cold food for anyone who comes: chilled noodles, cucumber, set custards, cold tea. It is the only day Sorrel serves food without lids, since there is nothing to keep warm, and grandmothers still flinch.",
+  "detail": "Summer Day is free at the Cold Table from noon until the lamps fade. Bring a paper fan. They are the custom, though nobody has needed one for 1,100 years.",
+  "canon": null,
+  "tags": [
+   "summer-day",
+   "memorial",
+   "festival",
+   "food"
+  ]
+ },
+ {
+  "id": "orange-hall",
+  "name": "The Orange Hall",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 132,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A cooked hall in Badger that serves orange steaks every Thursday, in memory of the year Sorrel's Fusarium line failed.",
+  "text": "When a blight took out Sorrel's Fusarium line, the drum ate Neurospora for a season, and the steaks came out pinkish-orange and tasting of nuts. Nobody now agrees how long ago that was, and the plaque by the door doesn't say: it reads only The Orange-Steak Year. The Orange Hall has served orange steaks every Thursday since, and on the anniversary so does every kitchen in Sorrel, but people come here for the sauce, a sharp black-vinegar butter the first cooks made to make the new steaks taste like the old ones. It didn't work. Everyone liked it anyway. The hall seats three hundred at long tables, everything under lids, and the steak is cut at the table.",
+  "detail": "An orange steak with the sauce and a starch swallow is about 1.6 kWh. Thursdays from 18:00. Book ahead for the anniversary, when the queue reaches the lift lobby.",
+  "who": {
+   "name": "Oren Halloran",
+   "age": 60,
+   "role": "cook",
+   "line": "My grandmother said the orange ones were better. Her grandmother said the same about the ones before. Blight food is always somebody's childhood."
+  },
+  "canon": null,
+  "tags": [
+   "orange-steak",
+   "blight",
+   "food",
+   "memory"
+  ]
+ },
+ {
+  "id": "liftwrights-row",
+  "name": "Liftwrights' Row",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 286,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "The lift engineers' street on deck 286, where Ossian Hale lived, and where children can name a cab channel by its sound.",
+  "text": "Liftwrights' Row is a street of flats and workshops on deck 286, in Stag, where Sorrel's lift engineers have lived for generations. They keep the cores running: the ten channels in each of about 5,200 cores, the berths, the gimballed cabins that lean against Coriolis. Their hall at the end of the street has a cabin hung in a bare gimbal, so apprentices can watch it swing. Ossian Hale lived three doors from the hall until he died, about nine years ago, and his name is on its board of members. His place passed to a boy in Ashgrove who carries his name. The street's children can tell an express platoon from a collector cab by the hum through the wall.",
+  "detail": "Apprentices start at eighteen, after the Lift School, and spend their first year riding every channel of one core at all hours, writing down every sound it makes.",
+  "who": {
+   "name": "Femi Lund",
+   "age": 64,
+   "role": "lift engineer",
+   "line": "Ossian taught me to listen to a gimbal before I touched it. A family in Ashgrove sends his daughter a note every year. He'd have liked that."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "lifts",
+   "engineers",
+   "names",
+   "cabs"
+  ]
+ },
+ {
+  "id": "still-room",
+  "name": "The Still Room",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 299,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A meeting room for silence in Wolf, hung so deep in felt that you can hear the drum.",
+  "text": "The Still Room is a plain room on deck 299, in Wolf. Its walls and ceiling are hung so deep in felt that heliox, which makes every other room ring, falls almost dead in it. People come in, sit on long benches and say nothing for an hour. No faith owns it and nobody leads. In the quiet you hear what the drum is usually too loud for: the air handlers, a cab's hum in the core behind the wall, your own pulse. At 0.6 g the benches are kind to old knees, and many elders come down from the High decks for it. The meeting ends when the oldest person in the room stands up. Sometimes that takes a while, and nobody minds.",
+  "detail": "Meetings at 07:00, 13:00 and 21:00 every day, free. Come in before the hour. Late arrivals wait in the lobby, which is also quiet, but less.",
+  "canon": null,
+  "tags": [
+   "silence",
+   "quiet",
+   "meeting"
+  ]
+ },
+ {
+  "id": "river-house",
+  "name": "The River House",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 260,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "The small faith that keeps the River as holy meets here, at the back of the drum, nearest the Windows.",
+  "text": "Everything fell out of the River. The small faith that says so has kept this house in Lark for longer than its members can say, in Ring Nine, the end of the drum nearest the Windows. It is one long room. Along its wall runs a band of gold thread on dark cloth, stitched by members over centuries and frayed at the edges. Most members have seen the real thing only once, at eight, like everyone in Sorrel. They meet on the evening a child of theirs comes back from the Window, and they bless newborns by touching an iron ring to the palm: the iron in the ring fell out of the River, and so did theirs.",
+  "detail": "Open evenings from 19:00. Anyone may sit; nobody is asked to believe anything. Once a year the youngest member adds a hand's width to the cloth.",
+  "who": {
+   "name": "Esha Moravec",
+   "age": 77,
+   "role": "keeper of the House",
+   "line": "I saw it once, at eight, like everyone. Now I sew it, and I get it a little wrong, so somebody will go and check."
+  },
+  "canon": null,
+  "tags": [
+   "faith",
+   "the-river",
+   "windows",
+   "quiet"
+  ]
+ },
+ {
+  "id": "juniper-works",
+  "name": "The Juniper Works",
+  "kind": "work",
+  "zone": "deck",
+  "deck": 124,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's gin, sold near cost with thiamine in it, made here so that nobody has a reason to make it anywhere else.",
+  "text": "Alcohol is nearly free to make, and drums that tax it hard get bootleggers using the food plant's methanol, which kills. Sorrel took the other road long ago. The Juniper Works, the drum's second gin works after the Still in the Keel, sells its gin near cost, about 2.8 kWh a bottle, with thiamine in it, as in the salt, so a heavy drinker doesn't go short of it. The stills are electric, and the long room smells of pine and coriander, though the botanicals are measured in milligrams. By custom one bottling a year uses berries from a real juniper in a tub by the door, under its own lamp, which the still-master waters herself. Lovage visitors take the tour and leave with their two bottles each.",
+  "detail": "Tours on Saturdays at 11:00, with a tasting of three gins at 0.18 kWh each. The Works sells by the bottle only. For a glass, go to a cellar.",
+  "who": {
+   "name": "Tamar Okoro",
+   "age": 55,
+   "role": "still-master",
+   "line": "People say the thiamine changes the taste. It's a few milligrams a bottle. What changes the taste is being told about it."
+  },
+  "canon": null,
+  "tags": [
+   "gin",
+   "thiamine",
+   "works"
+  ]
+ },
+ {
+  "id": "light-studios",
+  "name": "The Light Studios",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 284,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "Forty studios for painters, potters and carvers in Otter, who pool their light and take turns in one bright room.",
+  "text": "Colour is cheap and light is dear, so the forty studios along this corridor in Otter keep a pact. Each studio has ordinary lamps at about 200 lux, enough to work by and not enough to judge a colour. They pool their light allowance into one room at the end, lit like an overcast day at 10,000 lux, and book it by the half-hour. Paintings, glazes and dye tests wait outside it in racks. The potters' kilns are electric and the corridor is always warm. At 0.62 g a wet pot slumps less on the wheel, so the potters here throw taller and thinner than anyone on the Low decks, and say so.",
+  "detail": "The bright room is booked in half-hour turns from 08:00 to 20:00. Visitors may watch from the doorway on Wednesdays. Finished work is sold at the door, in kWh, with haggling.",
+  "canon": null,
+  "tags": [
+   "studios",
+   "art",
+   "light",
+   "pottery"
+  ]
+ },
+ {
+  "id": "world-room",
+  "name": "The World Room",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 141,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A public room for shared worlds in Wolf, with a long table for slow worlds where every seat has a small lamp for the lag.",
+  "text": "Worlds are personal compute, and most people play them at home, but the World Room is where Wolf plays together. It is a long, dim room with booths along the walls and soft floors for worlds you move in. Down the middle runs the slow table, for games with friends across the raft, light-seconds away. Every seat has a small amber lamp that glows while a reply is in flight, so you can see whose friend is three seconds off and whose is forty. People who have gone dark come in to watch, black threads on their wrists, and are given tea and left alone. On Booking Day it fills with children playing the same world as their cousins in Chervil.",
+  "detail": "Booths cost what the compute costs, about 0.4 kWh an hour. The slow table is free to sit at; you pay only for your own world. Open until 01:00.",
+  "canon": null,
+  "tags": [
+   "worlds",
+   "compute",
+   "games",
+   "lag"
+  ]
+ },
+ {
+  "id": "birch-atrium",
+  "name": "The Birch Atrium",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 241,
+  "deckTo": 245,
+  "ring": 3,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A dim wood of birches five decks tall in Badger, given a winter one quarter at a time.",
+  "text": "Four neighbourhoods in Badger pooled their park light two hundred years ago and have voted the same way ever since, for a dim wood: an atrium five decks tall, floor on deck 241 and ceiling 20 m up, planted with birches and lit at about 1,000 lux, a cloudy evening. At 0.68 g the trees grow tall and slender, their white trunks bright against the dimness. The flats on its terraces have the only windows in this part of Badger. Birches need a rest, so the woodwarden gives them a winter a quarter at a time: one corner is dimmed and chilled for six weeks a year, and its leaves come down yellow onto the paths, where everyone is allowed to kick them.",
+  "detail": "Paths open from lamp-dawn to 23:00. The winter corner moves a quarter round each year. It is roped off, and the warden asks you to keep to the paths.",
+  "canon": null,
+  "tags": [
+   "wood",
+   "dim",
+   "atrium",
+   "trees"
+  ]
+ },
+ {
+  "id": "lemon-square",
+  "name": "Lemon Square",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 168,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "A bright court in Heron, lit like an overcast day for twelve hours, with fourteen lemon trees and no shade worth the name.",
+  "text": "Lemon Square is a bright court: about 5,000 m² of paving and tubs lit to 10,000 lux for twelve hours a day, overcast-day bright, the whole park share of the block around it. It has won the light vote for as long as anyone has counted. The lemons are why. Fourteen trees stand in tubs older than the square, and they fruit all year, since a lemon needs no winter. Every household that moves into the block is given one lemon, to keep in the kitchen for its smell, and the rest are zested into the Mill Hall's Thursday jook. At lamp-noon the square is so bright that visitors from dim blocks squint and sit with their backs to the trees.",
+  "detail": "Lit from 07:00 to 19:00. The tubs are numbered. Number nine is the oldest tree, and the one people sit under to propose.",
+  "canon": null,
+  "tags": [
+   "bright-court",
+   "lemons",
+   "light-vote"
+  ]
+ },
+ {
+  "id": "second-market",
+  "name": "The Second Market",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 178,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's great market for old things, where everything comes with its history on a card and the bargains come at the end of the month.",
+  "text": "New mass costs about 25 kWh a kilogram, so most things in Sorrel are bought second-hand, and the Second Market in Fox is where they change hands: a long hall of stalls selling tables, lamps, coats, cots, tins, lids in every size and tools older than their sellers. Everything here has a story, and the story is checked: sellers chalk a thing's history on a card, and buyers ask for the names. What doesn't sell in a month goes down to the Keel's recyclers to be taken apart, so the last day of the month is when the bargains are.",
+  "detail": "Open daily, 08:00 to 20:00. Stalls cost nothing and the market takes no cut. A thing's history card goes with it, and removing one is very poor manners.",
+  "who": {
+   "name": "Sabine Kroll",
+   "age": 74,
+   "role": "stallholder",
+   "line": "A lid without its pot sells in a day. A pot without its lid sits here till Knotnight. Nobody can explain it."
+  },
+  "canon": null,
+  "tags": [
+   "market",
+   "second-hand",
+   "old-things"
+  ]
+ },
+ {
+  "id": "ringing-arcade",
+  "name": "The Ringing Arcade",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 117,
+  "deckTo": 118,
+  "ring": 9,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "The loudest street in Sorrel: 640 metres of bare vault in Bee, where a shout comes back from the far end in two seconds.",
+  "text": "Most arcades in Sorrel hang felt. The Ringing Arcade never has. It runs 640 m along the axis in Bee, two decks tall under a bare grey vault, and in heliox it rings like a bell: a shout comes back from the far end in about two seconds, about half the time it would have taken in the old air. The shopkeepers hang felt in their own doorways instead, and shut the doors to talk. Buskers love it, because one flute fills the whole length, and so does the Bee choir, which sings here every Knotnight in rounds timed to the echo. It is the one street in Sorrel where children may shout, and the adults who grew up here still do.",
+  "detail": "The best echo is from the bench at the Ring Nine end at lamp-night, when the shops are shut. Singing after 23:00 needs the Bee club's leave, which is usually yes.",
+  "canon": null,
+  "tags": [
+   "arcade",
+   "echo",
+   "heliox",
+   "music"
+  ]
+ },
+ {
+  "id": "deep-baths",
+  "name": "The Deep Baths",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 135,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's biggest public bath, on the food plant's free 65 °C loop, with one pool two decks deep.",
+  "text": "Heliox draws heat from skin about four times faster than air, so a hot bath is the cheapest luxury in the drum, and the Deep Baths in Swift are the biggest. The water comes up from the Keel on the food plant's 65 °C waste-heat loop, so heating it is free; only the pumping and cleaning cost anything. There are six pools at six temperatures, and one that is two decks deep, eight metres, for slow diving. Visitors from the Low decks expect to float better at 0.82 g and are surprised: you float exactly as you would at the rim, because the water's lift falls with your weight. What changes is the dive. It takes a little longer, and the splash hangs.",
+  "detail": "Free, from 05:00 to 01:00. Robes and towels are lent at the door. The deep pool is for swimmers only, and the attendants ask for one length first.",
+  "who": {
+   "name": "Hanne Bisset",
+   "age": 41,
+   "role": "bath attendant",
+   "line": "The steam's where Swift talks. I hear about most weddings a week before the couple do."
+  },
+  "canon": null,
+  "tags": [
+   "baths",
+   "waste-heat",
+   "water"
+  ]
+ },
+ {
+  "id": "wedding-rooms",
+  "name": "The Wedding Rooms",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 182,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Bee dresses for its weddings and dines after them: a felted hall, a 900-year-old chair for two, and a wardrobe of remade wedding clothes with every wearer's name in the lining.",
+  "text": "In Sorrel your wedding clothes are the clothes you have, altered, and the Wedding Rooms in Bee help. Behind the hall is a lending wardrobe of about four hundred remade coats and dresses, each with a strip in the lining that lists everyone who has married in it. Couples borrow, wear, and add their names. The hall itself is felted, lamp-lit and warm, and at the front stands a wedding chair built wide for two, about nine hundred years old, which every couple sits in at the wedding dinner, after the vows on the Third. Sorrel weddings are small and long, and the new furniture comes later, usually remade from a grandparent's.",
+  "detail": "The hall is free to book; the cook's hours are not, at about 3 kWh each. Wardrobe fittings on Tuesday evenings. Bring your own apple, or the hall sells one at cost.",
+  "who": {
+   "name": "Lucan Aboud",
+   "age": 59,
+   "role": "keeper of the wardrobe",
+   "line": "One coat has 212 names in it. The lining has been replaced eleven times. I sew the list onto each new one by hand."
+  },
+  "canon": null,
+  "tags": [
+   "weddings",
+   "rites",
+   "remaking",
+   "apples"
+  ]
+ },
+ {
+  "id": "quince-clinic",
+  "name": "The Quince Clinic",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 121,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "A birth clinic in Otter, where embryos are proofread, a right is spent, and each family learns whose place their child is taking.",
+  "text": "Every embryo in Sorrel is sequenced and proofread at a clinic, a norm and not a law, and the Quince Clinic in Otter, which serves the upper Low decks and the lower Middle ones, is among the busiest. A quince tree stands in a tub in its lobby under its own bright lamp. The clinic sees a few dozen births a day. Here a parent's birth right is checked against the Pool and spent, and on the third day a clerk from the Register comes with a card: the name of the person whose place the child is taking, and their family's address, for the yearly note. Most parents give the child that name. The card is printed on good paper and usually ends up framed.",
+  "detail": "The Register's card comes on the third day. Families who want to meet the dead's family can ask the clerk. About one in three do, usually over a meal both sides pay for.",
+  "who": {
+   "name": "Salome Ruit",
+   "age": 50,
+   "role": "midwife",
+   "line": "I've delivered children named for a dancer, a cab engineer and a man who grew the best basil in Otter. Every one cried the same."
+  },
+  "canon": null,
+  "tags": [
+   "births",
+   "clinic",
+   "names",
+   "proofreading"
+  ]
+ },
+ {
+  "id": "returning-room",
+  "name": "The Returning Room",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 291,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Owl's room for the dead, where a place's last holders are read out and a family leaves an address for the notes to come.",
+  "text": "When someone in Sorrel dies, their place goes back to the pool, and in Owl the family gathers here first. The Returning Room is long and dim, lit warm like a late evening, with felt walls and plain benches. The family reads the name aloud, the Register's clerk reads the place's last ten holders, and everyone stands. Then the body goes down to the Down Hall in the Keel, with the family beside it, to be taken apart and kept, as everything in the drum is. Along the back wall are drawers where families leave a forwarding address for the notes that will come every year from whoever is born into the place.",
+  "detail": "Returnings are held any day between 10:00 and 18:00, at no charge. The drawers are kept for a hundred years; ask the attendant whether a note has come to one.",
+  "canon": null,
+  "tags": [
+   "death",
+   "places",
+   "rites",
+   "names"
+  ]
+ },
+ {
+  "id": "middle-league-hall",
+  "name": "The Middle League Hall",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 236,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the Middle decks' spinball league plays at 0.69 g, and every hard throw breaks harder than a Low-deck child would believe.",
+  "text": "Every child in Sorrel learns spinball on the Low decks. Most stop when they move up, and the ones who don't play here. The Middle League Hall is a long hall on deck 236 in Hare, its court marked in Hare tawny and cream, its gallery hung with felt so the calls don't ring. At 0.69 g a hard spinward throw gains more than a fifth of its weight and dives, and an anti throw sails further than any Low-deck child would credit, so the game is looser and the angles wilder. League nights are Tuesdays and Fridays. Players up from the Low decks come to try it and spend their first week throwing into the gallery.",
+  "detail": "League matches start at 19:00, free to watch. Visitors may join the open game on Sunday mornings, when the court is free and the gallery forgiving.",
+  "who": {
+   "name": "Kit Adeye",
+   "age": 26,
+   "role": "Middle League wing",
+   "line": "Down on the Low decks I threw anti and won everything. Up here the ball goes anti and keeps going."
+  },
+  "canon": null,
+  "tags": [
+   "spinball",
+   "sport",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "lid-wall",
+  "name": "The Lid Wall",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 155,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "A workers' canteen in Owl with four hundred dented lids on its wall, one for every regular.",
+  "text": "The Lid Wall is a cooked canteen in Owl where the night shifts eat supper and the day shifts eat lunch, at the same long tables and under the same lids. Its back wall is covered in four hundred lids on hooks, dented, polished or painted, each belonging to a regular, who takes it down and sets it over their own bowl. A new regular earns a hook after a year of lunches. The cook makes one soup and one noodle a day, Vat-table food done by hand, and at noon the queue reaches the stair. When a regular dies their lid stays on its hook for a year with a grey ribbon through the handle, then goes to whoever asks first.",
+  "detail": "Noodles in broth about 1.2 kWh and the soup about 0.8, the cook's hours included. Open 06:00 to 15:00 on weekdays. Bring your own lid and it joins the waiting list.",
+  "who": {
+   "name": "Dasha Kolle",
+   "age": 61,
+   "role": "cook",
+   "line": "I can tell who's in by the lids. Third hook from the left is still up, so somebody's ill, and somebody will be taking soup round."
+  },
+  "canon": null,
+  "tags": [
+   "canteen",
+   "lids",
+   "food",
+   "regulars"
+  ]
+ }
+]

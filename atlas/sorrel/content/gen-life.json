@@ -1,0 +1,4211 @@
+{
+ "customs": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "At a naming, the dead's family sits in the front row and someone reads out one thing the dead person was bad at, so the child never feels they have to be perfect."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The yearly note to the dead's family is written by the child as soon as they can hold a stylus. The early ones are mostly drawings of cabs, and the other family keeps every one."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A new baby is carried once round the arcade on its first morning, spinward, so it starts life a little heavier. Parents who go the wrong way by mistake are teased about it until the second child."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The first kays a fourteen-year-old spends from their own half of the dividend go on a tomato for a parent, cut in front of them. Parents claim not to remember theirs, and remember it exactly."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "On their eighteenth birthday, when the whole dividend comes into their name, young people lend ten kays to the oldest person on their stair. It comes back on Booking Day, to the hour, and the friendship usually lasts longer."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Couples marry sitting on a remade sofa, carried into the middle for the vows. Guests sign the underside of the frame, and some sofas here carry four weddings' worth of names."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Wedding gifts are announced in hours as well as kays: forty hours of a cousin's sanding, twelve of an aunt's stitching. The couple reads the list aloud, and every hour is worked off within the booking year."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "When a neighbour goes up, the stair walks them to the lift core and each person hands over something small for the new flat: a herb cutting, a spoon, a mended cushion. The cab leaves full."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "New arrivals from below are given a week of slow corridors. Nobody overtakes them, and everyone walks at their pace, until their legs learn the lighter weight and they stop bouncing at every step."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "When a couple's first child is due, the neighbours carry their furniture down to the Low decks in a single morning. The cab rides are free; the singing on the way down is not optional."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A child going to the Window names their adult a year ahead, at dinner, in front of everyone. Being chosen is the nearest thing here to a medal, and the chosen are insufferable for a week."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children back from the Window are not asked what it was like. They're given a cup of something hot and left alone until they decide to talk about it, which can take years."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On the morning of the deck's Hollow turn, every flat leaves its door open while people get ready, so anyone can borrow a wide hat, a picnic cloth or a child's spare shoes from whoever's nearest."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whoever comes back last from the Hollow turn brings a fallen leaf from the orchards for the hall. The hall keeps the leaves in a jar, labelled by date, going back further than anyone has checked."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On Booking Day every household writes what it means to save for on a slip and pins it in the hall. A year later the slips come down, and the ones that came true are read aloud."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "On Knotnight, when the lamps go down, the children walk the stair with hand lamps, knocking for a spoonful from every larder. By the bottom they have one jar of something nobody would ever cook on purpose."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Summer Day here is kept with cold noodles eaten on the floor of the coolest corridor, because that's where people are said to have slept in the Summer, and nobody has found a reason to stop."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On the anniversary of the Eleven Days the whole neighbourhood climbs one long stair together instead of taking the cab. The oldest climber, who remembers, sets the pace, and nobody passes them."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Someone on every stair taps the heating pipe three times at half past six, as the lamps start to ramp. It goes by rota, and the rota has been kept on the same slate for two hundred years."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Anyone who has learned the long flute plays their first public note from the top of the stairwell, and the heliox carries it down six decks. People stop on every landing and clap from wherever they are."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "People here say lids on instead of goodnight, and children learn the phrase years before anyone tells them it was ever about food."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Gifts carry their price on the back in kays, so nobody has to guess. Anything that cost less than a coffee is called a nod, and a nod is often the best gift of the evening."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Guests bring a sprig from their own herb shelf, and the host puts it straight into the evening's dish in front of them, however badly it goes. Mint in the stew means a much-loved guest."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Every mend here is sewn in the mender's own colour of thread, so you can read who has worked on a coat. Five colours on the cuffs is admired; a coat with none is suspected of being new."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The lending shelf by the lift core has one rule: return it better. A borrowed knife comes back sharpened, a borrowed pot scrubbed, and a borrowed book with a pressed leaf of basil in it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Anyone wearing the black thread is served first at the hall, since they have nothing to look at while they wait. Teenagers have been known to borrow a thread just for lunch."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "The court's lemon tree gives about thirty lemons a year. The first goes to whoever has lived here longest, and the rest are drawn from a bowl of name tiles by a child who isn't allowed to look."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": "dim",
+   "text": "The hazels in the wood give a few kilograms of nuts a year, gathered by the children and shared out by lot in twists of paper. Winners are expected to share, and mostly do."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Neighbours passing in the arcade say spin or anti, for the way they're heading, instead of hello. The answer is always the other word, which is how you know you've been heard."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "When a cup falls, everyone at the table says anti, and whoever dropped it pours a cup for the drum and leaves it on the shelf till morning. The drum, people note, never drinks it."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Spinball here keeps the old rule that a goal thrown spinward counts double, since the ball had to fight its own weight to get there. Visiting teams call this mad, and lose."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children play drop-the-button: each holds a button at arm's height over a chalk mark and lets go. Holding it a little spinward of the mark is called cheating, and it's the only way anyone ever wins."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Before the Round, this neighbourhood's runners are walked to the arcade by every child in the {hour} colours, and walked home afterwards by every adult, at whatever speed the result allows."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The baths open an hour early for anyone coming off a night shift in the Keel. The day crowd arrives to find the warm pool already full of people asleep with their heads on folded towels."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Once a year every household opens its larder door to the corridor for an afternoon, and the neighbours stroll past to admire. Opening someone else's jar is not done. Reading the labels is the whole point."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Each elder here gives away one of their extra Hollow mornings a year to a Low-deck family drawn from the hall's list. The family sends back a drawing of the lake by its youngest child."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "At the lake at lamp-dawn the oldest swimmer goes in first, and everyone else waits on the jetty until they're in up to the shoulders. At a hundred and twelve this can take a while. Nobody minds."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "When someone dies, their front door is left open for a day with their chair turned to face the corridor, so the stair can say goodbye to the room as well as the person."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Mourners bring one small thing the dead person once mended or lent them. The things are passed round the room, story by story, and then go home with their owners."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders here give their things away while they're living, a story at a time, so the furniture leaves the flat a piece a year. A bare flat at a hundred and ten is a sign of a good memory."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders write a letter to the child who will be born into their place, to be opened at fourteen. Most letters are about manners. The best ones are about what the writer got wrong."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "The morning after the court wins the light vote again, the losing side is given the first hour of the full lamps to itself, with tea. It was meant as a consolation, and mostly works as one."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "dim",
+   "text": "In the wood people speak at half voice, since heliox makes every word bright enough to carry through the trees. Couples who want to argue go to the baths, where the steam swallows it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The laundry room's machines start at one in the morning, when kays are cheapest. Whoever loads a machine leaves a sweet on top for whoever unloads it at lamp-dawn, and the sweets go round for weeks."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The cleaning robots here wear name tags sewn by the school's youngest class. Everyone knows they're appliances, and the tags get changed every year anyway, after a vote."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On the stairs, people going up keep to the spinward rail and people coming down keep to the anti rail. Nobody can say why, and everyone can tell at once when a visitor gets it wrong."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The inns here put a sprig of sorrel on every guest's pillow. Guests from Lovage are said to eat it at once; guests from Tansy put it in a pocket for later."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "When a chair is remade, the mender cuts the year small on a hidden rail, under the last mender's mark. Turning someone's chair over to read its rails is how people here pay a compliment."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "At any gathering the oldest chair goes to the youngest guest, on the theory that it has held enough old people and could do with a change."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Newcomers who swap in from another drum are given a list of the stair's names, with a line beside each: what they mend, what they lend, and what they'll talk about for an hour if asked."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Every bath night someone holds the post of kettle, whose job is to keep the talk going in the steam room. It carries no pay and is fought over."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A child who loses a tooth plants it in the family's herb pot, and the next leaf picked goes in their supper. Parents swear this is why the basil on this stair is so good."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "On a child's tenth birthday they're allowed their first cab alone, to the ring counter for a cup of broth and back. Half the stair finds a reason to be in the lobby when the doors open again."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children take their first glide at six, to the next drum and straight back, holding the hand of the oldest relative who can stand the catch. Most come home asking to go again at once."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The school's best flute is a hundred and forty years old and goes each year to the child who practised most, measured by the complaints from neighbours. The complaints are read out at the handing over."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The stair choir sings outside the door of every new baby on its first night home, very quietly, because a heliox lullaby carries three decks and most of the stair is trying to sleep."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Children lean into a cab's tilt as it climbs, and grown-ups pretend they don't. Watch any lobby queue when the doors close: everyone sways a little toward the same wall."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Once a year the hall holds a mending night: everyone brings one broken thing and goes home with somebody else's to fix. Things come back within the month, and it's how half the stair learned to solder."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": "bright",
+   "text": "Children pollinate the court's tomatoes with a tuning fork, touching it to the stem of each flower. Every class swears by a different note, and the vines do well regardless."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "When a household registers its starter with the strain library, the neighbours come round to taste the last loaf baked before, in case the file turns out different. It never does, and they always say it has."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders mark each birthday with a standing jump in the corridor, measured against chalk lines on the wall. At this weight the lines go surprisingly high, and a few of them belong to people over a hundred and five."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Nobody on the High decks takes a cab for fewer than three decks, since the stairs are easy at this weight and the landings are where the news gets passed. Taking the cab for one deck means you're avoiding someone."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders keep one pair of shoes by the door just for the Hollow, so the orchard grass never comes into the flat. The shoes are always the oldest pair, and the grass gets in anyway."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The coldest flat on the stair, by the heat meter, gets the first turn of the bath each evening. Everyone checks the meter, and nobody admits to checking it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Anyone who pays for a bright garden at home opens it on their birthday to whoever wants to sit in the light for an hour. Most of the visitors are elders and small children, and nobody says much."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The first herb in a new flat is chosen by the last tenant, who leaves a cutting on the kitchen shelf. Some flats here have had the same mint, by cuttings, for three hundred years."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children are told that someone at the lamp office presses a button at half past six to start the morning, and sooner or later every child asks to meet them. The lamp office keeps a clerk who says yes."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Every family has one lid older than any pot it fits, and that lid comes off only when the eldest at the table says so. Small children have been known to wait a very long time."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The hall's broth is held below a simmer on the waste-heat loop for three days, and on the third day anyone may add a spoonful of something. The fourth day's broth is the one people queue for."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Tea at the hall is poured from a metre up for show, aimed a finger's width spinward so it lands true. Children practise with water and a bowl until they stop soaking the tablecloth."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A child's first goal at spinball is chalked on the long hall's wall with the date and the angle of the throw. The wall is repainted every ten years, and somebody always copies the old ones first."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Anyone from here who sets a record in the Round has their time painted on a stair riser, with the direction: axis, spin or anti. Climbing the stair is a history lesson, and hard on the knees."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Anyone gliding to Lovage carries two bottles of gin for friends there, and anyone coming back carries Lovage bread. The swap has gone on so long that each side pretends the other started it."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Adults who have taken a child to the Window keep the red gallery pass on a string by the door. A great-aunt with four passes is consulted on all family matters, whether she likes it or not."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Here the dead's family writes back every year, a page about the person whose place the child took. By eighteen, most children know a stranger they never met better than some of their cousins."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A third child, born on a right given by a childless aunt or friend, is carried into the naming by the giver. For the rest of their life the child calls the giver second mother or second father."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Someone who gives away their birth right does it in the hall before witnesses, and is given the best chair in the room for the evening. Givers usually ask to sit somewhere else."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "When a place goes back to the pool, the Register's notice is pinned in the lift lobby beside the newest birth notice, and the two stay up together for a week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "When someone leaves on a long trip, the stair walks them down to the ring counter and drinks a cup of the peppery broth with them on the platform. When they come home, the broth is waiting at the door."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Young people leaving on a wander year carry a spoon of the stair's oldest starter in oiled paper, to leave in some far drum's crock. Some come home with a spoon of someone else's."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "When a long letter arrives by light from another raft, the neighbourhood reads it once, together, in the hall, and never again. Copies would cost nothing. The custom is that nobody makes one."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "During a Passing the stair choir sends one song a night to the other raft and waits out the light delay standing, in silence. Children who fidget are given the job of timing the gap."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children race round the arcade's painted course spinward first, heavy and slow, then back anti, light and quick. The winner is whoever is least smug about the second half, which is judged by the parents."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Every new household is given a square of felt by each neighbour, and the squares are sewn into one hanging for the main room. A flat that rings is a lonely flat, people say."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "At birthdays the family plays one recording from the old air, older than the drum, and the children sing along. Next to the old voices theirs come out bright and thin, and the grown-ups try not to laugh."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whoever's birthday it is gets the window seat. There are no windows, so the window seat is whichever chair faces the door, and everyone who comes in has to greet them first."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Anyone with a birthday in the week of the deck's Hollow turn chooses where the stair lays its picnic: orchard, lawn or the far end of the lake. Stairs with a lot of birthdays argue."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders take a grandchild up for one of their Hollow mornings on every birthday from five to fifteen. After fifteen the grandchild takes the elder, and pays for the gin."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "After the lamps fade, children may stay out on the stair with a hand lamp for exactly as long as it takes to say the turning rule backwards. Most get no further than floats anti."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "A household in mourning turns off every lamp but the herb shelf for one night. Neighbours who see the green light under the door leave food outside it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On Knotnight every household brings one jar from last year's larder to the hall and opens it in front of everyone, to prove the larder was real. Jars that should have stayed shut are remembered for decades."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On Booking Day the oldest and youngest on the stair cut a loaf together, and the slices are said to show the year ahead. They always come out the same size, as the beam nearly always does."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Each year's babies are weighed on the hall's old scale, which weighed the first births after the Count, and their weights go in a book now thirty volumes long. Nobody has ever checked the scale."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Expecting parents are given the stair's baby things in one heap at the hall. The custom is to take everything and return what didn't fit by the first birthday. The heap never gets any smaller."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children's clothes are cut with a hand's width folded into every seam. When a seam is let out for the third time, the child gets to choose who has the garment next."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Before a wedding the couple dyes one garment for every guest who asks, all the same colour, in one bath. You can spot a wedding party here from the far end of an arcade."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Each year the hall votes on a colour for linings, and anyone who relines a coat in it by Booking Day gets their name on the board. It is nearly always some kind of blue."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "A newly married couple gets one old pan from every household on the stair, no two alike. Couples who still have them all at their fiftieth anniversary are given a new pan, which is a great honour and faintly vulgar."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "On the High decks people greet each other by asking how their knees took the night, and the answer comes as a number out of ten. A ten is regarded as showing off."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders who reach a hundred and ten are taken to the end-wall terraces to dance a slow leaping reel at a third of a g. Every leap lands a hand's width spinward, so the reel ends a long way from where it began."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "The elders' choir rehearses in the lift lobby, where the shaft doors ring like a struck pipe. They sing to whoever's waiting, and the cabs, being appliances, arrive anyway and spoil the endings."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On a blight's anniversary the elders who remember it cook its blight menu at the hall, and the young must eat it and say something kind. The blight cheese takes a lot of kindness."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On the anniversary of the orange-steak year the hall serves orange steaks, and children who ask why are given a different reason each year. Grown-ups compare notes on the best ones."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children are taught to wave at the Hour opposite whenever they're on the Hollow floor, three kilometres overhead. Someone up there always waves back, and the children are sure it's the same person."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The {hour} dish is cooked at the hall on the first Thursday of the month, and anyone from another Hour who eats it must say what's wrong with it. They always find something, and it's always the pepper."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Light votes are decided by tiles dropped in a jar, pale for bright and grey for dim, and the jar is emptied on the floor of the middle so the trees can see. Everyone knows trees can't see."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Babies are sung to in the lowest voice the singer has, because heliox makes every voice bright and the old lullabies were written for darker air. Deep-voiced uncles are in great demand."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "On a fourteenth birthday the family flies the Spindle end to end in the lamp-night, with hand lamps. The child leads. The parents follow and try very hard not to give directions."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "On the day before Booking Day the stair goes dark together and sits in the hall talking, a habit borrowed from Chervil. Nobody here will admit where it came from."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The stair keeps a book of loans: tools, hours, a few kays. On Booking Day every entry is struck through, paid or not, and the unpaid ones are never mentioned again."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "A child's first Hollow turn is spent in the oldest hat in the family, which has usually been up to the Hollow more often than anyone alive."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Bath robes here are inherited, and you can tell a family by its stripes. A child's first robe is cut down from a grandparent's, and the hem is never quite straight."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "The bench by the High-deck lift core carries a small plaque for every resident who reached a hundred and fifteen. There's room for about thirty more, and the residents discuss whose they'll be."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Every rota here is drawn up by whoever complained most about the last one. It's an old rule, and a very effective one."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Babies are carried up to be weighed by a great-grandparent on the High decks, who announces the lighter number with enormous satisfaction and the heavier one, from below, with suspicion."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The hall's long table has no head. Whoever has lived here longest sits wherever they like, and the table rearranges itself around them like water round a stone."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "On Saturday mornings the cleaning robots are switched off and the stair cleans its own corridor by hand, the children doing the corners. It's slower and worse, and everyone learns each other's names."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Inns here give each guest from another drum a card with three things to know: a cup always lands a little anti, the broth at the ring counter is free, and the lake is the elders' at lamp-dawn."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Every Hollow picnic includes one dish cooked in the baths' hot water the night before and carried up warm under a cloth. It's never the best dish, and it's always eaten first."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "The first hour after the court's lamps reach full belongs to the very old and the very young, who sit in it without talking. Everyone between twelve and eighty waits outside."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": "dim",
+   "text": "Children in the wood play find-the-lamp after the lamps fade: one hand lamp set low among the hornbeams, and whoever finds it carries it home. The game is mostly about not being found yourself."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Children here learn to fly crosswise before lengthwise, against all advice, because a great-grandmother once did. They come home from the flying hall bruised and very pleased with themselves."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The arcade trolley's bell is rung once by any passenger on the morning after a birth on the route, and twice after a death. On busy mornings it sounds like an argument."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "A hundredth birthday is marked by climbing the last stairs to the Hollow floor on foot, with the whole stair behind. At this weight it takes less than you'd think and longer than anyone admits."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "When an elder stops coming to the lake at lamp-dawn, the others notice by the third morning, and someone goes and knocks. Nobody likes to be the one who knocks, and nobody ever refuses."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Elders sit the lamp-night watch in pairs, in the lobby, in case anyone on the stair needs a hand before morning. It's mostly tea and cards, and the cards are older than the elders."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "The hall keeps a rack of walking sticks left by residents who have died, each with a name cut into the handle. Anyone may borrow one, and choosing a stick means choosing whose stories you'll be asked about."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "New arrivals on the High decks are given their predecessor's name plate, turned round, with their own name painted on the back. Some plates by now have twenty names on them."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Each year on the anniversary of the Eleven Days, the elders who lived through it are asked to say one thing they ate. The lists are kept, and they get shorter every year."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Birthdays on the High decks end at the end-wall terraces at dusk, where the stair watches the light slide off the far bank of the Hollow. Elders who have seen a hundred of these still go."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "The baths nearest the High-deck cores open at lamp-dawn for the lake swimmers coming back down, and the attendant has their towels warming on the pipes, by name, before they arrive."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "dim",
+   "text": "Mushrooms grow on residue logs along the wood's paths, and anyone may pick one a week. Picking two is allowed, provided you then cook for whoever saw you do it."
+  }
+ ],
+ "arguments": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Whether the court should go grey for a year so the terraces can have their turn, and whether the fig, which has never lived a day in quarter-light, would survive the vote."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "dim",
+   "text": "Whether to thin the hornbeams so the lamps reach the floor of the wood, which the moss society, all eleven members, regards as vandalism."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who left the hall's big broth pot on the loop over the long weekend, and whether what came out of it can fairly be called a stock."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the arcade trolley's bell is a note or a noise, now that someone has quietly retuned it to a minor third."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "The flute practice on the fourth landing, which the neighbours call noise and the player's mother calls an investment."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether a stair that took nine generations to wear smooth should be relaid, or whether the dip in the middle step is history and should be left alone."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Who gets the old green chair from the flat of the woman who went up last month, since she left four notes promising it to four different people."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the laundry rota should follow the lamp-night tariff to the minute, or let the night crews sleep past one in the morning."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the herb pots on the stair are public or private, after somebody cut every leaf of coriander for a wedding and left a thank-you note."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Whether the court's tomato vine is one plant or six, now that it has climbed onto three people's terraces and each of them claims the fruit."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether to repaint the spinball lines at the new angles, which favour antispinward throwers and therefore, in practice, the smallest children."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The hall's broth, which a newcomer from Lovage has said would be better with a little sugar. The stair has called a meeting."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the Round club should train on the stairs before lamp-dawn, which the runners like and the people whose doors face the stairs do not."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Who has the right to the end of the jetty at lamp-dawn: the oldest swimmer on the stair, or the one who has gone in every morning for forty years."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the bench by the lift core should face the doors, to see who's coming, or the herb wall, to look at something pleasant for a change."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether visiting grandchildren may play spinball in the High-deck corridor, given how far an anti throw floats at this weight and how many lamps there are."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the elders should give up one Hollow morning a month to the Low decks, which the elders say they'd gladly support if anyone asked them nicely."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the hall should drop the starch swallow on Fridays, since half the stair complains about it and the other half eats it in silence."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "The lamp office's ruling that the corridor lamps ramp over thirty minutes instead of twenty, which the early risers call the theft of ten bright minutes a day."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the yearly note to the dead's family can be sent as a message, now that the youngest has worked out she could skip the handwriting."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the stair's spare pram should go to the family with twins or the family furthest from the lift core, a choice the pram's last owner refuses to make."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Whether to light the court's quince through the lamp-night to ripen it for a wedding, at a cost the quince's critics have worked out to be nine kays."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The neighbour who keeps his bright garden at full light until midnight, which shows up as warmth through the corridor wall and has been measured by three separate people."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the school's new shirts need a growing seam for the oldest class, who have stopped growing and find the suggestion insulting."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to let the cooking robots make the Knotnight preserves this year, or keep doing them by hand and keep finding jars that went off."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who should have the Hollow morning an elder left to the stair before she died, without saying who it was for."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to repaint the lobby mural, which shows the twelve Hours in the wrong order, so that two generations of children have learned them wrong."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the Summer Day cold noodles are a tradition or just cold noodles, a question raised every year by the same man, at the same table."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who broke the hall's oldest lid, and whether gluing it back together counts as mending or as lying."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the corridor lamps should be warmer or whiter, after the lamp office offered a choice and the stair split exactly in half."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the choir's tenors should stand by the felt or at the bare end of the hall, where they sound, the conductor says, like a kettle with ambitions."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the stair should keep one larder in common, as it did in the Eleven Days, or let every flat keep its own and go on comparing."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether a cup that lands anti is the drum's fault for the purposes of the breakage rota."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Which way the new bench in the middle should face: spinward, where the light is best, or anti, toward the lift core and whoever's coming out of it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the trolley should keep stopping at the clinic stop, when nobody has used it since the clinic moved two corners over."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Who gets to plant the empty tub in the court now that the old plum has died, given that four households have cuttings ready and one has a plan."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the hall's gin should be poured by a person or the machine, since the machine has never once cut anybody off."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the teenagers on black thread may use the hall's notice board, which they argue isn't technically a world."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether {name} should keep its name, which nobody can spell, or take back the old one from the Register, which nobody can pronounce."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The baths' new closing hour, which falls ten minutes before the night shift comes up from the Keel."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the cab engineers from the depot may run their bench lathe in the lobby in the lamp-night, which they say is quiet and the stair says is not."
+  },
+  {
+   "bands": [
+    "low",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the school's swimming lessons on the deck's Hollow turn should keep to the shallow end of the lake, as the elders ask, or use the whole of it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether a sofa remade with a new cover counts as a new sofa for a wedding, which matters a great deal to the bride's aunt and to nobody else."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the hall should switch to the rice ball recipe a grandmother brought from Tansy, which is better, and which nobody wants to admit is better."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether an eleven-year-old can be trusted to take a cab alone to the Hollow pavilion, given that he once rode to the Keel by mistake and loved it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "dim",
+   "text": "Whether the darkest corner of the wood should get a reading lamp, or stay dark for the people who go there to sit and not read."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": "bright",
+   "text": "Whether to dig up the court's grass for herbs, which would feed the stair, or keep the grass, which the children have worn into the exact shape of a spinball pitch."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the bright corner of the lobby, paid for by a resident who has died, should stay lit at the stair's expense or be allowed to go grey."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who left the tap on the waste-heat loop running and fogged the whole landing, and whether it really was, as claimed, an experiment in amazake."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether elders over a hundred should be excused the lamp-night watch, which the elders over a hundred say would be an insult."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the stair should open its spare room to wanderers on guest-right, which would mean somebody finally clearing out the spare room."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the Light Round runners may train antispinward through the arcade at full speed, where they gain lightness and lose their manners."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who ate the tomato from the hall's Booking Day salad, and whether the culprit should apologise in public or simply pay the half kay."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the lake swim should start at six, when the sunline begins its ramp, or wait until the water stops looking like a sheet of grey."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "The heat inspector's finding that the warmest flat on the stair is warm because of a heater nobody will own up to."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether to ask for a brighter morning panel at the school, which the children say would hurt their eyes and the teachers say is the point."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the stair's spinball team should go back to the old colours, which match the {hour} club's, or keep the new ones, which match nothing."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Who should sit in the hall's oldest chair now that the man who sat in it for forty years has gone up, and whether anyone dares."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to let the stairwell ivy keep climbing, now that it has reached the landing above and the people there have started calling it theirs."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the hall should hang felt from its ceiling, which would make it quiet, or keep it bare, which makes the Thursday singing sound like a hall forty times its size."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to name the new arcade bench for the woman who sat there every day for sixty years, or for the man who mended it, who points out that he is still alive."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether after-school spinball can move into the corridor while the long hall is relaid, which the corridor's residents have opinions about, mostly loud ones."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to host the Hour's Knotnight feast this year, which means borrowing every lid on the stair and giving back most of them."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the Hollow turn should be one long picnic for the whole stair or every household for itself, which this year divided the stair neatly by age."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who runs the lottery for the hall's spare lamp hours, since the last organiser drew her own name two years running."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the toy library should lend out the old spinning top again, after it drifted anti off a landing and down three flights, or keep it on the shelf where it can't escape."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether to keep the night stew on the warm loop until the night shift comes in, or send it back at ten as the hall's cleaning schedule requires."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether {name}'s Round club should run the Heavy Round, where it has never placed, or switch to the Light, where it has never tried."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the remade sofa in the lobby is now a public sofa, or still belongs to the couple who left it there when they went up eleven years ago."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Whether the court's lamps should fade more slowly in the evening so people can finish their tea, or keep to the drum's clock like everyone else's."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the Gate hands who live on the stair should have to declare the cheeses they bring home, given what they do for a living."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether to send the hall's leftover jook up to the elders' hall, which already makes better jook and has said so more than once."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "needs": null,
+   "text": "Whether the children's swing in the middle should hang spinward or across, since one end of a spinward arc feels heavier and the children fight over the other end."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether a woman of a hundred and four may take the stairs up to the Hollow floor instead of the cab, which her doctor allows and her children forbid."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether to fix the lobby clock that runs eleven minutes slow, since everyone allows for it and fixing it would make them all late."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "needs": null,
+   "text": "Whether the strain library should list the stair's famous pickle culture under its old name, which is rude, or the new one, which nobody uses."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the man on the third landing may keep his chilli bush in the corridor under the lamp, where it gets the light and everyone gets the chillies."
+  },
+  {
+   "bands": [
+    "low",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether a baby named for a man from the High decks belongs at his old stair's Knotnight, as the elders up there insist, or at home with his parents."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Who gets the first cab down when a Hollow turn ends and the whole deck leaves at once, a question settled at present by elbows."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the hall should stop playing old-air music at dinner, since half the stair says it's like being sung to through a blanket."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "bright",
+   "text": "Whether to cut back the court's bamboo, which is now four decks tall, clacks whenever the fans change speed and has been seen from the next neighbourhood."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether the elders' choir should sing at the lake at lamp-dawn, which the choir regards as a gift and some of the swimmers regard as an ambush."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "needs": null,
+   "text": "Whether seats at the High-deck hall should go by years lived in Sorrel or years of age, since a woman who swapped in at sixty now sits below people younger than her."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "needs": "dim",
+   "text": "Whether the wood's birches should be left to grow to the ceiling, which would shade out the moss, or topped at three decks, which the birch people call mutilation."
+  }
+ ],
+ "residents": [
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "spinball player",
+   "age": [
+    9,
+    12
+   ],
+   "line": "I'm small and I throw anti, so the ball floats right over the big ones. My brother says that's cheating. It's just the drum."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "schoolchild",
+   "age": [
+    8,
+    8
+   ],
+   "line": "I picked my uncle for the Window because he cries at everything, and I want to see what he does when the shutter opens."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "schoolchild",
+   "age": [
+    8,
+    11
+   ],
+   "line": "We learned the Hours today. Ours is named for an animal and nobody knows what it looked like, so we all drew a different one."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "junior Round runner",
+   "age": [
+    10,
+    13
+   ],
+   "line": "In the Light Round you go anti and you feel like you could fly. In the Heavy Round you mostly want to sit down."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "student on a dark fortnight",
+   "age": [
+    15,
+    17
+   ],
+   "line": "Day nine without my worlds. I've read four books, fixed a bike, and started explaining things to the cleaning robot, which is a bad sign."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "student",
+   "age": [
+    14,
+    14
+   ],
+   "line": "Half my dividend is in my own name now. I've spent four kays so far and I thought about every one of them for a week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "role": "school leaver",
+   "age": [
+    18,
+    19
+   ],
+   "line": "The whole dividend's mine now and I've no idea what to do with it, so I'm saving it. My grandmother says that's the most Sorrel thing possible."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "parent of two",
+   "age": [
+    30,
+    50
+   ],
+   "line": "My son asked whether the sunline is a star. I said no, it's a lamp. I've never seen a child look so let down."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "children's clinic nurse",
+   "age": [
+    30,
+    65
+   ],
+   "line": "Every child here has their bones checked from the first year. Bones grow best near full weight, we say. I believe it about half the time."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "teacher",
+   "age": [
+    35,
+    75
+   ],
+   "line": "I throw a ball spinward in front of the class and it dives, and thirty children laugh. Thirty years of teaching and it still gets the laugh."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "school cook",
+   "age": [
+    30,
+    70
+   ],
+   "line": "Four hundred children, and every one of them wants the Nine on everything. I've stopped arguing. It's protein, and it's their tongues."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "innkeeper",
+   "age": [
+    40,
+    80
+   ],
+   "line": "Lovage guests ask why the lamps are so dim. Tansy guests ask where the eggs are. Chervil guests ask if they can help in the kitchen, and I let them."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "spinball coach",
+   "age": [
+    28,
+    75
+   ],
+   "line": "The good ones learn the angles by eight. The great ones learn to throw a little wrong on purpose and let the drum put it right."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "toy library keeper",
+   "age": [
+    50,
+    84
+   ],
+   "line": "Every toy here is older than the child borrowing it. The spinning top has done the rounds of the nurseries for two hundred years and still drifts anti."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "midwife",
+   "age": [
+    35,
+    75
+   ],
+   "line": "About two births a week on this stair. I know every name and whose place it was. People forget the other family. I don't."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "after-school minder",
+   "age": [
+    20,
+    65
+   ],
+   "line": "Eleven children, three hours, one long hall. Give them a ball and an angle and they'll argue physics until their parents come to fetch them."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "great-grandparent who came down",
+   "age": [
+    92,
+    108
+   ],
+   "line": "I gave up my flat up top to live near the babies. Everyone said my knees would hate the weight down here. They do. I don't care."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "parent of twins",
+   "age": [
+    30,
+    55
+   ],
+   "line": "Two at once. Everyone tells us how efficient that was of us. Nobody says it at four in the morning."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "schoolchild",
+   "age": [
+    9,
+    11
+   ],
+   "line": "When you jump in the long hall you come down a tiny bit spinward. I've measured it with chalk. Nobody believes me except the teacher."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "glide train hand",
+   "age": [
+    25,
+    65
+   ],
+   "line": "You can always tell a child's first glide. They go silent when the cradle lets go, and they shriek at the catch, and then they want another."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "light panel monitor",
+   "age": [
+    11,
+    13
+   ],
+   "line": "I'm the light panel monitor. Twenty minutes for everybody, every morning. If you look away I start your minutes again."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "role": "kite maker",
+   "age": [
+    40,
+    85
+   ],
+   "line": "I make kites for the Hollow lawns. At half a g they climb slowly and stay up. You don't need moving air when you've got a child running."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "parent at home",
+   "age": [
+    32,
+    55
+   ],
+   "line": "My wife works the Gate and I work the children. Of the two, the children are worse at quarantine."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "drop-the-button champion",
+   "age": [
+    9,
+    11
+   ],
+   "line": "I won drop-the-button four times this week. You hold it a little spinward of the mark. Everybody does. They just pretend they don't."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "Round runner",
+   "age": [
+    15,
+    17
+   ],
+   "line": "I run the Light Round next month. Ten percent lighter all the way round, nearly fourteen kilometres. The last two feel exactly like the first."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "inn cook",
+   "age": [
+    30,
+    70
+   ],
+   "line": "Visitors from Lovage ask for sugar in the broth. I give them a spoon and watch them change their minds before it reaches the bowl."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "children's choir leader",
+   "age": [
+    35,
+    75
+   ],
+   "line": "Children's voices in heliox go straight through you. Forty of them on a high note and no amount of felt can save you."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "role": "mender of children's clothes",
+   "age": [
+    40,
+    84
+   ],
+   "line": "I let out trousers. A hand's width in every seam, three times, then on to the next child. Some pairs come back to me four families later."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Gate hand",
+   "age": [
+    28,
+    65
+   ],
+   "line": "We check one crate in fifty. People think that's not many. It's plenty, because every sender knows the crate could be theirs."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "sequencer at the Gate",
+   "age": [
+    28,
+    60
+   ],
+   "line": "Most of what I sequence is Tansy's strawberries. Once a year something interesting comes through in somebody's coat pocket, and I have a very good day."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "strain librarian",
+   "age": [
+    40,
+    90
+   ],
+   "line": "We hold every starter registered in Sorrel. If your crock dies, we grow it back in a week. People still cry over the crock. So would I."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "keeper of the isolation vault",
+   "age": [
+    50,
+    90
+   ],
+   "line": "The vault holds cultures that can't come out, mostly somebody's grandmother's yogurt. Families visit them. We keep chairs by the glass."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "water works shift crew",
+   "age": [
+    25,
+    70
+   ],
+   "line": "Full weight every hour down in the Keel. You come up after a shift and the stairs at home feel like a present."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "vat line tender",
+   "age": [
+    25,
+    70
+   ],
+   "line": "My line grows mycelium. I can tell by the smell when it's happy. I've been wrong twice in twenty years, and both times it was the vent."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Mill operator",
+   "age": [
+    30,
+    75
+   ],
+   "line": "The Mill makes two-thirds of everything anyone eats and nobody ever thanks it. I don't mind. Nobody thanks the air either."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "survival reserve steward",
+   "age": [
+    40,
+    84
+   ],
+   "line": "Fifty-five days of air in the tanks under us. I count it every week. It's been needed once, and the people who were there still bring me tea."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "methanol tank farm hand",
+   "age": [
+    30,
+    70
+   ],
+   "line": "I look after enough methanol to poison the drum a dozen times over. So I don't drink anything I didn't watch being poured."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "cab engineer",
+   "age": [
+    30,
+    70
+   ],
+   "line": "A cab is a little room that hums and leans and opens somewhere else. My job is the hum. If you notice it, I've done it wrong."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "line-deck tube crew",
+   "age": [
+    25,
+    65
+   ],
+   "line": "We work the tubes in masks, in pure helium, where nothing can burn. Lunch at our depot is forty people with masks round their necks, all talking at once."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "lamp-fitter",
+   "age": [
+    30,
+    75
+   ],
+   "line": "People ask me to make their morning ramp a bit quicker. I can't. It's the drum's clock, not mine, and the drum doesn't take requests."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "lamp office clerk",
+   "age": [
+    30,
+    84
+   ],
+   "line": "Bright court or dim wood, the numbers are the same: fifty-three watts a head. People still think I'm keeping a few back in a drawer."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "heat inspector",
+   "age": [
+    35,
+    75
+   ],
+   "line": "Every lamp ends as heat on the radiators, so an unmetered one shows up as a warm wall. I find them by hand. Most people seem relieved."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Hollow rota clerk",
+   "age": [
+    40,
+    90
+   ],
+   "line": "Six hours every eight weeks, by deck. People bring me cakes to swap their turn. I eat the cakes. The rota stays exactly as it was."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "sofa remaker",
+   "age": [
+    40,
+    85
+   ],
+   "line": "A new sofa is a thousand kays. Remade, it's a couple of hundred and the story comes free. Most couples choose the story."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "chair remaker",
+   "age": [
+    35,
+    85
+   ],
+   "line": "I've remade the same chair for three weddings in one family. Each time I find my old mark under the seat and say hello to it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "mender",
+   "age": [
+    30,
+    85
+   ],
+   "line": "I charge three kays an hour and save people ten times that in new mass. Someone once called me a miser on their behalf. I took it as praise."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "dyer",
+   "age": [
+    30,
+    84
+   ],
+   "line": "This year it's algae blue. Last year it was algae blue. Colour weighs nothing, so we argue about it instead."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "tailor",
+   "age": [
+    35,
+    85
+   ],
+   "line": "I cut a coat for a customer of thirty. Their granddaughter brought it back last week for new cuffs. Same coat. Better cuffs."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "cobbler",
+   "age": [
+    40,
+    85
+   ],
+   "line": "New shoes are twenty kays. I resole for about one, and old shoes already know how you walk. New shoes don't know anybody."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "flute maker",
+   "age": [
+    45,
+    90
+   ],
+   "line": "My flutes are a hand longer than my great-grandfather's drawings say. His drawings were copied from the old air. I keep them on the wall anyway."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "choir leader",
+   "age": [
+    40,
+    90
+   ],
+   "line": "Heliox makes every voice bright. The trick is getting forty bright voices to sound like one warm one. I've been trying for thirty years."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "organ tuner",
+   "age": [
+    45,
+    90
+   ],
+   "line": "The biggest pipe in the atrium organ is nearly twice what it would be in the old air. Climbing up to tune it is my exercise for the year."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "bath attendant",
+   "age": [
+    30,
+    80
+   ],
+   "line": "The warmest room in the neighbourhood and they pay me to sit in it. Heliox steals your heat, so everybody comes here in the end. I hear everything."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Mill Hall regular",
+   "age": [
+    45,
+    90
+   ],
+   "line": "Fifty years of the free table and I'm in perfect health. The young ones pretend they never come in. I see them."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "hall cook",
+   "age": [
+    30,
+    75
+   ],
+   "line": "The robots do the cooking. I do the tasting, and the shouting, and the second pinch of pepper the robots won't add on their own."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "ring counter cook",
+   "age": [
+    30,
+    80
+   ],
+   "line": "Peppery broth and a sticky rice ball, free, all day. Lovage says theirs is better. Lovage puts sugar in theirs."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "greengrocer",
+   "age": [
+    35,
+    85
+   ],
+   "line": "Tomatoes at half a kay, in a glass case, under a cloth at night. People stand and look at them like jewellery, then buy a lemon."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "herb seller",
+   "age": [
+    30,
+    85
+   ],
+   "line": "Everyone grows basil and chives at home and comes to me anyway, for the cutting that will grow better than theirs. Sometimes it does."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "gin cellar keeper",
+   "age": [
+    40,
+    90
+   ],
+   "line": "I pour at near cost, with thiamine in it, and I watch faces. When someone stops talking between glasses, I bring them jook instead."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "tea room keeper",
+   "age": [
+    35,
+    85
+   ],
+   "line": "Tea is the cheapest thing I sell and the one people stay longest over. Really I'm charging for the chair. Nobody seems to mind."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "cleaning robot repairer",
+   "age": [
+    25,
+    75
+   ],
+   "line": "A cleaning robot lasts a century if somebody opens it up every ten years. Most of what I do is pulling hair out of the wheels."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "bookbinder",
+   "age": [
+    40,
+    90
+   ],
+   "line": "Most books are files. People bring me the few that aren't, and I bind them properly, so their grandchildren have something heavy to inherit."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "clock mender",
+   "age": [
+    50,
+    90
+   ],
+   "line": "The drum's real clock is the lamps. My clocks are for people who like to be told twice."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "knife grinder",
+   "age": [
+    40,
+    85
+   ],
+   "line": "A dropped knife lands a little anti like everything else, and the point always finds the floor. Half my trade is points."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "fabricator",
+   "age": [
+    25,
+    70
+   ],
+   "line": "I can print you a new part at twenty-five kays a kilo. Usually I talk people into mending the old one. Bad for business. Good for the drum."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "name plate letterer",
+   "age": [
+    40,
+    90
+   ],
+   "line": "I paint name plates for the High decks, on the back of the last owner's. Some have twenty names on them already. I always leave room."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "clerk at the Register of Places",
+   "age": [
+    35,
+    85
+   ],
+   "line": "Twenty-three thousand years of names without a gap, every place and every person who held it. When I'm tired, I read the oldest page."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "naming officiant",
+   "age": [
+    40,
+    95
+   ],
+   "line": "At a naming I read out two people: the child and the dead. Same name. I've done four thousand of them and I still have to pause."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "clinic proofreader",
+   "age": [
+    35,
+    80
+   ],
+   "line": "Every embryo is checked for new copying mistakes and put back to match its parents. Parents ask if I've changed anything else. I haven't. I wouldn't."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "organiser of the light vote",
+   "age": [
+    40,
+    85
+   ],
+   "line": "Bright court or dim wood. It's never really about the light. It's about the fig tree, or the children, or who ran the vote last time."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "maker of slow worlds",
+   "age": [
+    25,
+    70
+   ],
+   "line": "I build games that still work with a seven-second wait. Half my players are across the raft. The other half are just patient."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "restorer of old recordings",
+   "age": [
+    30,
+    80
+   ],
+   "line": "Old-air recordings sound like someone talking through a blanket. I can sharpen them, but then people say they sound wrong. So I leave the blanket on."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "back from a wander year",
+   "age": [
+    20,
+    23
+   ],
+   "line": "Twelve drums, a year, about thirteen kays. My mother cried and my grandmother asked what I'd eaten. I'm still answering."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "swapped in from Lovage",
+   "age": [
+    30,
+    70
+   ],
+   "line": "In Lovage the noon lasts twelve hours. Here it's six, then a long gold evening. I didn't think I'd like it. I like it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "swapped in from Chervil",
+   "age": [
+    25,
+    60
+   ],
+   "line": "In Chervil you can't eat alone. Here you can and nobody minds. I miss the noise, and I don't, both at once."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "swapped in from Rue",
+   "age": [
+    30,
+    45
+   ],
+   "line": "We swapped in from Rue so we could have our children. My mother still sends us the Count every week, as if we might have forgotten."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "saving for an express leg",
+   "age": [
+    18,
+    30
+   ],
+   "line": "Three dark weeks to pay for an express leg to my sister. Day sixteen. I've cleaned things I didn't know I owned."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "freight sorter",
+   "age": [
+    20,
+    65
+   ],
+   "line": "Food comes up from the Keel and rubbish goes down, all night, in the cabs nobody's using. I sort it. It's quiet work, and I like quiet."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Quayside fruit seller",
+   "age": [
+    30,
+    80
+   ],
+   "line": "I sell Tansy's strawberries on the Quaysides. Children press their faces to the glass. If they ask nicely, they get the squashed ones."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired back-crew hand",
+   "age": [
+    88,
+    110
+   ],
+   "line": "Forty years on the radiator panels behind the drum. I saw the River every working day, and I still think about it every morning before tea."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired radiator crew chief",
+   "age": [
+    90,
+    115
+   ],
+   "line": "We called the dusty edge of the River the bruise. Now young people say it who have never been out. That's all right. It was a good word."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired Window guide",
+   "age": [
+    85,
+    105
+   ],
+   "line": "I took eighty thousand children to the Window. I watched their faces, never the shutter. I could tell you the moment every one of them stopped breathing."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "oldest on the stair",
+   "age": [
+    110,
+    118
+   ],
+   "line": "People ask the oldest on the stair for a secret. I tell them the stairs, the baths, and never arguing about the light vote. The last one is a lie."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "lamp-dawn swimmer",
+   "age": [
+    95,
+    112
+   ],
+   "line": "At half a g you climb out of the lake like a young person. Getting in is still cold. I've swum every morning since I came up."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "refuses to go up",
+   "age": [
+    92,
+    104
+   ],
+   "line": "They've offered me a High-deck flat four times. I'll go up when the stairs here get hard. At this weight I don't think they will."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "remembers the Eleven Days",
+   "age": [
+    84,
+    90
+   ],
+   "line": "I was a child in the Eleven Days. We ate the larder in order, oldest jars first. I still can't look at pickled radish."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "lift engineer, long retired",
+   "age": [
+    95,
+    118
+   ],
+   "line": "In the Eleven Days the cabs ran twice a day, so we used the stairs. I carried a man of ninety up thirty decks. He talked the whole way."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "elders' choir alto",
+   "age": [
+    90,
+    112
+   ],
+   "line": "Old voices in heliox go thin and silvery. We sing at the lake sometimes. Half the swimmers love it. The other half swim faster."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "keeps a bright garden",
+   "age": [
+    88,
+    110
+   ],
+   "line": "I spend a tenth of my dividend lighting three square metres of herbs. Other people spend it on worlds. I've got thyme, and I've got time."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired teacher",
+   "age": [
+    88,
+    108
+   ],
+   "line": "I taught Coriolis for fifty years. Now I live at half a g and drop things to watch them miss their mark. I'm still teaching, really. Mostly the cups."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired Gate inspector",
+   "age": [
+    90,
+    110
+   ],
+   "line": "Forty years at the Gate. I stopped a phage in a jar of chutney once. Nobody ever heard about it, which is how you know it went well."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired strain librarian",
+   "age": [
+    95,
+    115
+   ],
+   "line": "I still visit the vault. There's a starter in there older than anything else in the drum. It smells of nothing much. I go anyway."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "Round record holder",
+   "age": [
+    90,
+    112
+   ],
+   "line": "I held the anti record for sixty years. A girl from the Hour opposite broke it last year. I sent her a cake. I'm glad, mostly."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired cab engineer",
+   "age": [
+    88,
+    110
+   ],
+   "line": "I helped rebuild a lift core once. Thirty-eight thousand people took the stairs for a month, and every one of them learned my name."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "gave a birth right away",
+   "age": [
+    90,
+    115
+   ],
+   "line": "I gave my birth right to my best friend sixty years ago. Her son brings me soup every Thursday. The soup is terrible. I eat every drop."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired hall cook",
+   "age": [
+    88,
+    108
+   ],
+   "line": "I cooked at a hall for sixty years. Now the robots cook for me upstairs and I complain about the pepper, which is what I was always paid to do."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "orchard volunteer",
+   "age": [
+    85,
+    105
+   ],
+   "line": "I live a few seconds from the orchards, so I pick. At half a g a ladder is nothing. It's a young person's job done by old ones."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "jetty sweeper",
+   "age": [
+    85,
+    100
+   ],
+   "line": "I keep the jetty swept for the lamp-dawn swimmers. A dive takes longer to fall at this weight. You've time to change your mind, and some do."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "night flyer",
+   "age": [
+    90,
+    108
+   ],
+   "line": "I fly the Spindle in the lamp-night twice a week. At my age, weightless is the only time nothing hurts."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "has never had a world",
+   "age": [
+    95,
+    118
+   ],
+   "line": "I never spent a kay on worlds. I spent it on baths, apples and other people's time. No regrets, except about some of the people."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "married eighty years",
+   "age": [
+    100,
+    115
+   ],
+   "line": "We married on a remade sofa and we've still got it. It's been remade twice since, and it's still the same sofa, the way we're the same people."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "blight-year cook",
+   "age": [
+    95,
+    118
+   ],
+   "line": "I've eaten three blight years. The orange steaks were the best: nutty, pinkish, a bit wrong. People who weren't there think it's a story."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "lamp-night watch",
+   "age": [
+    90,
+    110
+   ],
+   "line": "On watch nights we sit in the lobby with tea and a pack of cards older than the lift. Nobody needs us. That's a good night."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "letter writer to an unborn child",
+   "age": [
+    92,
+    118
+   ],
+   "line": "I've written my letter to the child who'll have my place. Mostly it says sit in the baths more and argue less. They'll ignore both."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "elders' hall cook",
+   "age": [
+    88,
+    105
+   ],
+   "line": "The elders' hall makes the best jook in the drum, because every one of us has had a century to argue about it."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired woodwarden",
+   "age": [
+    85,
+    100
+   ],
+   "line": "I kept the woods at the dim end of the Hollow for sixty years. Yew grows slower than I do. I still visit my trees on our turn."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "family historian",
+   "age": [
+    90,
+    115
+   ],
+   "line": "Somewhere back in my family is a child born the first year after the Count came down. Every family here claims one. There weren't that many."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "keeper of Summer Day",
+   "age": [
+    100,
+    118
+   ],
+   "line": "Not even the oldest of us remembers the Summer, and we still eat cold noodles for it. I've had a hundred Summer Days. The noodles don't improve."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "swapped in from Lovage at sixty",
+   "age": [
+    88,
+    110
+   ],
+   "line": "In Lovage I'd have had to bid for this flat. Here they handed it to me for being old. I've never been so flattered in my life."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "terrace resident",
+   "age": [
+    85,
+    105
+   ],
+   "line": "Where I lived before, my terrace lost the light vote nine times running. My ferns loved the quarter-light. I brought them up here, and now they sulk."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "would-be lamp-painter",
+   "age": [
+    85,
+    108
+   ],
+   "line": "I wanted to paint dawns like they do in Chervil. Here dawns just come up. So I paint my kitchen lamp, pink to gold. The neighbours call it showing off."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired midwife",
+   "age": [
+    90,
+    112
+   ],
+   "line": "I delivered three thousand babies, and every one had a name waiting. I'd known a good many of the people they were named for."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "great-grandparent",
+   "age": [
+    100,
+    118
+   ],
+   "line": "My great-grandchild is named for a woman from the next deck up. Her family sends a note every year. I've started writing back, because I'm nosy."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "pavilion greeter",
+   "age": [
+    86,
+    100
+   ],
+   "line": "I sit by the pavilion and say good morning to everyone coming up from the cabs. Nobody hears me. They're all looking straight up at the far bank."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired spinball referee",
+   "age": [
+    85,
+    105
+   ],
+   "line": "Up here a ball thrown anti floats so far the children think it's a trick. I don't referee any more. I just watch them argue and enjoy it."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired felt maker",
+   "age": [
+    88,
+    108
+   ],
+   "line": "Every quiet room on this stair has my felt in it. When someone dies I sometimes get a piece back, and I hang it in my own flat."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "gives away Hollow mornings",
+   "age": [
+    90,
+    112
+   ],
+   "line": "I get more Hollow mornings than I can use, so I give them to families from below. Their children run. I sit and watch the running. Best morning there is."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "stair's oldest gardener",
+   "age": [
+    95,
+    115
+   ],
+   "line": "I've grown the same mint from cuttings since before my grandchildren were born. It's outlived three flats, two husbands and a light vote."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "sang in a Passing choir",
+   "age": [
+    86,
+    112
+   ],
+   "line": "I sang to a passing raft when I was young. We waited thirty-three minutes for the answer, and it was our own song coming back, sung better."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "knitter of baby blankets",
+   "age": [
+    90,
+    112
+   ],
+   "line": "I make a blanket for every baby born into a place from this deck. I never meet most of them. Their families send pictures, which I keep in a box."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired tube crew",
+   "age": [
+    86,
+    104
+   ],
+   "line": "Forty years working the tubes in a mask. I still reach for the strap whenever a lift door opens, and my grandchildren copy me as a joke."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "slow-reel dancer",
+   "age": [
+    105,
+    115
+   ],
+   "line": "I danced the slow reel on the end-wall terraces for my birthday. Every leap lands a hand's width spinward. We finished somewhere near the stairs."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "still mending",
+   "age": [
+    95,
+    115
+   ],
+   "line": "My hands are slower but the light up here is lovely, and nobody's in a hurry. I mend the stair's socks. Nobody asked me to. Nobody stops me."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "role": "retired register clerk",
+   "age": [
+    90,
+    110
+   ],
+   "line": "When my place goes back to the pool, a child somewhere will get my name. I hope they're loud. I was always too quiet."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "trim tank engineer",
+   "age": [
+    30,
+    70
+   ],
+   "line": "When the commuters glide out each morning we pump water into the tanks to keep the spin steady. It's the only job where a crowd is a plumbing problem."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "quay cradle crew",
+   "age": [
+    25,
+    65
+   ],
+   "line": "I run cradles on the quay, out past the jacket. Everything I do happens at a hundred and seventy-four metres a second, and none of it feels like it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Spindle lift operator",
+   "age": [
+    25,
+    65
+   ],
+   "line": "Twelve metres a second up the end wall, and near the top down swings round sideways. I tell people to hold on. Nobody hears me. They're all laughing."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "back-crew hand",
+   "age": [
+    25,
+    60
+   ],
+   "line": "On the panels I see more of the River in a shift than most people see in a lifetime. I try very hard not to mention it at weddings."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "back axle hall crew",
+   "age": [
+    30,
+    65
+   ],
+   "line": "The loudest place in the drum: pipes as wide as rooms, full of ammonia. I sleep in ear defenders now, out of habit."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "front axle hall engineer",
+   "age": [
+    30,
+    70
+   ],
+   "line": "All the drum's power comes in through one rotary joint. I've watched it turn for twenty years. It's the most boring thing in Sorrel, and I'd like that to continue."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Dark drill warden",
+   "age": [
+    40,
+    80
+   ],
+   "line": "Twice a year I run the drill: lamps down, cabs slow, everyone on the stairs for an hour. The young groan. Anyone over eighty just gets on with it."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "recycler",
+   "age": [
+    25,
+    70
+   ],
+   "line": "Every kilogram that comes back to me goes out as something else. Your chair might have been somebody's bath. I won't say whose."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "orchard keeper",
+   "age": [
+    35,
+    80
+   ],
+   "line": "Each apple costs over four kays to grow, and most of mine are cut crosswise at weddings so people can see the star. That's what they're for."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "woodwarden",
+   "age": [
+    30,
+    75
+   ],
+   "line": "People walk my woods at dusk. I ask them not to carve their names into the birches. So they write them in the moss with a finger instead."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "wing-sleeve hire at the flying hall",
+   "age": [
+    20,
+    60
+   ],
+   "line": "Everyone who hires sleeves says they'll fly crosswise. I count how many come back by way of the nets. It's most of them."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "glazier",
+   "age": [
+    35,
+    85
+   ],
+   "line": "Only the terraces and the atria have windows, so I'm the glazier for half a Ring. I'm also the person most often asked what windows are for."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "felt maker",
+   "age": [
+    35,
+    85
+   ],
+   "line": "A room without felt rings like a struck pan. I make felt. If you slept well last night, you're welcome."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "recording engineer",
+   "age": [
+    25,
+    65
+   ],
+   "line": "Heliox puts every voice up into the bright. I spend my days trying to give people back a little of their chest."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "amazake brewer",
+   "age": [
+    40,
+    85
+   ],
+   "line": "Overnight on the waste-heat loop at sixty degrees, and the rice goes sweet on its own. It costs nothing but patience, and I've got plenty."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "cheese ager",
+   "age": [
+    40,
+    85
+   ],
+   "line": "My cave is a cupboard on the warm loop's return pipe. Twelve cheeses, all ripening, all arguing. I mean the cheeses."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "black garlic maker",
+   "age": [
+    40,
+    85
+   ],
+   "line": "Five weeks on the loop and the garlic goes black and sweet. People think it's burnt. It's just been warm for a long time, like me."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "pastry cook",
+   "age": [
+    25,
+    70
+   ],
+   "line": "Pastry's cheap and salad's a treat, so I make forty pastries a day and put one slice of radish on top of each, like a crown."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "salad cook",
+   "age": [
+    30,
+    70
+   ],
+   "line": "People watch me cut the salad like I'm cutting gold. It's a hundred and fifty grams, four portions. I've learned to work slowly and make eye contact."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "stair councillor",
+   "age": [
+    40,
+    85
+   ],
+   "line": "Rotas, heat and noise for three thousand people. Last week's whole meeting was about one flute. We voted. The flute won."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "maths tutor",
+   "age": [
+    25,
+    75
+   ],
+   "line": "Twelve-year-olds understand Coriolis perfectly when they throw a ball and not at all when I write it down. So we throw a lot of balls."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "clinic nurse",
+   "age": [
+    30,
+    70
+   ],
+   "line": "Have some Nine, I tell the peaky ones. It's a joke and it's medicine, and mostly it's the joke that works."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "keeper of the laundry rota",
+   "age": [
+    40,
+    85
+   ],
+   "line": "One in the morning, when kays are cheapest, and everyone wants that slot. I give it to whoever has the best excuse, and I write all the excuses down."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "about to marry",
+   "age": [
+    25,
+    45
+   ],
+   "line": "We chose the remade sofa, her grandparents', a hundred years old. It still smells faintly of their flat, and we both like that."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "expecting a first child",
+   "age": [
+    28,
+    45
+   ],
+   "line": "We move to the Low decks next month, for the baby's bones. My knees are not looking forward to the extra weight."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "apprentice tailor",
+   "age": [
+    18,
+    25
+   ],
+   "line": "I'm trying to start a fashion for orange collars. I've done three so far: mine, my sister's, and my grandad's, who hasn't noticed."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "long flute player",
+   "age": [
+    25,
+    80
+   ],
+   "line": "A flute in this air is well over a metre long. You need long arms or a short temper. I have both."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "arcade trolley driver",
+   "age": [
+    40,
+    80
+   ],
+   "line": "The trolley goes at walking pace, so nobody bothers to run for it. People get on to talk. I'm really a bench with a bell."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "role": "spinball referee",
+   "age": [
+    30,
+    75
+   ],
+   "line": "Every argument in children's spinball is about whether a throw broke spin or anti. Every child is a physicist when it's their goal."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "lift core maintenance",
+   "age": [
+    25,
+    65
+   ],
+   "line": "Ten channels, thirty-eight thousand people. I take one channel down every night and nobody notices. That's the whole job."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "keeps the tube helium pure",
+   "age": [
+    30,
+    70
+   ],
+   "line": "Every time a berth door opens, a little air gets into my helium. I spend my life taking it back out. It's like weeding."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "Gate night crew",
+   "age": [
+    25,
+    60
+   ],
+   "line": "Nights it's freight and the odd traveller with a jar in their coat. I've sent four sourdoughs to the library this year and hugged two owners."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "phage watch officer",
+   "age": [
+    30,
+    75
+   ],
+   "line": "A quiet year at the vats means I did my job. Nobody ever throws a party for a quiet year."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "waiting for a High-deck flat",
+   "age": [
+    85,
+    90
+   ],
+   "line": "My name's near the top of the up list. Every death on the High decks moves me a step. I try not to think of it that way."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "role": "fruit lottery winner",
+   "age": [
+    20,
+    85
+   ],
+   "line": "I won three plums in the hall lottery. I gave one away, ate one, and kept one on the shelf until it went soft, just to look at."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "grandparent minding the children",
+   "age": [
+    60,
+    84
+   ],
+   "line": "I came down to mind the grandchildren. My knees feel the weight, my bones are glad of it, and the children never stand still long enough to notice either."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "schoolchild",
+   "age": [
+    8,
+    10
+   ],
+   "line": "My grandad says the drum turns once every hundred and ten seconds. I watched the clock and couldn't feel a thing. He says that's the point."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "wants to join the back crews",
+   "age": [
+    11,
+    13
+   ],
+   "line": "When I'm grown I'm going on the back crews, so I can see the River every day instead of once. My mum says it's cold. I'll get a suit."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "head of the Low-deck school",
+   "age": [
+    45,
+    75
+   ],
+   "line": "We raise children near full weight because bones grow best there. Every parent believes it. A few of the teachers have even checked."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "pram lender",
+   "age": [
+    50,
+    84
+   ],
+   "line": "The lending prams here have carried three generations. New wheels, same bodies. Babies sleep better in an old pram. I can't prove it."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "saving for wing-sleeves",
+   "age": [
+    13,
+    16
+   ],
+   "line": "Remade wing-sleeves are eighteen kays and I've got eleven. Two more dark weeks and I'm flying the Spindle in my own."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "schoolchild",
+   "age": [
+    8,
+    11
+   ],
+   "line": "On Knotnight we went round with hand lamps for a spoonful from everyone's larder. Ours tasted of plum, pickle and somebody's cough syrup."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "spinball captain",
+   "age": [
+    12,
+    14
+   ],
+   "line": "We lost to the school across the arcade because they throw everything spinward and it dives under our hands. We're practising diving."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "Low-deck baths keeper",
+   "age": [
+    35,
+    80
+   ],
+   "line": "After school the baths are full of children and parents too tired to talk. That's the best sound in the drum: a hundred people being quiet in warm water."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "parent of a fourteen-year-old",
+   "age": [
+    40,
+    60
+   ],
+   "line": "Half the dividend went into their own name last week. They've already lent their grandmother two kays, with a written agreement and a very stern face."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "role": "school orchestra teacher",
+   "age": [
+    35,
+    75
+   ],
+   "line": "Our biggest pipe is taller than the tallest child. The children fight over it, then find out how much breath it takes."
+  }
+ ],
+ "histories": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the Eleven Days the stair pooled its larders on one landing and ate them in order, oldest jars first. The list of who gave what still hangs in the hall, and nobody has ever checked it against anyone."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the stair's two oldest residents, who had not spoken for forty years over a borrowed chair, made it up at a naming, when the baby was named for a cousin they had both loved."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the Eleven Days a stair choir sang in the dark every evening at eight, so that people would know what time it was. On the anniversary they still sing at eight, with the lamps off."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "During the Eleven Days a child was born here by the glow of a handheld device, held steady by a lift engineer. The child, seventy-four now, was named for a woman who had died that same week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When the beam came back after the Eleven Days, the lamps here came up all at once instead of ramping, through some fault at the lamp office. Everyone who was there remembers being dazzled, and laughing."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the baths here sprang a leak in the warm loop, and for a month the stair bathed in shifts at the next neighbourhood's baths, which everyone agreed were a degree too cool."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the Summer, when the drum ran three degrees warm for forty days, this neighbourhood took its meals cold and its baths cool. The hall's cold noodle recipe is said to date from then, and tastes like it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "During the Summer people here slept out on the stair landings, where the air moved best. A rule against sleeping on landings was quietly dropped that year and never brought back."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the Summer, eleven hundred years ago, a second and deeper set of vents was cut through the hall's ceiling by hand. They have run every day since, cooling nothing in particular."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the Count, seventeen years passed here without a birth. When it came down, eleven babies were named in the hall in one afternoon, and the stair ran out of chairs."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "While the Count was posted, the school's youngest classroom stood empty for seventeen years running. When the first new class arrived it had three children in it, and they had the whole room to themselves."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The stair's oldest rule, that a birth is called out from the stair head before it's told anywhere else, dates from the first births after the Count came down."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When the Count came down, the first child born on this stair was named for a man who had died in its last week. The two families have exchanged notes every year since, for over six hundred years."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "In the orange-steak year the hall's cook invented a pepper glaze to hide the colour of the steaks, and the glaze turned out better than the steak. It still goes on everything on the anniversary."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A dairy blight {years} years ago took the cheese lines for six weeks, and the hall served blight cheese made of fat, starch and aroma. One family here liked it, and they make it still."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When a phage took the egg line {years} years ago, the stair's children were sent to the hall to learn starch custards from the elders. Three of them grew up to be cooks."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A gluten blight {years} years ago left the drum without proper bread for a month. The neighbourhood's baker kept a starter going in her own crock and lent spoons of it round the stair."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "{years} years ago a trim tank valve stuck open and sent water down a stairwell for an hour. It reached the hall ankle deep, and the high-water mark is still painted on the door frame, with the date and the words wet feet."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "When a trim tank overflowed {years} years ago, the water soaked the shops on one side of the arcade and missed the other side entirely. The dry side still mentions it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the neighbourhood's busiest lift core closed for a month of repairs, and three thousand people learned the stairs. The stair-race record set that month has never been beaten."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When the lift core was rebuilt {years} years ago, the crew found a child's shoe at the bottom of a berth that had been there for two centuries. It hangs in the lobby, unclaimed."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A cab stalled between decks here {years} years ago with a wedding party inside, and the couple married in it rather than wait. The cab behind pushed them into the next berth just after the vows."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The most famous wedding here, {years} years ago, was held on the Hollow floor in the couple's deck turn, with three hundred guests and one apple, cut crosswise and then into three hundred very thin pieces."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "{years} years ago two families here married their children on a sofa remade from both grandmothers' sofas at once. It took the mender a year, and the joins were left showing on purpose."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A wedding here {years} years ago was held in the baths, in robes, because the bride's grandfather could no longer leave the warm water and the couple wouldn't marry without him."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a runner from here set the Light Round record by running in the arcade trolley's wake for the first kilometre. The record stood. The rule against it came the next year."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A runner from here once won the Heavy Round at sixty-one, the oldest winner on record, and the {hour} club has been insufferable about it ever since."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the whole stair ran the Light Round together, three hundred people in the Hour's colours, and finished in a single bunch, last, on purpose."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the light vote here went the other way for the first time in a century, and the middle changed overnight. Two families moved away. Four moved in, and they're still here."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A light vote here {years} years ago ended in a tie, and was settled by the youngest child in the neighbourhood, who chose dim because she liked the word. It stayed dim for forty years."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the stair lost a light vote by a single tile, and the person who had miscounted their own household has heard about it at every Knotnight since."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The old fig in the middle died {years} years ago, after two hundred years, and the whole neighbourhood came to see it taken down. Its wood became the hall's long table."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a cherry tree here fruited for the first time in sixty years, after a faulty cold room next door chilled it by accident. The cherries went round one each, and the fault was never quite fixed."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A hornbeam that stood here for three hundred years came down {years} years ago. The school cut a slice to count its rings and found none, since a tree in a drum grows the same every day of the year."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a lamp-night power fault left the stair dark for four hours, and the stair sang every song it knew, twice. The hall still keeps the list, in the order they were sung."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A heat inspector found {years} years ago that the warmest wall on the stair was warm because of an unmetered bright garden behind it, kept by a man of a hundred and two. He was fined a kay and given a medal."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The baths here opened {years} years ago, when the waste-heat loop was extended, and the opening night was so crowded that the hall served dinner in the water."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the stair's flute ensemble played at a wedding in Lovage and was asked to play more quietly. It played louder. The invitation came again the next year."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A choir from here sang to Selkie during the Passing, one song a night, standing through the thirty-three minutes each reply took. Selkie's last answer was a lullaby nobody here knew, and the choir sings it still."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "During a Passing {years} years ago the hall cooked a dumpling recipe that arrived by light from the other raft, and nobody could work out the fold until a grandmother of a hundred and four did it with her eyes shut."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the stair's oldest starter died when a cupboard cooler failed, and the strain library regrew it from its file in a week. The family swears the new one sulks."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "{years} years ago a Gate hand from this stair found a phage in a jar of pickles at the station ring, before it got anywhere near a vat. The jar is in the isolation vault, labelled with her name."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "The school here won the drum's children's spinball cup {years} years ago with a team of eleven-year-olds who threw everything anti. The cup sits in the long hall with a dent in it from the celebrations."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the school's youngest class planted a lemon pip in a pot under the classroom lamp. It lives in a corner of the hall now, under a lamp of its own, and the class comes back to visit."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago a girl from here became the first in the Ring to fly crosswise the full width of the flying hall without touching a net. She was nine, and her parents kept her at home for a week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the neighbourhood's oldest resident turned a hundred and eighteen and asked for a glide to Lovage, her first in fifty years. She took the catch, stepped off the car and asked to go back."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The stair's yearly note to a dead man's family has gone out for {years} years without a gap, from four generations of one household. The two families have never shared an Hour, and now keep Knotnight together."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a third child was born on the stair, on a right given by a woman with no children of her own. Her portrait hangs in the hall beside three generations of the family she made possible."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The Register shows that one place on this stair has been held by someone called Ansa for {years} years, each child named for the last holder. Nobody planned it. It just kept happening."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago an elder here fell down a whole flight of stairs, got up and walked on. At this weight, she said, a fall is mostly sitting down with style. The landing has been named for her ever since."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago the elders here gave up their lake mornings for a week so that a Low-deck school could have them. The children brought each elder back a jar of lake water, which was not the idea."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A dark drill {years} years ago ran four hours longer than planned because nobody could find the switch. It is still the longest drill in the Ring's records, and by all accounts the most cheerful."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the arcade trolley's bell cracked, and the stair raised the kays for a new one in a single evening. The old bell hangs in the hall, still cracked, and is rung at weddings."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A heliox organ was built in the hall {years} years ago by someone who wanted the deepest note in the drum. Its longest pipe ran down three decks, and on the opening night the note was felt in the baths."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When the neighbourhood's oldest chair was remade {years} years ago, the mender found eleven earlier menders' marks under the seat, the oldest in a script nobody could read."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "{years} years ago a couple here gave both their birth rights to friends in a counted drum across the rows, so two children could be born where they were wanted. Both children visit every Booking Day."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a back-crew hand from this stair brought home a square of radiator panel, pitted by a century of dust, and gave it to the school. Children still put their palms on it and say they can feel the River."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago the power failed for a few minutes in a Window gallery with the shutter open, and a class from here sat under the River in the true dark. Four of them later joined the back crews."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the neighbourhood kept Knotnight on the Hollow floor by special leave, with the sunline dark overhead and the far bank's hand lamps showing through the gloom like a second neighbourhood."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "On a Booking Day {years} years ago the beam came in a little short, and the stair put off its feast and gave the kays to the hall. The feast was held a month later, and was bigger."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The stair's laundry rota was first written {years} years ago and has been amended four hundred times since. Its first line, no laundry before one in the morning, has never been touched."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "{years} years ago a teenager here went dark for forty days to pay for express legs to a grandparent on the far side of Merrow and back. The black thread is framed in the hall."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "The elders above here started their lamp-night watch {years} years ago, after one of them fell at three in the morning and lay on the floor till the lamps came up. Nobody on the stair has lain alone since."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a quarrel over the middle's light grew so loud that the stair held its vote in the baths, where nobody can shout for long. The custom stuck."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago a swimmer from here swam the length of the lake at lamp-dawn on her hundred and tenth birthday. The elders' record board still lists her, with a time in minutes and the note unhurried."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "{years} years ago a kite from the stair's Hollow turn caught in the orchard trees and stayed there three years, until a picker of a hundred and one went up a ladder for it on her birthday."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago a couple from Lovage swapped in and opened an inn here that served sweet broth. It lasted eleven months. Its sign is still in the hall, turned to face the wall."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a wanderer from a far drum stayed one night and left a spoon of starter in the hall's crock. The bread changed so much that the strain library opened a new file for it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the hall's cooking robots were replaced, and the new ones made the jook so smooth the stair petitioned for the old ones back. The petition took a year. The jook is lumpy again."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the oldest resident here and the newest baby turned out to share a birthday. The two families have eaten that birthday dinner together every year since."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the neighbourhood lost its Hollow turn to a fault in the pavilion lifts and was given a lamp-night turn instead. People still talk about the far bank's lamps overhead, a whole town hanging upside down."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A man from this stair refused to go up for eleven years past his allotment, {years} years ago, because his fig tree in its tub wouldn't fit in a cab. When the fig finally went up, he followed it within the week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "When Rue's blight struck, the stair sent its Booking Day savings across the rows as crates of starch noodles by glide. A thank-you from Rue's council is still pinned up in the hall, curling at the corners."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago a child from here sent a question to the Lantern and, a year and ten months later, got an answer. It was a form letter. She framed it anyway."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago the oldest jar in anyone's larder here was opened at Knotnight after a hundred and twelve years. It was plum, and it was fine. The person who opened it ate the lot, to make a point."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a lamp-fitter from this stair changed the last of the old warm lamps in the Ring and kept one. It still comes on every evening in a kitchen here, a little yellower than anything else in the drum."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a choir from here sang at a funeral in the lift lobby, because the dead man had always said that was where the echo was best. He was right, the choir admits."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "{years} years ago a heat-pump fault left this stair four degrees warm for a week. People called it the little summer and ate cold noodles, and the stair has kept Summer Day twice a year ever since."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago the long hall's floor was relaid, and the old spinball lines turned up underneath, at angles nobody plays any more. The children played the old game for a month."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "{years} years ago the inns here took in forty travellers stranded when a quay repair closed the lanes, and fed them for three days from the stair's larders. Some of them still send herbs."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago two residents here, aged a hundred and three and a hundred and nine, married on the lake's jetty at lamp-dawn. They had met in the water, and they swam straight after the vows."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago an elder here left her Hollow mornings to the Low-deck school in her will, which the rota office said wasn't allowed. The office was overruled by a stair of very old, very determined people."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "{years} years ago a back-crew veteran of a hundred and six from this stair flew the Spindle's whole length in the lamp-night, and complained about the nets the entire way."
+  }
+ ]
+}
