@@ -179,7 +179,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 - **Dace's** (deck 75, Ring Three, Bee). Anselm Dace's mending shop on the Long Arcade, between a clinic and a stair. *In ashgrove.md.*
 - **The school on deck 75** (deck 75, Ring Three, Bee). Ashgrove's school, where break is spinball in the long hall. *In ashgrove.md.*
 - **Pear Street** (deck 77, Ring Three, Bee). Ashgrove's street along the axis, where your weight stays the same whichever way you walk. *In ashgrove.md.*
-- **The greengrocer's** (deck 77, Ring Three, Bee). Tomatoes in a glass case at half a kWh each: the nearest thing Ashgrove has to a jeweller's. *In ashgrove.md.*
+- **The greengrocer's** (deck 75, on the Long Arcade, Ring Three, Bee). Tomatoes in a glass case at half a kWh each: the nearest thing Ashgrove has to a jeweller's. *In ashgrove.md.*
 - **The Thiamine** (deck 77, Ring Three, Bee). A gin cellar on Pear Street, two corners from the Court, under the sign "Fortified, like our salt." *In eating-out.md.*
 - **Hazeldim** (decks 80–82, Ring Nine, Badger). A Low-deck dim wood of hazel and birch, lit like a cloudy evening, where Badger's children learn to hide.
 - **The Remaking Yard** (deck 84, Ring One, Fox). Where Fox's newly-weds bring their grandparents' sofas and take them apart together.

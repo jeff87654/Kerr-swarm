@@ -11,7 +11,7 @@ const DRUM = {
   LINE_ON: 450, LINE_OFF: 3300,   // where the sunline is lit along the axis
   HALL_LEN: 300,           // flying halls reach this far from each end wall
   SPINDLE: 75,             // flying country
-  TERR_DEPTH: 260,         // how far the lowest terrace reaches out from an end wall
+  TERR_DEPTH: 350,         // how far the lowest terrace reaches out from an end wall (as in the 3D game)
   TERR_TOP: 120,           // the terraces stop this far from the axis
 };
 DRUM.RING_W = DRUM.L / 9;

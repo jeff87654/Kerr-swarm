@@ -58,6 +58,9 @@ function landmarkSpot(p) {
   const hour = p.hour >= 1 && p.hour <= 12 ? p.hour : null;
   let z = ring ? ringCenter(ring) + (j() - 0.5) * 300 : DRUM.L * (0.15 + 0.7 * j());
   let theta = hour ? hourCenter(hour) + (j() - 0.5) * HOUR_W * 0.8 : j() * TAU;
+  // an exact spot, where a place is built in the 3D Sorrel game: { z: m from the front cap, deg: degrees spinward from Hour One }
+  if (p.at && typeof p.at.z === "number") z = p.at.z;
+  if (p.at && typeof p.at.deg === "number") theta = p.at.deg * Math.PI / 180;
   let r = DRUM.R, deck = null;
   const front = p.wall ? p.wall === "front" : (ring ? ring <= 5 : j() < 0.5);
   switch (p.zone) {
@@ -73,7 +76,7 @@ function landmarkSpot(p) {
     case "wall": {
       r = clamp(p.r || 900, DRUM.TERR_TOP + 5, DRUM.FLOOR - 10);
       const d = terraceDepth(r);
-      z = front ? d - 10 : DRUM.L - d + 10;
+      if (!(p.at && typeof p.at.z === "number")) z = front ? d - 10 : DRUM.L - d + 10;   // an exact pin keeps its z
       break;
     }
     case "spindle": {
@@ -311,7 +314,8 @@ function landmarkCard(p) {
   else if (p.zone === "beyond") deckText = "Beyond the drum";
   const showRing = !["beyond", "axle"].includes(p.zone) && p.ring;
   const showHour = !["beyond", "axle"].includes(p.zone) && p.hour;
-  const g = p.zone === "beyond" ? null : gAt(s.r);
+  // a floor pin sits a little above the floor so it shows in the cutaway; its weight is the floor's
+  const g = p.zone === "beyond" ? null : gAt(p.zone === "hollow" && s.r >= DRUM.FLOOR - 30 ? DRUM.FLOOR : s.r);
   const extra = [];
   if (["deck", "keel", "line"].includes(p.zone)) {
     const plat = toPlatform(s), hol = toHollow(s);

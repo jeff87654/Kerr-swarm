@@ -206,7 +206,11 @@
    "race",
    "coriolis",
    "arcade"
-  ]
+  ],
+  "at": {
+   "deg": 6.9,
+   "z": 1875
+  }
  },
  {
   "id": "twelve-rooms",
@@ -234,7 +238,11 @@
    "hours",
    "clubs",
    "colours"
-  ]
+  ],
+  "at": {
+   "deg": 7.6,
+   "z": 1870
+  }
  },
  {
   "id": "round-records-board",
@@ -261,7 +269,11 @@
    "the-round",
    "records",
    "coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 6.9,
+   "z": 1875
+  }
  },
  {
   "id": "tide-tanks",
@@ -339,7 +351,11 @@
    "music",
    "heliox",
    "atrium"
-  ]
+  ],
+  "at": {
+   "deg": 285.5,
+   "z": 2705
+  }
  },
  {
   "id": "felt-hall",
