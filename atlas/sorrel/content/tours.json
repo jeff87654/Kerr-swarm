@@ -1,0 +1,89 @@
+[
+  {
+    "id": "long-way-up",
+    "name": "The long way up",
+    "about": "From the glide to the Window, outside in: the order a visitor meets Sorrel.",
+    "stops": [
+      { "id": "the-glide", "note": "You arrive the way almost everyone does: 140 seconds of free fall from Lovage, through a dark hall that would kill you, behind a metre of water." },
+      { "id": "quay-ring-seven", "note": "The catch. A cradle on the quay takes the car on a soft arm and brings a full g back over a second or two." },
+      { "id": "the-minutes-ring-four", "note": "In through the jacket: fifty metres of liquid hydrogen at 20 K, crossed in about a minute in the dark." },
+      { "id": "station-ring-3", "note": "Old Three, the busiest blocks in Sorrel. Everything from Lovage and Tansy comes through here." },
+      { "id": "the-gate", "note": "Anything alive stops here first. In a drum fed by monoculture vats, a stray phage is a famine." },
+      { "id": "air-halls", "note": "Two Rings along the Keel the food plant begins, and so does the air you'll breathe in a few months' time." },
+      { "id": "the-down-hall", "note": "Every Ring has one. In Sorrel you go up to retire and down to die, and the dead come home to the cycles." },
+      { "id": "lattice-heavy-loop", "note": "Into the Lattice. Ask for the long way round and a cab will carry you spinward at 1.2 g." },
+      { "id": "ashgrove", "note": "Seventy decks up, the Low decks, where Sorrel raises its children near full weight." },
+      { "id": "the-barrel", "note": "Spinball, two decks tall. Axis flies true, spin sinks, anti floats." },
+      { "id": "round-arcade", "note": "Mid-drum at 0.73 g: one street that runs right round the deck and meets itself." },
+      { "id": "register-of-places", "note": "Twenty-three thousand years of every place, every heir and every name." },
+      { "id": "the-up-hall", "note": "The High decks begin. This is where Sorrel's old go up." },
+      { "id": "the-last-stair", "note": "The last stair, beside the jetty's pavilion core." },
+      { "id": "the-elders-bench", "note": "Out through the ground into the Hollow. Look up: the far bank is three kilometres overhead, upside down." },
+      { "id": "back-wall", "note": "The back wall, climbing toward the axis, lighter with every tier." },
+      { "id": "spindle-lifts", "note": "Down swings sideways, then toward the axis, then fades to nothing." },
+      { "id": "axis-tea-room", "note": "Nothing boils at the axis, so the tea comes up by lift in lidded bulbs." },
+      { "id": "back-axle-hall", "note": "Heat out: a river of ammonia through the great joint. The loudest place in Sorrel." },
+      { "id": "despun-chamber", "note": "Here you let go of Sorrel's turn and step into the part of the raft where nothing turns." },
+      { "id": "the-windows", "note": "Twenty minutes of red light, and then the shutter. Every Sorrel child comes once, at about eight." }
+    ]
+  },
+  {
+    "id": "a-life",
+    "name": "A life in Sorrel",
+    "about": "One life, about 120 years, told in seventeen places.",
+    "stops": [
+      { "id": "lark-birth-clinic", "note": "Day one. Proofread before you were born, and caught at nearly a full g, near the Low decks' schools." },
+      { "id": "moth-naming-rooms", "note": "A week old. You're named for someone whose place you now hold, and their family comes to see." },
+      { "id": "otter-bone-clinic", "note": "Every year, measured at near full weight, because every parent in Sorrel believes it matters." },
+      { "id": "lark-toy-library", "note": "Toys on loan, mended between children. New mass is dear." },
+      { "id": "ashgrove-school", "note": "School on the Low decks, and spinball at break." },
+      { "id": "the-windows", "note": "Eight. The River, once, with one adult of your choosing." },
+      { "id": "the-thread-room", "note": "Fifteen, and your first time going dark: a black thread round the left wrist means don't message me, I won't see it." },
+      { "id": "station-ring-5", "note": "Twenty, and the slow line to anywhere: a kay a leg, weeks aboard, and a card home from every row." },
+      { "id": "wedding-terrace", "note": "Married at a third of a g, at dusk, with an apple cut crosswise to show the star." },
+      { "id": "fox-remaking-yard", "note": "Your grandparents' sofa, remade. A new one would cost forty-six days of a wallet." },
+      { "id": "the-pool", "note": "Two birth rights, spent: one for each place, given but never sold." },
+      { "id": "daces", "note": "Fifty years of work, give or take, in one of a thousand trades. Most of them mend something." },
+      { "id": "the-up-hall", "note": "About a hundred, and you go up." },
+      { "id": "the-elders-bench", "note": "The lake every morning at lamp-dawn, in order of age." },
+      { "id": "the-last-rooms", "note": "The last rooms, two decks below the lake." },
+      { "id": "the-down-hall", "note": "And down." },
+      { "id": "register-of-places", "note": "Your place goes back to the pool. Before long, a child somewhere in Sorrel carries your name." }
+    ]
+  },
+  {
+    "id": "daces",
+    "name": "The Daces' Sorrel",
+    "about": "Four days with the Dace family, in the places they go.",
+    "stops": [
+      { "id": "pear-street", "note": "The Daces' flat is on deck 77, off Pear Street, two corners from the Court." },
+      { "id": "ashgrove-court", "note": "The Court, and the light vote it has won six times running, mostly because of the pears." },
+      { "id": "the-gate", "note": "Teo goes down 76 decks in about thirty seconds to the Gate at Station Ring Three." },
+      { "id": "daces", "note": "Anselm opens Dace's: coats relined, trousers let out, a sofa remade for about a fifth of the price of new." },
+      { "id": "ashgrove-school", "note": "Ossian at spinball. He's small, and throws anti." },
+      { "id": "ashgrove-baths", "note": "Wren and the dark kids, black threads on their wrists, in the warmest room in Ashgrove." },
+      { "id": "the-garden-doors", "note": "Up 284 decks to Hedda's, losing 40% of their weight on the way." },
+      { "id": "the-pavilions", "note": "Fifteen decks more, and up through the ground among apple trees." },
+      { "id": "the-elders-bench", "note": "Hedda on the bench, Teo in the lake, Anselm asleep with his jacket over his eyes." },
+      { "id": "back-flying-hall", "note": "Wren flies for an hour without thinking about anything at all." },
+      { "id": "the-glide", "note": "To Lovage for Mira's wedding, with a chair in a padded bag and two bottles of gin each." },
+      { "id": "the-windows", "note": "Ossian and his grandmother, and the River." }
+    ]
+  },
+  {
+    "id": "lamp-night",
+    "name": "Lamp-night",
+    "about": "Sorrel after the sunline goes out, from dusk to the plain dawn.",
+    "stops": [
+      { "id": "lamp-walk", "note": "Dusk. The low lamps come on round the back Dim End." },
+      { "id": "spindle-by-night", "note": "The sunline falls below a seventh of full, and the whole axis opens for flying." },
+      { "id": "sunline-spar", "note": "The spar crews go out at seven, with an amber lamp, to the line nobody can look at by day." },
+      { "id": "tide-stair", "note": "After nine the water goes back out to the moat through the turbines, and couples sit to hear it." },
+      { "id": "station-ring-9", "note": "The last train to Lovage leaves at one. Noodles until it's gone." },
+      { "id": "the-one-oclock", "note": "Laundry at the night price, and jook at four for elders who sleep in pieces." },
+      { "id": "lattice-mask-room", "note": "The night crews' canteen. Breakfast from midnight." },
+      { "id": "lattice-night-sort", "note": "Tomorrow's goods, packed into carts by lobby while the drum sleeps." },
+      { "id": "dawn-rail", "note": "Six o'clock. Sorrel's dawn, plain, warm and then white, because painted dawns are for show." }
+    ]
+  }
+]

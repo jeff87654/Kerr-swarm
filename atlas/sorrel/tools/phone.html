@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Sorrel Atlas at phone width</title>
+<style>body{margin:0;background:#555;display:flex;gap:16px;padding:10px}iframe{border:0;background:#fff;flex:none}</style>
+<iframe id="a" width="390" height="1800"></iframe>
+<iframe id="b" width="390" height="1800"></iframe>
+<script>
+const q = location.search || "";
+document.getElementById("a").src = "../dist/index.html" + q;
+document.getElementById("b").src = "../dist/index.html" + (q ? q + "&" : "?") + "dark=1";
+</script>

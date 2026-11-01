@@ -3,9 +3,9 @@ name: World bible site
 on:
   push:
     branches: [main]
-    paths: ["docs/**", "site/**", "games/**", "README.md", ".github/workflows/pages.yml"]
+    paths: ["docs/**", "site/**", "games/**", "atlas/**", "README.md", ".github/workflows/pages.yml"]
   pull_request:
-    paths: ["docs/**", "site/**", "games/**", "README.md", ".github/workflows/pages.yml"]
+    paths: ["docs/**", "site/**", "games/**", "atlas/**", "README.md", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:

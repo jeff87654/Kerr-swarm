@@ -1,0 +1,1296 @@
+{
+ "types": [
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A school town: three schools share one long hall, and the spinball scores chalked on its end wall go back further than anyone's grandmother."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "An inn town: forty small inns over the station lifts, each with a hook by the door for a guest's bag and a kettle warm on the loop."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A nursery town: more prams than chairs in the lift lobbies, and a second, lower rail fixed under every stair rail for small hands."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A swimming town: children here learn to swim at nearly full weight, three decks deep, and find the Hollow's lake at half a g faintly like cheating."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A training town: runners from all over the drum come down to work at nine-tenths of a g, and the baths open at five for their legs."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A commuter town: half the block works in the Keel, and the lift lobbies empty in one long rush between seven and half past."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A hand-me-down town: children's clothes go round on a rail outside the school, and a good heavy coat comes back to the rail four times."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A practice town: every flat holds a child learning something long and loud, and the block hung felt in the stairwells twenty years too late."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A washing town: the laundries run at one in the morning, and by breakfast the warm corridor by the baths is hung with the whole block's small clothes."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A guest town: inns for wedding parties gliding in from next door, and an alterations shop that will take in a borrowed suit while you wait."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A Gate town: half the block works the Quaysides at Station Ring {ring}, so the talk over dinner is crates, cold rooms and what nearly got in."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A spinball town: the block has won its Ring's school cup more years than not, and a dent in the long hall's ceiling is shown to visitors."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A homework town: the reading room stays lit till ten for the older children, and the librarian puts a free pot of tea out at eight."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A cradle town: more namings than anywhere else in the Ring this year, and a lobby board pairing each new name with the one it came from."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A bicycle town: the long street runs dead straight along the axis, where nothing pulls a wheel sideways, and every child rides it before they can read."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A teachers' town: the block houses the staff of four schools, and nobody under twelve can misbehave anywhere in it without a teacher hearing by supper."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A lending town: the tool library takes up a whole street, and its best ladder has been borrowed and brought back more than eleven thousand times."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A remaking town: chair remakers, upholsterers and sofa menders along one arcade, and a yard of old frames waiting for their second century."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A depot town: half the block works in the cab depots on the nearest line deck, and its children can name a cab's fault by ear."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A strain town: vat hands and library staff, and every flat's starter crock is registered, some of them older than the block's oldest resident."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A clinic town: the Ring's big clinic and its nurses' flats, with corridors kept quiet by rule and lamps a shade softer than anywhere else."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A dye town: twelve dye shops along one street, and the grilles in the gutters show the colours of seasons long gone out of fashion."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A lamp-night town: most of the block works the machines' hours, so its Mill Hall serves breakfast at six in the evening and nobody thinks it odd."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A choir town: five choirs in one block, and an argument older than the oldest singer about which of them owns the echo in the big stairwell."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A tailoring town: forty cutting tables, and outside every shop a rack of coats waiting for new linings in whatever colour won this year."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A quiet town: the block voted for felt in every corridor sixty years ago, and here a voice carries no further than the person it's meant for."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A worlds town: designers of shared worlds and slow worlds, who all go dark together one week a year to remember what a room sounds like."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A stair town: a spiral stair climbs all six decks with herbs on every landing, and nobody here has called a cab for one deck in living memory."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A lamp town: the workshops that make and mend the Ring's hand lamps, with a test corridor where every lamp shines for a night before it leaves."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A kitchen town: cooks for half the Ring's cooked halls live here, and the corridors smell of tomorrow's broth by ten at night."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A wedding town: the terrace hall is booked a year ahead, and its remakers can turn a grandmother's dress into a bride's in eight days."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A crossroads town: the busiest lift cores in the Ring stand here, and more people read the lobby noticeboard than read the Ring's own."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A Round town: the block has put a runner in the {hour} team every year for ninety years, and the medals hang in the lift lobby."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A glass town: the glaziers who keep the Ring's atrium windows, and a lobby hung with strings of offcuts that chime whenever the doors open."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A register town: the Ring's clerks and record-keepers, and a register of every flat's occupants that runs back further than the block's own walls."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A fabricator town: small fabricators run all lamp-night under the arcade, so the floors are faintly warm underfoot at breakfast."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "An elders' town: the average age is ninety-seven, the long arcade has a rail on both sides, and there is a bench every forty paces."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A lamp-dawn town: most of the block goes up to the lake each morning, and by a quarter to six the corridors fill with towels and slow talk."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A crew town: retired back crews, and the one block in the Ring where an argument about the colour of the River has witnesses on both sides."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A tomato town: half the flats keep a bright shelf, and the lobby board offers ripe tomatoes, cuttings and advice nobody asked for."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A letter town: elders who write long letters to friends a raft away, and a reading room where any letter that lands is read aloud on Fridays."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A recording town: a room of recordings of the block's oldest voices, and Low-deck schools bring classes up to listen to their own great-grandparents."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A long-step town: the corridors are walked in slow floating strides, and the old joke is that nobody up here has hurried in forty years."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A board-game town: more game tables than shop counters, and one game in the arcade has run for six years at a move a day."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A grandparents' town: in the school holidays the cab lobbies fill with visiting children, and the corridor ceilings are covered in teenagers' handprints."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A tutor town: retired engineers, teachers and cooks give lessons by the hour to anyone who comes up, and the cab lobby is full of children at four."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A slow-craft town: retired hands who make one thing a year, properly, and a glass case in the arcade where this year's chair waits to be given away."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A dancing town: elders dance every evening in the long hall, and at little more than half a g one turn lasts long enough to finish a sentence."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A tea town: tea bushes in every bright niche, and each flat its own blend, which the neighbours are expected to know by smell alone."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A care town: nurses who stay for decades, a clinic that never shuts, and a quiet room where families sit with the dying, in the Ring's best chairs."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A Hollow town: the pavilion is a short ride up, and the block keeps a cupboard of hats, rugs and spare shoes for anyone who forgets."
+  },
+  {
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "A silent town: four rooms kept for silence, one for those who hold the River holy, and a rule against music before nine that the block's drummer resents."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A mending town: more menders than shops, and a coat in the lost-property cupboard that has had seven owners and eleven patches."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A bath town: four baths for three thousand people, and the warmest of them opens at four in the morning for the shifts coming off."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A herb town: racks of herbs line every corridor under small lamps, and the block sells cuttings to half the Ring for a few hundredths of a kay."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A clock town: clock and instrument menders, and an arcade where every clock is set to the lamp clock and all of them strike together at noon."
+  }
+ ],
+ "middles": [
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A bright court of tomato vines trained up strings through four decks of atrium, so the top trusses are picked from the third-deck terrace with a long hooked pole. Every vine carries a family's tag. The first ripe tomato of the year is sliced as thin as paper and shared round the whole school, one slice each."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle"
+   ],
+   "text": "A fig court round a fountain whose four jets climb two decks and come down nearly two metres spinward of where they rose, so the wet half of the basin is always the same half. Children stand where the water lands, not where it was aimed. Six figs in tubs ring the basin, and in a good year they fruit twice."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low"
+   ],
+   "text": "A lawn of real grass, lit to an overcast day for twelve hours and cut short by a mowing robot every Tuesday. The school uses it for sports days and lying down. Parents bring babies to crawl on it, since at nearly full weight a fall is a real fall and grass is the softest floor in the block."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high"
+   ],
+   "text": "A tea terrace: bushes stepped up five decks of a narrow atrium, each terrace one deck higher and a little closer to the lamps. At little more than half a g the steps are easy for pickers in their nineties, who take two leaves and a bud by hand and dry them on racks over the baths' warm pipes."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A lemon court: nine lemon trees in tubs, each with a bench under it, in ten thousand lux for twelve hours. The lemons are never sold. One goes to anyone coming home from the clinic, and the rest go to the Mill Hall. The oldest tree has a split in its trunk, bound in cloth, that predates everyone who sits beneath it."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low"
+   ],
+   "text": "A strawberry court: stepped beds at a child's height round a tall planted tower, all of it lit bright. On Saturday mornings the youngest class picks, under a rule of one in the basket, one in the mouth. The tower's top tier is reached by a little stair, and the honour of picking it goes to whoever had a birthday that week."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A medlar court: medlars espaliered across the brightest wall, three decks high, over beds of thyme and marjoram. The fruit is picked hard and left to soften for weeks in the baths' warm room, which smells of wine and old apples for a month afterwards. Most people dislike medlars. The block defends them anyway, in every light vote."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A rose atrium: climbing roses on wires up all six decks to the ceiling, 24 m overhead, with the court floor lit bright for twelve hours. The petals drift down and land a little anti of their stems, so the sweeping robot works one side of every bed harder than the other. Couples marry under the lowest arch, which is the brightest."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A vine court: a grapevine pergola over long tables, lit bright for twelve hours, and in its green shade the block's meetings, birthdays and card games. The vines give one barrel of wine a year. The block drinks it on Booking Day and describes it, every single year, as a great improvement on last year's."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A bandstand court: bright paving round a raised stage, with plums espaliered on three walls. The block band plays at lamp-noon on Saturdays. In heliox a brass tube has to be nearly twice the old length to sound the same note, so the bass player sits on a stool beside an instrument a head taller than she is."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high"
+   ],
+   "text": "A bench court: rows of benches, every one of them in the light, among bay trees in tubs. There is a rule nobody wrote down that the oldest person present has first choice of bench. On most mornings a woman of a hundred and eleven sits facing the lamps with her eyes shut and her shoes beside her."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low"
+   ],
+   "text": "A play court: a long pit of clean grit for digging, a paddling pool a hand deep, and quince trees in tubs round the edge. Everything is lit bright for twelve hours. At nearly full weight the children fall often and get up quickly, and the parents sit along the low wall with flasks, pretending not to watch."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle"
+   ],
+   "text": "A shift court, lit bright from noon to midnight instead of the usual hours, because most of the block works the lamp-night. The beds are chillies and spring onions. At eleven at night the benches are full of people reading and eating lunch, and the day shift next door complains that it can see the glow under its doors."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "An apple court: one old apple tree in a tub the size of a room, lit bright with the court around it. It gives about forty apples a year, each worth a fifth of someone's day. None is eaten casually. Every one is cut crosswise at a wedding in the block, and the bride or groom keeps the seeds in a twist of paper."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A spinball court, lit bright, with the lines painted at angles because no throw flies straight unless it runs along the axis. Quinces are espaliered on the long walls behind nets. The nets are not quite enough, and most of the quinces are knocked down by stray throws long before they have a chance to ripen."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high"
+   ],
+   "text": "A stepped court: terraces so steep they would be a chore at full weight, climbing five decks and planted with lavender, thyme and sage. At little more than half a g the elders take them two steps at a time. The top terrace, nearest the lamps, is the warmest seat in the block and is reserved for cards."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A kitchen garden that feeds the Mill Hall: rows of chives, coriander, shiso, chillies and spring onions in a bright court, cut at seven each morning by whoever is on the rota. The beds are numbered. The hall's slate says which bed is in tonight's stew, and the people who weed that bed eat first."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A flower court, lit bright for twelve hours and grown for namings and funerals and nothing else. Every naming in the block gets a sprig for the cradle and every death a bunch for the room where the family sits. Births follow deaths, so the beds are cut at about the same rate as they grow."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low"
+   ],
+   "text": "A swing court: soft paving under two cherry trees, and a row of swings hung to swing spinward and back. Children insist the swings go higher on the anti stroke. They only feel lighter that way, and the physics teacher who keeps saying so has not been allowed near the swings for years."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A pocket orchard: twelve dwarf trees in tubs, plum, damson, cherry and quince, set out in a grid so each gets an equal share of the lamps. Each tree is adopted by a stair of flats, which prunes it, picks it, and argues with the stair next door about whose fruit is better and whose was luckier."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high"
+   ],
+   "text": "A bright court built round a hot pool, fed from the 65 °C loop and cooled to bath heat, with figs and lemons in tubs along its edge. Helium pulls heat from wet skin fast, so the elders sit in it up to their chins for hours, reading, with their books held carefully above the water."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A sprint court: a bright square of grass with a sixty-metre lane laid along one wall, and the wall runs spinward. Every child who sprints it runs heavier than they would along the axis, so the block's times are always a little slow, and its runners always a little faster everywhere else."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle"
+   ],
+   "text": "A bamboo court: a stand of giant bamboo in the middle of a bright court, grown up past the open terraces toward a ceiling five decks overhead. It is cut back every year before it reaches the lamps, and the canes go to garden stakes, chair rails and flute blanks long enough for heliox."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high"
+   ],
+   "text": "A reading court: a lawn of low creeping thyme you can lie on, chairs anyone may move, and a cherry tree at each corner, all lit bright. At little more than half a g a book held at arm's length never tires the arm, so the elders read lying on their backs with their books held up against the lamps."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "low"
+   ],
+   "text": "A light court the clinic prescribes: low rosemary hedges, a soft floor, and morning sessions where parents bring babies to sit in ten thousand lux for an hour. The clinic says it sets their body clocks. The parents say it sets nothing at all, and come anyway for the company and the warm floor."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "middle"
+   ],
+   "text": "A meadow court: grasses and flowering herbs left long all year, lit bright, with paths mown through them by a robot the school programmes. The pattern changes every month. Last month it was a spiral, and before that the name of a teacher who was retiring, which she could read from the third-deck terrace."
+  },
+  {
+   "light": "bright",
+   "bands": [
+    "high",
+    "middle"
+   ],
+   "text": "An olive court: three olive trees in tubs that have been re-potted by eleven generations, round a gravel square where the elders play bowls. At little more than half a g a bowl rolls nearly twice as far for the same push, and the court has a long list of rules about how far is too far."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A birch wood: white trunks in loose rows over two and a half hectares, two decks tall, lit to about a thousand lux, like a long grey evening. After ten the paths are hand-lamp dark. Couples walk it in the lamp-night, and the woodwarden keeps a list of every proposal made under the birches, which is longer than the list of weddings."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low"
+   ],
+   "text": "A yew maze: clipped hedges a deck and a half high, lit dim, and planted so the way out always lies spinward, which every child in the block knows and every visiting cousin learns the slow way. The school times runs through it at nearly full weight. The record is forty-one seconds and has stood since their parents were children."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A hazel coppice, cut to the stool one plot a year, so the wood is always part bare stumps, part shoulder-high, part tall. Lit dim. The poles go to chair spindles, plant stakes and the school's den pile. Cut properly, a coppice lasts for centuries, and the oldest stools here are wider than a kitchen table."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A fern gully: a cut through three decks, twelve metres deep, its walls hung with ferns and mosses and kept damp by mist from the baths' warm return water. The light is dim and green. It is the warmest, wettest air in the block, and the clinic sends people with dry coughs to sit in it for an hour a day."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A moss garden: low mounds of moss over shaped ceramic forms, with paths of pale grit raked between them, lit dim and misted every hour. Elders tend it at little more than half a g, kneeling on pads. Each mound is the charge of one flat and passes to whoever is allotted the flat next, along with a rake and a page of notes."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A bamboo grove taller than two decks, lit dim, with paths so narrow you walk in single file. When anyone passes, the canes knock together and the heliox makes them ring high and clear. The children call the far corner the bell, because whoever hides there can always be found by the sound."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A long garden with no single wood: a strip of planting ten metres wide down every avenue in the block, lit dim the whole way. The block voted to spread its park light along its streets so that everyone would walk through it daily. Now nobody can reach a lift without brushing past ivy, ferns or somebody's tea bush."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A mushroom wood: birches over beds of residue logs from the food plant, lit dim and kept damp. Oyster and shiitake come up in flushes. On Saturday mornings the children go round with baskets under one rule, that nobody picks a cap smaller than their palm, and the Mill Hall cooks whatever comes in."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A hammock wood: lime trees planted in pairs exactly a hammock apart, lit dim, for the lamp-night workers who sleep by day and like it better than their flats. There are sixty hammocks and a sign asking for quiet. The air handlers keep the leaves moving very slightly, which the sleepers say is the whole point."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A remembrance wood: yews, one planted for each family that has lived in the block a hundred years, with small glass beads hung in the branches, each holding a pinch of someone's ash. The light is kept low and even. People come to sit rather than walk, and the paths are wide enough for two chairs side by side."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low"
+   ],
+   "text": "A den wood: hazels and birches over a soft floor, lit dim, with a heap of offcut poles and old sheets that the children build into dens every afternoon and the woodwarden takes down every night. At nearly full weight a falling pole is a lesson. They rebuild the dens in the same places, for reasons they won't explain."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A quiet wood: yews and box, lit dim, with a rule against talking and a slate on a post at every crossing for anything that can't wait. Most of what gets written is a greeting. Someone has written good morning on the third slate every day for nine years, and the block has agreed not to find out who."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A stream wood: a pumped stream that runs a hundred metres through dim birches and alders, under three little footbridges, and back to the pump. Children drop twigs off the top bridge and run to see whose comes out first at the bottom. A twig takes about four minutes, which is exactly as long as anyone under ten can wait."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A shade-tea garden: tea bushes kept dim on purpose, the way the old growers shaded the leaf for its sweetest picking, inside a ring of hazels. Three times a year the pickers come. The tea goes to the block's tea room, where its price makes visitors look twice and regulars order it anyway."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A walking garden: a dim path that winds four hundred metres round and back within the block, past ferns, ivy and a bench every fifty paces, so the elders can walk a long way without going far. At their pace a circuit takes about seven minutes, and the regulars count circuits on a string of beads."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A dark wood: birches lit dim all day, and at ten at night every lamp in it goes fully out, the only true dark in the block. Teenagers go in for exactly that reason. The rule is that anyone may carry a hand lamp in but nobody switches one on unless they're lost, and almost nobody admits to being lost."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low"
+   ],
+   "text": "A rope wood: old beeches hung with rope ladders, nets and a rope bridge two decks up, lit dim. At nearly full weight a slip is serious, so the nets are doubled. The bridge runs spinward, and the children always cross it anti, because it makes them lighter, and come back by the stairs."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "An ivy hall: no trees at all, just three decks of open terraces hung rail to rail with ivy, so the atrium is a green curtain lit dim. Flats on the terraces look out through it. In places the ivy is older than anyone living in the block, and trimming it is a two-day job the whole block does together."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A class wood: each class plants a birch in its first year at school, and the wood is now eighty years of classes, lit dim. Every tree carries a small tag with the names of its class. Grandparents bring grandchildren to find their tree, and nearly always find it a little thinner than they remember."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A dim orchard: damsons and plums planted long ago when the block voted bright, and kept when it went dim. They fruit poorly now, a few dozen damsons a year, enough for a single jar of jam, which the elders open at Knotnight and hold up at every light vote as proof that the trees are still trying."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A long dim garden of tall grasses, reeds and birches, sunk two decks deep and lit like an evening that never ends. The grasses stand taller than an adult and shift as anyone passes. People walk it to think, and the block's open meeting has been held in it once a year for longer than anyone can say."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low"
+   ],
+   "text": "A slope wood: a dim wood whose floor is built up into a long slope two decks high, planted with hazel and ferns, so the block's children have something to roll down. At nearly full weight they roll fast and climb slowly. For most of them it is the only slope they have ever stood on that wasn't a stair."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle"
+   ],
+   "text": "A pine wood: pines planted in rows, lit dim, over a floor of fallen needles that the cleaning robots are told to leave alone. It smells of resin and nothing else in the block does. Workshop crews lie on the needles on their breaks, and the clinic nurse says it does more good than she does."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A maple terrace: small red-leaved maples on shallow steps, lit dim, the red reading almost black under a thousand lux. The terraces are shallow enough for a stick and high enough to see over the one below. Elders paint here, mostly the same view, and the best paintings hang in the lift lobby."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A singing wood: a clearing in dim birches where the block's choirs rehearse, because the trunks break up the echo that makes every room in heliox ring. Voices come out bright and dry, with nothing coming back. On rehearsal nights people take the long way home through the wood just to hear it."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "high"
+   ],
+   "text": "A scent garden laid out for elders whose eyes are going: raised beds at hand height, rails along every path, lit dim. It is arranged by smell, the jasmine end, the mint end, the lemon balm end, so anyone can tell where they are. Nobody gets lost in it, and plenty of people go in to try."
+  },
+  {
+   "light": "dim",
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A trail wood: a soft path that loops twice through dim birch and alder, a kilometre a lap, where the block's runners train when the courts are full. The loop crosses itself on a little bridge. Running the spinward half feels like running uphill, and everyone who runs it has a theory about which way round is faster."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle"
+   ],
+   "text": "A climbing wall up all five decks of a lamp-lit atrium: twenty metres of holds from floor to ceiling, with a net at every deck. At this weight climbers hang on longer and fall slower. Anything dropped from the top lands nearly two metres anti of the spot below it, so nobody belays from the anti side."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle"
+   ],
+   "text": "A stair garden: a broad stair climbing six decks round an open well, lamp-lit like a living room, with a pot of herbs at the end of every step, each kept by the nearest flat. End to end it is twenty-four metres. The block's keenest climber is ninety-two, does it twice a day, and still refuses to go up."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A market hall under a lamp-lit vault three decks high: herbs, starters, mended shoes and second-hand everything, with a glass case of tomatoes at the far end that has its own attendant. On Saturdays half the Ring comes. The hall rings in the heliox, so the stallholders call their prices in a sing-song that carries without shouting."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A music room for a middle: a lamp-lit hall two decks high with felt on every wall and across the ceiling, so the ring of a heliox room softens to something warm. Someone plays every evening. Twice a week it is the block's string players, whose instruments sound exactly as they would anywhere, since a string doesn't care what air it's in."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A long reading room: a hundred and eighty metres end to end under green-shaded lamps, with tables for four hundred and a rule of quiet that the children's end has never once observed. The children's end has floor cushions and its own door. The head librarian has worked there forty years and moved one table, once."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low"
+   ],
+   "text": "A diving pool three decks deep, lit from under the water, with a board on every deck. At nearly full weight the top board is a real fall, twelve metres, and a diver lands most of a metre anti of where they left it, so the boards are set spinward of the deep end and visitors are warned."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low"
+   ],
+   "text": "A spinball hall: lamp-lit, ninety metres long with its length running spinward, so every throw down the hall dives or sails and every throw across it flies true. Lines are marked for both games. The block's league plays every evening, and the under-elevens play at five with their parents along the walls, coaching badly."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A bath court: the middle is a warm atrium of pools, two decks high, fed from the 65 °C loop and cooled to three heats: warm, hot, and one only the elders use. It is lamp-lit and always steamy. Heliox draws heat from wet skin so fast that people stay in for an hour and leave wrapped in robes."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "high"
+   ],
+   "text": "A dance hall: a sprung floor the size of a court under warm lamps, two decks high, with the band on a balcony. Couples in their nineties dance here every evening. At little more than half a g a dip costs nothing and a lift costs half, and the hall's oldest regular still lifts his wife at the end of every waltz."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle"
+   ],
+   "text": "A workshop court: a shared yard of big benches, a lathe, two fabricators and a press, lamp-lit like a works floor and open at all hours. Anyone can book a bench by the hour for a few hundredths of a kay. On Saturdays it belongs to the children, and the yard smells of hot glue and sawn cane."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "high"
+   ],
+   "text": "A jumping hall: lamp-lit, three decks high, floored with trampolines and hung with soft nets right to the ceiling. At little more than half a g a child bounces nearly twice as high as at the rim, which is why visiting grandchildren beg to come here and why the grandparents watch from the second-deck rail."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A lobby court: five lift cores open onto one tall lamp-lit atrium, so the whole block comes and goes through it. There is a tea counter, a noticeboard the length of a wall, and benches for waiting for cabs that are nearly always already waiting. It is the best place in the block to run into someone and the worst to avoid them."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A theatre court: tiered seats on three sides of a lamp-lit stage, cut through three decks. The block puts on four plays a year with block casts, and in the ringing heliox its actors learn to speak slower than anyone else in the Ring. The best seat is the oldest chair, set in the front row, and it goes to whoever is oldest in the audience that night."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "high"
+   ],
+   "text": "A game hall: long tables under green lamps, boards for every game anyone remembers, and a wall of results going back decades. At any hour someone is waiting for an opponent. By custom, a game left unfinished at a death is kept set up, and finished years later by the child who takes the dead player's name."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low"
+   ],
+   "text": "A climbing frame that fills a lamp-lit atrium three decks high: nets, ropes, tunnels, platforms and a long slide that spirals down the middle. At nearly full weight the nets are doubled and the slide is fast. Parents are allowed as far as the first platform, and grandparents nowhere at all."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A chair hall: a long lamp-lit gallery where the block keeps its oldest furniture, each chair labelled with its age and its owners' names, and anyone may sit in any of them. The oldest is said to be nine centuries old and has been re-sprung more times than anyone has counted. Visitors are brought here first."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A herb hall lit pink by its own grow lamps: racks of basil, chives, shiso and coriander six tiers high, a tier to each family, round a gallery where people sit with tea. The block pays for these lamps apart from its park light and votes on them apart too, and the herb vote is always the louder one."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A bell court: a lamp-lit stairwell round an open atrium where a ring of eight bells hangs, rung by a rota at noon and for every naming. Struck metal keeps its pitch in heliox, so the bells are the one sound in the block that matches the old recordings, and the old stop on the stair to listen."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A map square: a lamp-lit square whose floor is a cutaway of the whole drum in offcut tiles, every deck a ring and every Hour a wedge. Children learn their address by standing on it. The tiles for the block's own spot are worn almost through, and a tile-fitter replaces them every twenty years."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "middle"
+   ],
+   "text": "A lap pool fifty metres long down the middle of the block, lit from below and laid along the axis, where nothing changes from one length to the next. The block's swimmers insisted. An older pool laid spinward was filled in {years} years ago, after decades of arguments about whether its records counted."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "high"
+   ],
+   "text": "A warm court: a lamp-lit atrium kept three degrees warmer than the rest of the block, with deep chairs, blankets and a tea urn on the loop, for elders who feel the helium's chill more each year. The chairs face each other, never the wall, and nobody is allowed to read in them alone for long."
+  },
+  {
+   "light": "court",
+   "bands": [
+    "low"
+   ],
+   "text": "An inn yard: the inns' doors open onto a lamp-lit square with one long table down it, where guests and neighbours eat together. Wedding parties gliding in from next door take it over at weekends, and the block's children walk the table selling sprigs of herbs from trays, at a price that rises with the hour."
+  }
+ ],
+ "halls": [
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "The {name} Mill Hall is run by its regulars, who have sat at the same tables for decades and seat newcomers by a system nobody has ever written down. The robots cook. The regulars decide everything else, including the music."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A cooked hall with one paid cook and a dozen volunteers, where Thursday is hand-pulled noodles and the queue starts at half past five. The cook trained in a hall drum across the rows and still looks faintly shocked at what an hour costs here."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A canteen for the vat shifts with three sittings, at six, two and ten, each serving whatever that shift calls breakfast. At ten at night the people starting and the people finishing share the long tables, and eat each other's meals."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A noodle counter at the lift lobby: twelve stools, one cook, open from four in the afternoon till the last cab. Noodles in broth at just under a kay. Regulars have their own stools, and give them up for each other's children."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A hall famous for one dish, a black sugar custard set overnight on the 65 °C loop, so soft it barely holds its shape. People ride across the drum for it. The rest of the menu is ordinary, and the hall doesn't pretend otherwise."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A hall where the elders cook: a rota of fifty, the youngest eighty-six, each cooking one night a month from memory. Nobody writes the recipes down. Every year the meeting votes that someone should, and every year nobody does."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A lamp-night hall that opens at ten at night and closes at nine in the morning, and serves jook at three for the laundry crews, the clinic's night nurses and anyone who can't sleep and would rather not be alone about it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall with felt on the ceiling, thick enough to hear the person opposite without leaning in. It was one of the first in the Ring to hang it and is still the quietest, so every serious conversation in the block happens here."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "The school hall, where the children serve: each class takes a week on the trolleys and the lids, and the oldest class carves. Teachers eat last, at a small table, and are rated on a board by the children."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A Mill Hall where the robots cook everything except the broth, which a person makes, the same person for thirty-one years. She tastes every pot at five in the morning and changes one thing, and nobody has worked out what."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A bath hall: food comes from a hatch beside the hot pools and is eaten in robes on warm benches, so it stays hot without anyone fussing. Broth, buns and amazake, mostly. Shoes are left at the door and the queue stands in towels."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A silent hall: the noon sitting is served without a word, by a custom older than the hall's tables. You point at what you want. Visitors find it strange for one bowl, then say they've never tasted cold noodles properly before."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A one-table hall: a single table eighty metres long, so you sit next to whoever came in before you. The block borrowed the habit from a hall drum across the rows and now tells visitors it thought of it first."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A blight hall: on the anniversary of every blight in living memory it cooks that year's blight menu, so the orange-steak day is one of eleven. The old regulars eat each menu like a reunion, and correct the cook on details."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall with a shelf of regulars' chili crisp jars, each labelled, some older than their owners, since jars are inherited. Lending someone your jar is a declaration. Borrowing one without asking is what the block gossips about for a month."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A noodle counter where the cook pulls noodles by hand at little more than half a g, so a rope of dough hangs nearly twice as long before it tears. For children she stretches a single noodle the length of the counter."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A dumpling hall where grandparents and children fold together on Saturday mornings, under a board that counts every dumpling folded since the hall opened. It passed nine million last year, and the hall made a cake."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall where each regular keeps their own bowl on a long shelf, many inherited, a few older than the hall. A new bowl is a naming gift. A cracked one is mended with a bright seam and goes back on the shelf."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A cooking-club hall: members cook one evening a month and eat everyone else's cooking free the rest, which means a different family's dinner every night and an argument about portions every Friday. The waiting list is two years long."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall that serves a full Vat-table dinner at two in the morning for the night shifts: mycelium steak, frites, a salad cut in careful quarters and a custard, for a little under three kays."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A family hall with a five o'clock sitting for children under six: small chairs, lids light enough for small hands, and spoons tied to the bowls on short cords, because the spoons kept leaving with the children."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A canteen in the works: at noon the cutting tables are cleared, wiped and laid, and three hundred people eat where they were working an hour before. The food comes up from the Mill Hall in heated trolleys, fetched by the apprentices."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A hall for the very old: six small meals a day instead of three, a warm room, and soft food never called soft food. Soup at eleven, tea at three, and a custard at nine at night that the clinic credits with a good deal."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall with an urn of warm amazake on the loop by the door, free all day, so nobody in the block passes without a cup. The urn is older than the hall and has a name, which regulars use and visitors find embarrassing."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A hall with tomato night once a month: each table gets one tomato, cut at the table by its youngest member, closely watched, into as many slices as there are people. Nobody has ever complained about the thickness aloud."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A hot-pot hall: every table has a pot on an electric ring, held at a simmer under its lid, and everyone cooks their own. In heliox the pot is the warmest thing at the table, and people sit closer to it than to each other."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A breakfast hall that serves breakfast all day and nothing else: jook, crepes, vat egg on toast. It opened for the shifts and stayed because everyone liked it better. A dinner menu has been proposed at four meetings and lost every time."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A teenagers' hall on Friday nights, when the block's fifteen-to-eighteens run the room: they choose the music, cook one dish and set the rules, which are stricter than the adults'. No worlds at the table, by their own vote."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A bread hall: the block's own starter, registered with the strain library, and an oven where a rota of households bakes every morning. The hall serves whatever came out that morning, so it is never the same loaf twice and always someone's."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall where the night stew is cooked each Thursday by a different family, from their own recipe, and the block eats it whatever it is. The rota runs eight years. Families plan their Thursday for years, and nobody forgets a bad one."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall that keeps an anniversary book: the dish each dead neighbour loved best. On the anniversary of a death the cook makes that dish for the whole hall, and the child who carries the name is served first."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A cold hall that keeps Summer Day all year: cold noodles, starch jellies, chilled custards and cold tea, the one kind of food heliox can't spoil by cooling it. It is half empty all year and queued round the block every Summer Day."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A commuters' counter at the foot of the lift lobby, open from six: a rice ball, a cup of peppery broth and a word from the counter-hand, eaten standing in the two minutes before the cab. It copies the ring counters, and says so."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A tea hall where the Mill table comes with tea instead of lager, poured from a height by old hands who aim a little spinward, since a long pour lands a couple of centimetres anti. Visitors who pour for themselves stain the cloth."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A chilli-oil hall: the cook makes a new chilli oil every week from whatever the herb racks give and dates the jar, and the regulars score it on a slate by the door. The year's best is bottled and given away on Booking Day."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A breakfast hall for the lake: the elders who swim at lamp-dawn come back at nine, still damp, for jook, hot milk tea and a long argument about how cold the water was, which gets colder in the telling every year."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A clinic canteen, open to anyone after the night shift: soup at three in the morning, a bench to sleep on, and a rule that nobody talks about patients over food. The night nurses keep a jar of the Nine for each other."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A Mill Hall with a cooking robot older than any cook in the Ring, re-motored four times and fed a recipe card each morning by a retired engineer, who swears it seasons better than the new ones and has a blind tasting to prove it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A guest kitchen beside the inns for people coming in off the glide: a bowl of broth and a bun at any hour, free, a map of the Ring on the wall, and the innkeepers taking turns behind the hatch."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall with a fryer, the one place in the block that fries, since frying draws power and most halls don't bother. Jelly cubes, krupuk, puffed crackers, all crackling. Everyone calls the hall extravagant and eats there twice a week."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A hall where tomorrow's menu is set by a vote of whoever ate tonight, on slips in a box by the door, with the result pinned up at noon. Twice a year someone campaigns, and the hall eats the same stew for nine nights."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A hall of small tables for four, rearranged every week by a clerk with a long memory so that nobody eats with the same three people for a month. Old friendships are kept up elsewhere. New ones are made here, at a hundred and four."
+  },
+  {
+   "bands": [
+    "middle",
+    "low"
+   ],
+   "text": "A broth counter with a stock held below a simmer on the loop for so long that the cook has stopped counting the years, topped up each morning and never emptied. It is clear, gold and a little sweet, and comes in one size."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A singing hall: the block's choirs eat here after rehearsal and end the meal with a song every night, so anyone eating late gets a concert with their stew. The felt was taken down years ago, on purpose, so the room rings."
+  },
+  {
+   "bands": [
+    "low"
+   ],
+   "text": "A hall with a long children's table where any child in the block may eat without a parent, and a grandmother on the rota sits at the end of it. The children call her the end of the table, and she answers to it."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A plain Mill Hall that does the free table better than anyone: jook with three toppings, cold noodles with real bite, and a night stew that once won the Eating Society's Ladle, which nobody in the block has stopped mentioning."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall that serves only larder food for eleven days every year, in memory of the old dark: hard bread, aged cheese, preserves and cold tea, under lamps turned low. On the twelfth day the lamps come up and the hall cooks everything at once."
+  },
+  {
+   "bands": [
+    "middle",
+    "high"
+   ],
+   "text": "A tasting hall beside the strain library: on Fridays the library's new starters are baked, brewed and served free to anyone who will fill in a card. Most of what's tasted is never seen again, and some of it shouldn't have been."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A counter for the cab-depot crews, open round the clock: hot buns filled with whatever the Mill Hall had left at midnight, wrapped in cloths that come back the next shift. Lose a cloth and you fold the buns for a week."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A hall where nobody is ever served alone: come in on your own and you're seated with another single diner. Over the years it has made more marriages than it ever meant to, several of them between people over a hundred."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall above the laundries, warm all night from their pipes, that opens at one in the morning when kays are cheapest and closes at five. People bring their washing and a book, and eat noodles while it turns."
+  },
+  {
+   "bands": [
+    "low",
+    "middle"
+   ],
+   "text": "A Mill Hall where the robots serve and the children clear: every child in the block owes the hall an hour a week from the age of nine, paid in one pastry. Most of them stay longer than the hour, for reasons the pastry explains."
+  },
+  {
+   "bands": [
+    "high"
+   ],
+   "text": "A counter by the pavilion lift where people coming down from their Hollow hours stop for a cup of broth and to tell someone what they saw. The counter-hand has heard every story about the far bank and still asks for more."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall that has served no gin since a hard year long ago, by the block's own vote: lactic sodas, strong tea and Mill lager instead. Its regulars are proud of it, and some of them drink at the cellar two streets away afterwards."
+  },
+  {
+   "bands": [
+    "low",
+    "middle",
+    "high"
+   ],
+   "text": "A hall with a board of everyone named in the block that week and a cake for each naming, cut by someone from the family of the dead the child is named for. Cakes are cheap, and no week is too busy."
+  },
+  {
+   "bands": [
+    "middle"
+   ],
+   "text": "A hall shared by two blocks that have never agreed about anything: the long table has a line painted down it, the stew is red on one side and green on the other, and the children sit wherever the pudding is better."
+  }
+ ]
+}

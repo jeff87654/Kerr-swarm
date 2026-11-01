@@ -1,0 +1,242 @@
+[
+ {
+  "n": 1,
+  "name": "Hare",
+  "opposite": "Stag",
+  "colours": "tawny and cream",
+  "hex": "#a87a4c",
+  "character": "Hare trains the drum's midwives, so more of Sorrel is born into Hare hands than anyone else's, and Hare has exactly as many children of its own as everyone else. It is quick, chatty and soft about babies. Every block has a stair race, every naming ends in a run, and families have raced the same stairs for generations: born low, carried up a deck at a time.",
+  "known": "Hare could talk a baby into arriving early, then run to tell the whole block before it had.",
+  "word": {
+   "w": "form",
+   "means": "a baby's first cot, lent round the block from birth to birth"
+  },
+  "dish": {
+   "name": "the lying-in pot",
+   "text": "Sweet black vinegar, ginger and vat eggs, steeped a week on the 65 °C loop. Every new parent gets a pot, as does every runner. About 0.4 kays a bowl."
+  },
+  "club": "Hare Harriers, called the Boxers, in tawny and cream: Light Round winners more often than not.",
+  "saying": "Run anti and arrive light.",
+  "rivalry": "Hare wins the Light Round and Stag the Heavy, and each says the other one doesn't count. Every year Stag hangs its banner upside down, so that Hare can read it from across the Hollow."
+ },
+ {
+  "n": 2,
+  "name": "Heron",
+  "opposite": "Swift",
+  "colours": "grey-blue and white",
+  "hex": "#4a87b5",
+  "character": "Heron keeps the drum's water. Its families have worked the Keel's tanks and filters since before the Summer, standing in water all shift, and it shows: Heron is tall, grey-clad, patient and slow to hurry. It queues without complaint, holds its broths for days and keeps a minute's quiet before every meal. Its crews have stood in water for forty generations and never once seen a fish.",
+  "known": "Heron will wait for you as long as you like, and mention afterwards, kindly, exactly how long.",
+  "word": {
+   "w": "still",
+   "means": "a minute's quiet before eating; elsewhere in Sorrel, a still makes gin"
+  },
+  "dish": {
+   "name": "still broth",
+   "text": "A clear broth held below a simmer for nine days, until you can see the bottom of the bowl, with one herb leaf floating. Free at most Heron halls."
+  },
+  "club": "Heron Waders, called the Stilts, in grey-blue and white: never won a Round, never failed to finish one.",
+  "saying": "Stand long enough and it comes to you.",
+  "rivalry": "Swift says Heron hasn't finished last year's dinner. Heron says Swift has never finished a dinner in its life. On Round day Heron brings chairs and Swift leaves before the end, which proves everything."
+ },
+ {
+  "n": 3,
+  "name": "Owl",
+  "opposite": "Badger",
+  "colours": "violet and buff",
+  "hex": "#86579c",
+  "character": "Owl keeps the lamp-night. Its families have worked the night shift for generations: the batch fabricators, the slow vat lines, the bakers who have half the drum's bread out by four. Owl's home lamps come up at eight in the evening, its Mill Halls serve breakfast at ten at night, and its reading rooms never close. People here speak softly, cook when kays are cheapest and say good night for hello.",
+  "known": "Ask Owl anything after midnight. Before noon, don't knock, and if you must, knock softly.",
+  "word": {
+   "w": "lamper",
+   "means": "someone who sleeps through the lamp-night, as most of Sorrel does"
+  },
+  "dish": {
+   "name": "the night loaf",
+   "text": "A soft milk loaf, out of the oven at four, torn warm and spread with black garlic butter by crews coming off shift. About 0.3 kays."
+  },
+  "club": "Owl Athletic, called the Yawners, in violet and buff. They ask every year for a midnight start.",
+  "saying": "Somebody has to sit up with the machines.",
+  "rivalry": "Owl works the lamp-night and Badger sleeps through it like a stone. Each thinks the other's hours a disgrace, and at lamp-night Owl looks across the Hollow to check Badger's lamps are out."
+ },
+ {
+  "n": 4,
+  "name": "Bee",
+  "opposite": "Moth",
+  "colours": "gold and black",
+  "hex": "#a8831a",
+  "character": "Bee grows things. Its Keel holds the Garden racks, its stretch of the Hollow is orchard, and every Bee child is given a soft brush at their naming and uses it on the blossom for years. Bee is busy, practical and very fond of a rota: one for the herb pots, one for the baths, and in some blocks one for drawing up the rotas. Families have tended the same racks for generations.",
+  "known": "Bee will brush anything that stands still long enough, and put you on a rota while it's at it.",
+  "word": {
+   "w": "wrapped",
+   "means": "having a lie-down or off sick, from the chilled tents round the fruit trees"
+  },
+  "dish": {
+   "name": "comb toffee",
+   "text": "Honeycomb toffee of Mill sugar and soda, sold in paper cones for about a coffee's price. There has never been honey in it, and nobody in Bee has tasted honey."
+  },
+  "club": "Bee Rota, called the Brushes, in gold and black. Their supporters wave blossom brushes at the finish.",
+  "saying": "Every blossom wants a brush.",
+  "rivalry": "Moth flies lamps on kites over its lawns at dusk, and Bee, looking up from its orchards, says it confuses the blossom. Moth says Bee would put a rota on the sunline."
+ },
+ {
+  "n": 5,
+  "name": "Fox",
+  "opposite": "Wolf",
+  "colours": "russet and white",
+  "hex": "#bb562d",
+  "character": "Fox trades. Its families have kept the Quaysides markets and the old-goods arcades for generations, and a Fox can price a chair by sitting in it. It is sociable, quick and hospitable: most of the inns where Lovage visitors stay are in Fox, and Fox speaks fluent Lovage when it helps. It loves a card game, a swap and a long story, and its card tables are the hardest in Sorrel.",
+  "known": "Fox will sell you your own chair back, and you'll thank it for the cushion.",
+  "word": {
+   "w": "a both",
+   "means": "a swap that both sides go home thinking they won"
+  },
+  "dish": {
+   "name": "Fox reds",
+   "text": "Starch jellies, coloured and scented to pass for tomatoes, six for the price of one real one. Nobody is fooled, and everybody buys them."
+  },
+  "club": "Fox Rovers, called the Reds, in russet and white, a nickname Wolf has disputed for centuries.",
+  "saying": "Never buy the first chair you sit in.",
+  "rivalry": "Fox and Wolf both wear red and each says the other copied. Wolf calls Fox too clever by half; Fox says Wolf can't count past its crew. Couples argue over which red the baby wears."
+ },
+ {
+  "n": 6,
+  "name": "Otter",
+  "opposite": "Lark",
+  "colours": "teal and white",
+  "hex": "#1f8a8e",
+  "character": "Otter is wet. It has more baths than any other Hour, all on the food plant's loop, and its stretch of the Hollow is the lake, so its children swim before they read. Otter is easygoing and warm, and goes to dinner in a bath robe without a second thought. Its young keep the jetty and watch the elders swim at lamp-dawn. Families keep the same bath lockers for generations.",
+  "known": "You can tell an Otter at any table by the wet hair and the towel over the back of the chair.",
+  "word": {
+   "w": "holt",
+   "means": "the neighbourhood bath, where Otter does most of its talking"
+  },
+  "dish": {
+   "name": "floats",
+   "text": "Sticky rice dumplings filled with black sesame, which bob up in warm ginger syrup when they're done. Eaten after a swim, in a robe, at about 0.3 kays a bowl."
+  },
+  "club": "Otter Lake Club, called the Wets, in teal and white. Their runners finish and go straight to the baths.",
+  "saying": "Wet hair, warm heart.",
+  "rivalry": "Lark says Otter is never dry before noon; Otter says Lark is never quiet after lamp-dawn. Each morning the elders swim in Otter's lake to Lark's old band overhead, and both claim the credit."
+ },
+ {
+  "n": 7,
+  "name": "Stag",
+  "opposite": "Hare",
+  "colours": "moss and bronze",
+  "hex": "#7a8a2c",
+  "character": "Stag carries things. Its families have hauled freight on the Quaysides, fitted the lift cores and moved Sorrel's furniture up and down its decks for generations, and they are big, proud and slow to anger. Stag likes weight: it eats the heaviest puddings, plays the longest horns in its brass bands, and hangs its old tools over every hall door. Its elders are always the last to go up.",
+  "known": "Stag will carry your sofa up ten decks for a pudding, and argue about the stairs the whole way.",
+  "word": {
+   "w": "heavy",
+   "means": "good, solid and to be relied on, of a friend, a chair or a pudding"
+  },
+  "dish": {
+   "name": "Stag pudding",
+   "text": "A steamed pudding of flour, lard-style fat and dark Mill treacle, cut in slabs under hot custard. A Stag dinner, they say, should be felt on the stairs."
+  },
+  "club": "Stag Heavies, called the Antlers, in moss and bronze: Heavy Round winners, as they will tell you.",
+  "saying": "Heavy is honest.",
+  "rivalry": "Stag says Hare runs anti because it can't run spin; Hare says Stag runs spin because it's too heavy to run anything else. Mixed families send a child to each Round to keep the peace."
+ },
+ {
+  "n": 8,
+  "name": "Swift",
+  "opposite": "Heron",
+  "colours": "indigo and silver",
+  "hex": "#5f5cc0",
+  "character": "Swift never stops. It has the cab engineers, the line-deck crews and the depot fitters, and most Swift families can name a grandparent who rebuilt a gimbal. Swift is punctual, restless and fond of a timetable. It eats standing up, talks fast, visits its elders by cab every day and leaves every party early. It is said to sleep in cabs. It mostly doesn't.",
+  "known": "A Swift will be gone before you finish your sentence, and back exactly when it said.",
+  "word": {
+   "w": "lean",
+   "means": "to leave in a hurry, from the tilt of a cab's cabin as it goes"
+  },
+  "dish": {
+   "name": "the cab bun",
+   "text": "A soft bun with curried mycelium sealed inside, shaped to be eaten one-handed in a leaning cab without losing a drop. About 0.5 kays at any Swift lift lobby."
+  },
+  "club": "Swift Lattice, called the Leaners, in indigo and silver: the fastest starters in the Round.",
+  "saying": "Leave early, arrive leaning.",
+  "rivalry": "Swift keeps Heron's cab times on a board, to the second, to prove a point nobody remembers. Heron has never once complained about a late cab, which Swift finds unbearable."
+ },
+ {
+  "n": 9,
+  "name": "Badger",
+  "opposite": "Owl",
+  "colours": "charcoal and chalk",
+  "hex": "#7f7b76",
+  "character": "Badger keeps the drum clean. Its Keel holds the recyclers and the waste works, and its flats are the tidiest in Sorrel: Badger airs its bedding every week, sorts its scraps into seven bins and keeps a larder that could see out the Eleven Days twice. It is gruff, stubborn, kind and thrifty even by Sorrel's standards, and its families stay put, mending the same chairs for generations.",
+  "known": "Badger has a bin for everything, a mend on every mend, and a jar of something for anyone who calls.",
+  "word": {
+   "w": "sett",
+   "means": "a home and its larder together, especially a well-stocked one"
+  },
+  "dish": {
+   "name": "Badger crumbs",
+   "text": "The week's stale crusts, fried with black garlic and chili and eaten with a spoon. Nothing in Badger goes to the recyclers if it can go in a pan first."
+  },
+  "club": "Badger United, called the Stripes, in charcoal and chalk; the oldest kit in the Round, mended at the elbows.",
+  "saying": "Mend it, then mend the mend.",
+  "rivalry": "Badger says Owl keeps hours no decent kitchen would. Owl says Badger keeps everything else. They trade insults at the Round and recipes the rest of the year, quietly, after Badger's bedtime."
+ },
+ {
+  "n": 10,
+  "name": "Moth",
+  "opposite": "Bee",
+  "colours": "mauve and grey",
+  "hex": "#bb739c",
+  "character": "Moth loves light. Its families have fitted the drum's lamps and wing-sleeves for generations, and it has voted bright at every light vote anyone can remember. Moth spends on lamps what other Hours bank, and in Moth a bright home counts as good manners. It dresses well, flies at night, dances at a twentieth of a g and is a little romantic. Lovage likes Moth best, which Moth tries not to enjoy.",
+  "known": "Moth would sit by a lamp all night if you let it, and you usually do, because the lamp is lovely.",
+  "word": {
+   "w": "lamp-struck",
+   "means": "in love, or dazzled by someone"
+  },
+  "dish": {
+   "name": "dusties",
+   "text": "Short sugar biscuits rolled in powdered sugar that gets on everything, eaten by the handful after a night's flying. About a tenth of a kay each."
+  },
+  "club": "Moth Lamplight, called the Dusties, in mauve and grey. Supporters bring hand lamps to the finish.",
+  "saying": "A lamp is never wasted.",
+  "rivalry": "Moth says Bee lights its courts for the fruit trees and nobody else; Bee says Moth would light a cupboard if it had one spare. They intermarry, and argue about the lighting at every wedding."
+ },
+ {
+  "n": 11,
+  "name": "Wolf",
+  "opposite": "Fox",
+  "colours": "crimson and slate",
+  "hex": "#bb4552",
+  "character": "Wolf works in crews. Its families have sent hands to the back crews, the jacket and the moat for generations, and Wolf still thinks in sixes: six to a crew, six to a table, six to a pot. It is loyal, loud and generous, and nobody in Wolf eats alone if a neighbour can help it. Wolf sings: its choirs are the loudest in Sorrel, its spinball crowds louder. Its elders still meet as crews.",
+  "known": "You never meet one Wolf. You meet a crew of six, and it has brought a pot.",
+  "word": {
+   "w": "howl",
+   "means": "any gathering where people sing together, in a hall, a bath or a cab"
+  },
+  "dish": {
+   "name": "the crew pot",
+   "text": "A lidded pot of chili broth on a hotplate, with mycelium strips and curds for everyone to cook their own. Six to a pot, and nobody takes the last piece."
+  },
+  "club": "Wolf Crews, called the Pack, in crimson and slate. Their supporters sing the whole 13.8 km.",
+  "saying": "Nobody eats alone.",
+  "rivalry": "Wolf says a Fox would sell you the lid off your soup; Fox says a Wolf would eat the soup, lid and all, and sing about it. Whoever loses the Round sends a bottle overhead."
+ },
+ {
+  "n": 12,
+  "name": "Lark",
+  "opposite": "Otter",
+  "colours": "green and brown",
+  "hex": "#3e9a55",
+  "character": "Lark is up early. Its families have taught Sorrel's children and cooked its breakfasts for generations, and Lark still rises with the lamps: its Mill Halls ladle the first jook in Sorrel, its stair-heads sell crepes from six, and its teachers are at their desks by seven. It is cheerful, chatty and musical, makes most of the drum's flutes, and is asleep by ten. Its elders play the bandstand at lamp-dawn.",
+  "known": "Lark says good morning at lamp-dawn, loudly, and good night at nine, before you've finished your gin.",
+  "word": {
+   "w": "early",
+   "means": "hello, at any hour of the day; also, well done"
+  },
+  "dish": {
+   "name": "lamp-dawn crepes",
+   "text": "Thin tapioca crepes off the stair-head hotplates from six, folded round coconut-style cream and sugar and eaten on the way to work. Two for a tenth of a kay."
+  },
+  "club": "Lark Harmonic, called the Earlies, in green and brown. They warm up at lamp-dawn, whenever the Round starts.",
+  "saying": "Up with the lamps.",
+  "rivalry": "Lark has been up three hours by the time Otter finds its towel, and says so. Otter says some Hours can't sit still in warm water. Their children meet at the baths and sing."
+ }
+]

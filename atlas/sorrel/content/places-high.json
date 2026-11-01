@@ -1,0 +1,650 @@
+[
+ {
+  "id": "the-larder",
+  "name": "The Larder",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 352,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Knotnight all year among the elders' flats: only food that keeps, the larder a drum would eat if the long dark came.",
+  "text": "A low room off an elders' arcade at 0.53 g, with crocks on every shelf and felt on the ceiling so the talk doesn't ring. Nothing on the menu needs a lamp or a vat to have run this week. The board is three aged cheeses, cured mycelium ham cut thin as paper, miso-glazed curd and hard rusks. Knotnight pie is preserved berry purée under a lard-style crust, with cold custard. Last year's larder sour comes pale and lactic from the Court's Knotnight crocks. On the second Tuesday the regulars take over the kitchen and cook their blight-year dishes from memory, and argue about the salt.",
+  "detail": "About 2.5 kWh a head: the board 1.10, the pie 0.70, the sour 0.15. One apple-seed star in the Crosswise Guide. Second Tuesdays fill by noon; come at eleven.",
+  "who": {
+   "name": "Ottilie Brandvold",
+   "age": 97,
+   "role": "second-Tuesday cook",
+   "line": "I cook the fried crunch from the year the mycelium went. Nobody under ninety likes it. Nobody under ninety had to eat it for a month."
+  },
+  "canon": "eating-out.md",
+  "tags": [
+   "knotnight",
+   "blight",
+   "larder",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-garden-doors",
+  "name": "The Garden Doors",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 361,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "A corridor of elders' flats in Bee where you can tell who keeps a bright garden by the light under the door.",
+  "text": "Three-sixty-one, Three, Bee: plain doors, a lamp every ten metres, a bench outside every fourth flat. At 0.52 g a visiting child crosses the corridor in four long floating strides, and most do. The glow under some doors is a bright garden. One is Hedda Dace's. She is 93, spent forty years on the back crews, and keeps 4 m² along one wall lit like an overcast day for twelve hours, about 1.9 kWh a day and a tenth of her dividend, with a tomato vine she talks to. It's the brightest room her grandchildren know. The Hollow floor is fifteen decks up, about fourteen seconds, and most mornings she's on the elders' bench.",
+  "detail": "These are private homes: visit by invitation. The corridor is a minute's walk from its lift core, and deck 77 is a little over a minute down by cab.",
+  "who": {
+   "name": "Hedda Dace",
+   "age": 93,
+   "role": "retired back-crew hand",
+   "line": "It's the drum's radiators that stop me having a bigger garden, not my wallet. The vine knows. I tell it most mornings."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "elders",
+   "light",
+   "garden",
+   "home"
+  ]
+ },
+ {
+  "id": "the-up-hall",
+  "name": "The Up Hall",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 302,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "The long hall at the bottom of the High decks where Heron's Ring 2 goes up: the day a working life ends and an allotted flat begins.",
+  "text": "The bottom of the High decks, at 0.60 g: a long hall where the cabs from below open, and where Heron's Ring 2 goes up, about forty a day, mostly before noon. You come with whoever you choose and one thing on your knees: a cup, a crock, a coat. Your old crew rides along, and at the brass line across the floor you hand them your post, a badge or a key or a tool, and the youngest takes it down. On this side the elders of your new corridor wait with a lidded bowl of broth. The clerk reads out your new address, the room says gone up, and someone asks you to jump. Nearly everyone clears the bar two fingers higher than they did last week.",
+  "detail": "About one in twenty offered a flat asks for another year below, and the clerk writes their name on the board in pencil. Furniture follows by freight cab in the lamp-night.",
+  "who": {
+   "name": "Ruslan Achebe",
+   "age": 71,
+   "role": "Up Hall clerk",
+   "line": "I've read out thirty thousand addresses. People cry at the broth, not the address. It's the lid. Somebody lifted a lid for them."
+  },
+  "tags": [
+   "going-up",
+   "rite",
+   "retirement",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-last-rooms",
+  "name": "The Last Rooms",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 374,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "The last rooms, two decks below the lake: where Stag's elders come to die and their families come to wait.",
+  "text": "Thirty warm rooms off a felt-hung corridor at 0.50 g. They run warmer than any flat, since the dying feel the helium most. Near the end most people ask for the lake: at lamp-dawn the nurses lay the bed level in a cab and take it the last two decks to the lake shore, where the light is just coming warm. Families sleep in the rooms or in the long kitchen, where jook is kept hot all night on the 65 °C loop. When someone dies the place goes back to the pool, and everyone in the corridor stands while the down cab passes on its way to the Down Hall in the Keel.",
+  "detail": "Before a family leaves, the Register gives them a card. Within the year it comes back with the address of the child who has the place, and the child's name, usually the dead's.",
+  "who": {
+   "name": "Pilar Nakamura",
+   "age": 58,
+   "role": "night nurse",
+   "line": "Most ask for the lake at lamp-dawn. Some ask for a bath. One man asked for a tomato, and the whole corridor went looking."
+  },
+  "tags": [
+   "hospice",
+   "death",
+   "pool",
+   "lake"
+  ]
+ },
+ {
+  "id": "the-last-stair",
+  "name": "The Last Stair",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 370,
+  "deckTo": 375,
+  "ring": 5,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "The top six lobbies of the pavilion core beside the jetty, and the stair the elders climb to the lake at lamp-dawn.",
+  "text": "Where the High decks meet the Hollow: the top six lobbies of the pavilion core that comes up beside the jetty, and the stair that climbs them. At lamp-dawn this is the busiest place on the High decks, full of elders in robes and slippers with towels over their shoulders, waiting for the six o'clock doors. Those who won't take the cab climb, for their bones. Six flights at half a g cost about what twelve metres would on Earth, and there's a bench on every landing and a hook for every coat. The last flight comes out on Bench Island among the pavilion's pillars, under the sunline's first warm light, fifty steps from the water.",
+  "detail": "The doors open at 06:00 for the elders' lake hours, which run to the end of lamp-dawn at 09:00. Guests may come up with an elder. Robes can be left on the hooks at 375.",
+  "tags": [
+   "hollow",
+   "lake",
+   "stair",
+   "lamp-dawn"
+  ]
+ },
+ {
+  "id": "eleven-days-room",
+  "name": "The Eleven Days Room",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 365,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "A plain room at the power end of the drum where the beam gap of 74 years ago is told by people who were children in it.",
+  "text": "A plain room at 0.51 g near the front of the drum, where the beam comes in, kept by people who were children when it stopped. Seventy-four years ago Merrow's beam simply stopped arriving for eleven days: no lamps, no kitchens, no worlds, cabs crawling two trips a day, everyone on the stairs and eating their larders. The tellers here were six and twelve and sixteen that year. Every afternoon at three the lamps go out and only the tellers' devices are lit, the way it was, and one of them tells it. School classes ride up from the Low decks to listen. Each year there are fewer tellers, and the room records every one.",
+  "detail": "Tellings at 15:00 daily, about forty minutes, free. Bring a hand lamp only if you mean to keep it off. The larder cupboard by the door is stocked as a household's was that week.",
+  "who": {
+   "name": "Teodor Lindqvist",
+   "age": 86,
+   "role": "teller",
+   "line": "I was twelve. I remember the stairs, and that my mother let us eat the jam first. She'd never have done that if she thought it would last."
+  },
+  "tags": [
+   "eleven-days",
+   "history",
+   "memory"
+  ]
+ },
+ {
+  "id": "the-bruise",
+  "name": "The Bruise",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 366,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "The retired back crews' room at the heat end of the drum, for people who saw the stars on working days.",
+  "text": "Back crews call the brown-violet edges of the River's dust lanes the bruise, and the crews who've retired from the radiator panels named their room for it. It sits at the back of the drum, nearest the radiators, at 0.51 g. Along one wall runs a strip of black cloth twenty metres long, where members have stitched the River from memory, one star each when they join. They have argued for sixty years about where the bruise goes. Above the bar hangs the old betting book from the panels: which raft's edge would cover which star, and when. Guests may sit if they listen.",
+  "detail": "Members are anyone who has worked a sled behind the drum, about three hundred of them. Gin at Sorrel's price, 0.18 a glass. Stitches on the cloth are unpicked only by vote.",
+  "who": {
+   "name": "Amadou Sorensen",
+   "age": 104,
+   "role": "retired radiator hand",
+   "line": "Forty-two years on the panels and I never got used to the River. You don't. You just get quicker at the job so you can look."
+  },
+  "tags": [
+   "back-crews",
+   "river",
+   "gin",
+   "club"
+  ]
+ },
+ {
+  "id": "old-hands-school",
+  "name": "The Old Hands' School",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 318,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "A long workshop where retired makers teach their trades to anyone who rides up with something broken.",
+  "text": "A long workshop at 0.58 g where retired makers teach their trades to anyone who rides up: chair springing, resoling, lamp-fitting, the lathe, weaving spun cellulose, and the heliox flute, 1.2 m long and tuned in the room's own air. Most teachers are past ninety and most students under thirty, and both find this funny. The teachers say the light weight helps: a dropped chisel falls slowly enough to catch, which they also say is cheating. Every bench has an offcut bin sorted by fibre, and a rule chalked over it: mend it before you make it.",
+  "detail": "Lessons cost about 3 kWh an hour, the price of anyone's time, and the teachers put most of it back into the offcut bins. Evening classes from 18:00. Bring something broken.",
+  "who": {
+   "name": "Margit Okonjo",
+   "age": 99,
+   "role": "chair springer",
+   "line": "I've re-sprung the same chair four times for three owners. Each one thinks it was their grandmother's. They're all right."
+  },
+  "tags": [
+   "craft",
+   "school",
+   "mending"
+  ]
+ },
+ {
+  "id": "the-pipe-court",
+  "name": "The Pipe Court",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 320,
+  "deckTo": 324,
+  "ring": 4,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "A five-deck felt-hung atrium that lost its organ to the Moth Organ and gave the room to four elders' choirs.",
+  "text": "An atrium cut up through five decks, its floor on deck 320 at 0.57 g and its ceiling 20 m overhead, with felt hung on every terrace so the room rings only as much as the singers want. It is named for the organ that stood here until its pipes were moved to the Moth Organ, three hundred years ago, and the elders' choirs took the room. Four of them sing here. The oldest, the Long Voices, averages ninety-six. Heliox brightens every voice, and an old one comes out sounding about sixty, which the choir considers the best thing about the air. They rehearse on Tuesdays and sing to anyone on Fridays.",
+  "detail": "Friday concerts at 19:00, free; the terraces seat about six hundred. The Long Voices take nobody under ninety.",
+  "who": {
+   "name": "Corin Haddad",
+   "age": 94,
+   "role": "bass, the Long Voices",
+   "line": "Down below I was a bass. In this air I'm a bass who sounds like a tenor with a secret. I'll take it."
+  },
+  "tags": [
+   "choir",
+   "heliox",
+   "organ",
+   "music"
+  ]
+ },
+ {
+  "id": "moth-long-table",
+  "name": "The Moth Long Table",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 346,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "One table sixty metres long, laid along the axis so a dish slid down it flies true.",
+  "text": "One table, sixty metres long, down the middle of a hall at 0.54 g, seating four hundred elders and anyone they bring. It runs along the axis on purpose: a dish slid down it flies true. The hall tried a spinward table once, and the custards slid anti kept arriving in laps. Robots cook the Mill table at noon and night, but three evenings a week the regulars cook, each bringing one dish from their old deck's kitchen. You sit by whoever is there; that's the only rule. The best chair, at the head, is the oldest, and by custom so is whoever sits in it.",
+  "detail": "The Mill table is free. Cooks' nights (Monday, Wednesday, Saturday) are about 1.5 kWh a head toward the ingredients. Lids stay on until the whole table is served.",
+  "tags": [
+   "long-table",
+   "elders",
+   "cooking",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "the-heavy-room",
+  "name": "The Heavy Room",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 372,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A gym at just over half a g where the whole point is to feel heavier, and the favourite class is falling.",
+  "text": "A gym at just over half a g where the point is to feel heavier. Bones thin when nothing asks them to carry anything, so elders come three mornings a week for weighted vests, springs and slow squats: a spring pulls the same at any weight, and a dumbbell here is half a dumbbell. The most popular class is falling. At half a g a fall takes about 1.4 times as long, long enough to learn to turn and land on a forearm, and ninety-year-olds practise it on thick mats until it bores them. That is the aim. The physios also write slips for heavy rides on the line deck below.",
+  "detail": "The heaviest prescription is twenty minutes a day on the spinward loop of line deck 363, where a cab at its 30 m/s limit makes riders weigh about 0.93 g. Free with a slip.",
+  "tags": [
+   "gym",
+   "bones",
+   "falling",
+   "half-g"
+  ]
+ },
+ {
+  "id": "the-paper-room",
+  "name": "The Paper Room",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 327,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Four thousand books on paper, every one older than its oldest reader, with centuries of pencil in the margins.",
+  "text": "A reading room at 0.57 g holding about four thousand books on paper, every one older than the oldest reader. New paper is mass, about 25 kWh a kilogram, so nobody prints anything; these came down through families and were left here by elders with no one else to leave them to. Readers write in the margins in pencil and sign with their address, so every book carries a conversation some centuries long, and the regulars read the margins first. Felt hangs from the ceiling so a turned page doesn't crack across the room. On Thursdays volunteers ride up from the Low decks to read aloud to anyone whose eyes are tired.",
+  "detail": "Open 08:00 to 22:00. Nothing leaves the room. Margin notes in pencil only, signed with deck, ring and hour, and no arguing with a note less than fifty years old.",
+  "tags": [
+   "books",
+   "reading",
+   "heirlooms",
+   "quiet"
+  ]
+ },
+ {
+  "id": "lamp-row",
+  "name": "Lamp Row",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 357,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "A corridor where fourteen elders pooled their light into one bright strip of tomatoes, lemons and lettuce.",
+  "text": "The brightest corridor on the High decks outside the Hollow itself. Fourteen elders on deck 357, at 0.53 g, put their light together: each pays about 2 kWh a day, and the corridor's middle strip, some 56 m² of planters, is lit like an overcast day for twelve hours. Tomatoes, two lemons in tubs, a fig, lettuces in rows, and a bench every few metres where people sit to be lit. The flats leave their doors open in the day so the brightness spills in. The salad side won the last planting vote by one, so the flowers go round the edges. On Sundays the lettuces are cut and shared down the corridor, four careful leaves each.",
+  "detail": "Each share is about 2 kWh a day, a tenth of a dividend. The meters are posted by the door, because an unmetered lamp shows up as heat on the radiators.",
+  "who": {
+   "name": "Anouk Saris",
+   "age": 92,
+   "role": "planting warden",
+   "line": "We argued for a year about salad or flowers. Salad won by one vote. The one was me, and I'd do it again."
+  },
+  "tags": [
+   "light",
+   "garden",
+   "pooling",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-eldests-chair",
+  "name": "The Eldest's Chair",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 375,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "One room, one very old chair, and on Booking Day morning the oldest person in Sorrel sitting in it.",
+  "text": "A small panelled room on the innermost deck, at half a g, which holds one chair and, on Booking Day, Sorrel's oldest resident. The Register says the chair is fourteen hundred years old. Every part of it has been replaced at least twice, and Sorrel still counts it the oldest chair in the drum, which in Sorrel makes it the best. On Booking Day morning the eldest sits in it and is brought the first apple of the Hollow's orchards. They cut it crosswise, show the star, and send half down to the family of the first child born in Sorrel after lamp-dawn. The rest of the year the chair stands empty. Nobody sits in it, though everyone has wanted to.",
+  "detail": "Open to visitors every day but Booking Day. The present eldest is 126 and has held the chair three years; the Register posts the name at the door each morning.",
+  "who": {
+   "name": "Wenonah Achterberg",
+   "age": 126,
+   "role": "Sorrel's eldest",
+   "line": "They give you the chair, the apple and a great deal of attention. I'd trade the attention for a second apple."
+  },
+  "tags": [
+   "eldest",
+   "booking-day",
+   "apple",
+   "heirloom"
+  ]
+ },
+ {
+  "id": "spare-room-board",
+  "name": "The Spare Room Board",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 305,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Cards in a lift lobby where elders let their spare rooms, mostly for hours rather than kays.",
+  "text": "A board of cards in a lift lobby on deck 305, at 0.59 g, near the bottom of the High decks. Couples go up together and are allotted a flat for two; when one dies the other keeps it, so a spare room is the commonest thing up here. The cards say what's offered and what's wanted: Room, 9 m², lamp-lit, three-forty-four, Six, Lark: two kays a day, or the shopping and Thursday's cooking. Lodgers are young night crews, students at the craft schools, grandchildren from other Rings. Most pay in hours rather than kays. The board's one rule is printed across the top: no lodger moves a chair.",
+  "detail": "Cards are free and stay up a month. Rent is usually 1 to 2 kWh a day or about four hours a week of someone's time; either side may end it on a week's notice.",
+  "who": {
+   "name": "Kit Valdes",
+   "age": 23,
+   "role": "cab-depot night crew, lodger",
+   "line": "I pay in hours. Tuesdays I carry, Fridays I read her the news. She corrects my pronunciation and says that's included."
+  },
+  "tags": [
+   "letting",
+   "lodgers",
+   "hours",
+   "elders"
+  ]
+ },
+ {
+  "id": "story-shelves",
+  "name": "The Story Shelves",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 349,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "A lending library of heirlooms left by elders with no one to leave them to, each with its story in its last owner's voice.",
+  "text": "A long room at 0.54 g where elders with no one to leave things to leave them here, with their stories. Each object carries a tag listing its owners and a short recording in the last one's voice: a wedding coat with seven owners' mends, a crock that fed a corridor through the Eleven Days, a teapot dropped anti so often its spout leans. Families borrow them for weddings and namings, free, but you listen to the whole story before anything leaves the room. New mass costs 25 kWh a kilogram, so a borrowed coat is a real gift, and it comes back with one more mend.",
+  "detail": "Loans run a month, for any wedding, naming or going up. About nine hundred objects; the oldest, a ladle, is on its twenty-third owner. The catalogue is read aloud on request.",
+  "tags": [
+   "heirlooms",
+   "lending",
+   "stories",
+   "mending"
+  ]
+ },
+ {
+  "id": "the-lark-rooms",
+  "name": "The Lark Rooms",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 341,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "A Thursday tea dance at 0.55 g where a good share of the High decks' marriages begin.",
+  "text": "A sprung floor at 0.55 g where Lark's elders dance on Thursday afternoons, and where a good share of the High decks' marriages begin. The band is three elders: a fiddle, a heliox clarinet 1.2 m long and a drum played with brushes. At this weight a dip lasts long enough to say something during it, and regulars plan what. Every hop lands a finger's width spinward, so the slow reel creeps round the room and the last dance ends by the tea urn. The dancers are widowed, never married or just curious, and mostly between ninety and a hundred and ten. The hostess keeps a list of who has asked whom.",
+  "detail": "Thursdays 14:00 to 17:00, free; tea at the urn, 0.15 a cup. Couples who meet here get the band at their wedding. It plays the same three tunes.",
+  "who": {
+   "name": "Ferdinand Osei",
+   "age": 98,
+   "role": "Thursday regular",
+   "line": "At my age you don't waste a dance, or a Thursday. I've asked her four times. She says next week."
+  },
+  "tags": [
+   "dance",
+   "courtship",
+   "music",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "hundredth-breakfast",
+  "name": "The Hundredth Breakfast",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 333,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Swift's centenarians' club, which you may attend exactly once, on the Monday after you turn a hundred.",
+  "text": "Most Sorrelers reach a hundred, so the centenarians' club of Swift's Ring 3 is strict about everything else. You may come exactly once, on the Monday after your hundredth birthday, to a breakfast at 0.56 g with everyone in the Ring who turned a hundred that week, usually about three hundred people. There's jook, vat egg, one gin each at eight in the morning, and a story you must tell that nobody at your table has heard. Most come to see who else made it. About once a breakfast, two people find they sat next to each other at school, and the room waits while they work out how many years ago that was.",
+  "detail": "Mondays at 07:30, once in your life, paid from the Ring's hall fund. Bring someone younger to walk you home; it is a long breakfast.",
+  "who": {
+   "name": "Ama Lindgren",
+   "age": 100,
+   "role": "this Monday's member",
+   "line": "I came for the gin. I stayed because the woman beside me had my old desk at school, and still owes me a pencil."
+  },
+  "tags": [
+   "centenarians",
+   "breakfast",
+   "club",
+   "elders"
+  ]
+ },
+ {
+  "id": "stillwood",
+  "name": "Stillwood",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 329,
+  "deckTo": 332,
+  "ring": 9,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "A dim wood of old yews and birches in a four-deck atrium, where past the second birch nobody speaks.",
+  "text": "A dim wood in an atrium cut up through four decks, its floor on deck 329 at 0.56 g and its ceiling 16 m overhead, lit to about 1,000 lux, like the end of an evening. Yews older than the Count, birches grown tall and thin, hazel, moss over everything, and paths of pale grit that don't crunch. Owl's elders voted it dim when they could have had a bright court, and they come here not to talk. Leaves are the best felt there is, so even in heliox a voice dies a few metres off, and past the second birch nobody uses one. Benches face the trees, never each other.",
+  "detail": "Open from lamp-dawn to lamp-night. Slates hang at the gate for anyone who must say something. If you need to speak, go back past the second birch.",
+  "who": {
+   "name": "Ingrid Mbeki",
+   "age": 66,
+   "role": "woodwarden",
+   "line": "People think a wood like this is for sad people. Mostly it's for people who've talked all their lives and have finished."
+  },
+  "tags": [
+   "wood",
+   "quiet",
+   "dim",
+   "trees"
+  ]
+ },
+ {
+  "id": "the-sleeve-room",
+  "name": "The Sleeve Room",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 368,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Elders who flew the Spindle for sixty years now remake the wing-sleeves for the front flying hall.",
+  "text": "A long workroom at 0.51 g, a short ride from the Spindle lifts on the front end wall, where elders remake wing-sleeves for the front flying hall's hire gate. The fins run wrist to hip, and a pair flown through a few thousand lamp-nights comes back with tired seams and frayed leading edges. Here they're unpicked, recut and restitched, about two days' work a pair. The room smells of warm cellulose and dye. Several of the sewers flew the whole Spindle every lamp-night for sixty years, and they judge a finished seam by holding it to the lamp and blowing on it.",
+  "detail": "A remade pair costs about 18 kWh, and the hire gate takes forty pairs a week. Visitors may watch; anyone who can sew a straight seam may stay.",
+  "who": {
+   "name": "Mahsa Ferro",
+   "age": 101,
+   "role": "sleeve remaker",
+   "line": "I flew the Spindle every lamp-night for sixty years. Now I sew the fins and the young ones fly them. Same pleasure, fewer landings."
+  },
+  "tags": [
+   "wing-sleeves",
+   "sewing",
+   "spindle",
+   "workshop"
+  ]
+ },
+ {
+  "id": "the-one-oclock",
+  "name": "The One O'Clock",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 355,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A lamp-night café for elders who sleep in pieces, with laundry at the night price and jook at four.",
+  "text": "Elders sleep less, and Sorrel's kWh are cheapest in the lamp-night, so this café at 0.53 g opens at eleven, when the lamps fade, and closes at six. At one in the morning the machines in the back room run at the night price, and Wolf's elders bring their washing and sit with amazake while it turns. The lamps are low, the room is warm, and the loudest thing is the drum: fans, pumps, the lamp-night machines somewhere below. Regulars play a slow card game with no fixed end. A cook comes at four and makes jook for anyone still awake, and most are.",
+  "detail": "Open 23:00 to 06:00. Amazake 0.20, gin 0.18, a load of laundry about 0.2 kWh at the night price. Jook from 04:00, free on the Mill-table credit.",
+  "tags": [
+   "lamp-night",
+   "laundry",
+   "cafe",
+   "elders"
+  ]
+ },
+ {
+  "id": "lunds-taking-in",
+  "name": "Lund's",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 310,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "On the Low decks tailors let things out; up here Lund's takes them in, and folds the spare into the seam.",
+  "text": "On the Low decks tailors let things out; on the High decks they take them in. People shrink a little after ninety, and Lund's, a narrow shop at 0.59 g, spends its days narrowing coats, shortening trousers and moving buttons a finger's width over. Nothing is cut away. The spare cloth is folded into the seam, a hand's width of it, the way children's clothes are made, so the next owner can have it let out again. Most of the coats on the rail have been in this shop before, for someone else. The fitting mirror is the oldest thing in the room, and everyone says it is kind.",
+  "detail": "Taking in a coat is about an hour, 3 kWh. Lund's keeps a book of every coat it has altered, with each owner's measurements, some going back two hundred years.",
+  "who": {
+   "name": "Halvard Lund",
+   "age": 67,
+   "role": "tailor",
+   "line": "I've taken in this coat for three people. The first was the grandmother of the third. Neither of them knows that, and I won't say."
+  },
+  "tags": [
+   "tailor",
+   "mending",
+   "thrift",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-slow-water",
+  "name": "The Slow Water",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 359,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "A long warm bath at half a g, where a wave takes thirteen seconds to cross and getting out is easy.",
+  "text": "A long bath at 0.52 g, thirty metres of water a metre deep, filled from the food plant's 65 °C loop and held at 40 °C, the warmest room on the deck. At this weight water is gentle: the wave from someone getting in takes about thirteen seconds to reach the far end, against nine and a half at the rim, and regulars wait for it with their eyes shut. Getting out, the hard part of any bath at ninety, means lifting about half your Earth weight, so the rails are mostly for leaning on while talking. Mornings bring the lake crowd down damp; evenings, the choirs, to warm their voices.",
+  "detail": "About 0.05 kWh a soak, for pumping and cleaning. Open 06:00 to 22:00, elders first at lamp-dawn and anyone after nine. Robes on the hooks.",
+  "tags": [
+   "baths",
+   "waste-heat",
+   "half-g",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-hour-desk",
+  "name": "The Hour Desk",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 362,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Where elders sign their spare Hollow hours over to grandchildren, neighbours and anyone who stayed late for them.",
+  "text": "Sorrel gives its elders far more Hollow time than anyone else, and the Low decks have opinions about that. This desk, in a lift lobby at 0.52 g, is where elders give some back. They sign spare Hollow hours over to grandchildren, neighbours' children, new couples, a nurse who stayed late, and the clerk writes each gift on a card for the giver to hand over. A Hollow hour is the classic present, and from an elder it's the best kind, since it's something they would actually have used. The busiest week is the one before Booking Day, when grandparents remember how many grandchildren they have.",
+  "detail": "Gifts are whole hours from the giver's own elder slots; the lake at lamp-dawn can't be given. Registering is free. About a third of gifts go outside the family.",
+  "tags": [
+   "hollow-hours",
+   "gifts",
+   "elders",
+   "lending"
+  ]
+ },
+ {
+  "id": "two-kettles",
+  "name": "Two Kettles",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 336,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "When two elders marry they own two of everything; this shop mends the spares and sends them down to young couples.",
+  "text": "When two elders marry, they own two of everything, and their allotted flat has room for one. Two Kettles, at 0.55 g, takes the spares: kettles, tables, lamps, sofas, the second set of cups. Everything is checked, mended and sent back down to the Low and Middle decks, where young couples furnishing a first flat are glad of it. New mass costs 25 kWh a kilogram, so a remade sofa from here is the commonest wedding present in Heron. The front shelf holds the week's kettles, usually about forty, and a card on each says which two households it came from.",
+  "detail": "Free to bring; you pay only the mending to take: a kettle about 1 kWh, a remade chair about 20. Collections from the High decks by freight cab on Mondays.",
+  "tags": [
+   "marriage",
+   "thrift",
+   "furniture",
+   "elders"
+  ]
+ },
+ {
+  "id": "the-note-room",
+  "name": "The Note Room",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 369,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the yearly notes come in from the families of children named for the dead, and elders come to read them.",
+  "text": "Children in Sorrel are named for the dead whose places they take, and each year on the date their family sends the dead's family a note. Up here, most of the dead's families are elders: widows, brothers, very old parents. This small room at 0.51 g keeps the notes that come by hand, on card, in a wall of numbered boxes, and the clerk will read one aloud for anyone whose eyes are tired. Some elders have had sixty notes about one child and know her better than her teachers did. On busy dates the room keeps a kettle on and a box of tissues out, and doesn't remark on either.",
+  "detail": "Open 08:00 to 20:00. Card and pens at the desk, free; the clerk sends any reply down to the child's deck the same day.",
+  "who": {
+   "name": "Lio Kamara",
+   "age": 88,
+   "role": "note clerk",
+   "line": "Most notes say the same three things: she's well, she's grown, she's kind. People read them as if they'd never heard any of it."
+  },
+  "tags": [
+   "names",
+   "pool",
+   "notes",
+   "memory"
+  ]
+ }
+]

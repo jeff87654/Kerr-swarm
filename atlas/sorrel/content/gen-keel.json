@@ -1,0 +1,298 @@
+[
+  {
+    "name": "Vat hall",
+    "decks": [
+      5,
+      12
+    ],
+    "text": "Closed steel vats in rows, each two decks tall and held at 65 °C, with a gallery along the top where the sample ports are. Methanol goes in; protein flour comes out. The air is warm and smells faintly of bread crust, and the one person on shift is reading sequences, not looking at vats."
+  },
+  {
+    "name": "Steak line",
+    "decks": [
+      5,
+      12
+    ],
+    "text": "Long trays of mycelium knitting into mats the colour of jook, under a low ceiling and a steady breath of filtered air. A cutter takes the morning's mats into steaks the size of a hand. Trimmings go to the crew canteen; the rest goes up on night freight to the halls of Ring {ring}."
+  },
+  {
+    "name": "Dairy hall",
+    "decks": [
+      5,
+      12
+    ],
+    "text": "Yeast vats making casein for cheese and egg white for custard, with a gauge for each line on the wall and a chalked note under one of them: smells fine, check anyway. Spent yeast goes by pipe next door to be made into yeast extract, the umami in half the drum's broths."
+  },
+  {
+    "name": "Cell hall",
+    "decks": [
+      6,
+      12
+    ],
+    "text": "Cultivated fat and muscle cells in quiet bioreactors kept at blood heat. A few grams of this fat on a mycelium steak is what makes it read as beef. A line lost here takes a month or more to regrow, so the hall has two airlocks and nobody hurries through either."
+  },
+  {
+    "name": "Coffee cells",
+    "decks": [
+      6,
+      12
+    ],
+    "text": "Plant-cell vats growing coffee and cocoa, with electric roasters along one wall. The whole block smells of roasting, all day and all night, and crews from the neighbouring halls find reasons to walk through it. The spent grounds are bagged by the door for the mushroom rooms."
+  },
+  {
+    "name": "Brew hall",
+    "decks": [
+      4,
+      10
+    ],
+    "text": "Fermenters of Mill lager, each two decks tall, the yeast working cool and slow. Brewing keeps nearly all the sugar's energy, so this is some of the cheapest food the plant makes. The crew's rule is one glass at the end of a shift, from whichever tank is on test."
+  },
+  {
+    "name": "Koji rooms",
+    "decks": [
+      5,
+      11
+    ],
+    "text": "Warm, damp rooms where koji spreads white over trays of protein flour and starch, for miso, Mill soy sauce, amazake and shio-koji. The air smells sweet and nutty. Crocks of three-year miso stand along the back wall, each labelled with the shift that started it."
+  },
+  {
+    "name": "Cheese rooms",
+    "decks": [
+      6,
+      12
+    ],
+    "text": "Cool, damp rooms where vat cheese ages on racks, turned by robots on a slow rota. The rinds bloom white, then grey. Every wheel carries its date and its line, and the oldest, ten years down, are kept for weddings and argued over by the crews."
+  },
+  {
+    "name": "Herb racks",
+    "decks": [
+      7,
+      12
+    ],
+    "text": "Bay after bay of basil, coriander, shiso and chives under red-weighted lamps, for the bowls of herbs on every Mill Hall table. Herbs are the cheapest thing the Garden grows, a few grams to a dish, and in any shortfall these bays are the last to go dark."
+  },
+  {
+    "name": "Strawberry racks",
+    "decks": [
+      8,
+      12
+    ],
+    "text": "Hanging troughs of strawberries at chest height, white flowers and red fruit together under purple light. With no insects in Sorrel, a hand with a soft brush does the pollinating, flower by flower, on a round that never quite ends. The split berries go to the crew canteen."
+  },
+  {
+    "name": "Mushroom room",
+    "decks": [
+      8,
+      12
+    ],
+    "text": "A cold, wet room at 16 °C, shelves of pressed blocks made from spent mycelium and rack stalks, oyster mushrooms bursting from them in grey frills. Pickers in quilted coats work by hand lamp. It smells of damp cloth and new bread."
+  },
+  {
+    "name": "Electrolyser bay",
+    "decks": [
+      3,
+      10
+    ],
+    "text": "Rows of insulated boxes, each holding stacks of ceramic cells splitting water at about 800 °C. Hydrogen goes one way and oxygen the other, and some of the air you breathed this week came from a bay like this one. It is hot and dry, and the fans never stop."
+  },
+  {
+    "name": "Scrubber hall",
+    "decks": [
+      2,
+      12
+    ],
+    "text": "The drum's air comes down the shafts to here and goes back up without its carbon dioxide, which is piped on to the methanol reactors. Banks of fans the height of a room run day and night. In a Dark they would be among the last things still turning."
+  },
+  {
+    "name": "Tank yard",
+    "decks": [
+      2,
+      11
+    ],
+    "text": "A hall of methanol tanks, each a deck and a half tall, filled with pure helium so that nothing in it can burn. Anyone entering wears a mask and signs a book. Each row holds a day of the Mill's feedstock for a few hundred thousand people."
+  },
+  {
+    "name": "Oxygen bank",
+    "decks": [
+      2,
+      8
+    ],
+    "text": "Insulated tanks of liquid oxygen, part of the 35 kg banked for every person in Sorrel against a Dark. The tanks make no sound and show no frost. A warden walks the row twice a shift with a hand lamp and a slate, and has never once found anything wrong."
+  },
+  {
+    "name": "Fuel cell hall",
+    "decks": [
+      2,
+      10
+    ],
+    "text": "Rack after rack of fuel cells, cold and silent, waiting to burn jacket hydrogen against the oxygen bank if the beam ever stops. Once a month a bank runs live for an hour in a Dark drill, and the hall fills with the hiss of gas lines and the crew calling readings."
+  },
+  {
+    "name": "Dry store",
+    "decks": [
+      5,
+      12
+    ],
+    "text": "Shelves to the ceiling of sealed sacks and tins: Mill rice, starch, sugar, fat in blocks, tins of the Nine. Part of the drum's ninety-day store of dry goods, rotated so nothing on the shelves is older than a year. A cleaning robot works the aisles at night and is the only thing that moves."
+  },
+  {
+    "name": "Water hall",
+    "decks": [
+      1,
+      6
+    ],
+    "text": "Filters, ultraviolet tubes and long tanks where the drum's water is cleaned before it goes back up. Everything drips and everything is labelled. The water comes in from the moat at about 17 °C, and the tap by the door gives the coldest drink in Ring {ring}."
+  },
+  {
+    "name": "Hot loop exchangers",
+    "decks": [
+      2,
+      8
+    ],
+    "text": "Plate exchangers handing the vats' waste heat to the 65 °C loop that runs to every bath and kitchen tap above. The pipes are lagged in grey and still warm to the touch. A crock of amazake sits on a flange, refilled by whoever finishes it."
+  },
+  {
+    "name": "Pipe gallery",
+    "decks": [
+      1,
+      15
+    ],
+    "text": "A service gallery along the axis, crowded with pipes in their colours: hot loop, cold water, methanol, carbon dioxide, brine, ammonia. Crews ride it on low tricycles. Every few hundred metres there is a bench and a tap, and the benches carry the initials of a great many shifts."
+  },
+  {
+    "name": "Oxidiser train",
+    "decks": [
+      2,
+      6
+    ],
+    "text": "A row of thick-walled reactors where waste meets water hotter than 374 °C at two hundred times the pressure of the air, and comes out as gas, clean water and brine. There is no flame and no smoke. Every few weeks one train is shut down and washed with acid to clear the scale."
+  },
+  {
+    "name": "Phosphate works",
+    "decks": [
+      2,
+      7
+    ],
+    "text": "Settling tanks where the oxidisers' phosphate comes out of the brine as white crystals, to go back to the Vats and the racks. Phosphorus is the element Sorrel can least spare, so every tank is weighed in and out, and the floor drains are swept like a jeweller's."
+  },
+  {
+    "name": "Fixery",
+    "decks": [
+      2,
+      8
+    ],
+    "text": "Where the nitrogen the oxidisers set loose as gas is caught and made back into ammonia for the Vats. The plant hisses steadily and smells of nothing, since nothing gets out. A dial by the door shows the nitrogen in Sorrel's air, held under ten pascals."
+  },
+  {
+    "name": "Take-apart floor",
+    "decks": [
+      3,
+      10
+    ],
+    "text": "Benches where worn-out things are taken apart by kind: aluminium, steel, glass, cellulose, the magnets out of motors. Robots do the heavy work and people do the judging. A shelf by the door holds things too good to break up, waiting for a mender to claim them."
+  },
+  {
+    "name": "Passport room",
+    "decks": [
+      4,
+      10
+    ],
+    "text": "A small locked room where scarce metals are weighed against their passports: copper, platinum, neodymium, and iodine from the clinics' drains. The scales are the best in the Keel. A gram unaccounted for means a search, and the search is written up whether it finds the gram or not."
+  },
+  {
+    "name": "Pump shop",
+    "decks": [
+      3,
+      12
+    ],
+    "text": "Lathes, presses and hoists, where pumps from all over the Keel are rebuilt inside their old casings. Each rebuilt pump leaves with a tag listing everyone who has worked on it. Some tags run to both sides, and the fitters read the old names aloud like a register."
+  },
+  {
+    "name": "Stack shop",
+    "decks": [
+      3,
+      10
+    ],
+    "text": "Tired electrolyser stacks come here to be opened and their ceramic cells tested one by one; the good cells are built into new stacks. It is slow, careful work at long clean benches. The cells that fail go out to the Yards to be made again."
+  },
+  {
+    "name": "Crew room",
+    "decks": [
+      1,
+      15
+    ],
+    "text": "A shift crew's room: lockers, a long table, a kettle on the 65 °C tap, and a rota on the wall with three names crossed out and written back in. Masks hang on pegs by the door. Someone has left a pot of basil on the table, and someone else waters it."
+  },
+  {
+    "name": "Quiet room",
+    "decks": [
+      5,
+      15
+    ],
+    "text": "A small felt-hung room for silence, kept by the Keel's crews: a bench, a mat, one dim lamp and a bowl of water. The rule is on the door in plain letters: no talking, no work. Night-shift hands use it around 04:00, when the plant's noise is at its most even."
+  },
+  {
+    "name": "Night freight dock",
+    "decks": [
+      1,
+      12
+    ],
+    "text": "A loading bay where the food plant's output waits for the night cabs: crates of noodles, curds, steaks, herbs and cheese, sorted by Hour and stacked by deck. Between one and five in the morning the cabs come down empty and leave full, one every few seconds."
+  },
+  {
+    "name": "Spare vats",
+    "decks": [
+      4,
+      12
+    ],
+    "text": "A hall of clean, empty vats, sterilised and sealed, kept ready for the day a blight takes a line. Nothing grows here and nothing is meant to. A steward checks the seals every week and signs the board, which has been signed every week for longer than anyone has counted."
+  },
+  {
+    "name": "Assay lab",
+    "decks": [
+      5,
+      12
+    ],
+    "text": "Benches of sequencers and small analysers, fed by pneumatic tube from every vat and rack in the Ring, a capsule every few seconds. This is phage watch's eyes. Results scroll on a wall, and once in a long while the whole wall turns amber and the room goes quiet."
+  },
+  {
+    "name": "Apprentice hall",
+    "decks": [
+      15,
+      15
+    ],
+    "text": "Benches, a cut-away pump, a glass-sided vat and a wall of valves that do nothing: where the Keel teaches its apprentices, most of them sixteen to twenty. Lessons start at seven sharp, because the plant runs on shifts and so must they."
+  },
+  {
+    "name": "Frost return",
+    "decks": [
+      1,
+      3
+    ],
+    "text": "Pipes and pumps that bring the Gleaners' catch home: oxygen, water and traces of everything else warmed off the cryopanels below the hull. A panel shows each bank's assay as it arrives, and the crews swear they can read the drum's dinners in it."
+  },
+  {
+    "name": "Cryocooler bay",
+    "decks": [
+      1,
+      3
+    ],
+    "text": "A row of cryocoolers chuffing about once a second, their cold heads reaching down through the hull into the jacket, their warm ends handing heat to the coolant loop. Every watt they pull out of the hydrogen costs forty-seven to move. The crew can hear a failing one."
+  },
+  {
+    "name": "Quiet storage",
+    "decks": [
+      1,
+      15
+    ],
+    "text": "A locked store of spare parts nobody has needed for years: impellers, valve seats, a crate of lamp drivers, a whole exchanger plate wrapped in film. Everything is labelled with where it came from. The shelves are wiped monthly, and the store's ledger is older than its keeper."
+  },
+  {
+    "name": "Dose office",
+    "decks": [
+      1,
+      15
+    ],
+    "text": "A small office where Keel crews hand in the dose badges they wear on shift, since the rim decks are the least shielded in the drum. The readings are low and dull and posted weekly. There is a jar of sweets on the counter, and most people come for that."
+  }
+]

@@ -1,0 +1,648 @@
+[
+ {
+  "id": "station-ring-1",
+  "name": "Station Ring One",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 1,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's front station, for Lovage and Tansy, where every bag weighs more than it did at home.",
+  "text": "Sorrel's front station: glide trains for Lovage and Tansy along the rim deck, cab berths on the three decks above, and the front cap a couple of hundred metres off, with the jacket and the moat's front tank behind it. Ring One is where Sorrel's luggage habits live. The Bag Hall on deck 2 lends padded bags for wedding chairs, sprung crates for starter crocks and nets for everything else, since nothing rides loose through 140 weightless seconds. A bag packed on the High decks weighs nearly twice as much down here, and the porters' bench is never empty. In Hare, a worn bronze plate on the platform wall marks one, One, Hare, where every address in Sorrel starts counting. People touch it before a wedding.",
+  "detail": "The Bag Hall lends free for a week. A chair bag takes anything up to about a metre and a half; a crock crate holds two crocks and a cloth.",
+  "who": {
+   "name": "Dov Arrany",
+   "age": 61,
+   "role": "porter, the Bag Hall",
+   "line": "People pack upstairs, where everything is light, and carry it down here at a full g. Every day somebody sits on their own bag and laughs at it."
+  },
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "luggage",
+   "lovage",
+   "tansy"
+  ]
+ },
+ {
+  "id": "station-ring-2",
+  "name": "Station Ring Two",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 2,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "The station for Chervil and Rue, busiest on Thursday evenings, when Sorrelers go over to Chervil for ramen at a long table.",
+  "text": "Ring Two's lanes cross the rows: one way to Chervil, the other to Rue. The Chervil trains come in a short walk from Chervil's long-table halls, so on Thursday evenings Sorrelers queue here for ramen in another drum and come home at midnight talking too loudly. The Quaysides know their trade. A row of sprig stalls on the departure side sells cut herbs at a few hundredths of a kay, because the rule on Herb Row is bring herbs, not gin, and Sorrelers always forget their own shelf. Going the other way, Rue's commuters come in at lamp-dawn and take a rice ball from the counter before the cab.",
+  "detail": "Sprigs cost 0.03 kWh, the same as from your own pot. The stallholders say you are paying for remembering. The last train back from Chervil on a Thursday is known as the Ramen.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "chervil",
+   "rue",
+   "herbs"
+  ]
+ },
+ {
+  "id": "station-ring-3",
+  "name": "Station Ring Three",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 3,
+  "hour": null,
+  "r": null,
+  "wall": null,
+  "blurb": "The Daces' ring and Sorrel's market: produce from Lovage and Tansy, the Gate, the baths kitchen and the first ring counter.",
+  "text": "Ring Three's lanes run along Herb Row to Lovage and Tansy, and most of the produce Sorrel buys from its neighbours comes in here: Lovage's cherry tomatoes, Tansy's strawberries, crates of cucumbers and herbs, every crate sealed and certified. Greengrocers from all over the drum come down at lamp-dawn for first pick. The Quaysides around the ring are the busiest blocks in Sorrel: the produce hall, the freight docks, the Gate on the inbound platform, Keel Baths Kitchen two decks up, and the hatch where the ring counters began. At shift change the platform smells of pepper and strawberries, and the Gate's night crew go home past the queue.",
+  "detail": "The produce hall opens at 05:00 and is mostly bare by eight. A Lovage tomato costs about half a kay here, the same as upstairs, but you get first pick.",
+  "canon": "ashgrove.md",
+  "tags": [
+   "glide",
+   "market",
+   "produce",
+   "lovage",
+   "tansy"
+  ]
+ },
+ {
+  "id": "station-ring-4",
+  "name": "Station Ring Four",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 4,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "The station for Chervil and Rue where Sorrel's swaps are made, and families who want each other's homes meet to shake hands.",
+  "text": "Ring Four's lanes cross the rows to Chervil and Rue, and its Quaysides hold the swap office: a long room on deck 4 where people who want to live in each other's drums are put together. A swap takes days and a good deal of tea. Most of the people coming in from Rue are couples hoping for a child, since Rue draws its birth licences by lottery. Most of the Sorrelers going the other way have decided against one, and like the sound of a drum that is richer per head. The two households meet once in the office to shake hands, and often again on the platform a week later, by chance, going opposite ways with their furniture.",
+  "detail": "The office opens at 08:00 daily. A swap needs both places on the registers and both households' signatures. It costs nothing but the move, and furniture rides the night freight.",
+  "who": {
+   "name": "Sorcha Imbe",
+   "age": 47,
+   "role": "swap clerk",
+   "line": "I've never matched two households who wanted the same thing. That's the trick. Each side wants what the other is leaving, and they both think they got the better flat."
+  },
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "swaps",
+   "rue",
+   "chervil"
+  ]
+ },
+ {
+  "id": "station-ring-5",
+  "name": "Station Ring Five",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 5,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "The tube level: capsules for the cycler ramps and anywhere further than a glide. Wanderers and long-trippers leave from here.",
+  "text": "Ring Five is the odd ring. Its lane level is a shielded tube, so nothing here glides to a neighbour: capsules leave its quay for the cycler ramps, and from there for anywhere on Merrow. The departure hall in Fox is long, quiet and hung with felt, with a board that lists rows instead of drums and gives each its delay by light. Two queues form. The slow line's is young and loud, with crocks, nets and a year of shirts. The express queue is short and dressed up. Everyone is weighed, bags and all, because a capsule comes to about 200 kg with you in it, and at express speed each extra kilo costs about half a kay.",
+  "detail": "Slow line about 1.1 kays a leg at any distance; express about 111. A spare kilo on the slow line costs a few thousandths of a kay, so express travellers post their books that way.",
+  "who": {
+   "name": "Nkem Halloran",
+   "age": 39,
+   "role": "weigh clerk",
+   "line": "Some of them wear three coats to the scale. I tell them a coat on weighs the same as a coat in the bag. They wear it anyway."
+  },
+  "canon": "drum-transport.md",
+  "tags": [
+   "cyclers",
+   "wanderers",
+   "express",
+   "departures"
+  ]
+ },
+ {
+  "id": "station-ring-6",
+  "name": "Station Ring Six",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 6,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "The commuters' station for Chervil and Rue, with a booking hall under a clock with three faces.",
+  "text": "Ring Six is the commuters' ring. Its lanes cross the rows to Chervil and Rue, and its morning trains are full of people going to sell their hours where hours sell dear: a cook's or a tutor's hour fetches about six kays in Chervil, twice Sorrel's rate, and a good many of Ring Six's cooks and tutors work there. The traffic runs the other way too. Rue has more teachers than children these days, and some of them teach in Sorrel's Low-deck schools. Peak glides are booked, so the booking hall in Stag is the busiest room in the Quaysides at lamp-dawn, under a clock with three faces, one for each drum's working day.",
+  "detail": "Peak glides, 06:30 to 09:00 and 16:00 to 19:00, are booked a day ahead and cost nothing. Outside those hours you walk on. A missed booking loses you only your place.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "commuters",
+   "chervil",
+   "rue"
+  ]
+ },
+ {
+  "id": "station-ring-7",
+  "name": "Station Ring Seven",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 7,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's freight station, where worn things go out to the Yards and come back as stock, and the Last Table gives menders first claim.",
+  "text": "Ring Seven carries the bulk of Sorrel's freight. Its trains run to Lovage and Tansy, and its freight halls send worn things out to the Yards in the mid-raft, which remake about a tenth of a tonne for every person in Sorrel each year. Back come rolls of spun cellulose, bars of aluminium and sacks of fabricator feed. Before anything leaves, it sits a day on the Last Table, a trestle as long as a platform in Swift, where any mender in Sorrel may claim it for the cost of carrying it home. Menders come down at lamp-dawn with trolleys and pretend not to race. At a full g, nobody claims a sofa twice.",
+  "detail": "Things wait on the Last Table from lamp-dawn to lamp-dawn. Claims are free: sign the slate and carry it off yourself. Whatever is left goes out with the night freight.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "freight",
+   "mending",
+   "yards"
+  ]
+ },
+ {
+  "id": "station-ring-8",
+  "name": "Station Ring Eight",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 8,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "The quiet station for Chervil and Rue, with a refuge desk that keeps its kettle hot every hour the trains run.",
+  "text": "Ring Eight is the quiet one. Its lanes cross the rows to Chervil and Rue, and on rest days its trains to Rue fill with Sorrelers going to eat at Rue's Blight Kitchen, which is very good and makes everyone thoughtful on the way back. On the platform in Moth is the refuge desk: a clerk, a kettle and the pool's register, open every hour the trains run. Most years nobody comes. The last busy year was 212 years ago, when people fled a counted drum three rows across and Sorrel held back a week of births to place thirty thousand of them. Their descendants still bring the clerk a cake on the date.",
+  "detail": "The desk is staffed from the first train to the last. Rue's swappers sometimes arrive here by mistake; the clerk sends them to Ring Four with directions and a rice ball.",
+  "who": {
+   "name": "Ottilie Baraka",
+   "age": 70,
+   "role": "refuge clerk",
+   "line": "I've made a lot of tea for people who just wanted directions. That's fine. The day someone needs the register, the kettle will already be hot."
+  },
+  "canon": "drum-transport.md",
+  "tags": [
+   "refuge",
+   "rue",
+   "chervil",
+   "history"
+  ]
+ },
+ {
+  "id": "station-ring-9",
+  "name": "Station Ring Nine",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": 4,
+  "ring": 9,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "The back station and the late one: the last train to Lovage at one, noodles until it's gone, and a bench for the first train at five.",
+  "text": "Ring Nine is the back station, a couple of hundred metres from the back cap, and the one Sorrel goes home through after dark. Its lanes run to Lovage and Tansy. On Saturdays Lovage people come over for cheap gin and go home on the one o'clock train, two bottles each, wrapped in scarves so they don't clink. Noodle stalls on the Quaysides stay open until that train has gone. Night crews eat here too: the Gate's night shift, food-plant hands, the freight gangs from Ring Seven. Between the last train and the first only freight goes out, and the long bench on the platform in Lark fills with people who would rather doze there than go home and come back.",
+  "detail": "First train 05:00, last 01:00. The noodle stalls charge about a kay a bowl, and the ring counter here doubles its pepper after midnight.",
+  "canon": "drum-transport.md",
+  "tags": [
+   "glide",
+   "night",
+   "lovage",
+   "noodles"
+  ]
+ },
+ {
+  "id": "the-gate",
+  "name": "The Gate",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's quarantine for anything alive coming into the drum, off Ring Three's inbound platform, where a phage is stopped before it becomes a famine.",
+  "text": "A long room off Ring Three's inbound platform, with clean benches down one side, a sequencer bay at the far end and a cold room behind a heavy door. In a drum whose protein comes out of monoculture vats, a stray phage is a famine, and this is where it gets stopped. Most of what comes through is produce, Lovage's cherry tomatoes and Tansy's strawberries, every crate sealed and certified, and the crew open one in fifty. The rest is people carrying something alive: seeds, starters, a grandmother's yogurt. Anything that can't be cleared goes into the strain library's isolation vault, where its owner may visit it, while the library grows a clean copy. The crew call this the gentle version, and use it whenever they can.",
+  "detail": "Open day and night, with a night crew. Declaring a culture is free. The other rings keep crate posts and send anything doubtful here. A clean copy takes about a week.",
+  "who": {
+   "name": "Teo Dace",
+   "age": 44,
+   "role": "Gate hand",
+   "line": "Most days it's strawberries. The hard days are when someone's crock has to go in the vault, and I have to promise them it will still be theirs."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "quarantine",
+   "strain-library",
+   "produce"
+  ]
+ },
+ {
+  "id": "keel-baths-kitchen",
+  "name": "Keel Baths Kitchen",
+  "kind": "eat",
+  "zone": "keel",
+  "deck": 3,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "Everything cooked on the food plant's free 65 °C loop, eaten in robes in rooms the same pipes warm.",
+  "text": "A bathhouse kitchen in the Quaysides by Station Ring 3, two decks above the platforms. Everything cooks on the food plant's 65 °C waste-heat loop, so holding, brewing and slow cooking cost nothing, and only one thing on each plate is seared. You eat in robes, in rooms warmed by the same pipes, so the soup stays hot even in heliox. The onsen custard is vat egg held at 63 °C for an hour until it barely sets. The three-day broth has never boiled. The black garlic has aged five weeks on the loop. Shift crews come straight off the platforms, Lovage visitors come for the robes, and the Crosswise Guide rates it worth a cycler.",
+  "detail": "About 3 kWh a head. Onsen custard 0.45, three-day broth noodles 1.40, black garlic toast 0.55, warm amazake 0.20. Wait for the one crisp thing: they fry it last.",
+  "who": {
+   "name": "Orla Marsh",
+   "age": 58,
+   "role": "head cook",
+   "line": "The loop does the cooking. We do the waiting. The only thing I put power into is the crisp thing, and I make everyone wait for it."
+  },
+  "canon": "eating-out.md",
+  "tags": [
+   "waste-heat",
+   "baths"
+  ]
+ },
+ {
+  "id": "first-ring-counter",
+  "name": "The First Counter",
+  "kind": "eat",
+  "zone": "keel",
+  "deck": 1,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "The hatch on Ring Three's inbound platform where Sorrel's ring counters began: peppery Mill broth and a sticky rice ball, free.",
+  "text": "Every station ring on Herb Row keeps a hatch for crews and commuters, and Sorrel says this one, in Owl on Ring Three's inbound platform, was the first. The broth is Mill stock held below a simmer on the waste-heat loop and sharpened with pepper ground at the hatch. The rice ball is sticky Mill rice, pressed warm. Both are free, and glide cars don't take hot soup, so you drink it standing on the platform. The other eight counters pour the same cup with habits of their own: Ring Five gives leavers a sealed bulb to drink on the cycler, Ring Nine doubles the pepper after midnight, and Ring Seven makes its rice balls twice the size, for the freight gangs.",
+  "detail": "Open from the first train to the last. Each cup and ball is worth about 0.3 kWh, paid by the commons. The Crosswise Guide gives the ring counters its Ladle.",
+  "who": {
+   "name": "Ruy Fennimore",
+   "age": 66,
+   "role": "counter hand",
+   "line": "Ring Two put a sprig in theirs once, the Chervil way. We said nothing. We didn't have to. It was gone by Thursday."
+  },
+  "canon": "eating-out.md",
+  "tags": [
+   "ring-counter",
+   "broth",
+   "free"
+  ]
+ },
+ {
+  "id": "arrivals-sorting",
+  "name": "The Sorting",
+  "kind": "civic",
+  "zone": "keel",
+  "deck": 3,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "Ring Six's arrivals barrier, where evening commuters are sent home three to a cab with neighbours bound for the same core.",
+  "text": "Coming home at the evening peak, you don't get a cab to yourself. The quay has already brought your glide train round to the platform nearest most of its riders' homes, and at the barrier on deck 3 you give your address, deck, ring and hour, and the sorter's screen puts you with two others bound for the same core. It cuts the cab traffic at the ring by about a quarter, which pleases Sorrel, and it means most commuters have ridden home at least once with a neighbour they had never met. You may ask to ride alone. People who do are looked at, kindly.",
+  "detail": "Sorting runs on arrivals from 16:00 to 19:30. By custom, if you share a cab with the same neighbour three evenings running, one of you buys the other a gin.",
+  "tags": [
+   "arrivals",
+   "commuters",
+   "cabs"
+  ]
+ },
+ {
+  "id": "lattice-night-sort",
+  "name": "The Night Sort",
+  "kind": "work",
+  "zone": "line",
+  "deck": 13,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A freight hall on the Keel's line deck where the day's goods are packed into carts by lobby and sent up in idle cabs overnight.",
+  "text": "The Night Sort is the biggest freight hall on line deck 13, a low room as long as a street, twelve decks above Ring Seven's platforms. All day it fills with goods off the trains; from midnight it empties. Sorters pack each cart for one lobby: groceries for a Mill Hall, bolts of cloth for a mender, one crate of tomatoes for one greengrocer. Then the cabs the drum isn't using come in empty, take a cart and go, one every few seconds at each bay. Waste comes back down the same way. The sorters work at nearly a full g, and say they can tell a block by its order.",
+  "detail": "Freight is a few percent of the Lattice's trips, nearly all of them in the lamp-night. A cart leaves here for any lobby in Sorrel within minutes of being packed.",
+  "tags": [
+   "freight",
+   "night",
+   "cabs"
+  ]
+ },
+ {
+  "id": "lattice-cab-works",
+  "name": "The Cab Works",
+  "kind": "work",
+  "zone": "line",
+  "deck": 38,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel's cabs are taken apart, re-felted, resealed and put back, because a new one costs about 7,500 kays.",
+  "text": "Cabs come to the works on line deck 38 to be taken apart and put back. A new cab is about 300 kg of new mass, some 7,500 kays, so nobody makes one if a rebuild will do. The fitters lift the cabin out of its gimbal, re-felt the walls, renew the door seals and scrubber beds, and fill the scuffs that the shafts leave on the fairings. Every rebuild adds a stamped plate riveted under the bench, and riders who find a cab with a long row of plates count them aloud. The works smell of felt and warm glue, and the music is always on.",
+  "detail": "A full rebuild takes a crew of three about two days. The works turn round a few hundred cabs a week and have never scrapped a shell they could mend.",
+  "who": {
+   "name": "Ines Kowal",
+   "age": 34,
+   "role": "cab fitter",
+   "line": "Tens of thousands of people sit in a cab before it comes back to me. I find hairpins, buttons and once a whole cake, still under its lid."
+  },
+  "tags": [
+   "cabs",
+   "mending",
+   "workshop"
+  ]
+ },
+ {
+  "id": "lattice-platoon-yard",
+  "name": "The Platoon Yard",
+  "kind": "work",
+  "zone": "line",
+  "deck": 63,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "A closed loop of tube where rebuilt cabs learn to brake together, forty at a time, before they carry anyone.",
+  "text": "Every cab that leaves the works has to brake in a platoon before it carries a rider. The yard on line deck 63 has its own short loop of tube, closed to traffic, where strings of forty rebuilt cabs run nose to tail a metre apart and brake together at a signal, over and over, until every one holds its gap. Nobody rides. The crew watch from a gallery on screens, since the loop is full of helium and nothing in it needs a person. A string of forty is about 180 metres long. When it runs clean they call it a good string and send it out into the morning traffic.",
+  "detail": "Strings run from midnight to five. A cab that fails twice goes back to the works with a chalk mark on its door, and the fitters take that personally.",
+  "tags": [
+   "platoons",
+   "cabs",
+   "testing"
+  ]
+ },
+ {
+  "id": "lattice-lost-property",
+  "name": "The Lost Property Office",
+  "kind": "civic",
+  "zone": "line",
+  "deck": 88,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Shelves of everything Sorrel leaves in its cabs, from relined coats to heliox flutes, kept a year and then given to the menders.",
+  "text": "Whatever Sorrel leaves in its cabs comes here, to a long room of shelves on line deck 88. The cab knows who called it, so most things go home within the hour; what stays is what nobody comes for. Coats, mostly, relined so many times their owners may not know them. Lidded dishes, washed and stacked. Hand lamps, slates, a rack of heliox flutes as long as children, and a cold box of starter crocks, since the office once let one die and has not forgotten it. After a year, unclaimed cloth goes to the menders and everything else to the Last Table at Ring Seven.",
+  "detail": "Open 08:00 to 20:00. Ask at any lobby and a cab will bring your thing to your door. Coming in person is allowed, and the clerks like visitors.",
+  "who": {
+   "name": "Hamid Strand",
+   "age": 58,
+   "role": "lost-property clerk",
+   "line": "Coats come back for their owners slowly. Chairs come back fast. Once a woman left her wedding speech and only came back for the chair."
+  },
+  "tags": [
+   "cabs",
+   "lost-property",
+   "mending"
+  ]
+ },
+ {
+  "id": "lattice-heavy-loop",
+  "name": "The Heavy Loop",
+  "kind": "play",
+  "zone": "line",
+  "deck": 113,
+  "deckTo": null,
+  "ring": 6,
+  "hour": null,
+  "r": null,
+  "wall": null,
+  "blurb": "Ring Six's spinward loop on line deck 113, the heaviest ride in Sorrel: 1.2 g for nearly ten minutes a lap.",
+  "text": "Ask a cab for the long way round at Ring Six and it will take you spinward on line deck 113, the heaviest ride in Sorrel. At the posted limit you weigh 1.2 g, two-fifths more than the deck outside, for nearly ten minutes a lap. It comes on over twenty seconds: the seat presses up, your hands grow heavy in your lap and your cheeks sag. Runners ride a lap before the Heavy Round, on the coaches' theory that legs like to be warned. Children ride it on birthdays. Couples ride it for the excuse to lean on each other.",
+  "detail": "A lap of line deck 113 is about 16 km and takes nearly ten minutes at 27.5 m/s. Asking for it costs nothing; the router counts it as a trip like any other.",
+  "tags": [
+   "weight",
+   "loops",
+   "coriolis",
+   "round"
+  ]
+ },
+ {
+  "id": "lattice-sleepers",
+  "name": "The Sleepers",
+  "kind": "work",
+  "zone": "line",
+  "deck": 138,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "A depot two decks tall where ten thousand cabs sleep in racks, and wake from the far end at half past four.",
+  "text": "Most of Sorrel's cabs spend the night in lobby berths, waiting for whoever wants one first. The rest sleep in depots like this, a hall two decks tall on line deck 138 where some ten thousand cabs stand in racks with their doors open and their cabins swung level. Cleaning robots work down the rows, the scrubber beds are changed, and every cabin gets fresh heliox and a check of its hoods. At half past four the racks wake from the far end: lights on, doors shut, three cabs a second lifted onto the guideway and away to the lobbies before anyone calls. The crew call it the yawn.",
+  "detail": "Closed to visitors: the racks back onto the tubes, and the crew wear masks at the lift-outs. The last rack is empty by about half past five.",
+  "tags": [
+   "cabs",
+   "depot",
+   "night"
+  ]
+ },
+ {
+  "id": "lattice-lift-school",
+  "name": "The Lift School",
+  "kind": "culture",
+  "zone": "line",
+  "deck": 163,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Sorrel trains its lift and cab engineers, starting with a cab cut in half and a chair that leans.",
+  "text": "Sorrel trains its lift and cab engineers here, in a school of long workshops on line deck 163. The first year is all hands: guideway coils, door seals, and the two-axis gimbal that lets a cabin lean against Coriolis instead of pushing its riders sideways. There is a cab cut in half lengthways so students can see the cabin hanging in its frame, and a test chair that leans a student to 24°, the steepest any cab leans, until they stop going green. The second year is in masks, in the helium, among the tubes. Graduates get a key to a lobby panel, which most never use and all of them keep.",
+  "detail": "Two years, about three hundred students a year, open to anyone over sixteen. The waiting list is long: the Lattice is a post with standing in Sorrel.",
+  "who": {
+   "name": "Pilar Adebayo",
+   "age": 63,
+   "role": "instructor",
+   "line": "The first thing I teach is that nobody should notice us. If anyone in Sorrel thinks about the Lattice today, we've had a bad day."
+  },
+  "tags": [
+   "school",
+   "engineers",
+   "cabs"
+  ]
+ },
+ {
+  "id": "lattice-glass",
+  "name": "The Glass",
+  "kind": "culture",
+  "zone": "line",
+  "deck": 188,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "An inspection window into a loop tube, the only place in Sorrel where you can watch the Lattice move.",
+  "text": "The only place in Sorrel where you can watch the Lattice move. The Glass is an inspection window into a loop tube on line deck 188, a pane as thick as a hand, put in long ago so engineers could watch platoons brake. Now it's booked by schools. Children press against it and wait. A lone cab goes by first, a pale shape in the helium, gone in a blink. Then a platoon of forty, nose to tail, a metre between them, 180 metres of cabs passing in six seconds without a sound through the glass. Somebody always asks which one their gran is in.",
+  "detail": "Book through any school: up to thirty at a time, Tuesdays and Thursdays. On a busy evening a platoon passes every quarter of a minute. Hands off the glass is a rule nobody keeps.",
+  "tags": [
+   "lattice",
+   "schools",
+   "platoons"
+  ]
+ },
+ {
+  "id": "lattice-routing-room",
+  "name": "The Routing Room",
+  "kind": "work",
+  "zone": "line",
+  "deck": 213,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Where people watch the machines route ninety million rides an hour, and decide how dear a crowded line deck should be.",
+  "text": "At the peak Sorrel takes about ninety million rides an hour, and the machines in the vault next door route every one. A dozen people in this room watch them. A long wall shows the fifteen line decks as bands of colour, each loop and cross-line shaded by how full it is. When a band starts to redden, the router makes that line deck a little dearer in its sums, and trips drift to the next one up or down, a few seconds longer each. The watchers set how dear. On a big day they talk in whispers, which carry in heliox, so the walls are hung with felt.",
+  "detail": "At the peak, routing adds about five seconds to the average trip. Watchers work four-hour turns, and nobody watches two peaks running.",
+  "who": {
+   "name": "Lior Maddox",
+   "age": 41,
+   "role": "router watcher",
+   "line": "People think we drive the cabs. We decide how much a crowded loop should cost, in seconds, and then we try very hard not to touch anything."
+  },
+  "tags": [
+   "routing",
+   "peak",
+   "lattice"
+  ]
+ },
+ {
+  "id": "lattice-old-room",
+  "name": "The Old Room",
+  "kind": "culture",
+  "zone": "line",
+  "deck": 238,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "The oldest cabin still in service, somewhere among seven million cabs. Nobody can call it, and about one Sorreler in thirty rides in it.",
+  "text": "Somewhere in the fleet is the Old Room, the oldest cabin still in service: a bench of dark wood worn pale where people sit, felt the colour of strong tea, and forty-one rebuild plates riveted underneath, the first too worn to read. From outside it looks like any cab. Nobody can call it; it comes to your lobby by chance, and about one Sorreler in thirty rides in it in a lifetime. In a drum where the best chair in a room is the oldest, it is the best seat in the Lattice. People who get it send a message from inside. Most nights it sleeps in the depot on line deck 238, where the crew dust the bench by hand.",
+  "detail": "You can't ask for it, and the Lattice won't say where it is. The depot crew will confirm a sighting if you can describe the scratch on the inside door handle.",
+  "tags": [
+   "cabs",
+   "old-things",
+   "luck"
+  ]
+ },
+ {
+  "id": "lattice-mask-room",
+  "name": "The Mask Room",
+  "kind": "eat",
+  "zone": "line",
+  "deck": 263,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "The night crews' canteen on line deck 263: one long table, one cook, and breakfast from midnight.",
+  "text": "The canteen on line deck 263 opens when the Mill Halls shut and closes at lamp-dawn. Its customers are the Lattice's night crews: fitters, depot hands, gas techs and the freight gangs, who come in with marks on their faces from their masks and hang the masks on a row of hooks by the door. There is one long table and one cook. Breakfast starts at midnight: jook with chili crisp, fried jelly cubes in broth, and black tea brewed fresh on the hour from the 65 °C tap. At this deck's two-thirds of a g the cook can carry six lidded bowls at once, and does.",
+  "detail": "Open 23:00 to 06:30. The Mill table is free for crews; Vat dishes at the usual price. Masks go on the hooks, never on the table.",
+  "who": {
+   "name": "Agathe Ndiaye",
+   "age": 55,
+   "role": "night cook",
+   "line": "Nobody comes in here wanting conversation. They want salt, heat and a chair. I give them all three, and the news from the other crews."
+  },
+  "tags": [
+   "night",
+   "crews",
+   "canteen"
+  ]
+ },
+ {
+  "id": "lattice-stall-desk",
+  "name": "The Stall Desk",
+  "kind": "work",
+  "zone": "line",
+  "deck": 288,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "When a cab stops where it shouldn't, a calm voice from this desk keeps its riders company until it moves.",
+  "text": "When a cab stops where it shouldn't, a light comes on at the Stall Desk on line deck 288 and somebody starts talking to the riders. Nearly always the guideway's own motors are already easing the cab to the nearest berth, or the cab behind has closed up and is pushing it there, and the riders are out within two minutes. The desk's job is those two minutes. Its voices are chosen for being calm and a little dull, and they never use the word stuck. If a cab truly won't move, a crew goes into the helium in masks to fetch it. That has happened four times this year.",
+  "detail": "A sealed cab carries about an hour of air for a full load, with scrubbers and oxygen hoods under the seats. The desk has never needed more than eleven minutes.",
+  "who": {
+   "name": "Ewan Tashiro",
+   "age": 49,
+   "role": "stall desk voice",
+   "line": "I tell them where they are, how far the berth is, and what I had for lunch. By the time I get to pudding, they're moving."
+  },
+  "tags": [
+   "safety",
+   "cabs",
+   "crews"
+  ]
+ },
+ {
+  "id": "lattice-helium-works",
+  "name": "The Helium Works",
+  "kind": "work",
+  "zone": "line",
+  "deck": 338,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Where the breath of air that slips in at every berth door is frozen out of the Lattice's helium and sent home.",
+  "text": "Every berth door in Sorrel lets a breath of the drum's air into the Lattice when it opens, and the works on line deck 338 take it out again. Pumps draw gas from the tubes and shafts and pass it through cold traps, where the oxygen freezes out and the helium goes back pure. The oxygen returns to the drum's air, so nothing is wasted. A small crew read a meter for every tube on the deck, and when one shows more than a trace, that tube is flushed overnight. The plant is quiet and cold to the touch. Nothing burns in pure helium, and the crew mean to keep it that way.",
+  "detail": "Crews who go into the tubes wear masks fed from a bottle of heliox. Pure helium has no oxygen in it at all, and a few breaths of it can make a person faint.",
+  "tags": [
+   "helium",
+   "gas",
+   "safety"
+  ]
+ },
+ {
+  "id": "lattice-feather",
+  "name": "The Feather",
+  "kind": "play",
+  "zone": "line",
+  "deck": 363,
+  "deckTo": null,
+  "ring": 4,
+  "hour": null,
+  "r": null,
+  "wall": null,
+  "blurb": "The antispinward loop on line deck 363, the lightest ride the Lattice allows, and the elders' favourite lap.",
+  "text": "Ask for the long way round on line deck 363 and the cab goes antispinward, held to the lowest antispinward limit in Sorrel, and you weigh 0.3 g: a little over half what the High decks weigh, and the lightest any cab is allowed to make you. It speeds up gently, at half the usual rate, and the cabin pitches a little to keep you in your seat. Elders from the decks above ride it a lap at a time, about eight minutes, for their knees and hips, and say that for one lap nothing aches. As the cab joins the loop its panel shows both limits, spinward 30 and antispinward 21, and somebody always reads them out.",
+  "detail": "A lap is about 9.7 km and takes just under eight minutes at 21 m/s. Elders may ask for it with no destination, and the cab brings them back to their own lobby.",
+  "who": {
+   "name": "Valdis Okafor",
+   "age": 97,
+   "role": "retired glazier",
+   "line": "At ninety-seven my knees have opinions. For eight minutes on the Feather they keep them to themselves. Then I come home and they start again."
+  },
+  "tags": [
+   "weight",
+   "elders",
+   "loops",
+   "coriolis"
+  ]
+ }
+]

@@ -79,6 +79,20 @@ def build_game(out):
     return True
 
 
+# ---------------------------------------------------------------- atlas
+ATLAS = ROOT / "atlas" / "sorrel"
+
+
+def build_atlas(out):
+    """Build the Sorrel Atlas into out/sorrel-atlas/. Returns True if built."""
+    script = ATLAS / "tools" / "build.py"
+    if not script.is_file():
+        return False
+    subprocess.run([sys.executable, str(script), "--standalone", str(out / "sorrel-atlas")],
+                   check=True, stdout=subprocess.DEVNULL)
+    return True
+
+
 # ---------------------------------------------------------------- README
 def parse_readme():
     """Intro, canon decisions, and the doc groups from the README."""
@@ -379,6 +393,8 @@ def nav_html(groups, current):
             cur = ' aria-current="page" class="is-current"' if current == "diagrams" else ""
             out.append(f'<li><a href="diagrams.html"{cur}>Diagrams</a></li>')
         out.append("</ul></div>")
+    if (ATLAS / "tools" / "build.py").is_file():
+        out.append('<div class="nav-group"><p class="nav-label">Explore</p><ul><li><a href="sorrel-atlas/">The Sorrel Atlas</a></li></ul></div>')
     if (GAME / "tools" / "build.py").is_file():
         out.append('<div class="nav-group"><p class="nav-label">Play</p><ul><li><a href="three-nights/">Three Nights Anywhere</a></li></ul></div>')
     out.append("</nav>")
@@ -499,6 +515,7 @@ def build(out, fragment_index=False):
     if (DOCS / "diagrams").is_dir():
         shutil.copytree(DOCS / "diagrams", out / "diagrams")
     game = build_game(out)
+    atlas = build_atlas(out)
 
     # backlinks
     cites = {s: set() for s in docs}
@@ -630,6 +647,10 @@ def build(out, fragment_index=False):
     if figs:
         extra_links.append('<li><a class="card" href="diagrams.html"><span class="card-title">Diagrams</span>'
                            f'<span class="card-blurb">All {len(figs)} diagrams in one place</span><span class="card-meta">gallery</span></a></li>')
+    if atlas:
+        extra_links.append('<li><a class="card" href="sorrel-atlas/"><span class="card-title">The Sorrel Atlas</span>'
+                           '<span class="card-blurb">A cutaway of one drum of 200 million, where every point opens a place: landmarks from the quay to the axle, and all 69,426 neighbourhoods</span>'
+                           '<span class="card-meta">explore</span></a></li>')
     if game:
         extra_links.append('<li><a class="card" href="three-nights/"><span class="card-title">Three Nights Anywhere</span>'
                            '<span class="card-blurb">A game: wander Merrow for a year on guest-right, three nights a drum, and send cards home</span>'

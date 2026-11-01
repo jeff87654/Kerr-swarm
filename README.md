@@ -57,6 +57,7 @@ All in [`docs/`](docs/).
 - [open-drums.md](docs/open-drums.md): the free, flourishing drums and how they live well on 2 kWe
 - [ashgrove.md](docs/ashgrove.md): narrative sketch of a family in a nation drum
 - [wander-year.md](docs/wander-year.md): narrative sketch of a year crossing Merrow on guest-right, told in thirteen cards home
+- [sorrel.md](docs/sorrel.md): a gazetteer of one drum: Sorrel's Rings and Hours, customs, government, history and 213 landmarks, as mapped in the Sorrel Atlas
 
 **Earlier eras and alternatives**
 - [hole-choice.md](docs/hole-choice.md): stellar, mid-sized or galactic-core hole
@@ -67,6 +68,7 @@ All in [`docs/`](docs/).
 - [glossary.md](docs/glossary.md): short definitions of the setting's named things
 - [diagrams/](docs/diagrams/): the Lantern and the Shade, a raft, a nation drum, the Glide
 
-## Games
+## Games and atlases
 
+- [The Sorrel Atlas](atlas/sorrel/): an interactive cutaway of one drum, Sorrel, where every point opens a place: 213 hand-written landmarks from the quay to the axle, and all 69,426 neighbourhoods, generated from their addresses. [Explore it on the site](https://jeff87654.github.io/Kerr-swarm/sorrel-atlas/). Its landmarks are written up in `docs/sorrel.md`; its generated neighbourhoods are not canon.
 - [Three Nights Anywhere](games/three-nights/): a browser game of a wander year across Merrow, three nights a drum on guest-right. [Play it on the site](https://jeff87654.github.io/Kerr-swarm/three-nights/). Its generated drums and customs are not canon; its 16 hand-written drums follow the docs.

@@ -1,0 +1,885 @@
+[
+ {
+  "id": "the-barrel",
+  "name": "The Barrel",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 31,
+  "deckTo": 32,
+  "ring": 5,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "Sorrel's great spinball hall, where the twelve Hours play their league two decks tall at 0.96 g.",
+  "text": "A hall 60 m long and two decks high, with galleries on three sides and a felted ceiling so the crowd doesn't deafen itself. Every child in Sorrel plays spinball at break; the Hours' league plays it here, near full weight, where the game is fastest. An adult's hard throw spinward gains nearly a third of its weight and dives at the floor. Thrown anti, it loses as much and sails for the galleries, and the front row learns to duck. Sides swap ends at half-time because one goal is always spinward of the other. On league nights Heron's supporters wear grey and sit to the anti side, where the long throws land.",
+  "detail": "League nights are Thursdays and Saturdays from 19:00. Seats are free from the commons and filled by queue. The court's axis line is painted white: along it, the ball flies true.",
+  "who": {
+   "name": "Halvard Osei",
+   "age": 24,
+   "role": "wing, Heron's league side",
+   "line": "Anyone can throw along the axis. The game is the long anti lob that hangs over their heads and drops behind them. Takes years. Children do it by accident."
+  },
+  "tags": [
+   "spinball",
+   "league",
+   "sport"
+  ]
+ },
+ {
+  "id": "the-mile-hall",
+  "name": "The Mile Hall",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 52,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "A straight running hall a mile long, with one record for the Heavy Mile spinward and another for the Light Mile back.",
+  "text": "Two lanes, 1,609 m each, laid along deck 52 in the old length nobody else uses. The floor is level underfoot, but the deck curves up ahead, so you never see the finish: about two hundred metres on, floor and ceiling meet. Run spinward and you get heavier. At a racing miler's pace, the 0.93 g of the deck comes to a little over a full g, and that's the Heavy Mile. Run back and you drop to about 0.86, and that's the Light Mile. The hall keeps both records and a third for the axis sprints in the cross hall, and the board by the door posts all three in Wolf colours.",
+  "detail": "Lanes open at lamp-dawn and close at 22:00; the spinward lane is busiest early. Runners finish at the far end and ride back by cab. The Light Mile record is about nine seconds the faster.",
+  "who": {
+   "name": "Ama Kristiansen",
+   "age": 19,
+   "role": "holds the Heavy Mile record for Wolf",
+   "line": "Everyone wants the Light Mile. It's fast and it flatters you. The Heavy Mile tells you the truth about your legs."
+  },
+  "tags": [
+   "running",
+   "records",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "otter-deep",
+  "name": "The Otter Deep",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 17,
+  "deckTo": 19,
+  "ring": 8,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "A fifty-metre pool at 0.98 g, warmed free from the food plant's loop, with a diving board that lands a little anti.",
+  "text": "The pool fills a whole deck: its floor is deck 17 and its surface is level with the floor of deck 18, with two decks of air above it for the boards. It holds about four thousand tonnes of water at nearly a full g, and the Low decks' swim clubs train here because it's the heaviest water in Otter. The heat comes free from the food plant's 65 °C loop, mixed down. In heliox a wet swimmer chills fast, so the benches are warm and everyone gets out straight into a robe. A dive from the three-metre board comes down about nine centimetres antispinward of where it would on Earth, and the judges allow for it. Nobody here knows what an otter was. The name has always seemed right.",
+  "detail": "Free from the commons. The lanes run along the axis, so a length is the same both ways and nobody argues about records. Children's hour is 16:00 to 17:00.",
+  "who": {
+   "name": "Desmond Achterberg",
+   "age": 44,
+   "role": "swim coach",
+   "line": "Out of the water, into the robe, then talk. In this air you can lose a child's whole warmth while they're telling you about their turn."
+  },
+  "tags": [
+   "swimming",
+   "waste-heat",
+   "sport"
+  ]
+ },
+ {
+  "id": "badger-chimney",
+  "name": "The Chimney",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 96,
+  "deckTo": 103,
+  "ring": 2,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A climbing atrium eight decks tall in Badger, where every fall lands a little antispinward.",
+  "text": "An atrium cut up through eight decks, its floor on deck 96 and its ceiling 32 m up, every face hung with holds printed from returned mass. Climbing up is climbing toward the axis, so you weigh about one part in a hundred less at the top, which regulars swear they can feel. Falling is the drum's other lesson: anything that drops lands antispinward, so a boulderer coming off a four-metre problem lands about fifteen centimetres anti of where they let go, and the mats run wider on that side. A lead fall of six metres drifts about a hand's width further. Children say anti as they drop. So do the adults, more quietly.",
+  "detail": "Free from the commons, ropes and shoes lent at the counter. Ring Two's schools have it on weekday mornings; everyone else after 13:00. Belayers stand a step spinward of the route.",
+  "who": {
+   "name": "Imke Solano",
+   "age": 33,
+   "role": "route setter",
+   "line": "A big jump between holds comes down a finger's width spinward. I set the good routes so you have to know that."
+  },
+  "tags": [
+   "climbing",
+   "atrium",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "stag-slides",
+  "name": "The Stag Slides",
+  "kind": "play",
+  "zone": "deck",
+  "deck": 44,
+  "deckTo": 47,
+  "ring": 9,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "A playground of Coriolis slides four decks deep, with a timing board nobody under twelve believes.",
+  "text": "A play yard cut through four decks, its slides dropping from platforms 14 m up. The famous pair start side by side: the Spin runs spinward and the Anti runs back. Every child knows anti floats, so every child knows the Anti is faster. The timing board at the bottom says the Spin wins by a hair, because a rider going spinward is heavier and slides harder, and the board has been ignored for generations. There's a drop well where children let go of a soft ball from the top platform and run to see how far anti it lands, about a metre, and a spiral slide that turns the stomach differently depending which way you came in.",
+  "detail": "Open 07:00 to 20:00, free. Under-tens only before 10:00. The timing board is reset at noon each day and is believed by about one child in ten, mostly the older ones.",
+  "who": {
+   "name": "Taavi Mensah-Rook",
+   "age": 9,
+   "role": "slide expert",
+   "line": "The board says the Spin is faster. The board is wrong. You can feel the Anti float you. You can't feel a board."
+  },
+  "tags": [
+   "playground",
+   "children",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "ring-seven-inn",
+  "name": "The Chalk Stair Inn",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 18,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "Guest-right beds just above the Keel over Station Ring 7, where visitors chalk their home drum's name on the stair.",
+  "text": "Sorrel keeps no Margin of empty flats, so the travellers it takes in on guest-right sleep in inns the drum keeps near the station rings. This is the oldest above Ring 7, whose lanes run to Lovage and Tansy: ninety small warm rooms, a felt-hung breakfast room and a stair wall where every guest chalks the name of their home drum. The cleaning robots wipe it on the first of the month and it's full again within the week, mostly with drums nobody here has heard of. At 0.98 g it's about as heavy as Sorrel gets outside the Keel, and guests from other drums' high decks wake on the first morning with aching legs.",
+  "detail": "Three nights on guest-right, with meals at the Mill Hall next door. Wedding parties and other paying guests are about 1.5 kWh a room a night, mostly for the hour someone spends on the beds.",
+  "who": {
+   "name": "Beatrix Oyelaran",
+   "age": 56,
+   "role": "innkeeper",
+   "line": "Three nights, two towels, one key. Everyone asks for the Hollow. It's booked by deck, so I send them up to the end-wall terraces at dusk."
+  },
+  "tags": [
+   "inn",
+   "guest-right",
+   "station"
+  ]
+ },
+ {
+  "id": "moth-naming-rooms",
+  "name": "The Moth Naming Rooms",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 57,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 10,
+  "r": null,
+  "wall": null,
+  "blurb": "Quiet rooms where babies are named for the dead whose places they take, with both families in the room.",
+  "text": "Sorrel is a pool drum. At a death the place goes back to the pool and a child is born into it, and children are named for the dead whose places they take. These six felt-hung rooms do Ring Four's namings for Moth, about forty a day. The Register sends the dead's name a week ahead. In the room a namer reads both names, the old and the new, once each, and the baby is handed to the parents under the second. The dead's family often comes. Afterwards the new family promises the note, sent every year on the date, and most of them keep the promise for the rest of their lives.",
+  "detail": "Free, about ten minutes, booked through the clinic. The desk keeps plain cards at cost for the yearly note, and will look up the other family's address for you when you've lost it.",
+  "who": {
+   "name": "Ilse Abernathy-Kwan",
+   "age": 71,
+   "role": "namer",
+   "line": "I read two names and stop. Then it's the dead's family who cry, and the new parents who don't know where to look. That's when I open the door."
+  },
+  "tags": [
+   "naming",
+   "births",
+   "pool-drum"
+  ]
+ },
+ {
+  "id": "lark-birth-clinic",
+  "name": "The Lark Clinic",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 23,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Lark's Ring Six babies are proofread before they're born and caught at 0.97 g.",
+  "text": "Nearly every birth in Sorrel is seen at a clinic. Every embryo is sequenced and compared with both parents, and its seventy or so new mutations are put back, along with any known disease variants. It's a norm, not a law, and nobody here has met a family that refused it. In a pool drum the clinic is also where the birth right is checked, at the first visit, so nobody has to think about it at the last. The birthing rooms run hot, since heliox takes heat from a wet newborn about four times faster than air, and every baby goes straight into a warmed wrap. The first cry comes out bright and thin, like every voice in the drum.",
+  "detail": "Free from the commons. About thirty births a day in eight rooms. One adult may stay the night; a second can sleep in the family room, which has a kettle on the 65 °C tap.",
+  "who": {
+   "name": "Femi Lindgren",
+   "age": 49,
+   "role": "midwife",
+   "line": "I've caught about nine hundred. I don't know their other names; the Register tells the parents. I just tell them it's a boy and hand him over wrapped, lid on."
+  },
+  "tags": [
+   "clinic",
+   "births",
+   "proofreading"
+  ]
+ },
+ {
+  "id": "the-turnover",
+  "name": "The Turnover",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 69,
+  "deckTo": 70,
+  "ring": 5,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "Owl's great second-hand hall, two decks tall, where chairs are dearer the older they get.",
+  "text": "New mass costs about 25 kWh a kilogram, so the second-hand market is the main market for things, and this is Owl's biggest: two decks of stalls under one roof, with cleaning robots pushing carts of returns between them. Every piece wears a paper tag listing its owners as far back as anyone wrote them down. The prices run backwards to a stranger's eye. A chair with five names on its tag costs more than one with two, because the best chair in a room is the oldest, and a chair with only one owner makes people ask what was wrong with it. Families come on Saturdays to trade up a generation.",
+  "detail": "Open 09:00 to 19:00. A remade chair runs about 20 to 60 kWh, against 125 new. Anything unsold after a year goes back to the Yards and is credited by weight.",
+  "who": {
+   "name": "Teodor Banerjee-Holm",
+   "age": 63,
+   "role": "stallholder, chairs and tables",
+   "line": "Read the tag first, then sit in it. A good chair tells you its owners were heavier than you. They were: they lived lower down."
+  },
+  "tags": [
+   "market",
+   "second-hand",
+   "thrift"
+  ]
+ },
+ {
+  "id": "fox-remaking-yard",
+  "name": "The Remaking Yard",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 84,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Fox's newly-weds bring their grandparents' sofas and take them apart together.",
+  "text": "New furniture is what a marriage gets, and in Sorrel that mostly means an old sofa made new. A new one is about 40 kg, around 1,000 kWh, forty-six days of a wallet. Here a grandparents' sofa is stripped to its frame on a trestle, re-glued, re-webbed, filled and covered for about a tenth of that in new mass, plus the hours. Couples are expected to do the stripping themselves, side by side on low stools, pulling out old tacks into a shared tin. Covers go out in whatever the dyers call this season's colour. On a busy week the yard holds a dozen frames, each chalked with two names and a wedding date.",
+  "detail": "About 220 kWh with the yard's hours, nearer 180 if the couple strip and sand it themselves. Booking Day weddings should book six weeks ahead. Frames from the second-hand halls welcome.",
+  "who": {
+   "name": "Mireille Aduya",
+   "age": 66,
+   "role": "upholsterer",
+   "line": "Bring the sofa and both of you. You'll pull every tack yourselves. Nobody forgets the first thing they took apart together, and it's better that it's a sofa."
+  },
+  "tags": [
+   "weddings",
+   "remaking",
+   "furniture"
+  ]
+ },
+ {
+  "id": "lark-toy-library",
+  "name": "The Toy Library",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 47,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 12,
+  "r": null,
+  "wall": null,
+  "blurb": "Nine thousand toys on loan in Lark, each one mended between borrowers, because new mass is dear.",
+  "text": "A new toy is about 25 kWh a kilogram, and children outgrow toys faster than coats, so Lark's families borrow them. The library is a long low room of shelves and a mending bench at the back, where every toy is checked before it goes out again. Each one has a card of borrowers, some running to three pages. The prize of the collection is a marble run copied from a design in old pictures. It doesn't work here: every drop between its tracks lands a centimetre or two anti, and the marbles miss their cups. The children like it better broken, and queue for it.",
+  "detail": "Free from the commons. Four toys at a time, for two weeks. Late returns cost nothing but a conversation at the desk. The broken marble run is booked in half-hours.",
+  "who": {
+   "name": "Oskar Matebe",
+   "age": 54,
+   "role": "toy librarian",
+   "line": "A new toy comes with nothing. A borrowed one comes back with a story, usually about the stairs. We mend the toy and keep the story."
+  },
+  "tags": [
+   "toys",
+   "children",
+   "lending"
+  ]
+ },
+ {
+  "id": "felt-theatre",
+  "name": "The Felt Theatre",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 100,
+  "deckTo": 101,
+  "ring": 8,
+  "hour": 2,
+  "r": null,
+  "wall": null,
+  "blurb": "A children's theatre hung with felt so its actors' bright heliox voices don't ring off the walls.",
+  "text": "Heliox makes every voice bright and every bare room ring, so this two-deck theatre is hung floor to ceiling in grey felt, and a child's whisper from the stage reaches the back row clean. The plays are by children and for them: the youngest class's pear play, a Window play where nobody is allowed to describe the sky, and every Knotnight a play of the Eleven Days, acted by hand lamp with the house lights down. Props are mended between runs. The Window play has no set at all, only a long shutter that opens on a dark stage. When anything drops on stage, the audience says anti together.",
+  "detail": "Free. Shows on Saturdays at 11:00 and 15:00; the Knotnight play sells out its free seats within the hour. Children over seven may audition. Parents sit at the back.",
+  "who": {
+   "name": "Lior Castellane",
+   "age": 41,
+   "role": "director",
+   "line": "The hardest part of the Window play is the end. They want to say what it looked like. I tell them nobody can, and they act that."
+  },
+  "tags": [
+   "theatre",
+   "children",
+   "heliox"
+  ]
+ },
+ {
+  "id": "swift-youth-hall",
+  "name": "Swift Youth Hall",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 29,
+  "deckTo": 30,
+  "ring": 6,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Swift's youth ensembles rehearse, among racks of heliox flutes 1.2 m long.",
+  "text": "Sound runs about 1.8 times faster in heliox, so a pipe has to be that much longer to sing the same note: a flute here is about 1.2 m long, and the bass flute folds twice so its player can reach the keys. The hall is two decks tall and felted, with a corridor of cases racked along one wall, each a little longer than the child who carries it. Six youth ensembles rehearse here in turns after school. The school flutes are lent, and their key guards carry the engraved names of eight or ten earlier players. The nursery through the wall keeps its nap rota round the brass.",
+  "detail": "Rehearsals on weekdays from 16:00; concerts free every fourth Sunday. Lessons about 3 kWh an hour. A flute from the old pictures would play about ten semitones sharp here.",
+  "who": {
+   "name": "Rosalind Mbeki-Shaw",
+   "age": 58,
+   "role": "ensemble leader",
+   "line": "Anyone can hear a perfect recording. People still come and hear twelve teenagers play. I've never once asked them why."
+  },
+  "tags": [
+   "music",
+   "heliox",
+   "children"
+  ]
+ },
+ {
+  "id": "hazeldim",
+  "name": "Hazeldim",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 80,
+  "deckTo": 82,
+  "ring": 9,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A Low-deck dim wood of hazel and birch, lit like a cloudy evening, where Badger's children learn to hide.",
+  "text": "This neighbourhood voted for a wood instead of a bright court, so its share of park light goes over about 2.6 ha at about 1,000 lux: hazel coppice, young birch, ferns and moss under a ceiling three decks up, with oyster mushrooms fruiting on logs of pressed residue. It's dim enough to lose a child in, which is the point. Hide-and-seek here has rules older than anyone's grandmother, and the woodwardens know them all. The quiet is the fans and the leaves. The main path runs spinward, so walking out you get a little heavier, and children insist the way home is downhill.",
+  "detail": "Lit for twelve hours at about 1,000 lux; path lamps after dark. The woodwardens' rota is on the stair. Children under eight in the wood need a grown-up within shouting distance; woodwardens carry whistles.",
+  "who": {
+   "name": "Bartholomew Nakashima",
+   "age": 62,
+   "role": "woodwarden",
+   "line": "Every few years someone wants it brighter for the children. Then their children come in here, disappear for an afternoon, and the vote fails."
+  },
+  "tags": [
+   "dim-wood",
+   "light",
+   "children"
+  ]
+ },
+ {
+  "id": "cradle-arcade",
+  "name": "Cradle Arcade",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 35,
+  "deckTo": null,
+  "ring": 1,
+  "hour": 9,
+  "r": null,
+  "wall": null,
+  "blurb": "A family arcade in Badger with pram berths, warm benches and a wall of outgrown shoes.",
+  "text": "A wide arcade built for families near the front of the drum: pram berths by both lift lobbies, benches warmed from the 65 °C loop, a soup counter at a child's height, and a barber with a chair shaped like a cab. Its fame is the shoe wall, a thousand pigeonholes by size where families leave outgrown shoes and take the next pair up. New shoes are about 20 kWh, and a child goes through four sizes in two years. Half of Badger has worn the same red pair at some point, and parents recognise them going past.",
+  "detail": "The shoe wall is free: leave a pair, take a pair. The soup counter pours Mill broth from 15:30. The barber takes children for about one kWh, which is twenty minutes of her time.",
+  "who": {
+   "name": "Joaquim Adebayo-Frisk",
+   "age": 34,
+   "role": "father of two",
+   "line": "Four sizes in two years. My daughter's wearing the red shoes I saw on a boy at the baths two years ago. I'd know them anywhere."
+  },
+  "tags": [
+   "families",
+   "arcade",
+   "thrift"
+  ]
+ },
+ {
+  "id": "otter-bone-clinic",
+  "name": "The Bone Clinic",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 20,
+  "deckTo": null,
+  "ring": 4,
+  "hour": 6,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Otter's parents bring their children every year to be measured at 0.98 g.",
+  "text": "Sorrel raises its children near full weight because their bones grow best there, or so every parent believes. Nobody has ever proved how much weight a growing skeleton needs. Every year Otter's parents bring their children here anyway, a few decks above the Keel, to be weighed, scanned and stood against the wall chart of Sorrel heights, the most-read thing in the Hour. The scan takes four minutes. The doctors give one prescription to nearly every child: run, climb and play spinball. The children hear the spinball part.",
+  "detail": "Free from the commons, yearly from age two. Bring the child's card: the clinic adds a line in pencil. Children are measured barefoot, at 0.98 g, which the chart allows for.",
+  "who": {
+   "name": "Ngozi Halvorsen",
+   "age": 52,
+   "role": "bone doctor",
+   "line": "Parents ask whether they should move a deck lower. I tell them the Low decks are all heavy enough. The difference is whether the child runs about on them."
+  },
+  "tags": [
+   "clinic",
+   "children",
+   "gravity"
+  ]
+ },
+ {
+  "id": "the-landing-room",
+  "name": "The Landing Room",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 19,
+  "deckTo": null,
+  "ring": 2,
+  "hour": 11,
+  "r": null,
+  "wall": null,
+  "blurb": "Above the Rue and Chervil lanes, where people who swap homes into Sorrel learn its rules over a cup of peppery broth.",
+  "text": "Anyone who minds their drum's rules can swap homes into another, and the Glide is free, so every morning a few dozen newcomers arrive at Station Ring 2 and are sent up here. It's a plain room with a long table and lidded cups of the ring counter's broth. The class takes an hour. Fixed goods go by age, so your Hollow turn comes with your deck, and the High decks wait until you're old. A birth right can be given but never sold. Gin is cheap, with thiamine in it, and five is plenty. Lids go on everything. Swappers from Rue ask first who is allowed a child. Swappers from Lovage ask what the Hollow costs.",
+  "detail": "Free, every morning at 10:00. You leave with a card of Sorrel's rules, your deck's next Hollow turn and the nearest Mill Hall. Living cultures must be registered at the Gate first.",
+  "who": {
+   "name": "Carys Ventimiglia",
+   "age": 47,
+   "role": "newcomers' teacher, swapped in from Lovage",
+   "line": "I give everyone the same answer, from Rue or Lovage: it isn't for sale, and your turn will come. The Lovage ones take longer to believe it."
+  },
+  "tags": [
+   "swappers",
+   "newcomers",
+   "customs"
+  ]
+ },
+ {
+  "id": "ring-nine-lift-market",
+  "name": "The Lift Market",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 16,
+  "deckTo": null,
+  "ring": 9,
+  "hour": 3,
+  "r": null,
+  "wall": null,
+  "blurb": "The market at the top of the Station Ring 9 lifts: Tansy strawberries in, Sorrel gin out.",
+  "text": "The first residential deck above the Keel, at 0.98 g, where the Ring 9 lifts open on a market hall the length of a block. Ring 9's lanes run to Lovage and Tansy, so the morning crates are their produce, sealed and certified and through the crate post an hour before: Tansy's strawberries, Lovage's cherry tomatoes. Going the other way, Lovage visitors buy their two bottles of Sorrel gin, which is what Lovage lets a visitor bring home without duty, and the gin stalls wrap them in offcut linings so they don't clink. The busiest hour is the one before the last glide, when everyone remembers the gift they meant to buy.",
+  "detail": "Open from 06:00, when the first crates clear the crate post, until the last glide at 01:00. A bottle of Sorrel gin is about 2.8 kWh; a cup of Tansy strawberries about 0.9.",
+  "who": {
+   "name": "Florian Agyeman",
+   "age": 45,
+   "role": "gin stall",
+   "line": "Two bottles each, wrapped in somebody's old lining. Lovage people always say it's for a wedding. Sometimes it is."
+  },
+  "tags": [
+   "market",
+   "station",
+   "produce"
+  ]
+ },
+ {
+  "id": "the-thread-room",
+  "name": "The Thread Room",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 66,
+  "deckTo": null,
+  "ring": 7,
+  "hour": 5,
+  "r": null,
+  "wall": null,
+  "blurb": "Where Fox's dark kids go: a warm room of paper, card games and a drawer of letters waiting to be sent.",
+  "text": "Going dark is Sorrel's fast: no worlds and no messages, to save a day's compute for a trip or a purchase, signed by a black thread round the left wrist. Fox's teenagers keep this room for it. There are long tables, slates, card games with soft corners, a kettle on the 65 °C tap and a rule that nothing on the table lights up. Threads hang on a hook by the door. The famous thing is the letter drawer. You can write all the letters you like while you're dark, and the drawer holds them until your last dark day, then sends them for you at midnight. Most people's first letter is to the friend they're saving to visit.",
+  "detail": "Free, open 14:00 to 23:00. A dark day saves 9.6 kWh of compute. Take a thread from the hook and you're dark; the room trusts you to say when you stop.",
+  "who": {
+   "name": "Kalinda Torvaldsen",
+   "age": 16,
+   "role": "day nine of twelve",
+   "line": "I've learned four card games and found out who in Fox is saving for an express. Half the room, it turns out. We're all going somewhere."
+  },
+  "tags": [
+   "going-dark",
+   "teenagers",
+   "letters"
+  ]
+ },
+ {
+  "id": "sixty-two-lobby",
+  "name": "The Sixty-Two Lobby",
+  "kind": "civic",
+  "zone": "deck",
+  "deck": 62,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 8,
+  "r": null,
+  "wall": null,
+  "blurb": "A lift lobby in Swift with Sorrel's oldest direction rose in its floor and tally marks from the Eleven Days.",
+  "text": "Lift lobbies are where most people meet the Lattice, and they're mostly alike: berths, a waiting area, a stair. This one, just under line deck 63, is different twice over. Set into its floor is the oldest direction rose in Sorrel, worn smooth: spin, anti, front and back, with out and in marked at the middle. Parents bring small children to stand on it and learn the words. And on the wall by the stair door, kept under glass, are tally marks from the Eleven Days, when the cabs crawled two trips a day and families waited here with their larders in bags, counting cabs.",
+  "detail": "The rose is by the berths and free to stand on. The tallies are by the stair door. On the anniversary of the Eleven Days, Swift leaves the lobby lamps at half.",
+  "who": {
+   "name": "Henrike Asante",
+   "age": 79,
+   "role": "retired cab engineer",
+   "line": "I was five. We sat on that bench with our larder in a bag. My mother counted the cabs out loud so I'd sleep. I think those are her marks."
+  },
+  "tags": [
+   "lift-lobby",
+   "eleven-days",
+   "directions"
+  ]
+ },
+ {
+  "id": "the-warm-floor",
+  "name": "The Warm Floor",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 43,
+  "deckTo": null,
+  "ring": 6,
+  "hour": 1,
+  "r": null,
+  "wall": null,
+  "blurb": "A day nursery in Hare where babies crawl on floors warmed by the food plant's loop.",
+  "text": "Helium chills skin, and babies spend most of the day on the floor, so the nursery's floors are warmed from the 65 °C loop underneath, for nothing. Thirty under-fours spend their days here at 0.94 g: crawling, napping in a dim back room to the drum's lamp clock, and learning to lift the lid off their own bowl, which Sorrel counts as the start of manners. The carers keep a board of first words. After the names of their people, the commonest is anti, learned from watching grown-ups drop things. The cleaning robots are slow and low and very popular, and are ridden more than the carers would like.",
+  "detail": "About half a kWh an hour a child, the carers' time shared six ways. Doors open at 07:30. Parents are asked to bring a herb from home for the shelf by the door.",
+  "who": {
+   "name": "Sunniva Okonkwo",
+   "age": 29,
+   "role": "nursery carer",
+   "line": "They learn anti before they learn please. You drop a spoon, a baby points at where it landed and tells you off."
+  },
+  "tags": [
+   "nursery",
+   "children",
+   "waste-heat"
+  ]
+ },
+ {
+  "id": "the-river-room",
+  "name": "The River Room",
+  "kind": "rites",
+  "zone": "deck",
+  "deck": 108,
+  "deckTo": null,
+  "ring": 5,
+  "hour": 7,
+  "r": null,
+  "wall": null,
+  "blurb": "A felt-hung meeting room for silence in Stag, kept by the small faith that holds the River holy.",
+  "text": "A low room near the top of the Low decks, at 0.86 g, hung with felt so thoroughly that heliox's ring dies at the door. Along the far wall runs one band of pale gold lamp, the width of a hand, and that's all the decoration there is. The small faith that keeps it believes everything fell out of the River, which the back crews will tell you is plainly true of the metal: it's mined among those stars and falls inward for about a million years. People sit in silence holding something metal, a spoon or a button or a ring. Anyone may come. Most who do aren't of the faith and say they come for the quiet.",
+  "detail": "Open all day. Silence is kept from 07:00 to 08:00 and 21:00 to 22:00. Children back from the Window are asked, once, to say what they saw. Most can't, and that's thought proper.",
+  "who": {
+   "name": "Absalom Ferreira-Nyberg",
+   "age": 77,
+   "role": "keeper of the room",
+   "line": "Hold your spoon and think how far it came. A million years falling, to end up in your soup. Then think about the soup."
+  },
+  "tags": [
+   "faith",
+   "silence",
+   "the-river"
+  ]
+ },
+ {
+  "id": "the-lidded-oven",
+  "name": "The Lidded Oven",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 71,
+  "deckTo": null,
+  "ring": 8,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "A school-gate bakery in Bee, where a sugar bun costs less than a tomato and comes under a linen lid.",
+  "text": "Pastry is cheap and salad is a treat, and the Lidded Oven is built on it. Its dough proves for free on racks warmed from the food plant's loop and bakes in electric ovens before lamp-dawn. In heliox a bare croissant is cold within minutes, so every tray goes out under a linen lid, and children are sent home with their buns in a cloth. The queue is longest after school. On Summer Day, kept for the forty days when a fault at the back cap left every room three or four degrees warm, the bakery serves everything cold: chilled custard buns and a cold rice cake, and the queue starts at six.",
+  "detail": "Open 06:30 to 15:00, and again 15:30 to 17:00 for the schools. A sugar bun about 0.3 kWh, a croissant about 0.55. The sourdough starter is registered with the strain library.",
+  "who": {
+   "name": "Matthias Oduya",
+   "age": 37,
+   "role": "baker",
+   "line": "A bun costs less than a tomato and a croissant about the same as a side salad. The children think that's the natural order of things. In here it is."
+  },
+  "tags": [
+   "bakery",
+   "pastry",
+   "summer-day"
+  ]
+ },
+ {
+  "id": "ashgrove",
+  "name": "Ashgrove",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 73,
+  "deckTo": 78,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Three thousand people on six decks at nine-tenths of a g, around a court with three pear trees in it.",
+  "text": "An indoor town about 230 m on a side, served by five lift cores, 2.7 km from the axis, where everything weighs nine-tenths of what it would on Earth. The decks are 4 m apart and the ceilings about 3 m, lamp-lit about as brightly as a living room, so the Court is the only place where the ceiling is higher than a room. The Long Arcade runs spinward across it on deck 75 and Pear Street runs along the axis. Between them you can get a free hot dinner, a hot bath, a coat relined and a tomato that costs more than your pint. Nobody remembers ash trees here. The flats have no windows, apart from the ones on the Court's terraces.",
+  "detail": "Address: seventy-three to seventy-eight, Three, Bee. From deck 77 the rim is about thirty seconds down by cab, and the elders' decks near the Hollow a little over a minute up.",
+  "canon": "ashgrove.md",
+  "tags": [
+   "neighbourhood",
+   "families",
+   "court"
+  ]
+ },
+ {
+  "id": "ashgrove-court",
+  "name": "The Court",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 73,
+  "deckTo": 78,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Ashgrove's atrium, six decks tall and lit like an overcast day, and the subject of its oldest argument.",
+  "text": "An atrium cut up through all six decks of Ashgrove. Its floor, on deck 73, is about 90 by 60 m, and its ceiling is the underside of deck 79, 24 m up; each deck above opens onto it as a ring of planted terraces. Ashgrove's share of park light, about 53 W a head and 160 kW in all, can light the floor to 10,000 lux for twelve hours and leave the terraces a quarter of that, or spread half that brightness evenly over the Court and all its terraces. Every few years Ashgrove votes. The Court has won six times running, mostly because of the pears, and the terraces stay at a grey quarter-light. The people whose flats open onto them have opinions.",
+  "detail": "The light vote comes round every few years. The choice: the floor at 10,000 lux for twelve hours, or the Court and its terraces, about 1.5 ha, at about 5,300 lux.",
+  "who": {
+   "name": "Noor Hallam",
+   "age": 46,
+   "role": "terrace flat, deck 78",
+   "line": "Six votes, and we've lost every one. I vote terraces anyway. Then I go and look at the pears like everyone else."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "light",
+   "vote",
+   "atrium"
+  ]
+ },
+ {
+  "id": "ashgrove-pears",
+  "name": "The pears",
+  "kind": "green",
+  "zone": "deck",
+  "deck": 73,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Three espaliered pear trees on the Court's brightest wall, the only things in Ashgrove that get a winter.",
+  "text": "Three pear trees trained flat against the Court's brightest wall, older than anyone living. They get their light free, since the Court is lit anyway. Every year the school's youngest class helps wrap them in chilled tents for six weeks so they'll bloom, then unwraps them, and a few weeks later the same children dab the blossom with brushes, flower by flower, because nobody in Sorrel has ever seen a bee. The trees give a few hundred small, hard pears a year. By custom the first two go to Ashgrove's oldest resident and its newest baby, and the rest go round by lottery. Most people in Ashgrove can tell you which year they won one.",
+  "detail": "Winter lasts six weeks, in chilled tents. The brushing takes a few mornings, and the class keeps a chart of the branches it has done. The first two pears are given in the Court.",
+  "who": {
+   "name": "Pilar Ndoye",
+   "age": 6,
+   "role": "pear brusher, youngest class",
+   "line": "You have to do every flower. If you miss one it doesn't turn into a pear. I did the low ones because I'm the low one."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "pears",
+   "children",
+   "custom"
+  ]
+ },
+ {
+  "id": "long-arcade",
+  "name": "The Long Arcade",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 75,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Ashgrove's spinward street, with a slow trolley down the middle and a ring to every voice.",
+  "text": "The Long Arcade runs spinward across Ashgrove on deck 75, with a slow trolley down the middle. Along it are the Mill Hall, the school, and Dace's between a clinic and a stair. It's lamp-lit about as brightly as a living room, and in heliox the Arcade rings: voices come out bright and thin-edged, and a shout from the far end arrives sooner than you expect. Weight is a map here as everywhere. Run spinward down the Arcade and you get heavier; run back and you get lighter, so children race antispinward and lose fights spinward. Nobody in Ashgrove hears the ring as strange. To them, old recordings from the old air sound spoken through a blanket.",
+  "detail": "The trolley is free and a little faster than walking. Riding it spinward you weigh about three hundredths more than you do standing still; riding it back, about three hundredths less.",
+  "who": {
+   "name": "Oriel Fenn",
+   "age": 11,
+   "role": "pupil at the deck 75 school",
+   "line": "Races go anti, everybody knows that. If somebody says race me spinward, they're older than you and they want to win."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "street",
+   "trolley",
+   "coriolis"
+  ]
+ },
+ {
+  "id": "pear-street",
+  "name": "Pear Street",
+  "kind": "home",
+  "zone": "deck",
+  "deck": 77,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Ashgrove's street along the axis, where your weight stays the same whichever way you walk.",
+  "text": "Pear Street runs along the axis through Ashgrove and crosses the Long Arcade at the Court. Walking it is plain walking: along the axis nothing changes, so it's where the old take their exercise and small children learn to ride without the street tipping them. The Daces' flat is on deck 77 off Pear Street, two corners from the Court, and Ilka lives across the street; she gave her birth right to her sister in Chervil, and her nephew calls her his second mother. The Thiamine is two corners from the Court too. At the street's end is a lift core, where a cab drops you seventy-six decks to the rim in about thirty seconds.",
+  "detail": "The core at the end of Pear Street is one of Ashgrove's five. A cab usually waits in the lobby's berth already, so the wait is fifteen seconds or less.",
+  "canon": "ashgrove.md",
+  "tags": [
+   "street",
+   "axis",
+   "lift-core"
+  ]
+ },
+ {
+  "id": "ashgrove-mill-hall",
+  "name": "Ashgrove Mill Hall",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 75,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Three free Mill-table meals a day, served hot under lids at long tables. Ladle.",
+  "text": "Off the Long Arcade. The Mill Hall serves the Mill table free from the commons, three times a day: lamp-dawn jook of Mill jasmine rice in a sweet stock that tastes faintly of scallop, with chili crisp, sour-starch puffs and milk tea; cold glass noodles and starch jellies at noon; at night a red palm-style stew with fried jelly cubes that drink it up and a stretchy starch swallow. A bowl of the Nine sits on every table and Mill lager is on tap. Robots cook and the regulars run the room. Nobody under thirty admits to eating here, and most of them do. After school the youth ensemble rehearses in the back room.",
+  "detail": "Free. At kitchen prices the jook is 0.96 kWh, the night stew 1.50 and the bowl of the Nine 0.17. The Hall gets the herb pot's cuttings first: ask what was cut this morning.",
+  "who": {
+   "name": "Gaspard Iwu",
+   "age": 67,
+   "role": "regular",
+   "line": "Chili oil, black vinegar, the Nine. The ratio is mine and it stays mine. Sit by me long enough and you might work it out."
+  },
+  "canon": "eating-out.md",
+  "tags": [
+   "mill-table",
+   "free",
+   "ladle"
+  ]
+ },
+ {
+  "id": "ashgrove-baths",
+  "name": "Ashgrove baths",
+  "kind": "water",
+  "zone": "deck",
+  "deck": 75,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "The warmest room in Ashgrove, heated free by the food plant's 65 °C loop.",
+  "text": "The water comes up from the food plant's waste-heat loop at 65 °C, so heating it costs nothing; only pumping and cleaning do. Heliox draws heat from skin about four times faster than air, which makes a hot bath the cheapest luxury in the drum, and this is the warmest room in Ashgrove. After school the dark kids come here: teenagers going without their worlds to save for something, each with a black thread round the left wrist that means don't message me, I won't see it. They come because the baths are free, warm and full of people, and because the steam is where the drum's gossip lives.",
+  "detail": "Free from the commons. Busiest after school and after the evening shifts. A black thread on someone's wrist means they're dark: talk to them, don't message them.",
+  "who": {
+   "name": "Wren Dace",
+   "age": 15,
+   "role": "heliox flute, Ashgrove youth ensemble",
+   "line": "Four of us are dark this fortnight. Worlds off, threads on. You'd think it would be quiet in here. It's the loudest room in Ashgrove."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "waste-heat",
+   "baths",
+   "going-dark"
+  ]
+ },
+ {
+  "id": "ashgrove-greengrocer",
+  "name": "The greengrocer's",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 77,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Tomatoes in a glass case at half a kWh each: the nearest thing Ashgrove has to a jeweller's.",
+  "text": "A small shop on Pear Street where the dear things are the fresh ones. Tomatoes sit in a glass case at half a kWh each, the price of a pint and a bit, and people choose them the way they'd choose a ring. Herbs are cheap and salad is a treat, the other way round from the old pictures. There are always a few orchard apples at about 4.4 kWh for people buying a gift, since an apple is never for one. Small children breathe on the case and draw in it. The grocer wipes it down twice a day and doesn't mind.",
+  "detail": "A tomato 0.5 kWh; herbs a few hundredths; leaves for a side salad about 0.6; an orchard apple about 4.4, wrapped in a cloth for carrying.",
+  "who": {
+   "name": "Selma Ruiz-Abara",
+   "age": 58,
+   "role": "greengrocer",
+   "line": "Most people stand at the case a good while and buy one. They carry it home in both hands."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "produce",
+   "tomatoes",
+   "shop"
+  ]
+ },
+ {
+  "id": "daces",
+  "name": "Dace's",
+  "kind": "make",
+  "zone": "deck",
+  "deck": 75,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Anselm Dace's mending shop on the Long Arcade, between a clinic and a stair.",
+  "text": "A long room with a cutting table, a sewing machine, a small fabricator, a lathe, and racks of offcuts sorted by fibre and colour. Anselm Dace relines coats, lets out children's trousers, re-springs chairs, resoles shoes and fixes cleaning robots. Children's clothes in Sorrel are cut with a hand's width folded into every seam, and a good pair is let out three times before it's handed down. This year half of Ashgrove's linings have gone hard algae blue: the dye weighs nothing, and a lining is about 300 g of spun cellulose, about 5 kWh. Paying Anselm uses no energy, since the kWh only move from one wallet to his. In effect he's paid to save his customers' metal.",
+  "detail": "About 3 kWh an hour, Ashgrove's price for anyone's time. A remade sofa (about 4 kg of new webbing, filling and cover, plus forty hours) comes to about 220 kWh; a new one, 1,000.",
+  "who": {
+   "name": "Anselm Dace",
+   "age": 52,
+   "role": "mender",
+   "line": "I do the sums on the counter and turn them round so the couple can read them. I don't tell them what most couples choose. They choose it anyway."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "mending",
+   "craft",
+   "thrift"
+  ]
+ },
+ {
+  "id": "ashgrove-school",
+  "name": "The school on deck 75",
+  "kind": "culture",
+  "zone": "deck",
+  "deck": 75,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "Ashgrove's school, where break is spinball in the long hall.",
+  "text": "The school takes the children of Ashgrove and the blocks around it. Sorrel raises its children on the Low decks, near full weight, because children's bones grow best there, or so every parent in Sorrel believes. Break is spinball in the long hall, and every child learns its rule before they can read: axis flies true, spin sinks, anti floats. A ball thrown along the axis goes straight. Thrown spinward as hard as a child can throw it, it gains about a sixth of its weight and dives; thrown antispinward it loses as much and sails. Ossian Dace, who is eight, is good at it, because he's small and throws anti. Lunch is the Mill table, with the Nine shaken over the top.",
+  "detail": "The school asks every pupil for twenty minutes by a 2,500-lux light panel each morning at home, about a hundredth of a kWh. Its youngest class wraps and brushes the pears.",
+  "who": {
+   "name": "Ezra Tambe",
+   "age": 39,
+   "role": "teacher and spinball referee",
+   "line": "They read the angles faster than I do. I stand on the axis line, where nothing breaks, and blow the whistle."
+  },
+  "canon": "ashgrove.md",
+  "tags": [
+   "school",
+   "spinball",
+   "children"
+  ]
+ },
+ {
+  "id": "the-thiamine",
+  "name": "The Thiamine",
+  "kind": "eat",
+  "zone": "deck",
+  "deck": 77,
+  "deckTo": null,
+  "ring": 3,
+  "hour": 4,
+  "r": null,
+  "wall": null,
+  "blurb": "A gin cellar on Pear Street, two corners from the Court, under the sign \"Fortified, like our salt.\"",
+  "text": "Down a stair off Pear Street, two corners from the Court. Sorrel sells gin near cost with thiamine in it, as in the salt, and the Thiamine is where Ashgrove drinks it: a Sorrel gin over a lump of sugar glass, the house's ice, with krupuk and chili crisp and jelly cubes in salt and vinegar. Lovage people glide over on Saturdays, since their own spirits are taxed hard, and you can hear them from the stair; to Sorrel ears, Lovage people always sound as though they're about to laugh. At your fifth gin they cut you off politely and bring you a free bowl of jook.",
+  "detail": "A gin 0.18 kWh; krupuk and chili crisp with jelly cubes 0.30; about 1 kWh a night. One apple-seed star in the Crosswise Guide: worth the glide.",
+  "who": {
+   "name": "Ottoline Vass",
+   "age": 61,
+   "role": "cellar keeper",
+   "line": "Five is the house number. After five you get jook and a seat by the warm wall. Nobody has ever argued with the jook."
+  },
+  "canon": "eating-out.md",
+  "tags": [
+   "gin",
+   "cellar",
+   "lovage"
+  ]
+ }
+]

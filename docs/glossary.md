@@ -517,3 +517,42 @@ Matches: Madder, Ochre
 A maker drum on Merrow's Grain Row, home of Pell the baker and the raft loaf. See wander-year.md.
 
 Matches: Spelt
+
+## Inside Sorrel
+
+### Rings and Hours
+
+Sorrel's address system: deck, Ring and Hour ("seventy-seven, Three, Bee"). Nine Rings run along the axis, each named for the station ring beneath it, from Ring One at the power end to Ring Nine at the heat end. Twelve Hours go round, 30° wedges counted spinward and named for animals nobody in Sorrel has seen, from Hare to Lark; each faces its opposite across the Hollow. See sorrel.md.
+
+Matches: none
+
+### The Round
+
+The twelve Hours' yearly race right round deck 201 of Sorrel, on the Round Arcade: the Heavy Round run spinward and the Light Round antispinward. Stag wins the Heavy and Hare the Light. See sorrel.md.
+
+Matches: the Round, Heavy Round, Light Round
+
+### Down Halls
+
+Sorrel's funeral halls in the Keel, one per Ring. In Sorrel someone who has retired has "gone up" and someone who has died has "gone down": the dead ride down to a Down Hall, then to the oxidisers and back into the cycles. See sorrel.md, element-cycles.md.
+
+Matches: Down Hall, Down Halls
+
+### The Summer
+
+Sorrel's only season, about 1,100 years ago: forty days when a fault in the back cap's rotary joint left the drum three or four degrees warm. Summer Day is kept with cold food. See sorrel.md.
+
+Matches: the Summer, Summer Day
+
+### Register of Places
+
+Sorrel's record of every place, heir and name, unbroken for about 23,000 years. The old Count board hangs in its hall. See sorrel.md.
+
+Matches: Register of Places
+
+### Bench Island
+
+The pavilion that comes up through the bed of Sorrel's Hollow lake, with the jetty and the elders' bench. See sorrel.md.
+
+Matches: Bench Island
+
