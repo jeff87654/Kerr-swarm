@@ -616,7 +616,11 @@
    "neighbourhood",
    "families",
    "court"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1045
+  }
  },
  {
   "id": "ashgrove-court",
@@ -643,7 +647,11 @@
    "light",
    "vote",
    "atrium"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1045
+  }
  },
  {
   "id": "ashgrove-pears",
@@ -670,7 +678,11 @@
    "pears",
    "children",
    "custom"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1085
+  }
  },
  {
   "id": "long-arcade",
@@ -697,7 +709,11 @@
    "street",
    "trolley",
    "coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1007
+  }
  },
  {
   "id": "pear-street",
@@ -718,7 +734,11 @@
    "street",
    "axis",
    "lift-core"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 961
+  }
  },
  {
   "id": "ashgrove-mill-hall",
@@ -745,7 +765,11 @@
    "mill-table",
    "free",
    "ladle"
-  ]
+  ],
+  "at": {
+   "deg": 101.9,
+   "z": 992
+  }
  },
  {
   "id": "ashgrove-baths",
@@ -772,21 +796,25 @@
    "waste-heat",
    "baths",
    "going-dark"
-  ]
+  ],
+  "at": {
+   "deg": 101.1,
+   "z": 990
+  }
  },
  {
   "id": "ashgrove-greengrocer",
   "name": "The greengrocer's",
   "kind": "make",
   "zone": "deck",
-  "deck": 77,
+  "deck": 75,
   "deckTo": null,
   "ring": 3,
   "hour": 4,
   "r": null,
   "wall": null,
   "blurb": "Tomatoes in a glass case at half a kWh each: the nearest thing Ashgrove has to a jeweller's.",
-  "text": "A small shop on Pear Street where the dear things are the fresh ones. Tomatoes sit in a glass case at half a kWh each, the price of a pint and a bit, and people choose them the way they'd choose a ring. Herbs are cheap and salad is a treat, the other way round from the old pictures. There are always a few orchard apples at about 4.4 kWh for people buying a gift, since an apple is never for one. Small children breathe on the case and draw in it. The grocer wipes it down twice a day and doesn't mind.",
+  "text": "A small shop on the Long Arcade where the dear things are the fresh ones. Tomatoes sit in a glass case at half a kWh each, the price of a pint and a bit, and people choose them the way they'd choose a ring. Herbs are cheap and salad is a treat, the other way round from the old pictures. There are always a few orchard apples at about 4.4 kWh for people buying a gift, since an apple is never for one. Small children breathe on the case and draw in it. The grocer wipes it down twice a day and doesn't mind.",
   "detail": "A tomato 0.5 kWh; herbs a few hundredths; leaves for a side salad about 0.6; an orchard apple about 4.4, wrapped in a cloth for carrying.",
   "who": {
    "name": "Selma Ruiz-Abara",
@@ -799,7 +827,11 @@
    "produce",
    "tomatoes",
    "shop"
-  ]
+  ],
+  "at": {
+   "deg": 102.5,
+   "z": 997
+  }
  },
  {
   "id": "daces",
@@ -826,7 +858,11 @@
    "mending",
    "craft",
    "thrift"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 995
+  }
  },
  {
   "id": "ashgrove-school",
@@ -853,7 +889,11 @@
    "school",
    "spinball",
    "children"
-  ]
+  ],
+  "at": {
+   "deg": 105.17,
+   "z": 1022
+  }
  },
  {
   "id": "the-thiamine",
@@ -880,6 +920,10 @@
    "gin",
    "cellar",
    "lovage"
-  ]
+  ],
+  "at": {
+   "deg": 102.8,
+   "z": 950
+  }
  }
 ]

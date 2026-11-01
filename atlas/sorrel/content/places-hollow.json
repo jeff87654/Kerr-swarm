@@ -19,7 +19,11 @@
    "swimming",
    "half-g",
    "elders"
-  ]
+  ],
+  "at": {
+   "deg": 165.0,
+   "z": 1875
+  }
  },
  {
   "id": "the-jetty",
@@ -47,7 +51,11 @@
    "diving",
    "pavilion",
    "Coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 165.81,
+   "z": 1832
+  }
  },
  {
   "id": "the-elders-bench",
@@ -75,7 +83,11 @@
    "lamp-dawn",
    "lake",
    "custom"
-  ]
+  ],
+  "at": {
+   "deg": 165.39,
+   "z": 1871
+  }
  },
  {
   "id": "robe-house",
@@ -96,7 +108,11 @@
    "broth",
    "warmth",
    "lids"
-  ]
+  ],
+  "at": {
+   "deg": 201.13,
+   "z": 1267
+  }
  },
  {
   "id": "the-orchards",
@@ -124,7 +140,11 @@
    "orchard",
    "free light",
    "food"
-  ]
+  ],
+  "at": {
+   "deg": 66.07,
+   "z": 1957
+  }
  },
  {
   "id": "the-pavilions",
@@ -146,7 +166,11 @@
    "arrival",
    "pavilion",
    "Lattice"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1045
+  }
  },
  {
   "id": "winter-tents",
@@ -173,7 +197,11 @@
    "cold",
    "winter",
    "orchard"
-  ]
+  ],
+  "at": {
+   "deg": 35.63,
+   "z": 1615
+  }
  },
  {
   "id": "brush-rows",
@@ -194,7 +222,11 @@
    "pollination",
    "children",
    "volunteers"
-  ]
+  ],
+  "at": {
+   "deg": 110.62,
+   "z": 2344
+  }
  },
  {
   "id": "the-old-graft",
@@ -221,7 +253,11 @@
    "heirloom",
    "oldest",
    "elders"
-  ]
+  ],
+  "at": {
+   "deg": 73.13,
+   "z": 2760
+  }
  },
  {
   "id": "the-lawns",
@@ -242,7 +278,11 @@
    "lawn",
    "turn",
    "light"
-  ]
+  ],
+  "at": {
+   "deg": 226.96,
+   "z": 775
+  }
  },
  {
   "id": "kite-field",
@@ -425,7 +465,11 @@
    "wood",
    "evening",
    "shade"
-  ]
+  ],
+  "at": {
+   "deg": 353.32,
+   "z": 390
+  }
  },
  {
   "id": "fern-gardens",
@@ -452,7 +496,11 @@
    "shade garden",
    "ferns",
    "quiet"
-  ]
+  ],
+  "at": {
+   "deg": 52.55,
+   "z": 385
+  }
  },
  {
   "id": "back-wood",
@@ -473,7 +521,11 @@
    "bamboo",
    "dusk",
    "couples"
-  ]
+  ],
+  "at": {
+   "deg": 214.26,
+   "z": 3360
+  }
  },
  {
   "id": "lamp-walk",
@@ -494,7 +546,11 @@
    "lamp-night",
    "evening",
    "promenade"
-  ]
+  ],
+  "at": {
+   "deg": 296.3,
+   "z": 3315
+  }
  },
  {
   "id": "front-wall",
@@ -516,7 +572,11 @@
    "terraces",
    "weddings",
    "dawn"
-  ]
+  ],
+  "at": {
+   "deg": 26.89,
+   "z": 296
+  }
  },
  {
   "id": "the-sill",
@@ -544,7 +604,11 @@
    "elders",
    "windows",
    "home"
-  ]
+  ],
+  "at": {
+   "deg": 304.36,
+   "z": 340
+  }
  },
  {
   "id": "wedding-terrace",
@@ -571,7 +635,11 @@
    "third-g",
    "apple",
    "dusk"
-  ]
+  ],
+  "at": {
+   "deg": 40.53,
+   "z": 261
+  }
  },
  {
   "id": "dawn-rail",
@@ -598,7 +666,11 @@
    "elders",
    "plain dawn",
    "view"
-  ]
+  ],
+  "at": {
+   "deg": 187.78,
+   "z": 348
+  }
  },
  {
   "id": "the-quarter",
@@ -619,7 +691,11 @@
    "children",
    "schools",
    "Coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 260.25,
+   "z": 223
+  }
  },
  {
   "id": "tea-steps",
@@ -640,7 +716,11 @@
    "tea",
    "low g",
    "Coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 81.21,
+   "z": 79
+  }
  },
  {
   "id": "back-wall",
@@ -662,7 +742,11 @@
    "terraces",
    "Window",
    "guests"
-  ]
+  ],
+  "at": {
+   "deg": 187.49,
+   "z": 3462
+  }
  },
  {
   "id": "waiting-terrace",
@@ -689,7 +773,11 @@
    "families",
    "children",
    "rites"
-  ]
+  ],
+  "at": {
+   "deg": 170.83,
+   "z": 3403
+  }
  },
  {
   "id": "reel-terrace",
@@ -716,7 +804,11 @@
    "third-g",
    "Booking Day",
    "Coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 225.76,
+   "z": 3489
+  }
  },
  {
   "id": "slow-fountain",
@@ -737,7 +829,11 @@
    "water",
    "children",
    "Coriolis"
-  ]
+  ],
+  "at": {
+   "deg": 106.29,
+   "z": 3529
+  }
  },
  {
   "id": "guest-tiers",
@@ -764,7 +860,11 @@
    "guests",
    "Lovage",
    "view"
-  ]
+  ],
+  "at": {
+   "deg": 354.16,
+   "z": 3437
+  }
  },
  {
   "id": "the-twentieth",
@@ -791,6 +891,10 @@
    "jumping",
    "low g",
    "children"
-  ]
+  ],
+  "at": {
+   "deg": 130.04,
+   "z": 3685
+  }
  }
 ]

@@ -157,6 +157,7 @@ Write a JSON array to your output file. Each entry:
 - **hour:** 1–12 (Hare = 1 … Lark = 12). Use null only for things that run all the way round (a whole station ring, the jacket, the quay, the sunline).
 - **r:** radius in metres from the axis, for `hollow` (1,500 for the floor; less for things in the air), `wall` (75–1,500), `spindle` (0–75), `outside` (3,000–3,060). Else null.
 - **wall:** "front" or "back" for `wall`, `spindle` and `axle` zones (which end), else null.
+- **at:** optional, `{ "deg": degrees spinward from the start of Hour One, "z": metres from the front cap }`. An exact spot instead of the one the atlas picks inside the place's Ring and Hour. Places that the 3D Sorrel game builds carry the spot where the game stands them, so the two agree; move both together.
 - **who:** optional, for about half the entries. Ages must suit the band.
 - **canon:** the doc a place comes from, only if it already exists there. Otherwise omit the key or null.
 - Spread places over all twelve Hours and all nine Rings. Use real deck numbers in your band, not round numbers only.

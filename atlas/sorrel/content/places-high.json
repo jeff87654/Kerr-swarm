@@ -53,7 +53,11 @@
    "light",
    "garden",
    "home"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1045
+  }
  },
  {
   "id": "the-up-hall",

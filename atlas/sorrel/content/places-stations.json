@@ -70,7 +70,11 @@
    "produce",
    "lovage",
    "tansy"
-  ]
+  ],
+  "at": {
+   "deg": 103.13,
+   "z": 1040
+  }
  },
  {
   "id": "station-ring-4",
@@ -246,7 +250,11 @@
    "quarantine",
    "strain-library",
    "produce"
-  ]
+  ],
+  "at": {
+   "deg": 104.76,
+   "z": 1078
+  }
  },
  {
   "id": "keel-baths-kitchen",
