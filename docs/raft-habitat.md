@@ -1,6 +1,6 @@
 # Raft habitat: a nation drum in the Shade
 
-*Design proposal from a working session, Oct 2026. The drum as a place once it stands in a raft: how big to build it, how it sits in its cell, its districts, and getting around inside it (in full: drum-transport.md). Builds on habitat-design.md (the drum), full-swarm.md (the Shade), raft-transport.md (travel between drums: the Glide, tubes and cyclers) and daily-life.md (the 2 kWe budget, prices and a day on the meter). Power figures use daily-life.md's 2 kWe split, compute included. The names (the Keel, the station rings, the Quaysides, the Spindle, the flying halls) are proposals. Revised Oct 2026: the drum's water is its X-ray shield (habitat-design.md's moat), which sets the smallest drum that works (~2 km); getting around inside now follows drum-transport.md; and the sunline stops short of the end walls, so the Spindle can be flown by day. Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (Drum size on a raft); figures are for that drum unless marked. Revised Oct 29, 2026 after a consistency audit.*
+*Design proposal from a working session, Oct 2026. The drum as a place once it stands in a raft: how big to build it, how it sits in its cell, its districts, and getting around inside it (in full: drum-transport.md). Builds on habitat-design.md (the drum), full-swarm.md (the Shade), raft-transport.md (travel between drums: the Glide, tubes and cyclers) and daily-life.md (the 2 kWe budget, prices and a day on the meter). Power figures use daily-life.md's 2 kWe split, compute included. The names (the Keel, the station rings, the Quaysides, the Spindle, the flying halls) are proposals. Revised Oct 2026: the drum's water is its X-ray shield (habitat-design.md's moat), which sets the smallest drum that works (~2 km); getting around inside now follows drum-transport.md; and the sunline stops short of the end walls, so the Spindle can be flown by day. Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (Drum size on a raft); figures are for that drum unless marked. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026: the 2 kWe life is now the baseline everywhere (full-swarm.md: ~1.95 × 10³³ people); the inner edge's glow, ~15–40% of the hull's load, is counted on the hull's panels only, so inner rafts take ~3.3–3.8 m² a head; the hull's heat leaves by a split loop, since a 295 K cabin can't reject into 300 K panels without a heat pump; the common budget's back is ~3.3–4.2 m²; and each drum now banks ~12 Mt of survival oxygen beside a tank farm that keeps its own liquid oxygen.*
 
 ## Summary
 - **The nation drum is 3 km in radius, 3.75 km long, ~200 M people.** It was 2 km and ~60 M until Oct 2026.
@@ -14,7 +14,7 @@
 - **A raft picks one size.** Drums glide only to drums with the same rim speed.
 - **Three ports:** power comes in at the front cap, heat leaves at the back cap, and people and goods leave at the rim.
 - **The drum wears two-thirds of its water as a moat,** ~0.5 m deep outside its hydrogen jacket on the sides and front cap, in place of an iron parasol. The Lantern's hard X-rays flood the mid-raft from a source up to 130° across, and the moat keeps their heat out of the 20 K jacket (habitat-design.md).
-- **Radiators are fixed panels across the raft's back,** fed through a rotary joint at the back cap. At 2 kW they fill the cell's back, and that, not the rectenna (~2 m²), sets the raft at ~3 m² per person. Radiator vanes spinning with the drum wouldn't leave room for the hotter loads.
+- **Radiators are fixed panels across the raft's back,** fed through a rotary joint at the back cap. At 2 kW they fill the cell's back, and that, not the rectenna (~2 m²), sets the raft at ~3 m² per person (~3.3–3.8 m² at the Shade's inner edge, where other rafts' glow lands on them). Radiator vanes spinning with the drum wouldn't leave room for the hotter loads.
 - **Districts are bands of gravity:** the Keel (rim, ~1 g: food plant, reserves and the drum's stations), the Low, Middle and High decks, and the Hollow (0.5 g floor, open sky). Out is down; the Hollow is up.
 - **The sunline stops ~450 m short of each end wall.** Within ~500 m of a full-sun line, its light alone outdoes Earth's noon sun (~6.7 kW/m² at the Spindle's 75 m edge). So by day people fly only in the flying halls at the Spindle's two ends, and the rest of it opens in the lamp-night.
 - **Each deck is a city** of 350,000–700,000 people, 9–19 km around and 3.75 km wide; a drum stacks ~375 of them.
@@ -24,8 +24,15 @@
 ### How much raft a person needs
 At daily-life.md's 2 kWe (1.70 kWe beamed, 0.30 of batch compute on the Lantern):
 - **Front:** ~1.95 m² of rectenna (1.70 kWe × 1.03 margin ÷ 90% rectenna, at ~1 kW/m² of microwaves), plus ~0.15 m² of drum cap behind the moat's front tank.
-- **Back:** ~1.9 m² of 300 K radiator for the hull's 0.80 kW (one-sided), ~0.65 m² at 350 K for the data halls' 0.50 kW, and a few tenths more, running hotter, for the Yards, rectenna losses and track losses: ~2.8–3.2 m² in all.
-- **So the back sets the raft at ~3 m² per person,** ~2,950 kg/m². Near the Shade's inner edge, Lantern glow reflected off outer rafts' fronts adds ~10–30% to radiator loads, so inner rafts take ~3.3–3.6 m². The common budget needs ~3.5 m² on the back (see Open questions).
+- **Back:** ~1.9 m² of one-sided hull radiator for the hull's 0.80 kW (as much as at 300 K, in two loops; see The hull's two loops), ~0.65 m² at 350 K for the data halls' 0.50 kW, and a few tenths more, running hotter, for the Yards, rectenna losses and track losses: ~2.8–3.2 m² in all.
+- **So the back sets the raft at ~3 m² per person,** ~2,950 kg/m². Near the Shade's inner edge, Lantern glow sent sideways by outer rafts' fronts lands on inner rafts' backs. The ~15–40% it adds is counted on the hull's panels only, sized as 300 K ones (full-swarm.md), so inner rafts take ~3.3–3.8 m². The common budget needs ~3.3–4.2 m² on the back (see Open questions).
+  - The glow lands on the hotter panels too, but costs them less: a 350 K panel sheds ~1.9× as much per m², and a 500–600 K one ~8–16×. It costs the hull's cooler room loop a little more (The hull's two loops). Counted over the whole back, all of that comes to ~0.1–0.3 m² more at the inner edge, which inner rafts can win back by running their Yards and rectenna losses near 600 K (worth ~0.3 m²).
+
+### The hull's two loops
+- **A cabin can't cool itself into a warmer radiator.** Rooms run at ~295 K (element-cycles.md), and heat won't flow on its own into 300 K panels. It would take a heat pump, which energy-budget.md finds isn't worth its power.
+- **So the hull runs two loops.** The rooms' ~0.45 kW (people's own heat, lamps, homes, devices, fans) goes to panels at ~283 K. The ~0.35 kW that leaves the hull hot, mostly the food plant's, whose thermophile cultures run at 60–70 °C (food-system.md), goes to panels at ~330 K.
+- **It needs about the same area:** ~1.38 + 0.58 = 1.95 m², against 1.94 m² all at 300 K. The colder panels need more area per watt and the hotter ones less, and it comes out even.
+- Both loops leave through the back cap's rotary joint as two-phase ammonia, which works at both temperatures.
 
 ### What changes with drum size
 At 2 kW and 3 m² per person:
@@ -46,7 +53,7 @@ At 2 kW and 3 m² per person:
 | Shield cryocooling | 100 W | 25 W | **17 W** | 6 W |
 | Raft areal density | ~7,100 kg/m² | ~3,300 kg/m² | **~2,950 kg/m²** | ~2,500 kg/m² |
 
-- **Small drums lose on shielding.** Jacket, moat and cryocooling all scale as 1/R. A raft of town drums would put ~40% of the cluster's stripped gas into shields instead of ~7%, need ~1.5 t more water per person to fill out the moat, more than double the raft's areal density, and spend 5% of a 2 kW budget keeping hydrogen cold.
+- **Small drums lose on shielding.** Jacket, moat and cryocooling all scale as 1/R. A Shade built of town drums would put ~60% of the cluster's stripped gas into shields instead of ~10%, need ~1.5 t more water per person to fill out the moat, more than double the raft's areal density, and spend 5% of a 2 kW budget keeping hydrogen cold.
 - **Big drums gain reach.** People per km² of raft are fixed (~3 m² each) whatever the drum size, and a bigger drum's quay moves faster, as the square root of its radius. So the Glide covers more raft per minute, and the people within a given glide time grow with drum size, though each hop is longer.
   - *An earlier version of this doc said big drums lose on reach. It counted hops, not people.*
 - **What big drums lose:**
@@ -67,11 +74,11 @@ At 2 kW and 3 m² per person:
 - **The layers** (raft-transport.md): rectennas in front, radiators behind, and 3.75 km of mid-raft between them. The drum stands in the mid-raft with its axis toward the Lantern: front cap in the rectenna layer behind the moat's front tank, back cap at the radiator layer, rim in the raft's plane.
 - **Three ports.**
   - **Front cap: power in.** The cell's rectennas deliver ~340 GW; ~160 GW of it enters the drum through a rotary joint at the front axle, at the hub of the moat's front tank.
-  - **Back cap: heat out.** The hull's ~160 GW leaves as coolant through a rotary joint at the back axle: ~130,000 kg/s of two-phase ammonia, ~220 m³/s of liquid, a river's worth. The back axle is also the service dock for the radiator layer.
+  - **Back cap: heat out.** The hull's ~160 GW leaves as coolant through a rotary joint at the back axle, in two loops (~90 GW from the rooms at ~283 K, ~70 GW from the food plant at ~330 K): ~140,000 kg/s of two-phase ammonia, ~240 m³/s of liquid, a river's worth. The back axle is also the service dock for the radiator layer.
   - **The rim: people and goods.** Every trip to another drum starts and ends at a quay outside the jacket and moat (raft-transport.md). The axis is no longer the drum's front door.
-- **Radiators are fixed panels, not vanes.** At 2 kW the hull alone needs ~390 km² of one-sided 300 K radiator.
+- **Radiators are fixed panels, not vanes.** At 2 kW the hull alone needs ~390 km² of one-sided radiator (~275 km² at ~283 K and ~115 km² at ~330 K, as much as ~390 km² at 300 K).
   - As an annulus spinning with the drum, it would reach ~11.5 km from the axis, against 12.2 km to the cell's edge. That leaves only the cell's corners (~0.65 m² per person) for ~0.9–1.3 m² of hotter radiators. At the common budget the annuli (~12.9 km) would overlap their neighbours'.
-  - Fixed panels can tile the whole back: ~390 km² at 300 K for the hull, the rest hotter for the data halls, Yards and rectenna losses.
+  - Fixed panels can tile the whole back: ~390 km² for the hull's two loops, the rest hotter for the data halls, Yards and rectenna losses.
 - **The mid-raft between drums** holds the truss, power lines, the Glide's lanes and tubes, the data halls (interactive compute, ~100 GW per cell) and the Yards (industry and recycling, ~58 GW per cell). Their heat goes to hotter panels in the back layer.
   - The mid-raft is an X-ray flood: silicon takes ~2–15 MGy a year there, which kills ordinary chips in hours and hardened ones in months. So data halls, inverters and controllers sit in water-walled vaults (~1.5 t/m² of wall, ~0.1–0.5 kg per person). Rectennas, which face the Lantern, use diamond or GaN diodes and are replaced on a schedule.
 - **The shell.** 50 m of liquid hydrogen at 20 K (~450 Mt), kept cold by ~3.4 GW of cryocoolers. Outside it, the moat: ~53 Mt of the drum's ~80 Mt of water, ~0.5 m deep over the sides and front cap, which keeps the Lantern's X-rays out of the jacket and reflects a quarter to a third of them back into the mid-raft (habitat-design.md). The rest is inside: the Hollow's lake, trim tanks and a reserve.
@@ -88,10 +95,11 @@ At 2 kW and 3 m² per person:
 | Into the hull | ~160 GW |
 | Data halls / Yards / travel | ~100 / ~58 / ~20 GW |
 | Batch compute, on the Lantern | ~60 GW |
-| Hull radiators (300 K, one-sided) | ~390 km² |
+| Hull radiators (one-sided, ~283 K and ~330 K loops) | ~390 km² (~450–550 km² at the Shade's inner edge) |
 | Cryocoolers | ~3.4–3.8 GW (the moat's leak is the extra) |
 | Shield hydrogen / water | ~450 Mt / ~80 Mt (~53 Mt of it in the moat) |
-| Banked oxygen | ~7 Mt |
+| Banked oxygen, survival reserve | ~12 Mt |
+| Tank farm: methanol / liquid oxygen | ~19 Mt / ~29 Mt (its burn's ~26 Mt of CO₂ goes to tanks in the cold) |
 
 ## Districts
 
@@ -106,7 +114,7 @@ At 2 kW and 3 m² per person:
 | The Hollow (r < 1.5 km) | 0.5 g floor, 0 at the axis | Park, civic heart, the sunline |
 
 - **The Keel** is the drum's metabolism and its front door, ~5 m² of floor per person.
-  - It holds the food plant (Mill, Vats, Garden racks; food-system.md), the water works (two-thirds of the water itself is stored in the moat, outside the jacket), the methanol tank farm (granary and battery), the survival reserve (~7 Mt of banked oxygen and fuel cells), waste oxidation, recyclers and workshops.
+  - It holds the food plant (Mill, Vats, Garden racks; food-system.md), the water works (two-thirds of the water itself is stored in the moat, outside the jacket), the methanol tank farm (granary and battery, with its own liquid oxygen; full-swarm.md), the survival reserve (~12 Mt of banked oxygen and fuel cells), waste oxidation, recyclers and workshops.
   - **Station rings.** Platforms ring the rim deck under each lane level's quay (~9 along the drum's length; raft-transport.md). Cars pass out through the jacket and moat to the quay's cradles, which carry them round to their lane's touch point.
   - **The Quaysides,** the blocks around the station rings, are the busiest in the drum: markets, freight, and quarantine for anything biological, since here a phage is a famine.
   - The Keel has no homes: the rim decks are the least shielded against cosmic rays (habitat-design.md).
@@ -177,7 +185,7 @@ At 2 kW and 3 m² per person:
 - **Social geography.** The rich live up, near the Hollow; commuters live down, near the stations; the plant and the stations share the bottom.
 - **Polities.**
   - A drum is a nation of ~200 M, and the ~1.6 × 10¹⁰ people within a 20-minute glide are a metropolis of drums.
-  - A raft is a world, and it holds the beam contract with the Lantern. Each drum holds its own 55-day reserve.
+  - A raft is a world, and it holds the beam contract with the Lantern. Each drum holds its own 55-day reserve, ~90 days with a full tank farm.
   - A raft must pick one drum size to glide, so its size standard is a founding political fact.
   - What sits above the raft, and who holds the Lantern, is in governance.md.
 
@@ -194,8 +202,9 @@ At 2 kW and 3 m² per person:
 - **The 3 km baseline (Oct 2026):** habitat-design.md, drum-transport.md, raft-transport.md, full-swarm.md, energy-budget.md, daily-life.md, economy.md, governance.md, element-cycles.md, sgr-a-scope.md, swarm-rings.md, xray-power.md, matter-delivery.md and ashgrove.md now use the 3 km drum.
 
 ## Open questions
-- The back-cap rotary joint: ~160 GW of heat, ~220 m³/s of ammonia, turning at 0.55 rpm.
-- Settled Oct 29, 2026: rafts are built at 3 m² per person, for the 2 kWe life. At the full common budget the back would need ~3.5 m² of radiator per person even with the hot loads at 400–600 K, so a raft living that well is built roomier, or runs its Yards and rectennas hotter.
+- The back-cap rotary joint: ~160 GW of heat in two loops, ~240 m³/s of ammonia, turning at 0.55 rpm.
+- Settled Oct 29, 2026: rafts are built at 3 m² per person, for the 2 kWe life, which is the whole Shade's baseline since 1 Nov 2026 (full-swarm.md). At the full common budget the back would need ~3.3–4.2 m² of radiator per person, as its hot loads run at 600 or 400 K (~3.5 m² at ~500 K), so a raft living that well is built roomier, or runs its Yards and rectennas hotter.
+- How the hull's heat really splits between the room loop and the hot loop. Planning takes 0.45 / 0.35 kW; if the rooms take 0.55 kW, the hull needs ~2.1 m² rather than ~1.95.
 - How many station rings, and whether the Quaysides belong to the Keel or the Low decks.
 - How much gravity children need.
 - Who gets the Hollow, and when.
@@ -206,10 +215,13 @@ At 2 kW and 3 m² per person:
 ## Method
 - Drum: rim 3,000 m at 1 g (ω = 0.0572 rad/s), length 3,750 m, decks every 4 m from 3,000 m to 1,500 m (376 decks), 100 m² per person: ~199 M (200 M nominal). Deck floor = 2πrL. Bands by deck number from the rim; residents in proportion to floor, the Keel (decks 1–15, ~5 m² a person) excluded. Other sizes keep length = 1.25 R; the 2 km drum is R = 2,000 m, L = 2,500 m, ~59 M.
 - Cell = people × 3 m²; square pitch = √cell (raft-transport.md). Footprint = πR² ÷ cell.
-- Radiators, one-sided at emissivity 0.9: 413 W/m² at 300 K, 766 at 350 K, 1,306 at 400 K. Hull 0.80 kW at 300 K; data halls 0.50 kW at 350 K; Yards 0.29 kW, rectenna losses (10% of ~1.95 kW of microwaves) and track losses (~0.1 kW) at 350–600 K. Rectenna = 1.70 kWe × 1.03 ÷ 0.9 at ~1 kW/m².
+- Radiators, one-sided at emissivity 0.9: 327 W/m² at 283 K, 413 at 300 K, 605 at 330 K, 766 at 350 K, 1,306 at 400 K, 3,189 at 500 K, 6,613 at 600 K. Hull 0.80 kW, sized as 300 K (1.94 m²); its split loop, 0.45 kW at 283 K plus 0.35 kW at 330 K, needs 1.38 + 0.58 = 1.95 m². Data halls 0.50 kW at 350 K; Yards 0.29 kW, rectenna losses (10% of ~1.95 kW of microwaves) and track losses (~0.1 kW) at 350–600 K. Rectenna = 1.70 kWe × 1.03 ÷ 0.9 at ~1 kW/m².
+- Inner-edge glow (full-swarm.md): ~15–40% of the hull's load, added to the 300 K panels only: 3.0 + 1.94 × (0.15–0.40) ≈ 3.3–3.8 m². Spread over the whole back instead, at the flux that implies (~55–120 W/m²), it costs the hull's split loop ~0.05–0.15 m² more than 300 K panels would pay (its 283 K room panels feel it most), the data halls' 350 K panels ~0.05–0.12 m², and 500–600 K panels under a hundredth. Running the hot loads at 600 K rather than the ~410 K that 3 m² implies frees ~0.3 m².
+- Common budget back: hull 1.02 kW at 300 K (2.47 m²), data halls 0.50 kW at 350 K (0.65 m²), and 1.38 kW of Yards, travel, growth and rectenna losses at 600 / 500 / 400 K: 3.33 / 3.55 / 4.17 m².
+- Reserves (full-swarm.md): the survival reserve banks ~60 kg of oxygen a person; the tank farm, ~95 kg of methanol and ~145 kg of liquid oxygen, with tanks for the ~130 kg of CO₂ its burn makes. × 200 M people for a drum.
 - Spinning-vane annulus: π(r_out² − R²) = hull radiator area.
 - Shielding: hydrogen at 3.5 t/m² over hull and caps; each drum's 0.4 t of water per person spread over its front cap and sides, at the jacket's outer face (R + 50 m, length L + 100 m), topped up to ~50 g/cm² where that falls short (habitat-design.md); the 3 km drum keeps ~51 g/cm² (0.26 t) outside. Structure interpolated from habitat-design.md (~70 / 90 / 100 / 180 kg at R = 0.5 / 2 / 3 / 10 km). Areal density = (6.6 t + extra water + structure difference + hydrogen) ÷ 3 m². Self-gravity cap ∝ 1 ÷ areal density.
-- Shield gas: hydrogen per person × 1.27 × 10³³ people, against the cluster's ~2.1 × 10⁷ M☉ of stripped gas (full-swarm.md).
+- Shield gas: hydrogen per person × ~1.95 × 10³³ people (1.27 × 10³³ until 1 Nov 2026), against the cluster's ~2.1 × 10⁷ M☉ of stripped gas (full-swarm.md): town drums would take ~60% of it (was ~40%), nation drums ~10% (was ~7%).
 - Glide hop = pitch ÷ quay speed, with the quay at R + 50 m (raft-transport.md). Reach: raft-transport.md's formula with each size's cab rides and quay waits (quay waits scale with the drum's turn). Trips inside, next drum and reach come from drum-transport.md's model run at each radius, with random destinations.
 - Hollow per person: 2π(R/2)L ÷ people, ∝ 1/R.
 - Lifts: cabs at tan 30° × rim speed ÷ 4 (10 / 20 / 45 m/s in town, 2 km and world drums) and 1.5 m/s², per drum-transport.md. The 3 km drum's cabs run at 20 m/s rather than the 25 that allows, since 25 saves only ~3 s on an average ride. A fixed-floor lift would be capped at 0.07 g ÷ 2ω (6.0 m/s in the 3 km drum, 4.9 in a 2 km one). Weight on a deck at speed v: × (1 ± v ÷ ωr)².
@@ -218,4 +230,4 @@ At 2 kW and 3 m² per person:
 - Light tube: surface flux = 333 W/m² × 1,500 m ÷ tube radius.
 - Hollow lighting: 100,000 lux over 35.3 km² at 250 lm/W.
 - Dropped objects: straight-line flight in the non-rotating frame, from 1 m.
-- Coolant: 160 GW ÷ 1.2 MJ/kg (ammonia's latent heat), liquid at ~600 kg/m³.
+- Coolant: 90 GW ÷ 1.22 MJ/kg (ammonia's latent heat at 283 K) plus 70 GW ÷ 1.01 MJ/kg (at 330 K), liquid at ~625 and ~560 kg/m³.
