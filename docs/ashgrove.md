@@ -7,7 +7,7 @@
 - **Who:** the Daces. Anselm (52) mends things. Teo (44) works the Gate at Station Ring 3, where anything alive comes into the drum. Wren (15) plays a heliox flute and has gone dark for twelve days to pay for a trip. Ossian (8) has never seen a star. Anselm's mother Hedda (93) spent forty years on the radiator crews behind the drum, and is one of the few people in Sorrel who has.
 - **The days:** a working day; the family's turn in the Hollow; a wedding one glide away in Lovage; Ossian's visit to the Window.
 - **Neighbours, different rules.** Sorrel allots its high decks and Hollow hours by age, and birth rights can be given but not sold. Lovage, next door, auctions both and lets rights be sold. They sit at different points on the gin curve too.
-- **New here:** galleries behind the drum where every Sorrel child sees the stars once, and the Eleven Days, a beam gap within living memory after which Merrow ran its cyclers fast.
+- **New here:** galleries behind the drum where every Sorrel child sees the stars once, and the Eleven Days, a beam gap within living memory after which Merrow ran its main cycler trunks fast, with slow lines beside them.
 
 ## Where they live
 
@@ -170,7 +170,7 @@ All of Merrow dropped to its survival load: air handling, scrubbers and coolant 
 
 "That's what the Lantern said," says Hedda. "Some people believed it." A deliberate cut has to have its length set when it's sent, since anything the raft says back takes the best part of two years to end it: it's a sentence, not a siege. Eleven days would have been a short one.
 
-Afterwards Merrow voted to run its cycler trunks fast, at 10 to 20 km/s, so the trains now hold months of air and food instead of days. "It wouldn't save us from a real cut," Hedda says. "It'd save us from a short one."
+Afterwards Merrow voted to run its main cycler trunks fast, at 10 to 20 km/s, so the trains now hold months of air and food instead of days. The slow lines still run beside them, for anyone with more time than kays. "It wouldn't save us from a real cut," Hedda says. "It'd save us from a short one."
 
 Wren works it out halfway through a pastry: that's why there are express cyclers. "So I'm riding on the Eleven Days."
 
@@ -255,7 +255,7 @@ Ossian has asked for his lamp to be turned all the way off, which nobody in Sorr
 - **Merrow:** a 0.1 AU raft in mid-Shade, its beam patch ~0.27 pc away (~11 light-months, economy.md's mid-Shade case). Herb Row: a run of drums founded together.
 - **The Court's light:** Ashgrove's ~53 W a head of park light (daily-life.md) lights its 5,400 m² Court to 10,000 lux for twelve hours with ~2,700 lux left for the terraces, or the Court and its terraces (~1.5 ha) to ~5,300 lux.
 - **The Windows:** shielded galleries on the aft face of the radiator layer, reached through the back axle. Sorrel keeps a dozen and sends every child once; Lovage has none.
-- **The Eleven Days:** a beam gap 74 years ago, with the Lantern's explanation arriving 40 minutes after it began. Slow cyclers at 2 km/s held ~0.1 GJ a resident (raft-transport.md), ~2.6 days of full air and food. Merrow then ran its trunks at 10–20 km/s (~3–6 GJ a resident, ~2½–5 months).
+- **The Eleven Days:** a beam gap 74 years ago, with the Lantern's explanation arriving 40 minutes after it began. Slow cyclers at 2 km/s held ~0.1 GJ a resident (raft-transport.md), ~2.6 days of full air and food. Merrow then ran its main trunks at 10–20 km/s (~3–6 GJ a resident, ~2½–5 months), keeping slow lines at 2 km/s beside them (raft-transport.md's separate trunks).
 - **The sky from the back of a raft:** the nuclear star cluster's stars long since stripped (matter-delivery.md), and its white dwarfs mined or herded out of the Shade, so there are no near stars. Naked-eye stars are mostly the nuclear stellar disk's giants. Around a mid-Shade raft, rafts are ~13 AU apart on average and cover about a sixth of the outward sky; the nearest, ~7 AU off at ~200 km/s, crosses stars at ~2 arcminutes an hour.
 - **Smaller customs:** "kays"; the black thread for going dark; spinball; the growing seam; the apple cut crosswise at weddings; Knotnight and Booking Day; pears with a winter; Lovage's two-bottle allowance; laundry in the lamp-night, when kWh are cheapest (economy.md).
 

@@ -1,16 +1,16 @@
 # Eating out: the Crosswise Guide to Herb Row
 
-*In-world restaurant guide from a working session, Oct 2026. Where to eat along Herb Row in Merrow, written as the Herb Row Eating Society's guide. Builds on cuisine.md and food-system.md (tiers, heat rules and every dish price), economy.md (the price of an hour), daily-life.md (the wallet), raft-habitat.md (the Hollow, the Spindle, gravity by deck), ashgrove.md (Sorrel, Lovage, Ashgrove's Mill Hall) and open-drums.md (Chervil, Marit Vell's hall, guest-right). Jeff's decisions of 31 Oct 2026: the guide is canon; waste-heat cooking is a recognised style; low-g cooking works as described; animals are a rare luxury (one henhouse on the Row); osmotic produce exists as a recent Lovage invention; Tansy, Yarrow (a maker drum) and Borage (a fair drum) are on Herb Row. The places, dishes and the Eating Society are invented. Exploration page: [The Crosswise Guide](https://claude.ai/artifact/7uFqAF6nnY5tdpAZ1owYTa).*
+*In-world restaurant guide from a working session, Oct 2026. Where to eat along Herb Row in Merrow, written as the Herb Row Eating Society's guide. Builds on cuisine.md and food-system.md (tiers, heat rules and every dish price), economy.md (the price of an hour), daily-life.md (the wallet), raft-habitat.md (the Hollow, the Spindle, gravity by deck), ashgrove.md (Sorrel, Lovage, Ashgrove's Mill Hall) and open-drums.md (Chervil, Marit Vell's hall, guest-right). Jeff's decisions of 31 Oct 2026: the guide is canon; waste-heat cooking is a recognised style; low-g cooking works as described; animals are a rare luxury (one henhouse on the Row); osmotic produce exists as a recent Lovage invention; Tansy, Yarrow (a maker drum) and Borage (a fair drum) are on Herb Row. The places, dishes and the Eating Society are invented. Revised 1 Nov 2026 after an audit: the direction a poured stream bends, Marit Vell's Hall's price and Rue's years to par. Exploration page: [The Crosswise Guide](https://claude.ai/artifact/7uFqAF6nnY5tdpAZ1owYTa).*
 
 ## Summary
 - **Every drum feeds everyone, so eating out is about choice, company and craft.** The commons' Mill table is free; a cooked meal out costs ~1–4 kWh a head, and the dearest dinner on the Row ~14 kWh, about two-thirds of a day's wallet.
 - **You pay the kitchen in kWh and the cooks by the hour.** An hour costs ~3 kWh in Sorrel and Lovage and ~6 in Chervil (economy.md, open-drums.md), so labour is often the biggest line in a restaurant bill. A Mill-only tasting menu can cost more than a steak dinner.
-- **Ratings are apple-seed stars.** An orchard apple cut crosswise shows a five-pointed star of seeds, the only star most people on Herb Row ever see (ashgrove.md). One star is worth the glide, two worth a cycler, three worth going dark for. The **Ladle** marks the best commons food.
+- **Ratings are apple-seed stars.** An orchard apple cut crosswise shows a five-pointed star of seeds, the only star most people in Lovage ever see, since Lovage keeps no Windows (ashgrove.md). One star is worth the glide, two worth a cycler, three worth going dark for. The **Ladle** marks the best commons food.
 - **Cooking styles follow the physics:**
   - *Waste-heat cooking.* The food plant's 65 °C loop is a free low oven, so holding, brewing and slow cooking cost nothing while searing and frying draw power (cuisine.md).
-  - *Low-g cooking.* Soufflés rise taller and fall slower on third-g terraces; nothing boils at the Spindle's axis; tea poured from height bends spinward.
+  - *Low-g cooking.* Soufflés rise taller and fall slower on third-g terraces; nothing boils at the Spindle's axis; tea poured from height lands antispinward, like a dropped cup, and tea poured inward toward the axis bends spinward.
   - *Lidded plates.* Heliox pulls heat from food ~4× faster than air, so dishes come covered and hot pots are comfort food.
-- **The guide lists 16 places in 7 drums**, plus food on the cyclers and at station rings.
+- **The guide lists 15 places in 7 drums**, plus food on the cyclers and at station rings.
 
 ## How to read the guide
 | Mark | Means |
@@ -55,7 +55,7 @@ Pear Street, two corners from the Court. A gin cellar under the sign "Fortified,
 - *Tip:* at your fifth gin they cut you off politely and bring a free bowl of jook.
 
 ### Axis Tea Room · ✦ · ~0.4 kWh
-Sorrel's Spindle, inside the netting at the flying halls, under 3% g. Bubbles barely rise here, so nothing boils: tea is brewed in the lift lobby and sent up in lidded bulbs. The house pour is from a metre off, and Coriolis bends the stream a hand's width spinward into the cup.
+Sorrel's Spindle, inside the netting at the flying halls, under 3% g. Bubbles barely rise here, so nothing boils: tea is brewed in the lift lobby and sent up in lidded bulbs. For the house pour the server floats a metre out from your cup and pours slowly inward, toward the axis, and Coriolis bends the stream a hand's width spinward on the way.
 - **Long-pour jasmine tea** (0.15).
 - **Netted dumplings,** crystal-wrapped, served in a string bag so they don't drift (0.25).
 - *Tip:* crumbs float. Order the mochi.
@@ -91,7 +91,7 @@ The Hollow's edge. A menu of the crunch nobody else can afford, the kind that co
 ## Chervil
 *Open drum, 194 M, 3% Margin, guest-right (open-drums.md).*
 
-### Marit Vell's Hall · ✦ · Ladle · ~3.5 kWh, free on guest-right
+### Marit Vell's Hall · ✦ · Ladle · ~2.7 kWh, free on guest-right
 A block hall near Station Ring 2: four hundred seats at one long table, a paid cook and eleven volunteers, nine of them over seventy. You'll be seated next to someone. That's the point.
 - **Thursday ramen:** hand-pulled noodles, gelatin-rich broth with koji tare, protein-flour chashu glossed with cultivated pork fat, a jammy ajitama (1.77).
 - **Whatever the aunts made:** each volunteer brings one family dish (~0.5).
@@ -119,7 +119,7 @@ Station Ring 5 Quaysides. A mycelium steakhouse with a list like a wine cellar's
 - *Tip:* the sommelier is a retired Gate worker. Ask what nearly got in.
 
 ## Rue
-*Counted drum (people.md), two glides from Chervil, ~11 years from par.*
+*Counted drum (people.md), two glides from Chervil, ~14 years from par.*
 
 ### The Blight Kitchen · ✦ · Ladle · ~1 kWh
 Station Ring 1. Rue cooked its blight menu longer than anyone on the Row, after a *Fusarium* blight took two vat lines, and got very good at it. Young cooks run it, and it's full of people from across the rows.
@@ -182,9 +182,9 @@ Kitchen prices, before hours, from cuisine.md and food-system.md.
 | Orchard apple | 4.4 |
 
 ## Method
-- **Meal price** = dishes at cuisine.md's best case + hours × price of an hour ÷ covers. Noon: ~6 kWh of dishes (steak 2.91, half an apple 2.2, the rest ~1) + 9 cooks and front-of-house × ~6 h × ~3 kWh ÷ 40 covers ≈ 4–5 kWh + terrace rent ≈ ~14. Nine: ~1.5 kWh of dishes + a long, labour-heavy service ≈ ~7.
+- **Meal price** = dishes at cuisine.md's best case + hours × price of an hour ÷ covers. Noon: ~6 kWh of dishes (steak 2.91, half an apple 2.2, the rest ~1) + 9 cooks and front-of-house × ~6 h × ~3 kWh ÷ 40 covers ≈ 4–5 kWh + terrace rent ≈ ~14. Nine: ~1.5 kWh of dishes + a long, labour-heavy service ≈ ~7. Marit Vell's Hall: ~2.45 kWh of dishes (ramen 1.77, the aunts' dish ~0.5, gin 0.18) + one paid cook's ~12 h × ~6 kWh ÷ 400 covers (~0.18) ≈ 2.6–2.7; the volunteers are unpaid.
 - **Waste-heat cooking.** The vats run at 60–70 °C and supply the kitchens' hot water (food-system.md). Onsen-style eggs set at ~63 °C; amazake and koji work best at ~55–60 °C; black garlic ages at ~60–75 °C; broths held below a simmer stay clear. All of it is holding, which cuisine.md counts as free.
-- **Low g.** A foam's height is limited by its own weight, so at a third of a g a soufflé can stand taller and slump more slowly. Near the axis (under 3% g) buoyancy is weak, bubbles rise slowly and boiling is erratic, so water is boiled lower down. A poured stream moves in a straight line while the room turns under it, so it lands offset in the direction of spin.
+- **Low g.** A foam's height is limited by its own weight, so at a third of a g a soufflé can stand taller and slump more slowly. Near the axis (under 3% g) buoyancy is weak, bubbles rise slowly and boiling is erratic, so water is boiled lower down. A poured stream keeps the spin speed of the spout it left. Poured from height, outward toward the floor, it reaches a floor that moves faster than the spout and lands antispinward, like ashgrove.md's dropped cup. Poured inward, toward the axis, it reaches a cup moving slower than the spout and lands spinward. The drift is ~Ω d² ÷ v for a stream at speed v over a distance d: the Axis Tea Room's slow pour, ~0.6 m/s over a metre, drifts 0.0572 × 1 ÷ 0.6 ≈ 10 cm, a hand's width.
 - **Heliox** conducts heat ~4× better than air (food-system.md), so uncovered food cools several times faster.
 - **Shell eggs:** food-system.md's hen's egg at 1.63 kWh (planning value; hens on vat feed at ~3–6%).
 - **Orchard pearls** are cuisine.md's osmotic produce: regenerated-cellulose cells holding ~10% sugar, swollen to ~0.7 MPa.

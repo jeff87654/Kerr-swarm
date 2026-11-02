@@ -458,13 +458,13 @@ Matches: Yarrow, Borage
 
 ### Merrow
 
-A 0.1 AU raft of ~6 × 10¹⁹ people in the middle of the Shade, home to Sorrel. After the Eleven Days it ran its cyclers fast. See ashgrove.md.
+A 0.1 AU raft of ~6 × 10¹⁹ people in the middle of the Shade, home to Sorrel. After the Eleven Days it ran its main cycler trunks fast, with slow lines beside them. See ashgrove.md.
 
 Matches: Merrow
 
 ### The Eleven Days
 
-A beam gap within living memory in Merrow, after which the raft ran its cyclers fast as a store of energy. See ashgrove.md.
+A beam gap within living memory in Merrow, after which the raft ran its main cycler trunks fast as a store of energy, with slow lines beside them. See ashgrove.md.
 
 Matches: Eleven Days
 

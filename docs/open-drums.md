@@ -1,6 +1,6 @@
 # Open drums: the free and flourishing drums
 
-*Design notes from a working session, Oct 2026. The bright counterpart to people.md's counted drums: nation drums that hold births to deaths without coercion, keep their rings open both ways, and live well on 2 kWe. What makes them work, what they're like, and how many there are. Builds on people.md (holdings, birth systems, counted drums, the right of the Glide), economy.md (the dividend, the price of an hour, places), daily-life.md (prices, light, travel), raft-habitat.md (the Hollow and the Spindle), cuisine.md (the calendar) and ashgrove.md (Herb Row). Jeff's decisions of 31 Oct 2026: open drums keep a Margin under par; about a quarter of drums are open at a quiet time; guest-right is a compact among open drums that most steady drums also join; Chervil on Herb Row is the example; the customs below are open-drum customs, not Shade-wide ones. The names (open drums, the Margin, the Ledger, guest-right, the wander year, tables and aunts, the Quiet, the Long Flight, Homecoming, light-painting, block courts) are proposals. Figures are for a 200 M nation drum with 120-year lives. Revised 1 Nov 2026 for places and shares (people.md): the Margin is unused shares, with the places the drum holds alongside them.*
+*Design notes from a working session, Oct 2026. The bright counterpart to people.md's counted drums: nation drums that hold births to deaths without coercion, keep their rings open both ways, and live well on 2 kWe. What makes them work, what they're like, and how many there are. Builds on people.md (holdings, birth systems, counted drums, the right of the Glide), economy.md (the dividend, the price of an hour, places), daily-life.md (prices, light, travel), raft-habitat.md (the Hollow and the Spindle), cuisine.md (the calendar) and ashgrove.md (Herb Row). Jeff's decisions of 31 Oct 2026: open drums keep a Margin under par; about a quarter of drums are open at a quiet time; guest-right is a compact among open drums that most steady drums also join; Chervil on Herb Row is the example; the customs below are open-drum customs, not Shade-wide ones. The names (open drums, the Margin, the Ledger, guest-right, the wander year, tables and aunts, the Quiet, the Long Flight, Homecoming, light-painting, block courts) are proposals. Figures are for a 200 M nation drum with 120-year lives. Revised 1 Nov 2026 for places and shares (people.md): the Margin is unused shares, with the places the drum holds alongside them. Revised again 1 Nov 2026 after an audit: the Booking Day feast is grown in the weeks before, so its heat is spread out; a lent place is held until either partner inherits; childlessness is rare (~5%), so aunts are mostly people whose own children are grown.*
 
 ## Summary
 - **An open drum holds births to deaths without coercion and keeps its rings open both ways.** Anyone may leave; any traveller may stay three nights. It runs a little under par on purpose, posts its numbers in public, and lets its people make the big choices.
@@ -22,7 +22,7 @@ A wallet is 21.6 kWh a day (daily-life.md). Almost everything people remember co
 | A night flying the Spindle | ~0.01 | Under 3% g at the axis; a hand lamp of a watt or two |
 | Re-dyeing a coat for a festival | ~0.1 | Colour weighs nothing; fashion lives in surfaces |
 | A cycler anywhere on the raft at 2 km/s | ~1.1 | Trips cost speed squared, not distance: 0.1 AU takes ~87 days for the same 1.1 kWh as a short hop |
-| A meal cooked by a person, in a hall of 400 | ~3.5 | A Vat-table dinner (2.5) plus a share of the cook's hours |
+| A meal cooked by a person, in a hall of 400 | ~2.7 | A Vat-table dinner (2.5) plus a share of the cook's hours |
 | A wander year across the raft, twelve legs | ~13 | Less than a new pair of shoes; the cost is a year of your time |
 | *For comparison:* a new sofa | 1,000 | Mass is the dear thing: ~25 kWh a kilogram |
 
@@ -32,21 +32,22 @@ A wallet is 21.6 kWh a day (daily-life.md). Almost everything people remember co
 ## What makes a drum open
 ### A Margin
 - **An open drum runs 2–4% under par.** Chervil holds 3%: ~6 M unused shares, and ~4.5 M places the drum holds rather than a family.
-- **What slack buys.** Beam and metal follow shares, so each resident gets ~2.06 kWe instead of 2.0, and the 55-day reserve stretches to ~57. More useful are the empty homes in the drum's places: guest flats, refuge for people fleeing dark drums, studios, and first homes lent to young couples until they inherit.
+- **What slack buys.** Beam and metal follow shares, so each resident gets ~2.06 kWe instead of 2.0, and the 55-day reserve stretches to ~57. More useful are the empty homes in the drum's places: guest flats, refuge for people fleeing dark drums, studios, and first homes lent to young couples until either partner inherits.
 - **The Margin is not for children.** That's the one hard norm. Births still follow deaths, and spending the Margin on births takes a supermajority, which a drum grants once after a disaster and then rebuilds over a generation. It's a granary, not a field.
 - **Where it comes from.** Nearly every drum has counted at some point (people.md). A stop that runs a few years too long leaves a drum under par, and most refill the gap. Open drums are the ones that voted to keep it.
 - **It's cheap to keep.** Once made, a Margin costs nothing a year: births equal deaths, as anywhere. One generation paid for it, long ago.
 
 ### Children without counting
 - **Holdings, warmly run.** Places and shares pass in the family, as in most drums (people.md). A family can have a third child without a share and nobody fines it.
-- **Marry young; have children when a share frees.** In most holdings drums people marry around 30, when they get places of their own. Open drums lend Margin places to couples from marriage until they inherit, five years for most, so marriage isn't gated, only children are, and a couple waits for a death in the family with a home already made. Lending every couple a place for five years takes ~90% of Chervil's Margin places.
+- **Marry young; have children when a share frees.** In most holdings drums people marry around 30, when they get places of their own. Open drums lend Margin places to couples, who mostly marry at about twenty-five, and a couple keeps its lent place until either partner inherits: two or three years for most. So marriage isn't gated, only children are, and a couple waits for a death in the family with a home already made. The loans take ~2.1 M of the ~4.5 M places Chervil holds, a little under half.
 - **The gift of a share.** Someone with no children adopts an heir, the only way a share leaves a family. In open drums the custom is to adopt a young couple from outside one's own family, and say so in public, so their first child carries the giver's share and name. It's the grandest gift there is.
-- **Tables and aunts.** A child has a table: parents plus three or four adults who stood at the naming, usually childless, called aunt whatever their sex. At 120-year lives about one person in seven is a child, so most adults aren't raising one, and the table spreads children across them. Okinawa's *moai*, lifelong circles of friends, are the nearest Earth echo.
-- **Childless lives are full lives.** Aunts, crews, stewards, artists and hall cooks have standing, not consolation prizes. This is what people.md says custom needs in the Shade, and open drums are where it works.
+- **Tables and aunts.** A child has a table: parents plus three or four people who stood at the naming, mostly adults whose own children are grown, called aunt whatever their sex. At 120-year lives about one person in seven is a child, so at any one time most adults aren't raising one, and the table spreads children across them. Okinawa's *moai*, lifelong circles of friends, are the nearest Earth echo.
+- **Childless lives are full lives.** Childlessness is rare, about one adult in twenty, which is why a third child stays notable. The few without children have standing as crews, stewards, artists, hall cooks and aunts, not consolation prizes. This is what people.md says custom needs in the Shade, and open drums are where it works.
 - **Two names.** Children are named for the dead whose shares they carry (economy.md). Open drums read both names on the Ledger, and the dead's family brings a gift to the naming. Every birth closes someone's funeral.
 
 ### An economy of each other
 - **Machines make everything; people pay for people.** A drum's energy is fixed, but the share of wallets spent on human time is a choice. Chervil spends ~40% against the planning case's 25% (economy.md). Money incomes rise from ~10,500 to ~13,200 kWh a year and an hour costs ~6 kWh, on exactly the same beam.
+- **Why it stays dear** (proposal). Sorrelers can glide over and sell their hours at Chervil's price, and some do (sorrel.md's Ring Six), but by custom Chervil's halls, schools and blocks hire their own people first and spend their wallets at home, so outsiders get only the overflow and an hour stays about twice Sorrel's.
 - **What that buys:** halls where a person cooks, schools where a person teaches, live music every night somewhere in every block, tailors, nurses who stay, and company for the old.
 - **Cooked halls.** Most open drums run their Mill Halls with a paid cook and volunteers, one long table a block. Eating alone is possible and unusual.
 
@@ -59,7 +60,7 @@ A wallet is 21.6 kWh a day (daily-life.md). Almost everything people remember co
 ### Open both ways
 - **Out:** the right of the Glide (people.md). Anyone may leave, and a swap takes days.
 - **In: guest-right.** Any traveller from a drum that grants the same may stay three nights in a Margin flat and eat at the halls. Open drums keep a compact of guest-right across the raft, and most steady drums join it. It nets to zero, since every drum is host and sender.
-- **The wander year.** Guest-right plus cyclers at ~1 kWh a leg means a young person can cross a 0.1 AU raft and back, sleeping in a new drum each week, for ~13 kWh. Most young people in open drums go at about twenty. Coming home is a festival. Marit Vell's, told in the cards she sent home, is wander-year.md.
+- **The wander year.** Guest-right plus cyclers at ~1 kWh a leg means a young person can cross a 0.1 AU raft and back, sleeping three nights at a time in drums along the way, for ~13 kWh. Most young people in open drums go at about twenty. Coming home is a festival. Marit Vell's, told in the cards she sent home, is wander-year.md.
 - **Refuge.** Open drums take people fleeing rungs 4–6 into the Margin's shares and places (people.md's refuge swaps).
 
 ### Against Earth's happiest countries
@@ -101,23 +102,23 @@ The World Happiness Report explains most of the gap between countries with six f
 | Homecoming | Wanderers back from their year are met at the station ring by their block and their table | Free |
 | Namings | A child's table stands up for them; the dead's family brings a gift | Usually a remade heirloom |
 
-- **The Quiet's heat is no problem.** Moving 9.6 kWh a head from data halls into the hull for a day overloads the hull's radiators by half for that day, but the drum's ~27 Mt of inside water soaks it up with a rise well under a tenth of a degree, and sheds it within days.
+- **The feast is grown before it's eaten.** Made in one day, 9.6 kWh a head of food would add half again to the hull's heat, and with the hull's radiators already full (economy.md's heat cap), the drum's ~27 Mt of inside water would take it and warm by tens of degrees. So the feast is grown and brewed in the weeks before, on kWh lent against the Quiet: steaks in their vat lines, wine and cheese in the cellars, apples on the trees. Spread over six weeks that's ~10 W a head, about 1% of the hull's heat, and the radiators shed it running about a degree warmer. What lands on the day is the cooking, at most ~0.3 kWh a head: under 2% of a day's hull heat, a degree or two for one day.
 
 ## Kinds of open drum
 | Kind | Spends its choices on | Feels like |
 |---|---|---|
 | Hall drums (Chervil) | Human time: cooks, music, teaching | Loud, crowded, fed by people |
-| Wood drums | Dim woods instead of bright squares; long silences; many childless callings | A monastery the size of a nation |
+| Wood drums | Dim woods instead of bright squares; long silences; quiet callings held in honour | A monastery the size of a nation |
 | Fair drums | Light and spectacle, with the rents returned to everyone | Lovage, if Lovage shared |
 | Maker drums | Craft schools, fabrication allowances, a famous thing (chairs, flutes, starters) | A workshop town people glide to for one thing |
 
 ## Chervil
 - **Where.** Across the rows from Sorrel on Herb Row, Merrow (ashgrove.md), with Rue two glides away.
-- **History.** A holdings drum that counted ~340 years ago after a radiator fault, stopped births for a decade too long, and came out 3% under par. Its assembly voted to keep the gap and called it the Margin. Its old Count board hangs in the Ledger hall beside the Ledger.
+- **History.** A holdings drum that counted ~340 years ago after a radiator fault, stopped births three or four years too long, and came out 3% under par. Its assembly voted to keep the gap and called it the Margin. Its old Count board hangs in the Ledger hall beside the Ledger.
 - **The Ledger** at each station ring shows shares, people, the Margin, places, the year's births and deaths, guests that night, and the names: each newborn beside the dead whose share they carry, and each new householder beside the dead whose place they took. On Booking Day it reads 200,000,000 shares, 194,060,000 people, a Margin of 5,940,000, 150,000,000 places (4,455,000 held by the drum), 1,615,000 born and 1,617,000 died, and ~410,000 guests.
 - **How it differs from its neighbours.** Sorrel allots its fixed goods by age and runs a pool with giftable rights; Lovage auctions both. Chervil is a holdings drum that gives its Hollow hours by lottery and in festivals, lends Margin flats to the young, and spends ~40% of wallets on people.
 - **Gin** is taxed lightly, with thiamine, and sold only in the halls after six, where someone is always cooking. Chervil's methanol deaths are among the lowest on Herb Row.
-- **What Herb Row says.** Sorrel thinks Chervil is lovely and a little pleased with itself. Lovage thinks it dim and charming. Rue's councillors come to the Ledger every Booking Day and take notes. Rue is ~11 years from par, and some of them want a Margin.
+- **What Herb Row says.** Sorrel thinks Chervil is lovely and a little pleased with itself. Lovage thinks it dim and charming. Rue's councillors come to the Ledger every Booking Day and take notes. Rue is ~14 years from par, and some of them want a Margin.
 
 ### Booking Day in Chervil
 *Marit Vell (26) is a hall cook, four months back from her wander year. Jory is her partner. Oona (81) is one of Marit's aunts and a lamp-painter.*
@@ -132,7 +133,7 @@ The World Happiness Report explains most of the gap between countries with six f
 
 **17:00.** The vote comes in: hall fund, by four points. Jory admits he voted sun so the dawns would be longer for Oona's next one.
 
-**22:00.** The sunline stays dark and the Spindle opens end to end for the Long Flight. Marit and Jory take wing-sleeves and hand lamps and go up with their block. At the axis you weigh nothing, and the line you'd have to keep away from by day is a dark cable down the middle of the air. As far as the end wall, almost four kilometres off, small lights drift along the axis like a slow river. Somewhere in it a choir is singing in heliox, high and strange. Marit tells Jory she'd like to marry in the spring. He says he's already measured her flat for his books.
+**22:00.** The sunline stays dark and the Spindle opens end to end for the Long Flight. Marit and Jory take wing-sleeves and hand lamps and go up with their block. At the axis you weigh nothing, and the line you'd have to keep away from by day is a dark cable down the middle of the air. As far as the end wall, almost four kilometres off, small lights drift along the axis like a slow river. Somewhere in it a choir is singing in heliox, high and strange. Marit tells Jory she'd like to marry after Knotnight. He says he's already measured her flat for his books.
 
 **02:00.** Oona didn't fly; she watched from the elders' terrace with a glass of gin. Marit asks whether the dawn was really too slow. "In the middle," Oona says. "Next year I'll fix it." She's eighty-one. In Chervil, that's a plan.
 
@@ -172,11 +173,13 @@ A drum becomes open if it goes ~500 years without a serious shock and chooses to
 
 ## Method
 - Chervil: 200 M shares, 3% Margin → 194.06 M people; 150 M places, 5.94 M ÷ 1.33 ≈ 4.455 M of them held by the drum. Beam per head 2.0 × 200 ÷ 194.06 ≈ 2.06 kWe. Deaths 194.06 M ÷ 120 yr ≈ 1.62 M a year.
-- Lent places: ~0.8 M couples a year × 5 years ≈ 4.0 M places, ~90% of the drum's ~4.5 M.
-- Time economy (economy.md): money income ≈ 7,900 kWh ÷ (1 − share): 25% → ~10,500; 40% → ~13,200. At 1,000 hours sold per adult, an hour ≈ 6.2 kWh at 40%.
+- Chervil's Margin: a full stop past par loses ~1.65 M people a year, so 3% (~6 M) is a stop ~3.6 years too long.
+- Lent places: ~0.8 M couples a year (1.62 M births ÷ 2), marrying at ~25 and keeping a lent place until the first of the two inherits, ~2–3 years after the wedding when most inherit around 30 (people.md): ~0.8 M × ~2.6 years ≈ 2.1 M places, a little under half of the drum's ~4.455 M, leaving ~2.3 M for guests, refuge and studios.
+- Time economy (economy.md): money income ≈ 7,900 kWh ÷ (1 − share): 25% → ~10,500; 40% → ~13,200. At 1,000 hours sold per adult, an hour ≈ 6.2 kWh at 40%. The formula assumes a drum's wallets are spent on its own people's hours, which the hire-at-home custom keeps roughly true.
+- A hall meal: a Vat-table dinner (2.48) + one paid cook's ~12 hours at ~6 kWh ÷ 400 covers (~0.18) ≈ 2.7 kWh. The volunteers are unpaid.
 - Cycler fare at 2 km/s ≈ 1.1 kWh a trip at any distance (daily-life.md). 0.1 AU ≈ 1.5 × 10⁷ km ÷ 2 km/s ≈ 87 days. Twelve legs ≈ 13 kWh.
-- Guests: if each drum's ~1.6 M twenty-year-olds spend ~90 guest-nights on a wander year, each drum hosts ~1.4 × 10⁸ guest-nights a year, ~400,000 a night. If couples hold ~4.0 M of the drum's ~4.455 M places on five-year loans, ~0.45 M are left for guests, refuge and studios, so guest flats sleep several to a place, and a drum short of room shortens its loans.
-- The Quiet: 9.6 kWh × 194 M ≈ 1.9 GWh ≈ 6.7 TJ moved into the hull for a day. Inside water ~0.14 t a head (~27 Mt; habitat-design.md): ΔT ≈ 6.7 × 10¹² ÷ (2.7 × 10¹⁰ kg × 4,186 J/kg·K) ≈ 0.06 K, before the hull's other mass.
+- Guests: if each drum's ~1.6 M twenty-year-olds spend ~90 guest-nights on a wander year, on average (not everyone goes, and many go for less than a year; Marit's ~182 nights on guest-right in wander-year.md are a long year), each drum hosts ~1.4 × 10⁸ guest-nights a year, ~400,000 a night. Against the ~2.3 M places left after the couples' loans, that's under a fifth of them at one guest a place, with the rest for refuge and studios.
+- The Quiet: 9.6 kWh × 194.06 M ≈ 1.9 × 10⁹ kWh (1.9 TWh, ~6.7 × 10¹⁵ J). Against the hull's 0.8 kW (19.2 kWh a head a day), food made in one day would add 50%. With the radiators full, it would stay in the ~27 Mt of inside water (~0.14 t a head; habitat-design.md): ΔT ≈ 6.7 × 10¹⁵ ÷ (2.7 × 10¹⁰ kg × 4,186 J/kg·K) ≈ 59 K. Shedding it on the day instead would take radiators 1.5^¼ − 1 ≈ 11% hotter, ~32 K at 300 K. Spread over ~6 weeks (cheese, wine and apples take longer, which only helps): 9.6 kWh ÷ 42 days ≈ 0.23 kWh a day, ~10 W a head, ~1.2% of the hull's heat. Radiators shed T⁴, so ΔT/T = ¼ ΔP/P: at 300 K they run ~0.9 K warmer. On the day, cooking at an assumed ≤0.3 kWh a head is ≤58 GWh (2.1 × 10¹⁴ J), ~1.6% of a day's hull heat: ~1.2 K warmer radiators, or ~1.9 K in the inside water if none of it were shed. The beam balances across the raft: the Yards, whose heat leaves from hotter panels outside the hull, run a little slower in the weeks before and take up the Quiet's idle data-hall beam on the day.
 - Long Flight: Spindle volume π × 75² × 3,750 m ≈ 6.6 × 10⁷ m³; at ~100 m³ a flyer, ~660,000 at once.
 - Prevalence: share ≈ e^(−500 yr × shock rate) × share that keep a Margin. Canon: e^(−0.5) × 0.4 ≈ 0.24.
 
