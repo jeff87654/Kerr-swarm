@@ -1,6 +1,6 @@
 # Cuisine: the Mill table and the Vat table
 
-*Design notes from a working session, Sept 2026. Builds on food-system.md (tiers, planning efficiencies, per-serving table), energy-budget.md (knot nights in the ring era) and full-swarm.md (the mature swarm, which has no nights). Prices use "extraordinary effort" efficiencies (what a civilization of up to ~10³³ people could reach by pouring effort into food chemistry), counted per calorie eaten. Item and meal costs are production energy; day totals are all-in (5% waste, 25 W air/waste loops, 30 W kitchens), as in food-system.md.*
+*Design notes from a working session, Sept 2026. Builds on food-system.md (tiers, planning efficiencies, per-serving table), energy-budget.md (knot nights in the 10 M☉ ring design study) and full-swarm.md (the mature swarm, which has no nights). Prices use "extraordinary effort" efficiencies (what a civilization of up to ~10³³ people could reach by pouring effort into food chemistry), counted per calorie eaten. Item and meal costs are production energy; day totals are all-in (5% waste, 25 W air/waste loops, 30 W kitchens), as in food-system.md.*
 
 ## Summary
 - At extraordinary effort the Mill reaches ~67% (sugar, starch, fat) and ~55% (amino acids); the best Vats ~45% (~35% per calorie eaten); the Garden ~5%.
@@ -8,7 +8,7 @@
 - The Vats don't sell nutrition: Mill amino acids are cheaper protein than anything living cells make. They sell texture and flavor, closing three of the Mill table's four gaps (fiber, elastic dough, egg). Juicy crunch stays in the Garden.
 - The Vat table's biggest bill is the precision line (dairy, egg, gluten), not meat. Ribosome reactors would cut it by ~0.7 kWh/day.
 - Food is ~7–10% of the common energy budget and ~25–35% of the lean one.
-- Culture hooks: knot night is a winter in a ~5 × 10²² ring swarm, while the full swarm has no night at all, only the threat of a beam cut; a blight is a line-by-line fallback to the Mill table; ethanol is nearly free, and the bootlegger's alternative is the food plant's methanol.
+- Culture hooks: a long eclipse in the layer era was a winter (as knot night is in the 10 M☉ design study at ~5 × 10²²), while the full swarm has no night at all, only the threat of a beam cut; a blight is a line-by-line fallback to the Mill table; ethanol is nearly free, and the bootlegger's alternative is the food plant's methanol.
 
 ## Pricing rules
 - **Energy only counts grams.** A day's food is about 500 g of dry matter. Vitamins, aromas, spice molecules, colors, enzymes and starter cultures add up to well under a gram, so they cost almost nothing whichever tier makes them. Gums and emulsifiers, at a few grams a day, cost a watt or two. The same applies to the Garden: 5 g of fresh herbs is about 1 W, while a 150 g side salad is about 25 W (40 W at planning values). In lean times the salad goes dark, but the garnish stays; the herb pot is the last of the Garden to go.
@@ -150,26 +150,30 @@ The ordering holds: an apple still costs more than a steak, and a bottle of gin 
 
 ## Calendar and culture
 
-### Night: a winter in the ring era, gone in the full swarm
+### Night: a winter in the layer era, gone in the full swarm
+This civilization's ring era, around the starved Sgr A\*, had short knot nights (hole-choice.md). Its winters came in the layer era, when rafts flew through each other's shadow: a 0.1 AU raft spent about half its time shaded, in eclipses of ~16 days at 3% of Eddington, and units deep in the layer lived in twilight for centuries (sgr-a-scope.md, full-swarm.md). The 10 M☉ ring design study (swarm-rings.md) shows the same winter on a fixed calendar.
+
 | Swarm | Orbit | Night, mid-band / edge | Mid-band dawn every | Reads as |
 |---|---|---|---|---|
-| ~5 × 10²² ring swarm | ~240 d | 40 / 55 d | 120 d | Winter |
-| 10²³ ring swarm | ~400 d | 68 / 93 d | 200 d | A winter longer than the oxygen margin |
-| 10²⁴ ring swarm | 6.2 yr | 1.0 / 1.4 yr | 3.1 yr | A polar year |
+| Ring era: ~10²⁵ around the starved Sgr A\* | ~13 d | ~2 / ~3 d | ~6.5 d | A long night, not a season |
+| Layer era: a 0.1 AU raft at 3% of Eddington | ~10,000 yr | ~16 d, a typical eclipse | Irregular; shaded about half the time | Winter at no fixed date |
+| Design study: ~5 × 10²² ring swarm, 10 M☉ | ~240 d | 40 / 55 d | 120 d | Winter |
+| Design study: 10²³ ring swarm, 10 M☉ | ~400 d | 68 / 93 d | 200 d | A winter longer than the oxygen margin |
+| Design study: 10²⁴ ring swarm, 10 M☉ | 6.2 yr | 1.0 / 1.4 yr | 3.1 yr | A polar year |
 | Full swarm (the Shade) | ~39,000 yr | None | — | No seasons |
 
-Ring rows: 10 M☉, 1 kW/m², ~15 kW of light per person (xray-power.md); nights are 1/6 orbit mid-band and up to ~1/4 at band edges (energy-budget.md). Rings end near ~3 × 10²⁴ people (full-swarm.md), so the generational knot nights once sketched for 10²⁶ and up never happen: a civilization that large lives in the Shade.
+Design-study rows: 10 M☉, 1 kW/m², ~15 kW of light per person (xray-power.md); nights are 1/6 orbit mid-band and up to ~1/4 at band edges (energy-budget.md). The ring-era row applies the same rule to hole-choice.md's 13-day orbit. The layer row is sgr-a-scope.md's typical eclipse; bigger rafts' eclipses run months. Rings end near ~3 × 10²⁴ people around 10 M☉ (full-swarm.md), so the generational knot nights once sketched for 10²⁶ and up never happen: a civilization that large lives in the Shade.
 
-- **Inside, nobody sees the knot.** The Hollow's sky and the parks are lamps. Knot night reaches people only through what the habitat chooses to dim, so how visible the night is becomes a cultural decision.
-- **At ~5 × 10²² it's winter.** Mid-band nights fit the food plant's ~55-day oxygen margin, so the plant can pause and the larder carries the habitat. By 10²³ the nights outlast the margin, and the dark arcs need power sent along the ring.
+- **Inside, nobody sees the dark.** The Hollow's sky and the parks are lamps. A night reaches people only through what the habitat chooses to dim, so how visible the night is becomes a cultural decision.
+- **A long eclipse is a winter.** A raft's typical eclipse in the layer, or a mid-band night in the design study at ~5 × 10²², fits the food plant's ~55-day oxygen margin, so the plant can pause and the larder carries the habitat. Longer nights outlast the margin, and need power sent in: by short beams from sunny neighbours in the layer (sgr-a-scope.md), along the ring in the design study.
   - Dusk is Carnival and kimjang (Korea's communal kimchi-making before winter) at once: eat the fresh cheese and the salad, then make the night's larder together.
   - The night eats preserved food: aged cheese, miso, cured mycelium, hard breads, sugar preserves. The Garden goes dark except the herb pot.
-  - By dawn the oxygen is down from 21 to ~16–17 kPa, roughly Mexico City's air.
+  - After a night of 40–55 days the oxygen is down from 21 to ~16–17 kPa, roughly Mexico City's air.
   - Dawn's feast is pea shoots and microgreens, a week or two after the lamps come back.
 - **In the full swarm there is no night.** Power arrives by beam around the clock, on orbits of ~39,000 years. Every rhythm is chosen: the Hollow's lamps keep a 24-hour day because bodies want one, and any season is a festival.
-  - The ring era's winter can survive as ritual: a dusk feast and a larder-making on a calendar date, kimjang without the dark.
-  - **The only dark is a cut.** A raft whose beam fails or is cut runs its air on a survival reserve and has the same ~55-day oxygen margin a knot-night habitat had, but no promised dawn. The larder, the herb pot and the oxygen reserve become matters of sovereignty, and the winter menu is the siege menu. Away from the disk plane, a raft with glow sails can live on the Mill table for as long as a siege lasts (governance.md).
-- **The interchange belt is the market season** (ring era). Where rings run parallel, ring changes are nearly free (swarm-rings.md), so that's when produce and heirloom cultures trade between rings: a week-long fair per pass at ~5 × 10²².
+  - The layer era's winter survives as ritual: Knotnight, a dusk feast and a larder-making on a calendar date, kimjang without the dark (ashgrove.md).
+  - **The only dark is a cut.** A raft whose beam fails or is cut runs its air on a survival reserve and has the same ~55-day oxygen margin an eclipsed raft had, but no promised dawn. The larder, the herb pot and the oxygen reserve become matters of sovereignty, and the winter menu is the siege menu. Away from the disk plane, a raft with glow sails can live on the Mill table for as long as a siege lasts (governance.md).
+- **The interchange belt is the market season** (ring layouts). Where rings run parallel, ring changes are nearly free (swarm-rings.md), so that's when produce and heirloom cultures trade between rings. Around the starved Sgr A\* a pass took ~9 hours, twice every 13-day orbit: a market night. In the design study at ~5 × 10²² it's a week-long fair per pass.
 - **In the Shade, food barely travels.** Rafts pass each other at 100–300 km/s, so moving a kilogram between them costs far more than it's worth. Recipes, flavor formulas and culture genomes cross by laser instead. A passing raft is a fair conducted entirely in light.
 
 ### The blight menu
@@ -193,9 +197,9 @@ Ring rows: 10 M☉, 1 kW/m², ~15 kW of light per person (xray-power.md); nights
 
 ## Open questions
 - Do ribosome reactors work? If so, most of the precision line, the Vat table's biggest bill, moves into the Mill.
-- Which rituals keep the ring era's winter alive in a swarm with no nights?
+- Which rituals besides Knotnight (ashgrove.md) keep the layer era's winter alive in a swarm with no nights?
 - How beam power is priced, and whether the Lantern's operators ever use a cut as a weapon.
-- In the ring era, whether habitats dim the Hollow's sky and parks at knot night, making the night visible.
+- In the layer era, whether habitats dimmed the Hollow's sky and parks during a long eclipse, making the night visible.
 - Alcohol policy, habitat by habitat.
 
 ## Sources

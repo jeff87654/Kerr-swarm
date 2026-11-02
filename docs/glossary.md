@@ -378,31 +378,31 @@ Matches: waste-heat cooking
 
 ### Ring era
 
-The first layout, around a starved hole: habitats on rigid rings orbiting it. Rings hold only while orbits take less than ~16 years, which caps a ring swarm at ~3 × 10²⁴ people around 10 M☉. See swarm-rings.md.
+The swarm's first layout: habitats on rigid rings around the starved Sgr A* before it was fed, ~10²⁵ people at ~18 AU on 13-day orbits, catching the hole's natural ~230 L☉ at ~37%. It ended when feeding began, since the feed goes in at 4–40 AU. Rings hold only while orbits take less than ~16 years. The worked ring designs in swarm-rings.md and ring-weave.md are a design study for a 10 M☉ hole, where that caps a swarm at ~3 × 10²⁴ people. See hole-choice.md, full-swarm.md.
 
 Matches: ring era
 
 ### Orange slice
 
-The ring-era layout: rings tilted one band-width (~0.6°) apart around a shared axis, like the segments of an orange, all crossing at the axis's two ends (the knots). See swarm-rings.md.
+The ring era's layout: rings tilted one band-width (~0.6°) apart around a shared axis, like the segments of an orange, all crossing at the axis's two ends (the knots). swarm-rings.md works it out for a 10 M☉ hole, as a design study. See hole-choice.md, swarm-rings.md.
 
 Matches: orange slice
 
 ### Knot nights
 
-In the ring era, the nights a habitat spends in the shadow of the ring inside it. In the orange slice every part of a ring passes through a knot twice an orbit; around a 10 M☉ hole at 10²² people the nights run 12–17 days. The full swarm has no nights. See energy-budget.md, ring-weave.md.
+In a ring layout, the nights a habitat spends in the shadow of the ring inside it. In the orange slice every part of a ring passes through a knot twice an orbit, and each night lasts about a sixth of an orbit. Around the starved Sgr A*, on 13-day orbits, they were short: hours while the rings were sparse, and about two days mid-band once they filled the sky at ~10²⁵ people. In the 10 M☉ design study they run 12–17 days at 10²². The full swarm has no nights. See hole-choice.md, energy-budget.md, ring-weave.md.
 
 Matches: knot night, knot nights
 
 ### Ring weave
 
-An alternative to the orange slice: ring planes tilted evenly in all directions, no two closer than ~7°, which cuts the worst night to under a day at the cost of ~27% of the light. See ring-weave.md.
+An alternative to the orange slice in the 10 M☉ design study: ring planes tilted evenly in all directions, no two closer than ~7°, which cuts the worst night to under a day at the cost of ~27% of the light. See ring-weave.md.
 
 Matches: ring weave, the weave
 
 ### X-ray tiles
 
-The ring era's collectors: a silicon-carbide skin and an iron plate driving Stirling engines, turning a starved stellar hole's X-rays into electricity at ~22%. See xray-power.md.
+The 10 M☉ design study's collectors: a silicon-carbide skin and an iron plate driving Stirling engines, turning a starved stellar hole's X-rays into electricity at ~22%. See xray-power.md.
 
 Matches: X-ray tile, X-ray tiles
 
@@ -467,6 +467,12 @@ Matches: Merrow
 A beam gap within living memory in Merrow, after which the raft ran its main cycler trunks fast as a store of energy, with slow lines beside them. See ashgrove.md.
 
 Matches: Eleven Days
+
+### Knotnight
+
+A yearly festival kept in Sorrel, Chervil and other drums: one evening when the lamps go down and a neighbourhood makes the year's larder together, as if a long dark were coming. It remembers the layer era, when a raft could sit in other rafts' shadow for weeks. Its name comes from the ring era's knot nights, which were short. See ashgrove.md, open-drums.md.
+
+Matches: Knotnight
 
 ### The Window
 

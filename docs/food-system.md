@@ -104,7 +104,7 @@ Each chain is electrolysis (90%) × methanol synthesis (82%) × a downstream ste
   - Herbs are the cheapest Garden food per dish: 5 g a day costs ~1–2 W. The herb pot is the last of the Garden to go dark.
 - **Animals, if kept:** fish or hens on vat feed, ~3–6% depending on species. The energy math puts them in the same luxury tier as fresh produce. Whether to keep them at all is a cultural and ethical call.
 - **Dual-use light:** if the parks or the Hollow's sky are brightly lit for wellbeing, herbs and orchard trees there get their light for free.
-- **No natural light anywhere.** The ring-era hole shines in X-rays and the fed hole in extreme UV, and in the full swarm nobody in the Shade sees the disk at all. Every garden runs on lamps.
+- **No natural light anywhere.** The ring era's starved hole shines in the submillimetre (a 10 M☉ hole would shine in X-rays) and the fed hole in extreme UV, and in the full swarm nobody in the Shade sees the disk at all. Every garden runs on lamps.
 - Produce is the one food worth trading between habitats on the same raft. Between rafts, which pass each other at 100–300 km/s, goods almost never move; recipes and culture genomes travel by laser instead (full-swarm.md).
 
 ## Per-person energy budget
@@ -202,7 +202,7 @@ Detailed menus, techniques and sample days are in cuisine.md.
   - Real precedents: phage is the classic cause of failed dairy fermentations, and in 2009 a vesivirus in Genzyme's hamster-ovary cell plant halted Cerezyme and Fabrazyme production.
   - Switching organism families changes the taste (Fusarium vs Neurospora mycoprotein), so blight years become vintages.
 - **The gin problem.** Ethanol is nearly free: a standard drink costs ~0.2–0.3 kWh, and a bottle of gin less than an orchard apple. Taxing or rationing it invites bootlegging, and the bootlegger's easiest feedstock is the food plant's methanol. Each habitat has to choose between cheap alcohol and methanol poisoning.
-- **Night and the food calendar.** In a ~5 × 10²² ring swarm (15 kW of light per person), mid-band knot nights of ~40 days fit the ~55-day O₂ margin, so the food plant can pause and the habitat eats from its larder, a true winter. At 10²³ nights run 68–93 days and need power sent along the ring (energy-budget.md). The full swarm has no nights: the plant runs steadily, and the margin matters only if the beam is cut (cuisine.md).
+- **Night and the food calendar.** This civilization's winters came in the layer era: a 0.1 AU raft's typical eclipse, ~16 days at 3% of Eddington (sgr-a-scope.md), fits the ~55-day O₂ margin, so the food plant can pause and the habitat eats from its larder. Its ring era, around the starved Sgr A\*, had knot nights of hours to a couple of days (hole-choice.md). In the 10 M☉ ring design study, a ~5 × 10²² ring swarm (15 kW of light per person) has mid-band knot nights of ~40 days, a true winter, and at 10²³ nights run 68–93 days and need power sent along the ring (energy-budget.md). The full swarm has no nights: the plant runs steadily, and the margin matters only if the beam is cut (cuisine.md).
 - Catalyst poisoning at the Mill. Methanol or formaldehyde contamination, hence strict quality control.
 - Power shortfalls hit the luxury tiers first: Garden, then cultivated meat, then precision vats. The Mill goes last. A raft riding out a cut on glow sails lives at the ration floor for as long as the cut lasts.
 - **Inverted scarcity:** for most of history, fat and sugar were luxuries and greens were cheap. Here pastry is cheap and salad is a treat.

@@ -24,7 +24,7 @@
 ## From rings to the full swarm
 | Era | Hole | Layout | Ends when |
 |---|---|---|---|
-| Ring era | Starved | Orange slice or weave (swarm-rings.md, ring-weave.md) | Orbits pass ~16 years; around Sgr A*, when feeding starts |
+| Ring era | Starved: Sgr A\* at its natural ~230 L☉ | Orange slice at ~18 AU, ~10²⁵ people, nights of hours to ~2 days (hole-choice.md; swarm-rings.md and ring-weave.md work rings out for a 10 M☉ hole as a design study) | Feeding starts |
 | Layer era | Feeding under way: a hot flow, then a thin disk from ~1% of Eddington | Drums on crossing orbits in a warm layer; rafts carry their own collectors (sgr-a-scope.md) | A closed Lantern can hold itself up (~3–8%) |
 | Lantern era | ~3–8% to 30%, then held at 30% | Lantern and Shade (this doc) | — |
 
@@ -48,7 +48,7 @@
 - **The handover.** As feeding rises, the layer drifts outward to hold its flux.
   - A closed Lantern can hold itself up on trapped infrared from ~3% of Eddington (light collectors, infrared-mirror walls) or ~8% (black walls).
   - It traps nothing until it's sealed. So it's assembled from light pieces on slow orbits and closed as a whole, and the rafts move outward into its shade.
-- **Around Sgr A*, a ring era would have come first,** at ~18 AU around the starved hole (hole-choice.md). It had to end when feeding began, because the feed goes in at 4–40 AU, right where that swarm sits.
+- **Around Sgr A\*, a ring era came first,** at ~18 AU around the starved hole (hole-choice.md): ~10²⁵ people on 13-day orbits, with knot nights of hours to a couple of days. It had to end when feeding began, because the feed goes in at 4–40 AU, right where that swarm sits.
 
 ## Layout
 
@@ -217,7 +217,7 @@
 - Method: optics = (1 − corona share) × mirror efficiency, interpolated in photon energy from hole-choice.md's planning values (0.79 at ~85 eV, 0.70 at ~4 keV, 0.94 for visible light). Corona share for fed supermassive and mid-sized holes follows observed active nuclei (~15% at 1% of Eddington, ~5% at 30%, ~3% at 100%).
 
 ## Per person
-| | Ring era (10 M☉, X-ray tiles) | Full swarm |
+| | Ring design study (10 M☉, X-ray tiles) | Full swarm |
 |---|---|---|
 | Delivered electricity | 3.09 kWe + 10% firm-load overhead | 3.09 kWe + 3% outage margin |
 | Generated | 3.24 kWe | 4.06 kWe (beam losses on all but batch compute) |

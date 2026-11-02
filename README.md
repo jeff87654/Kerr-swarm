@@ -62,9 +62,9 @@ All in [`docs/`](docs/).
 - [sorrel.md](docs/sorrel.md): a gazetteer of one drum: Sorrel's Rings and Hours, customs, government, history and 213 landmarks, as mapped in the Sorrel Atlas
 
 **Earlier eras and alternatives**
-- [hole-choice.md](docs/hole-choice.md): stellar, mid-sized or galactic-core hole
-- [swarm-rings.md](docs/swarm-rings.md): the orange-slice ring layout
-- [ring-weave.md](docs/ring-weave.md): a woven ring layout to remove knot nights
+- [hole-choice.md](docs/hole-choice.md): stellar, mid-sized or galactic-core hole, and the ring era around the starved Sgr A*
+- [swarm-rings.md](docs/swarm-rings.md): the orange-slice ring layout, a design study for a 10 M☉ hole
+- [ring-weave.md](docs/ring-weave.md): a woven ring layout to remove knot nights, in the same design study
 
 **Reference**
 - [glossary.md](docs/glossary.md): short definitions of the setting's named things
