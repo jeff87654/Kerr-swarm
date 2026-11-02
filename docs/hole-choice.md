@@ -1,6 +1,6 @@
 # Hole choice: stellar, mid-sized or galactic core
 
-*Comparison from a working session, Sept 2026; revised for the full swarm. Companion to xray-power.md, energy-budget.md and swarm-rings.md. Same swarm assumptions throughout: ~1 kW/m² at the collectors and 3.24 kWe per person (common budget plus firm-load overhead), except the fed-hole Lantern rows, which use full-swarm.md's 2 kW/m² and 4.06 kWe. "Planning" values are far-future but not heroic. **Project baseline: Sgr A\* fed at 30% of Eddington and held there as it grows (full-swarm.md).** The starved-hole comparison below is the ring era's design space. This civilization's own ring era was around the starved Sgr A\* (see Where it works); the 10 M☉ column, worked out in swarm-rings.md and ring-weave.md, is a design study. Revised Oct 29, 2026 after a consistency audit; Nov 2026, when the ring era was settled on Sgr A\*.*
+*Comparison from a working session, Sept 2026; revised for the full swarm. Companion to xray-power.md, energy-budget.md and swarm-rings.md. Same swarm assumptions throughout: ~1 kW/m² at the collectors and 3.24 kWe per person (common budget plus firm-load overhead), except the fed-hole Lantern rows, which use full-swarm.md's 2 kW/m² and the 2 kWe life's ~2.64 kWe generated per person (the common budget's 4.06 would feed 0.65× as many), and the 300 K table, which counts people at 2.0 kWe delivered. "Planning" values are far-future but not heroic. **Project baseline: Sgr A\* fed at 30% of Eddington and held there as it grows (full-swarm.md).** The starved-hole comparison below is the ring era's design space. This civilization's own ring era was around the starved Sgr A\* (see Where it works); the 10 M☉ column, worked out in swarm-rings.md and ring-weave.md, is a design study. Revised Oct 29, 2026 after a consistency audit; Nov 2026, when the ring era was settled on Sgr A\*. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): fed-hole populations are set at the 2 kWe life, ~1.95 × 10³³ around Sgr A\* at 30% instead of ~1.27 × 10³³, with heavy elements and Shade orbits to match.*
 
 ## Summary
 - **Hard X-rays are the problem.** They can't be focused, so the X-ray tile's plate tops out near 850 K. They also need iron to stop, and PV-like conversion caps near 30%. Light that ordinary mirrors can focus unlocks a ~1,500 K furnace and a gas turbine.
@@ -75,9 +75,9 @@ If the civilization is big enough to use ~30–100% of the hole's Eddington lumi
 | Efficiency, planning (range), 400 K skin | ~28% (22–35%) | ~32% (24–42%) | ~34% (25–45%) |
 | Efficiency across the Lantern (2 kW/m² average) | ~26% | ~30% | ~32% |
 | Lantern radius (2 kW/m² average) | 260–480 AU | 0.04–0.07 pc | 0.82–1.5 pc |
-| Orbit, middle of the Shade | ~1,500–2,700 yr | ~8,400–15,000 yr | ~39,000–65,000 yr |
-| People (Lantern and Shade) | 2.4–7.6 × 10²⁷ | 2.9–9.6 × 10³⁰ | 1.27–4.2 × 10³³ |
-| Heavy elements needed (6.7 t/person) | 8–26 M☉ | 1–3.2 × 10⁴ M☉ | 4.3–14 × 10⁶ M☉ |
+| Orbit, middle of the Shade | ~1,400–2,500 yr | ~7,700–13,000 yr | ~36,000–61,000 yr |
+| People (Lantern and Shade, 2 kWe life) | 3.7 × 10²⁷–1.2 × 10²⁸ | 4.3 × 10³⁰–1.4 × 10³¹ | 1.95–6.5 × 10³³ |
+| Heavy elements needed (6.7 t/person) | 12–40 M☉ | 1.5–4.8 × 10⁴ M☉ | 6.6–22 × 10⁶ M☉ |
 | Fuel | ~10⁻⁷ M☉/yr | ~10⁻⁴ M☉/yr | ~0.02–0.06 M☉/yr |
 
 - **Efficiency converges on ~30–35%.** The light is now absorbed in microns (no iron), and the glowing surfaces are hot enough that focusing isn't limited by the source. But soft X-rays and extreme UV reflect only at shallow grazing angles (~3–5° for a fed supermassive hole's ~100–300 eV light), and each bounce loses ~20–30%. That caps optics at ~75–80%, times a ~1,500 K turbine at ~45%. A SiC skin (~20–25% on this light, less for extreme UV absorbed right at the surface) is the fallback.
@@ -89,29 +89,29 @@ If the civilization is big enough to use ~30–100% of the hole's Eddington lumi
     - But a closed shell of collectors also traps its own infrared, which pushes 5–20× harder than that, evenly in every direction. At 30% a closed Lantern can carry ~10–40 kg/m², and it hovers without orbiting (full-swarm.md).
     - Thin mirrors outside such a shell must be tied down.
   - At 10 M☉ the Shade orbits at only ~7 km/s, and the collectors need soft-X-ray mirrors at under 1° grazing, the weakest link.
-  - A 10 M☉ swarm needs about as many heavy elements as the hole weighs: a large star cluster's worth.
-  - A Sgr A* swarm at 1–2 pc overlaps the old nuclear star cluster and circumnuclear disk, which have to be mined or cleared. Orbits are set mostly by the swarm's own mass, not the hole's. Its heavy elements are about half a percent of the Milky Way's.
+  - A 10 M☉ swarm needs more heavy elements than the hole weighs: a large star cluster's worth.
+  - A Sgr A* swarm at 1–2 pc overlaps the old nuclear star cluster and circumnuclear disk, which have to be mined or cleared. Orbits are set mostly by the swarm's own mass, which is ~2× the hole's at 30%. Its heavy elements (~6.6 × 10⁶ M☉) are about half a percent of the Milky Way's.
 
 ## Power by hole size (fed at 30%, 300 K Lantern)
-Electricity delivered to the habitats, from full-swarm.md's model with the Lantern's skin averaging ~300 K (~380 K at the poles) instead of the baseline's ~420 K. "With jets" is the steady spin tap with the spin held at 0.9 (full-swarm.md). People at 3.09 kWe each; heavy elements at 6.7 t each.
+Electricity delivered to the habitats, from full-swarm.md's model with the Lantern's skin averaging ~300 K (~380 K at the poles) instead of the baseline's ~420 K. "With jets" is the steady spin tap with the spin held at 0.9 (full-swarm.md). People at the 2 kWe life's 2.0 kWe each (full-swarm.md; the common budget's 3.09 would feed 0.65× as many); heavy elements at 6.7 t each.
 
 | Hole | Disk light | Lantern radius | Electricity, disk only | With jets (heat engines / direct conversion) | People, disk only / with direct jets | Heavy elements, same |
 |---|---|---|---|---|---|---|
-| 10 M☉ | 3.8 × 10³¹ W | 500 AU | 8.5 × 10³⁰ W | 1.9 / 2.5 × 10³¹ W | 2.8 × 10²⁷ / 8 × 10²⁷ | 9 / 27 M☉ |
-| 10³ M☉ | 3.8 × 10³³ W | 5,000 AU | 9.6 × 10³² W | 2.0 / 2.6 × 10³³ W | 3 × 10²⁹ / 8.5 × 10²⁹ | 1,000 / 2,800 M☉ |
-| 10⁴ M☉ | 3.8 × 10³⁴ W | 0.076 pc | 9.9 × 10³³ W | 2.0 / 2.6 × 10³⁴ W | 3.2 × 10³⁰ / 8.5 × 10³⁰ | 1.1 / 2.9 × 10⁴ M☉ |
-| 10⁶ M☉ | 3.8 × 10³⁶ W | 0.76 pc | 1.0 × 10³⁶ W | 2.0 / 2.7 × 10³⁶ W | 3.3 × 10³² / 8.6 × 10³² | 1.1 / 2.9 × 10⁶ M☉ |
-| Sgr A* | 1.6 × 10³⁷ W | 1.56 pc | 4.6 × 10³⁶ W | 8.8 × 10³⁶ / 1.15 × 10³⁷ W | 1.5 × 10³³ / 3.7 × 10³³ | 5.0 × 10⁶ / 1.3 × 10⁷ M☉ |
-| 10⁸ M☉ | 3.8 × 10³⁸ W | 7.5 pc | 1.0 × 10³⁸ W | 2.1 / 2.7 × 10³⁸ W | 3.4 × 10³⁴ / 8.7 × 10³⁴ | 1.1 / 2.9 × 10⁸ M☉ |
-| 10⁹ M☉ | 3.8 × 10³⁹ W | 24 pc | 1.1 × 10³⁹ W | 2.1 / 2.7 × 10³⁹ W | 3.5 × 10³⁵ / 8.8 × 10³⁵ | 1.2 / 3.0 × 10⁹ M☉ |
-| 10¹⁰ M☉ | 3.8 × 10⁴⁰ W | 74 pc | 1.1 × 10⁴⁰ W | 2.1 / 2.8 × 10⁴⁰ W | 3.6 × 10³⁶ / 8.9 × 10³⁶ | 1.2 / 3.0 × 10¹⁰ M☉ |
+| 10 M☉ | 3.8 × 10³¹ W | 500 AU | 8.5 × 10³⁰ W | 1.9 / 2.5 × 10³¹ W | 4.3 × 10²⁷ / 1.2 × 10²⁸ | 14 / 42 M☉ |
+| 10³ M☉ | 3.8 × 10³³ W | 5,000 AU | 9.6 × 10³² W | 2.0 / 2.6 × 10³³ W | 4.8 × 10²⁹ / 1.3 × 10³⁰ | 1,600 / 4,400 M☉ |
+| 10⁴ M☉ | 3.8 × 10³⁴ W | 0.076 pc | 9.9 × 10³³ W | 2.0 / 2.6 × 10³⁴ W | 4.9 × 10³⁰ / 1.3 × 10³¹ | 1.7 / 4.4 × 10⁴ M☉ |
+| 10⁶ M☉ | 3.8 × 10³⁶ W | 0.76 pc | 1.0 × 10³⁶ W | 2.0 / 2.7 × 10³⁶ W | 5.1 × 10³² / 1.3 × 10³³ | 1.7 / 4.5 × 10⁶ M☉ |
+| Sgr A* | 1.6 × 10³⁷ W | 1.56 pc | 4.6 × 10³⁶ W | 8.8 × 10³⁶ / 1.15 × 10³⁷ W | 2.3 × 10³³ / 5.7 × 10³³ | 7.8 × 10⁶ / 1.9 × 10⁷ M☉ |
+| 10⁸ M☉ | 3.8 × 10³⁸ W | 7.5 pc | 1.0 × 10³⁸ W | 2.1 / 2.7 × 10³⁸ W | 5.2 × 10³⁴ / 1.3 × 10³⁵ | 1.8 / 4.5 × 10⁸ M☉ |
+| 10⁹ M☉ | 3.8 × 10³⁹ W | 24 pc | 1.1 × 10³⁹ W | 2.1 / 2.7 × 10³⁹ W | 5.4 × 10³⁵ / 1.4 × 10³⁶ | 1.8 / 4.6 × 10⁹ M☉ |
+| 10¹⁰ M☉ | 3.8 × 10⁴⁰ W | 74 pc | 1.1 × 10⁴⁰ W | 2.1 / 2.8 × 10⁴⁰ W | 5.5 × 10³⁶ / 1.4 × 10³⁷ | 1.9 / 4.6 × 10¹⁰ M☉ |
 
 - **Share of the disk's light that reaches the habitats as electricity:** ~23% around 10 M☉, rising to ~29% around 10¹⁰ M☉ as the light softens; ~28% around Sgr A*.
 - **Against the baseline:** the 2 kW/m² Lantern delivers ~25% counting the compute it runs (24% beamed to the habitats). The cooler skin buys ~12% more power for a Lantern nearly twice as wide (1.56 vs. 0.82 pc around Sgr A*), and slower messages.
 - **Jets** (spin held at 0.9, feed ×2.1) multiply the power by ~2 with heat engines or ~2.5 with direct conversion. Around 10 M☉, whose disk light converts worst, it's ×2.2 / ×2.9. Holding the spin at 0.8 gives ×2.6 / ×3.5.
 - **Shedding the jets' waste heat at 300 K** as well needs ~60% more radiating area with heat engines, ~30% with direct conversion.
 - **Everything scales with hole mass and feeding level.** At the Eddington limit it's ×3.3, but the disk flickers. Held at a fixed share of Eddington, a fed hole grows, and the civilization with it (full-swarm.md, Growth at 30%).
-- **Metal binds first for big holes.** A 10⁹ M☉ hole's disk alone could power ~3.5 × 10³⁵ people, who would need ~1.2 × 10⁹ M☉ of heavy elements: about all of a Milky-Way-size galaxy's. Beyond that, jets buy richer people, not more of them.
+- **Metal binds first for big holes.** A 10⁹ M☉ hole's disk alone could power ~5.4 × 10³⁵ people at 2 kWe, who would need ~1.8 × 10⁹ M☉ of heavy elements, more than a Milky-Way-size galaxy holds. Beyond that, jets buy richer people, not more of them.
 
 ## Caveats
 - The starved-flow spectra are scaled from Sgr A* (electron temperature ~5 × 10¹⁰ K, emitting region ~5 r_g). No mid-sized hole this dim has been measured.
@@ -127,6 +127,8 @@ Electricity delivered to the habitats, from full-swarm.md's model with the Lante
 - Efficiency and luminosity are solved together: a less efficient swarm needs more light, so it sits further out.
 - Geometry uses the swarm-rings.md formulas (band height ≈ 1.1 km/s ÷ orbital speed × radius; ring count = π × orbital speed ÷ 1.1 km/s). Flywheels carry 0.85 kW through a mid-band night at 3 MJ/kg.
 - Fed-hole rows for the Lantern and Shade come from full-swarm.md (sphere at 2 kW/m² average, beam losses included).
+- People (1 Nov 2026): daily-life.md's 2 kWe life, with 0.30 kWe of batch compute on the Lantern and 1.70 beamed at 75% with a 3% margin, so 2.64 kWe generated per person: ×1.54 the people of the common budget's 4.06. The 300 K table's people are likewise ×1.54 what its electricity gives at 3.09 kWe delivered. Heavy elements at 6.7 t a person.
+- Shade orbits: mid-Shade, with the Shade's own mass inside each orbit (8.9 t a person, spread evenly through 1.10–1.49 Lantern radii, as in full-swarm.md). The 30% ends are full-swarm.md's. The 100% ends scale those by the computed ratio, ×1.7–1.8: the Lantern is 1.8× wider, which alone would lengthen orbits ×2.5, but the Shade, then ~5–7× its hole, puts more mass inside each orbit.
 
 ## Sources
 - EHT Sgr A* Paper V (2022): bolometric luminosity 6.8–9.2 × 10³⁵ erg/s, accretion rate 5–10 × 10⁻⁹ M☉/yr: https://eventhorizontelescope.org/publications/first-sagittarius-event-horizon-telescope-results-iv-variability-morphology-and-0

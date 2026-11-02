@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -20,13 +20,13 @@ Matches: Eddington
 
 ### The Lantern
 
-A closed shell of hovering collectors ~0.82 pc from the hole that catches ~98% of the disk's light and turns ~32% of it into electricity, beamed out by microwave. It is held up mainly by infrared trapped inside it, weighs ~50,000 M☉, runs the batch compute and carries the fastest messages, and nobody lives on it. Seen from the Shade it's a black disk 85–130° across that glows in the infrared. See full-swarm.md, governance.md.
+A closed shell of hovering collectors ~0.82 pc from the hole that catches ~98% of the disk's light and turns ~32% of it into electricity (~2.64 kWe for each person in the Shade), most of it beamed out by microwave. It is held up mainly by infrared trapped inside it, weighs ~50,000 M☉, runs the batch compute and carries the fastest messages, and nobody lives on it. Seen from the Shade it's a black disk 85–130° across that glows in the infrared. See full-swarm.md, governance.md.
 
 Matches: Lantern
 
 ### The Shade
 
-The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.27 × 10³³ people in rafts on crossing orbits that take ~39,000 years. Its mass is ~1.3× the hole's. See full-swarm.md.
+The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.95 × 10³³ people living the 2 kWe life, in rafts on crossing orbits that take ~35,000–39,000 years. It weighs ~8.7 × 10⁶ M☉, ~2× the hole, and ~6.6 × 10⁶ M☉ of that is heavy elements, 6.7 t a person. See full-swarm.md, daily-life.md.
 
 Matches: Shade
 
@@ -44,13 +44,13 @@ Matches: the glow
 
 ### The frontier
 
-Mining outposts in the nuclear stellar disk, 100–200 pc out and centuries of light-delay away, which supply the metal for growth. Outposts can live on their own stars' light, so neither core nor frontier can coerce the other. See matter-delivery.md, governance.md.
+Mining outposts in the nuclear stellar disk, 100–200 pc out, and for growth in the inner bulge out to ~0.4 kpc: centuries to ~1,300 years of light-delay away. They supply the Shade's metal. Outposts can live on their own stars' light, so neither core nor frontier can coerce the other. See matter-delivery.md, governance.md.
 
 Matches: frontier
 
 ### The great year
 
-One orbit of the Shade, ~39,000 years. Over it an eccentric raft drifts between the warmer inner edge and the outer edge, and a polar orbit crosses the disk plane twice. See full-swarm.md.
+A calendar unit of 39,000 years, about one orbit of the Shade (orbits take ~35,000–39,000 years, a little less toward the outer edge). Nothing in the sky marks it: orbits are kept round, so a raft's distance from the Lantern changes by under a percent, and nobody feels it pass. See full-swarm.md.
 
 Matches: great year
 
@@ -62,7 +62,7 @@ Matches: orbit family
 
 ### Rules of the road
 
-Traffic rules that keep rafts' orbits nearly round (eccentricity under ~0.003), cutting collision courses ~10×. A miss between rafts releases 10³³–10³⁶ J. See full-swarm.md, governance.md.
+Traffic rules that keep rafts' orbits nearly round (eccentricity under ~0.003), cutting collision courses ~10×. A miss between rafts releases 10³³–10³⁶ J. They also make every raft keep a steady prograde push (~4–5 × 10⁻¹² m/s²), so it climbs as the hole grows instead of sinking into the Lantern. See full-swarm.md, governance.md.
 
 Matches: rules of the road
 
@@ -212,7 +212,7 @@ Matches: cycler, cyclers
 
 ### Common budget
 
-A comfortable common life: ~3.1 kWe per person delivered (~1.0 in the habitat, ~0.5 for travel, ~1.6 remote), which takes ~12.8 kW of the disk's light in the full swarm. daily-life.md works through a leaner 2 kWe life, which sets the raft layout. See energy-budget.md.
+A comfortable common life: ~3.1 kWe per person delivered (~1.0 in the habitat, ~0.5 for travel, ~1.6 remote), which would take ~12.8 kW of the disk's light in the full swarm, enough for ~1.27 × 10³³ people. It is a reference budget. The Shade's people live daily-life.md's leaner 2 kWe life, ~8.3 kW of light each, which sets the population (~1.95 × 10³³) and the raft layout. See energy-budget.md, daily-life.md.
 
 Matches: common budget
 
@@ -302,7 +302,7 @@ Matches: guest-right, wander year
 
 ### The Dark
 
-A beam cut. The raft drops to a survival load and, without glow sails, lasts ~55 days. Light delay means a cut can't be called off in time, so it is a sentence whose length is set when it's ordered, not a siege. See governance.md, economy.md.
+A beam cut. The raft drops to a survival load and, without glow sails, lasts ~55 days (~90 if its tank farm is full). Light delay means a cut can't be called off in time, so it is a sentence whose length is set when it's ordered, not a siege. See governance.md, economy.md.
 
 Matches: Dark
 
@@ -314,7 +314,7 @@ Matches: Burn
 
 ### Survival reserve
 
-What carries a drum through the Dark: ~50–100 W per person of air handling, from fuel cells burning shield hydrogen with ~35 kg of banked oxygen each, for ~55 days. See full-swarm.md.
+What carries a drum through the Dark: ~50–100 W per person of air handling, from fuel cells burning shield hydrogen with ~60 kg of banked oxygen each, for ~55 days, until the cabin air's oxygen margin runs out. A full tank farm's oxygen, breathed instead of burned, stretches that to ~90 days, when the food runs out. See full-swarm.md, food-system.md.
 
 Matches: survival reserve
 
@@ -326,7 +326,7 @@ Matches: glow sail, glow sails
 
 ### Dim years
 
-Long dims of the disk, when the hole's flicker outlasts the methanol tank farm and power is rationed. See full-swarm.md.
+Long dims of the disk, when the hole's flicker outlasts the methanol tank farm and power is rationed. The farm carries a 20% dip for a month on ~95 kg of methanol a person, with its own liquid oxygen to burn it in and tanks that capture its CO₂, so nothing vents. See full-swarm.md.
 
 Matches: dim years
 

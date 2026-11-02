@@ -1,6 +1,6 @@
 # Economy: a stationary state in the Shade
 
-*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family.*
+*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family. Revised again 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Lantern's output ÷ population is the 2 kWe life, ~1.95 × 10³³ people on ~6.6 × 10⁶ M☉ of metal, so the 2-kW world is the Shade itself, not a crowded alternative.*
 
 ## Summary
 - **A stationary state.** Energy is a flow fixed per person, metal a stock fixed per person, and the population is closed (growth ~10⁻⁹ a year). Nothing compounds. In shape it's an agrarian economy, with metal for land and the beam for the harvest, rents and status, and machines doing all the farming.
@@ -27,7 +27,7 @@
 ## What's scarce
 | | Kind | Per person, at 2 kW | Supply | Priced by |
 |---|---|---|---|---|
-| Electricity | Flow | ~2 kWe (17,500 kWh a year): 1.1 commons, 0.9 wallet | The Lantern's output ÷ population | It's the unit |
+| Electricity | Flow | ~2 kWe (17,500 kWh a year): 1.1 commons, 0.9 wallet | The Lantern's output ÷ ~1.95 × 10³³ people: ~2.64 kWe generated each, ~2 delivered | It's the unit |
 | In-hull heat | Flow, capped | ~0.8 kW of 300 K radiator | The raft's back layer (raft-habitat.md) | A premium once the cap binds |
 | Metal | Stock | ~6.7 t: 100 m² of floor (~35 m² of it home) and the rest of a share | One new share per nation drum every ~3.6 years | Rent |
 | Belongings | Stock | ~2.5 t of furnishings, belongings and greenery, shared with workplaces and public rooms | Fixed | Remaking (~25 kWh/kg), plus rent if mass is short |
@@ -106,7 +106,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Floor comes per person, homes per household.** Each share's 100 m² includes ~35 m² of home (raft-habitat.md), held as places of ~47 m². A couple raising two children in their two places has ~94 m², ~23 m² a head; an old couple whose children have their own places has the same ~94 m² for two.
 - **Floor is let and swapped, not built.** An elder alone in a family flat lets rooms; a growing family or a young lodger rents them. A move between drums is a swap of homes, across a metro of ~1.6 × 10¹⁰ people within a free 20-minute glide (raft-transport.md).
 - **Rent floats with slack (proposal).** No new floor can be built at any price a drum can pay, so rent alone clears the market, and since most homes are inherited, only spare rooms are let: a thin market that swings hard. In a steady drum at par a room lets for about 0.1 kWh per m² a day, so a whole place (~47 m²) costs ~4.7 kWh a day, a fifth of one wallet or ~11% of a couple's two. An open drum's free Margin loans take much of the demand away, and rents there run about half that. A thin drum a few percent over par, with no spare rooms and families doubling up, pays two to four times as much. Shocks move it fast: a plague leaves rooms empty and rents low until its baby boom grows up, and a refuge intake or an overshoot sends them up within the year. Elders with room to spare are the landlords, and rent is most of their "Rents in" (A life on the ledger).
-- **In the crowded 2-kW world** (daily-life.md), each share would carry ~55 m² of floor: ~19 m² of home at the same proportions.
+- **No crowding.** The 2-kW world is the Shade itself, and a wider harvest brought the metal with its people, so every share keeps its 100 m² and ~35 m² of home (full-swarm.md, daily-life.md).
 
 ### Belongings
 - **Mass is a stock too.** Each share carries ~2.5 t of furnishings, belongings and greenery, across home, workplace and public rooms (habitat-design.md). Owning more than one's share means someone owns less.
@@ -165,7 +165,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Drum | ~200 M | Minutes by cab | People, food, things | Services, homes, Hollow hours |
 | Glide metro | ~1.6 × 10¹⁰ within 20 minutes | 10–20 minutes | People, daily | Jobs, schools, markets: Earth's population, a free ride away |
 | Raft | 10¹⁹–10²² | Days to years by cycler; under a minute to ~13 minutes by light | Goods; few people | Goods; beam between drums |
-| Shade | ~10³³ in 10¹¹–10¹³ rafts | Minutes to ~10 years by light | Information only | Designs, recipes, culture genomes, art, science; beam, through the Lantern |
+| Shade | ~2 × 10³³ in 10¹¹–10¹³ rafts | Minutes to ~10 years by light | Information only | Designs, recipes, culture genomes, art, science; beam, through the Lantern |
 | Frontier | Outposts | Centuries by light; ~1 Myr by payload | Metal in, beam out | Million-year contracts |
 
 - **A raft is one market for goods.** Moving a kilogram 0.1 AU at 5 km/s costs ~0.035 kWh, ~0.1% of making it, and takes ~35 days.
@@ -174,7 +174,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Drums specialise slowly.** With ~1.6 × 10¹⁰ people a free 20-minute glide away, a drum known for a hospital, a school, a kitchen or an orchard draws from the whole metro. But floor costs ~1,250 kWh a m² to rebuild, so a drum's mix of homes and workplaces changes over centuries.
 
 ## The Lantern: utility, bank and sovereign
-- **A natural monopoly.** One opaque, machine-run shell makes the power for 10³³ people (full-swarm.md), and every raft's beam contract is with it.
+- **A natural monopoly.** One opaque, machine-run shell makes the power for ~2 × 10³³ people (full-swarm.md), and every raft's beam contract is with it.
 - **Its ledger is the bank.** A payment between rafts is a beam transfer: the payer's booking falls and the payee's rises. Commissions, prizes and loans between rafts all settle there.
 - **No spot market.** A booking lands after the light delay, 3 months to 1.4 years, and a request takes as long to arrive. The shortest power contract is ~0.5–3 years out.
 - **Without glow sails, the Dark is a sentence, not a siege.** A cut takes effect when the last beam photons arrive. If the raft's answer is what ends it, the dark lasts at least twice the delay:
@@ -277,6 +277,7 @@ All made, Oct 2026:
 
 ## Method
 - Flows: daily-life.md's 2-kW split over 8,766 hours a year.
+- Population (full-swarm.md): the Lantern's ~5.2 × 10³⁶ W (98% of the disk's 1.6 × 10³⁷ W, at 32.4%) ÷ 2.64 kWe generated per person (0.30 of batch compute on the Lantern, 1.70 beamed at 75% with a 3% margin) ≈ 1.95 × 10³³ people, at 6.7 t each ≈ 6.6 × 10⁶ M☉ of metal.
 - Shares: 6.7 t and ~0.75 TJ to build (habitat-design.md, energy-budget.md); floor at 50 kg/m² and ~25 kWh/kg; new metal 25–55 PJ from stars, 0.1 TJ–0.4 PJ from gas (matter-delivery.md).
 - New shares per drum: ~200 M × growth rate (1.4 × 10⁻⁹ a year after spin-up, 4 × 10⁻⁹ during); new places at three-quarters of that.
 - Places: people per place = L ÷ (L − A), with lifespan L ≈ 120 years and a place of one's own at A ≈ 30: 1.33, so 200 M ÷ 1.33 ≈ 150 M places of 35 × 1.33 ≈ 47 m² of home (people.md).
