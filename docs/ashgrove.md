@@ -7,7 +7,7 @@
 - **Who:** the Daces. Anselm (52) mends things. Teo (44) works the Gate at Station Ring 3, where anything alive comes into the drum. Wren (15) plays a heliox flute and has gone dark for twelve days to pay for a trip. Ossian (8) has never seen a star. Anselm's mother Hedda (93) spent forty years on the radiator crews behind the drum, and is one of the few people in Sorrel who has.
 - **The days:** a working day; the family's turn in the Hollow; a wedding one glide away in Lovage; Ossian's visit to the Window.
 - **Neighbours, different rules.** Sorrel allots its high decks and Hollow hours by age, and birth rights can be given but not sold. Lovage, next door, auctions both and lets rights be sold. They sit at different points on the gin curve too.
-- **New here:** galleries behind the drum where every Sorrel child sees the stars once, and the Eleven Days, a beam gap within living memory after which Merrow ran its cyclers fast.
+- **New here:** galleries behind the drum where every Sorrel child sees the stars once, and the Eleven Days, a beam gap within living memory after which Merrow ran its main cycler trunks fast, with slow lines beside them.
 
 ## Where they live
 
@@ -46,7 +46,7 @@ Everywhere else the decks are 4 m apart and the ceilings about 3 m. Ashgrove is 
 
 **Weight is a map.** Running spinward makes you heavier and running back makes you lighter, so children race antispinward and lose fights spinward. A dropped cup lands about two centimetres antispinward of where it was aimed.
 
-**The calendar** is chosen, since nothing outside makes a day or a season. Ashgrove keeps the two big festivals. Booking Day, when Merrow learns its beam for the year ahead, is the harvest. Knotnight is the ring era's winter turned into one evening: the Court's lamps go down, and the neighbourhood makes the year's larder together and eats whatever's fresh, as if a long dark were coming. None has, for more than a hundred million years.
+**The calendar** is chosen, since nothing outside makes a day or a season. Ashgrove keeps the two big festivals. Booking Day, when Merrow learns its beam for the year ahead, is the harvest. Knotnight is the layer era's long dark turned into one evening. Back then a raft could sit in other rafts' shadow for weeks, and deep in the layer the twilight lasted centuries. The name is older still: the rings around the starved hole crossed at knots, and a habitat passing through one went dark for hours or a day or two, never long enough for a winter. The Court's lamps go down, and the neighbourhood makes the year's larder together and eats whatever's fresh, as if a long dark were coming. None has, for more than a hundred million years.
 
 **Status.** Sorrel's dividends are equal and its fixed goods go by age, so rank lives elsewhere: in standing (posts held, years served), in what people make, and in their things. At ~65 years per kilogram, most of what anyone owns is older than they are, and the best chair in a room is the oldest.
 
@@ -88,12 +88,14 @@ The Daces, in kWh a day, averaged over a month:
 | Other people's time | 9 | 9 |
 | Into the goods account | 16 | 16 |
 | Into the travel account | 10 | 20 (Wren's saving) |
-| Banked | 19.1 | 19.1 |
+| Rent: two rooms from the couple next door | 4.6 | 4.6 |
+| Banked | 14.5 | 14.5 |
 
 - **Food:** the three eldest eat the Vat table at home; the children eat the Mill table at school.
 - **Other people's time:** Ossian's after-school minder, Wren's flute teacher, haircuts and the odd dinner cooked by someone else, at ~3 kWh an hour.
+- **Rent:** the two rooms next door, ~46 m², at Sorrel's going rate of about 0.1 kWh per m² a day (economy.md). The old couple who let them spend it on their grandchildren.
 - **Goods:** ~16 kWh a day is ~230 kg of new things a year for four, about the 2-kW average, with two of the four still growing.
-- **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, and savings.
+- **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, rent and savings.
 
 **Rights.** Each share in Sorrel carries one birth right, so a couple has two children; at a death the share goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister on deck 90, and her nephew calls her his second mother.
 
@@ -170,7 +172,7 @@ All of Merrow dropped to its survival load: air handling, scrubbers and coolant 
 
 "That's what the Lantern said," says Hedda. "Some people believed it." A deliberate cut has to have its length set when it's sent, since anything the raft says back takes the best part of two years to end it: it's a sentence, not a siege. Eleven days would have been a short one.
 
-Afterwards Merrow voted to run its cycler trunks fast, at 10 to 20 km/s, so the trains now hold months of air and food instead of days. "It wouldn't save us from a real cut," Hedda says. "It'd save us from a short one."
+Afterwards Merrow voted to run its main cycler trunks fast, at 10 to 20 km/s, so the trains now hold months of air and food instead of days. The slow lines still run beside them, for anyone with more time than kays. "It wouldn't save us from a real cut," Hedda says. "It'd save us from a short one."
 
 Wren works it out halfway through a pastry: that's why there are express cyclers. "So I'm riding on the Eleven Days."
 
@@ -255,7 +257,7 @@ Ossian has asked for his lamp to be turned all the way off, which nobody in Sorr
 - **Merrow:** a 0.1 AU raft in mid-Shade, its beam patch ~0.27 pc away (~11 light-months, economy.md's mid-Shade case). Herb Row: a run of drums founded together.
 - **The Court's light:** Ashgrove's ~53 W a head of park light (daily-life.md) lights its 5,400 m² Court to 10,000 lux for twelve hours with ~2,700 lux left for the terraces, or the Court and its terraces (~1.5 ha) to ~5,300 lux.
 - **The Windows:** shielded galleries on the aft face of the radiator layer, reached through the back axle. Sorrel keeps a dozen and sends every child once; Lovage has none.
-- **The Eleven Days:** a beam gap 74 years ago, with the Lantern's explanation arriving 40 minutes after it began. Slow cyclers at 2 km/s held ~0.1 GJ a resident (raft-transport.md), ~2.6 days of full air and food. Merrow then ran its trunks at 10–20 km/s (~3–6 GJ a resident, ~2½–5 months).
+- **The Eleven Days:** a beam gap 74 years ago, with the Lantern's explanation arriving 40 minutes after it began. Slow cyclers at 2 km/s held ~0.1 GJ a resident (raft-transport.md), ~2.6 days of full air and food. Merrow then ran its main trunks at 10–20 km/s (~3–6 GJ a resident, ~2½–5 months), keeping slow lines at 2 km/s beside them (raft-transport.md's separate trunks).
 - **The sky from the back of a raft:** the nuclear star cluster's stars long since stripped (matter-delivery.md), and its white dwarfs mined or herded out of the Shade, so there are no near stars. Naked-eye stars are mostly the nuclear stellar disk's giants. Around a mid-Shade raft, rafts are ~13 AU apart on average and cover about a sixth of the outward sky; the nearest, ~7 AU off at ~200 km/s, crosses stars at ~2 arcminutes an hour.
 - **Smaller customs:** "kays"; the black thread for going dark; spinball; the growing seam; the apple cut crosswise at weddings; Knotnight and Booking Day; pears with a winter; Lovage's two-bottle allowance; laundry in the lamp-night, when kWh are cheapest (economy.md).
 
@@ -281,7 +283,7 @@ None edited.
 - **Glide:** quay at 3,050 m, 174.4 m/s; a 24.5 km hop in 140 s.
 - **Windows:** a drum of 200 M sees ~1,400–6,800 births a day at lives of 400 to 80 years (economy.md), so ~4,500 eight-year-olds a day at 120. A dozen galleries take ~900 children and their adults a round, five rounds a day.
 - **Cyclers:** 1 g ramps of 20,400 km (34 minutes) at each end, so a million km at 20 km/s takes ~14.5 h plus glides and boarding. Capsule 200 kg at 1% loss: 111 kWh at 20 km/s, 1.1 kWh at 2 km/s (5.8 days). Light delay over a million km: 3.3 s one way.
-- **Rafts:** 1.27 × 10³³ people ÷ 6 × 10¹⁹ per raft ≈ 2 × 10¹³ rafts in the 0.9–1.25 pc shell, ~13 AU apart; nearest neighbour ~0.55 × spacing ≈ 7 AU, where a 0.1 AU raft is 0.8° across.
+- **Rafts:** 1.95 × 10³³ people ÷ 6 × 10¹⁹ per raft ≈ 3.3 × 10¹³ rafts in the 0.9–1.25 pc shell, ~11 AU apart; nearest neighbour ~0.55 × spacing ≈ 6 AU, where a 0.1 AU raft is ~1° across.
 - **Giants:** L = 100–1,000 L☉ with bolometric corrections of −0.8 to −1.5 gives M_V ≈ +0.5 to −1.3, so V ≈ 3.7–7 at 100–200 pc, before dust.
 - **Heliox flute:** a concert flute's ~0.67 m × 1.8 ≈ 1.2 m.
 - **Household:** dividends 4 × 21.6; Teo full time at economy.md's ~6,200 kWh a year (~17 a day); Anselm ~1,000 hours at ~3 kWh. Energy lines from daily-life.md's wallet: compute, Vat-table premium, appliances, devices and home light, goods (~25 kWh/kg) and travel.

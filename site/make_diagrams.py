@@ -196,7 +196,7 @@ def lantern_shade():
         "4.3 × 10⁶ M☉, fed at 30% of Eddington. The disk",
         "(4–40 AU) is drawn thousands of times too big."]))
     b.append(callout(272, *pol(cx, cy, (rs0 + rs1) / 2, 28), "The Shade, 0.9–1.25 pc", [
-        "~1.27 × 10³³ people in rafts on crossing orbits",
+        "~1.95 × 10³³ people in rafts on crossing orbits",
         "of ~39,000 years, passing at 100–300 km/s."]))
     bx, by = pol(cx, cy, (rl + rs0) / 2 + 4, 18)
     b.append(callout(346, bx, by, "Microwave beams cross the gap", [

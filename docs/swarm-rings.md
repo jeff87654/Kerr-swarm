@@ -2,7 +2,7 @@
 
 *Design notes from a working session, Sept 2026. Builds on claude/habitat-design.md (deck drums: ~6 t heavy elements per person). Energy per person: claude/energy-budget.md. X-ray conversion: claude/xray-power.md. For a 10 M☉ hole at 10²² people and up, claude/ring-weave.md weighs a woven layout against this one. Tables rescaled to 15 kW of light per person, Sept 30. Nation-drum figures updated Oct 2026 for the 3 km drum (habitat-design.md).*
 
-*Scope: **the ring era.** Rings hold only while orbits take less than ~16 years (see Ring mechanics). At 1 kW/m² that caps a ring swarm at ~3 × 10²⁴ people around a 10 M☉ hole, ~6 × 10²⁶ around a mid-sized one and ~3 × 10²⁸ around a starved Sgr A*. The mature civilization, Sgr A* fed at 30% of Eddington, has no rings: collectors hover in a closed shell and habitats live in its shade (claude/full-swarm.md).*
+*Scope: **a design study for a 10 M☉ hole**, not this civilization's history. This civilization's ring era was around the starved Sgr A\* before it was fed: ~10²⁵ people at ~18 AU on 13-day orbits, with knot nights of hours to a couple of days (claude/hole-choice.md). Rings hold only while orbits take less than ~16 years (see Ring mechanics). At 1 kW/m² that caps a ring swarm at ~3 × 10²⁴ people around a 10 M☉ hole, ~6 × 10²⁶ around a mid-sized one and ~3 × 10²⁸ around a starved Sgr A\*. The mature civilization, Sgr A\* fed at 30% of Eddington, has no rings: collectors hover in a closed shell and habitats live in its shade (claude/full-swarm.md).*
 
 ## Assumptions
 - 10 M☉ Kerr hole. The swarm sits where light is ~1 kW/m² (Earth-like), so the outer skin radiates at ~364 K.

@@ -1,6 +1,6 @@
 # Scoping the world to Sgr A*
 
-*Feasibility check from a working session, Sept 2026; revised the same month for the full swarm and for a hole held at 30% of Eddington as it grows. Builds on hole-choice.md (conversion efficiency by hole) and swarm-rings.md (orange-slice layout). Assumes Sgr A* (4.3 × 10⁶ M☉) is fed into a thin-disk state, collectors convert ~32–36%, and people need ~3.1 kWe, 6.7 t of heavy elements and ~2.2 t of hydrogen each (3 km nation drums; 3.3 t in the 2 km drums first assumed). **The mature 30% civilization's layout is in full-swarm.md** (the Lantern and the Shade). This doc keeps the feeding levels, disk control, metal supply, why rings fail, and the layer-era design used below ~10% of Eddington. Revised Oct 29, 2026 after a consistency audit.*
+*Feasibility check from a working session, Sept 2026; revised the same month for the full swarm and for a hole held at 30% of Eddington as it grows. Builds on hole-choice.md (conversion efficiency by hole) and swarm-rings.md (orange-slice layout). Assumes Sgr A* (4.3 × 10⁶ M☉) is fed into a thin-disk state, collectors convert ~32–36%, and people need ~3.1 kWe, 6.7 t of heavy elements and ~2.2 t of hydrogen each (3 km nation drums; 3.3 t in the 2 km drums first assumed). **The mature 30% civilization's layout is in full-swarm.md** (the Lantern and the Shade). This doc keeps the feeding levels, disk control, metal supply, why rings fail, and the layer-era design used below ~10% of Eddington. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): the 30% and 100% columns now use daily-life.md's 2 kWe life, so the 30% civilization is ~1.95 × 10³³ people holding ~6.6 × 10⁶ M☉ of heavy elements, with the Shade ~2× the hole and the cluster's gas lasting ~750 Myr.*
 
 ## Summary
 - **Rings are out.** At parsec scale the swarm's own gravity dominates. Stacked rigid bands attract each other hundreds to thousands of times harder than their orbits can resist, so they collapse together. Rings need orbits shorter than ~16 years (full-swarm.md).
@@ -11,8 +11,8 @@
 - **Lantern era (from ~3–8% up; the 30% target):** collectors hover in a closed shell, held up mostly by its own trapped infrared, and the habitats live outside it, in its shade, on beamed power (full-swarm.md).
 - **Metal decides the feeding rate.**
   - Mining the nuclear star cluster yields ~4.5 × 10⁵ M☉ of heavy elements, enough for ~1.3 × 10³² people at ~3% of Eddington.
-  - 30% of Eddington needs ~4.3 × 10⁶ M☉ for ~1.27 × 10³³ people, about a quarter of the heavy elements in the nuclear stellar disk's living stars.
-  - Held at 30%, the civilization then grows with the hole, doubling every ~0.5 Gyr, and needs ~0.01–0.03 M☉/yr of metal to keep pace (matter-delivery.md).
+  - 30% of Eddington needs ~6.6 × 10⁶ M☉ for ~1.95 × 10³³ people at the 2 kWe life, about a third of the heavy elements in the nuclear stellar disk's living stars.
+  - Held at 30%, the civilization then grows with the hole, doubling every ~0.5 Gyr, and needs ~0.013–0.05 M☉/yr of metal to keep pace; growing to ×19 takes the inner bulge's stars too (matter-delivery.md).
 - **30% of Eddington is the preferred target:**
   - as bright as the whole Milky Way;
   - the top of the disk's steady window;
@@ -27,10 +27,10 @@
 | Layout | Warm layer, collectors on rafts | Lantern and Shade | Lantern and Shade |
 | Where people live | Layer at ~0.37 pc (1 kW/m²) | Shade at 0.9–1.25 pc (Lantern 0.82 pc) | Shade at ~1.65–2.25 pc (Lantern ~1.5 pc) |
 | Light across the civilization, one way | ~2.4 yr | ~8 yr (via the Lantern's relays; ~10 around it) | ~15 yr |
-| People | ~1.3 × 10³² | ~1.3 × 10³³ | ~4 × 10³³ |
-| Heavy elements | ~4.5 × 10⁵ M☉ (≈ nuclear star cluster) | ~4.3 × 10⁶ M☉ (~¼ of the nuclear stellar disk's living stars') | ~1.5 × 10⁷ M☉ (most of the disk's living stars') |
-| Swarm mass ÷ hole mass (incl. hydrogen) | 0.13 | 1.3 | ~4.5 |
-| Orbital period | ~10,000 yr | ~39,000 yr | ~60,000–100,000 yr |
+| People | ~1.3 × 10³² | ~1.95 × 10³³ | ~6 × 10³³ |
+| Heavy elements | ~4.5 × 10⁵ M☉ (≈ nuclear star cluster) | ~6.6 × 10⁶ M☉ (~⅓ of the nuclear stellar disk's living stars') | ~2.3 × 10⁷ M☉ (more than the disk's living stars hold) |
+| Swarm mass ÷ hole mass (incl. hydrogen) | 0.13 | ~2.0 | ~7 |
+| Orbital period | ~10,000 yr | ~35,000–39,000 yr | ~55,000–95,000 yr |
 | Stacked-band attraction ÷ orbital restoring force (rings) | ~600 | ~2,500 | ~4,000 |
 | Random speed a warm layer would need | ~7–11 km/s | ~46 km/s | ~50–75 km/s |
 | Warm-layer thickness, share of radius | ~3–5% | ~25% | ~25–40%+ |
@@ -41,7 +41,7 @@
 
 - Figures are for today's hole. Held at a fixed share of Eddington, luminosity, population and metal grow with the hole's mass, and radii and delays with its square root.
 - E-folding times and fuel are at spin 0.9. At 30%, feeding spins the hole to ~0.998 within ~150–170 Myr; after that the disk converts twice as much of the feed, so fuel per unit of light halves and e-folding times are ~2.5× longer (~700 Myr at 30%).
-- Populations at 30% and up assume the Lantern's ~32% conversion and ~25% beam losses (full-swarm.md). The 3% column assumes collectors on rafts at ~34%, catching 86% of the light, with half the power shared between rafts by beam (~12.4 kW of light per person). The first scoping put 30% at ~1.7 × 10³³ people; either layout gives ~1.3–1.4 × 10³³.
+- Populations at 30% and up assume the Lantern's ~32% conversion and ~25% beam losses (full-swarm.md), at daily-life.md's 2 kWe life (~8.3 kW of light per person). The 3% column is set by the cluster's metal, not its light: collectors on rafts at ~34%, catching 86% of the light, with half the power shared between rafts by beam, give ~12.4 kW of light per person at the common budget. At the common budget the 30% column would be ~1.3 × 10³³ (the first scoping put it at ~1.7 × 10³³).
 
 ## Any fed hole: mass sets the scale, not the layout
 At a fixed share of Eddington, luminosity (and so population) scales with hole mass. So does the swarm's mass, and the swarm radius grows as √M.
@@ -79,9 +79,9 @@ Full design in full-swarm.md. In brief:
 - **Conversation.** The civilization is ~2.5 pc across. A message to the far side takes ~8 years through the Lantern's relays (~10 going around it, since the Lantern is opaque), and a reply comes back within ~16 (~20). Anyone can hold a lifetime correspondence with anyone. Neighbouring rafts, AU apart, are minutes to hours away by light.
   - At 3% of Eddington, the round trip is ~5 years.
   - At the limit, ~30 years.
-- **Scale.** ~1.3 × 10³³ people. The civilization radiates as much as the entire Milky Way, from a region ~2.5 pc across.
-- **A self-gravitating swarm.** The Shade outweighs the hole ~1.3×, so orbits are set mostly by the swarm's own mass. Dynamically it is a nuclear star cluster made of habitats. By the shell theorem its mass exerts no pull on the Lantern inside it.
-- **Resource frontier.** The heavy elements come from the nuclear stellar disk, 100–200 pc out, whose hydrogen also extends the fuel supply far past the star cluster's. Those mining outposts sit centuries of light-delay beyond the conversational core, a natural cultural and political divide. They can live on their stars' light, so neither side can coerce the other on any human timescale (governance.md).
+- **Scale.** ~1.95 × 10³³ people. The civilization radiates as much as the entire Milky Way, from a region ~2.5 pc across.
+- **A self-gravitating swarm.** The Shade outweighs the hole ~2×, so orbits are set mostly by the swarm's own mass. Dynamically it is a nuclear star cluster made of habitats. By the shell theorem its mass exerts no pull on the Lantern inside it.
+- **Resource frontier.** The heavy elements come from the nuclear stellar disk, 100–200 pc out, and for later growth from the inner bulge to ~0.4 kpc; the disk's hydrogen also extends the fuel supply far past the star cluster's. Those mining outposts sit centuries of light-delay beyond the conversational core, a natural cultural and political divide. They can live on their stars' light, so neither side can coerce the other on any human timescale (governance.md).
 - **Growth.** The feed is held at 30% as the hole grows, so the civilization grows with it: the hole spins up for ~150–170 Myr (growing ~40%), then doubles every ~0.5 Gyr. The Lantern, the Shade and message delays widen as the square root of the hole's mass: replies across the civilization take ~22 years once the hole has doubled (full-swarm.md, Growth at 30%).
 
 ## Feeding and disk control
@@ -95,7 +95,7 @@ Full design in full-swarm.md. In brief:
 
 - **Feeding spins the hole up** toward ~0.998, raising efficiency over time: at 30% it gets there in ~150–170 Myr.
 - **Supply.** The nuclear star cluster's stars, stripped, leave ~2.1 × 10⁷ M☉ of hydrogen and helium; its white dwarfs, ~10–15% of its mass, are kept as ore. The gas is stored as brown dwarfs at ~10–30 pc (matter-delivery.md).
-  - Held at 30%, that feeds the hole and shields the growing population for ~820 Myr, while the hole grows ~3.5×.
+  - Held at 30%, that feeds the hole and shields the growing population for ~750 Myr, while the hole grows ~3.2×.
   - Then fuel is imported: the Galaxy's own inflow to the central parsecs is ~0.03 M☉/yr today, and the frontier's stream can carry more.
 - **Growth.** At the limit the hole doubles every ~60 Myr.
 
@@ -191,8 +191,8 @@ The ordering comes from shade and from heat rejection:
 ## Suggested scoping
 - **Start:** Sgr A* at ~3% of Eddington (~0.002 M☉/yr) after mining the nuclear star cluster: ~1.3 × 10³² people in a warm layer ~0.37 pc out, in rafts carrying their own collectors.
 - **Mature civilization: ~30% of Eddington (~0.018 M☉/yr), held there as the hole grows; full-swarm.md.**
-  - ~1.3 × 10³³ people in the Shade, 0.9–1.25 pc out, powered by the Lantern at ~0.8 pc, doubling every ~0.5 Gyr with the hole.
-  - Mining about a quarter of the heavy elements in the nuclear stellar disk's living stars to get there, then ~0.01–0.03 M☉/yr to keep pace; metal is the binding constraint.
+  - ~1.95 × 10³³ people at 2 kWe in the Shade, 0.9–1.25 pc out, powered by the Lantern at ~0.8 pc, doubling every ~0.5 Gyr with the hole.
+  - Mining about a third of the heavy elements in the nuclear stellar disk's living stars to get there, then ~0.013–0.05 M☉/yr to keep pace, from the disk and later the inner bulge; metal is the binding constraint.
   - The disk sits at the top of its steady window.
   - Any two people can exchange messages within ~16 years, through the Lantern's relays.
 - The same design works for a fed 10 M☉ or 10⁴ M☉ hole, at smaller scale.

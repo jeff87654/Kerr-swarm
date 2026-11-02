@@ -4,7 +4,7 @@
 
 ## Summary
 - A comfortable common life needs **~3.1 kWe per person: ~1.0 inside the habitat, ~0.5 for vactrain travel and ~1.6 remote** (industry, growth, compute). The plausible range runs from ~1 kWe (lean) to ~13 kWe (generous).
-- **Ring era (10 M☉ hole):** the hole's X-rays convert at **~22%** with the standard tile (xray-power.md), not the 40% first assumed for sunlight. With 10% for carrying firm loads through knot nights, the common budget needs **~15 kW of light** per person. swarm-rings.md's tables now use 15 kW (they first assumed 10).
+- **Ring design study (10 M☉ hole):** the hole's X-rays convert at **~22%** with the standard tile (xray-power.md), not the 40% first assumed for sunlight. With 10% for carrying firm loads through knot nights, the common budget needs **~15 kW of light** per person. swarm-rings.md's tables now use 15 kW (they first assumed 10).
 - **Full swarm (Sgr A* at 30% of Eddington, full-swarm.md):** hull, travel, industry, growth and interactive compute arrive by microwave beam from the Lantern at ~75%; batch compute runs on the Lantern itself; there are no nights, so the margin drops to 3%. The common budget needs **~4.1 kWe generated and ~12.8 kW of light** per person at ~32% conversion.
 - The habitat's own heat load is **~1 kW, not 10**. Radiators shrink from ~12 m² to ~1.2 m² per person (two-sided); in the Shade, where radiators work one-sided, ~2.5 m².
 - Food, air and water are the largest in-hull item (~45% of habitat heat). Bright lighting is the largest discretionary one.
@@ -49,7 +49,7 @@ kWe per person, time-averaged.
 | **Remote subtotal** | **0.25** | **1.60** | **7.00** |
 | **Total delivered** | **0.96** | **3.09** | **12.7** |
 | Habitat share of total | 62% | 33% | 18% |
-| Light per person, ring era (22% conversion) | 4.7 kW | 15 kW | 60 kW |
+| Light per person, 10 M☉ ring design study (22% conversion) | 4.7 kW | 15 kW | 60 kW |
 | Light per person, full swarm (32%, beamed; half of compute on the rafts) | 4.1 kW | 12.8 kW | 52 kW |
 
 ## Line notes
@@ -107,7 +107,9 @@ Vacuum maglev per swarm-rings.md: 400 kg per seat, 1 g, 3% of kinetic energy los
     - On a raft, glides to neighbouring drums are free (raft-transport.md), so daily life can spill a few drums out.
 - Track losses heat the band (or the raft), not the habitat.
 
-## From electricity to light and band area (ring era)
+## From electricity to light and band area (10 M☉ ring design study)
+*A design study, not this civilization's history: its ring era was around the starved Sgr A\*, at ~37% conversion (hole-choice.md).*
+
 | | Lean | Common | Generous |
 |---|---|---|---|
 | Light per person: skins only 13% / standard tile 22% / heavy tile 25% | 7.9 / 4.7 / 4.1 kW | 25 / 15 / 13 kW | 102 / 60 / 53 kW |
@@ -125,9 +127,9 @@ Vacuum maglev per swarm-rings.md: 400 kg per seat, 1 g, 3% of kinetic energy los
 - Heat pumps to run radiators hotter aren't worth their power at these loads.
 - **In the Shade,** the Lantern's warm skin fills part of the sky, so rafts radiate only from their backs, in the shadow of their fronts (full-swarm.md). One-sided at 300 K, a radiator sheds ~410 W/m²: ~2.5 m² per person for the common hull load, 1.5 (lean), 5.6 (generous). Beam, industry and data-hall losses radiate hotter from the raft's structure.
 
-## Knot nights (ring era; correction to swarm-rings.md)
+## Knot nights (10 M☉ ring design study; correction to swarm-rings.md)
 - **The full swarm has no knot nights.** Power arrives by beam, and storage covers only hours of outage. A total cut is survived on a reserve: fuel cells burning shield hydrogen with banked oxygen carry ~50–100 W per person of air handling for up to the air's ~55-day oxygen margin (full-swarm.md). Glow sails, heat engines run on the Lantern's own waste heat, can stretch that indefinitely at a ration level of ~0.4 kW per person, except near the disk plane (governance.md).
-- **This section describes the orange slice around a 10 M☉ hole.** claude/ring-weave.md offers a woven layout where eclipses last about an hour (worst ~21 hours at 10²²) and storage falls to ~15–30 kg of flywheel per person, at the cost of ~27% of the light. Around a mid-sized hole (claude/hole-choice.md), orange-slice nights last only hours.
+- **This section describes the orange slice around a 10 M☉ hole, a design study.** This civilization's ring era was around the starved Sgr A\*, where orange-slice nights lasted hours to a couple of days (claude/hole-choice.md). claude/ring-weave.md offers a woven layout where eclipses last about an hour (worst ~21 hours at 10²²) and storage falls to ~15–30 kg of flywheel per person, at the cost of ~27% of the light. Around a mid-sized hole (claude/hole-choice.md), orange-slice nights last only hours.
 - Away from the interchange line, neighboring bands overlap as seen from the hole. Each band is lit only along a strip on one edge; the rest sits in the shadow of the next ring in. At angle θ from the interchange line the lit share of each band is cos θ, and the lit strip switches edges at each knot.
 - So a habitat's shadow depends on where it sits across the band:
   - Mid-band: lit 2/3 of the time, in two nights per orbit of 1/6 orbit each.
@@ -146,7 +148,7 @@ At 15 kW of light per person and 1 kW/m²:
 - The deep knot (≥10 layers) is only the bottom of a much longer night.
 - Getting through a night:
   - The food plant can pause for up to the ~55-day O₂ margin (food-system.md), then run 1.5–2× by day. Cryocooling can pause too. That leaves ~0.7 kW of firm load.
-  - Up to ~10²², flywheels are affordable: 3–7% of the ring era's ~7.4 t heavy-element budget.
+  - Up to ~10²², flywheels are affordable: 3–7% of the design study's ~7.4 t heavy-element budget.
   - At 10²³ and above, storage is too heavy, and ~21% of the ring's energy must move along the ring from lit to dark stretches. The vactrain tracks are the natural power line.
 - Interruptible loads belong where nights are longest: band edges and dedicated rings.
 
@@ -155,10 +157,10 @@ At 15 kW of light per person and 1 kW/m²:
 - Data centres: 415 TWh worldwide in 2024 (~6 W per person worldwide, ~60 W per person in the US), ~945 TWh by 2030 (IEA base case).
 
 ## Open questions
-- Settled: ~12.8 kW of light per person in the full swarm, with half of compute on the rafts (full-swarm.md); the ring-era tables (swarm-rings.md and the knot-night table above) now use ~15 kW.
+- Settled: ~12.8 kW of light per person in the full swarm, with half of compute on the rafts (full-swarm.md); the 10 M☉ ring design study's tables (swarm-rings.md and the knot-night table above) now use ~15 kW.
 - Compute per person. Minds stay biological in this setting (governance.md). If they ran as software, a digital person's watts against a biological person's ~12.8 kW of light would set a sharp exchange rate (economy.md). Batch compute lives on the Lantern; interactive compute has to sit within a few thousand km of its users. How the line really splits between them is open (planning: half each).
 - How long-distance travel is priced or rationed.
-- Ring-era knot-night strategy: see claude/ring-weave.md. Along-ring lines can't fix the deep knot, where habitats can't shed heat; weaving can, at a cost in light. Which layout wins depends on hole size and swarm size.
+- Knot-night strategy in the 10 M☉ ring design study: see claude/ring-weave.md. Along-ring lines can't fix the deep knot, where habitats can't shed heat; weaving can, at a cost in light. Which layout wins depends on hole size and swarm size.
 - Settled in matter-delivery.md: gathering heavy elements costs ~4,000–8,000 GJ per kg from stars (minimum), or ~0.01–0.1 GJ per kg to process gas plus up to ~60 to collect it, so a new person's metal costs ~25–55 PJ from stars.
 
 ## Sources

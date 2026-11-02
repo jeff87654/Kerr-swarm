@@ -321,7 +321,7 @@
     "high"
    ],
    "needs": null,
-   "text": "Elders write a letter to the child who will be born into their place, to be opened at fourteen. Most letters are about manners. The best ones are about what the writer got wrong."
+   "text": "Elders write a letter to the child who will be born into their share, to be opened at fourteen. Most letters are about manners. The best ones are about what the writer got wrong."
   },
   {
    "bands": [
@@ -585,7 +585,7 @@
     "high"
    ],
    "needs": null,
-   "text": "Here the dead's family writes back every year, a page about the person whose place the child took. By eighteen, most children know a stranger they never met better than some of their cousins."
+   "text": "Here the dead's family writes back every year, a page about the person whose share the child carries. By eighteen, most children know a stranger they never met better than some of their cousins."
   },
   {
    "bands": [
@@ -608,7 +608,7 @@
     "high"
    ],
    "needs": null,
-   "text": "When a place goes back to the pool, the Register's notice is pinned in the lift lobby beside the newest birth notice, and the two stay up together for a week."
+   "text": "When a share goes back to the pool, the Register's notice is pinned in the lift lobby beside the newest birth notice, and the two stay up together for a week."
   },
   {
    "bands": [
@@ -1878,7 +1878,7 @@
     35,
     75
    ],
-   "line": "About two births a week on this stair. I know every name and whose place it was. People forget the other family. I don't."
+   "line": "About two births a week on this stair. I know every name and whose share it was. People forget the other family. I don't."
   },
   {
    "bands": [
@@ -2859,7 +2859,7 @@
     92,
     118
    ],
-   "line": "I've written my letter to the child who'll have my place. Mostly it says sit in the baths more and argue less. They'll ignore both."
+   "line": "I've written my letter to the child who'll carry my share. Mostly it says sit in the baths more and argue less. They'll ignore both."
   },
   {
    "bands": [
@@ -3035,7 +3035,7 @@
     90,
     112
    ],
-   "line": "I make a blanket for every baby born into a place from this deck. I never meet most of them. Their families send pictures, which I keep in a box."
+   "line": "I make a blanket for every baby born into a share from this deck. I never meet most of them. Their families send pictures, which I keep in a box."
   },
   {
    "bands": [
@@ -3079,7 +3079,7 @@
     90,
     110
    ],
-   "line": "When my place goes back to the pool, a child somewhere will get my name. I hope they're loud. I was always too quiet."
+   "line": "When my share goes back to the pool, a child somewhere will get my name. I hope they're loud. I was always too quiet."
   },
   {
    "bands": [
@@ -3962,7 +3962,7 @@
     "middle",
     "high"
    ],
-   "text": "The Register shows that one place on this stair has been held by someone called Ansa for {years} years, each child named for the last holder. Nobody planned it. It just kept happening."
+   "text": "The Register shows that one share on this stair has been carried by someone called Ansa for {years} years, each child named for the last holder. Nobody planned it. It just kept happening."
   },
   {
    "bands": [
@@ -4012,7 +4012,7 @@
    "bands": [
     "middle"
    ],
-   "text": "{years} years ago a couple here gave both their birth rights to friends in a counted drum across the rows, so two children could be born where they were wanted. Both children visit every Booking Day."
+   "text": "{years} years ago a couple here gave both their birth rights to friends who had fled a counted drum across the rows, so two children could be born where they were wanted. Both children visit every Booking Day."
   },
   {
    "bands": [

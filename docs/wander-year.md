@@ -1,6 +1,6 @@
 # Wander year: thirteen cards from across Merrow
 
-*Narrative sketch from a working session, Oct 2026. A year in the life of Marit Vell of Chervil, told in the cards she sent home while crossing Merrow on guest-right. Builds on open-drums.md (guest-right, the wander year, Chervil, Marit, Jory and Oona, Booking Day, the Long Flight), raft-transport.md (cyclers and capsules), daily-life.md (prices and the wallet), eating-out.md (the Wanderers' Galley, the ring counters, Lightfall's passing-raft menu), ashgrove.md (the Window, the River and the Shelf, back crews, spinball, the black thread), people.md (counted drums, the fitting, passing rafts) and raft-habitat.md (the Hollow, the Spindle and its flying halls). Numbers come from those docs. Marit, Jory, Oona, Chervil, the Galley and the ring counters are already in them; every other name is new, and the new places, customs and choices are proposals, listed under What the sketch assumes. Exploration page: [Marit's Wander Year](https://claude.ai/artifact/Lnb82ZHwuEfsqXrF6vrw2Y).*
+*Narrative sketch from a working session, Oct 2026. A year in the life of Marit Vell of Chervil, told in the cards she sent home while crossing Merrow on guest-right. Builds on open-drums.md (guest-right, the wander year, Chervil, Marit, Jory and Oona, Booking Day, the Long Flight), raft-transport.md (cyclers and capsules), daily-life.md (prices and the wallet), eating-out.md (the Wanderers' Galley, the ring counters, Lightfall's passing-raft menu), ashgrove.md (the Window, the River and the Shelf, back crews, spinball, the black thread), people.md (counted drums, the fitting, passing rafts) and raft-habitat.md (the Hollow, the Spindle and its flying halls). Numbers come from those docs. Marit, Jory, Oona, Chervil, the Galley and the ring counters are already in them; every other name is new, and the new places, customs and choices are proposals, listed under What the sketch assumes. Revised 1 Nov 2026 after an audit: Merrow's slow lines, the length of Marit's year and the marrying season. Exploration page: [Marit's Wander Year](https://claude.ai/artifact/Lnb82ZHwuEfsqXrF6vrw2Y).*
 
 ## At a glance
 - **Who:** Marit Vell, a cook from Chervil, an open drum on Herb Row (open-drums.md). She went at twenty-five, later than most, the year after her great-grandfather died; she holds his place now. She writes to Jory, her partner; Oona, one of her aunts and a lamp-painter; her table; and the Thursday crew at the Ring 2 hall.
@@ -10,7 +10,7 @@
 - **New here:** seven rows and their drums, a passing raft called Selkie, the Passing, the raft loaf, and a counted drum taking down its Count.
 
 ## The route
-Merrow is ~300 billion nation drums 24.5 km apart, about 13.4 million km on a side. Herb Row sits near one edge. Every leg is a slow cycler at 2 km/s, boarded by capsule for ~1.1 kWh however far it goes (raft-transport.md); hops between neighbouring drums are free glides.
+Merrow is ~300 billion nation drums 24.5 km apart, about 13.4 million km on a side. Herb Row sits near one edge. Every leg is a slow cycler at 2 km/s, boarded by capsule for ~1.1 kWh however far it goes (raft-transport.md); the slow lines run beside the main trunks Merrow has run fast since the Eleven Days (ashgrove.md). Hops between neighbouring drums are free glides.
 
 | Leg | From | To | Distance | Days aboard |
 |---|---|---|---|---|
@@ -193,7 +193,8 @@ If any of your wanderers come through Chervil, send them to my table. We'll know
 - **Booking Day is raft-wide.** Merrow holds the beam contract, so it learns its beam on one day, and Marit is aboard leg 4 for it.
 - **Guest-right is generous to workers.** Dulse lets visiting cooks stay past three nights as long as they cook.
 - **Madder's Margin** came the way open-drums.md says most do: a stop that ran past par, kept by a vote on Booking Day.
-- **Booking Day in Chervil** (open-drums.md) is the payoff: Marit's hall, the hall-fund vote, the Long Flight in her Kittiwake sleeves, the wanderers who "know the same baker" (Pell), and her asking to marry in the spring.
+- **Booking Day in Chervil** (open-drums.md) is the payoff: Marit's hall, the hall-fund vote, the Long Flight in her Kittiwake sleeves, the wanderers who "know the same baker" (Pell), and her asking to marry after Knotnight.
+- **A long year.** Marit spends ~182 nights on guest-right, about twice the ~90 that open-drums.md's guest numbers assume for the average wanderer; many go for less than a year.
 
 **New here:**
 - **Rows and drums.** Hedge Row: Sloe, a wood drum of silent woods and slates. Gull Row: Kittiwake, a maker drum that makes wing-sleeves and teaches crosswise flying. Weather Row: Gloaming, a fair drum that paints dusks and returns its terrace rents, and Squall, a steady drum with a swell on its Hollow lake. Bell Row: Carillon, a hall drum of choirs. Kelp Row: Dulse, a hall drum on the far side that pulls noodles at a third of a g. Pigment Row: Madder, just gone from counted to open, and Ochre, a steady drum whose back crews take a guest for a shift. Grain Row: Spelt, a maker drum, home of the raft loaf. Thimble, Cooper, Kite and Quill Rows are passed through without a card.

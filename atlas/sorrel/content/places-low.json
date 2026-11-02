@@ -166,8 +166,8 @@
   "hour": 10,
   "r": null,
   "wall": null,
-  "blurb": "Quiet rooms where babies are named for the dead whose places they take, with both families in the room.",
-  "text": "Sorrel is a pool drum. At a death the place goes back to the pool and a child is born into it, and children are named for the dead whose places they take. These six felt-hung rooms do Ring Four's namings for Moth, about forty a day. The Register sends the dead's name a week ahead. In the room a namer reads both names, the old and the new, once each, and the baby is handed to the parents under the second. The dead's family often comes. Afterwards the new family promises the note, sent every year on the date, and most of them keep the promise for the rest of their lives.",
+  "blurb": "Quiet rooms where babies are named for the dead whose shares they carry, with both families in the room.",
+  "text": "Sorrel is a pool drum. At a death the share goes back to the pool and a child is born into it, and children are named for the dead whose shares they carry. These six felt-hung rooms do Ring Four's namings for Moth, about forty a day. The Register sends the dead's name a week ahead. In the room a namer reads both names, the old and the new, once each, and the baby is handed to the parents under the second. The dead's family often comes. Afterwards the new family promises the note, sent every year on the date, and most of them keep the promise for the rest of their lives.",
   "detail": "Free, about ten minutes, booked through the clinic. The desk keeps plain cards at cost for the yearly note, and will look up the other family's address for you when you've lost it.",
   "who": {
    "name": "Ilse Abernathy-Kwan",
@@ -727,7 +727,7 @@
   "r": null,
   "wall": null,
   "blurb": "Ashgrove's street along the axis, where your weight stays the same whichever way you walk.",
-  "text": "Pear Street runs along the axis through Ashgrove and crosses the Long Arcade at the Court. Walking it is plain walking: along the axis nothing changes, so it's where the old take their exercise and small children learn to ride without the street tipping them. The Daces' flat is on deck 77 off Pear Street, two corners from the Court, and Ilka lives across the street; she gave her birth right to her sister in Chervil, and her nephew calls her his second mother. The Thiamine is two corners from the Court too. At the street's end is a lift core, where a cab drops you seventy-six decks to the rim in about thirty seconds.",
+  "text": "Pear Street runs along the axis through Ashgrove and crosses the Long Arcade at the Court. Walking it is plain walking: along the axis nothing changes, so it's where the old take their exercise and small children learn to ride without the street tipping them. The Daces' flat is on deck 77 off Pear Street, two corners from the Court, and Ilka lives across the street; she gave her birth right to her sister on deck 90, and her nephew calls her his second mother. The Thiamine is two corners from the Court too. At the street's end is a lift core, where a cab drops you seventy-six decks to the rim in about thirty seconds.",
   "detail": "The core at the end of Pear Street is one of Ashgrove's five. A cab usually waits in the lobby's berth already, so the wait is fifteen seconds or less.",
   "canon": "ashgrove.md",
   "tags": [

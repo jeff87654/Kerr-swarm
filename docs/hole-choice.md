@@ -1,6 +1,6 @@
 # Hole choice: stellar, mid-sized or galactic core
 
-*Comparison from a working session, Sept 2026; revised for the full swarm. Companion to xray-power.md, energy-budget.md and swarm-rings.md. Same swarm assumptions throughout: ~1 kW/m² at the collectors and 3.24 kWe per person (common budget plus firm-load overhead), except the fed-hole Lantern rows, which use full-swarm.md's 2 kW/m² and 4.06 kWe. "Planning" values are far-future but not heroic. **Project baseline: Sgr A* fed at 30% of Eddington and held there as it grows (full-swarm.md).** The starved-hole comparison below describes the ring era. Revised Oct 29, 2026 after a consistency audit.*
+*Comparison from a working session, Sept 2026; revised for the full swarm. Companion to xray-power.md, energy-budget.md and swarm-rings.md. Same swarm assumptions throughout: ~1 kW/m² at the collectors and 3.24 kWe per person (common budget plus firm-load overhead), except the fed-hole Lantern rows, which use full-swarm.md's 2 kW/m² and 4.06 kWe. "Planning" values are far-future but not heroic. **Project baseline: Sgr A\* fed at 30% of Eddington and held there as it grows (full-swarm.md).** The starved-hole comparison below is the ring era's design space. This civilization's own ring era was around the starved Sgr A\* (see Where it works); the 10 M☉ column, worked out in swarm-rings.md and ring-weave.md, is a design study. Revised Oct 29, 2026 after a consistency audit; Nov 2026, when the ring era was settled on Sgr A\*.*
 
 ## Summary
 - **Hard X-rays are the problem.** They can't be focused, so the X-ray tile's plate tops out near 850 K. They also need iron to stop, and PV-like conversion caps near 30%. Light that ordinary mirrors can focus unlocks a ~1,500 K furnace and a gas turbine.
@@ -18,7 +18,7 @@
 - **Fed near the Eddington limit, all three converge on ~30–35%** (see below). No iron is needed, but the civilization has to be enormous and orbits take millennia. This is the project's chosen path: Sgr A* at 30%, held there as the hole grows, with hovering collectors and habitats in their shade (full-swarm.md).
 
 ## The comparison (starved holes, ring era)
-| | 10 M☉ (original design) | Mid-sized, 10⁴ M☉ | Galactic core (Sgr A*), 4.3 × 10⁶ M☉ |
+| | 10 M☉ (original design, now a design study) | Mid-sized, 10⁴ M☉ | Galactic core (Sgr A*), 4.3 × 10⁶ M☉ |
 |---|---|---|---|
 | Swarm power as share of Eddington (10²²–10²⁴ people) | 10⁻⁶–10⁻⁴ | 10⁻⁹–10⁻⁷ | 10⁻¹¹–10⁻¹⁰ |
 | Where the light comes out | Hard X-rays, 1–300 keV | Infrared synchrotron, ~10–50 µm | Submillimetre synchrotron, ~0.6–1.7 mm |
@@ -45,7 +45,7 @@
 - **Too dim per unit area.** Mirrors can't concentrate light to a higher flux than the surface it left.
   - Sgr A*'s glow comes from a region about as wide as Mercury's orbit. At the swarm's power, its surface flux matches only a ~1,700 K blackbody.
   - So the furnace can only run at ~900 K, which is X-ray-tile territory again.
-- **Where it works:** at its natural ~230 L☉ (the EHT gives 180–240 L☉), ~10²⁵ people at ~18 AU (~420 r_g). Orbits run at 0.05c and take 13 days; efficiency is ~37% (27–44%). This is the natural home of a Sgr A* ring era, before feeding.
+- **Where it works:** at its natural ~230 L☉ (the EHT gives 180–240 L☉), ~10²⁵ people at ~18 AU (~420 r_g). Orbits run at 0.05c and take 13 days; efficiency is ~37% (27–44%). The civilization's ring era was here, before feeding. Orange-slice knot nights last a sixth of an orbit: hours while the rings were sparse, ~2 days mid-band once they filled the sky. So the ring era had no winters; those came with the layer era's long eclipses (sgr-a-scope.md).
 - **Upside if antennas mature:** each submillimetre wave from 5 × 10¹⁰ K electrons is intensely "hot" per mode. So antenna-plus-rectifier arrays ("rectennas") aren't bound by the furnace limit. Microwave rectennas reach ~90%, but nobody yet has efficient rectifiers at submillimetre wavelengths.
 
 ## Why the mid-sized hole works (when starved)

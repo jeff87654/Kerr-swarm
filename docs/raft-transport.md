@@ -181,7 +181,7 @@ Every powered trip converts the car's kinetic energy four times: grid to motor a
 - Capacity: 1,000-seat trains 3 s apart; a daily round trip for everyone of ~1.5 hops; peaks 1.5× a 16-hour average; lanes 60% used. Levels needed scale with people per drum: ~6 for 60 M, ~20 for 200 M; nine are built, ~420 m apart.
 - Self-gravity of a uniform disk of 2,950 kg/m²; Coriolis 2Ωv with Ω = 2π ÷ 39,000 years.
 - Eddy-current steering: lift-to-drag ≈ v/w, w = 2/(μ₀σt) ≈ 2.3 m/s for 2 cm of aluminium.
-- Cyclers: ~2 t per berth. Survival reserve: 35 kg of oxygen in fuel cells, ~0.4 GJ (full-swarm.md).
+- Cyclers: ~2 t per berth. Survival reserve: ~60 kg of oxygen for fuel cells, ~0.7 GJ (full-swarm.md).
 - Cooling penalty at 20 K: Carnot × 30%, ~47 W per W.
 
 ## Sources

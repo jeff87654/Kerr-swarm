@@ -1,6 +1,6 @@
 # Element cycles: what's recycled, what's parked, what's lost
 
-*Design proposal from a working session, Oct 2026. Element by element: how closed a drum's loops can be, split into what's lost but stays aboard (the inside ledger) and what leaves a raft (the outside ledger). Answers matter-delivery.md's open question on which element binds first, and so how much white-dwarf ore drums can use. Builds on habitat-design.md (the drum, its jacket and moat), food-system.md (the loops), matter-delivery.md (ores and their prices), full-swarm.md (growth and fuel), raft-transport.md (vehicles and shields), raft-habitat.md (radiators) and daily-life.md (the Yards). Figures are per person. "Solar mix" is Asplund et al. 2009 with neon left at the source, as matter-delivery.md ships it. Budgets assume stellar and white-dwarf ore; gas, while it flows, loosens them. The names (the two ledgers, the cold envelope, the frost) are proposals. Checked by an independent review, whose corrections are folded in. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): per person it has a lighter jacket and moat, a smaller glide fleet and longer radiator trunks. Revised Oct 29, 2026 after a consistency audit.*
+*Design proposal from a working session, Oct 2026. Element by element: how closed a drum's loops can be, split into what's lost but stays aboard (the inside ledger) and what leaves a raft (the outside ledger). Answers matter-delivery.md's open question on which element binds first, and so how much white-dwarf ore drums can use. Builds on habitat-design.md (the drum, its jacket and moat), food-system.md (the loops), matter-delivery.md (ores and their prices), full-swarm.md (growth and fuel), raft-transport.md (vehicles and shields), raft-habitat.md (radiators) and daily-life.md (the Yards). Figures are per person. "Solar mix" is Asplund et al. 2009 with neon left at the source, as matter-delivery.md ships it. Budgets assume stellar and white-dwarf ore; gas, while it flows, loosens them. The names (the two ledgers, the cold envelope, the frost) are proposals. Checked by an independent review, whose corrections are folded in. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): per person it has a lighter jacket and moat, a smaller glide fleet and longer radiator trunks. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): ~1.95 × 10³³ people hold ~6.6 × 10⁶ M☉, so growth's living-star ore now comes from the nuclear stellar disk and the inner bulge (matter-delivery.md), the cluster's gas lasts ~750 Myr, and the survival reserve banks ~60 kg of oxygen a person.*
 
 ## Summary
 - **Two ledgers, two currencies.**
@@ -8,14 +8,14 @@
   - **Outside:** anything that leaves a raft is lost to it. Planning prices it as gone for good, to be replaced from the frontier, though some would come back to other rafts within ~10⁵ years.
 - **The outside budgets are tiny.**
   - **In bulk, about a milligram a person a year,** mostly carbon and oxygen, a tenth of the ~9–11 mg of new metal that arrives once growth tracks the hole. Replacing it costs ~0.25–0.5 W a person; a gram a year would cost 250–500 W.
-  - **For the scarce elements, far less:** ~0.1 mg of nitrogen and ~0.1 µg each of phosphorus and potassium a year. At the planning white-dwarf share, those come only from the disk's living stars, and every microgram of phosphorus lost a year beyond that cuts the usable white-dwarf share by ~20 points.
-  - **For hydrogen and helium, ~1 mg,** since each milligram is ~3.5% of what the hole eats.
+  - **For the scarce elements, far less:** ~0.1 mg of nitrogen and ~0.1 µg each of phosphorus and potassium a year. At the planning white-dwarf share, those come only from living stars (the nuclear stellar disk's, then the inner bulge's), and every microgram of phosphorus lost a year beyond that cuts the usable white-dwarf share by ~20 points.
+  - **For hydrogen and helium, ~1 mg,** since each milligram is ~5% of what the hole eats.
   - A drum may lose ~1.5 × 10⁻¹⁰ of its heavy elements a year. The ISS loses ~10% of its air.
 - **The drum's 20 K jacket makes that possible.** Anything heavier than helium that leaks through the hull freezes on cryopanels in the jacket's insulating vacuum, so the hull's leaks are an inside matter. Every other exit has to open into the cold too: berth vestibules, freight locks, rotary joints, reliefs, boil-off, fire dumps.
 - **What can leak is what sits outside the cold:** the moat, radiator fluid, travel shields, vehicle cabins, suits, the Yards, the raft's frame and the Lantern, a tenth to a quarter of each person's metal. Most of it is bare solids, which can't leak, and sealed liquids, which mustn't.
 - **The hydrogen surprise.** Polyethylene travel shields would give off radiolytic hydrogen at ~4–16 g a person a year in the mid-raft's X-ray flood: ~140–580× what the hole eats, emptying the cluster's stripped gas in ~2–8 Myr. Sealed water recombines what radiolysis splits, so shields are water, and no hydrogen-bearing solid sits in the flood.
 - **What binds is phosphorus, potassium or chlorine, depending on the mineral loop.** Each needs 8–58% of what a solar-mix 6.7 t carries. Bodies set phosphorus's floor (~0.6 kg, mostly bone); potassium and chlorine are mostly pipeline and reserve.
-  - **Lean loop** (two weeks in the pipeline, a month's float, 99.9% recovery): phosphorus binds at ~22%. Drums can take up to ~78% of their metal as white-dwarf carbon and oxygen, and the living stars then cover ~2 Gyr of growth instead of ~1.1.
+  - **Lean loop** (two weeks in the pipeline, a month's float, 99.9% recovery): phosphorus binds at ~22%. Drums can take up to ~78% of their metal as white-dwarf carbon and oxygen, and the living stars (the disk's and the inner bulge's) then cover ~2 Gyr of growth instead of ~1.1.
   - **Comfortable loop** (two months, 90 days, 99%): potassium binds at ~58%; ~42% white dwarfs; ~1.4 Gyr.
 - **Nitrogen never binds on stock.** A solar mix carries ~380 kg a person, against ~2–5 kg needed. Its risks are losses: N₂ building up in the heliox (each 10 Pa holds ~60 g a person) and ammonia leaking from exposed radiator panels, which must lose under ~5 × 10⁻⁸ of their charge a year.
 - **Phosphorus is lost inward, nitrogen outward.**
@@ -90,10 +90,10 @@ If all of a person's 6.7 t were shipped solar mix:
 | Binds first | Phosphorus, at 22% | Potassium, at 58%; chlorine close behind if the meteoritic value is right |
 | White dwarfs can supply up to | ~78% | ~42% |
 | A drum's metal is then | ~93% carbon and oxygen | ~81% |
-| The disk's living stars cover growth to | Hole ×19, ~2.0 Gyr | Hole ×8, ~1.4 Gyr |
+| The living stars cover growth to (disk and inner bulge; disk alone) | Hole ×19, ~2.0 Gyr; ×13, ~1.7 Gyr | Hole ×8, ~1.4 Gyr; ×5.5, ~1.1 Gyr |
 
-- **The float decides between phosphorus and potassium.** Covering the whole 55-day Dark at full intake, potassium ties phosphorus at ~77%; at food-system.md's 90 days, potassium binds at ~69% (~1.8 Gyr).
-- **Planning: a lean loop with margin,** ~75% white dwarfs. The living stars then last ~2.0 Gyr instead of ~1.1, using ~5 × 10⁷ M☉ of the disk's ~1–1.6 × 10⁸ M☉ of white-dwarf carbon and oxygen. Gas, while it flows, stretches this further.
+- **The float decides between phosphorus and potassium.** Covering the whole 55-day Dark at full intake, potassium ties phosphorus at ~77%; at food-system.md's 90 days, potassium binds at ~69% (~1.8 Gyr, hole ×14).
+- **Planning: a lean loop with margin,** ~75% white dwarfs. The living stars of the disk and the inner bulge then last ~2.0 Gyr instead of ~1.1, using ~9 × 10⁷ M☉ of the disk's ~1–1.6 × 10⁸ M☉ of white-dwarf carbon and oxygen. Gas, while it flows, stretches this further.
 - **At ~93% carbon and oxygen** the rest is ~0.5 t a person: ~160 kg of iron, ~85 kg each of magnesium, silicon and nitrogen, ~40 kg of sulfur, and smaller shares. That's about what a drum of composites, polymers, water and glass needs.
 - **Today's drums may carry a surplus.** If the build-out used none of the cluster's own white dwarfs, today's solar-mix drums each hold ~2.5 kg more phosphorus and ~1.4 kg more potassium than a lean loop needs: 3.5 and 4.5 new people's worth. Banked rather than built into materials, it lets early growth lean harder still on white dwarfs.
 - **The heliox suits the metal.** A solar mix could spare ~60 kPa of N₂ at most, and at 75% white dwarfs ~15 kPa. An Earth-like 78 kPa would take ~470 kg of nitrogen a person, more than a solar mix's whole share.
@@ -214,9 +214,9 @@ If all of a person's 6.7 t were shipped solar mix:
 - **Fires.** Venting a burning compartment overboard is a spacecraft habit. A 100 × 100 × 4 m compartment holds ~11 t of oxygen, ~55 years of its drum's whole budget. Fire dumps go to a tank inside the cold.
 
 ### Hydrogen and helium
-- **"Free" means cheap, not unlimited.** The cluster's stripped gas covers fuel and shields for ~820 Myr (matter-delivery.md), and the hole eats ~14–28 mg a person a year. Every milligram a person a year lost is ~3.5% of today's fuel line.
+- **"Free" means cheap, not unlimited.** The cluster's stripped gas covers fuel and shields for ~750 Myr (matter-delivery.md), and the hole eats ~12–19 mg a person a year. Every milligram a person a year lost is ~5% of today's fuel line.
 - So the jacket (2.2 t a person) may lose at most ~4.5 × 10⁻¹⁰ a year, the cabin's helium is pumped home from the guard vacuum, the moat's radiolysis is recombined, and hydrogen-bearing solids stay out of the X-rays.
-- **Boil-off can't be vented either.** A 55-day beam cut boils ~4 kg of the jacket a person, a little less than the ~4.4 kg the survival fuel cells burn with the banked oxygen, so all of it is used. energy-budget.md's coolers can pause freely only if nothing vents.
+- **Boil-off can't be vented either.** A 55-day beam cut boils ~4 kg of the jacket a person, about half the ~7.6 kg the survival fuel cells burn with the ~60 kg of banked oxygen, so all of it is used and the rest is drawn from the jacket. energy-budget.md's coolers can pause freely only if nothing vents.
 
 ### Where lost atoms go
 - **Leaked gas stays in the Shade at first,** ionized by the X-ray leak and mixing into a thin halo. Rafts' fronts sweep it up within ~10⁵ years, and it comes back to whoever remakes them (daily-life.md's ~40 kg a year of infrastructure includes rectennas).
@@ -237,7 +237,7 @@ If all of a person's 6.7 t were shipped solar mix:
 ## Culture and story hooks (proposals)
 - **The dead are phosphorus.**
   - A body holds the phosphorus of ~1.3–1.6 t of ore, a fifth to a quarter of a new person's metal.
-  - If the swarm sent its dead away, it would use up all the phosphorus in the nuclear disk's living stars in ~1,300–1,700 years.
+  - If the swarm sent its dead away, it would use up all the phosphorus in the nuclear disk's living stars in ~850–1,100 years.
   - So bodies go back into the loop, and funerals are about what's kept: a name, a voice, a pinch of ash in glass.
   - Ossuaries are a rich drum's vanity. One that kept its dead for a century would park as much phosphorus as its living carry.
 - **The frost.** Frost crews isolate the cryopanels around the hull a bank at a time, warm them and pump the drum's lost air home. Oxygen frost mixed with organics, or ozone, can detonate on warm-up, as in industrial cryopumps: it's the most dangerous chore in the drum.
@@ -270,7 +270,7 @@ If all of a person's 6.7 t were shipped solar mix:
 - **Bodies:** 0.8× a 70 kg reference man (CRC: phosphorus 780 g, ~85% of it in bone; potassium 140 g; sodium 100 g; chlorine 95 g; calcium 1 kg; nitrogen 1.8 kg).
 - **Loops:** intake equals excretion: nitrogen 12.8, phosphorus 1.4, potassium 3.5, sodium 3.5, chlorine 5.0, calcium 1.0 g a day (Rose et al. 2015 for nitrogen, phosphorus and potassium). Loop throughput = excreta × 1.2–2.0 for RNA streams, spent media and residues, phosphorus highest. Standing stock in vats, garden and brines: 25–50 g each of phosphorus and potassium, 40–80 g of chlorine, 75–150 g of nitrogen.
 - **Needed** = bodies + standing stock + throughput × pipeline time (14 or 60 days) + intake × float (30 or 90 days) + throughput × (1 − recovery) × reprocessing interval (99.9% and 1 year, or 99% and 10 years).
-- **White-dwarf limit:** w = 1 − needed ÷ (6.7 t × share). The living stars' shipped metal (1.9 × 10⁷ M☉ less neon, ~1.7 × 10⁷) lasts until (1 − w) × 4.3 × 10⁶ M☉ × (hole mass ÷ today's − 1) uses it up, with the hole ×1.4 by 150 Myr and doubling every ~0.5 Gyr after (full-swarm.md).
+- **White-dwarf limit:** w = 1 − needed ÷ (6.7 t × share). The living stars' shipped metal (the disk's 1.9 × 10⁷ M☉ less neon, ~1.7 × 10⁷, plus ~0.9 × 10⁷ from the inner bulge) lasts until (1 − w) × 6.6 × 10⁶ M☉ × (hole mass ÷ today's − 1) uses it up, with the hole ×1.4 by 150 Myr and doubling every ~0.5 Gyr after (full-swarm.md).
 - **Stream and prices:** full-swarm.md's growth table and 6.7 t a person; matter-delivery.md's lifting costs, ×2 for planning. Those are per kg of all heavy elements; per kg shipped they're ~10% higher.
 - **Loss budgets:** an element's budget = (1 − w) × stream × share − needed × growth rate, at w = 0.75 and growth 1.4 × 10⁻⁹ a year. Beyond it, each unit lost cuts w by 1 ÷ (stream × share).
 - **Cabin gas:** 532 m³ of drum a person at 295 K; 21 kPa of oxygen, 80 kPa of helium. Heliox carries 0.27 kg of heavy elements per m³ against air's 1.18, which scales the ISS figures.
