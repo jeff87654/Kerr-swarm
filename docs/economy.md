@@ -88,7 +88,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Every person at par holds one share:** ~6.7 t of habitat (100 m² of floor and part of the food plant, shield, reserve and raft), the ~2 kWe of beam behind it, which funds the commons for everyone and pays the holder's wallet, and ~3 m² of the raft's back. A drum of 200 M holds 200 M shares.
 - **It can't be sold or pledged.** Selling it would mean selling your air.
 - **Its yields can be traded:** wallet kWh, heat allowance and Hollow hours.
-- **A death frees it, and it passes to a newborn,** in most drums within the family (people.md). A child born ahead of a death has no share until one frees. Pool drums return every share to the pool and run birth rights instead (see Children).
+- **A death frees it, and it passes on,** in most drums within the family: first to the family's longest-waiting shareless member, otherwise to the next child born (people.md). A child born ahead of a death has no share until one frees. Pool drums return every share to the pool and run birth rights instead (see Children).
 
 ### The place (proposal)
 - **A place is household land, like a farm:** ~47 m² of home, about 1⅓ people's share, so a nation drum of 200 M is divided into ~150 M places. The rest of the floor (workplaces, schools, halls, streets, parks and the Keel) belongs to the commons.

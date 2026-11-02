@@ -3207,7 +3207,7 @@
    ],
    "lines": [
     "Fifty years on the cores. I can hear a bad bearing from the next block. It isn't a gift. It's the only thing my ears were ever trained for.",
-    "A young couple in {block} have asked if they can name their first child for me, when my place comes free. I said yes, but to give the child something shorter.",
+    "A young couple in {block} have asked if they can name their first child for me, when my share comes free. I said yes, but to give the child something shorter.",
     "My old teacher worked the cores through the Eleven Days. Two trips a day, the riders going down paying for the riders going up. I trained on that same core. It still pulls a little to the left.",
     "I live up near the Hollow now. Lighter steps. I fall over more slowly. It's the drum's way of apologising for my knees.",
     "Want to see a good lift? Ride the core on {street} at lamp-dawn. Nobody's on it. Watch the indicator and count the decks under your breath. It's better than most music.",
@@ -3962,7 +3962,7 @@
     "writing a new label in careful capitals"
    ],
    "lines": [
-    "That board on the wall is our old Count: people against places. Nearly every drum has counted at some point. Ours did for {n} years, before my grandparents were born. We keep it so nobody forgets how easily it comes back.",
+    "That board on the wall is our old Count: people against shares. Nearly every drum has counted at some point. Ours did for {n} years, before my grandparents were born. We keep it so nobody forgets how easily it comes back.",
     "The oldest thing in the museum is a spoon. Nobody knows whose. It's been mended four times by four different hands. I think it's the most important thing we've got.",
     "Children love the hand lamps from the Eleven Days, all scratched and taped. One still works. We switch it on once a year.",
     "Entry's free. Most things in this drum worth seeing are. The tea room isn't free, and isn't worth it.",
@@ -3991,14 +3991,14 @@
     "checking the spelling of a name for the third time"
    ],
    "lines": [
-    "At a naming I read two names: the child's, and the person whose place the child has taken. Often they're the same name. It's the only ceremony with a sad name and a happy one in the same breath.",
+    "At a naming I read two names: the child's, and the person whose share the child carries. Often they're the same name. It's the only ceremony with a sad name and a happy one in the same breath.",
     "Often the dead person's family comes, and brings something. Usually remade: a cup, a blanket, a chair. Sometimes they just bring themselves, and that's the best gift.",
     "Families send a note every year after, to the dead person's family. Some of those notes run for a century. I've read a few. They're mostly about school.",
     "My own name came from someone who kept the baths on deck {deck}. That family still sends mine a jar of pickle on the day, and we send back a picture of me. They must have a whole shelf of me by now.",
     "Invited to a naming? Go. Sit at the back. When the two names are read, stand. Everybody stands. Nobody tells you, so I'm telling you.",
     "In {nb} they sing the names. Here we just say them, slowly. You hear the person in a name better without a tune on it."
    ],
-   "knows": "Naming days: reading a child's name beside the dead person whose place they took, gifts from the dead's family, the yearly notes between families, how guests should behave, and how the neighbours do it."
+   "knows": "Naming days: reading a child's name beside the dead person whose share they carry, gifts from the dead's family, the yearly notes between families, how guests should behave, and how the neighbours do it."
   },
   {
    "role": "matchmaker",
@@ -4342,7 +4342,7 @@
    ],
    "lines": [
     "I won't glide. The catch is too sharp at my age. A slow line has no catch at all, just a long soft ramp at each end, so here I am, {n} days out and weighing nothing.",
-    "The baby's name came with the place, from someone in their block who died last year. I've been asking about them so I've something to say at the naming. I've also been practising not crying.",
+    "The baby's name came with the share, from someone in their block who died last year. I've been asking about them so I've something to say at the naming. I've also been practising not crying.",
     "At my age you'd think weighing nothing would be a mercy. It is, for the knees. The trouble's the soup. Nobody warned me the soup would come in a bulb.",
     "The wanderers on this line call me 'the eldest' and fight over who helps me to the bungee frame. I let them. It's the most exercise half of them get.",
     "If you've an old one at home who won't glide, tell them about the slow line. It's dull and it's slow and nothing in it is sharp. That's three things in its favour.",
@@ -4582,14 +4582,14 @@
     "reading an old note for the fifth time"
    ],
    "lines": [
-    "My name was somebody else's first. A tomato grower on deck {deck}. I got the place when they died, and the name came with it. Every year we send the family a note, and they send back a tomato.",
+    "My name was somebody else's first. A tomato grower on deck {deck}. I got the share when they died, and the name came with it. Every year we send the family a note, and they send back a tomato.",
     "I asked what they were like. Their daughter said grumpy before breakfast and kind after. That's exactly me. Mum says it's a coincidence. I don't think it is.",
     "Sometimes I go up to the deck where they lived and walk past the door. It's somebody else's door now. I don't knock. I just like knowing which one it is.",
     "When you're named for somebody you get two special days: your birthday, and the day they died. The second one isn't sad. It's more of a thank-you day. We eat their tomatoes.",
     "If you meet anyone here with an old-fashioned name, ask who they were named for. Everybody's got a story. Mine's got tomatoes in it.",
     "This year I'm writing the note myself. Four drafts so far. How do you thank a family for something nobody in it chose to give you?"
    ],
-   "knows": "Being named for the dead whose place you took: the yearly note and the family's reply, curiosity about a stranger's life, keeping the day they died as a thank-you day, and what a place and a name mean to a child."
+   "knows": "Being named for the dead whose share you carry: the yearly note and the family's reply, curiosity about a stranger's life, keeping the day they died as a thank-you day, and what a share and a name mean to a child."
   },
   {
    "role": "platform regular",
@@ -4846,7 +4846,7 @@
     "sitting quietly with a cup going cold"
    ],
    "lines": [
-    "My grandad's place passed to me last month. Same flat, same table, same chair with the wobble. On paper I hold a place now. I don't feel any different, except when I sit in that chair.",
+    "My great-grandad's place passed to me last month. Same flat, same table, same chair with the wobble. On paper I hold a place now. I don't feel any different, except when I sit in that chair.",
     "It's a strange thing to be given. Nobody chose it. He died, the register moved my name across, and one day it'll move from me to somebody small, who'll get my name too if they're unlucky.",
     "Everyone's asked whether I'll marry now that I can. I've told them I'd like to finish being sad first.",
     "The first thing I did was water his herb shelf. The second was cry. The third was eat his last tin of the Nine, which tasted exactly as bad as he always said it did.",
@@ -5022,7 +5022,7 @@
    ],
    "lines": [
     "Places, people, Margin, births, deaths, guests tonight. The whole drum on one wall. People think it's numbers. Look lower down. It's names.",
-    "Each newborn's name goes up beside the name of the dead whose place they took. I read them out at lamp-dawn. Sometimes a family comes to hear it. Sometimes it's just me and the broth queue.",
+    "Each newborn's name goes up beside the name of the dead whose share they carry. I read them out at lamp-dawn. Sometimes a family comes to hear it. Sometimes it's just me and the broth queue.",
     "You're on it, you know. Guests tonight. You're one of that number. Most wanderers come and stare at it as if they'll find their own face.",
     "On Booking Day the whole block crowds this board for the year's figures. I stand at the back and watch faces instead of numbers. You learn more.",
     "My grandmother's name went up in the deaths the year I started. A week later, beside it, a baby called {name}. I've watched that child grow up from the top of this ladder.",
@@ -5168,7 +5168,7 @@
    ],
    "lines": [
     "A child's table here is the parents and three or four of us, all called aunt, whatever we are. I've stood up as an aunt {n} times now. It's the best job in the drum and it doesn't pay.",
-    "The child gets two names today: their own, and the name of the one whose place they took. The family of the dead brings a gift. Today it's a cradle that rocked three generations of someone else's babies.",
+    "The child gets two names today: their own, and the name of the one whose share they carry. The family of the dead brings a gift. Today it's a cradle that rocked three generations of someone else's babies.",
     "An aunt's job is simple. Turn up. Remember birthdays. Be the one they come to when they can't tell their parents something. I've had a lot of practice at that last one.",
     "The child's being named for {name}, who mended shoes on {street} for sixty years. Half the street's coming. The other half are sending shoes.",
     "Passing the hall on {weekday} evening? Come in. Namings are open. Somebody will hand you a cup and assume you're a cousin.",
@@ -5204,7 +5204,7 @@
     "Want a quiet hour in the Hollow? Ask a newlywed. We were given so many Hollow hours as gifts we can't use them all.",
     "We glide to {nb} on {weekday}s to eat with my partner's parents. They keep asking about grandchildren. We keep bringing herbs."
    ],
-   "knows": "Marrying young in an open drum: lent Margin flats, waiting for a place before children, wedding gifts and borrowed furniture, family on both sides, and starting a home with no hurry."
+   "knows": "Marrying young in an open drum: lent Margin flats, waiting for a share before children, wedding gifts and borrowed furniture, family on both sides, and starting a home with no hurry."
   },
   {
    "role": "wanderer just home from the far side",
@@ -5746,11 +5746,11 @@
     "dozing upright on a bench with a bag held firmly on the lap"
    ],
    "lines": [
-    "Births here follow deaths, so every baby I catch, somebody's place has come free somewhere in the drum. I don't think about it at the time. I think about it on the way home.",
+    "Births here follow deaths, so every baby I catch, somebody's share has come free somewhere in the drum. I don't think about it at the time. I think about it on the way home.",
     "A drum this size sees about four thousand babies a day. I'm there for a handful a week. Every single one is the first baby ever, to the people in the room.",
     "The clinic sees nearly every birth. The odd one comes too fast, in a lift or on a stair. I've caught one in a cab. The cab leaned. The baby didn't mind.",
     "A third child is still news here. A fourth gets talked about in the baths. I just ask everyone to keep their voices down. The baby has to sleep.",
-    "Lots of families here name a child for the one whose place they're taking. I tell new parents that's the name. The nickname is theirs to choose.",
+    "Lots of families here name a child for the one whose share they'll carry. I tell new parents that's the name. The nickname is theirs to choose.",
     "I trained in {nb}, where they hum to the babies. I tried it here. Now half the parents hum too, and nobody remembers why.",
     "The oldest midwife in the drum caught three babies by hand lamp in the Eleven Days. She's over a hundred now and still comes to every naming she's asked to."
    ],
@@ -6210,7 +6210,7 @@
    "knows": "Growing up as the eldest in a crowded household on thin shares: shared rooms, waiting to inherit a place, stretching kays and food, quiet corners of the drum, and why crowded isn't the same as unhappy."
   },
   {
-   "role": "unplaced lodger",
+   "role": "lodger waiting for a place",
    "age": [
     20,
     55
@@ -6323,11 +6323,11 @@
     "drinking cold tea without noticing"
    ],
    "lines": [
-    "Every place in the drum has a line in my register. Two hundred million lines. The Count on the platform is just my book, added up and put on a wall.",
-    "Most of my day is heirs. Someone dies, a place passes, and I write the new name beside the old one. People cry at my desk more than at the funerals. It's the ink, I think.",
+    "Every share in the drum has a line in my register, two hundred million of them, and every place has another. The Count on the platform is just my book, added up and put on a wall.",
+    "Most of my day is heirs. Someone dies, a share and often a place pass on, and I write the new name beside the old one. People cry at my desk more than at the funerals. It's the ink, I think.",
     "Everyone thinks the register's for the Count. It's far older than the Count. The Count will come down one day. The register won't.",
     "The reading room's open in the mornings, warm and quiet. Guests can look up everyone who ever shared their name. You'd be surprised how many people called {name} we've had.",
-    "Swaps with {nb} cross my desk every week. A place doesn't travel, so a swap is two lines in two registers on the same morning. If one clerk's late, two families are briefly nowhere.",
+    "Swaps with {nb} cross my desk every week. A share doesn't travel, so a swap is two lines in two registers on the same morning. If one clerk's late, two families are briefly nowhere.",
     "These counted years make for very neat books. Fewer births, fewer lines. I'd give a great deal for a messy year.",
     "Reading the Count on the platform? Look at the small figures under the big ones. The big ones are the gap. The small ones are how fast it's closing."
    ],
@@ -6422,7 +6422,7 @@
     "Some mornings the number goes up, because a baby came early and a funeral came late. I get letters about it. I write back. Babies are allowed to be early.",
     "The glide timetable's on the back of my board. Everyone reads the Count first and then walks round. You may as well do it in that order too."
    ],
-   "knows": "Keeping the Count board at a counted drum's station ring: updating people against places, how the number falls, what the board means to commuters and guests, bets on par, and old Count boards in museums."
+   "knows": "Keeping the Count board at a counted drum's station ring: updating people against shares, how the number falls, what the board means to commuters and guests, bets on par, and old Count boards in museums."
   },
   {
    "role": "parent-to-be who won a licence this year",
@@ -6445,14 +6445,14 @@
    ],
    "lines": [
     "We'd put our names in every year since the stop began. This year the jar said us. I made the clerk read it twice and then sat down on the floor.",
-    "We'll name the baby for whoever's place it takes, the old way. Somewhere in {drum} is a stranger whose name we'll say every year. I think about them more than I expected.",
+    "We'll name the baby for whoever's share it carries, the old way. Somewhere in {drum} is a stranger whose name we'll say every year. I think about them more than I expected.",
     "Our friends across the corridor didn't win. They came round with a cake the same night. I don't know that I'd have managed it. I'm trying to deserve the cake.",
     "Everything's borrowed already: a cot from {nb}, clothes with growing seams from three cousins, a chair from my grandmother. The baby will be the only new thing in the flat.",
     "Want to see the drum at its kindest? Come to the Hollow on a {weekday} morning. The licence families walk the lake path, and everyone stops to say something soft.",
     "I used to be furious about the Count. Now I mostly want it to reach par so nobody else has to wait on a jar. Funny what a knitted hat does to you.",
     "Invited to a licence dinner? Bring something small for the baby that you've owned yourself. New things are for the parents to fuss over. Old things are for luck."
    ],
-   "knows": "Winning a birth licence in a counted drum: the yearly draw, waiting through the stop, friends who didn't win, naming a child for the dead whose place it takes, borrowing everything for a baby, and hoping for par."
+   "knows": "Winning a birth licence in a counted drum: the yearly draw, waiting through the stop, friends who didn't win, naming a child for the dead whose share it carries, borrowing everything for a baby, and hoping for par."
   },
   {
    "role": "keeper of the par-date pool",
