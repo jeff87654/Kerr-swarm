@@ -139,7 +139,7 @@
 - Orbits take ~39,000 years at the inner edge (~145 km/s), ~36,000 at mid-Shade and ~35,000 at the outer edge (~215 km/s). The Shade weighs ~2× the hole, so the enclosed mass triples across it, and outer orbits run a little shorter than inner ones.
 - **Orbits cross at every angle,** since no coherent flow can cover a sphere. Rafts pass each other at 100–300 km/s.
   - A raft passes within its own width of another every ~600–1,900 years. Encounters are predicted centuries ahead and dodged with ~1 m/s nudges for 0.1 AU rafts, or ~5–15 m/s for AU-scale ones.
-  - The beam's own push (~10⁻⁹ m/s²) is enough to steer.
+  - The beam's own push (~7 × 10⁻¹⁰ m/s² at the 2 kWe life) is enough to steer.
   - **Misses are catastrophes.** Across the Shade that's ~2 × 10⁵ (1.6 AU rafts) to ~4 × 10⁷ (0.1 AU rafts) collision courses a year even with orbits kept round, mostly from eccentric orbits bringing flat rafts face to face. One miss releases ~10³³ J (0.1 AU rafts) to ~10³⁶ J (1.6 AU, the Sun's output for a century), and its debris can wreck the light layers of thousands of rafts; a wrecked raft's own debris may wreck several more, so cascades are possible. The rules of the road keep orbits round (eccentricity under ~0.003, cutting collision courses ~10×), and rectennas and radiators carry debris shields (governance.md).
 - Dynamically it's the nuclear star cluster, rebuilt out of habitats. Traffic control keeps it smooth; a lopsided Shade would tug the hole off-centre, and the Lantern has to follow it.
 
