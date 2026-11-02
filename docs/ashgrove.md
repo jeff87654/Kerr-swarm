@@ -88,12 +88,14 @@ The Daces, in kWh a day, averaged over a month:
 | Other people's time | 9 | 9 |
 | Into the goods account | 16 | 16 |
 | Into the travel account | 10 | 20 (Wren's saving) |
-| Banked | 19.1 | 19.1 |
+| Rent: two rooms from the couple next door | 4.6 | 4.6 |
+| Banked | 14.5 | 14.5 |
 
 - **Food:** the three eldest eat the Vat table at home; the children eat the Mill table at school.
 - **Other people's time:** Ossian's after-school minder, Wren's flute teacher, haircuts and the odd dinner cooked by someone else, at ~3 kWh an hour.
+- **Rent:** the two rooms next door, ~46 m², at Sorrel's going rate of about 0.1 kWh per m² a day (economy.md). The old couple who let them spend it on their grandchildren.
 - **Goods:** ~16 kWh a day is ~230 kg of new things a year for four, about the 2-kW average, with two of the four still growing.
-- **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, and savings.
+- **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, rent and savings.
 
 **Rights.** Each share in Sorrel carries one birth right, so a couple has two children; at a death the share goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister on deck 90, and her nephew calls her his second mother.
 

@@ -284,7 +284,7 @@ Matches: open drum, open drums
 
 ### The Margin
 
-The 2–4% of an open drum's shares it keeps unused on purpose, with the places that go with them held by the drum as guest flats, refuge and first homes lent to young couples until they inherit. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
+The 2–4% of an open drum's shares it keeps unused on purpose, with the places that go with them held by the drum as guest flats, refuge and first homes lent to young couples for up to five years, by lottery for the best flats. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
 
 Matches: the Margin, Margin flat, Margin flats
 

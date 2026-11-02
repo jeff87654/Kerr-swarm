@@ -105,6 +105,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 ### Homes
 - **Floor comes per person, homes per household.** Each share's 100 m² includes ~35 m² of home (raft-habitat.md), held as places of ~47 m². A couple raising two children in their two places has ~94 m², ~23 m² a head; an old couple whose children have their own places has the same ~94 m² for two.
 - **Floor is let and swapped, not built.** An elder alone in a family flat lets rooms; a growing family or a young lodger rents them. A move between drums is a swap of homes, across a metro of ~1.6 × 10¹⁰ people within a free 20-minute glide (raft-transport.md).
+- **Rent floats with slack (proposal).** No new floor can be built at any price a drum can pay, so rent alone clears the market, and since most homes are inherited, only spare rooms are let: a thin market that swings hard. In a steady drum at par a room lets for about 0.1 kWh per m² a day, so a whole place (~47 m²) costs ~4.7 kWh a day, a fifth of one wallet or ~11% of a couple's two. An open drum's free Margin loans take much of the demand away, and rents there run about half that. A thin drum a few percent over par, with no spare rooms and families doubling up, pays two to four times as much. Shocks move it fast: a plague leaves rooms empty and rents low until its baby boom grows up, and a refuge intake or an overshoot sends them up within the year. Elders with room to spare are the landlords, and rent is most of their "Rents in" (A life on the ledger).
 - **In the crowded 2-kW world** (daily-life.md), each share would carry ~55 m² of floor: ~19 m² of home at the same proportions.
 
 ### Belongings
@@ -280,6 +281,7 @@ All made, Oct 2026:
 - New shares per drum: ~200 M × growth rate (1.4 × 10⁻⁹ a year after spin-up, 4 × 10⁻⁹ during); new places at three-quarters of that.
 - Places: people per place = L ÷ (L − A), with lifespan L ≈ 120 years and a place of one's own at A ≈ 30: 1.33, so 200 M ÷ 1.33 ≈ 150 M places of 35 × 1.33 ≈ 47 m² of home (people.md).
 - The shareless: four wallets across five people ≈ 17.3 kWh a head; full-time work 3.1 kWh × 2,000 hours ÷ 365 ≈ 17 kWh a day.
+- Rent (proposal): ~0.1 kWh per m² a day at par; a place of ~47 m² ≈ 4.7 kWh a day ≈ 22% of a 21.6 kWh wallet. New floor needs new metal, so supply is fixed and rent moves with demand alone.
 - Births: population ÷ lifespan; share under 18 = 18 ÷ lifespan.
 - The Hollow: 35 km² ÷ 25 m² (beach) or 100 m² (park), open 16 hours a day, ÷ ~200 M.
 - Price of time: money income = 7,890 kWh ÷ (1 − s); spending on time = s × money income; price = spending ÷ (hours per adult × 85% adults).
