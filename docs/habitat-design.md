@@ -1,6 +1,6 @@
 # Standard habitat: the deck drum
 
-*Design proposal from a working session, Sept 2026. Masses are per person and count heavy elements (Z > 2) only; hydrogen and helium are treated as free. In the mature civilization (full-swarm.md), drums fly in rafts in the Shade, outside the Lantern, on beamed power. Revised Oct 2026: there the drum's own water, not an iron parasol, keeps the Lantern's X-rays out of its hydrogen jacket (The moat). Revised again Oct 2026: the nation drum, the baseline, is now 3 km in radius (~200 M people) rather than 2 km (~60 M); raft-habitat.md has the reasons. Revised Oct 29, 2026 after a consistency audit.*
+*Design proposal from a working session, Sept 2026. Masses are per person and count heavy elements (Z > 2) only; hydrogen and helium are treated as free. In the mature civilization (full-swarm.md), drums fly in rafts in the Shade, outside the Lantern, on beamed power. Revised Oct 2026: there the drum's own water, not an iron parasol, keeps the Lantern's X-rays out of its hydrogen jacket (The moat). Revised again Oct 2026: the nation drum, the baseline, is now 3 km in radius (~200 M people) rather than 2 km (~60 M); raft-habitat.md has the reasons. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026: per-person metal in the full swarm now counts ~0.3 t of reserves (the tank farm's methanol and liquid oxygen, and ~60 kg of banked survival oxygen, enough for ~100 W; full-swarm.md); the Shade's radiators use the 2 kWe life (~1.9 m² a head) and take the hull's heat in two loops, since 295 K rooms can't cool into 300 K panels without a heat pump; and the "ring era" lines are relabelled as the 10 M☉ design study, since this civilization's ring era was around Sgr A\* (hole-choice.md).*
 
 ## Assumptions
 - Inhabited gravity 0.5–1 g; 100 m² gross floor per person (living, work, circulation, parks).
@@ -17,7 +17,8 @@
 - Concentric decks every 4 m from the rim (1 g) inward to R/2 (0.5 g). Each deck is a self-supporting hoop-tensioned membrane.
 - Core (r < R/2): "the Hollow", a pressurized open space. On a raft its zero-g axis holds the sunline, with axle halls for plant at its two ends; docks are at the rim quays (raft-habitat.md). It costs ~50 kg/person.
 - Radiator vanes: ~1.2 m² per person per kW at 300 K. The in-hull load is ~1 kW per person in the common case (energy-budget.md), so about 1.2 m² each; heat pumps to run hotter aren't worth their power.
-  - In the Shade, radiators work one-sided, on the side away from the Lantern, in the shadow of the raft's front: ~2.5 m² per person (full-swarm.md). They are fixed panels in the raft's back layer, fed through a rotary joint at the drum's back cap, not vanes on the hull: spinning vanes would nearly meet their neighbours' and leave no room for the raft's hotter radiators (raft-habitat.md).
+  - Rooms run at ~295 K, cooler than a 300 K radiator, so their heat can't reach one without a heat pump. Instead the hull runs two loops: the rooms' share to radiators at ~283 K, and the food plant's hotter share to ~330 K. That needs about the same area as radiators all at 300 K (raft-habitat.md).
+  - In the Shade, radiators work one-sided, on the side away from the Lantern, in the shadow of the raft's front: ~1.9 m² per person for the 2 kWe life's ~0.8 kW hull load (~2.5 m² at the common budget's ~1 kW; full-swarm.md). They are fixed panels in the raft's back layer, fed through a rotary joint at the drum's back cap, not vanes on the hull: spinning vanes would nearly meet their neighbours' and leave no room for the raft's hotter radiators (raft-habitat.md).
 - Inner decks face the Hollow's open sky, get the lowest radiation dose, and sit at 0.5 g. Rim decks are deepest, heaviest (1 g), and least shielded, so they suit storage, machinery, and bioreactors.
 - **On a raft** (full-swarm.md, raft-transport.md), drums stand with their axes toward the Lantern, all spinning the same way. A band round each drum's waist, outside the shield and its moat of water (see The moat), is the quay, where glide cars to and from neighbouring drums are let go and caught. Power comes in at the front cap and heat leaves at the back. The drum's districts and getting around inside it are in raft-habitat.md.
 
@@ -47,8 +48,9 @@
 | **Total** | **~6 t (≈16 m² per tonne)** |
 
 Rule of thumb: heavy elements per person ≈ 1 t + ~50 kg per m² of floor.
-- The ring era's 6.7 t per person was this drum plus a ~0.67 t share of the ring truss (swarm-rings.md).
-- In the full swarm, add ~0.07 t for the person's share of the Lantern and a raft truss: ~0.05 t on a 0.1 AU raft, up to ~1 t near the ~1.6 AU cap. The drum's water doubles as its X-ray shield (The moat), so there's no iron parasol. That's ~6.1–7 t, planned at 6.7 t (full-swarm.md).
+- In the 10 M☉ design study (swarm-rings.md), 6.7 t per person was this drum plus a ~0.67 t share of the ring truss.
+- In the full swarm, add ~0.3 t of reserves (the tank farm's ~95 kg of methanol and ~145 kg of liquid oxygen, and ~60 kg of banked survival oxygen), ~0.05 t for the person's share of the Lantern, and a raft truss: ~0.05 t on a 0.1 AU raft, up to ~1 t near the ~1.6 AU cap. The drum's water doubles as its X-ray shield (The moat), so there's no iron parasol. That's ~6.4–7.3 t, planned at 6.7 t (full-swarm.md).
+  - The reserves are all carbon and oxygen, mostly oxygen, which white dwarfs supply (matter-delivery.md). Until 1 Nov 2026 the tank farm had no oxygen of its own, and the survival reserve banked only ~35 kg, enough for ~60 W rather than the ~100 W it's meant to carry.
 
 ## Alternatives and comparisons
 - Rock/slag shield (10 t/m²): 25 t/person at R = 1 km, 16 t at 2 km, 8 t at 10 km, ~7 t at 30 km. Rock-shielded drums should be large.
@@ -64,7 +66,7 @@ Rule of thumb: heavy elements per person ≈ 1 t + ~50 kg per m² of floor.
 - Population ceiling ≈ heavy-element inventory ÷ 6 t (≈10²¹ people per Earth mass of heavy elements).
 
 ## Radiation environment
-- **Ring era (10 M☉ hole):** hard X-rays leak through the collector tiles at ~170 W/m², so drums carry ~8–10 cm iron parasols on their hole-facing side (xray-power.md).
+- **The 10 M☉ design study:** hard X-rays leak through the collector tiles at ~170 W/m², so drums carry ~8–10 cm iron parasols on their hole-facing side (xray-power.md).
 - **Full swarm (the Shade):** the Lantern takes the disk's ultraviolet, soft X-rays and wind. Only the corona's hard X-rays leak through, ~20–40 W/m² with a median photon energy of ~90–120 keV. The hole's jets are probably switched off in its thin-disk state (full-swarm.md).
   - **The Lantern is a wide source,** 42–65° in half-angle from the Shade. A drum standing in a raft takes 17–29% of the face-on flux on its sides, 0.4–0.7× the X-ray power of its front cap.
   - **For a drum the danger is heat, not dose.** The jacket's 50 m of hydrogen stops every X-ray, but absorbs ~50–65% of what reaches it at 20 K, where each watt costs ~47 W of cryocooling; the rest it scatters back out. With an iron parasol over the front cap alone, the bare sides would cost 30–125 W per person, against the jacket's ordinary ~17 W.
@@ -89,7 +91,7 @@ Rule of thumb: heavy elements per person ≈ 1 t + ~50 kg per m² of floor.
 
 - Per-person figures are for the 3 km drum. A 2 km drum has ~1.5× the exposed area per person, so each figure is ~1.5× (its ~51 g/cm² took 0.4 t of water).
 - The moat reflects 21–33% of the X-ray energy back out (iron ~5%) and absorbs the rest, 3–8 W per person at ~290 K: about 1% of the hull's heat.
-- **Why not hydrogen.** It's dense only as a liquid near 20 K, which is the problem; warm, it's a gas needing tanks heavier than the iron. Venting the boil-off instead would cost ~0.05–0.2 t of hydrogen per person per year: across the civilization, the cluster's whole store of stripped gas within a few centuries.
+- **Why not hydrogen.** It's dense only as a liquid near 20 K, which is the problem; warm, it's a gas needing tanks heavier than the iron. Venting the boil-off instead would cost ~0.05–0.2 t of hydrogen per person per year: across the civilization, the cluster's whole store of stripped gas within ~100–400 years.
 - **Why not iron.** It works, but it's new metal: ~0.2 t per person, ~3% of the 6.7 t. Iron is a tenth of a solar mix of heavy elements, so that's ~30% of each person's share of it, and white dwarfs, the cheapest ore, carry none (matter-delivery.md).
   - Per gram, warm absorbers do the job within ~2× of each other at these energies, because scattering off electrons dominates. Availability decides.
 - **Why not shade the whole raft.** A layer across the raft's front would have to cover all ~3 m² per person: ~1.5 t at 50 g/cm², six times the moat, and new mass.
@@ -111,4 +113,8 @@ Rule of thumb: heavy elements per person ≈ 1 t + ~50 kg per m² of floor.
 - Corona: a power law E^−Γ × exp(−E/E_c), with Γ = 2.0, E_c = 200 keV (soft) or Γ = 1.8, E_c = 300 keV (hard), filtered by ~1.25 g/cm² of Lantern collector (carbon, 10% iron). Leak of 40 W/m² face-on at the Shade's inner edge (Lantern 65.6° in half-angle) and 20 W/m² at its outer edge (41°).
 - 1-D slab Monte Carlo, 5 keV–6 MeV: photoabsorption (Elam tables via xraydb, extrapolated above 800 keV) and Klein–Nishina Compton scattering; coherent scattering and pair production ignored. Incidence from a uniform disk source, face-on for the front cap and edge-on for the sides. 300,000 photons per case.
 - Geometry at the jacket's outer face, 3 km drum (radius 3,050 m, length 3,850 m): 0.147 m² of front cap and 0.370 m² of side per person (2 km drum: 0.223 and 0.566). Per-person heat loads scale with that area. Jacket 354 g/cm² of liquid hydrogen; cryocooling 47 W per W at 20 K (30% of Carnot).
-- Radiolysis: G(H₂) ≈ 0.45 molecules per 100 eV absorbed. Boil-off: 446 kJ/kg; stripped gas ~2.1 × 10⁷ M☉ shared among ~1.3 × 10³³ people (full-swarm.md).
+- Radiolysis: G(H₂) ≈ 0.45 molecules per 100 eV absorbed. Boil-off: 446 kJ/kg; stripped gas ~2.1 × 10⁷ M☉ shared among ~1.95 × 10³³ people (full-swarm.md; ~1.3 × 10³³ before 1 Nov 2026).
+
+## Method (per person)
+- Full-swarm reserves, from full-swarm.md's 2 kWe sizing: methanol ~95 kg (~83 kg of it carbon and oxygen), liquid oxygen ~145 kg (1.5 O₂ for each CH₃OH), survival oxygen ~60 kg (with 7.6 kg of shield hydrogen at 55%, ~100 W for 55 days). Heavy elements ~290 kg, ~0.3 t. The CO₂ the tank farm's burn makes is the same carbon and oxygen, stored until refill.
+- Total: ~6.0 t drum + ~0.3 t reserves + ~0.05 t Lantern (~4 m² at 10–15 kg/m²) + raft truss (~0.05–1 t).
