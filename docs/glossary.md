@@ -236,7 +236,7 @@ Matches: none
 
 ### The share
 
-Each person's claim on their drum: the wallet (~21.6 kWh a day) on top of the commons that everyone gets, with ~6.7 t of habitat and ~3 m² of the raft's back behind it. One per person at par. A death frees a share, and in most drums it passes to a newborn in the family, who is often named for the dead. A child born ahead of a death has none until one frees: the shareless get the commons and live on family wallets and work. See economy.md, people.md.
+Each person's claim on their drum: the wallet (~21.6 kWh a day) on top of the commons that everyone gets, with ~6.7 t of habitat and ~3 m² of the raft's back behind it. One per person at par. A death frees a share, and in most drums it passes within the family: first to the longest-waiting shareless member, otherwise to the next child born, who is often named for the dead. A child born ahead of a death has none until one frees: the shareless get the commons and live on family wallets and work. See economy.md, people.md.
 
 Matches: shareless
 
