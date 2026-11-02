@@ -25,7 +25,7 @@
 | Traffic | Orbits cross at every angle | Rules of the road |
 | The frontier's stream | Launched 100–200 pc out, caught in the Shade, aimed past the Lantern | Rules on aim, catch and allocation, on million-year contracts |
 | Relays | The shortest path across the Shade runs through the Lantern | Optional: going around adds ~2 years to 8 |
-| Population | Light and metal are fixed | Shared only if beam follows heads. Canon: each drum gets a fixed share and decides for itself (people.md) |
+| Population | Light and metal are fixed | Shared only if beam follows heads. Canon: each drum gets a fixed allotment and decides for itself (people.md) |
 
 - **Everything else** (homes, food, law, rents, birth rights, the Hollow) is raft and drum business (economy.md). The raft's one say over births is the right of the Glide and sanctions on counted drums that go too far; it holds back a drum's beam only for the worst (people.md). How drums govern themselves varies; open-drums.md sketches the common free pattern: weekly block courts, a yearly assembly drawn by lot, and a vote on Booking Day.
 - **The rules of the road can be thin, but they're absolute.** A raft meets another only every ~10,000 years, predicted centuries ahead, and dodges with ~1 m/s (full-swarm.md). But across the Shade that's ~10⁵–10⁷ collision courses a year, and one miss is a 10³³–10³⁶ J blast whose debris can cascade. Four rules carry the weight:
@@ -153,7 +153,7 @@ Founders who expect to lose power someday have reason to build in checks, as con
 | What the Lantern answers to | A fixed charter; a cooperative of rafts; an order of keepers; regional blocs (economy.md's options, with minds biological) | Who can change the rules, and how fast |
 | Whether the Dark can kill | Sails banned, allowed or required | Whether a cut is a sentence or a siege |
 | How light is shared | By share (economy.md's proposal), by head, by contract, by contribution (metal delivered), by inheritance | Whether crowding pays, and whether population is shared business |
-| Who decides how many people there are | Each drum within its share (canon), each raft, or the whole Shade | people.md's birth systems |
+| Who decides how many people there are | Each drum within its allotment (canon), each raft, or the whole Shade | people.md's birth systems |
 | Whether the Lantern mends itself | Self-maintaining, or dependent on the Shade's foundries | Whether the Shade has a lever on it at all |
 | How the rules change | Locked; supermajority over decades; whoever holds the keys | Whether any regime can be locked in |
 | Whether fusion exists | No (baseline); yes | A raft with its own reactors can't be darkened (matter-delivery.md) |

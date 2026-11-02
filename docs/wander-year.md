@@ -39,7 +39,7 @@ Each card has a picture on the front. The postmark gives the day and the light d
 
 Writing this on the platform, because the capsule's late and the whole table is still here pretending not to cry. You made me a dawn for leaving and I spent it in the queue at the Ring Counter. Sorry. I saw the gold part through the lift glass.
 
-The Ledger had Grandad's name this morning with mine beside it. Jory says that means I'm allowed to go now.
+The Ledger had Great-grandad's name this morning with mine beside it. Jory says that means I'm allowed to go now.
 
 I've packed one crock of Chervil sourdough (Lovage's, don't tell), my good knife, two shirts, a black thread in case, and a year. The first leg costs 1.1 kays. A pair of shoes costs twenty. I could go round the raft eighteen times for a pair of shoes.
 

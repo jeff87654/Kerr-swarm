@@ -54,7 +54,7 @@ A wallet is 21.6 kWh a day (daily-life.md). Almost everything people remember co
 - **The block court.** A block of ~3,000 (Ashgrove's size) meets once a week in its atrium to settle noise, heat, rooms and Hollow swaps, out loud and in minutes. Valencia's Water Tribunal has met this way at the cathedral door every Thursday for about a thousand years.
 - **The assembly by lot.** A drum of 200 M can't meet, so each year it draws ~1,000 residents by lot to set the commons. Athens chose most officials this way; Ireland's Citizens' Assembly (2016–18) did it with 99.
 - **The Booking Day question.** When the beam is booked, every resident votes on one choice the assembly can't settle: another hour of sunline, a bigger hall fund, a brighter dim wood.
-- **Ostrom's rules for a lasting commons fit a drum closely:** clear membership (places), local rules, rules chosen by their users, monitoring by peers (the meters and the Ledger), mild graduated sanctions, cheap courts, and nested layers (block, drum, raft).
+- **Ostrom's rules for a lasting commons fit a drum closely:** clear membership (shares), local rules, rules chosen by their users, monitoring by peers (the meters and the Ledger), mild graduated sanctions, cheap courts, and nested layers (block, drum, raft).
 
 ### Open both ways
 - **Out:** the right of the Glide (people.md). Anyone may leave, and a swap takes days.
@@ -71,7 +71,7 @@ The World Happiness Report explains most of the gap between countries with six f
 | Healthy life expectancy | Proofread bodies, clinics, ~120-year lives | Company for the old |
 | Someone to count on | Households, the block | Tables and aunts, cooked halls, block courts |
 | Freedom to make life choices | The right of the Glide on most rafts | Marry young, childless with honour, guest-right, the wander year |
-| Generosity | Gifts reckoned in kWh | Place gifts, refuge, ~40% of wallets spent on each other |
+| Generosity | Gifts reckoned in kWh | Share gifts, refuge, ~40% of wallets spent on each other |
 | Trust, low corruption | Meters and registers make cheating visible | The open Ledger, the assembly by lot, the block courts |
 
 ## Freedoms
@@ -166,16 +166,16 @@ A drum becomes open if it goes ~500 years without a serious shock and chooses to
 - **The leisure problem.** Keynes thought that once the economic problem was solved, people's real problem would be how to live "wisely and agreeably and well." Open drums are the Shade's best answer, and not all of them get it right: gin, worlds that swallow whole decades, and the odd drum that confuses calm with standing still.
 
 ## Open questions
-- Whether orbit families or whole rafts ever become open in the same sense, with a Margin of places held at raft scale.
+- Whether orbit families or whole rafts ever become open in the same sense, with a Margin of shares held at raft scale.
 - How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours.
 - What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
 
 ## Method
-- Chervil: 200 M shares, 3% Margin → 194.06 M people; 150 M places, 3% of them (~4.5 M) held by the drum. Beam per head 2.0 × 200 ÷ 194.06 ≈ 2.06 kWe. Deaths 194.06 M ÷ 120 yr ≈ 1.62 M a year.
+- Chervil: 200 M shares, 3% Margin → 194.06 M people; 150 M places, 5.94 M ÷ 1.33 ≈ 4.455 M of them held by the drum. Beam per head 2.0 × 200 ÷ 194.06 ≈ 2.06 kWe. Deaths 194.06 M ÷ 120 yr ≈ 1.62 M a year.
 - Lent places: ~0.8 M couples a year × 5 years ≈ 4.0 M places, ~90% of the drum's ~4.5 M.
 - Time economy (economy.md): money income ≈ 7,900 kWh ÷ (1 − share): 25% → ~10,500; 40% → ~13,200. At 1,000 hours sold per adult, an hour ≈ 6.2 kWh at 40%.
 - Cycler fare at 2 km/s ≈ 1.1 kWh a trip at any distance (daily-life.md). 0.1 AU ≈ 1.5 × 10⁷ km ÷ 2 km/s ≈ 87 days. Twelve legs ≈ 13 kWh.
-- Guests: if each drum's ~1.6 M twenty-year-olds spend ~90 guest-nights on a wander year, each drum hosts ~1.4 × 10⁸ guest-nights a year, ~400,000 a night, against ~6 M Margin places.
+- Guests: if each drum's ~1.6 M twenty-year-olds spend ~90 guest-nights on a wander year, each drum hosts ~1.4 × 10⁸ guest-nights a year, ~400,000 a night. If couples hold ~4.0 M of the drum's ~4.455 M places on five-year loans, ~0.45 M are left for guests, refuge and studios, so guest flats sleep several to a place, and a drum short of room shortens its loans.
 - The Quiet: 9.6 kWh × 194 M ≈ 1.9 GWh ≈ 6.7 TJ moved into the hull for a day. Inside water ~0.14 t a head (~27 Mt; habitat-design.md): ΔT ≈ 6.7 × 10¹² ÷ (2.7 × 10¹⁰ kg × 4,186 J/kg·K) ≈ 0.06 K, before the hull's other mass.
 - Long Flight: Spindle volume π × 75² × 3,750 m ≈ 6.6 × 10⁷ m³; at ~100 m³ a flyer, ~660,000 at once.
 - Prevalence: share ≈ e^(−500 yr × shock rate) × share that keep a Margin. Canon: e^(−0.5) × 0.4 ≈ 0.24.

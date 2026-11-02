@@ -62,7 +62,7 @@ Hours are 30° wedges counted spinward, numbered like a clock and named by the f
 ## Customs
 - **The Round:** twelve clubs, one club room per Hour on the Round Arcade, the Heavy Round in the morning and the Light after lunch; records are kept three ways, for axis, spin and anti.
 - **Going up:** the Up Hall at the foot of the High decks, where each Ring's elders are given their flats; about one in twenty asks for another year. Couples go up together.
-- **Gone down:** nine Down Halls in the Keel, one per Ring, each with twelve felt-hung rooms, one per Hour. The dead ride down in a cab with the stretcher level; the Register's clerk reads their place back into the pool; a steel bell is struck; the family may keep a pinch of salts in glass (element-cycles.md: a name, a voice, a pinch of ash in glass).
+- **Gone down:** nine Down Halls in the Keel, one per Ring, each with twelve felt-hung rooms, one per Hour. The dead ride down in a cab with the stretcher level; the Register's clerk reads their share and place back into the pool; a steel bell is struck; the family may keep a pinch of salts in glass (element-cycles.md: a name, a voice, a pinch of ash in glass).
 - **Names and notes:** children are named for the dead whose shares they carry (ashgrove.md); the Register gives the dead's family a card, which comes back within the year with the child's name, and the yearly notes travel by hand to the Note Room.
 - **The Window:** twelve galleries behind the radiators, one per Hour, each taking its own Hour's eight-year-olds, about 75 to a round and five rounds a day. In Owl's, the adult tells the child what they saw there at eight.
 - **Weddings** on the front wall's Third at dusk. The oldest guest cuts the apple crosswise, and the couple each say one thing they remember from the Window.
@@ -206,7 +206,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 - **The Second Market** (deck 178, Ring Four, Fox). Sorrel's great market for old things, where everything comes with its history on a card and the bargains come at the end of the month.
 - **The Wedding Rooms** (deck 182, Ring Eight, Bee). Where Bee dresses for its weddings and dines after them: a felted hall, a 900-year-old chair for two, and a wardrobe of remade wedding clothes with every wearer's name in the lining.
 - **The Tide Tanks** (decks 186–187, Ring Two, Swift). Where three million tonnes of moat water come in every morning to keep the spin trim while the commuters are out, and the walls go cool.
-- **The Register of Places** (decks 196–200, Ring Five, Stag). Twenty-three thousand years of every place, every heir and every name in Sorrel, without a gap, under a five-deck vault in Stag.
+- **The Register of Places** (decks 196–200, Ring Five, Stag). Twenty-three thousand years of every place, every share and every name in Sorrel, without a gap, under a five-deck vault in Stag.
 - **The Pool** (deck 197, Ring Four, Stag). Where Sorrel's birth rights are recorded, given and spent: a long counter, a small brass bell and a queue nobody minds.
 - **The Round Arcade** (deck 201, Ring Five). An arcade that runs right round deck 201, 13.8 km, where the twelve Hours race the Round once a year.
 - **The Twelve Rooms** (deck 201, Ring Five). Each Hour's club room for the Round, one in every wedge along the Arcade, each in its own colours.
