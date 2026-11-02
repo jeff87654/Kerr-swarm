@@ -118,7 +118,7 @@
   "wall": null,
   "blurb": "Fifty metres of liquid hydrogen at 20 K wrapped round the whole drum: Sorrel's shield against cosmic rays, and the fuel it would burn in a Dark.",
   "text": "The jacket is the largest thing Sorrel owns: about 450 million tonnes of liquid hydrogen, fifty metres thick over the hull and both end caps, kept at 20 K. It stops the cosmic rays that would otherwise pass through everyone in the drum. Nobody sees it. People know it only as the short dark of a glide train's Minute, and as the cold plant's bill: each watt of heat that creeps into the hydrogen costs about 47 watts to pump back out, which comes to 17 W a person. It is also the survival reserve's fuel. In a Dark the coolers stop, the jacket warms and boils a little, and every gram that boils off is burned in the fuel cells against the banked oxygen.",
-  "detail": "Each person's share is about 2.2 tonnes of hydrogen. A 55-day Dark would boil off about 4 kg a head, a little less than the fuel cells would burn. Nothing is vented.",
+  "detail": "Each person's share is about 3.2 tonnes of hydrogen. A 55-day Dark would boil off about 4 kg a head, a little less than the fuel cells would burn. Nothing is vented.",
   "canon": "habitat-design.md",
   "tags": [
    "jacket",

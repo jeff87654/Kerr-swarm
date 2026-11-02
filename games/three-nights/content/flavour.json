@@ -1620,7 +1620,7 @@
   {"name": "Homecoming", "stops": ["#22140f", "#7c4a3a", "#eeb08a", "#fff6ee"], "note": "Warm and quick and a little sentimental, for the morning the wanderers come home.", "for": "dawn"},
   {"name": "Naming", "stops": ["#241a1c", "#7a5560", "#ecc0b0", "#fff8f2"], "note": "Soft pink-gold, made for a family who wanted a dawn the baby wouldn't mind.", "for": "dawn"},
   {"name": "Shutter", "stops": ["#140606", "#4a1612", "#c86a4a", "#fff1e6"], "note": "Twenty minutes of red-black before anything happens, like the wait before a Window opens.", "for": "dawn"},
-  {"name": "Visor", "stops": ["#0a0a0c", "#3a2e1e", "#c08a3a", "#fff6e2"], "note": "By a retired back-crew hand: suit-visor amber fading to the dark behind the radiators.", "for": "dusk"},
+  {"name": "Sled Window", "stops": ["#0a0a0c", "#3a2e1e", "#c08a3a", "#fff6e2"], "note": "By a retired back-crew hand: sled-window amber fading to the dark behind the radiators.", "for": "dusk"},
   {"name": "Occultation", "stops": ["#050507", "#2a2418", "#b89a5a", "#fffaea"], "note": "Gold that goes out from one edge, the way a star does when a raft's edge crosses it.", "for": "dusk"},
   {"name": "Crosswise", "stops": ["#1a1a0e", "#5a6a2a", "#d6564a", "#fff4ea"], "note": "Skin green to cut red to the cream of the flesh: an apple, for weddings.", "for": "dawn"},
   {"name": "Black garlic", "stops": ["#0e0907", "#3a2416", "#8e5a34", "#f7ecdf"], "note": "Sweet browns going to near-black, for the cooks who keep the loop.", "for": "dusk"},

@@ -1,11 +1,11 @@
 # Raft transport: getting around inside a raft
 
-*Design proposal from a working session, Oct 2026. Travel between drums on one raft in the Shade (full-swarm.md): nation drums (habitat-design.md) on compact rafts at ~3 m² per person. Seat masses and the 1 g, 20 km/s express come from energy-budget.md; prices are in kWh, as in daily-life.md. The names (the Glide, quays, the tubes, cyclers) are proposals. Travel between rafts is out of scope. Revised Oct 2026: travellers' X-ray shielding is sized for dose, not heat, and drums' sides are shielded by their own water (habitat-design.md). Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (raft-habitat.md), so drums stand farther apart and glide faster. Revised Oct 29, 2026 after a consistency audit.*
+*Design proposal from a working session, Oct 2026. Travel between drums on one raft in the Shade (full-swarm.md): nation drums (habitat-design.md) on compact rafts at ~3 m² per person. Seat masses and the 1 g, 20 km/s express come from energy-budget.md; prices are in kWh, as in daily-life.md. The names (the Glide, quays, the tubes, cyclers) are proposals. Travel between rafts is out of scope. Revised Oct 2026: travellers' X-ray shielding is sized for dose, not heat, and drums' sides are shielded by their own water (habitat-design.md). Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (raft-habitat.md), so drums stand farther apart and glide faster. Revised Oct 29, 2026 after a consistency audit. Revised 2 Nov 2026 (radiation decisions, Jeff): the corona's leak is planned with an MeV tail of ~10%, so glide cars, tubes and cycler trunks carry several times more water; trunks are ~6 t/m² all round against cosmic rays; car backs are ~1.3 t/m² against the glow from other rafts; and nobody works behind a raft in a suit.*
 
 ## Summary
 - **A raft is about the easiest place there is to move things.** It's vacuum, nearly weightless (~10⁻⁶ m/s² from its own mass), and turns only once per 39,000-year orbit, so a moving car keeps moving. Energy goes only into speed, and most of it comes back at the brake. Nothing drags; every loss is a conversion.
 - **The hazard is X-rays, from every side.** The Lantern's hard-X-ray leak (~20–40 W/m²) gives an unshielded person a lethal dose within minutes, and the radiator layer and the drums' moats scatter it back from behind.
-  - Glide cars carry closed shells of sealed water, ~1–2 t/m², ~5 t per seat. Powered cars run in shielded tubes.
+  - Glide cars carry closed shells of sealed water, ~1.3–6.2 t/m², ~13 t per seat. Powered cars run in shielded tubes.
   - Per gram, water stops the corona's hardest photons better than iron, so no iron is needed. Polyethylene would too, but X-rays split hydrogen out of it, which the swarm can't spare (element-cycles.md).
 - **Three tiers:**
   - **The Glide.** Drums let cars go from their rims and catch them on neighbours' rims, along straight lanes that graze both. It's free: the drums' spin does the work and gets it back. ~140 s per drum at 174 m/s.
@@ -37,13 +37,14 @@
 - **X-rays.**
   - 20–40 W/m² of photons with a median energy of ~90–120 keV gives ~0.1–0.3 Gy/s at the skin: a lethal dose within minutes. The rectennas in front are thin, so it floods the mid-raft.
   - The Lantern fills 13–29% of the sky (42–65° half-angle), so a shield must cover every direction within ~65° of it. A surface edge-on to the Lantern still gets 17–29% of the face-on flux.
-  - **Behind matters too.** The radiator layer scatters ~1.5–5% of the X-ray energy back into the mid-raft (for ~3–10 kg/m² of radiator), and drums' moats a quarter to a third of what hits them. An open back would take ~0.75–3 Gy per glide.
+  - **Behind matters too.** The radiator layer scatters ~1.5–5% of the X-ray energy back into the mid-raft (for ~3–10 kg/m² of radiator), and drums' moats a quarter to a third of what hits them. Rafts farther out add a glow from the sky behind, ~0.1–0.4 W/m² of 30–100 keV X-rays. An open back would take ~0.75–3 Gy per glide.
+  - **The corona's MeV tail.** Planning assumes ~10% of the leak runs on past the thermal cut-off (~160 keV) to ~100 MeV (full-swarm.md). Those photons set the Lantern-facing walls: without the tail ~1.7 t/m² would do.
   - **Shields are set by dose, not heat.** A drum's jacket can live with ~1% of the X-ray energy getting through (habitat-design.md); people need about one part in 10⁷.
-  - **Glide cars carry closed shells:** ~2.2 t/m² facing the Lantern, ~1.9 on the flanks and ~1.1 behind. That's sealed water in tanks, so windows can be water too, clear at a metre deep. Not polyethylene: in the X-ray flood it gives off hydrogen at ~4–16 g a person a year (element-cycles.md).
-    - ~5 t per seat, ~0.05 t per person across a fleet sized for the Glide's design peak (a daily round trip for ~45% of residents). On the Glide, mass costs no energy.
-    - A glide gives 0.15–2.5 µGy. A daily round trip adds at most ~2 mGy a year, ~9% of a drum's own cosmic-ray background.
-  - **Powered cars run in shielded tubes instead:** ~2.4 t/m² over the Lantern-facing half and ~1.2 over the back, ~35–55 t per metre. A level of lanes along every row and column takes ~15–25 kg per person. The cars stay light. An hour aboard gives ~1–20 µGy.
-  - **No iron.** Behind ~2 t/m², the dose comes from the corona's hardest photons, which scatter off electrons. Water carries more electrons per gram than iron, so iron would need ~20% more mass for the same dose. Iron is also the scarce metal: a tenth of a solar mix (habitat-design.md).
+  - **Glide cars carry closed shells:** ~6.2 t/m² facing the Lantern, ~4.8 on the flanks and ~1.3 behind. That's sealed water in tanks, so windows on the back can be water too, clear at ~1.3 m deep. Not polyethylene: in the X-ray flood it gives off hydrogen at ~4–16 g a person a year (element-cycles.md).
+    - ~13 t per seat, ~0.13 t per person across a fleet sized for the Glide's design peak (a daily round trip for ~45% of residents). On the Glide, mass costs no energy.
+    - A glide gives under ~2.5 µGy of X-rays. A daily round trip adds at most ~2 mGy a year of them, plus ~0.6–1.2 mSv of cosmic rays, which a few t/m² of water barely stops: together about as much as a year at home (habitat-design.md).
+  - **Powered cars run in shielded tubes instead:** ~6.9 t/m² over the Lantern-facing half and ~1.3 over the back, ~100–150 t per metre. A level of lanes along every row and column takes ~45–70 kg per person. The cars stay light. An hour aboard gives ~1–20 µGy.
+  - **No iron.** Behind several t/m², the dose comes from the corona's hardest photons, which scatter off electrons. Water carries more electrons per gram than iron, so iron would need ~20% more mass for the same dose. Iron is also the scarce metal: a tenth of a solar mix (habitat-design.md).
   - *The first version gave glide cars 7 cm of iron facing the Lantern and 4 cm on the flanks, copying the drum parasol. That was a heat spec. It would have passed ~25–230 mGy per glide through the iron, and ~0.5–2 Gy through the open back, on a 2 km drum's 93 s glides.*
 
 ## The Glide
@@ -96,7 +97,8 @@
 - **Sleeper trains that never stop.** They loop on straight trunk tubes across the raft and turn at the ends on bends of radius v²/g. A train's own energy is spent once, when it's built.
 - **Boarding by capsule.** A capsule (~200 kg with you in it) launches on a ramp beside the trunk, matches the passing train and docks. At your stop it undocks and brakes. Only the capsule's energy is ever spent, about a fifth of a 1 t sleeper berth's.
 - **Ramps are long** (20,400 km to reach 20 km/s at 1 g, 82,000 km for 40 km/s), so stations are far apart and fed by the tubes.
-- **Trunks and ramps are shielded tubes,** thicker than the lanes because people live aboard for days. ~3 t/m² facing the Lantern keeps X-rays under ~1 µGy an hour, below a drum's own cosmic-ray background. A few long trunks serve a whole raft, so this costs a few kg per person at most, and trains and capsules stay light.
+- **Trunks and ramps are shielded tubes,** thicker than the lanes because people live aboard for days: ~7.5 t/m² facing the Lantern and ~6 t/m² everywhere else. The X-rays stay under ~1 µGy an hour. Cosmic rays, which a few t/m² of water barely stops, come to ~0.07 mSv a day, ~13 mSv over a wander year's ~180 nights aboard; at 3 t/m² they would be ~0.35 mSv a day. A few long trunks serve a whole raft, so this costs ~10 kg per person at most, and trains and capsules stay light.
+- **Behind a raft.** The glow from other rafts is ~2.5–10 Gy/h unshielded, so nobody works there in a suit. Back crews ride closed sleds of ~4 t/m² (~0.06–0.12 mSv a shift, almost all cosmic rays; 14–29 mSv a year full time) and a career is capped at ~1 Sv. Galleries looking aft, like Sorrel's Windows, are glazed with ~1.5 m of water: an 80-minute visit gives ~12 µSv.
 - **Speed is the fare.** Slow lines and expresses run on separate trunks. daily-life.md's slow line becomes a cycler at a few km/s.
 
 **Crossing a raft by cycler** (capsule at 1% loss; boarding time extra):
@@ -157,10 +159,7 @@ Every powered trip converts the car's kinetic energy four times: grid to motor a
 - **The 3 km nation drum (Oct 2026):** quays at 174.4 m/s, hops of 140 s, nine lane levels per drum, and reach on drum-transport.md's cab times (raft-habitat.md).
 
 ## Open questions
-- **The corona's spectrum above ~300 keV.** The shields assume a cutoff at a few hundred keV, as observed in active galactic nuclei. An unbroken power-law tail into the MeV range, like stellar-mass black holes' soft states, would need ~4–5 t/m², and would raise a drum's moat leak to ~7–13 W per person of cryocooling.
-- **Cosmic rays outside the drums.** Glides and tube trips are short, but cycler passengers spend days to weeks outside any hydrogen jacket. How much ~3 t/m² of hydrogen-rich trunk wall cuts the Galactic Center's cosmic rays is open.
-- **The radiator layer's X-ray albedo,** which sets how much the backs of cars and tubes need (~1.5–5% for 3–10 kg/m² of radiator).
-- Whether glide catches can be made gentle enough for everyone: a 1 g onset over a second or two, now for ~5,500 t trains.
+- Whether glide catches can be made gentle enough for everyone: a 1 g onset over a second or two, now for ~13,000 t trains.
 - How many lane levels a drum gives to the Glide, and how many are enclosed tubes. Nine in a 3 km drum carry ~45% of residents out and back each day; more, closer together, would send more out.
 - Cycler speeds: cheap slow lines against a deep reserve for the Dark.
 - Districts of different drum sizes, which can't glide to each other.
@@ -173,11 +172,13 @@ Every powered trip converts the car's kinetic energy four times: grid to motor a
 - Tube trips: 1 g, cap 20 km/s; time 2√(d/g) below the cap, d/v + v/g above. Reach is the diamond of Manhattan radius d at 3.3 × 10⁵ people per km², after 7 min of overhead.
 - Loss per trip = f × ½mv² at peak speed, with m = 400 kg per seat, ~200 kg per capsule, ~1 t per sleeper berth: 0.56 / 0.28 / 1.39 kWh per (km/s)² at f = 1%.
 - X-rays: the Lantern as a uniform disk of half-angle α; flux on a surface edge-on to it ÷ face-on = (α − sin α cos α) ÷ (π sin²α). Dose = energy fluence × μ_en/ρ of tissue (NIST values for water), just inside the wall.
-- Shielding: the slab Monte Carlo and coronal spectra of habitat-design.md (5 keV–6 MeV), with layer splitting, implicit capture and Russian roulette to follow transmission down to ~10⁻¹²; 100,000–150,000 photons per case.
+- Shielding: the slab Monte Carlo and coronal spectra of habitat-design.md (5 keV–6 MeV) for the thermal bulk, with layer splitting, implicit capture and Russian roulette to follow transmission down to ~10⁻¹²; 100,000–150,000 photons per case.
   - Lantern-facing walls are lit face-on to the Lantern, flanks edge-on, and backs by X-rays scattered off a 0.3–1 g/cm² carbon radiator layer. A person's dose sums top, two flanks and back, each as an infinite slab.
   - Targets: ~10⁻⁸ Gy/s in glide cars, a few 10⁻⁹ in tubes, under 10⁻⁹ in cycler trunks.
   - A 1,000-seat train 100 × 10 × 5 m: 1,000 m² facing the Lantern, 1,100 m² of flanks, 1,000 m² behind. Fleet ~0.010 seats per person (Capacity at the Glide's design peak, plus ~30% at quays). Each trip holds its seat for ~1.5 hops and the quay waits, ~320 s against a 2 km drum's ~230 s; carrying everyone daily would take ~0.024 seats per person (a 2 km drum's ~0.017). Tube radius 3–5 m.
-  - MeV-tail check: Γ = 2.3, no cutoff, to 6 MeV (21% of the energy above 1 MeV), same total leak.
+  - MeV tail (2 Nov 2026): 10% of the leak, flat in νF_ν from 0.3 to 100 MeV, on a thermal bulk cut off at 160 keV; shells sized at the inner edge with a slant-path slab and buildup (threads/radiation, radiation_calc.py). The first check (Γ = 2.3 to 6 MeV) stopped short of the energies where water stops photons least well.
+  - Radiator albedo: single scatter at ~100 keV gives ~2–7% of the X-ray energy for 0.3–1 g/cm² of carbon, close to the ~1.5–5% used for car backs; the glow from other rafts, not the albedo, sets them at ~1.3 t/m².
+  - Cosmic rays: Globus & Strout's OLTARIS curve for water (200 mSv/yr behind 1 t/m², 93 behind 3, 26.5 behind 6), at 1–4× the local sea.
 - Capacity: 1,000-seat trains 3 s apart; a daily round trip for everyone of ~1.5 hops; peaks 1.5× a 16-hour average; lanes 60% used. Levels needed scale with people per drum: ~6 for 60 M, ~20 for 200 M; nine are built, ~420 m apart.
 - Self-gravity of a uniform disk of 2,950 kg/m²; Coriolis 2Ωv with Ω = 2π ÷ 39,000 years.
 - Eddy-current steering: lift-to-drag ≈ v/w, w = 2/(μ₀σt) ≈ 2.3 m/s for 2 cm of aluminium.
