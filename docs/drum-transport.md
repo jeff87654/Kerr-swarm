@@ -361,13 +361,11 @@ Each of the nine rings, at the peak of a design (or big) day:
 - Real trip lengths, which set how many loops and cross-lines each line deck needs, and the energy bill. Built for random destinations, the line decks would mostly run under half full, and with destinations within ~2 km cabs would need ~5 W per person on a design day, not ~7.4.
 - How much of a 200 M drum's life stays inside it. The Glide carries ~45% of residents out and back each day; more lane levels (closer than ~420 m) would send more out, and spare the cabs.
 - How peaky days are. Everything here is sized for peaks 1.5× the average hour; an Earth-style rush would need more of the Glide, not more of the Lattice.
-- How glide trains pass the jacket: ~60 locks per ring if each takes a minute per train.
+- How glide trains pass the jacket and moat: ~60 locks per ring if each takes a minute per train. Berths and hatches are settled (element-cycles.md § The outside ledger); the locks through 50 m of hydrogen and the moat aren't drawn.
 - Platoon safety: between platoons this doc keeps room to stop short of where the platoon ahead is. Following closer, on the assumption that a platoon can't stop faster than its own brakes, would roughly double what a tube carries.
 - Whether arriving riders share cabs by neighbourhood, which would cut the cab traffic at the station rings by about a quarter.
-- Whether cores should open onto the Hollow's floor at all, or only around its edges.
-- Keeping the Lattice's helium pure, with oxygen leaking in at every berth.
+- How much air leaks into the Lattice's helium at its berths, and what freezing it out costs (sorrel.md has the plant).
 - World drums: radial cabs at ~45 m/s need pressure-controlled cabins, since pressure differs 16% across their decks.
-- Whether freight gets its own shafts.
 
 ## Method
 - Drum: R = 3,000 m, ω = 0.0572 rad/s, L = 3,750 m; deck n at r = 3,000 − 4(n − 1) m. Residents in proportion to floor (2πrL) on decks 16–375; destinations in proportion to floor on decks 1–376. The 2 km figures use the same model with R = 2,000 m, L = 2,500 m, decks 11–250 and 1–251; town and world drums in raft-habitat.md use it with radial cabs at 10 and 45 m/s.

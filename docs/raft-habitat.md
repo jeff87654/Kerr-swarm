@@ -203,13 +203,10 @@ At 2 kW and 3 m² per person:
 
 ## Open questions
 - The back-cap rotary joint: ~160 GW of heat in two loops, ~240 m³/s of ammonia, turning at 0.55 rpm.
-- Settled Oct 29, 2026: rafts are built at 3 m² per person, for the 2 kWe life, which is the whole Shade's baseline since 1 Nov 2026 (full-swarm.md). At the full common budget the back would need ~3.3–4.2 m² of radiator per person, as its hot loads run at 600 or 400 K (~3.5 m² at ~500 K), so a raft living that well is built roomier, or runs its Yards and rectennas hotter.
 - How the hull's heat really splits between the room loop and the hot loop. Planning takes 0.45 / 0.35 kW; if the rooms take 0.55 kW, the hull needs ~2.1 m² rather than ~1.95.
-- How many station rings, and whether the Quaysides belong to the Keel or the Low decks.
 - How much gravity children need.
-- Who gets the Hollow, and when.
-- How far short of the end walls the sunline stops. 450 m buys flying halls ~300 m long; more lengthens them and dims the floor's ends further.
-- A lake in the Hollow: how much of the drum's spare water to give it, and what 0.5 g does to its waves.
+- **Who gets the Hollow:** answered in economy.md § The Hollow and the high decks: rationed by deck or auctioned, as each drum chooses.
+- How big the Hollow's lake is: its share of the drum's inside water (habitat-design.md § The moat).
 - How much of daily life stays inside a drum of 200 M. Cabs are sized for random destinations, the worst case.
 
 ## Method

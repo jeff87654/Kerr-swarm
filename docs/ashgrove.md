@@ -262,12 +262,12 @@ Ossian has asked for his lamp to be turned all the way off, which nobody in Sorr
 - **Smaller customs:** "kays"; the black thread for going dark; spinball; the growing seam; the apple cut crosswise at weddings; Knotnight and Booking Day; pears with a winter; Lovage's two-bottle allowance; laundry in the lamp-night, when kWh are cheapest (economy.md).
 
 ## Questions it raises
-- **The sunline and the Spindle share the axis.** At full sun the line puts ~6.7 kW/m² of light on anything 75 m from it, six or seven times Earth's noon sunshine. Settled in raft-habitat.md: the lit line stops ~450 m short of each end wall, with flying halls in the gaps, and the rest of the Spindle opens in the lamp-night.
+- **The sunline and the Spindle:** answered in raft-habitat.md § Districts: the sunline stops ~450 m short of each end wall, with flying halls in the gaps.
 - **Glide catches and the frail.** Hedda doesn't glide. Is there a gentler catch lane, or do the old and the ill simply stay home? (raft-transport.md)
-- **The cluster's white dwarfs** would wreck any raft they passed near, so the Shade must have cleared them, presumably by mining them first.
-- **Spirits across the quay.** Sorrel's cheap gin, carried over in visitors' bags, may be part of what keeps Lovage's methanol deaths as low as they are.
-- **Equal dividends and hard posts.** Do the Gate and the back crews fill on a wage, or do they need standing and perks on top?
-- **Hollow time by age** gives Sorrel's elders several times an equal share: economy.md's "allotted by age or service" column at work. How much do Low-deck families mind?
+- **The cluster's white dwarfs:** answered in matter-delivery.md § How much: the cluster's white dwarfs are kept as ore, so they were mined or herded out of the Shade (What the sketch assumes, above).
+- **Spirits across the quay.** Sorrel's cheap gin, carried over in visitors' bags, may be part of what keeps Lovage's methanol deaths as low as they are. (deliberately open)
+- **Hard posts:** answered in sorrel.md § Customs (back-crew years count toward going up) and economy.md § Children (the shareless work for a wallet).
+- **Hollow time by age** gives Sorrel's elders several times an equal share: economy.md's "allotted by age or service" column at work. How much do Low-deck families mind? (deliberately open)
 
 ## Knock-on changes
 None edited.

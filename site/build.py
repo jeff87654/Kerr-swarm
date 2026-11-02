@@ -474,7 +474,16 @@ def doc_footer(doc, backlinks, prev_doc, next_doc, sha):
 
 
 # ---------------------------------------------------------------- build
+def check_open_questions():
+    """Fail loudly if docs/open-questions.md no longer matches the docs' own lists."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import open_questions
+    if open_questions.main(["--check"]) != 0:
+        sys.exit("build stopped: docs/open-questions.md is stale (run python3 site/open_questions.py)")
+
+
 def build(out, fragment_index=False):
+    check_open_questions()
     intro, canon, groups = parse_readme()
     docs = load_docs()
     gdoc = docs.get("glossary")

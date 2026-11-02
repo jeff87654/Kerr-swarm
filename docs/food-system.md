@@ -229,11 +229,11 @@ Detailed menus, techniques and sample days are in cuisine.md.
 | Amino acids from CO₂ | — | ~35% (estimate) | ~55% |
 
 ## Open questions
-- Total power per person: energy-budget.md puts the common budget at ~3.1 kWe, so food is ~15% of it (7–10% at best case).
+- **Food's share of the budget:** answered in daily-life.md § The budget: food, air and water take 0.33 of the 2 kWe life.
 - Do ribosome reactors work? If so, precision proteins move from the Vats into the Mill at ~46%.
-- Animals: settled as a rare luxury (eating-out.md): Herb Row has one henhouse, with eggs at ~1.6 kWh.
-- Average intake (body size, activity, age structure).
-- Rationing and pricing: settled in daily-life.md and economy.md. The commons gives everyone a Mill-table day, and everything else is priced in kWh, so the per-serving table is the price list. Alcohol policy is still open.
+- **Animals:** answered in eating-out.md § Tansy: animals are a rare luxury, with one henhouse on Herb Row.
+- Average intake for the Shade's real bodies and ages: planning uses 2,200 kcal a day, but people.md's lighter bodies and long lives would lower it.
+- **Rationing and pricing:** answered in daily-life.md and economy.md (the commons gives a Mill-table day; the rest is priced in kWh); alcohol is set drum by drum (sorrel.md § Government).
 
 ## Sources
 - Leger et al. 2021, PNAS (electrolysis 70%, H₂→biomass 32%, methanol→biomass 45%): https://pmc.ncbi.nlm.nih.gov/articles/PMC8255800/

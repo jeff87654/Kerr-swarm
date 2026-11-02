@@ -348,16 +348,13 @@ Not in the baseline. A Blandford–Znajek (BZ) tap draws on the hole's rotation 
 - Daily life on a raft, at the common budget and at 2 kWe, is in daily-life.md; the economy is in economy.md.
 
 ## Open questions
-- How much infrared to trap: heavy, robust collectors with sealed walls, or light ones with louvers?
-- How the Lantern is assembled and sealed during the handover, since it holds itself up only once closed.
-- How a growing Lantern widens: adding collectors at every patch's rim, or periodically re-siting whole sections.
-- How much glow the Shade returns, and the best louvered fronts.
-- The disk's real brightness pattern around a spinning hole, and its wind's push on the Lantern and erosion of its mirrors.
-- Beam scheduling around passing rafts, and how much storage or backup collection rafts keep.
-- Who runs the Lantern, and its relays. economy.md and governance.md set out the options: a constitution in hardware, a cooperative of rafts, an order of keepers or regional blocs, with minds biological.
+- How the Lantern is assembled and sealed in practice: From rings to the full swarm has it built from light pieces and closed as a whole, but not the order or how long the closing takes.
+- The best louvered fronts. Returned glow adds ~10–30% to radiator loads (The Shade), which is why inner rafts take more than 3 m² a person.
+- The disk's real brightness pattern around a spinning hole (planning: ~2.6× at the poles), and how fast its wind erodes the Lantern's mirrors.
+- Who runs the Lantern and its relays. economy.md and governance.md set out the options: a constitution in hardware, a cooperative of rafts, an order of keepers or regional blocs. (deliberately open)
 - How compute really splits between the rafts and the Lantern (planning: half each). Every kWe moved to the rafts costs ~1.2 kW of light.
 - Large-scale dynamics of the Shade, how far the hole wanders inside it, and how the Lantern's centring keeps up.
-- Fuel and metal once the cluster's gas runs out (~665 Myr in): the Galaxy's inflow, the frontier's stream, or a slower feed.
+- **Fuel after the cluster's gas:** answered in matter-delivery.md § Growth and the frontier: the Galaxy's own inflow, then the frontier's stream.
 - Who pays to refill the tank farm after a dim (~780 kWh a person; economy.md).
 
 ## Method

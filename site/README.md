@@ -16,6 +16,7 @@ A static website built from `docs/`. The markdown is the only content: the site 
 
 - **Docs:** edit `docs/*.md` as usual. Nothing else needs to change.
 - **Glossary:** each entry in `docs/glossary.md` is a `###` heading, a definition and an optional `Matches:` line naming the words to link. Entries with no capital letters match any case; `Matches: none` turns linking off for that entry.
+- **Open questions:** each doc keeps its own `## Open questions` list. `docs/open-questions.md` gathers them; its question list is generated, so after changing a doc's list run `python3 site/open_questions.py`. The build stops if the page is stale.
 - **Diagrams:** they are drawn by `site/make_diagrams.py`, which writes `docs/diagrams/*.svg`. Change the numbers there and rerun it: `python3 site/make_diagrams.py`.
 
 ## Building locally

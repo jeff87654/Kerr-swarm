@@ -183,16 +183,15 @@ Payloads leave circular orbits by cancelling nearly all their orbital speed, the
 - **Fuel after ~665 Myr.** When the cluster's hydrogen runs out, the hole has grown ~2.9× and eats ~0.03 M☉/yr. A simulation puts the Galaxy's own inflow from the CMZ to the central parsecs at about that today, so for a while the Galaxy feeds the hole by itself; as the hole keeps growing, the stream carries fuel too.
 
 ## Open questions
-- **Element-by-element budget:** how far drums can lean on carbon and oxygen, and whether nitrogen, phosphorus or another element binds first. That decides how much white-dwarf ore is usable.
+- **The element-by-element budget:** answered in element-cycles.md § What a person's metal holds: phosphorus binds first, so drums can take ~75% of their metal from white dwarfs.
 - **Taking a white dwarf apart:** beam-driven winds, or tidal shredding by one of the central parsec's stellar black holes.
-- **Fusion:** whether the setting has reactors, and if so, why the frontier's hydrogen doesn't rival the hole.
+- **Fusion:** answered in governance.md § The dials: no fusion in the baseline.
 - **Gas scoops:** collecting diffuse CMZ gas and the bar's inflow, and whether opposing streams can be caught against each other cheaply.
-- **Solid or plasma catch,** and where catchers sit among the Shade's rafts and beams.
-- **The stripped gas:** released metal-free, the leftover hydrogen and helium would cool poorly and likely form unusually massive stars, whose supernovae would make new metal.
+- **Where catchers sit** among the Shade's rafts and beams (The catch describes solid and plasma catches).
 - **Epoch:** whether the bar still feeds the CMZ in the setting's era. If not, stars and white dwarfs are the ore.
-- **The long run:** how long the Galaxy's inflow and the frontier can feed a hole that keeps doubling, and how far into the bulge the frontier goes.
+- **The long run:** what comes after the ~1–2 Gyr growth horizon (README), when the disk's living stars and the inner bulge out to ~0.4 kpc run low.
 - **Building ahead:** whether a Lantern finished before its people spends its spare output (~1.8 × 10³⁶ W at first) on mining, which would gather the ~2.3 × 10⁶ M☉ that the 2 kWe population adds in well under a Myr of lifting.
-- **Who runs the frontier:** outposts centuries of light-delay out, mining on the core's beam but able to live on their stars' light (governance.md).
+- **Who runs the frontier:** answered in governance.md § Core and frontier: outposts live on starlight, and neither side can coerce the other.
 
 ## Method
 - **Mass model:**

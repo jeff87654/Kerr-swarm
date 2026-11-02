@@ -205,7 +205,7 @@ If any of your wanderers come through Chervil, send them to my table. We'll know
 ## Questions it raises
 - **Weeks without weight.** A wander year spends about half its nights weightless, in legs of two to three weeks. Is an hour's exercise a day enough, or do sleeper cars on slow lines spin? It's the same question for anyone who lives aboard cyclers.
 - **How often rafts pass.** The Passing assumes a raft within ~2 AU about once in four years. If close passes are rarer or commoner, so is the festival, and so are the swaps people.md expects with passing rafts.
-- **Starter traffic.** Wanderers carry living cultures through every Gate they pass. The Gates and strain libraries presumably make this routine, which is the raft loaf's premise.
+- **Starter traffic:** answered in raft-habitat.md § Districts: the Quaysides quarantine anything biological.
 
 ## Knock-on changes
 - **open-drums.md:** the wander-year bullet points here.

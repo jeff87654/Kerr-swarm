@@ -123,7 +123,7 @@ Rule of thumb: heavy elements per person ≈ 1 t + ~50 kg per m² of floor.
 
 ## Open questions
 - How lean interiors are: contents per m² dominates the budget.
-- How the spare third of the water is split between the Hollow's lake (raft-habitat.md), trim tanks and a thicker moat, and how far the moat can be drawn down in a crisis before the jacket's heat load bites.
+- How the inside third of the water (~0.14 t a person) is split between the Hollow's lake (raft-habitat.md), trim tanks and the reserve that can thicken the moat.
 
 ## Method (the moat)
 - Corona: a power law E^−Γ × exp(−E/E_c), with Γ = 2.0, E_c = 200 keV (soft) or Γ = 1.8, E_c = 300 keV (hard), filtered by ~1.25 g/cm² of Lantern collector (carbon, 10% iron). Leak of 40 W/m² face-on at the Shade's inner edge (Lantern 65.6° in half-angle) and 20 W/m² at its outer edge (41°). From 2 Nov 2026 the planning spectrum is Γ = 2.0 cut off at 160 keV (Ricci et al. 2018's median above 10% of Eddington), plus a tail of 10% of the leak, flat in νF_ν from 0.3 to 100 MeV; the front cap's extra hydrogen and the tail's heat use a slant-path slab with buildup (threads/radiation, radiation_calc.py).

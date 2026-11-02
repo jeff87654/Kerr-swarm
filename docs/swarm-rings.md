@@ -81,6 +81,6 @@ At 15 kW of light per person and 1 kW/m²:
 
 ## Open questions
 - Which swarm size fits the metal inventory (population ≈ heavy elements ÷ ~7.4 t with tiles and parasols)?
-- Knot nights: see claude/ring-weave.md for the woven alternative and when each layout wins. Smearing the knots helps in proportion to how far the ring axes spread; spread them all the way and you get the weave.
-- The Kerr disk's actual angular brightness pattern, and whether the hole has jets. For a thin disk (the fed hole), full-swarm.md uses face-on brightening of ~2.6× at the poles; a starved hot flow is less directional.
-- How a ring-era civilization hands over to the full swarm as the hole is fed (full-swarm.md, "From rings to the full swarm").
+- **Knot nights:** answered in ring-weave.md § The three fixes compared.
+- How directional a starved hot flow's light is. The fed thin disk is planned at ~2.6× at the poles (full-swarm.md), and the hole has no jets (README, Radiation).
+- **The handover from rings:** answered in full-swarm.md § From rings to the full swarm.

@@ -182,12 +182,12 @@ All made, Oct 2026:
 ## Open questions
 - Glow-sail yields with real skin temperatures. If the interior spreads heat toward the belt, the belt runs warmer and is harder to starve.
 - How fast a sail field deploys, and whether that fits inside a raft's ~55-day reserve.
-- Whether orbit families become polities, and how families treat each other.
-- Who holds the keys to the rules, and how outsiders audit code they can't visit.
-- Whether anything stops a determined kinetic coalition, and whether the Lantern can shield itself.
-- The founding: who sealed the Lantern, under what rules, and how the layer era's rafts consented (full-swarm.md, sgr-a-scope.md).
-- Who holds the fuel reserves, parsecs out, that the feed depends on.
-- Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares).
+- Whether orbit families become polities, and how families treat each other. (deliberately open)
+- Who holds the keys to the Lantern's rules (Run by rules and The gap cover how outsiders audit them). (deliberately open)
+- Whether the Lantern can shield itself against a kinetic coalition. Leverage puts wrecking 1% of the shell at very roughly a solar mass of debris.
+- The founding: who sealed the Lantern, under what rules, and how the layer era's rafts consented (full-swarm.md, sgr-a-scope.md). (deliberately open)
+- Who holds the fuel reserves, the ~4 × 10⁸ brown dwarfs at ~10–30 pc that the feed depends on. (deliberately open)
+- Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares). (deliberately open)
 
 ## Method
 - **Baseline** (full-swarm.md, 1 Nov 2026): luminosity 1.63 × 10³⁷ W; the Lantern at 0.824 pc (2 kW/m² average); the Shade at 0.91–1.23 pc (1.10–1.49 Lantern radii), ~9.7 × 10⁶ M☉ spread evenly through it (8.7 × 10⁶ before the 2 Nov 2026 front caps; the orbit figures below use 8.7); ~1.95 × 10³³ people at 8.3 kW of light each, on daily-life.md's 2 kWe life. Each person's 1.70 kWe beamed leaves the Lantern as ~2.05 kW of microwaves (× 1.03 margin ÷ 90% rectenna ÷ 95% capture), 0.248 of the light, so the skin sheds 0.98 − 0.248 = 0.732. Rafts of 0.1 AU hold ~6 × 10¹⁹ people (raft-transport.md). Until 1 Nov 2026 this doc used the common budget's 1.27 × 10³³ people, 12.8 kW of light and 3.1 kW of microwaves each.

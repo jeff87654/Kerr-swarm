@@ -199,10 +199,10 @@ The ordering comes from shade and from heat rejection:
 
 ## Open questions
 - Layer era: power sharing between shaded and sunny rafts (short beams, markets, or scheduling orbits to avoid shade).
-- Traffic control across the layer and the Shade: how far ahead encounters can be predicted, and who arbitrates. For the Shade, governance.md sketches thin rules of the road.
+- Traffic control in the layer era, and who arbitrates (governance.md § What has to be shared sets the Shade's rules of the road).
 - How much the layer's infrared opacity raises radiator temperatures.
-- Life on an island raft: inter-raft migration, trade and culture drift at months-to-years of separation.
-- The core and the frontier: governance between a conversational core and mining outposts centuries of light-delay away (see governance.md).
-- Feed logistics: who runs the injection stream close to the hole, and how output changes are planned given the disk's lag. Far injection doubles as a check on power (governance.md).
-- The handover from layer to Lantern: who moves out, and when.
+- **Life on an island raft:** answered in people.md § Who breeds with whom and § Leaving, and economy.md § Markets by scale: swaps only, and trade in information and beam.
+- **Core and frontier:** answered in governance.md § Core and frontier.
+- Who runs the injection stream close to the hole. governance.md § Checks built into the plumbing covers planning output under far injection.
+- Who moves out during the handover from layer to Lantern, and in what order (full-swarm.md § From rings to the full swarm has the rafts moving outward once it closes).
 - The civilization's bootstrap: how the first collectors were powered before the hole was fed.

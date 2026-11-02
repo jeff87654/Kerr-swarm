@@ -251,11 +251,11 @@ An orchard apple, a new shirt and 1,000 km flat out cost about the same. A chair
 - **Goods:** ~60 kg a year of new personal goods, against ~70 kg of clothing, footwear and furniture discarded per American in 2018 (EPA).
 
 ## Open questions
-- How low a wallet can go, and what its median is. economy.md proposes an equal dividend plus earnings; with a mean of 2 kW, the spread depends on how much people spend on each other's time.
-- What people do for work when production is automated: economy.md's answer is care, teaching, kitchens, craft, stewardship, governance and culture, paid from other people's wallets.
-- Lifespans: longer lives mean fewer births per year at the same replacement rate (economy.md tabulates it).
-- How heirlooms and going dark shape status.
-- With ~1.6 × 10¹⁰ people a free 20-minute glide away, do drums specialise: home in one, work or schooling in the next? economy.md: slowly, over centuries, since floor costs ~1,250 kWh a m² to rebuild.
+- The median wallet. The floor is the commons with no dividend, for the shareless (economy.md § Children); the median depends on how much people spend on each other's time.
+- **Work when production is automated:** answered in economy.md § Income: care, teaching, kitchens, craft, stewardship, governance and culture, paid from other people's wallets.
+- **Lifespans:** answered in people.md § Places and shares: lives of ~120 years.
+- **Heirlooms and going dark:** answered in economy.md § Belongings (heirlooms cost nothing, new mass is the display good) and ashgrove.md (going dark as a fast, with the black thread).
+- **Whether drums specialise:** answered in economy.md § Markets by scale: drums specialise slowly, over centuries.
 
 ## Sources
 - 2000-Watt Society (official site): https://www.2000watt.swiss/en/english.html

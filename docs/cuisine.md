@@ -197,10 +197,9 @@ Design-study rows: 10 M☉, 1 kW/m², ~15 kW of light per person (xray-power.md)
 
 ## Open questions
 - Do ribosome reactors work? If so, most of the precision line, the Vat table's biggest bill, moves into the Mill.
-- Which rituals besides Knotnight (ashgrove.md) keep the layer era's winter alive in a swarm with no nights?
-- How beam power is priced, and whether the Lantern's operators ever use a cut as a weapon.
-- In the layer era, whether habitats dimmed the Hollow's sky and parks during a long eclipse, making the night visible.
-- Alcohol policy, habitat by habitat.
+- Which rituals besides Knotnight (ashgrove.md) keep the layer era's winter alive in a swarm with no nights? (deliberately open)
+- **Beam pricing and cuts:** answered in economy.md § The Lantern: utility, bank and sovereign (beam follows shares, booked a year ahead) and governance.md § The Dark (a cut is a sentence, or a siege with sails).
+- **Alcohol policy:** answered, each drum sets its own (sorrel.md § Government); Sorrel, Lovage and Chervil differ (ashgrove.md, open-drums.md).
 
 ## Sources
 - Bratt System (Swedish spirits rationing, to 1955): https://en.wikipedia.org/wiki/Bratt_System
