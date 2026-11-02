@@ -119,7 +119,7 @@ const CANON_DRUMS = {
 
   Chervil: {
     sub: "hall",
-    blurb: "An open hall drum across the rows from Sorrel. It has kept a Margin of 3% since a birth stop ran a decade too long, about 340 years ago, and its assembly voted to keep the gap. Herb Row finds it lovely and a little pleased with itself.",
+    blurb: "An open hall drum across the rows from Sorrel. It has kept a Margin of 3% since a birth stop ran three or four years too long, about 340 years ago, and its assembly voted to keep the gap. Herb Row finds it lovely and a little pleased with itself.",
     famous: [{ t: "Cooked halls", d: "One long table a block, a paid cook and volunteers, and a Ledger at every station ring. Chervil spends about 40% of its wallets on each other's time, so an hour here costs about six kays." }],
     customs: [
       "A child's table is their parents and three or four aunts, called aunt whatever their sex.",
@@ -148,7 +148,7 @@ const CANON_DRUMS = {
     neighbourhoods: ["Long Table", "Aunts' Court", "Lamplough", "Ringside"],
     streets: ["Hall Street", "the Ledger Arcade"],
     eat: [
-      { name: "Marit Vell's Hall", stars: 1, ladle: true, price: 3.5, guestFree: true, where: "a block hall near Station Ring 2", blurb: "Four hundred seats at one long table, a paid cook and eleven volunteers, nine of them over seventy. You'll be seated next to someone. That's the point.", dishes: [["Thursday ramen, hand-pulled", 1.77], ["Whatever the aunts made", 0.5], ["Chervil gin, after six, in the halls only", 0.18]], tip: "On Booking Day the Quiet's savings become the feast." },
+      { name: "Marit Vell's Hall", stars: 1, ladle: true, price: 2.7, guestFree: true, where: "a block hall near Station Ring 2", blurb: "Four hundred seats at one long table, a paid cook and eleven volunteers, nine of them over seventy. You'll be seated next to someone. That's the point.", dishes: [["Thursday ramen, hand-pulled", 1.77], ["Whatever the aunts made", 0.5], ["Chervil gin, after six, in the halls only", 0.18]], tip: "On Booking Day the Quiet's savings become the feast." },
       { name: "The Dawn Stand", stars: 1, price: 0.6, where: "a coffee cart on the Hollow's back terraces", blurb: "Set up wherever the morning's painted dawn looks best. On a famous painter's morning the queue starts at five.", dishes: [["Cell-culture coffee", 0.15], ["Honeycomb steamed cake, still warm", 0.3]], tip: "Ask whose dawn it is. The painter is often in the queue." },
     ],
     people: [
@@ -191,7 +191,7 @@ const CANON_DRUMS = {
       { name: "The Blight Kitchen", stars: 1, ladle: true, price: 1, where: "Station Ring 1", blurb: "Young cooks, a blight menu cooked for love, and people from across the rows.", dishes: [["Blight-cheese toastie, griddled until it blisters", 0.45], ["Crackling \"steak\" under chili and black vinegar", 0.35], ["Mock apple pie: it tastes of an apple you've never eaten", 0.3]], tip: "The cooks say they'll keep the menu when Rue reaches par." },
     ],
     notices: [
-      "THE COUNT, Ring 1: shares 200,000,000. People above par. Births licensed this year: 450,000. Par expected in about eleven years.",
+      "THE COUNT, Ring 1: shares 200,000,000. People above par. Births licensed this year: 450,000. Par expected in about fourteen years.",
       "The fitting: fourteen-year-olds and their families to the Deck 40 clinic on their birthday week. Cake after.",
       "Councillors' report from Chervil's Booking Day is posted at the registry. Some of us would like a Margin.",
     ],
