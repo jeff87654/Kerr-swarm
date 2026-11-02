@@ -186,7 +186,7 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 ## Open questions
 - How often people move far across a raft, which sets whether a raft has regional looks among refusers.
 - Whether frontier outposts take Shade children as genomes, and on what terms.
-- How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers.
+- How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers. (deliberately open)
 
 ## Method
 - Generation ~35 years: 100 Myr ≈ 3 × 10⁶ generations.

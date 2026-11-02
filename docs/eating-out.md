@@ -191,5 +191,5 @@ Kitchen prices, before hours, from cuisine.md and food-system.md.
 - **Light-years:** the Shade spans ~0.9–1.25 pc from the hole (full-swarm.md), so a raft on the far side is up to ~8 light-years away.
 
 ## Open questions
-- Restaurants on rafts with dearer or cheaper hours: how far does a cook's wage change a drum's food culture?
-- Whether other rows of Merrow have guides of their own, and how the Row's guide is judged.
+- Restaurants on rafts with dearer or cheaper hours: how far does a cook's wage change a drum's food culture? (deliberately open)
+- Whether other rows of Merrow have guides of their own, and how the Row's guide is judged. (deliberately open)

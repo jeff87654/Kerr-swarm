@@ -160,11 +160,10 @@ At 15 kW of light per person and 1 kW/m²:
 - Data centres: 415 TWh worldwide in 2024 (~6 W per person worldwide, ~60 W per person in the US), ~945 TWh by 2030 (IEA base case).
 
 ## Open questions
-- Settled: the Shade lives the 2 kWe life, ~8.3 kW of light per person (~12.8 at the common budget, with half its compute on the rafts; full-swarm.md); the 10 M☉ ring design study's tables (swarm-rings.md and the knot-night table above) now use ~15 kW.
-- Compute per person. Minds stay biological in this setting (governance.md). If they ran as software, a digital person's watts against a biological person's ~8.3 kW of light would set a sharp exchange rate (economy.md). Batch compute lives on the Lantern; interactive compute has to sit within a few thousand km of its users. How the line really splits between them is open (planning: half each).
-- How long-distance travel is priced or rationed.
-- Knot-night strategy in the 10 M☉ ring design study: see claude/ring-weave.md. Along-ring lines can't fix the deep knot, where habitats can't shed heat; weaving can, at a cost in light. Which layout wins depends on hole size and swarm size.
-- Settled in matter-delivery.md: gathering heavy elements costs ~4,000–8,000 GJ per kg from stars (minimum), or ~0.01–0.1 GJ per kg to process gas plus up to ~60 to collect it, so a new person's metal costs ~25–55 PJ from stars.
+- How compute really splits between the rafts and the Lantern. Batch work lives on the Lantern and interactive work within a few thousand km of its users; planning takes 0.5 kWe on the raft and 0.3 on the Lantern at 2 kWe (daily-life.md).
+- **Pricing long-distance travel:** answered in daily-life.md § Getting around and raft-transport.md § Cyclers: speed is the fare.
+- **Knot-night strategy:** answered in ring-weave.md § The three fixes compared, and When the orange slice is still the right call.
+- **The price of new metal:** answered in matter-delivery.md § Energy per kg of heavy element: ~25–55 PJ for a new person's metal from stars.
 
 ## Sources
 - LLNL, 2024 US energy flow chart: https://flowcharts.llnl.gov/

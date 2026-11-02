@@ -330,11 +330,9 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 - **None of the generated places is canon.** The names are worn from every Earth language and repeat across the drum, as place names do.
 
 ## Open questions
-- **Lane levels** are shared by every drum in a row, so Sorrel's Ring Five is the tube level for its whole row; wander-year.md's Marit leaves from Chervil's Ring Two and rides the quay to the tube level.
 - **A gentler catch** for the frail (ashgrove.md): still open.
 - **Night flying** has wardens with red lamps at the Spindle's 75 m edge, since a flyer who drifts off the axis falls for minutes and lands at ~85 m/s. Should the netting run the whole length?
-- **Demography:** at ~120-year lives the over-85s are ~29% of the drum, but the High decks hold ~15%, so most people go up nearer a hundred.
-- **How the Hours began:** a founders' custom, but nobody in the atlas says why animals.
+- **How the Hours began:** a founders' custom, but nobody in the atlas says why animals. (deliberately open)
 
 ## Method
 - **Decks:** r = 3,000 − 4(n − 1) m, g = r ÷ 3,000. Strata split each run of decks between line decks into groups of four to eight; blocks are 3,750 ÷ 18 = 208 m along the axis and ~210 m round (N = round(2πr ÷ 210) per layer). People per block = floor area ÷ ~87 m² (100 m² a person less the Keel's 5 and the line decks' 8).

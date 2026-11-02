@@ -71,6 +71,7 @@ All in [`docs/`](docs/).
 
 **Reference**
 - [glossary.md](docs/glossary.md): short definitions of the setting's named things
+- [open-questions.md](docs/open-questions.md): every open question the docs still list, by theme, with proposed answers
 - [diagrams/](docs/diagrams/): the Lantern and the Shade, a raft, a nation drum, the Glide
 
 ## Games and atlases

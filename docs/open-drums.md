@@ -169,7 +169,7 @@ A drum becomes open if it goes ~500 years without a serious shock and chooses to
 
 ## Open questions
 - Whether orbit families or whole rafts ever become open in the same sense, with a Margin of shares held at raft scale.
-- How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours.
+- How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. (deliberately open)
 - What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
 
 ## Method

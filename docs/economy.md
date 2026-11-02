@@ -265,15 +265,11 @@ All made, Oct 2026:
 - **food-system.md:** its "rationing and pricing" open question is settled: the commons' food credit is a Mill-table day, and the rest is priced in kWh. Alcohol policy stays open.
 
 ## Open questions
-- Can birth rights be sold, in pool drums?
-- Who collects rents on fixed goods?
-- How long people live.
-- Who runs the Lantern, and whether beam follows shares or heads (governance.md sets out the dials).
-- Whether minds can run as software (not in this setting, for now), and whether people can go up.
-- How information is paid for: prizes, patronage, reputation.
-- Whether the dividend can be pledged, and how debt works at all.
-- What government looks like for a raft of 10¹⁹–10²² people.
-- Emigration between rafts: swaps of shares, and who pays for the catch ramp.
+- **Selling birth rights:** answered, each pool drum chooses. Sorrel lets a right be given but not sold, Lovage sells them (ashgrove.md § Where they live).
+- **How long people live:** answered in people.md § Places and shares: lives of ~120 years.
+- Who runs the Lantern (governance.md § The dials sets out the options). (deliberately open)
+- What government looks like for a raft of 10¹⁹–10²² people, above its drums (governance.md § The raft and the orbit family). (deliberately open)
+- Who pays for the catch ramp when rafts swap shares (people.md § Leaving has the swaps).
 
 ## Method
 - Flows: daily-life.md's 2-kW split over 8,766 hours a year.

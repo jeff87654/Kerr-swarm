@@ -258,7 +258,7 @@ If all of a person's 6.7 t were shipped solar mix:
 - **Ammonia or propylene** in the exposed panels: ammonia must lose under ~5 × 10⁻⁸ a year, since its nitrogen comes only from the living stars; propylene's losses cost only energy, but it needs ~4× the liquid flow. Both need radiolysis traps; radiolysis itself doesn't decide it (re-fixing ammonia's lost nitrogen costs ~0.03 W a person at most).
 - **Whether leaked gas comes back** (swept up by rafts) or boils out of the Shade (Compton-heated).
 - **The Shade's debris,** which sets puncture rates for the moat, panels, shields and cabins.
-- **How lean the mineral loop can be:** the Dark's float against the 55-day reserve, and how little potassium people can live on for two months.
+- **How lean the mineral loop can be:** how little potassium people can live on for two months, which decides whether a lean loop's month of float covers the 55-day Dark.
 - **The Sun's chlorine,** photospheric 5.50 against meteoritic 5.23, which decides whether chlorine or potassium binds in a comfortable loop.
 - **Gas:** whether the bar still feeds the CMZ in the setting's era (matter-delivery.md), which would loosen every budget here.
 - **Banking today's surplus** phosphorus and potassium for growth, and whether the build-out used the cluster's white dwarfs.

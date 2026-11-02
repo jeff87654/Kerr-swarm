@@ -160,10 +160,9 @@ Every powered trip converts the car's kinetic energy four times: grid to motor a
 
 ## Open questions
 - Whether glide catches can be made gentle enough for everyone: a 1 g onset over a second or two, now for ~13,000 t trains.
-- How many lane levels a drum gives to the Glide, and how many are enclosed tubes. Nine in a 3 km drum carry ~45% of residents out and back each day; more, closer together, would send more out.
 - Cycler speeds: cheap slow lines against a deep reserve for the Dark.
-- Districts of different drum sizes, which can't glide to each other.
-- Travel between rafts. The same ramps could throw a capsule at 100–300 km/s, at ~10–90 GJ a capsule (1%), if the other raft built a catch ramp along the relative velocity. It probably stays emigration.
+- How districts of different drum sizes connect, since they can't glide to each other (raft-habitat.md § Life inside: a raft picks one size to glide).
+- **Travel between rafts:** answered in people.md § Leaving: it stays emigration, rare swaps by capsule during a close pass.
 
 ## Method
 - Drum (habitat-design.md): rim 3,000 m at 1 g, ω = 0.0572 rad/s (109.9 s a turn), length 3.75 km. Quay at 3,050 m: 174.4 m/s, 1.02 g. (A 2 km drum: 0.0700 rad/s, quay at 2,050 m, 143.6 m/s.)
