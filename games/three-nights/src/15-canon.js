@@ -9,12 +9,12 @@ const CANON_DRUMS = {
     famous: [{ t: "Ashgrove's pears", d: "Three espaliered pear trees on the Court's brightest wall, older than anyone living. The youngest class wraps them for a six-week winter every year and dabs the blossom with brushes. The first two pears go to the oldest resident and the newest baby." }],
     customs: [
       "Every child goes to the Window once, at about eight, with one adult of their choosing.",
-      "Children are named for the dead whose places they take, and every year the family sends a note to the dead's family.",
+      "Children are named for the dead whose shares they carry, and every year the family sends a note to the dead's family.",
       "Uncovered dishes say something about your upbringing. Lids on.",
     ],
     rules: {
       goods: "Allots its high decks and Hollow hours by age. Elders have the lake every morning at lamp-dawn.",
-      births: "Each place carries one birth right. Rights can be given but not sold.",
+      births: "Each share carries one birth right. Rights can be given but not sold.",
       gin: "Gin is sold near cost, with thiamine in it, as in the salt.",
       guests: { t: "Hollow turns go by deck, about one in eight weeks. Guests come up with a host deck's turn, or take the end-wall terraces at dusk.", access: "terraces" },
       lamps: "06:30",
@@ -57,7 +57,7 @@ const CANON_DRUMS = {
     ],
     rules: {
       goods: "Auctions its high decks and Hollow hours, and spends the rents on a bigger commons.",
-      births: "Each place carries one birth right, and rights can be sold.",
+      births: "Each share carries one birth right, and rights can be sold.",
       gin: "Spirits are taxed hard. Methanol warnings are posted on every platform of the Quaysides.",
       guests: { t: "Hollow hours are sold at auction. A guest's hour on the floor goes for about three kays at the quiet end of the day.", access: "paid", kwh: 3 },
       lamps: "06:00",
@@ -95,7 +95,7 @@ const CANON_DRUMS = {
     customs: ["The first strawberry of a new rack goes to whoever is working the Gate that day.", "Blight years are kept like vintages, and the steakhouse lists them."],
     rules: {
       goods: "Allots high decks by service on the vat lines and Hollow hours by rotation.",
-      births: "Holdings: places pass to heirs in the household.",
+      births: "Holdings: places and shares pass in the family.",
       gin: "Gin near cost, with thiamine.",
       guests: { t: "Guests get one hour on the floor a day, bright half or dim.", access: "free" },
       lamps: "06:30",
@@ -123,7 +123,7 @@ const CANON_DRUMS = {
     famous: [{ t: "Cooked halls", d: "One long table a block, a paid cook and volunteers, and a Ledger at every station ring. Chervil spends about 40% of its wallets on each other's time, so an hour here costs about six kays." }],
     customs: [
       "A child's table is their parents and three or four aunts, called aunt whatever their sex.",
-      "The Ledger reads each newborn's name beside the dead whose place they took, and the dead's family brings a gift to the naming.",
+      "The Ledger reads each newborn's name beside the dead whose share they carry, and the dead's family brings a gift to the naming.",
       "Wanderers are met at the station ring by their block and table, with hand lamps, at lamp-dawn.",
       "The old Count board hangs in the Ledger hall beside the Ledger.",
     ],
@@ -156,7 +156,7 @@ const CANON_DRUMS = {
       { name: "Oona", age: 81, role: "lamp-painter", where: "terrace", hours: [5, 9], doing: "watching the dawn she painted with a coffee from the Dawn Stand, frowning at the middle", lines: ["I saw the River once, at eight, and I've been trying to paint it ever since. Brown-violet at the edges. The back crews call it bruise.", "It was too slow in the middle. Next year I'll fix it."], knows: "Light-painting, dawns, the colour of the River, Marit, the Window." },
     ],
     notices: [
-      "THE LEDGER, Ring 2: places 200,000,000. Margin held. Guests tonight: about 410,000. Two names read at today's naming.",
+      "THE LEDGER, Ring 2: shares 200,000,000, places 150,000,000. Margin held. Guests tonight: about 410,000. Two names read at today's naming.",
       "Wanderers on guest-right: the Ring 2 hall cooks for you on Thursdays. Bring a spoon of starter from the last drum you slept in.",
       "Margin flats lent this month to eleven young couples. Their tables ask that nobody mention the sofa.",
     ],
@@ -191,7 +191,7 @@ const CANON_DRUMS = {
       { name: "The Blight Kitchen", stars: 1, ladle: true, price: 1, where: "Station Ring 1", blurb: "Young cooks, a blight menu cooked for love, and people from across the rows.", dishes: [["Blight-cheese toastie, griddled until it blisters", 0.45], ["Crackling \"steak\" under chili and black vinegar", 0.35], ["Mock apple pie: it tastes of an apple you've never eaten", 0.3]], tip: "The cooks say they'll keep the menu when Rue reaches par." },
     ],
     notices: [
-      "THE COUNT, Ring 1: places 200,000,000. People above par. Births licensed this year: none. Par expected in about eleven years.",
+      "THE COUNT, Ring 1: shares 200,000,000. People above par. Births licensed this year: 450,000. Par expected in about eleven years.",
       "The fitting: fourteen-year-olds and their families to the Deck 40 clinic on their birthday week. Cake after.",
       "Councillors' report from Chervil's Booking Day is posted at the registry. Some of us would like a Margin.",
     ],

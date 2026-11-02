@@ -10,8 +10,8 @@
   "hour": 7,
   "r": null,
   "wall": null,
-  "blurb": "Twenty-three thousand years of every place, every heir and every name in Sorrel, without a gap, under a five-deck vault in Stag.",
-  "text": "The Register is a hall five decks tall in Stag, Ring Five, lit at a steady reading brightness and quieter than any room its size, because its walls are hung in grey felt. It keeps the record of every place in Sorrel for about 23,000 years without a gap: who held it, who it passed to, and the name of every child born into it. The record lives in the data halls, in a copy on the Lantern, and on remade film in the vault under the floor. On the long wall hangs the old Count board from about 640 years ago, still showing its last morning: places, people, and births at zero for the seventeenth year. Children are brought to stand under it once.",
+  "blurb": "Twenty-three thousand years of every place, every share and every name in Sorrel, without a gap, under a five-deck vault in Stag.",
+  "text": "The Register is a hall five decks tall in Stag, Ring Five, lit at a steady reading brightness and quieter than any room its size, because its walls are hung in grey felt. It keeps the record of every place and share in Sorrel for about 23,000 years without a gap: who held it, who it passed to, and the name of every child born into it. The record lives in the data halls, in a copy on the Lantern, and on remade film in the vault under the floor. On the long wall hangs the old Count board from about 640 years ago, still showing its last morning: shares, people, and births at zero for the seventeenth year. Children are brought to stand under it once.",
   "detail": "Open to anyone, 08:00 to 20:00. Ask at the front desk for any place's line and a clerk will read it to you. The dead's names are public; the living's addresses are not.",
   "who": {
    "name": "Corin Vasko",
@@ -39,7 +39,7 @@
   "r": null,
   "wall": null,
   "blurb": "Where Sorrel's birth rights are recorded, given and spent: a long counter, a small brass bell and a queue nobody minds.",
-  "text": "Two streets forward of the Register is the Pool, where Sorrel keeps its birth rights. Every place carries one. When someone dies their place comes back here, and a child is born into it when a parent spends a right. The long counter does three things: it records a right spent, on the clinic's word; it records a right given, which both people sign standing up; and it answers questions, mostly from couples doing sums. Rights can be given but never sold, so the gifts are the stories: a man who gave his to his oldest friend, a woman on Pear Street who gave hers to her sister in Chervil. When a gift is signed the clerk rings a small brass bell, and in heliox the whole hall hears it.",
+  "text": "Two streets forward of the Register is the Pool, where Sorrel keeps its birth rights. Every share carries one. When someone dies their share comes back here, and a child is born into it when a parent spends a right. The long counter does three things: it records a right spent, on the clinic's word; it records a right given, which both people sign standing up; and it answers questions, mostly from couples doing sums. Rights can be given but never sold, so the gifts are the stories: a man who gave his to his oldest friend, a woman on Pear Street who gave hers to her sister on deck 90. When a gift is signed the clerk rings a small brass bell, and in heliox the whole hall hears it.",
   "detail": "A gift needs both people at the counter, or one of them and a sealed letter. There is no fee. The clerk will not ask why, and will not let you sell it.",
   "who": {
    "name": "Nadia Eluned",
@@ -703,7 +703,7 @@
   "r": null,
   "wall": null,
   "blurb": "The lift engineers' street on deck 286, where Ossian Hale lived, and where children can name a cab channel by its sound.",
-  "text": "Liftwrights' Row is a street of flats and workshops on deck 286, in Stag, where Sorrel's lift engineers have lived for generations. They keep the cores running: the ten channels in each of about 5,200 cores, the berths, the gimballed cabins that lean against Coriolis. Their hall at the end of the street has a cabin hung in a bare gimbal, so apprentices can watch it swing. Ossian Hale lived three doors from the hall until he died, about nine years ago, and his name is on its board of members. His place passed to a boy in Ashgrove who carries his name. The street's children can tell an express platoon from a collector cab by the hum through the wall.",
+  "text": "Liftwrights' Row is a street of flats and workshops on deck 286, in Stag, where Sorrel's lift engineers have lived for generations. They keep the cores running: the ten channels in each of about 5,200 cores, the berths, the gimballed cabins that lean against Coriolis. Their hall at the end of the street has a cabin hung in a bare gimbal, so apprentices can watch it swing. Ossian Hale lived three doors from the hall until he died, about nine years ago, and his name is on its board of members. His share passed to a boy in Ashgrove who carries his name. The street's children can tell an express platoon from a collector cab by the hum through the wall.",
   "detail": "Apprentices start at eighteen, after the Lift School, and spend their first year riding every channel of one core at all hours, writing down every sound it makes.",
   "who": {
    "name": "Femi Lund",
@@ -997,8 +997,8 @@
   "hour": 6,
   "r": null,
   "wall": null,
-  "blurb": "A birth clinic in Otter, where embryos are proofread, a right is spent, and each family learns whose place their child is taking.",
-  "text": "Every embryo in Sorrel is sequenced and proofread at a clinic, a norm and not a law, and the Quince Clinic in Otter, which serves the upper Low decks and the lower Middle ones, is among the busiest. A quince tree stands in a tub in its lobby under its own bright lamp. The clinic sees a few dozen births a day. Here a parent's birth right is checked against the Pool and spent, and on the third day a clerk from the Register comes with a card: the name of the person whose place the child is taking, and their family's address, for the yearly note. Most parents give the child that name. The card is printed on good paper and usually ends up framed.",
+  "blurb": "A birth clinic in Otter, where embryos are proofread, a right is spent, and each family learns whose share their child will carry.",
+  "text": "Every embryo in Sorrel is sequenced and proofread at a clinic, a norm and not a law, and the Quince Clinic in Otter, which serves the upper Low decks and the lower Middle ones, is among the busiest. A quince tree stands in a tub in its lobby under its own bright lamp. The clinic sees a few dozen births a day. Here a parent's birth right is checked against the Pool and spent, and on the third day a clerk from the Register comes with a card: the name of the person whose share the child will carry, and their family's address, for the yearly note. Most parents give the child that name. The card is printed on good paper and usually ends up framed.",
   "detail": "The Register's card comes on the third day. Families who want to meet the dead's family can ask the clerk. About one in three do, usually over a meal both sides pay for.",
   "who": {
    "name": "Salome Ruit",
@@ -1026,7 +1026,7 @@
   "r": null,
   "wall": null,
   "blurb": "Owl's room for the dead, where a place's last holders are read out and a family leaves an address for the notes to come.",
-  "text": "When someone in Sorrel dies, their place goes back to the pool, and in Owl the family gathers here first. The Returning Room is long and dim, lit warm like a late evening, with felt walls and plain benches. The family reads the name aloud, the Register's clerk reads the place's last ten holders, and everyone stands. Then the body goes down to the Down Hall in the Keel, with the family beside it, to be taken apart and kept, as everything in the drum is. Along the back wall are drawers where families leave a forwarding address for the notes that will come every year from whoever is born into the place.",
+  "text": "When someone in Sorrel dies, their share and place go back to the pool, and in Owl the family gathers here first. The Returning Room is long and dim, lit warm like a late evening, with felt walls and plain benches. The family reads the name aloud, the Register's clerk reads the place's last ten holders, and everyone stands. Then the body goes down to the Down Hall in the Keel, with the family beside it, to be taken apart and kept, as everything in the drum is. Along the back wall are drawers where families leave a forwarding address for the notes that will come every year from whoever is born into the share.",
   "detail": "Returnings are held any day between 10:00 and 18:00, at no charge. The drawers are kept for a hundred years; ask the attendant whether a note has come to one.",
   "canon": null,
   "tags": [
