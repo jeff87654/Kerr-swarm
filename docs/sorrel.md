@@ -63,7 +63,7 @@ Hours are 30° wedges counted spinward, numbered like a clock and named by the f
 - **The Round:** twelve clubs, one club room per Hour on the Round Arcade, the Heavy Round in the morning and the Light after lunch; records are kept three ways, for axis, spin and anti.
 - **Going up:** the Up Hall at the foot of the High decks, where each Ring's elders are given their flats; about one in twenty asks for another year. Couples go up together.
 - **Gone down:** nine Down Halls in the Keel, one per Ring, each with twelve felt-hung rooms, one per Hour. The dead ride down in a cab with the stretcher level; the Register's clerk reads their place back into the pool; a steel bell is struck; the family may keep a pinch of salts in glass (element-cycles.md: a name, a voice, a pinch of ash in glass).
-- **Names and notes:** children are named for the dead whose places they take (ashgrove.md); the Register gives the dead's family a card, which comes back within the year with the child's name, and the yearly notes travel by hand to the Note Room.
+- **Names and notes:** children are named for the dead whose shares they carry (ashgrove.md); the Register gives the dead's family a card, which comes back within the year with the child's name, and the yearly notes travel by hand to the Note Room.
 - **The Window:** twelve galleries behind the radiators, one per Hour, each taking its own Hour's eight-year-olds, about 75 to a round and five rounds a day. In Owl's, the adult tells the child what they saw there at eight.
 - **Weddings** on the front wall's Third at dusk. The oldest guest cuts the apple crosswise, and the couple each say one thing they remember from the Window.
 - **The Length:** Sorrel's Booking-night flight, from the front gate of the Spindle at 22:00 to the back wall, behind the oldest flyer's lamp. (The Long Flight is an open-drum custom; Sorrel keeps its own.)
@@ -80,8 +80,8 @@ Hours are 30° wedges counted spinward, numbered like a clock and named by the f
 ## History
 - **The Register of Places** runs back ~23,000 years without a gap.
 - **The Summer, ~1,100 years ago.** A fault in the back cap's rotary joint cut the drum's heat flow by a third for forty days. Sorrel dimmed its lamps and kitchens to match and the rooms still ran three or four degrees warm: the only season it has ever had. Summer Day is kept with cold food, and a length of the cracked seal hangs in the back axle hall.
-- **The Count, ~640 years ago.** Sorrel was a holdings drum; a dairy-yeast blight caught its thin households, and it counted for seventeen years. When the Count came down, the assembly made Sorrel a pool drum with one birth right per place, giftable but not sellable (people.md's reformers' drum). The old Count board hangs in the Register hall, and Dairy Line Four has never been used since.
-- **The refuge, ~212 years ago.** Sorrel held back a week of births, ~30,000 places, to take in people fleeing a counted drum three rows across. Many settled in Ring Eight, and their descendants still bring a cake to the refuge desk on the date.
+- **The Count, ~640 years ago.** Sorrel was a holdings drum; a dairy-yeast blight caught its thin households, and it counted for seventeen years. When the Count came down, the assembly made Sorrel a pool drum with one birth right per share, giftable but not sellable (people.md's reformers' drum). The old Count board hangs in the Register hall, and Dairy Line Four has never been used since.
+- **The refuge, ~212 years ago.** Sorrel held back a week of births, ~30,000 shares, to take in people fleeing a counted drum three rows across. Many settled in Ring Eight, and their descendants still bring a cake to the refuge desk on the date.
 - **The Eleven Days, 74 years ago** (ashgrove.md). The Eleven Days Room on deck 365 is kept by people who were there as children.
 
 ## Landmarks
@@ -165,7 +165,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 - **The Stag Slides** (decks 44–47, Ring Nine, Stag). A playground of Coriolis slides four decks deep, with a timing board nobody under twelve believes.
 - **The Toy Library** (deck 47, Ring Two, Lark). Nine thousand toys on loan in Lark, each one mended between borrowers, because new mass is dear.
 - **The Mile Hall** (deck 52, Ring Seven, Wolf). A straight running hall a mile long, with one record for the Heavy Mile spinward and another for the Light Mile back.
-- **The Moth Naming Rooms** (deck 57, Ring Four, Moth). Quiet rooms where babies are named for the dead whose places they take, with both families in the room.
+- **The Moth Naming Rooms** (deck 57, Ring Four, Moth). Quiet rooms where babies are named for the dead whose shares they carry, with both families in the room.
 - **The Sixty-Two Lobby** (deck 62, Ring Three, Swift). A lift lobby in Swift with Sorrel's oldest direction rose in its floor and tally marks from the Eleven Days.
 - **The Thread Room** (deck 66, Ring Seven, Fox). Where Fox's dark kids go: a warm room of paper, card games and a drawer of letters waiting to be sent.
 - **The Turnover** (decks 69–70, Ring Five, Owl). Owl's great second-hand hall, two decks tall, where chairs are dearer the older they get.
@@ -189,7 +189,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 
 ### Middle decks
 - **The Ringing Arcade** (decks 117–118, Ring Nine, Bee). The loudest street in Sorrel: 640 metres of bare vault in Bee, where a shout comes back from the far end in two seconds.
-- **The Quince Clinic** (deck 121, Ring Three, Otter). A birth clinic in Otter, where embryos are proofread, a right is spent, and each family learns whose place their child is taking.
+- **The Quince Clinic** (deck 121, Ring Three, Otter). A birth clinic in Otter, where embryos are proofread, a right is spent, and each family learns whose share their child will carry.
 - **The Juniper Works** (deck 124, Ring Two, Moth). Sorrel's gin, sold near cost with thiamine in it, made here so that nobody has a reason to make it anywhere else.
 - **The Chair Hospital** (deck 129, Ring Eight, Hare). Where Sorrel's old chairs go to be re-sprung, re-glued and re-covered, and come home older and better.
 - **The Orange Hall** (deck 132, Ring Six, Badger). A cooked hall in Badger that serves orange steaks every Thursday, in memory of the year Sorrel's Fusarium line failed.

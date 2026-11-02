@@ -1,17 +1,17 @@
 # People: bodies and births
 
-*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs; a few people emigrate, but it's hard. Jeff's decisions of 31 Oct 2026 on coercive drums (counted drums): about 1% of drums at a quiet time, in waves after raft-wide shocks; most rafts guarantee the right of the Glide; the raft answers with sanctions and holds the beam back only for the worst; the darkest drums are rare and shunned; Rue on Herb Row is the example. The names (proofreading, holdings, the wild-born, counted drums, the Count, the fitting, the right of the Glide) are proposals. Biology figures are approximate.*
+*Design notes from a working session, Oct 2026. What the Shade's people are like as a population: who breeds with whom, what the drums do to their bodies, how harmful mutations are cleared, and how drums hold births to deaths. Builds on raft-habitat.md (gravity bands, light), raft-transport.md (raft sizes, travel), economy.md (the place, the commons), governance.md (what drums decide) and full-swarm.md. Jeff's decisions of 30–31 Oct 2026: medical engineering is the norm but not a universal law; each drum gets a fixed share of the beam and runs its own affairs; places mostly pass to heirs; a few people emigrate, but it's hard. Jeff's decisions of 31 Oct 2026 on coercive drums (counted drums): about 1% of drums at a quiet time, in waves after raft-wide shocks; most rafts guarantee the right of the Glide; the raft answers with sanctions and holds the beam back only for the worst; the darkest drums are rare and shunned; Rue on Herb Row is the example. Jeff's decisions of 1 Nov 2026: places are household land, like farms; children and young adults live in a parent's or grandparent's place, and most people get their own around 30; each person's wallet comes with a share, freed by a death in the family; a child born ahead of a death has no share until one frees. The names (proofreading, holdings, places and shares, the shareless, the wild-born, counted drums, the Count, the fitting, the right of the Glide) are proposals. Biology figures are approximate.*
 
 ## Summary
 - **Chance does almost nothing; selection and medicine do everything.** At ~10²⁰ people a raft, a neutral variant would take ~10²⁰ generations to spread by luck. Rafts in the same conditions evolve almost identically.
 - **Fixed families switch off most natural selection.** With births held to deaths, nearly every adult who reaches parenthood has about the same number of children. Unchecked, each child's ~1–2 new harmful mutations would pile up, and health would fall ~1% a generation.
 - **Proofreading clears them.** The norm everywhere: every embryo is sequenced and its new mutations are put back to match its parents, along with known disease variants. It's a norm, not a law, and some drums refuse it.
 - **So people look like all of humanity mixed together, for as long as the civilization lasts.** The average is medium brown, every old feature recombined, the range as wide as Earth's. Nobody tans, jaws are small, bones are light and nearly everyone wears corrected eyes. Any emigrant can marry anyone, anywhere in the Shade.
-- **Places pass to heirs.** A household's places are its land. Children live on the family's shares until a death in the household frees a place. People marry when they hold places, so they marry late, and families that have extra children live thinner.
+- **Places are household land; shares are people's.** A nation drum of 200 M has ~150 M places, like farms. Children and young adults live in a parent's or grandparent's place, and most people get their own around 30, usually a great-grandparent's. Each person's wallet comes with a share, freed by a death in the family and passed to a newborn. A child born ahead of a death has no share until one frees, so families that have extra children live thinner.
 - **Drums choose their own birth systems.** Each gets a fixed share of beam, so a drum that overbreeds hurts only itself. Most run on inheritance and custom; some keep a pool with formal birth rights (Sorrel and Lovage in ashgrove.md); about 1% coerce.
 - **Counted drums license births and enforce it.** Most fit a contraceptive implant at fourteen and stop births for a decade or two; the darkest are rare and shunned. Whether people can glide out decides how dark they get.
 - **Open drums are the bright side.** About a quarter of drums hold births to deaths freely, keep a small Margin under par and open their rings both ways (open-drums.md).
-- **The clinics see nearly every birth.** Children born outside them, the wild-born, are unproofread and often unplaced.
+- **The clinics see nearly every birth.** Children born outside them, the wild-born, are unproofread and often shareless.
 
 ## Who breeds with whom
 | Level | People | Gene flow | Effect |
@@ -46,31 +46,35 @@ Most of what the drum changes is what it stops asking for.
 ## Births
 ### What binds
 - **Each drum gets a fixed share of beam** from its raft and decides what to do with it (governance.md). Extra people don't take beam from neighbours; they thin their own drum's shares.
-- **Metal is fixed.** A drum gains one new place every ~3.6 years against ~1.7 M births a year at 120-year lives (economy.md), so births wait on deaths.
+- **Metal is fixed.** A drum gains one new share every ~3.6 years (and a new place every ~4.8) against ~1.7 M births a year at 120-year lives (economy.md), so births wait on deaths.
 - **A drum with no limit hits the wall in about a century.** At three children a couple it grows ~1.2% a year: from 2 kWe a person to the lean 1 kWe in one lifetime, and near the survival floor (~0.5–1 kWe, 25 m² of floor) in about two. Every lasting drum has some way of holding births to deaths, formal or not.
 
-### Places pass to heirs
-The common system, and closest to how most land-limited societies on Earth worked: they limited who could set up a household rather than who could give birth.
+### Places and shares
+The common system, and closest to how most land-limited societies on Earth worked: they limited who could set up a household rather than who could give birth. A drum keeps two ledgers (economy.md).
 
-- **A household's places are its land.** At death a place passes to an heir in the household, usually a child or grandchild already living there, so nobody is turned out when the householders die.
-- **Children live on the household's shares.** Two parents and two grandparents hold four places; their children eat, sleep and study on those shares and take the grandparents' places when they die. Births follow deaths inside each family.
-- **A family can overspend.** Three children on two places is allowed. That household just has less floor and fewer kWh each, and it suffers first in a Dark, like Ireland's subdivided plots.
-- **Marriage waits on places.** A couple sets up its own home when each holds one, so people marry late. Unplaced adults live in their family's household or work and lodge in others': the drum's version of Europe's servants in husbandry.
-- **Places drift to careful families.** A childless person's place goes to a niece, a cousin or an adopted heir. Over generations, small families grow rich in places and prolific ones grow thin. Adopting an adult heir, as Japanese families adopted sons-in-law, is a normal way to keep a holding.
-- **The drum keeps a small pool** for places with no heir, orphans, and the few new places metal brings.
+- **A place is household land, like a farm.** A nation drum of 200 M people is divided into ~150 M places, each ~47 m² of home, about 1⅓ people's share. Children and young adults live in a parent's or grandparent's place. At death a place passes to an heir, so nobody is turned out when the householders die.
+- **Most people get their own place around 30.** A place frees when its holder dies at ~120 and lands about three generations down. With children around 30, four generations are alive, and the usual place is a great-grandparent's. A couple sets up its own home when it holds places, so most marry around 30. Younger adults live in the family's place or lodge in others': the drum's version of Europe's servants in husbandry.
+- **A share is a person's wallet.** Every person at par holds one: the dividend (21.6 kWh a day) on top of the commons that everyone gets, shared or not (economy.md). A death frees a share, and it passes to a newborn in the family, who is often named for the dead.
+- **One death, two inheritances.** A couple's 16 great-grandparents die around the couple's late 20s and 30s, and on average they free a place for each partner and a share for each of two children. A death at 120 gives a home to a great-grandchild and a wallet to a great-great-grandchild. Births follow deaths inside each family.
+- **A family can overspend.** A child born ahead of a death has no share until one frees in the family, so the household divides its wallets: a third child takes a family of four from 21.6 kWh a head to ~17. The child still eats at the Mill table, because the commons is per head. So an extra child's wallet half (0.9 kW) falls on the family and its commons half (1.1 kW) on the whole drum, which is why drums still need norms. Overspent households have less floor and fewer kWh each, and suffer first in a Dark, like Ireland's subdivided plots.
+- **The shareless work.** An adult without a share gets the commons but no dividend, and lives on family wallets and work: at ~3 kWh an hour, full-time work earns ~17 kWh a day, ~80% of a wallet (economy.md). A share is a cushion and the freedom not to work, not survival. Most of the shareless get one in time, as childless relatives die.
+- **Places and shares drift to careful families.** A childless person's place and share go to a niece, a cousin or an adopted heir. Over generations, small families grow rich in places and prolific ones grow thin. Adopting an adult heir, as Japanese families adopted sons-in-law, is a normal way to keep a holding, and the only way to give a share outside the family.
+- **An elder can hand over a place early.** Central European farmers retired on a maintenance contract, the *Altenteil*: the heir took the farm and the old couple kept a room and their keep. In a drum it moves the wait from the young to the old.
+- **Coarser drums run on three generations.** A drum divided into ~137 M places settles at places around 38 and first children around 41.
+- **The drum keeps a small pool** for places and shares with no heir, orphans, and the few new ones metal brings.
 
 ### Other systems
 | | Holdings (common) | Pool with birth rights | Custom and orders | Coercion |
 |---|---|---|---|---|
-| A child's place comes from | A death in the family | The drum's pool, spending a parent's right (economy.md) | The pool, by norm | The drum, by order |
+| A child's share comes from | A death in the family | The drum's pool, spending a parent's right (economy.md) | The pool, by norm | The drum, by order |
 | Big families are | Possible but poorer | Rich, connected or lucky | Disapproved of | Punished |
-| Who stays childless | Unplaced younger siblings | Sellers of rights, where sales are allowed | Orders and the honoured | Whoever the drum says |
-| How it fails | Overspent households break in a Dark | Unplaced children; the poor selling their own child's right | Norms weaken and the drum overshoots | Revolt, or other drums turning on it |
+| Who stays childless | Shareless younger siblings | Sellers of rights, where sales are allowed | Orders and the honoured | Whoever the drum says |
+| How it fails | Overspent households break in a Dark | Shareless children; the poor selling their own child's right | Norms weaken and the drum overshoots | Revolt, or other drums turning on it |
 | Earth echo | Northwest Europe, Japan's *ie* | China's licences, Boulding's proposal | Tikopia, monastic Tibet | Tokugawa famines, China's worst years |
 
-- **Pool drums** (Sorrel, Lovage) are reformers' drums: equal between families, and they need a registry and an answer for the unplaced child.
-- **Open drums** (open-drums.md) are holdings drums where custom does work: a Margin of empty places lent to young couples, the gift of a place to a couple outside the family, and tables of childless aunts around every child.
-- **Custom is weak here** because the Shade lacks the outlet most Earth societies leaned on: there's nowhere to emigrate. Swaps between rafts free no places, and new places come one at a time. What remains are honours for the childless (Hollow hours, a high-deck flat), and childless callings with real standing.
+- **Pool drums** (Sorrel, Lovage) are reformers' drums: shares return to a pool at death and places are allotted by age or auction. They're equal between families, and they need a registry and an answer for the shareless child.
+- **Open drums** (open-drums.md) are holdings drums where custom does work: a Margin of unused shares and drum-held places, places lent to couples until they inherit, the gift of a share by adoption, and tables of childless aunts around every child.
+- **Custom is weak here** because the Shade lacks the outlet most Earth societies leaned on: there's nowhere to emigrate. Swaps between rafts free no shares, and new shares come one at a time. What remains are honours for the childless (Hollow hours, a high-deck flat), and childless callings with real standing.
 - **Coercive drums** (counted drums) appear where a drum has overshot and nobody will bail it out. See Counted drums below.
 
 ### Counted drums
@@ -86,7 +90,7 @@ A counted drum decides who may have a child, and enforces it. People call them t
 | 3.0 | 1.16%/yr | ~8 yr | ~60 yr |
 
 - **Overshoot is survivable for a long time.** At 10% over, each person has ~1.8 kWe and the 55-day reserve covers ~50 days; real danger starts near 1.5–2× places. So counting starts over the trend, not hunger, and every counted drum overstates its emergency.
-- **The raft bails out disasters, not overbreeding.** A 0.1 AU raft gains ~8 × 10¹⁰ places a year, so a drum that loses 10 M places to an accident can be rehoused from about an hour of the raft's growth, spread across ~4 × 10⁷ drums by tube. Nobody hands places to a drum that bred past its share, or every drum would.
+- **The raft bails out disasters, not overbreeding.** A 0.1 AU raft gains ~8 × 10¹⁰ shares a year, so a drum that loses 10 M shares' worth of habitat to an accident can be rehoused from about an hour of the raft's growth, spread across ~4 × 10⁷ drums by tube. Nobody hands shares to a drum that bred past its own, or every drum would.
 - **Holdings drums hide overshoot** in thin households until a blight or a Dark hits them all at once, like Ireland in 1845. Most counted drums start as overspent holdings drums after a bad year.
 - **Raft-wide shocks** (a Dark, a raft-wide blight) leave nobody with slack, so many drums tip into counting together.
 - **Some count one group.** On Earth most coercive sterilisation targeted minorities and the poor. The Shade's obvious targets are refuser families and their wild-born, and a drum at par can still count them.
@@ -99,32 +103,32 @@ A counted drum decides who may have a child, and enforces it. People call them t
 | 2 Penalty | Unlicensed parents lose wallet, Hollow hours, deck seniority, posts | China's "social maintenance fees" | Harsh but legitimate |
 | 3 The fitting | A reversible implant for everyone at fourteen, removed at the clinic on licence | China's mandatory IUDs | Contested; many call it reasonable in a crisis |
 | 4 Forced procedures | Unlicensed pregnancies ended; sterilisation after a quota | China 1983 (~21 M sterilisations), India 1976–77 (~8 M), Peru 1996–2000 (~270,000) | Criminal to most drums |
-| 5 Unpersoning | Wild-born get no place, register entry, school or commons share, or are taken and fostered | China's *heihaizi*; Romania's orphanages | Atrocity; neighbours act |
+| 5 Unpersoning | Wild-born get no share, register entry, school or commons, or are taken and fostered | China's *heihaizi*; Romania's orphanages | Atrocity; neighbours act |
 | 6 Removing the living | Expulsion onto neighbours' lanes; a fixed age of death; death lotteries | Tikopia's sea voyages; Tokugawa *mabiki*; Trollope's *The Fixed Period* | A small Burn: every drum's enemy |
 
 - **Rung 3 is the typical counted drum:** licences by lottery, the fitting, and a birth stop of one to two decades. It's what a reform council, not a tyrant, ends up with.
 - **Long lives tempt rung 6.** A full stop clears 10% overshoot in ~12 years at 120-year lives, ~40 at 400. A fixed age of 100 in a 120-year drum would remove a sixth of it at once.
-- **Expulsion barely works.** A place doesn't travel, so neighbours gain mouths and no metal, and they can refuse to catch the cars. Dumping people on the Glide is an attack on the next drum.
-- **Control is easy in a drum.** The clinics see nearly every pregnancy, the commons meters show a household eating for five on four places within weeks, the place register records every heir, and nine station rings are the only doors. Against it: 200 M people can hide a lot, home births need no machines, and every drum hears how others live.
+- **Expulsion barely works.** A share doesn't travel, so neighbours gain mouths and no metal, and they can refuse to catch the cars. Dumping people on the Glide is an attack on the next drum.
+- **Control is easy in a drum.** The clinics see nearly every pregnancy, the commons meters show a household eating for five on four shares within weeks, the register records every share and heir, and nine station rings are the only doors. Against it: 200 M people can hide a lot, home births need no machines, and every drum hears how others live.
 - **The quiet nightmare** is a counted drum that edits embryos toward wanting fewer children, and stops needing implants.
 
 **Life in one.** Rue, across the rows from Sorrel on Herb Row (ashgrove.md), is nine years into a stop.
 - It was a holdings drum where three children had come back into fashion. At ~14% over, a *Fusarium* blight took two vat lines, its thin households went short for a season, and the council that came out of that year posted the first Count and cut births to a quarter of deaths.
-- Its Count now reads ~215 M people on 200 M places, ~7.6% over, 450,000 licences against ~1.79 M deaths a year: par in ~11 years. People bet on the date.
+- Its Count now reads ~215 M people on 200 M shares (and 150 M places), ~7.5% over, 450,000 licences against ~1.79 M deaths a year: par in ~11 years. People bet on the date.
 - At fourteen every child goes to the clinic for the fitting, now a rite with a family dinner. Licences go by lottery to couples who both hold places, first children first, and can't be sold.
 - Low-deck schools stand half-empty; in fifteen years Rue will have a hollow in its workforce.
 - The well-off have Lovage births: they buy a birth right in Lovage and place the child there with relatives. Poorer couples hide pregnancies, and Rue's wild-born are mostly theirs.
-- Rue is richer per head than its neighbours, so the childfree swap in and would-be parents swap out. Each swap makes its rule a little more chosen.
+- Rue's extra people are mostly shareless children, so its shares still carry full wallets, and the childfree swap in while would-be parents swap out. Each swap makes its rule a little more chosen.
 
 **Legitimacy.** Counting holds when the Count is public and falling, the burden falls equally by lottery, it follows a shock people remember, it has an end date, and people can leave. It fails when the powerful are exempt, it outlives the shock as a bureaucracy's income, it targets one group, or the rings are shut. China's one-child rule lasted 35 years, past its own rationale; India's sterilisation drive cost the government the 1977 election.
 
-**The right of the Glide.** Most rafts guarantee that anyone may glide out of any drum. That keeps most counted drums at rungs 2–3, since the people most likely to resist leave. But a place doesn't travel, so leaving without a swap makes someone an unplaced lodger elsewhere: exit works for those who can find a swap, and fails the poor, who are counted hardest. A raft without the right, where drums can shut their rings, is where the dark drums are.
+**The right of the Glide.** Most rafts guarantee that anyone may glide out of any drum. That keeps most counted drums at rungs 2–3, since the people most likely to resist leave. But a share doesn't travel, so leaving without a swap makes someone a shareless lodger elsewhere: exit works for those who can find a swap, and fails the poor, who are counted hardest. A raft without the right, where drums can shut their rings, is where the dark drums are.
 
 **What neighbours and the raft do.**
 
 | Tool | Held by | Used against |
 |---|---|---|
-| Refuge swaps: places from the pool for people fleeing | Neighbour drums | Rungs 4–6 |
+| Refuge swaps: shares from the pool for people fleeing | Neighbour drums | Rungs 4–6 |
 | Placing wild-born children, or buying them rights | Neighbours, charities | Rung 5 |
 | Gate embargo on produce, strains and parts | Neighbours | Rungs 3+ |
 | Clinicians refusing licence checks, by Shade-wide norm | The medical guild | Rungs 3–4 |
@@ -151,8 +155,8 @@ A counted drum decides who may have a child, and enforces it. People call them t
 - **Every drum has counted at some point:** at the canon rate, ~40 years in every 3,000. Most keep an old Count board in a museum.
 
 ### The clinics and the wild-born
-- **Proofreading makes nearly every birth visible.** In a pool drum the clinic is where the right is checked; in a holdings drum it records which household the child belongs to.
-- **The wild-born** are children conceived and carried outside the clinics: unproofread, unregistered, often unplaced. Since proofreading is a norm and not a law, some are the children of refusers, not lawbreakers. People confuse the two.
+- **Proofreading makes nearly every birth visible.** In a pool drum the clinic is where the right is checked; in a holdings drum it records which household the child belongs to and whose share, if any, they carry.
+- **The wild-born** are children conceived and carried outside the clinics: unproofread, unregistered, often shareless. Since proofreading is a norm and not a law, some are the children of refusers, not lawbreakers. People confuse the two.
 - **A drum that wants control** can make proofreading free for licensed births and charge for the rest, without punishing anyone outright.
 
 ### Leaving
@@ -160,7 +164,7 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 
 | Trip | Cost per person | Time | What else it takes |
 |---|---|---|---|
-| To a passing raft | A 100–300 km/s capsule throw, ~10–90 GJ (raft-transport.md): ~2,800–25,000 kWh, 4 months to 3 years of a wallet | Days, but only to rafts passing within a few AU | A catch ramp on the other raft, and a place there, so in practice a swap |
+| To a passing raft | A 100–300 km/s capsule throw, ~10–90 GJ (raft-transport.md): ~2,800–25,000 kWh, 4 months to 3 years of a wallet | Days, but only to rafts passing within a few AU | A catch ramp on the other raft, and a share there, so in practice a swap |
 | To a chosen raft across the Shade | The same throw | Thousands of years at ~300 km/s across ~2 pc | A habitat for the trip: not a capsule ride |
 | To the frontier, in person | Climbing back out to 100–200 pc against the falling stream: ~80 GJ/kg, ~1.6 × 10⁸ kWh for ~7 t of person, shield and life support (~20,000 years of a wallet) | ~1 Myr, the payloads' fall run backwards (matter-delivery.md) | A self-supporting habitat, so a whole drum leaves together, taking its metal |
 | To the frontier, as a genome | Nearly free: a genome is information | Centuries by laser | An outpost willing to grow and raise the child |
@@ -186,13 +190,19 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 - An advantage s spreads across a grid at ~σ√(2s) per generation: ~0.14 drums a generation at σ = 1 drum, s = 0.01, ~4 × 10⁶ generations across 600,000 drums. Well mixed: ~(2/s) ln 2N ≈ 9,000 generations.
 - An unselected gene is knocked out by mutation pressure in ~10⁵–10⁶ generations.
 - Unchecked growth: three children a couple, ~1.5× a generation, ~1.2% a year, doubling in ~60 years.
+- Places: with lives of L ≈ 120 years and a place of one's own at age A, the share of people without a place is A ÷ L and people per place L ÷ (L − A). At A = 30: 25% and 1.33, so a drum of 200 M has 150 M places of 35 × 1.33 ≈ 47 m² of home.
+- Generations: a place freed at L lands k generations down. With first children ~3 years after a place, A ≈ (L − 3k) ÷ (k + 1): k = 3 gives places at ~28 and children at ~31, four generations alive and 1.30 people a place; k = 2 gives places at ~38 and children at ~41, 1.46 people a place (~137 M places).
+- Inheritance: each person has 8 great-grandparents, and each great-grandparent 8 great-grandchildren and 16 great-great-grandchildren, so on average each death frees a place for a great-grandchild and a share for a great-great-grandchild.
+- Overspending: four wallets of 21.6 kWh across five people ≈ 17.3 kWh a head. Work: 3.1 kWh an hour × 2,000 hours ÷ 365 ≈ 17 kWh a day.
 - Leaving: wallet ~0.9 kW ≈ 7,900 kWh a year. Climbing out to the frontier ≈ ½(v_arrival² − v_orbit²) ≈ ½(440² − 160²) km²/s² ≈ 84 GJ/kg, the catch figure run backwards; × 7 t ≈ 5.9 × 10¹⁴ J ≈ 1.6 × 10⁸ kWh. Crossing ~2 pc at 300 km/s ≈ 6,500 years.
 - Germline doubling dose ~1 Gy; 20 mSv/yr × 30 years ≈ 0.6 Sv.
-- Counted drums: growth (children ÷ 2)^(1/35 yr) − 1; 10% over in ln 1.1 ÷ rate; 1 kWe in ln 2 ÷ rate. Rue: 228 M at the stop, births at a quarter of deaths for 9 years ≈ −1.4 M a year → ~215 M; to par at ~1.34 M a year ≈ 11 years. Raft growth 1.4 × 10⁻⁹ a year × 6 × 10¹⁹ ≈ 8.4 × 10¹⁰ places a year; 10 M places ≈ 1 hour of it, or a year's growth of ~3.6 × 10⁷ drums (a patch ~150,000 km across). Prevalence = rate × probability × duration; Earth ≈ 75 coercive state-years ÷ (~190 states × 70 yr).
+- Counted drums: growth (children ÷ 2)^(1/35 yr) − 1; 10% over in ln 1.1 ÷ rate; 1 kWe in ln 2 ÷ rate. Rue: 228 M at the stop, births at a quarter of deaths for 9 years ≈ −1.4 M a year → ~215 M; to par at ~1.34 M a year ≈ 11 years. Raft growth 1.4 × 10⁻⁹ a year × 6 × 10¹⁹ ≈ 8.4 × 10¹⁰ shares a year; 10 M shares ≈ 1 hour of it, or a year's growth of ~3.6 × 10⁷ drums (a patch ~150,000 km across). Prevalence = rate × probability × duration; Earth ≈ 75 coercive state-years ÷ (~190 states × 70 yr).
 
 ## Sources
 - M. Lynch 2016, "Mutation and human exceptionalism: our future genetic load," Genetics 204: 7 (relaxed selection, ~1% a generation).
 - J. Hajnal 1965, "European marriage patterns in perspective" (late marriage gated by holdings).
+- A. Kussmaul 1981, *Servants in Husbandry in Early Modern England* (young adults working and lodging in others' households).
+- D. Gaunt 1983, "The property and kin relationships of retired farmers in northern and central Europe," in R. Wall, J. Robin and P. Laslett (eds), *Family Forms in Historic Europe* (retirement contracts).
 - R. Firth, *We, the Tikopia* (1936) (population control on a closed island).
 - K. Boulding 1964, *The Meaning of the Twentieth Century* (tradable birth licences; see economy.md).
 - S. Greenhalgh & E. Winckler 2005, *Governing China's Population*; M. Connelly 2008, *Fatal Misconception*; E. Tarlo 2003, *Unsettling Memories* (India's Emergency); G. Kligman 1998, *The Politics of Duplicity* (Romania); T. C. Smith 1977, *Nakahara* (Tokugawa family limitation); A. Trollope 1882, *The Fixed Period*; A. O. Hirschman 1970, *Exit, Voice, and Loyalty*.

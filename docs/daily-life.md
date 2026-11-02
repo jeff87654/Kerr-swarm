@@ -208,7 +208,7 @@ An orchard apple, a new shirt and 1,000 km flat out cost about the same. A chair
 - **Machine country is a letter away.** Minds stay biological in this setting (governance.md), so nobody lives on the Lantern. A job sent there comes back months to years later, and its rules are written and audited at the same remove.
 
 ## What energy can't buy
-- **A child.** A new person needs 6.7 t of new metal, which costs ~25–55 PJ to gather (matter-delivery.md): 400,000–900,000 years of a 2-kW budget. Metal arrives only as fast as the hole grows (~10⁻⁹ a year; full-swarm.md), so births match deaths: about two children per couple, on average. Every new household lives in an older one, remade. How places for children are allotted is in economy.md.
+- **A child.** A new person needs 6.7 t of new metal, which costs ~25–55 PJ to gather (matter-delivery.md): 400,000–900,000 years of a 2-kW budget. Metal arrives only as fast as the hole grows (~10⁻⁹ a year; full-swarm.md), so births match deaths: about two children per couple, on average. Every new household lives in an older one, remade. How shares for children are allotted is in economy.md.
 - **Floor space.** It's metal too, ~50 kg per m² (habitat-design.md). The baseline drum gives 100 m² per person; the crowded variant below gives ~55.
 
 ## Rhythm
