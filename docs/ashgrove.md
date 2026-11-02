@@ -16,7 +16,7 @@ Merrow is a compact raft about 0.1 AU across: some 6 × 10¹⁹ people in about 
 
 A drum's formal address is a pair of grid numbers that nobody says aloud. A long stretch of one row was founded together and named for herbs. Sorrel's neighbours along Herb Row are Tansy and Lovage, a 140-second glide either way; across the rows lie Rue and Chervil.
 
-Each drum is a nation of about 200 million and sets its own rules inside the same beam per place (economy.md). Neighbours a free glide apart can differ a lot:
+Each drum is a nation of about 200 million and sets its own rules inside the same beam per share (economy.md). Neighbours a free glide apart can differ a lot:
 - **Sorrel** runs the standard commons and a full dividend. It allots its fixed goods by age, so the old get the high decks and the most Hollow time. Birth rights can be given but not sold. Gin is sold almost at cost, with thiamine in it, as in the salt.
 - **Lovage** auctions its high decks and Hollow hours and spends the rents on a bigger commons, most visibly a sunline held at full brightness for twelve hours instead of six. Its birth rights can be sold. Spirits are taxed hard.
 - **Rue,** across the rows, is a counted drum nine years into a birth stop (people.md). Its children are fitted with implants at fourteen, its Count is posted on every platform, and Herb Row is quietly glad it counts rather than collapses.
@@ -58,7 +58,7 @@ Everywhere else the decks are 4 m apart and the ceilings about 3 m. Ashgrove is 
 
 **Wren Dace,** 15, plays a heliox flute in the Ashgrove youth ensemble. Her best friend, Juno, is someone she has never met. Juno lives a million kilometres down the row, about 41,000 drums away, three and a third seconds by light. They met in a slow world, a game built to tolerate lag, and they talk the way people across a raft talk, with a seven-second wait after everything either of them says. Wren is going dark for twelve days, giving up her personal compute, to pay for an express cycler to Juno's drum at the long break.
 
-**Ossian (Oss) Dace,** 8, is at the Ashgrove school. He loves the Glide, his grandmother and the idea of stars, which he has never seen. Nobody does from inside a drum: the raft's own layers hide the sky. Like many children in Sorrel, he's named for the person whose place he took, a lift engineer from deck 286 called Ossian Hale, whom the family never met. Every year on the date they send a note to Hale's daughter.
+**Ossian (Oss) Dace,** 8, is at the Ashgrove school. He loves the Glide, his grandmother and the idea of stars, which he has never seen. Nobody does from inside a drum: the raft's own layers hide the sky. Like many children in Sorrel, he's named for the person whose share he carries, a lift engineer from deck 286 called Ossian Hale, whom the family never met. Every year on the date they send a note to Hale's daughter.
 
 **Hedda Dace,** 93, Anselm's mother, lives alone on deck 361, a little over a minute up by cab, in one of the flats Sorrel allots to the old near the Hollow, where a fall carries half the energy it would at the rim. She spent forty years on the back crews, keeping up the radiator panels behind the drum, so she has looked at the stars on ordinary working days. The week Ossian was born, she asked to be the one who takes him to the Window.
 
@@ -95,7 +95,7 @@ The Daces, in kWh a day, averaged over a month:
 - **Goods:** ~16 kWh a day is ~230 kg of new things a year for four, about the 2-kW average, with two of the four still growing.
 - **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, and savings.
 
-**Rights.** Each place in Sorrel carries one birth right, so a couple has two children; at a death the place goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister in Chervil, and her nephew calls her his second mother.
+**Rights.** Each share in Sorrel carries one birth right, so a couple has two children; at a death the share goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister in Chervil, and her nephew calls her his second mother.
 
 ## Day one: a working day
 *Wren's third dark day. Nine days before the Window.*
@@ -249,7 +249,7 @@ Ossian has asked for his lamp to be turned all the way off, which nobody in Sorr
 - **Fixed goods and birth rights** (economy.md's tables). Sorrel allots high decks and Hollow hours by age, and birth rights are giftable only. Lovage auctions its fixed goods, spends the rents on its commons, and lets rights be sold.
 - **Wages** as in economy.md: the drum pays its posts from a ~7% levy, and private work runs at ~3 kWh an hour. Sorrel puts half a child's dividend in their own name at fourteen.
 - **Hollow time** rationed by deck: a six-hour turn about every eight weeks, plus daily lamp-dawn hours at the lake for Sorrel's elders.
-- **Naming:** children named for the dead whose places they take (economy.md's proposal), with the drum's register telling families whose place it was.
+- **Naming:** children named for the dead whose shares they carry (economy.md's proposal), with the drum's register telling families whose share it was.
 
 **New here:**
 - **Merrow:** a 0.1 AU raft in mid-Shade, its beam patch ~0.27 pc away (~11 light-months, economy.md's mid-Shade case). Herb Row: a run of drums founded together.

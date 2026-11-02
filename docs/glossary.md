@@ -224,25 +224,31 @@ Matches: kWh
 
 ### The commons and the wallet
 
-How a person's ~2 kWe splits. The commons (~1.1 kW) is the drum's budget, spent in kind on air, food, light and services; the wallet (~0.9 kW) is each person's own, paid as an equal beam dividend and topped up by work. See daily-life.md, economy.md.
+How a person's ~2 kWe splits. The commons (~1.1 kW) is the drum's budget, spent in kind on air, food, light and services; the wallet (~0.9 kW) is each person's own, paid as an equal beam dividend on each share and topped up by work. See daily-life.md, economy.md.
 
 Matches: commons, wallet, wallets
 
 ### The place
 
-The one share each person holds: ~6.7 t of habitat, a share of the beam and ~3 m² of the raft's back. It can't be sold or pledged; its yields (rooms, wallet kWh, Hollow hours, its birth right) can. At death it usually passes to an heir in the household; some drums return every place to a pool. See economy.md, people.md.
+Household land, like a farm: ~47 m² of home, about 1⅓ people's share, so a nation drum of 200 M has ~150 M places. Children and young adults live in a parent's or grandparent's place; most people get their own around 30, usually a great-grandparent's. It can't be sold or pledged, but its rooms can be let. See economy.md, people.md.
 
 Matches: none
 
+### The share
+
+Each person's claim on their drum: the wallet (~21.6 kWh a day) on top of the commons that everyone gets, with ~6.7 t of habitat and ~3 m² of the raft's back behind it. One per person at par. A death frees a share, and in most drums it passes to a newborn in the family, who is often named for the dead. A child born ahead of a death has none until one frees: the shareless get the commons and live on family wallets and work. See economy.md, people.md.
+
+Matches: shareless
+
 ### Birth rights
 
-In pool drums, each place carries one birth right, so a couple has two children; a nation drum gains a new place only about once every three and a half years. Whether rights can be sold is the sharpest choice in the setting. Most drums use holdings instead. See economy.md, people.md.
+In pool drums, each share carries one birth right, so a couple has two children; a nation drum gains a new share only about once every three and a half years. Whether rights can be sold is the sharpest choice in the setting. Most drums use holdings instead. See economy.md, people.md.
 
 Matches: birth right, birth rights
 
 ### Holdings
 
-The common way drums hold births to deaths: places pass to heirs, children live on their household's shares until a death in the family frees a place, and people marry when they hold places. See people.md, economy.md.
+The common way drums hold births to deaths: places and shares pass in the family. A death frees a place for a young adult, usually a great-grandchild, and a share for a newborn; a child born ahead of a death has no share until one frees; and people marry when they hold places, around 30. See people.md, economy.md.
 
 Matches: holdings
 
@@ -254,13 +260,13 @@ Matches: proofreading, proofread, unproofread
 
 ### The wild-born
 
-Children conceived and carried outside the clinics: unproofread, unregistered, often unplaced. Some are lawbreakers' children, some refusers'. See people.md.
+Children conceived and carried outside the clinics: unproofread, unregistered, often shareless. Some are lawbreakers' children, some refusers'. See people.md.
 
 Matches: wild-born
 
 ### Counted drums
 
-Drums that license births and enforce it, about 1% of drums at a quiet time and many more after a raft-wide shock. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against places. See people.md.
+Drums that license births and enforce it, about 1% of drums at a quiet time and many more after a raft-wide shock. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against shares. See people.md.
 
 Matches: counted drum, counted drums, the Count, the fitting
 
@@ -278,13 +284,13 @@ Matches: open drum, open drums
 
 ### The Margin
 
-The 2–4% of an open drum's places it keeps empty on purpose, as guest flats, refuge and first homes lent to young couples. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
+The 2–4% of an open drum's shares it keeps unused on purpose, with the places that go with them held by the drum as guest flats, refuge and first homes lent to young couples until they inherit. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
 
 Matches: the Margin, Margin flat, Margin flats
 
 ### The Ledger
 
-An open drum's board at every station ring: places, people, the Margin, births, deaths, guests, and each newborn's name beside the dead whose place they took. The open counterpart of the Count. See open-drums.md.
+An open drum's board at every station ring: shares, people, the Margin, places, births, deaths, guests, and each newborn's name beside the dead whose share they carry. The open counterpart of the Count. See open-drums.md.
 
 Matches: the Ledger
 

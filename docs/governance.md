@@ -1,6 +1,6 @@
 # Governance: who holds the Lantern
 
-*Design proposal from a working session, Oct 2026. Who can make whom do what in the mature civilization (full-swarm.md). It doesn't forecast what 10³³ people will believe. It sets out what the physics forces, the leverage it hands out, and what's left to choose. Minds stay biological in this setting (a worldbuilding choice), so the Lantern has machines but no residents. Builds on economy.md (who holds what, beam by place, the Dark as a sentence), raft-habitat.md (the drum as a nation, the raft as a world) and raft-transport.md (cyclers and the Glide in the Dark). Rafts are 0.1 AU across (~6 × 10¹⁹ people) unless noted. The names (glow sails, orbit families, the keepers, the four regimes) are proposals. Revised Oct 2026 for the 3 km nation drum (raft-habitat.md): rafts can reach ~1.6 AU, and present ~3 m² per person to the Lantern. Revised Oct 29, 2026 after a consistency audit.*
+*Design proposal from a working session, Oct 2026. Who can make whom do what in the mature civilization (full-swarm.md). It doesn't forecast what 10³³ people will believe. It sets out what the physics forces, the leverage it hands out, and what's left to choose. Minds stay biological in this setting (a worldbuilding choice), so the Lantern has machines but no residents. Builds on economy.md (who holds what, beam by share, the Dark as a sentence), raft-habitat.md (the drum as a nation, the raft as a world) and raft-transport.md (cyclers and the Glide in the Dark). Rafts are 0.1 AU across (~6 × 10¹⁹ people) unless noted. The names (glow sails, orbit families, the keepers, the four regimes) are proposals. Revised Oct 2026 for the 3 km nation drum (raft-habitat.md): rafts can reach ~1.6 AU, and present ~3 m² per person to the Lantern. Revised Oct 29, 2026 after a consistency audit.*
 
 ## Summary
 - **Plural by default.** With 10¹¹–10¹³ rafts and years of light-delay, no single sociology will hold. The questions here are narrower: what has to be shared, and who holds the leverage over it.
@@ -152,7 +152,7 @@ Founders who expect to lose power someday have reason to build in checks, as con
 |---|---|---|
 | What the Lantern answers to | A fixed charter; a cooperative of rafts; an order of keepers; regional blocs (economy.md's options, with minds biological) | Who can change the rules, and how fast |
 | Whether the Dark can kill | Sails banned, allowed or required | Whether a cut is a sentence or a siege |
-| How light is shared | By place (economy.md's proposal), by head, by contract, by contribution (metal delivered), by inheritance | Whether crowding pays, and whether population is shared business |
+| How light is shared | By share (economy.md's proposal), by head, by contract, by contribution (metal delivered), by inheritance | Whether crowding pays, and whether population is shared business |
 | Who decides how many people there are | Each drum within its share (canon), each raft, or the whole Shade | people.md's birth systems |
 | Whether the Lantern mends itself | Self-maintaining, or dependent on the Shade's foundries | Whether the Shade has a lever on it at all |
 | How the rules change | Locked; supermajority over decades; whoever holds the keys | Whether any regime can be locked in |
@@ -162,7 +162,7 @@ Founders who expect to lose power someday have reason to build in checks, as con
 - **A setting short of resources per head is one where someone chose more people over richer lives,** or failed to stop it. With light fixed, more people means leaner lives: Parfit's Repugnant Conclusion as a budget line.
 
 ## Sample regimes (not predictions)
-- **The Utility.** The Lantern runs a fixed charter: beam by place, cuts only by a process published years ahead, amendments by supermajority of rafts over decades. Politics lives on the rafts and in orbit families. The great crises are amendments, and fights over who interprets the code.
+- **The Utility.** The Lantern runs a fixed charter: beam by share, cuts only by a process published years ahead, amendments by supermajority of rafts over decades. Politics lives on the rafts and in orbit families. The great crises are amendments, and fights over who interprets the code.
 - **The keepers.** A hereditary or professional order tends the Lantern's machines and reads its code from rafts at the Shade's inner edge, the only people who understand it. Its legitimacy rests on competence and ritual, like Bali's water-temple priests, who scheduled irrigation for whole watersheds (Lansing). The danger is a caste.
 - **The great powers.** A handful of blocs divide the shell, each big enough to darken the rafts beneath it. Rafts drift beneath them like ships along foreign coasts, changing sovereigns every few millennia as their orbits carry them on.
 - **The Burn is the unspoken weapon.** The Lantern's beams sit deep in their near field across the whole gap, so a patch can focus on a raft and destroy it, and no raft can dodge or shield against it. Nothing in the hardware forbids it. It's held back by horror rather than physics: the Burn is the one act every raft treats as a crime against all, and any bloc that orders it can expect the rest of the Shade to unite against it, by upkeep strike, kinetic strike and relays routed around its patches. It has happened, if at all, rarely enough to be history.
@@ -185,7 +185,7 @@ All made, Oct 2026:
 - Whether anything stops a determined kinetic coalition, and whether the Lantern can shield itself.
 - The founding: who sealed the Lantern, under what rules, and how the layer era's rafts consented (full-swarm.md, sgr-a-scope.md).
 - Who holds the fuel reserves, parsecs out, that the feed depends on.
-- Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of places).
+- Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares).
 
 ## Method
 - **Baseline** (full-swarm.md, Oct 2026): luminosity 1.63 × 10³⁷ W; the Lantern at 0.824 pc (2 kW/m² average); the Shade at 0.91–1.23 pc (1.10–1.49 Lantern radii); 1.27 × 10³³ people at 12.8 kW of light each. Microwaves leave with 0.244 of the light, so the skin sheds 0.98 − 0.244 = 0.736. Rafts of 0.1 AU hold ~6 × 10¹⁹ people (raft-transport.md).

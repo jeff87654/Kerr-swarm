@@ -3,7 +3,7 @@
 *Narrative sketch from a working session, Oct 2026. A year in the life of Marit Vell of Chervil, told in the cards she sent home while crossing Merrow on guest-right. Builds on open-drums.md (guest-right, the wander year, Chervil, Marit, Jory and Oona, Booking Day, the Long Flight), raft-transport.md (cyclers and capsules), daily-life.md (prices and the wallet), eating-out.md (the Wanderers' Galley, the ring counters, Lightfall's passing-raft menu), ashgrove.md (the Window, the River and the Shelf, back crews, spinball, the black thread), people.md (counted drums, the fitting, passing rafts) and raft-habitat.md (the Hollow, the Spindle and its flying halls). Numbers come from those docs. Marit, Jory, Oona, Chervil, the Galley and the ring counters are already in them; every other name is new, and the new places, customs and choices are proposals, listed under What the sketch assumes. Exploration page: [Marit's Wander Year](https://claude.ai/artifact/Lnb82ZHwuEfsqXrF6vrw2Y).*
 
 ## At a glance
-- **Who:** Marit Vell, a cook from Chervil, an open drum on Herb Row (open-drums.md). She went at twenty-five, later than most, the year after her grandfather died; she holds his place now. She writes to Jory, her partner; Oona, one of her aunts and a lamp-painter; her table; and the Thursday crew at the Ring 2 hall.
+- **Who:** Marit Vell, a cook from Chervil, an open drum on Herb Row (open-drums.md). She went at twenty-five, later than most, the year after her great-grandfather died; she holds his place now. She writes to Jory, her partner; Oona, one of her aunts and a lamp-painter; her table; and the Thursday crew at the Ring 2 hall.
 - **What a wander year is:** most young people in open drums spend about a year crossing the raft, sleeping three nights at a time in drums that grant guest-right and riding slow cyclers between them (open-drums.md). The custom here is one card home from every row, sent by light, postmarked with the delay.
 - **The trip:** twelve cycler legs in a loop, 30.7 million km, out from Herb Row to the far side of Merrow and back. ~183 nights aboard, 51 drums slept in, 13 cards.
 - **What it cost:** 13.2 kWh of fares for the year, less than a pair of shoes (20). Her dearest purchase was a pair of remade wing-sleeves at 18 kWh. Almost all of the cost is time.
@@ -125,7 +125,7 @@ P.S. The far side says "kays" like "keys." I'm not having it.
 
 I came to Madder for the colours (the whole row grinds pigments) and got here the week they took the Count down.
 
-Madder counted for fourteen years after a vat fire. Its stop ran past par, the way stops do, and on Booking Day the assembly voted to keep the difference: 1.9%, about 3.8 million empty places. A Margin. Today they lifted the old Count board off the wall at Ring 4 and put up a Ledger, and this year, for the first time in fourteen, nobody fitted the fourteen-year-olds.
+Madder counted for fourteen years after a vat fire. Its stop ran past par, the way stops do, and on Booking Day the assembly voted to keep the difference: 1.9%, about 3.8 million unused shares. A Margin. Today they lifted the old Count board off the wall at Ring 4 and put up a Ledger, and this year, for the first time in fourteen, nobody fitted the fourteen-year-olds.
 
 I didn't expect to cry at a board. Everyone did. The old man next to me said his granddaughter turns fourteen next month, and then he couldn't say anything else.
 
@@ -220,6 +220,6 @@ If any of your wanderers come through Chervil, send them to my table. We'll know
 - **Half-g waves:** a wave's energy per area is ½ρga², so for the same energy its amplitude goes as 1/√g: √2 taller at 0.5 g. Deep-water period √(2πλ/g): a 20 m wave takes ~5.1 s at 0.5 g against 3.6 s on Earth. A 1.5 m swell along a ~500 m paddle line carries ~0.5–1 MW, a few blocks' park light at ~160 kW a block (ashgrove.md).
 - **Third-g noodles:** a hanging strand tears when its weight ρgAL exceeds its strength σA, so its longest length L = σ/ρg goes as 1/g: three times longer at a third of a g.
 - **The Passing:** rafts ~13 AU apart (ashgrove.md) give a number density n ≈ 4.6 × 10⁻⁴ AU⁻³. At v ≈ 200 km/s ≈ 42 AU a year, passes within d come at nπd²v: ~0.24 a year for 2 AU (once in ~4 years), ~1 a year for 4 AU. At 2 AU a 0.1 AU raft is ~2.9° across, about two fingers at arm's length, and 16.6 light-minutes away, so a reply begins ~33 minutes after a song is sent. It stays within ~3 AU for about a month.
-- **Madder:** 200 M places × 1.9% ≈ 3.8 M Margin.
+- **Madder:** 200 M shares × 1.9% ≈ 3.8 M Margin.
 - **Chervil at homecoming:** about four months before Booking Day, so between open-drums.md's figures: 194,052,000 people, a Margin of 5,948,000, ~410,000 guests.
 - **The express:** 111 kWh by cycler at 20 km/s (daily-life.md), ~5 days of a 21.6 kWh wallet.
