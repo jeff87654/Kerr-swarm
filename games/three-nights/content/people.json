@@ -3931,14 +3931,14 @@
     "sipping broth and explaining something nobody asked about"
    ],
    "lines": [
-    "Knotnight comes from the ring era, when habitats orbited on rings and passed through each other's shadow. Nights that lasted a fortnight. Now it's one evening a year, with jam.",
+    "Knotnight's name comes from the ring era, when habitats orbited on rings and crossed at knots. Its dark is the layer era's, when a raft could sit in other rafts' shadow for weeks. Now it's one evening a year, with jam.",
     "The drum you're standing in is older than anything else you'll ever touch, except the metal it's made of. That's older still. It fell out of the River.",
     "People talk about the Eleven Days as if they were history. They're news. Seventy-four years is yesterday in a drum this old.",
     "Ask me about anything before the Shade and I'll talk until your glide's gone. Ask me about anything since and I'll send you to someone younger.",
     "The archive on deck {deck} is open to guests. Tell them I sent you and they'll give you the good gloves.",
     "{nb} claims its station rings are the oldest on {row}. Every drum says that. They were all built in the same century. I've stopped correcting them. It gives them joy."
    ],
-   "knows": "The deep history of the drums and the Shade: the ring era and its knot nights, how old the drums are, the Eleven Days as recent history, the drum's archive, and the neighbours' founding stories."
+   "knows": "The deep history of the drums and the Shade: the ring and layer eras and where Knotnight comes from, how old the drums are, the Eleven Days as recent history, the drum's archive, and the neighbours' founding stories."
   },
   {
    "role": "museum keeper",

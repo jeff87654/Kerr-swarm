@@ -99,7 +99,7 @@ The World Happiness Report explains most of the gap between countries with six f
 | The Quiet | The day before Booking Day the whole drum goes dark: no worlds, no messages. People sit in the halls and talk | Saves each person ~9.6 kWh of compute |
 | Booking Day | The beam is booked; the Ledger is read; the assembly gives its split; one question is voted on. The Quiet's savings become a feast in every hall | ~9.6 kWh a head: a steak, a salad, half an orchard apple, cheese, wine |
 | The Long Flight | That night the sunline stays dark and the Spindle opens end to end. Hundreds of thousands fly the axis with hand lamps, in shifts till lamp-dawn | A watt or two each |
-| Knotnight | The ring era's winter in one evening: lamps down, the larder made together (ashgrove.md) | The larder is drill and gift at once |
+| Knotnight | The layer era's long dark in one evening: lamps down, the larder made together (ashgrove.md) | The larder is drill and gift at once |
 | Homecoming | Wanderers back from their year are met at the station ring by their block and their table | Free |
 | Namings | A child's table stands up for them; the dead's family brings a gift | Usually a remade heirloom |
 
