@@ -1,6 +1,6 @@
 # Kerr swarm
 
-Worldbuilding for a far-future human civilization living around a Kerr black hole. The baseline is Sgr A\* fed at 30% of its Eddington luminosity and held there as it grows: the hole's glowing envelope (the Lantern) beams power to rafts of nation drums in the Shade outside it. Population is very high (~10³³ people) and resources per person are tight: about 2 kWe of electricity, ~6.7 t of heavy elements and ~3 m² of raft area each.
+Worldbuilding for a far-future human civilization living around a Kerr black hole. The baseline is Sgr A\* fed at 30% of its Eddington luminosity and held there as it grows: the hole's glowing envelope (the Lantern) beams power to rafts of nation drums in the Shade outside it. Population is very high (~2 × 10³³ people) and resources per person are tight: about 2 kWe of electricity, ~6.7 t of heavy elements and ~3 m² of raft area each.
 
 This repository is the source of truth for the design docs. The older Google Drive mirror is retired.
 
@@ -10,18 +10,20 @@ The docs are also published as a browsable world bible at **https://jeff87654.gi
 
 When docs disagree, `full-swarm.md` (Oct 2026 revisions) is the baseline for the mature civilization, and the newer detailed docs (`element-cycles`, `raft-habitat`, `drum-transport`, `governance`, `economy`) beat older ones. Ring-era docs stay valid for ring-era numbers. Decisions from the consistency audit and the stress test of 29 Oct 2026:
 
-- **Raft area:** 3 m² per person, sized for the 2 kWe life. A raft at the full common budget would need ~3.5 m² for its radiators. Rafts near the Shade's inner edge take ~3.3–3.6 m², since reflected Lantern glow lands on their radiators.
-- **Growth horizon:** ~1–2 Gyr (hole grows ~19×): ~2 Gyr if the hole spins up to 0.998, ~0.9–1.6 Gyr if magnetized flows hold it at ~0.93–0.99. Drums take ~75% of their metal from white dwarfs (`element-cycles.md`); 1.1 Gyr is only the all-solar-mix case at full spin.
-- **Metal:** the 30% civilization holds ~4.3 × 10⁶ M☉ of heavy elements.
+- **Population** (1 Nov 2026, physics audit): ~1.95 × 10³³ people, set by the 2 kWe life at 30% of Eddington (~8.3 kW of the disk's light each). The Shade weighs ~2× the hole. Older figures of ~1.27 × 10³³ were the 3.1 kWe common budget's.
+- **Raft area:** 3 m² per person, sized for the 2 kWe life. A raft at the full common budget would need ~3.3–4.2 m² for its radiators (~3.5 with its hot loads at ~500 K). Rafts near the Shade's inner edge take ~3.3–3.8 m², since reflected Lantern glow lands on their 300 K radiators.
+- **Growth horizon:** ~1–2 Gyr (hole grows ~19×): ~2 Gyr if the hole spins up to 0.998, ~0.9–1.6 Gyr if magnetized flows hold it at ~0.93–0.99. Drums take ~75% of their metal from white dwarfs (`element-cycles.md`); 1.1 Gyr is only the all-solar-mix case at full spin. As the hole grows, rafts must climb: a free orbit shrinks while the Lantern widens.
+- **Metal:** the 30% civilization holds ~6.6 × 10⁶ M☉ of heavy elements (6.7 t a person). The harvest reaches the inner bulge, out to ~0.4 kpc, as well as the nuclear stellar disk (`matter-delivery.md`).
 - **Travel shields:** sealed water only. Polyethylene is banned because it leaks hydrogen.
-- `hole-choice.md` uses 4.06 kWe per person for the fed-hole rows. Cryocoolers pause only while boil-off is used or stored.
-- **Hydrogen store:** the cluster's stripped hydrogen and helium is kept as ~4 × 10⁸ brown dwarfs at ~10–30 pc, not as gas or ice.
+- **Per-person power:** the Lantern generates ~2.64 kWe per person for the 2 kWe life (4.06 kWe for the common budget, which `hole-choice.md`'s older fed-hole rows use). Cryocoolers pause only while boil-off is used or stored.
+- **Hydrogen store:** the cluster's stripped hydrogen and helium is kept as ~4 × 10⁸ brown dwarfs at ~10–30 pc, not as gas or ice. It covers the feed and the shields for ~750 Myr.
 - **Lantern mirrors:** ~3–5° grazing, since a spun-up disk's light is mostly above ~100 eV.
 - **The Burn:** the beam can focus to destroy a raft. It's possible but held to be a crime against the whole Shade, which unites the other rafts against whoever orders it.
-- **Rules of the road:** orbits kept round (eccentricity under ~0.003); one collision is a 10³³–10³⁶ J blast that can cascade.
+- **Rules of the road:** orbits kept round (eccentricity under ~0.003), and every raft climbs with a steady prograde push as the hole grows; one collision is a 10³³–10³⁶ J blast that can cascade.
 - **Electronics:** data halls and power electronics sit in water-walled vaults; rectennas use radiation-hard diodes.
-- **Disk weather:** dips of tens of percent are ridden out on methanol (~140 kg a person for a month at 20%), then rationed.
+- **Disk weather:** dips of tens of percent are ridden out on methanol (~95 kg a person for a month at 20%, in fuel cells at ~48%), then rationed. The tank farm banks the matching oxygen as liquid (~145 kg a person) and keeps the CO₂ (~130 kg) for re-synthesis, since nothing vents. Refilling costs ~780 kWh a person.
 - **Genome drift:** accepted. Huge rafts drift little.
+- **The great year:** a calendar unit of 39,000 years, about one orbit. Nothing in the sky marks it.
 - **Bodies and births** (31 Oct 2026, `people.md`): proofreading of every embryo is the norm, not a law, and clears mutation load. Each drum gets a fixed allotment of beam and runs its own birth system. Places and shares mostly pass in the family; pool drums with birth rights are the minority.
 - **Places and shares** (1 Nov 2026, `people.md`, `economy.md`): a place is household land, like a farm, so a nation drum of 200 M has ~150 M places of ~47 m² of home. Children and young adults live in a parent's or grandparent's place; most people get their own around 30, usually a great-grandparent's. Each person's wallet comes with a share, one per person at par, freed by a death in the family and passed to the family's longest-waiting shareless member, or otherwise to a newborn. A child born ahead of a death has no share until one frees, and lives on the commons, family wallets and work. Beam follows shares.
 - **Homes and rent** (1 Nov 2026, `people.md`, `open-drums.md`, `economy.md`): couples bridge the years before a place of their own in many ways at once: a parent's place, rented rooms, lodging, an elder's early hand-down, a swap, and in open drums a Margin place lent for up to five years, by lottery for the best flats (and for the loans themselves when the Margin runs short). Rent floats with a drum's slack: about 0.1 kWh per m² a day at par, about half that in an open drum, two to four times it in a thin one. Chervil's halls hire their own people first, and Sorrel counts back-crew years toward going up.
