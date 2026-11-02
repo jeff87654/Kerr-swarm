@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -26,7 +26,7 @@ Matches: Lantern
 
 ### The Shade
 
-The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.95 × 10³³ people living the 2 kWe life, in rafts on crossing orbits that take ~35,000–39,000 years. It weighs ~8.7 × 10⁶ M☉, ~2× the hole, and ~6.6 × 10⁶ M☉ of that is heavy elements, 6.7 t a person. See full-swarm.md, daily-life.md.
+The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.95 × 10³³ people living the 2 kWe life, in rafts on crossing orbits that take ~35,000–39,000 years. It weighs ~9.7 × 10⁶ M☉, ~2.2× the hole, and ~6.6 × 10⁶ M☉ of that is heavy elements, 6.7 t a person. See full-swarm.md, daily-life.md.
 
 Matches: Shade
 
@@ -94,7 +94,7 @@ Matches: Keel
 
 ### Low, Middle and High decks
 
-The drum's residential bands. Low decks (0.98–0.85 g) hold families, schools and visitors; Middle decks (0.85–0.6 g) most homes and work; High decks (0.6–0.5 g), with the lowest dose and nearest the Hollow, are elders' flats and the prestige address. "Money lives up; the way out is down." See raft-habitat.md.
+The drum's residential bands. Low decks (0.98–0.85 g) hold families, schools and visitors; Middle decks (0.85–0.6 g) most homes and work; High decks (0.6–0.5 g), with a low dose (the Middle decks' is lowest) and nearest the Hollow, are elders' flats and the prestige address. "Money lives up; the way out is down." See raft-habitat.md.
 
 Matches: Low decks, Middle decks, High decks
 
@@ -136,7 +136,7 @@ Matches: Quaysides
 
 ### Hydrogen jacket
 
-The drum's cosmic-ray shield: ~50 m of liquid hydrogen at 20 K (~3.5 t/m²) over hull and end caps, ~2.2 t per person in a nation drum. Cryopanels in its guard vacuum freeze anything the hull leaks, so nothing vents. See habitat-design.md, element-cycles.md.
+The drum's cosmic-ray shield: ~50 m of liquid hydrogen at 20 K (~3.5 t/m²) over hull and end caps, with ~100 m more over the front cap in the Shade against the corona's MeV tail: ~3.2 t per person in a nation drum. Behind it, the moat and the decks, residents take ~1 mSv/yr. Cryopanels in its guard vacuum freeze anything the hull leaks, so nothing vents. See habitat-design.md, element-cycles.md.
 
 Matches: hydrogen jacket
 
@@ -476,7 +476,7 @@ Matches: Knotnight
 
 ### The Window
 
-Galleries behind the drum, outside the jacket, where every Sorrel child sees the stars once. See ashgrove.md.
+Galleries behind the drum, outside the jacket, glazed with ~1.5 m of water, where every Sorrel child sees the stars once. See ashgrove.md.
 
 Matches: the Window
 

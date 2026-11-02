@@ -1,6 +1,6 @@
 # Element cycles: what's recycled, what's parked, what's lost
 
-*Design proposal from a working session, Oct 2026. Element by element: how closed a drum's loops can be, split into what's lost but stays aboard (the inside ledger) and what leaves a raft (the outside ledger). Answers matter-delivery.md's open question on which element binds first, and so how much white-dwarf ore drums can use. Builds on habitat-design.md (the drum, its jacket and moat), food-system.md (the loops), matter-delivery.md (ores and their prices), full-swarm.md (growth and fuel), raft-transport.md (vehicles and shields), raft-habitat.md (radiators) and daily-life.md (the Yards). Figures are per person. "Solar mix" is Asplund et al. 2009 with neon left at the source, as matter-delivery.md ships it. Budgets assume stellar and white-dwarf ore; gas, while it flows, loosens them. The names (the two ledgers, the cold envelope, the frost) are proposals. Checked by an independent review, whose corrections are folded in. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): per person it has a lighter jacket and moat, a smaller glide fleet and longer radiator trunks. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): ~1.95 × 10³³ people hold ~6.6 × 10⁶ M☉, so growth's living-star ore now comes from the nuclear stellar disk and the inner bulge (matter-delivery.md), the cluster's gas lasts ~750 Myr, and the survival reserve banks ~60 kg of oxygen a person.*
+*Design proposal from a working session, Oct 2026. Element by element: how closed a drum's loops can be, split into what's lost but stays aboard (the inside ledger) and what leaves a raft (the outside ledger). Answers matter-delivery.md's open question on which element binds first, and so how much white-dwarf ore drums can use. Builds on habitat-design.md (the drum, its jacket and moat), food-system.md (the loops), matter-delivery.md (ores and their prices), full-swarm.md (growth and fuel), raft-transport.md (vehicles and shields), raft-habitat.md (radiators) and daily-life.md (the Yards). Figures are per person. "Solar mix" is Asplund et al. 2009 with neon left at the source, as matter-delivery.md ships it. Budgets assume stellar and white-dwarf ore; gas, while it flows, loosens them. The names (the two ledgers, the cold envelope, the frost) are proposals. Checked by an independent review, whose corrections are folded in. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): per person it has a lighter jacket and moat, a smaller glide fleet and longer radiator trunks. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): ~1.95 × 10³³ people hold ~6.6 × 10⁶ M☉, so growth's living-star ore now comes from the nuclear stellar disk and the inner bulge (matter-delivery.md), the cluster's gas lasts ~750 Myr, and the survival reserve banks ~60 kg of oxygen a person. Revised 2 Nov 2026 (radiation decisions, Jeff): travel shields hold ~0.2 t of water a person against the corona's MeV tail; front caps carry ~1 t more hydrogen a person, so the cluster's gas lasts ~665 Myr; crews outside work from closed sleds; and ammonia's radiolysis costs ~0.03 W a person at most to re-fix.*
 
 ## Summary
 - **Two ledgers, two currencies.**
@@ -176,9 +176,9 @@ If all of a person's 6.7 t were shipped solar mix:
 | Locks and berths | ~0.54 train departures a year | ISS docking, in heliox: ~0.04 kg a year | ~0 | Vestibules are cryopumped inside the cold |
 | Vehicle skins | ~3,100 m² a train | ~0.5–5 g of water a year | ~0 | Trains never breathe cabin air |
 | Vehicle cabins | ~9 g of oxygen in trains, ~40–160 g in cycler berths | ISS-like: ~5–15 g a year | ≤0.1 mg a year | Welded, metal-sealed: ≲10⁻⁶ a year |
-| Crews outside | Suits and airlocks | ISS: ~0.4 kg of oxygen a spacewalk, in heliox | ≤0.1 mg a year in all | Hard suits; airlocks into the cold |
+| Crews outside | Closed sleds and airlocks | ISS: ~0.4 kg of oxygen a spacewalk, in heliox | ≤0.1 mg a year in all | Closed sleds (~4 t/m²); airlocks into the cold |
 | The moat | ~0.26 t of water, 0.52 m² | — | ≤0.1 mg a year | Sealed, metal-lined, self-sealing cells; radiolysis recombined |
-| Travel shields | ~0.08 t of water | — | ≤0.05 mg a year | Sealed tanks, ~6 × 10⁻¹⁰ a year |
+| Travel shields | ~0.2 t of water | — | ≤0.05 mg a year | Sealed tanks, ~2.5 × 10⁻¹⁰ a year |
 | Radiator fluid | ~2–4 kg; ~3 m² of panel | At 10⁻⁴ a year: 0.2–0.4 g a year | ≤0.1 mg a year | Compartments; leak-chasers; radiolysis traps |
 | Solids in the X-ray flood | The raft's frame, rectennas, radiators | Polyethylene shields: 4–16 g of hydrogen a year | ≤0.1 mg a year | Bare carbon, ceramic and metal only |
 | Yards and data halls | ~100 kg a year through industry | — | ≤0.1 mg a year | Closed chambers; ≤10⁻⁹ escapes |
@@ -198,13 +198,13 @@ If all of a person's 6.7 t were shipped solar mix:
 - **Radiator fluid.**
   - The hull's heat leaves as two-phase ammonia (raft-habitat.md), ~2–4 kg a person, mostly in trunk lines, through panels that must face open sky.
   - Ammonia's nitrogen comes from the living stars, so the loop shares nitrogen's ~0.13 mg budget: under ~5 × 10⁻⁸ of its charge a year. At 10⁻⁴ a year the nitrogen lost would exceed what the whole stream carries. That's what radiator crews are for: every leak they chase is metal.
-  - **Radiolysis.** Panels in the X-ray flood take ~1–10 MGy a year, splitting ~1–7 g of N₂ and ~0.2–2 g of H₂ from each kg of ammonia in them. Two-phase loops purge such gas; here the traps send it inside the cold, where it's already a Haber–Bosch feed.
+  - **Radiolysis.** Panels in the X-ray flood take ~1–10 MGy a year, splitting ~1–7 g of N₂ and ~0.2–2 g of H₂ from each kg of ammonia in them. Two-phase loops purge such gas; here the traps send it inside the cold, where it's already a Haber–Bosch feed. Re-fixing that nitrogen costs ~0.002–0.03 W a person (~0.3 W even at 10× the yields), so radiolysis doesn't decide between ammonia and propylene.
   - **Option: propylene in the panels,** with ammonia kept inside the cold and the heat handed across at the back axle. Propylene is carbon, a Mill product (food-system.md's methanol-to-olefins chemistry), so its losses cost only energy, ~0.25 W per mg: a loop ten times leakier costs a fraction of a watt. The price: ~485,000 kg/s a drum instead of ~135,000 (~970 m³/s of liquid instead of ~220, about the same vapour), ~4% more radiator for the exchanger's ~3 K step, and traps for its radiolytic hydrogen.
   - **Hot loops** (data halls, Yards, rectennas, 350–600 K) sit wholly outside the cold. They run water or sodium, never NaK: potassium has the tightest budget of all.
 - **Travel shields: the hydrogen surprise.**
   - raft-transport.md allows water or polyethylene. In the mid-raft's X-ray flood (20–40 W/m²), glide cars, tubes and cycler trunks absorb ~0.2–0.75 W a person.
   - Polyethylene gives off hydrogen at ~3.3 molecules per 100 eV: ~4–16 g a person a year, ~140–580× what the hole eats, emptying the cluster's stripped gas in ~2–8 Myr. Its front 10–30 cm takes ~2–7 MGy a year, enough to embrittle it within about a year.
-  - Water splits ~7× less readily, and in a sealed tank it recombines. Shields are sealed water: ~0.08 t a person, held to ~6 × 10⁻¹⁰ a year (0.05 mg), sealed like the moat.
+  - Water splits ~7× less readily, and in a sealed tank it recombines. Shields are sealed water: ~0.2 t a person, held to ~2.5 × 10⁻¹⁰ a year (0.05 mg), sealed like the moat.
   - The same goes for every polymer in the flood: matrices, insulation and seals give off H₂, CH₄, CO and CO₂ the same way. Exposed structure is bare carbon, ceramic or metal.
 - **The Yards and data halls.** Industry outside the drums runs in closed vacuum chambers. Their heat goes to warm condensers and the hot panels; only small, shaded cold stages at their exhausts catch volatiles (a Yard's ~290 W a person landing on 20 K walls would need ~14 kW of cryocooling). At most ~10⁻⁹ of the ~100 kg a person a year may escape.
 - **The Lantern.**
@@ -214,8 +214,8 @@ If all of a person's 6.7 t were shipped solar mix:
 - **Fires.** Venting a burning compartment overboard is a spacecraft habit. A 100 × 100 × 4 m compartment holds ~11 t of oxygen, ~55 years of its drum's whole budget. Fire dumps go to a tank inside the cold.
 
 ### Hydrogen and helium
-- **"Free" means cheap, not unlimited.** The cluster's stripped gas covers fuel and shields for ~750 Myr (matter-delivery.md), and the hole eats ~12–19 mg a person a year. Every milligram a person a year lost is ~5% of today's fuel line.
-- So the jacket (2.2 t a person) may lose at most ~4.5 × 10⁻¹⁰ a year, the cabin's helium is pumped home from the guard vacuum, the moat's radiolysis is recombined, and hydrogen-bearing solids stay out of the X-rays.
+- **"Free" means cheap, not unlimited.** The cluster's stripped gas covers fuel and shields for ~665 Myr (matter-delivery.md), and the hole eats ~12–19 mg a person a year. Every milligram a person a year lost is ~5% of today's fuel line.
+- So the jacket (3.2 t a person) may lose at most ~3 × 10⁻¹⁰ a year, the cabin's helium is pumped home from the guard vacuum, the moat's radiolysis is recombined, and hydrogen-bearing solids stay out of the X-rays.
 - **Boil-off can't be vented either.** A 55-day beam cut boils ~4 kg of the jacket a person, about half the ~7.6 kg the survival fuel cells burn with the ~60 kg of banked oxygen, so all of it is used and the rest is drawn from the jacket. energy-budget.md's coolers can pause freely only if nothing vents.
 
 ### Where lost atoms go
@@ -228,7 +228,7 @@ If all of a person's 6.7 t were shipped solar mix:
 1. **Nothing vents.** Reliefs, purges, boil-off, fire dumps and locks all open into the cold.
 2. **Heavy elements live inside a cold envelope, or behind welded, metal-sealed walls.**
 3. **Vehicles never breathe cabin air.** People board through cryopumped hatches; freight moves in sealed canisters.
-4. **Everything outside the cold has a leak budget:** the moat ~4 × 10⁻¹⁰ a year, shields ~6 × 10⁻¹⁰, cabins ~10⁻⁶, ammonia ~5 × 10⁻⁸. Liquids sit in compartmented, self-sealing cells, and radiolysis gas goes back inside.
+4. **Everything outside the cold has a leak budget:** the moat ~4 × 10⁻¹⁰ a year, shields ~2.5 × 10⁻¹⁰, cabins ~10⁻⁶, ammonia ~5 × 10⁻⁸. Liquids sit in compartmented, self-sealing cells, and radiolysis gas goes back inside.
 5. **No hydrogen-bearing solids in the X-ray flood.** Shields are sealed water; exposed structure is bare carbon, ceramic or metal.
 6. **Minerals keep moving:** short pipelines, small floats, 99.9% per pass, residues reprocessed yearly.
 7. **No soil, no NaK, and no dissipative uses of scarce elements.** Rare elements carry passports.
@@ -255,7 +255,7 @@ If all of a person's 6.7 t were shipped solar mix:
 - **raft-habitat.md, ashgrove.md:** no edits. Ammonia stays in the panels, held to ~5 × 10⁻⁸ a year; the propylene option is open below.
 
 ## Open questions
-- **Ammonia or propylene** in the exposed panels: ammonia must lose under ~5 × 10⁻⁸ a year, since its nitrogen comes only from the living stars; propylene's losses cost only energy, but it needs ~4× the liquid flow. Both need radiolysis traps, and the yields for liquid ammonia under these doses need checking.
+- **Ammonia or propylene** in the exposed panels: ammonia must lose under ~5 × 10⁻⁸ a year, since its nitrogen comes only from the living stars; propylene's losses cost only energy, but it needs ~4× the liquid flow. Both need radiolysis traps; radiolysis itself doesn't decide it (re-fixing ammonia's lost nitrogen costs ~0.03 W a person at most).
 - **Whether leaked gas comes back** (swept up by rafts) or boils out of the Shade (Compton-heated).
 - **The Shade's debris,** which sets puncture rates for the moat, panels, shields and cabins.
 - **How lean the mineral loop can be:** the Dark's float against the 55-day reserve, and how little potassium people can live on for two months.
@@ -277,7 +277,7 @@ If all of a person's 6.7 t were shipped solar mix:
 - **ISS:** ~0.6–1 lb of air a day from ~1,080 kg (915.6 m³ pressurized); 0.64 lb per Soyuz or Progress visit, 3.6 lb per US spacewalk, 35.3 lb per Russian (NASA).
 - **Travel:** ~325 one-way trips a person a year (the Glide's design peak, a daily round trip for ~45% of residents) in 1,000-seat trains at an assumed 60% load, ~0.54 departures a person a year; ~0.010 seats a person (raft-transport.md); train skin 3,100 m² (100 × 10 × 5 m), cabin ~3 m³ a seat; cycler berths for ~3% of a raft's people at ~5–20 m³ each; one molecular layer of water ~3 × 10⁻⁷ kg/m².
 - **Shield radiolysis:** 20–40 W/m² face-on; cars, tubes and trunks ~0.012–0.025 m² face-on-equivalent a person (~0.02–0.04 in a 2 km drum, whose glide fleet was larger per person); 75% absorbed over 10–30 g/cm²; G(H₂) = 3.3 per 100 eV for polyethylene (IAEA), 0.45 for water.
-- **Radiators:** ~2–4 kg of fluid a person, mostly trunk lines (~220 m³/s across a 24.5 km cell, whose panels reach ~11.5 km from the axle; ~1–2 kg in a 2 km drum's 13 km cell); panels of 3–10 kg/m² absorbing ~1–3% of the flood; liquid-ammonia radiolysis taken as G(N₂) ≈ 0.25 and G(H₂) ≈ 0.8 per 100 eV (unchecked). Two-phase at 300 K: ammonia 1.17 MJ/kg, propylene 0.33 MJ/kg; 160 GW a drum.
+- **Radiators:** ~2–4 kg of fluid a person, mostly trunk lines (~220 m³/s across a 24.5 km cell, whose panels reach ~11.5 km from the axle; ~1–2 kg in a 2 km drum's 13 km cell); panels of 3–10 kg/m² absorbing ~1–3% of the flood; liquid-ammonia radiolysis taken as G(N₂) ≈ 0.25 and G(H₂) ≈ 0.8 per 100 eV (gaseous ammonia gives G(H₂) = 0.7, Eyre & Smithies 1970; liquid values unchecked). Re-fixing at ~10 kWh per kg of nitrogen. Two-phase at 300 K: ammonia 1.17 MJ/kg, propylene 0.33 MJ/kg; 160 GW a drum.
 - **Moat:** 0.52 m² a person (0.79 in a 2 km drum); radiolysis 0.03–0.08% a year (habitat-design.md).
 - **Lantern:** a wind carrying 1% of the light at 0.1c; sputtering 10⁻⁵–10⁻³ atoms per proton at ~20 u; 6 m² a person.
 - **Where lost atoms go:** the Shade at 0.91–1.23 pc; sweeping from raft fronts (3 m² a person) at 10–20 km/s; Compton heating time m_ec² ÷ (4σ_T c U) in 30 W/m² of leak, with a Compton temperature of ~3 × 10⁸ K for a ~100 keV mean.
