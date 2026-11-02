@@ -63,7 +63,7 @@ Everywhere else the decks are 4 m apart and the ceilings about 3 m. Ashgrove is 
 **Hedda Dace,** 93, Anselm's mother, lives alone on deck 361, a little over a minute up by cab, in one of the flats Sorrel allots to the old near the Hollow, where a fall carries half the energy it would at the rim. She spent forty years on the back crews, keeping up the radiator panels behind the drum, so she has looked at the stars on ordinary working days. The week Ossian was born, she asked to be the one who takes him to the Window.
 
 ### The flat
-The Daces live on deck 77, off Pear Street, two corners from the Court: about 140 m², four rooms and a kitchen, the standard 35 m² of home a head. It has no windows. Almost nothing in Sorrel does, apart from the flats on the Court's terraces and the terraces of the Hollow's end walls. The lamps follow the drum's clock: a ramp up at half past six, a long even day at about 200 lux, a fade toward eleven.
+The Daces live on deck 77, off Pear Street, two corners from the Court: about 140 m², four rooms and a kitchen: the ~94 m² of Anselm's and Teo's two places, and two rooms they rent from the old couple next door. It has no windows. Almost nothing in Sorrel does, apart from the flats on the Court's terraces and the terraces of the Hollow's end walls. The lamps follow the drum's clock: a ramp up at half past six, a long even day at about 200 lux, a fade toward eleven.
 
 What they own:
 - **The table,** which was Hedda's grandmother's, and four chairs that don't match. The newest thing in the flat is Ossian's bed, from his sixth birthday.
@@ -95,7 +95,7 @@ The Daces, in kWh a day, averaged over a month:
 - **Goods:** ~16 kWh a day is ~230 kg of new things a year for four, about the 2-kW average, with two of the four still growing.
 - **Energy:** of ~112 kWh a day coming in, ~78 goes on energy. The rest is time paid to other people, and savings.
 
-**Rights.** Each share in Sorrel carries one birth right, so a couple has two children; at a death the share goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister in Chervil, and her nephew calls her his second mother.
+**Rights.** Each share in Sorrel carries one birth right, so a couple has two children; at a death the share goes back to the drum's pool and a child is born into it (economy.md). Anselm and Teo spent theirs on Wren and Ossian. Sorrel lets a right be given but not sold. Ilka, across Pear Street, gave hers to her sister on deck 90, and her nephew calls her his second mother.
 
 ## Day one: a working day
 *Wren's third dark day. Nine days before the Window.*

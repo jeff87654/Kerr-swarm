@@ -5,7 +5,7 @@
 ## Summary
 - **A stationary state.** Energy is a flow fixed per person, metal a stock fixed per person, and the population is closed (growth ~10⁻⁹ a year). Nothing compounds. In shape it's an agrarian economy, with metal for land and the beam for the harvest, rents and status, and machines doing all the farming.
 - **Post-labour, not post-scarcity.** Machines make everything; physics sets the budget.
-- **Every price is an energy cost, a rent or someone's time.** Made things cost their kWh (daily-life.md's price list). Fixed things earn rents: floor, the Hollow, high decks, places for children. People's time costs what others will pay for it.
+- **Every price is an energy cost, a rent or someone's time.** Made things cost their kWh (daily-life.md's price list). Fixed things earn rents: floor, the Hollow, high decks, birth rights for children. People's time costs what others will pay for it.
 - **Four ledgers:** kWh, a yearly flow, is the money; mass, a fixed stock, is property; shares, one per person at par, carry the wallet and pass to children; places, about three for every four people, are household land.
 - **Income is a dividend plus work.** The commons (~1.1 kW, for everyone) and an equal beam dividend (~0.9 kW, the wallet, one per share) cover a whole life. Work is how a wallet grows. If people spend a quarter of their wallets on each other's time, an hour costs ~3 kWh, a little more than a Vat-table dinner.
 - **Children are the dearest thing.** A nation drum gains a new share about once every three and a half years; all other births wait on deaths. In most drums a death frees a share for a newborn in the family, so a household's births follow its own deaths; some keep a pool with one birth right per share (people.md). Whether such rights can be sold is the sharpest choice in the setting.
@@ -85,7 +85,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 
 ## Property
 ### The share (proposal)
-- **Every person at par holds one share:** ~6.7 t of habitat (100 m² of floor and part of the food plant, shield, reserve and raft), their part of the beam (~2 kWe: the commons and the wallet), and ~3 m² of the raft's back. A drum of 200 M holds 200 M shares.
+- **Every person at par holds one share:** ~6.7 t of habitat (100 m² of floor and part of the food plant, shield, reserve and raft), the ~2 kWe of beam behind it, which funds the commons for everyone and pays the holder's wallet, and ~3 m² of the raft's back. A drum of 200 M holds 200 M shares.
 - **It can't be sold or pledged.** Selling it would mean selling your air.
 - **Its yields can be traded:** wallet kWh, heat allowance and Hollow hours.
 - **A death frees it, and it passes to a newborn,** in most drums within the family (people.md). A child born ahead of a death has no share until one frees. Pool drums return every share to the pool and run birth rights instead (see Children).
@@ -132,7 +132,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Births per nation drum per year | 2.5 M | 1.7 M | 1.0 M | 500,000 |
 | Share under 18 | 22% | 15% | 9% | 4.5% |
 
-- **Drums choose how births follow deaths** (people.md). Each gets a fixed share of the beam, so overbreeding thins only its own shares.
+- **Drums choose how births follow deaths** (people.md). Each gets a fixed allotment of beam, so overbreeding thins only its own commons and its families' wallets.
 - **Holdings, the common system.** A death frees a share, and it passes to a newborn in the family, often named for the dead; it also frees a place for a young adult in the family. With 120-year lives and children around 30, the dying generation is the young couples' great-grandparents: a couple's 16 great-grandparents free, on average, a place for each partner and a share for each of two children. Couples marry when they hold places, around 30.
 - **A child born ahead of a death has no share** until one frees in the family, so the household divides its wallets: a third child takes a family of four from 21.6 kWh a head to ~17. Because wallets come only from deaths, an extra child's wallet is the family's own cost.
 - **Birth rights, in pool drums.** Every share returns to the pool at death and carries one claim to a share for a child, so a couple has two children: replacement, as daily-life.md assumes. A birth draws a share from the pool now, and the parent's own share refills it at their death; the pool keeps a buffer for the gap. Places return to the pool too, and go to adults by age or auction.
@@ -187,7 +187,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
   - A cut's length has to be set when it's ordered (thirty days of Dark, then the beam returns), and announced ahead if the target is meant to prepare. Sanctions are sentences passed a year or more in advance, not sieges that end at surrender.
   - That makes inner rafts with fast cyclers the hardest to coerce.
   - **Glow sails change this.** The Lantern can't stop glowing, and heat engines on its glow carry a raft on rations (~0.4 kW per person) for as long as a cut lasts, except near the disk plane. A sailed raft can be besieged and can surrender, and starving it means darkening a whole region of the Lantern (governance.md).
-- **Beam follows shares, not heads (proposal).** If beam followed headcount, a raft could buy power by packing in people on smaller floors, and every raft would crowd. Tied to shares, a fixed count set when the habitat was built, a raft's beam is fixed, and crowding only dilutes it.
+- **Beam follows shares, not heads (proposal).** If beam followed headcount, a raft could buy power by packing in people on smaller floors, and every raft would crowd. Tied to shares, a count that grows only as metal arrives, a raft's beam is fixed, and crowding only dilutes it.
 - **Who runs it** is the founding question (full-swarm.md, governance.md):
 
 | The Lantern is run as | Strength | Danger |
@@ -253,7 +253,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Hajnal's European marriage pattern (1965).** In northwest Europe a couple married when it could set up its own household, usually on a holding of its own, so people married late and many never did. Places work the same way.
 - **Retirement contracts.** Long-lived Central European farmers often handed the farm to the heir before death and kept a room and their keep under a contract, the *Altenteil* (people.md).
 - **Russia's repartitional commune.** The *obshchina* re-divided village land among households by the number of mouths or workers, and historians have long argued that it rewarded big families. A wallet paid for every child would do the same, which is why shares come from deaths.
-- **Baumol's cost disease (1966). A string quartet takes the same four players and forty minutes it did in the 1820s, so live performance gets dearer next to everything machines make. In the Shade machines make everything.
+- **Baumol's cost disease (1966).** A string quartet takes the same four players and forty minutes it did in the 1820s, so live performance gets dearer next to everything machines make. In the Shade machines make everything.
 
 ## Knock-on changes
 - **1 Nov 2026, places and shares:** people.md (places and shares, the shareless, counted drums), open-drums.md (the Margin, Chervil's Ledger, the gift of a share), glossary.md, and the place wording in ashgrove.md, sorrel.md, wander-year.md, daily-life.md and governance.md.
@@ -267,12 +267,12 @@ All made, Oct 2026:
 - Can birth rights be sold, in pool drums?
 - Who collects rents on fixed goods?
 - How long people live.
-- Who runs the Lantern, and whether beam follows places or heads (governance.md sets out the dials).
+- Who runs the Lantern, and whether beam follows shares or heads (governance.md sets out the dials).
 - Whether minds can run as software (not in this setting, for now), and whether people can go up.
 - How information is paid for: prizes, patronage, reputation.
 - Whether the dividend can be pledged, and how debt works at all.
 - What government looks like for a raft of 10¹⁹–10²² people.
-- Emigration between rafts: swaps of places, and who pays for the catch ramp.
+- Emigration between rafts: swaps of shares, and who pays for the catch ramp.
 
 ## Method
 - Flows: daily-life.md's 2-kW split over 8,766 hours a year.

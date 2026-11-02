@@ -290,7 +290,7 @@ Matches: the Margin, Margin flat, Margin flats
 
 ### The Ledger
 
-An open drum's board at every station ring: shares, people, the Margin, places, births, deaths, guests, and each newborn's name beside the dead whose share they carry. The open counterpart of the Count. See open-drums.md.
+An open drum's board at every station ring: shares, people, the Margin, places, births, deaths, guests, each newborn's name beside the dead whose share they carry, and each new householder beside the dead whose place they took. The open counterpart of the Count. See open-drums.md.
 
 Matches: the Ledger
 
@@ -552,7 +552,7 @@ Matches: the Summer, Summer Day
 
 ### Register of Places
 
-Sorrel's record of every place, heir and name, unbroken for about 23,000 years. The old Count board hangs in its hall. See sorrel.md.
+Sorrel's record of every place, share and name, unbroken for about 23,000 years. The old Count board hangs in its hall. See sorrel.md.
 
 Matches: Register of Places
 
