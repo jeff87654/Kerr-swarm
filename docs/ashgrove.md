@@ -283,7 +283,7 @@ None edited.
 - **Glide:** quay at 3,050 m, 174.4 m/s; a 24.5 km hop in 140 s.
 - **Windows:** a drum of 200 M sees ~1,400–6,800 births a day at lives of 400 to 80 years (economy.md), so ~4,500 eight-year-olds a day at 120. A dozen galleries take ~900 children and their adults a round, five rounds a day.
 - **Cyclers:** 1 g ramps of 20,400 km (34 minutes) at each end, so a million km at 20 km/s takes ~14.5 h plus glides and boarding. Capsule 200 kg at 1% loss: 111 kWh at 20 km/s, 1.1 kWh at 2 km/s (5.8 days). Light delay over a million km: 3.3 s one way.
-- **Rafts:** 1.27 × 10³³ people ÷ 6 × 10¹⁹ per raft ≈ 2 × 10¹³ rafts in the 0.9–1.25 pc shell, ~13 AU apart; nearest neighbour ~0.55 × spacing ≈ 7 AU, where a 0.1 AU raft is 0.8° across.
+- **Rafts:** 1.95 × 10³³ people ÷ 6 × 10¹⁹ per raft ≈ 3.3 × 10¹³ rafts in the 0.9–1.25 pc shell, ~11 AU apart; nearest neighbour ~0.55 × spacing ≈ 6 AU, where a 0.1 AU raft is ~1° across.
 - **Giants:** L = 100–1,000 L☉ with bolometric corrections of −0.8 to −1.5 gives M_V ≈ +0.5 to −1.3, so V ≈ 3.7–7 at 100–200 pc, before dust.
 - **Heliox flute:** a concert flute's ~0.67 m × 1.8 ≈ 1.2 m.
 - **Household:** dividends 4 × 21.6; Teo full time at economy.md's ~6,200 kWh a year (~17 a day); Anselm ~1,000 hours at ~3 kWh. Energy lines from daily-life.md's wallet: compute, Vat-table premium, appliances, devices and home light, goods (~25 kWh/kg) and travel.

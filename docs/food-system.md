@@ -185,7 +185,7 @@ Detailed menus, techniques and sample days are in cuisine.md.
   - Every calorie eaten turns oxygen into water; only electrolysis turns it back.
   - In a prolonged power shortfall, the usable O₂ margin runs out before a 90-day food reserve does: 21→16 kPa ≈ 36 kg ≈ 55 days. At the end of that margin the air is about as thin as Mexico City's.
   - So emergency power goes to the electrolyzers first (their H₂ can be banked in the shield), and the Garden is dimmed first.
-  - In the full swarm this margin sets how long a raft survives a total beam cut (full-swarm.md), unless it carries glow sails: heat engines on the Lantern's own glow that can run a ration diet indefinitely, away from the disk plane (governance.md). Air handling still needs ~50–100 W per person, from a survival reserve of fuel cells burning shield hydrogen with ~35 kg of banked oxygen each. Fuel cells must not draw on the cabin's oxygen, or they eat the margin.
+  - In the full swarm this margin sets how long a raft survives a total beam cut (full-swarm.md), unless it carries glow sails: heat engines on the Lantern's own glow that can run a ration diet indefinitely, away from the disk plane (governance.md). Air handling still needs ~50–100 W per person, from a survival reserve of fuel cells burning shield hydrogen with ~60 kg of banked oxygen each. Fuel cells must not draw on the cabin's oxygen, or they eat the margin.
 
 ## Mass and floor space (common diet)
 - Vats: ~10–12 L working volume (~20 L with turnaround and redundancy); ~30–60 kg with broth and ancillaries.
