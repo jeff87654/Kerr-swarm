@@ -1,8 +1,8 @@
 # X-ray power: turning the hole's light into electricity
 
-*Design proposal from a working session, Sept 2026. Answers the open question in energy-budget.md about conversion efficiency. Companion to energy-budget.md, swarm-rings.md and habitat-design.md. Figures are per m² of collector facing ~1 kW/m² of X-rays unless marked. "Planning" values are far-future but not heroic.*
+*Design proposal from a working session, Sept 2026. Answers the open question in energy-budget.md about conversion efficiency. Companion to energy-budget.md, swarm-rings.md and habitat-design.md. Figures are per m² of collector facing ~1 kW/m² of X-rays unless marked. "Planning" values are far-future but not heroic. Revised 1 Nov 2026 after a physics audit: the tile's back face sheds ~600 W/m², not 630, and the scope is the 10 M☉ design study.*
 
-*Scope: **the ring era around a starved 10 M☉ hole.** The mature civilization (Sgr A* fed at 30% of Eddington) turns the disk's extreme UV into power with hovering mirror, furnace and turbine collectors at ~32%, and needs no X-ray tiles (full-swarm.md, hole-choice.md). The parasol analysis below carries over only in part: the fed disk's corona leaks ~20–40 W/m² of hard X-rays through those collectors, but from the whole Lantern, a source up to 130° across, so drums in the Shade shield their sides too, with their own water instead of iron (habitat-design.md).*
+*Scope: **the 10 M☉ design study, with rings around a starved 10 M☉ hole.** It is not this civilization's history: its ring era was around the starved Sgr A\*, at ~37% conversion with no X-ray tiles (hole-choice.md). The mature civilization (Sgr A* fed at 30% of Eddington) turns the disk's extreme UV into power with hovering mirror, furnace and turbine collectors at ~32%, and needs no X-ray tiles (full-swarm.md, hole-choice.md). The parasol analysis below carries over only in part: the fed disk's corona leaks ~20–40 W/m² of hard X-rays through those collectors, but from the whole Lantern, a source up to 130° across, so drums in the Shade shield their sides too, with their own water instead of iron (habitat-design.md).*
 
 ## Summary
 - **Standard tile: ~22% of the hole's light becomes electricity** (range ~17–26%), not the 40% assumed for sunlight. The common budget then needs **~15 kW of light and ~23 m² of band per person**.
@@ -38,7 +38,7 @@
 | Foil insulation | ~40 nickel foils, 0.1 µm each; effective emissivity ~10⁻³ | 340 → 850 K | Keeps the plate hot; transparent above ~15 keV |
 | Plate | 2 mm iron, sodium heat pipes every ~20 cm | ~850 K | Absorbs ~28% of incident energy, mostly 15–100 keV |
 | Engine | Free-piston Stirling, helium, linear alternator; ~2 kW per ~25 m² tile | 850 K hot, 350 K cold | ~35% of the heat it receives; ~30% of the plate's absorbed energy after insulation leaks |
-| Back | Foil insulation, then the radiator face | ~335 K | Sheds ~630 W/m² outward |
+| Back | Foil insulation, then the radiator face | ~335 K | Sheds ~600 W/m² outward |
 
 - Machinery (heat pipes, foils, engine, radiator, frame) is ~7 kg/m². The whole tile is ~25 kg/m².
 - The skin needs no insulation in front. It faces the swarm's interior, which is lined with other skins at the same temperature, so its net radiation inward is ~zero. All waste heat leaves from the back.
@@ -119,6 +119,7 @@ Per 1 kW/m² incident, planning values, index-2.0 spectrum.
 - Plate: foil effective emissivity 1.5 × 10⁻³ (front plus back), engine at 60% of Carnot, cold end 350 K. The best plate temperature is ~830–870 K.
 - TPV check: detailed balance with a grey emitter (emissivity 0.9) and cells at 340 K absorbing 95% above the gap, with 99.5% sub-gap reflectance and 5% external radiative efficiency.
 - Per person: 3.24 kWe (common budget plus 10% firm-load overhead), 1.56 m² of band per kW of light (swarm-rings.md), truss at 10% of added mass.
+- Back face: all the heat absorbed and not converted leaves here. Per 1 kW/m² incident that's 1,000 − 172 passing through − 9 scattered back − 217 converted ≈ 600 W/m².
 - Full-swarm shielding: superseded by habitat-design.md's moat, computed with this method extended to 6 MeV and to a wide source.
 
 ## Sources
