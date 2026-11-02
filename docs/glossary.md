@@ -242,7 +242,7 @@ Matches: shareless
 
 ### Birth rights
 
-In pool drums, each share carries one birth right, so a couple has two children; a nation drum gains a new share only about once every three and a half years. Whether rights can be sold is the sharpest choice in the setting. Most drums use holdings instead. See economy.md, people.md.
+In pool drums, each share carries one birth right, so a couple has two children; a nation drum gains a new share only about once every three and a half years. A right unspent at its holder's death returns to the pool and is reissued by lottery to couples who have spent theirs (proposal). Whether rights can be sold is the sharpest choice in the setting. Most drums use holdings instead. See economy.md, people.md.
 
 Matches: birth right, birth rights
 

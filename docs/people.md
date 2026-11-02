@@ -47,17 +47,19 @@ Most of what the drum changes is what it stops asking for.
 ### What binds
 - **Each drum gets a fixed allotment of beam** from its raft and decides what to do with it (governance.md). Extra people don't take beam from neighbours; they thin their own drum's commons and their families' wallets.
 - **Metal is fixed.** A drum gains one new share every ~3.6 years (and a new place every ~4.8) against ~1.7 M births a year at 120-year lives (economy.md), so births wait on deaths.
-- **A drum with no limit hits the wall in about a century.** At three children a couple it grows ~1.2% a year: from 2 kWe a person to the lean 1 kWe in one lifetime, and near the survival floor (~0.5–1 kWe, 25 m² of floor) in about two. Every lasting drum has some way of holding births to deaths, formal or not.
+- **A drum with no limit hits the wall in about a century.** At three children a couple it is 10% over par in ~25 years, down to the lean 1 kWe a person in ~95, and at the bottom of the survival floor (~0.5 kWe, 25 m² of floor) in ~155. Growth starts slowly, at ~0.4% a year, because at first only the newest cohort is bigger. It reaches its long-run ~1.2% a year after about a century. Every lasting drum has some way of holding births to deaths, formal or not.
 
 ### Places and shares
 The common system, and closest to how most land-limited societies on Earth worked: they limited who could set up a household rather than who could give birth. A drum keeps two ledgers (economy.md).
 
 - **A place is household land, like a farm.** A nation drum of 200 M people is divided into ~150 M places, each ~47 m² of home, about 1⅓ people's share. Children and young adults live in a parent's or grandparent's place. At death a place passes to an heir, so nobody is turned out when the householders die.
-- **Most people get their own place around 30.** A place frees when its holder dies at ~120 and lands about three generations down. With children around 30, four generations are alive, and the usual place is a great-grandparent's. A couple sets up its own home when it holds places, so most marry around 30. (The four-generation rhythm gives places at ~28 and ~1.30 people a place; ~150 M rounds it.) Younger adults live in the family's place or lodge in others': the drum's version of Europe's servants in husbandry.
+- **Most people get their own place around 30.** A place frees when its holder dies at ~120 and lands about three generations down. With children around 30, four generations are alive, and the usual place is a great-grandparent's. A couple sets up its own home when it holds places, so most marry around 30. A family-tree model of a drum with 150 M places puts first places at ~30 on average: a quarter by 25, a fifth after 35. Younger adults live in the family's place or lodge in others': the drum's version of Europe's servants in husbandry.
 - **A share is a person's wallet.** Every person at par holds one: the dividend (21.6 kWh a day) on top of the commons that everyone gets, shared or not (economy.md). A death frees a share. It goes first to the family's longest-waiting shareless member, if there is one, and otherwise to the next child born in the family, who is often named for the dead.
+- **Most children start shareless.** About three babies in five are born before the death in the family that frees their share. They wait for it ~4 years on average, and one in ten waits 8 years or more. So at par ~2% of people are shareless, nearly all of them small children on their families' wallets. Shareless adults are rare in a drum at par.
 - **One death, two inheritances.** A couple's 16 great-grandparents die around the couple's late 20s and 30s, and on average they free a place for each partner and a share for each of two children. A death at 120 gives a home to a great-grandchild and a wallet to a great-great-grandchild. Births follow deaths inside each family.
 - **A family can overspend.** A child born ahead of a death has no share until one frees in the family, so the household divides its wallets: a third child takes a family of four from 21.6 kWh a head to ~17. The child still eats at the Mill table, because the commons is per head. So an extra child's wallet half (0.9 kW) falls on the family and its commons half (1.1 kW) on the whole drum, which is why drums still need norms. Overspent households have less floor and fewer kWh each, and suffer first in a Dark, like Ireland's subdivided plots.
 - **The shareless work.** An adult without a share gets the commons but no dividend, and lives on family wallets and work: at ~3 kWh an hour, full-time work earns ~17 kWh a day, ~80% of a wallet (economy.md). A share is a cushion and the freedom not to work, not survival. Most of the shareless get one in time, as deaths in the family free shares.
+- **Childlessness is rare,** about one adult in twenty, so two children is normal and a third is notable. At ~5% childless, ~12% of families have a third child, which replaces the childless and the few who die before 35. Each further point of childlessness makes room for about two more families in a hundred to have a third, so a third in 15% of families needs ~6% childless. Any more thirds than the childless make room for, and the drum runs over par.
 - **Places and shares drift to careful families.** A childless person's place goes to a niece, a cousin or an adopted heir, and their share to the next in line in that branch of the family. Over generations, small families grow rich in places and prolific ones grow thin. Adopting an adult heir, as Japanese families adopted sons-in-law, is a normal way to keep a holding, and the only way to give a share outside the family.
 - **An elder can hand over a place early.** Central European farmers retired on a maintenance contract, the *Altenteil*: the heir took the farm and the old couple kept a room and their keep. In a drum it moves the wait from the young to the old.
 - **Drums with fewer, larger places run on three generations.** A drum divided into ~137 M places settles at places around 38 and first children around 41.
@@ -68,12 +70,13 @@ The common system, and closest to how most land-limited societies on Earth worke
 |---|---|---|---|---|
 | A child's share comes from | A death in the family | The drum's pool, spending a parent's right (economy.md) | The pool, by norm | The drum, by order |
 | Big families are | Possible but poorer | Rich, connected or lucky | Disapproved of | Punished |
-| Who stays childless | Shareless younger siblings | Sellers of rights, where sales are allowed | Orders and the honoured | Whoever the drum says |
+| Who stays childless | ~5%: callings, choice, a few shareless younger siblings | Sellers of rights, where sales are allowed | Orders and the honoured | Whoever the drum says |
 | How it fails | Overspent households break in a Dark | Shareless children; the poor selling their own child's right | Norms weaken and the drum overshoots | Revolt, or other drums turning on it |
 | Earth echo | Northwest Europe, Japan's *ie* | China's licences, Boulding's proposal | Tikopia, monastic Tibet | Tokugawa famines, China's worst years |
 
 - **Pool drums** (Sorrel, Lovage) are reformers' drums: shares return to a pool at death and places are allotted by age or auction. They're equal between families, and they need a registry and an answer for the shareless child.
-- **Open drums** (open-drums.md) are holdings drums where custom does work: a Margin of unused shares and drum-held places, places lent to couples until they inherit, the gift of a share by adoption, and tables of childless aunts around every child.
+- **Unspent rights go back to the pool (proposal).** A right whose holder dies before spending it returns to the pool and is reissued, by lottery to couples who have spent theirs. Without that rule a pool drum loses the rights of everyone who dies before having children, ~0.7% a generation at 120-year lives, and it shrinks; after a plague it would never refill. With it, the pool keeps births equal to deaths, and the lottery is where a pool drum's third children come from.
+- **Open drums** (open-drums.md) are holdings drums where custom does work: a Margin of unused shares and drum-held places, places lent to couples until they inherit, the gift of a share by adoption, and tables of aunts around every child, most of them adults whose own children are grown.
 - **Custom is weak here** because the Shade lacks the outlet most Earth societies leaned on: there's nowhere to emigrate. Swaps between rafts free no shares, and new shares come one at a time. What remains are honours for the childless (Hollow hours, a high-deck flat), and childless callings with real standing.
 - **Coercive drums** (counted drums) appear where a drum has overshot and nobody will bail it out. See Counted drums below.
 
@@ -83,11 +86,13 @@ A counted drum decides who may have a child, and enforces it. People call them t
 **Why drums count.**
 - **Deaths set the births.** A nation drum loses ~1.7 M people a year, so that's how many children it can have.
 
-| Children per couple | Growth | 10% over par in | Lean 1 kWe life in |
+| Children per couple | Long-run growth | 10% over par in | Lean 1 kWe life in |
 |---|---|---|---|
-| 2.25 | 0.34%/yr | ~28 yr | ~200 yr |
-| 2.5 | 0.64%/yr | ~15 yr | ~110 yr |
-| 3.0 | 1.16%/yr | ~8 yr | ~60 yr |
+| 2.25 | 0.34%/yr | ~64 yr | ~250 yr |
+| 2.5 | 0.64%/yr | ~41 yr | ~150 yr |
+| 3.0 | 1.16%/yr | ~25 yr | ~95 yr |
+
+- **Overshoot is slow to show.** The growth rates are long-run. A drum at par is three or four generations deep, and when couples start having more children only the newest cohort is bigger, so the first decades grow at about a third of the long-run rate. The Count barely moves while the bigger cohorts are being born, and by the time it does, they're already here.
 
 - **Overshoot is survivable for a long time.** At 10% over, each person has ~1.8 kWe and the 55-day reserve covers ~50 days; real danger starts near 1.5–2× par. So counting starts over the trend, not hunger, and every counted drum overstates its emergency.
 - **The raft bails out disasters, not overbreeding.** A 0.1 AU raft gains ~8 × 10¹⁰ shares a year, so a drum that loses 10 M shares' worth of habitat to an accident can be rehoused from about an hour of the raft's growth, spread across ~4 × 10⁷ drums by tube. Nobody hands shares to a drum that bred past its own, or every drum would.
@@ -114,7 +119,7 @@ A counted drum decides who may have a child, and enforces it. People call them t
 
 **Life in one.** Rue, across the rows from Sorrel on Herb Row (ashgrove.md), is nine years into a stop.
 - It was a holdings drum where three children had come back into fashion. At ~14% over, a *Fusarium* blight took two vat lines, its thin households went short for a season, and the council that came out of that year posted the first Count and cut births to a quarter of deaths.
-- Its Count now reads ~215 M people on 200 M shares (and 150 M places), ~7.5% over, 450,000 licences against ~1.79 M deaths a year: par in ~11 years. People bet on the date.
+- Its Count now reads ~217 M people on 200 M shares (and 150 M places), ~8.5% over, 450,000 licences against ~1.66 M deaths a year: par in ~14 years. People bet on the date. Deaths are fewer than 217 M ÷ 120 would suggest, because the extra people are young, and the bettors who know it win.
 - At fourteen every child goes to the clinic for the fitting, now a rite with a family dinner. Licences go by lottery to couples who both hold places, first children first, and can't be sold.
 - Low-deck schools stand half-empty; in fifteen years Rue will have a hollow in its workforce.
 - The well-off have Lovage births: they buy a birth right in Lovage and place the child there with relatives. Poorer couples hide pregnancies, and Rue's wild-born are mostly theirs.
@@ -189,14 +194,17 @@ Emigration is no outlet: a few go, and it's hard. Someone short of floor and foo
 - Neutral fixation ~4N generations. Divergence between drums by chance F_ST ≈ 1/(1 + 4Nm), ~10⁻⁸ for N = 2 × 10⁸, m = 0.1.
 - An advantage s spreads across a grid at ~σ√(2s) per generation: ~0.14 drums a generation at σ = 1 drum, s = 0.01, ~4 × 10⁶ generations across 600,000 drums. Well mixed: ~(2/s) ln 2N ≈ 9,000 generations.
 - An unselected gene is knocked out by mutation pressure in ~10⁵–10⁶ generations.
-- Unchecked growth: three children a couple, ~1.5× a generation, ~1.2% a year, doubling in ~60 years.
-- Places: with lives of L ≈ 120 years and a place of one's own at age A, the share of people without a place is A ÷ L and people per place L ÷ (L − A). At A = 30: 25% and 1.33, so a drum of 200 M has 150 M places of 35 × 1.33 ≈ 47 m² of home.
-- Generations: a place freed at L lands k generations down. With first children ~3 years after a place, A ≈ (L − 3k) ÷ (k + 1): k = 3 gives places at ~28 and children at ~31, four generations alive and 1.30 people a place; k = 2 gives places at ~38 and children at ~41, 1.46 people a place (~137 M places).
+- Unchecked growth: three children a couple, ~1.5× a generation, ~1.2% a year in the long run. From a drum at par, a cohort model (Gompertz mortality fitted to 120-year lives, births at 35 ± 6) gives ~0.4% a year for the first 20 years, 10% over in ~25 years and doubling in ~95.
+- Places: with lives of L ≈ 120 years and a place of one's own at age A, the share of people without a place is A ÷ L and people per place L ÷ (L − A). At A = 30: 25% and 1.33, so a drum of 200 M has 150 M places of 35 × 1.33 ≈ 47 m² of home. A family-tree model (~15,000 people over 640 years: marriage at ~28, children 3 and 6 years later, places to the eldest placeless descendant of the dead) gives first places at 30.4 (10–90%: 21–40) and 1.34 people a place; 71% of places come from a great-grandparent, 16% from a grandparent, 12% from an aunt's or cousin's line.
+- Generations: a place freed at L lands k generations down. With first children ~3 years after a place, A ≈ (L − 3k) ÷ (k + 1): k = 3 gives places at ~28 and children at ~31, four generations alive and 1.30 people a place (~154 M places); k = 2 gives places at ~38 and children at ~41, 1.46 people a place (~137 M places). The rhythm is a rule of thumb; the place count sets the age, and 150 M places give ~30.
+- Shares: in the same family-tree model, with ~5% childless and thirds set to hold par, ~60% of babies are born before the death that frees their share and wait ~3.6–3.9 years (90th percentile 7–8). About 1.5% of people are shareless at exact par, and ~2.3% at 0.8% over, almost all children. About half of shares come from a great-great-grandparent, ~12% from a great-grandparent and most of the rest from an aunt's or cousin's line.
+- Families: replacement is 2 ÷ (survival to 35) ≈ 2 ÷ 0.993 ≈ 2.01 births a couple. With a share c of adults childless, parents average 2.01 ÷ (1 − c): at c = 5%, 2.12, so ~12% of families have a third child if none stop at one. A third in 15% of families needs c ≈ 6%.
+- Pool drums: a right is lost if its holder dies before spending it; survival to 35 is 0.993, so ~0.7% of rights a generation.
 - Inheritance: each person has 8 great-grandparents, and each great-grandparent 8 great-grandchildren and 16 great-great-grandchildren, so on average each death frees a place for a great-grandchild and a share for a great-great-grandchild.
 - Overspending: four wallets of 21.6 kWh across five people ≈ 17.3 kWh a head. Work: 3.1 kWh an hour × 2,000 hours ÷ 365 ≈ 17 kWh a day.
 - Leaving: wallet ~0.9 kW ≈ 7,900 kWh a year. Climbing out to the frontier ≈ ½(v_arrival² − v_orbit²) ≈ ½(440² − 160²) km²/s² ≈ 84 GJ/kg, the catch figure run backwards; × 7 t ≈ 5.9 × 10¹⁴ J ≈ 1.6 × 10⁸ kWh. Crossing ~2 pc at 300 km/s ≈ 6,500 years.
 - Germline doubling dose ~1 Gy; 20 mSv/yr × 30 years ≈ 0.6 Sv.
-- Counted drums: growth (children ÷ 2)^(1/35 yr) − 1; 10% over in ln 1.1 ÷ rate; 1 kWe in ln 2 ÷ rate. Rue: 228 M at the stop, births at a quarter of deaths for 9 years ≈ −1.4 M a year → ~215 M; to par at ~1.34 M a year ≈ 11 years. Raft growth 1.4 × 10⁻⁹ a year × 6 × 10¹⁹ ≈ 8.4 × 10¹⁰ shares a year; 10 M shares ≈ 1 hour of it, or a year's growth of ~3.6 × 10⁷ drums (a patch ~150,000 km across). Prevalence = rate × probability × duration; Earth ≈ 75 coercive state-years ÷ (~190 states × 70 yr).
+- Counted drums: growth (children ÷ 2)^(1/35 yr) − 1; 10% over in ln 1.1 ÷ rate; 1 kWe in ln 2 ÷ rate. Rue: three children a couple takes a drum at par to 228 M (14% over) in ~35 years (~50 at 2.5); births at a quarter of deaths for 9 years ≈ −1.2 M a year → ~217 M. The extra people are young, so deaths stay near ~1.66 M a year, not 217 M ÷ 120 ≈ 1.8 M; at 450,000 licences the drum falls ~1.2 M a year and reaches par in ~14 years. All from the cohort model above. Raft growth 1.4 × 10⁻⁹ a year × 6 × 10¹⁹ ≈ 8.4 × 10¹⁰ shares a year; 10 M shares ≈ 1 hour of it, or a year's growth of ~3.6 × 10⁷ drums (a patch ~150,000 km across). Prevalence = rate × probability × duration; Earth ≈ 75 coercive state-years ÷ (~190 states × 70 yr).
 
 ## Sources
 - M. Lynch 2016, "Mutation and human exceptionalism: our future genetic load," Genetics 204: 7 (relaxed selection, ~1% a generation).
