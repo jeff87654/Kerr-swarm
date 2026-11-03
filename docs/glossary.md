@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -230,7 +230,7 @@ Matches: commons, wallet, wallets
 
 ### The place
 
-Household land, like a farm: ~47 m² of home, about 1⅓ people's share, so a nation drum of 200 M has ~150 M places. Children and young adults live in a parent's or grandparent's place; most people get their own around 30, usually a great-grandparent's. It can't be sold or pledged, but its rooms can be let. See economy.md, people.md.
+Household land, like a farm, passed whole to one heir: one household's home of ~78 m², about 2¼ people's share, so a nation drum of 200 M has ~90 M places. Children and young adults live in a parent's or grandparent's place; an heir usually inherits a great-grandparent's place in their late 20s, and a spouse marries in. Children belong to a place: couples have them once they have one. It can't be sold or pledged, but its rooms can be let. See economy.md, people.md.
 
 Matches: none
 
@@ -248,9 +248,21 @@ Matches: birth right, birth rights
 
 ### Holdings
 
-The common way drums hold births to deaths: places and shares pass in the family. A death frees a place for a young adult, usually a great-grandchild, and a share for a newborn; a child born ahead of a death has no share until one frees; and people marry when they hold places, around 30. See people.md, economy.md.
+The common way drums hold births to deaths: places and shares pass in the family. A couple's last death frees their place for one heir, usually a great-grandchild, and each death frees a share for a newborn; a child born ahead of a death has no share until one frees; and couples have children once they have a place, so a drum's extra children become the placeless rather than more households. See people.md, economy.md.
 
 Matches: holdings
+
+### The placeless
+
+Adults who never head a household: the extra children of big families who neither inherit a place nor marry an heir, and people who choose a house instead. They can marry, hold their own shares, foster, teach and keep offices of trust, but raise no children unless a place comes to them by adoption. Almost none at par; more where big families are in fashion. See people.md.
+
+Matches: placeless
+
+### Houses
+
+Homes for the placeless held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election, with no heir and no nursery. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy. See people.md, economy.md.
+
+Matches: none
 
 ### Proofreading
 
@@ -284,7 +296,7 @@ Matches: open drum, open drums
 
 ### The Margin
 
-The 2–4% of an open drum's shares it keeps unused on purpose, with the places that go with them held by the drum as guest flats, refuge and first homes lent to young couples for up to five years, by lottery for the best flats. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
+The 2–4% of an open drum's shares it keeps unused on purpose, with the places that go with them held by the drum as guest flats, refuge, first homes lent to young couples for up to five years (by lottery for the best flats) and homes for life lent to placeless couples. It isn't spent on births except by supermajority after a disaster. See open-drums.md.
 
 Matches: the Margin, Margin flat, Margin flats
 
