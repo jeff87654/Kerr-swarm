@@ -1,14 +1,14 @@
 # Economy: a stationary state in the Shade
 
-*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family. Revised again 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Lantern's output ÷ population is the 2 kWe life, ~1.95 × 10³³ people on ~6.6 × 10⁶ M☉ of metal, so the 2-kW world is the Shade itself, not a crowded alternative. Revised 2 Nov 2026 (radiation decisions, Jeff): the High decks' dose is low, not the lowest (habitat-design.md).*
+*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family. Revised again 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Lantern's output ÷ population is the 2 kWe life, ~1.95 × 10³³ people on ~6.6 × 10⁶ M☉ of metal, so the 2-kW world is the Shade itself, not a crowded alternative. Revised 2 Nov 2026 (radiation decisions, Jeff): the High decks' dose is low, not the lowest (habitat-design.md). Revised again 2 Nov 2026 (Jeff's decisions; people.md): stem places. A place passes whole to one heir, so it is one household's home and a nation drum of 200 M has ~90 M of them; children belong to a place; the placeless live in houses, a second tenure held by bodies that don't die.*
 
 ## Summary
 - **A stationary state.** Energy is a flow fixed per person, metal a stock fixed per person, and the population is closed (growth ~10⁻⁹ a year). Nothing compounds. In shape it's an agrarian economy, with metal for land and the beam for the harvest, rents and status, and machines doing all the farming.
 - **Post-labour, not post-scarcity.** Machines make everything; physics sets the budget.
 - **Every price is an energy cost, a rent or someone's time.** Made things cost their kWh (daily-life.md's price list). Fixed things earn rents: floor, the Hollow, high decks, birth rights for children. People's time costs what others will pay for it.
-- **Four ledgers:** kWh, a yearly flow, is the money; mass, a fixed stock, is property; shares, one per person at par, carry the wallet and pass to children; places, about three for every four people, are household land.
+- **Four ledgers:** kWh, a yearly flow, is the money; mass, a fixed stock, is property; shares, one per person at par, carry the wallet and pass to children; places, one to a household (about one for every 2¼ people), are household land and pass whole to one heir.
 - **Income is a dividend plus work.** The commons (~1.1 kW, for everyone) and an equal beam dividend (~0.9 kW, the wallet, one per share) cover a whole life. Work is how a wallet grows. If people spend a quarter of their wallets on each other's time, an hour costs ~3 kWh, a little more than a Vat-table dinner.
-- **Children are the dearest thing.** A nation drum gains a new share about once every three and a half years; all other births wait on deaths. In most drums a death frees a share for a newborn in the family, so a household's births follow its own deaths; some keep a pool with one birth right per share (people.md). Whether such rights can be sold is the sharpest choice in the setting.
+- **Children are the dearest thing.** A nation drum gains a new share about once every three and a half years; all other births wait on deaths. In most drums a death frees a share for a newborn in the family, and couples have their children once they have a place, so a household's births follow its own deaths; some keep a pool with one birth right per share (people.md). Whether such rights can be sold is the sharpest choice in the setting.
 - **Savings earn nothing.** With growth at ~10⁻⁹ a year, interest is ~zero: a kWh lent for a thousand years comes back a kWh. Fortunes don't compound; they're rents or reputations. The only capital that grows is information.
 - **Each scale trades something different:** the drum services, the raft goods, the Shade information and beam, the frontier metal, on million-year contracts.
 - **The Lantern is utility, bank and sovereign.** Its beam ledger settles every payment between rafts. Light delay makes the Dark a sentence rather than a siege: an unscheduled cut lasts at least twice the delay (6 months to 2.8 years), longer than a raft can live through, so a cut's length has to be set when it's ordered. Glow sails, heat engines run on the Lantern's own glow, would let a raft away from the disk plane outlast a cut on rations and make it a siege again (governance.md).
@@ -19,8 +19,9 @@
 |---|---|---|---|
 | The Lantern | None | The power, batch compute, the relays | Beam per raft; cuts |
 | A raft | 10¹⁹–10²² | The beam contract; truss, rectennas, radiators, tubes, cyclers, data halls, the Yards | Beam per drum; cycler speeds; its drum size |
-| A drum | ~200 M | The commons, the food plant, the reserve, fixed goods, the pool of places and shares | The commons' size; who gets fixed goods; birth rights |
-| A person | 1 | One share; from about 30, usually a place | Their wallet |
+| A drum | ~200 M | The commons, the food plant, the reserve, fixed goods, the pool of places and shares | The commons' size; who gets fixed goods; birth rights; what houses may hold |
+| A household | ~2¼ | One place, held by an heir; the spouse marries in | Who lodges; whom to name heir |
+| A person | 1 | One share | Their wallet |
 
 - **The commons is the drum's budget:** ~55% of the beam, spent in kind on everyone, with a share or without. Drums set it differently; one runs a bright Hollow and lean wallets, its neighbour the reverse. The Glide is free, so residents can swap homes into the drum that suits them.
 
@@ -91,21 +92,28 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **A death frees it, and it passes on,** in most drums within the family: first to the family's longest-waiting shareless member, otherwise to the next child born (people.md). A child born ahead of a death has no share until one frees. Pool drums return every share to the pool and run birth rights instead (see Children).
 
 ### The place (proposal)
-- **A place is household land, like a farm:** ~47 m² of home, about 1⅓ people's share, so a nation drum of 200 M is divided into ~150 M places. The rest of the floor (workplaces, schools, halls, streets, parks and the Keel) belongs to the commons.
-- **Children and young adults live in a parent's or grandparent's place.** Most people get their own around 30, usually a great-grandparent's (people.md).
+- **A place is household land, like a farm:** one household's home, ~78 m², about 2¼ people's share, so a nation drum of 200 M is divided into ~90 M places. The rest of the floor (workplaces, schools, halls, streets, parks and the Keel) belongs to the commons.
+- **It passes whole to one heir,** usually a great-grandchild in their late 20s, whose spouse marries in, so nobody is turned out when the householders die. It goes down its own line, never up to an older relative who has waited longer (people.md).
+- **Children belong to it.** Couples have their children once they have a place, so a drum's places cap its households with children, and extra children become the placeless rather than more households.
+- **Children and young adults live in a parent's or grandparent's place.**
 - **It can't be sold or pledged.** Its rooms can be let.
-- **At death it passes to an heir,** so nobody is turned out when the householders die. Places with no heir return to the drum's pool. Pool drums return every place to the pool and allot places by age or auction.
+- **Places with no heir** go to an adopted heir, or return to the drum's pool. Pool drums return every place to the pool and allot places to households by age or auction.
+
+### Houses (proposal)
+- **A second tenure, for the placeless:** homes held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election rather than birth, with rooms for members, halls in common and no children raised in them (people.md § The placeless).
+- **Their floor is places,** given by bequest or by the drum from its pool of heirless places. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy, and the oldest argument about them is mortmain's.
+- **They can't sell or pass on a room.** A member's room goes back to the house, and the house elects who comes in.
 
 ### Metal is the land
-- **New shares almost never come.** After the hole spins up, growth is ~1.4 × 10⁻⁹ a year (matter-delivery.md): one new share per nation drum every ~3.6 years, or every ~1.3 while the hole spins up, and a new place every ~4.8. All other births wait on deaths.
+- **New shares almost never come.** After the hole spins up, growth is ~1.4 × 10⁻⁹ a year (matter-delivery.md): one new share per nation drum every ~3.6 years, or every ~1.3 while the hole spins up, and a new place every ~8. All other births wait on deaths.
 - **New metal can't be bought at any human price.** A share's metal from stars costs 7–15 billion kWh, 400,000–900,000 years of a 2-kW budget. From gas it can cost as little as ~28,000 kWh, but gas arrives only so fast.
 - **Supply is fixed on every human timescale.** Payloads fall for ~1 Myr, so every kilogram that will arrive in the next million years is already on its way. Metal's price is a rent, set by demand against a fixed stock, as Ricardo and George described for land.
 - **Building is cheap by comparison.** Turning a share's metal into habitat costs ~0.75 TJ (~205,000 kWh, ~26 years of a wallet); rebuilding a square metre of floor ~1,250 kWh. So flats are reused, not rebuilt, and most are older than anyone living in them.
 
 ### Homes
-- **Floor comes per person, homes per household.** Each share's 100 m² includes ~35 m² of home (raft-habitat.md), held as places of ~47 m². A couple raising two children in their two places has ~94 m², ~23 m² a head; an old couple whose children have their own places has the same ~94 m² for two.
+- **Floor comes per person, homes per household.** Each share's 100 m² includes ~35 m² of home (raft-habitat.md), held as places of ~78 m², one to a household. A couple raising two children in their place has ~78 m², ~20 m² a head; an old couple whose children have households of their own has the same ~78 m² for two, and lets rooms.
 - **Floor is let and swapped, not built.** An elder alone in a family flat lets rooms; a growing family or a young lodger rents them. A move between drums is a swap of homes, across a metro of ~1.6 × 10¹⁰ people within a free 20-minute glide (raft-transport.md).
-- **Rent floats with slack (proposal).** No new floor can be built at any price a drum can pay, so rent alone clears the market, and since most homes are inherited, only spare rooms are let: a thin market that swings hard. In a steady drum at par a room lets for about 0.1 kWh per m² a day, so a whole place (~47 m²) costs ~4.7 kWh a day, a fifth of one wallet or ~11% of a couple's two. An open drum's free Margin loans take much of the demand away, and rents there run about half that. A thin drum a few percent over par, with no spare rooms and families doubling up, pays two to four times as much. Shocks move it fast: a plague leaves rooms empty and rents low until its baby boom grows up, and a refuge intake or an overshoot sends them up within the year. Elders with room to spare are the landlords, and rent is most of their "Rents in" (A life on the ledger).
+- **Rent floats with slack (proposal).** No new floor can be built at any price a drum can pay, so rent alone clears the market, and since most homes are inherited, only spare rooms are let: a thin market that swings hard. In a steady drum at par a room lets for about 0.1 kWh per m² a day, so a whole place (~78 m²) costs ~7.8 kWh a day, about a third of one wallet or ~18% of a couple's two. An open drum's free Margin loans take much of the demand away, and rents there run about half that. A thin drum a few percent over par, with no spare rooms and families doubling up, pays two to four times as much. Shocks move it fast: a plague leaves rooms empty and rents low until its baby boom grows up, and a refuge intake or an overshoot sends them up within the year. Elders with room to spare are the landlords, and rent is most of their "Rents in" (A life on the ledger).
 - **No crowding.** The 2-kW world is the Shade itself, and a wider harvest brought the metal with its people, so every share keeps its 100 m² and ~35 m² of home (full-swarm.md, daily-life.md).
 
 ### Belongings
@@ -134,7 +142,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Share under 18 | 22% | 15% | 9% | 4.5% |
 
 - **Drums choose how births follow deaths** (people.md). Each gets a fixed allotment of beam, so overbreeding thins only its own commons and its families' wallets.
-- **Holdings, the common system.** A death frees a share, and it passes to a newborn in the family, often named for the dead; it also frees a place for a young adult in the family. With 120-year lives and children around 30, the dying generation is the young couples' great-grandparents: a couple's 16 great-grandparents free, on average, a place for each partner and a share for each of two children. Couples marry when they hold places, around 30.
+- **Holdings, the common system.** A death frees a share, and it passes to a newborn in the family, often named for the dead; a couple's last death frees their place for one heir, usually a great-grandchild in their late 20s. With 120-year lives and children around 32, the dying generation is the young couples' great-grandparents: a couple's 16 great-grandparents free, on average, one place for the couple, which one partner inherits, and a share for each of two children. Couples have their children once they have a place.
 - **A child born ahead of a death has no share** until one frees in the family, so the household divides its wallets: a third child takes a family of four from 21.6 kWh a head to ~17. Because wallets come only from deaths, an extra child's wallet is the family's own cost.
 - **Birth rights, in pool drums.** Every share returns to the pool at death and carries one claim to a share for a child, so a couple has two children: replacement, as daily-life.md assumes. A birth draws a share from the pool now, and the parent's own share refills it at their death; the pool keeps a buffer for the gap. Places return to the pool too, and go to adults by age or auction.
 - **Can rights be sold?**
@@ -209,10 +217,10 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 | Birth | Takes a share freed by a death in the family, and often the dead's name (in pool drums, a share from the pool and a parent's birth right); a child born ahead of a death waits for one | +1 person |
 | Childhood | A parent's or grandparent's place, on the Low decks near the stations; school and clinic from the commons; the dividend goes to the household | — |
 | Coming of age | The full dividend in one's own name, for those with a share; work and lodging for those without | 21.6 kWh a day |
-| About 30 | A place of one's own, usually a great-grandparent's; marriage | A place |
+| The late 20s | A household: an heir inherits a great-grandparent's place, often before marrying, and a spouse marries in; the placeless marry too, without children, and may join a house | A place, or a house |
 | Working life | Work for wallet and standing; save for express legs, a sofa, Hollow hours; raise two children on shares freed by the great-grandparents' deaths | Wages in; in pool drums, a birth right spent, given or sold |
 | Later life | Up to the high decks, if the drum allots them by age; let rooms; perhaps hand the place to an heir early; hand down heirlooms | Rents in |
-| Death | The place passes to an heir, usually a great-grandchild, and the share to a newborn, usually a great-great-grandchild; or both return to the pool | −1 person |
+| Death | The share passes to a newborn, usually a great-great-grandchild; at the last holder's death the place passes to one heir, usually a great-grandchild; or both return to the pool | −1 person |
 
 ## Rich and poor
 | | Empty wallet | Typical | Rich |
@@ -251,13 +259,14 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **Technocracy's energy certificate (1930s).** Technocracy Inc. proposed money denominated in energy: an equal share of the continent's energy for each adult, valid for ~14–15 months, impossible to save, lend or give away, and paying no interest. The Shade's kWh is the same idea with transfers allowed, since without them nobody could pay for anyone's time.
 - **Boulding's marketable licences (1964).** Kenneth Boulding proposed issuing licences to have children, enough for replacement and traded in tenths of a child; Herman Daly later backed the idea.
 - **Samuelson's "biological" rate of interest (1958).** In his consumption-loan model with money, interest equals the population's growth rate.
-- **Hajnal's European marriage pattern (1965).** In northwest Europe a couple married when it could set up its own household, usually on a holding of its own, so people married late and many never did. Places work the same way.
+- **Hajnal's European marriage pattern (1965).** In northwest Europe a couple married when it could set up its own household, usually on a holding of its own, so people married late and many never did. Where farms passed whole to one heir, as in Japan's *ie* and Central Europe's *Anerbenrecht*, the other children married an heir, found another living or stayed single. Places work the same way, except that the Shade's placeless can marry, since its births are planned.
 - **Retirement contracts.** Long-lived Central European farmers often handed the farm to the heir before death and kept a room and their keep under a contract, the *Altenteil* (people.md).
 - **Russia's repartitional commune.** The *obshchina* re-divided village land among households by the number of mouths or workers, and historians have long argued that it rewarded big families. A wallet paid for every child would do the same, which is why shares come from deaths.
 - **Baumol's cost disease (1966).** A string quartet takes the same four players and forty minutes it did in the 1820s, so live performance gets dearer next to everything machines make. In the Shade machines make everything.
 
 ## Knock-on changes
 - **1 Nov 2026, places and shares:** people.md (places and shares, the shareless, counted drums), open-drums.md (the Margin, Chervil's Ledger, the gift of a share), glossary.md, and the place wording in ashgrove.md, sorrel.md, wander-year.md, daily-life.md and governance.md.
+- **2 Nov 2026, stem places:** people.md (places pass whole to one heir, the placeless, selection, the counted-drum table, the rerun family-tree model), open-drums.md (Margin flats, loans, Chervil's Ledger), glossary.md (the place, holdings, the placeless, houses), README.md, and the Daces' flat in ashgrove.md.
 
 All made, Oct 2026:
 - **daily-life.md:** its open questions on wallets, work, lifespans and drum specialisation point here. Its resident's daily hour in the Hollow is noted as ~9× an equal share (~6× in a 2 km drum): a high-decker's privilege, or hours bought.
@@ -275,10 +284,10 @@ All made, Oct 2026:
 - Flows: daily-life.md's 2-kW split over 8,766 hours a year.
 - Population (full-swarm.md): the Lantern's ~5.2 × 10³⁶ W (98% of the disk's 1.6 × 10³⁷ W, at 32.4%) ÷ 2.64 kWe generated per person (0.30 of batch compute on the Lantern, 1.70 beamed at 75% with a 3% margin) ≈ 1.95 × 10³³ people, at 6.7 t each ≈ 6.6 × 10⁶ M☉ of metal.
 - Shares: 6.7 t and ~0.75 TJ to build (habitat-design.md, energy-budget.md); floor at 50 kg/m² and ~25 kWh/kg; new metal 25–55 PJ from stars, 0.1 TJ–0.4 PJ from gas (matter-delivery.md).
-- New shares per drum: ~200 M × growth rate (1.4 × 10⁻⁹ a year after spin-up, 4 × 10⁻⁹ during); new places at three-quarters of that.
-- Places: people per place = L ÷ (L − A), with lifespan L ≈ 120 years and a place of one's own at A ≈ 30: 1.33, so 200 M ÷ 1.33 ≈ 150 M places of 35 × 1.33 ≈ 47 m² of home (people.md).
+- New shares per drum: ~200 M × growth rate (1.4 × 10⁻⁹ a year after spin-up, 4 × 10⁻⁹ during); new places at ~45% of that, one for every ~2.2 shares.
+- Places: one to a household. The family-tree model in people.md settles at ~2.2 people a place, so 200 M ÷ 2.22 ≈ 90 M places of 35 × 2.22 ≈ 78 m² of home.
 - The shareless: four wallets across five people ≈ 17.3 kWh a head; full-time work 3.1 kWh × 2,000 hours ÷ 365 ≈ 17 kWh a day.
-- Rent (proposal): ~0.1 kWh per m² a day at par; a place of ~47 m² ≈ 4.7 kWh a day ≈ 22% of a 21.6 kWh wallet. New floor needs new metal, so supply is fixed and rent moves with demand alone.
+- Rent (proposal): ~0.1 kWh per m² a day at par; a place of ~78 m² ≈ 7.8 kWh a day ≈ 36% of a 21.6 kWh wallet, ~18% of a couple's two. New floor needs new metal, so supply is fixed and rent moves with demand alone.
 - Births: population ÷ lifespan; share under 18 = 18 ÷ lifespan.
 - The Hollow: 35 km² ÷ 25 m² (beach) or 100 m² (park), open 16 hours a day, ÷ ~200 M.
 - Price of time: money income = 7,890 kWh ÷ (1 − s); spending on time = s × money income; price = spending ÷ (hours per adult × 85% adults).

@@ -156,7 +156,7 @@ const CANON_DRUMS = {
       { name: "Oona", age: 81, role: "lamp-painter", where: "terrace", hours: [5, 9], doing: "watching the dawn she painted with a coffee from the Dawn Stand, frowning at the middle", lines: ["I saw the River once, at eight, and I've been trying to paint it ever since. Brown-violet at the edges. The back crews call it bruise.", "It was too slow in the middle. Next year I'll fix it."], knows: "Light-painting, dawns, the colour of the River, Marit, the Window." },
     ],
     notices: [
-      "THE LEDGER, Ring 2: shares 200,000,000, places 150,000,000. Margin held. Guests tonight: about 410,000. Two names read at today's naming.",
+      "THE LEDGER, Ring 2: shares 200,000,000, places 90,000,000. Margin held. Guests tonight: about 410,000. Two names read at today's naming.",
       "Wanderers on guest-right: the Ring 2 hall cooks for you on Thursdays. Bring a spoon of starter from the last drum you slept in.",
       "Margin flats lent this month to eleven young couples. Their tables ask that nobody mention the sofa.",
     ],

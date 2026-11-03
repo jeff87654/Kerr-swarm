@@ -63,7 +63,7 @@ Everywhere else the decks are 4 m apart and the ceilings about 3 m. Ashgrove is 
 **Hedda Dace,** 93, Anselm's mother, lives alone on deck 361, a little over a minute up by cab, in one of the flats Sorrel allots to the old near the Hollow, where a fall carries half the energy it would at the rim. She spent forty years on the back crews, keeping up the radiator panels behind the drum, so she has looked at the stars on ordinary working days. The week Ossian was born, she asked to be the one who takes him to the Window.
 
 ### The flat
-The Daces live on deck 77, off Pear Street, two corners from the Court: about 140 m², four rooms and a kitchen: the ~94 m² of Anselm's and Teo's two places, and two rooms they rent from the old couple next door. It has no windows. Almost nothing in Sorrel does, apart from the flats on the Court's terraces and the terraces of the Hollow's end walls. The lamps follow the drum's clock: a ramp up at half past six, a long even day at about 200 lux, a fade toward eleven.
+The Daces live on deck 77, off Pear Street, two corners from the Court: about 125 m², four rooms and a kitchen: the ~78 m² of their place, and two rooms they rent from the old couple next door. It has no windows. Almost nothing in Sorrel does, apart from the flats on the Court's terraces and the terraces of the Hollow's end walls. The lamps follow the drum's clock: a ramp up at half past six, a long even day at about 200 lux, a fade toward eleven.
 
 What they own:
 - **The table,** which was Hedda's grandmother's, and four chairs that don't match. The newest thing in the flat is Ossian's bed, from his sixth birthday.
