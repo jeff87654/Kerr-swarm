@@ -254,7 +254,7 @@ Matches: holdings
 
 ### The posted price
 
-What most steady drums charge a household for a shareless child's keep, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted beside the Count at every station ring and moving with it: a charge when the drum is over par, a purse paid the other way when it is under. It makes a third child cost its family what Lack's principle needs it to, so the wish for children stays tuned to places. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md.
+What most steady drums charge a household for a shareless child's keep, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted beside the Count at every station ring and moving with it: a charge when the drum is over par, a purse paid the other way when it is under. It holds the drum's numbers by making fewer households have a third; it does not tune the wish, which climbs behind it, so the price climbs too. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md.
 
 Matches: posted price, the purse
 
