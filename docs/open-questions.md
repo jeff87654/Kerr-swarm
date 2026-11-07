@@ -14,10 +14,10 @@
 
 | | Questions |
 |---|---|
-| Open | 74 |
-| Deliberately open (story space) | 17 |
+| Open | 80 |
+| Deliberately open (story space) | 18 |
 | Answered elsewhere, with a pointer left in the doc | 30 |
-| Docs with questions still open | 22 |
+| Docs with questions still open | 23 |
 
 ## The questions by theme
 Each links to its doc's own list, which is the source. Answered questions are left out here; their pointers stay in the docs.
@@ -103,6 +103,13 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [people.md](people.md#open-questions): How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers. *(deliberately open)*
 - [people.md](people.md#open-questions): How drums choose an heir: birth order, the holders' choice, the ablest, or lot. Each gives a different politics. *(deliberately open)*
 - [people.md](people.md#open-questions): What houses may hold, and how drums settle mortmain: every place a house holds is one fewer household with children.
+- [families.md](families.md#open-questions): Which kinds of drum sit where on Merrow, and their names.
+- [families.md](families.md#open-questions): How strongly the wish for children passes from parents to children over thousands of years. The models take a regression of 0.2–0.5; a fast churn of fashions would lower it (Kolk et al. 2014), and everything here would run slower.
+- [families.md](families.md#open-questions): How canon squares Sorrel's ~23,000-year Register with the floor: whether most people in old drums want a third, whether the wish passes down weakly, or whether old drums raise their own children. *(deliberately open)*
+- [families.md](families.md#open-questions): How drums with a draw answer thirds born without a permit once most couples want one.
+- [families.md](families.md#open-questions): The posted price in kWh, and where a priced drum caps it.
+- [families.md](families.md#open-questions): Whether any drum raises the drum's own children, and who raises them.
+- [families.md](families.md#open-questions): How much childlessness each drum's clinics leave, and how a drum gets through the overshoot when they improve.
 - [open-drums.md](open-drums.md#open-questions): Whether orbit families or whole rafts ever become open in the same sense, with a Margin of shares held at raft scale.
 - [open-drums.md](open-drums.md#open-questions): How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. *(deliberately open)*
 - [open-drums.md](open-drums.md#open-questions): What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
@@ -162,7 +169,7 @@ Each is a proposal, not canon, with its numbers shown and its formulas in Method
 - **So even an unannounced Dark leaves 5–7 weeks of the 55-day reserve,** and laying the sails fits the monthly drills Sorrel's Reserve crews already run.
 
 ### Dropped
-- **The unbooked third of the light** is settled by the population canon (README, Population: ~1.95 × 10³³ at the 2 kWe life).
+- **The unbooked third of the light** is settled by the population canon (README, Population: ~1.87 × 10³³ at the 2 kWe life with everything beamed; ~1.95 × 10³³ from 1 to 6 Nov 2026).
 - **The ring era on the cluster's starlight** is superseded: the ring era was around the starved Sgr A\* (hole-choice.md).
 - **Capsules between rafts** no longer conflict with the briefs, which allow emigration as a rare swap during a Passing.
 - **Unused shares under beam-by-share:** kept as open-drums.md's question, since the canon on shares and fixed allotments now frames it.
