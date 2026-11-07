@@ -1,0 +1,80 @@
+par third-child share p_par = 0.105 (5% childless); slots freed a place a generation = 0.10
+
+Stem places: a third child's chance of a slot, its fitness over a two-child family, and the
+steady overshoot, by the share of households having a third (secondary settling x1.5):
+     p  children/couple  P(slot)  w3-2 (m=0)  over par
+ 0.105             2.00     1.00        1.00       -0%
+ 0.150             2.04     0.70        0.70        3%
+ 0.200             2.09     0.53        0.53        7%
+ 0.250             2.14     0.42        0.42       10%
+ 0.300             2.18     0.35        0.35       14%
+ 0.368             2.25     0.29        0.29       19%
+ 0.500             2.38     0.21        0.21       28%
+ 0.632             2.50     0.17        0.17       38%
+ 1.000             2.85     0.11        0.11       64%
+
+Lack's equilibrium: the wish stops climbing where P = m, so p* = 0.1 / (0.95 m):
+  m=0.10  p*=1.00  children/couple=2.85  settles 64% over par
+  m=0.20  p*=0.53  children/couple=2.40  settles 30% over par
+  m=0.30  p*=0.35  children/couple=2.23  settles 18% over par
+  m=0.50  p*=0.21  children/couple=2.10  settles 8% over par
+  m=0.75  p*=0.14  children/couple=2.03  settles 2% over par
+  m=1.00  p*=0.11  children/couple=2.00  settles -0% over par
+
+Selection differential S (sd) at par, and years per 1 sd of drift:
+  person       S=0.087  b=0.2: 1 sd in 2,022 yr  b=0.35: 1 sd in 1,156 yr  b=0.5: 1 sd in 809 yr
+  stem, m=0    S=0.087  b=0.2: 1 sd in 2,022 yr  b=0.35: 1 sd in 1,156 yr  b=0.5: 1 sd in 809 yr
+  stem, m=0.5  S=0.044  b=0.2: 1 sd in 3,944 yr  b=0.35: 1 sd in 2,254 yr  b=0.5: 1 sd in 1,578 yr
+
+Sweep, 3,000 years from a drum at par (p = 10.5%). first = years to the first Count (10% over);
+%count = share of years counting; p1000/p3000 = third-child share of the parent cohort; max = pop/par.
+regime      m   k     b   first  Counts  %count  p1000  p3000    max
+person    0.0   0  0.20     439      13      12   0.25   0.78   1.11
+person    0.0   0  0.35     340      17      17   0.46   0.94   1.11
+person    0.0   0  0.50     289      18      18   0.67   0.97   1.11
+stem      0.0   0  0.20    1434      12      12   0.20   0.39   1.10
+stem      0.0   0  0.35     851      17      18   0.28   0.56   1.11
+stem      0.0   0  0.50     618      19      22   0.35   0.68   1.11
+stem      0.0   3  0.20    2150       7       7   0.17   0.43   1.11
+stem      0.0   3  0.35    1252      14      16   0.22   0.59   1.11
+stem      0.0   3  0.50     893      17      21   0.33   0.70   1.11
+stem      0.3   0  0.20    2823       2       2   0.16   0.25   1.10
+stem      0.3   0  0.35    1639      10       9   0.20   0.30   1.10
+stem      0.3   0  0.50    1165      14      13   0.24   0.32   1.10
+stem      0.5   0  0.20   never       0       0   0.14   0.19   1.06
+stem      0.5   0  0.35   never       0       0   0.16   0.20   1.07
+stem      0.5   0  0.50   never       0       0   0.18   0.21   1.07
+stem      1.0   0  0.20   never       0       0   0.11   0.11   1.00
+stem      1.0   0  0.35   never       0       0   0.11   0.11   1.00
+stem      1.0   0  0.50   never       0       0   0.11   0.11   1.00
+indexed   0.0   0  0.20   never       0       0   0.11   0.11   1.00
+indexed   0.0   0  0.35   never       0       0   0.11   0.11   1.00
+indexed   0.0   0  0.50   never       0       0   0.11   0.11   1.00
+equal     0.0   0  0.20   never       0       0   0.11   0.11   1.00
+equal     0.0   0  0.35   never       0       0   0.11   0.11   1.00
+equal     0.0   0  0.50   never       0       0   0.11   0.11   1.00
+
+Stem, m=0, k=0, b=0.35, every 100 years:
+  t=   0  pop/par=1.000  mu=0.00  thirds=0.105
+  t= 100  pop/par=1.003  mu=0.07  thirds=0.118
+  t= 200  pop/par=1.014  mu=0.15  thirds=0.135
+  t= 300  pop/par=1.026  mu=0.23  thirds=0.153
+  t= 400  pop/par=1.039  mu=0.30  thirds=0.171
+  t= 500  pop/par=1.052  mu=0.37  thirds=0.189
+  t= 600  pop/par=1.065  mu=0.44  thirds=0.209
+  t= 700  pop/par=1.079  mu=0.51  thirds=0.228
+  t= 800  pop/par=1.093  mu=0.57  thirds=0.248
+  t= 900  pop/par=1.001  mu=0.61  thirds=0.261
+  t=1000  pop/par=1.067  mu=0.68  thirds=0.283
+  t=1100  pop/par=1.012  mu=0.73  thirds=0.299
+  t=1200  pop/par=1.003  mu=0.77  thirds=0.315
+  t=1300  pop/par=0.998  mu=0.82  thirds=0.332
+  t=1400  pop/par=1.073  mu=0.86  thirds=0.347
+  t=1500  pop/par=1.007  mu=0.90  thirds=0.361
+
+Indexed price, b=0.35, 10,000 years: the mean wish climbs (the price in sd of wish keeps pace):
+  t=    0  mu=0.00 sd
+  t= 2000  mu=1.67 sd
+  t= 4000  mu=3.35 sd
+  t= 6000  mu=5.03 sd
+  t= 8000  mu=6.72 sd

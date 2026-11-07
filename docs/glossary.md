@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -236,7 +236,7 @@ Matches: none
 
 ### The share
 
-Each person's claim on their drum: the wallet (~21.6 kWh a day) on top of the commons that everyone gets, with ~6.7 t of habitat and ~3 m² of the raft's back behind it. One per person at par. A death frees a share, and in most drums it passes within the family: first to the longest-waiting shareless member, otherwise to the next child born, who is often named for the dead. A child born ahead of a death has none until one frees: the shareless get the commons and live on family wallets and work. See economy.md, people.md.
+Each person's claim on their drum: the wallet (~21.6 kWh a day) on top of the commons that everyone gets, with ~6.7 t of habitat and ~3 m² of the raft's back behind it. One per person at par. A death frees a share, and in most drums it passes within the family: first to the longest-waiting shareless member, otherwise to the next child born, who is often named for the dead. Most children are born before their share frees and carry it from a few years old; a household with more children than shares lives thinner, and in most drums pays the posted price. The shareless get the commons and live on family wallets and work. See economy.md, people.md.
 
 Matches: shareless
 
@@ -248,9 +248,15 @@ Matches: birth right, birth rights
 
 ### Holdings
 
-The common way drums hold births to deaths: places and shares pass in the family. A couple's last death frees their place for one heir, usually a great-grandchild, and each death frees a share for a newborn; a child born ahead of a death has no share until one frees; and couples have children once they have a place, so a drum's extra children become the placeless rather than more households. See people.md, economy.md.
+The common way drums hold births to deaths: places and shares pass in the family. A couple's last death frees their place for one heir, usually a great-grandchild, and each death frees a share for a newborn; a child born ahead of a death has no share until one frees; and couples have children once they have a place, so a drum's extra children become the placeless rather than more households. Nobody waits on a death to have a child. Because a child's keep is the commons', custom alone holds two for only a few centuries against the families that have thirds, and most holdings drums add the posted price. See people.md, economy.md.
 
 Matches: holdings
+
+### The posted price
+
+What most steady drums charge a household for a shareless child's keep, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted beside the Count at every station ring and moving with it: a charge when the drum is over par, a purse paid the other way when it is under. It makes a third child cost its family what Lack's principle needs it to, so the wish for children stays tuned to places. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md.
+
+Matches: posted price, the purse
 
 ### The placeless
 
@@ -278,7 +284,7 @@ Matches: wild-born
 
 ### Counted drums
 
-Drums that license births and enforce it, about 1% of drums at a quiet time and many more after a raft-wide shock. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against shares. See people.md.
+Drums that license births and enforce it (rung 3 and above of people.md's ladder; a price or a penalty is not counting), about 1% of drums at a quiet time and many more after a raft-wide shock. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against shares. See people.md.
 
 Matches: counted drum, counted drums, the Count, the fitting
 
