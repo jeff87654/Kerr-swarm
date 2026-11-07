@@ -1,6 +1,6 @@
 # The full swarm: the Lantern and the Shade
 
-*Design baseline from a working session, Sept 2026. The mature civilization: Sgr A* fed at 30% of its Eddington luminosity, held there as the hole grows, so the civilization grows with it (see Growth at 30%). Supersedes the 30% layout in sgr-a-scope.md, which keeps the feeding, metal and layer-era analysis. Uses the common budget (energy-budget.md) and the fed-disk collectors in hole-choice.md. The names "the Lantern" and "the Shade" are proposals. Revised after an independent review: the Lantern is held up mainly by its own trapped infrared. Revised Oct 2026: interactive compute runs on the rafts, because the Lantern is months to years away by light (daily-life.md); populations are ~5% lower than before. Revised again Oct 2026: drums shield their sides as well as their fronts from the Lantern's X-rays, with their own water (habitat-design.md). The economy, including how beam cuts work as sanctions, is in economy.md. Who holds power, and the leverage the physics hands out, is in governance.md. Revised a third time, Oct 2026: the nation drum is now 3 km in radius (habitat-design.md, raft-habitat.md), which cuts each person's shield hydrogen from ~3.3 t to ~2.2 t, and the Shade's mass by ~11%. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): the population is set at daily-life.md's 2 kWe life, ~1.95 × 10³³ people at ~8.3 kW of light each, still at 6.7 t and ~3 m² each, so the metal is ~6.6 × 10⁶ M☉ and the Shade ~2× the hole; the tank farm banks the oxygen its methanol burns with; rafts must climb as the hole grows; the great year is a calendar unit. Revised 2 Nov 2026 (radiation decisions, Jeff): the hole is taken as quiet (no jets, few neutrons from its corona, and a wind the Lantern absorbs), so the Shade's cosmic rays stay near the Galaxy's; the corona's leak is planned with an MeV tail, so front caps carry ~1 t more hydrogen a person (shields ~3.2 t), the Shade weighs ~2.2× the hole and the cluster's gas lasts ~665 Myr; travellers' shells are thicker, and the Lantern's compute runs on hardened logic. Revised 6 Nov 2026 (consistency audit): the Shade's orbits cross because a cold Shade of two hole masses would clump (Toomre), not only for want of a coherent flow; the rules of the road cap free eccentricity, with the glow's forced ~0.001–0.003 worked out in Method; travel shields join the per-person metal.*
+*Design baseline from a working session, Sept 2026. The mature civilization: Sgr A* fed at 30% of its Eddington luminosity, held there as the hole grows, so the civilization grows with it (see Growth at 30%). Supersedes the 30% layout in sgr-a-scope.md, which keeps the feeding, metal and layer-era analysis. Uses the common budget (energy-budget.md) and the fed-disk collectors in hole-choice.md. The names "the Lantern" and "the Shade" are proposals. Revised after an independent review: the Lantern is held up mainly by its own trapped infrared. Revised Oct 2026: interactive compute runs on the rafts, because the Lantern is months to years away by light (daily-life.md); populations are ~5% lower than before. Revised again Oct 2026: drums shield their sides as well as their fronts from the Lantern's X-rays, with their own water (habitat-design.md). The economy, including how beam cuts work as sanctions, is in economy.md. Who holds power, and the leverage the physics hands out, is in governance.md. Revised a third time, Oct 2026: the nation drum is now 3 km in radius (habitat-design.md, raft-habitat.md), which cuts each person's shield hydrogen from ~3.3 t to ~2.2 t, and the Shade's mass by ~11%. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions): the population is set at daily-life.md's 2 kWe life, ~1.95 × 10³³ people at ~8.3 kW of light each, still at 6.7 t and ~3 m² each, so the metal is ~6.6 × 10⁶ M☉ and the Shade ~2× the hole; the tank farm banks the oxygen its methanol burns with; rafts must climb as the hole grows; the great year is a calendar unit. Revised 2 Nov 2026 (radiation decisions, Jeff): the hole is taken as quiet (no jets, few neutrons from its corona, and a wind the Lantern absorbs), so the Shade's cosmic rays stay near the Galaxy's; the corona's leak is planned with an MeV tail, so front caps carry ~1 t more hydrogen a person (shields ~3.2 t), the Shade weighs ~2.2× the hole and the cluster's gas lasts ~665 Myr; travellers' shells are thicker, and the Lantern's compute runs on hardened logic. Revised 6 Nov 2026 (consistency audit): the Shade's orbits cross because a cold Shade of two hole masses would clump (Toomre), not only for want of a coherent flow; the rules of the road cap free eccentricity, with the glow's forced ~0.001–0.003 worked out in Method; travel shields join the per-person metal. Revised 6 Nov 2026 (world audit, Jeff's decisions): the Lantern's electronics live in ~8–20 MGy a year, so no compute runs there: all of it, batch work included, runs in the rafts' data halls on beamed power, and the Lantern remakes its own transmitters and controls on site. Everything is beamed, so the Lantern generates ~2.75 kWe per person from ~8.7 kW of light and feeds ~1.87 × 10³³ people (~6.3 × 10⁶ M☉ of metal, a Shade of ~9.3 × 10⁶ M☉); the raft keeps its 3 m² a head by running its data halls at ~400 K.*
 
 ## Summary
 - **Rings end long before the swarm outweighs the hole.** Stacked rigid bands pull on each other whatever the hole, and tides hold them apart only while orbits take less than ~16 years.
@@ -14,12 +14,12 @@
   - It's neutral to swelling or shrinking but unstable to drifting off-centre, so it has to keep re-centring on the hole.
 - **So the Lantern's weight is a choice, not a limit.** Planning collectors weigh ~10–15 kg/m², ~70 kg of heavy elements per person. Lighter builds vent the excess infrared.
 - **The disk shines toward its poles:** ~2.6× the average there, near zero edge-on. Polar collectors run hotter and carry more of the load.
-- **Scale.** ~1.95 × 10³³ people at ~8.3 kW of light each, living daily-life.md's 2 kWe life. ~6.6 × 10⁶ M☉ of heavy elements. One orbit takes ~35,000–39,000 years. A message to the far side takes ~8 years through the Lantern's relays, ~10 around it.
+- **Scale.** ~1.87 × 10³³ people at ~8.7 kW of light each, living daily-life.md's 2 kWe life. ~6.3 × 10⁶ M☉ of heavy elements. One orbit takes ~35,000–39,000 years. A message to the far side takes ~8 years through the Lantern's relays, ~10 around it.
 - **Slow growth.** The feed is held at 30% of Eddington as the hole grows. Feeding spins the hole up to ~0.998 within ~150–170 Myr; from then on the hole, and the civilization with it, doubles every ~0.5 Gyr. The Lantern, the Shade and message delays widen as the square root of the hole's mass.
 - **No nights.** Beamed power is continuous: no knot nights, no eclipses, no seasons. Beams re-route around passing rafts. The only dark is a cut, survivable for ~55 days on a survival reserve (~90 days with a full tank farm), or on rations for as long as it lasts with glow sails, away from the disk plane (governance.md).
 - **A kinder sky.** The Shade never sees the disk's ultraviolet or its wind. Hard X-rays from the corona leak through the Lantern (~20–40 W/m²) from a source 85–130° across. Drums wrap their sides and front caps in their own water, which keeps the X-rays' heat out of their 20 K hydrogen jackets (habitat-design.md); anyone outside a drum rides behind ~1.3–7.5 t/m² of sealed water, thickest toward the Lantern (raft-transport.md).
-- **Compute splits.** The Lantern is 3 months to 1.4 years from the Shade by light, so it keeps only batch work (0.3 of the 2 kWe life's 0.8 kWe of compute). Interactive compute runs in data halls on the rafts, on beamed power.
-- **Politics.** One opaque, machine-only shell makes the power for ~2 × 10³³ people, runs their batch compute and carries their fastest messages. Beam rights replace sun rights, though no patch can darken a raft alone, and the glow the Lantern can't help giving off can carry a raft through a cut on rations (governance.md).
+- **No compute on the Lantern.** It is 3 months to 1.4 years from the Shade by light, and its electronics sit in ~8–20 MGy a year of hard X-rays, so all compute, batch work included, runs in water-walled data halls on the rafts, on beamed power. The Lantern keeps only its own controls, which it remakes on site (The Lantern).
+- **Politics.** One opaque, machine-only shell makes the power for ~2 × 10³³ people and carries their fastest messages. Beam rights replace sun rights, though no patch can darken a raft alone, and the glow the Lantern can't help giving off can carry a raft through a cut on rations (governance.md).
 
 ## From rings to the full swarm
 | Era | Hole | Layout | Ends when |
@@ -57,8 +57,8 @@
 | Zone | Radius | What's there | Mass |
 |---|---|---|---|
 | Hole and disk | Disk ~4–40 AU (where the feed goes in) | Sgr A*, thin disk at 30% of Eddington | 4.3 × 10⁶ M☉ |
-| The Lantern | ~0.82 pc | A closed shell of hovering collectors, beam transmitters and batch compute | ~50,000 M☉ |
-| The Shade | ~0.9–1.25 pc | ~1.95 × 10³³ people in rafts on crossing orbits | ~9.7 × 10⁶ M☉ (~2.2× the hole) |
+| The Lantern | ~0.82 pc | A closed shell of hovering collectors and beam transmitters, with the foundries that remake its own electronics | ~50,000 M☉ |
+| The Shade | ~0.9–1.25 pc | ~1.87 × 10³³ people in rafts on crossing orbits | ~9.3 × 10⁶ M☉ (~2.2× the hole) |
 | The frontier | 100–200 pc | Mining outposts in the nuclear stellar disk | — |
 
 - Radii and populations are for today's hole; all of them grow with it (Growth at 30%).
@@ -85,14 +85,16 @@
 - Collectors overlap at their edges, so no disk light escapes directly; ~2% misses the mirrors and ends as heat.
 - Every inward-facing surface sees only other collectors, so all waste heat leaves through the outer skin, which is the radiator.
 - **Mass, planning ~10–15 kg/m²** (heavier toward the poles).
-  - The working parts need only ~4–5 kg/m²: mirrors and frame ~3 (shallow grazing takes ~10–20 m² of mirror per m² of aperture), radiator skin ~0.4, furnace and turbine ~0.25, microwave transmitter ~0.15, plus the compute.
+  - The working parts need only ~4–5 kg/m²: mirrors and frame ~3 (shallow grazing takes ~10–20 m² of mirror per m² of aperture), radiator skin ~0.4, furnace and turbine ~0.25, microwave transmitter ~0.15, plus its controls and the foundries that remake its electronics (below).
   - The rest is sturdier structure, and shielding against the disk wind, which erodes mirrors.
   - That's ~4 m² and ~50 kg per person, ~50,000 M☉ in all.
-- **Batch compute lives here.** 0.3 of each person's 0.8 kWe of compute runs on the Lantern (half, at the common budget's ~1 kWe), beside its power: research, archives, long simulations, beam and relay control. Minds stay biological in this setting (governance.md), so the Lantern is the civilization's back office, with nobody in it. It sits in the corona's full leak, ~100–260 W/m², and shielding it to ~2 Gy a year would take ~6 t/m², against collectors of 10–15 kg/m², so it runs on hardened logic, replaced on a schedule.
-- **Interactive compute can't.** The Lantern is 0.08–0.43 pc from the Shade, so a request takes 3 months to 1.4 years each way. Assistants, games, shared worlds and the rafts' own services run in data halls on the rafts (see Power by beam).
+- **Its electronics live in the corona's full leak,** ~100–260 W/m² of ~100 keV photons: ~0.25–0.65 Gy/s in silicon, ~8–20 MGy a year, five times the mid-raft's (raft-habitat.md). Shielding to ~2 Gy a year would take ~6 t/m² against collectors of 10–15 kg/m², so nothing on the Lantern is shielded, and even the hardest logic (~10⁷–10⁸ Gy) lasts months to a year.
+  - **So no compute lives here** (6 Nov 2026). Research, archives and long simulations run in the rafts' water-walled data halls beside the interactive work (see Power by beam), at the cost of the beam chain: ~1.2 kW of light per kWe, which is why the 2 kWe life takes ~8.7 kW of light rather than ~8.3. The Lantern is 0.08–0.43 pc from the Shade, 3 months to 1.4 years each way, so nothing interactive could have lived here anyway.
+  - **What stays is remade on site.** The transmitters (~0.15 kg/m², ~600 M☉ across the shell), the trim and beam controls and the relays wear out in months to a year and are remade by the Lantern's own foundries from its own recycled stock, since shuttling replacements across the 145–215 km/s gap between a hovering shell and an orbiting Shade costs ~2–5 × 10¹⁰ J/kg: fine for mirrors and frame that last a millennium (~2% of the civilization's output), ruinous for electronics replaced yearly (~20% for the transmitters alone). The foundries are hardened and remake each other in turn. The Shade's lever on the Lantern is over its structure, not its electronics (governance.md).
+  - Minds stay biological in this setting (governance.md), so the Lantern is machine country with nobody in it, and now with none of anybody's work in it either.
 
 ### Held up by its own light
-- **The disk's light** pushes each collector out, and the beam and the skin's heat push it back in. Net: 0.98 caught − 0.24 beamed − ⅔ × 0.74 radiated ≈ 0.25 of the light's momentum. That's proportional to local brightness, so it's zero near the disk plane.
+- **The disk's light** pushes each collector out, and the beam and the skin's heat push it back in. Net: 0.98 caught − 0.28 beamed − ⅔ × 0.70 radiated ≈ 0.23 of the light's momentum. That's proportional to local brightness, so it's zero near the disk plane.
 - **Trapped infrared.** Infrared given off inside the Lantern can't leave except by being reabsorbed or through vents.
   - It builds to at least the inner walls' own glow (~430 K, a one-way flux about equal to the disk light's average).
   - If the walls are infrared mirrors, it builds to 2.5–4× that, because the furnace mouths re-emit 5–10% of the light and it has nowhere to go.
@@ -116,7 +118,7 @@
 - **Other pushes to trim out:**
   - the disk's flickers;
   - its wind, which at ~0.1c adds ~0.2 to the light's push for each 1% of the luminosity it carries. It must stop in the collectors' skins, never shock ahead of them: a shock putting even 10⁻⁴ of its power into cosmic rays would give the Shade 30–80× the Galaxy's (Radiation);
-  - glow the Shade sends back, which presses on the outer skin. At a few percent of the skin's glow, it costs a few percent of the support (about 1.4× more since the Shade's rafts grew to cover ~43% of the sky, 1 Nov 2026).
+  - glow the Shade sends back, which presses on the outer skin. At a few percent of the skin's glow, it costs a few percent of the support (about 1.3× more since the Shade's rafts grew to cover ~41% of the sky, 1 Nov 2026).
 
 ### How bright to run it
 | Average flux | 1 kW/m² | **2 kW/m²** | 3 kW/m² | 4 kW/m² |
@@ -124,8 +126,8 @@
 | Lantern radius | 1.16 pc | **0.82 pc** | 0.67 pc | 0.58 pc |
 | Skin, average / poles | 348 / 444 K | **416 / 531 K** | 462 / 590 K | 497 / 636 K |
 | Efficiency | 34.7% | **32.4%** | 30.8% | 29.6% |
-| People | 2.09 × 10³³ | **1.95 × 10³³** | 1.86 × 10³³ | 1.79 × 10³³ |
-| Light per person | 7.8 kW | **8.3 kW** | 8.7 kW | 9.1 kW |
+| People | 2.01 × 10³³ | **1.87 × 10³³** | 1.78 × 10³³ | 1.71 × 10³³ |
+| Light per person | 8.1 kW | **8.7 kW** | 9.1 kW | 9.5 kW |
 | Shade | 1.28–1.75 pc | **0.91–1.23 pc** | 0.74–1.01 pc | 0.64–0.87 pc |
 | Farthest pair, one way: via Lantern relays / around it | 11 / 14 yr | **8 / 10 yr** | 6.6 / 8.1 yr | 5.7 / 7.0 yr |
 
@@ -139,7 +141,7 @@
 - Orbits take ~39,000 years at the inner edge (~145 km/s), ~36,000 at mid-Shade and ~35,000 at the outer edge (~215 km/s). The Shade weighs ~2.2× the hole, so the enclosed mass more than triples across it, and outer orbits run a little shorter than inner ones.
 - **Orbits cross at every angle.** No coherent flow can cover a sphere, and a flat or cold Shade isn't an option either: a sheet or shell of ~2 hole masses with small random motions clumps under its own gravity (Toomre's criterion; sgr-a-scope.md § Why the orange slice fails here), so the Shade has to be hot, with random speeds near its orbital speed. Rafts pass each other at 100–300 km/s.
   - A raft passes within its own width of another every ~600–1,900 years. Encounters are predicted centuries ahead and dodged with ~1 m/s nudges for 0.1 AU rafts, or ~5–15 m/s for AU-scale ones.
-  - The beam's own push (~7 × 10⁻¹⁰ m/s² at the 2 kWe life) is enough to steer.
+  - The beam's own push (~8 × 10⁻¹⁰ m/s² at the 2 kWe life) is enough to steer.
   - **Misses are catastrophes.** Across the Shade that's ~2 × 10⁵ (1.6 AU rafts) to ~4 × 10⁷ (0.1 AU rafts) collision courses a year even with orbits kept round, mostly from eccentric orbits bringing flat rafts face to face. One miss releases ~10³³ J (0.1 AU rafts) to ~10³⁶ J (1.6 AU, the Sun's output for a century), and its debris can wreck the light layers of thousands of rafts; a wrecked raft's own debris may wreck several more, so cascades are possible. The rules of the road keep orbits round (free eccentricity under ~0.003, cutting collision courses ~10×), and rectennas and radiators carry debris shields (governance.md). The rule counts only the free part: the Lantern's glow pushes a raft's front harder over the poles than over the belt, so an inclined orbit is forced to e ≈ 0.001–0.003 at twice the orbital frequency, close to but safely off the epicyclic frequency (Method), and that forced motion is the same for neighbours on like orbits.
 - Dynamically it's the nuclear star cluster, rebuilt out of habitats. Traffic control keeps it smooth; a lopsided Shade would tug the hole off-centre, and the Lantern has to follow it.
 
@@ -149,9 +151,9 @@
   - Over the poles, inside ~1.3 radii, a 300 K fin can't cool at all.
 - **So rafts face the Lantern and radiate only from their backs,** in the shadow of their own fronts, like the James Webb telescope's sunshield. Their rectennas face that way anyway.
 - **The fronts are louvered infrared mirrors,** their slats tilted past the Lantern's edge so they throw its glow sideways, past the Shade, not back at it.
-- Rafts are laid out at ~3 m² per person (raft-transport.md's grid), sized for daily-life.md's 2 kWe life, so the Shade's rafts add up to ~43% of the Lantern's sky (~35% of sightlines, since some overlap). A raft running the full common budget needs ~3.0 m² of rectenna and ~3.3–4.2 m² of radiator per person (~3.5 with its hot loads at ~500 K), so it is built roomier (raft-habitat.md).
+- Rafts are laid out at ~3 m² per person (raft-transport.md's grid), sized for daily-life.md's 2 kWe life, so the Shade's rafts add up to ~41% of the Lantern's sky (~34% of sightlines, since some overlap). A raft running the full common budget needs ~3.0 m² of rectenna and ~3.3–4.2 m² of radiator per person (~3.5 with its hot loads at ~500 K), so it is built roomier (raft-habitat.md).
   - The fronts throw the Lantern's glow sideways, but it still crosses the outer Shade, and some lands on other rafts' backs. That adds ~15–40% to the 300 K panels' load, worst at the inner edge, so inner rafts are laid out at ~3.3–3.8 m² per person.
-- Radiators: ~1.9 m² per person, one-sided at 300 K, for the hull's ~0.8 kW at 2 kWe (~2.5 m² for the common budget's ~1 kW). Industry, data-hall and rectenna losses radiate hotter; the data halls' ~0.5 kW needs ~0.65 m² one-sided at 350 K.
+- Radiators: ~1.9 m² per person, one-sided at 300 K, for the hull's ~0.8 kW at 2 kWe (~2.5 m² for the common budget's ~1 kW). Industry, data-hall and rectenna losses radiate hotter; the data halls' ~0.8 kW (interactive and batch) needs ~0.6 m² one-sided at ~400 K (raft-habitat.md).
 
 ### Radiation
 - No disk ultraviolet, no soft X-rays, no disk wind: the Lantern takes them all.
@@ -170,17 +172,17 @@
 - Travel between rafts is still spaceflight: they're AU apart and pass at 100–300 km/s. Messages between neighbours take minutes to hours.
 
 ## Power by beam
-- **What's beamed:** hull, travel, industry, growth and interactive compute, ~1.70 kWe per person at daily-life.md's 2 kWe life (~2.6 at the common budget). Batch compute (~0.3 kWe; ~0.5 at the common budget) stays on the Lantern.
-- **Chain:** transmitter 88% × beam capture 95% × rectenna 90% ≈ 75%. With a 3% margin for outages, the Lantern generates ~2.64 kWe per person from ~8.3 kW of light (~4.1 kWe from ~12.8 kW at the common budget).
+- **What's beamed:** everything: hull, travel, industry, growth and all compute, 2.00 kWe per person at daily-life.md's 2 kWe life (3.09 at the common budget). Nothing runs on the Lantern (The Lantern).
+- **Chain:** transmitter 88% × beam capture 95% × rectenna 90% ≈ 75%. With a 3% margin for outages, the Lantern generates ~2.75 kWe per person from ~8.7 kW of light (~4.24 kWe from ~13.4 kW at the common budget).
 - **Geometry.** Microwaves (~1 cm) across 0.1–0.5 pc need apertures of at least ~9,000–20,000 km at each end (~3,000–6,000 km at 1 mm). Power density sets the real sizes:
-  - a raft of ~10¹⁹ people draws ~2 × 10²² W of microwaves;
+  - a raft of ~10¹⁹ people draws ~2.4 × 10²² W of microwaves;
   - that comes from a ~0.06 AU patch of Lantern, a phased array several times the Sun's width;
-  - it lands on a ~0.035 AU rectenna field, ~2 m² per person at ~1 kW/m².
+  - it lands on a ~0.035 AU rectenna field, ~2.3 m² per person at ~1 kW/m².
 - Rafts cross their patch of Lantern in about a day, so beams hand off continuously.
 - **Outages.**
   - A raft passing through a beam blocks it for a day or more (~1 day per 0.1 AU of its width). The beam re-routes from another patch of the Lantern, a shift of ~10⁻⁵ rad.
   - Faults are bridged by hours of storage: flywheels.
-  - **Disk weather.** Active nuclei of this mass and Eddington ratio flicker by tens of percent over weeks to years, and the feed answers only in months. The methanol tank farm runs fuel cells through it: ~95 kg of methanol a person (~120 L) carries a 20% dip for a month at the 2 kWe life. Longer dims are rationed: the "dim years".
+  - **Disk weather.** Active nuclei of this mass and Eddington ratio flicker by tens of percent over weeks to years, and the feed answers only in months. The methanol tank farm runs fuel cells through it: ~95 kg of methanol a person (~120 L) carries a 20% dip for a month at the 2 kWe life, with the batch work paused. Longer dims are rationed: the "dim years".
     - **It banks its own oxygen.** Burning that methanol takes ~145 kg of oxygen a person, nearly the cabin's whole ~150 kg, so the electrolysis that makes the methanol keeps the matching oxygen (1.5 molecules for each methanol) as liquid in a tank beside it (~125 L). Methanol, oxygen and the survival reserve come to ~0.3 t of each person's metal.
     - **Nothing vents.** The burn makes ~130 kg of CO₂ a person, which goes to tanks in the cold and back to methanol synthesis at refill.
     - **The 48% assumes cells that reform the methanol first,** such as hot solid-oxide cells. Direct-methanol cells at ~30% would stretch the same tank only ~19 days. The cells shed ~0.34 kW a person of extra heat while the loads run on; at ~1,000 K that's ~1.3 km² of glowing panel a drum (~10–20 km² at 500–600 K), a corner of its ~600 km² cell. The dip itself frees only the lost microwaves' rectenna losses, ~0.04 kW.
@@ -189,7 +191,7 @@
 - **A total cut.** A habitat drops to a survival load of ~50–100 W per person: air circulation, CO₂ removal, coolant pumps.
   - Fuel cells burn shield hydrogen with ~60 kg of banked oxygen per person, enough for ~100 W (oxygen from the cabin air would shorten the margin).
   - That lasts ~55 days, when the air's own oxygen margin (food-system.md) runs out.
-  - The rafts' data halls go dark with everything else; only the Lantern's batch work carries on.
+  - The rafts' data halls go dark with everything else, batch work included.
   - Glow sails can stretch this indefinitely at ration level (~0.4 kW per person), running heat engines on the Lantern's own glow, except near the disk plane (governance.md).
 
 ### Range and all-in efficiency
@@ -198,7 +200,7 @@
   - Only small receivers feel distance. One nation drum's own ~24 km rectenna, fed from a 0.1 AU patch at 1 cm, stays above 98% out to ~0.45 pc, just past the Shade's outer edge. A 2 km drum's 13 km rectenna dropped below 98% past ~0.25 pc, and needed a bigger patch or shorter waves.
   - A phased patch can form many beams at once, so big patches cost nothing extra.
 - **What distance does cost:**
-  - Time: ~1 year per 0.3 pc. Power is booked ahead; a cut or a restoration lands a year after it's ordered, and about a year of each raft's supply is always in flight. The same delay is why interactive compute can't live on the Lantern.
+  - Time: ~1 year per 0.3 pc. Power is booked ahead; a cut or a restoration lands a year after it's ordered, and about a year of each raft's supply is always in flight. The same delay, and the Lantern's radiation, is why no compute lives on the Lantern.
   - Aim: the beam must lead the raft by the distance it moves during the round trip. The Lantern doesn't orbit, so that's the raft's own 145–215 km/s: ~60–90 AU at 0.3 pc (~1 milliradian).
   - Phasing: elements spread over millions of km must hold phase to ~1 mm. Locking each element to a pilot signal from the raft does most of this automatically; the lead angle still needs the array's shape known to ~10 cm.
   - Gas: clean space absorbs nothing, but dense ionized gas (~10⁴ electrons per cm³, like today's minispiral streamers) would absorb ~30% at 5 GHz and ~80% at 2.45 GHz over 0.3 pc, and under 1% at 30 GHz.
@@ -218,7 +220,7 @@
 - ‡ Binaries show hysteresis: brightening, they can stay in the hard state to tens of percent of Eddington; fading, they stay in the thin-disk soft state down to ~2%. Planning assumes the soft state from ~2% up, reached by overshooting and settling back, as sgr-a-scope.md and hole-choice.md do.
 - At 100% the disk puffs up and beams harder toward its poles, and a stellar hole's hard tail grows to ~30% of its light.
 - **Sgr A* at 30%, step by step:** 98% caught × 75% through the optics (~79% on the disk's own light; the corona's ~5% of hard X-rays can't be focused) × 43% in the heat engine (1,500 K furnaces rejecting to ~420 K skins at 62% of Carnot, averaged over latitude) × 75% through the beam = **24%** at the habitats.
-  - That's 32% at the Lantern, or ~25% counting the batch compute that runs there unbeamed.
+  - That's 32% at the Lantern; nothing is used there, so 24% is the whole yield.
   - Range: ~15% (conservative) to ~38% (optimistic).
 - **Hole size barely matters once a hole is fed:** 21–25% from 10⁴ M☉ up, with the softer light of bigger holes focusing slightly better. Stellar holes lose ~4 points to harder X-rays and a stronger corona.
 - **The heat engine, not distance, is the big loss.** Hotter furnaces, better turbines and a dimmer, larger Lantern (1 kW/m² adds ~7%) are the levers.
@@ -228,10 +230,11 @@
 | | Ring design study (10 M☉, X-ray tiles) | Full swarm |
 |---|---|---|
 | Delivered electricity | 3.09 kWe + 10% firm-load overhead | 2.0 kWe (daily-life.md) + 3% outage margin |
-| Generated | 3.24 kWe | 2.64 kWe (beam losses on all but batch compute); 4.06 at the common budget |
+| Generated | 3.24 kWe | 2.75 kWe (beam losses on everything); 4.24 at the common budget |
 | Conversion | 22% | 32% |
-| Light | ~15 kW | ~8.3 kW (~12.8 at the common budget) |
+| Light | ~15 kW | ~8.7 kW (~13.4 at the common budget) |
 | Heavy elements | ~6.0 t drum + 0.67 t ring truss + 0.6 t tiles + ~0.08 t parasol ≈ 7.4 t | ~6.0 t drum (its water doubling as its X-ray shield) + ~0.3 t of reserves (the tank farm's methanol and liquid oxygen, the banked survival oxygen) + ~0.2 t of water in travel shields (raft-transport.md) + ~0.05 t Lantern + raft truss (~0.05 t at 0.1 AU, up to ~1 t near the cap); planning 6.7 t |
+
 | Hydrogen | ~2.2 t | ~3.2 t (~1 t of it the front cap's extra, against the corona's MeV tail) |
 | Night storage (10²² swarm) | 240–480 kg of flywheel | Hours only, plus a survival reserve |
 | Hull radiator | ~1.2 m², two-sided | ~1.9 m², one-sided (~2.5 at the common budget) |
@@ -241,15 +244,15 @@
 |---|---|---|
 | Light caught | 86% (collectors twice the sky) | 98% |
 | Efficiency | ~36% (cooler skins) | ~32% |
-| Light per person | ~7.6 kW, with half the power shared between rafts by beam | ~8.3 kW |
-| People | ~2.1 × 10³³ | ~1.95 × 10³³ |
+| Light per person | ~7.6 kW, with half the power shared between rafts by beam | ~8.7 kW |
+| People | ~2.1 × 10³³ | ~1.87 × 10³³ |
 | Nights | Eclipses of hours to days; centuries of twilight deep in the layer and near the disk plane | None |
 | Radiation on habitats | Each drum sits behind its own collector; hard X-rays leak through, and the wind erodes collectors next door | Hard X-ray leak only; erosion happens on the Lantern |
 | Heavy elements per person | ~6.2–7 t | ~6.2–7 t |
 | Who holds the power | Each sunny raft | The Lantern |
 | Weak point | Unequal light; harsh radiation | An opaque shell, run by whoever runs it |
 
-- The two feed about as many people; the layer now ~10% more, since its compute already sits beside its users. The Lantern wins on steadiness (and modestly on radiation); the layer on independence.
+- The two feed about as many people; the layer ~12% more, since its collectors sit beside their users and only half its power crosses a beam. The Lantern wins on steadiness (and modestly on radiation); the layer on independence.
 - Below a few percent of Eddington a closed Lantern can't hold itself up, and the layer design stays the right one.
 
 ## Other hole masses
@@ -259,9 +262,9 @@ At 30% of Eddington and 2 kW/m²:
 |---|---|---|---|
 | Luminosity | 1 × 10⁵ L☉ | 1 × 10⁸ L☉ | 4.2 × 10¹⁰ L☉ |
 | Collector efficiency | ~26% (soft X-rays) | ~30% | ~32% (extreme UV) |
-| People | 3.7 × 10²⁷ | 4.3 × 10³⁰ | 1.95 × 10³³ |
-| Heavy elements | ~14 M☉ | ~1.5 × 10⁴ M☉ | ~6.6 × 10⁶ M☉ |
-| Shade ÷ hole | ~1.9 | ~2.1 | ~2.2 |
+| People | 3.6 × 10²⁷ | 4.1 × 10³⁰ | 1.87 × 10³³ |
+| Heavy elements | ~13 M☉ | ~1.4 × 10⁴ M☉ | ~6.3 × 10⁶ M☉ |
+| Shade ÷ hole | ~1.8 | ~2.0 | ~2.2 |
 | Lantern radius | 260 AU | 8,200 AU (0.04 pc) | 0.82 pc |
 | Shade | 285–390 AU | 9,000–12,000 AU | 0.9–1.25 pc |
 | Orbit in the Shade | ~1,400 yr | ~7,700 yr | ~36,000 yr |
@@ -269,30 +272,30 @@ At 30% of Eddington and 2 kW/m²:
 
 - The trapped-light support and the whole layout are the same for every hole. Mass sets the scale and where the metal comes from; poorer conversion around small holes makes their Shades a little lighter.
 - Around 10 M☉ the collectors need soft-X-ray mirrors at under 1° grazing, the weakest link.
-- Around smaller holes the Lantern is light-hours (10 M☉) to light-weeks (10⁴ M☉) from its Shade, so the case for keeping interactive compute on the rafts is weaker there.
+- Around smaller holes the Lantern is light-hours (10 M☉) to light-weeks (10⁴ M☉) from its Shade, so the latency case for keeping compute on the rafts is weaker there; the radiation case is the same.
 
 ## Growth at 30%
 The project holds the feed at 30% of Eddington. A fed hole keeps most of what it eats, so it grows, and the civilization grows with it: population, Lantern and metal all scale with the hole's mass.
 
 | | Today | Spun up | Doubled | Cluster gas gone | Solar-mix metal would run out | Living stars' metal used (planning) |
 |---|---|---|---|---|---|---|
-| Time from the start of the 30% era | 0 | ~150 Myr | ~410 Myr | ~665 Myr | ~1.1 Gyr | ~2.0 Gyr |
-| Hole mass | 4.3 × 10⁶ M☉ | ×1.4 | ×2 | ×2.9 | ×5 | ×19 |
+| Time from the start of the 30% era | 0 | ~150 Myr | ~410 Myr | ~675 Myr | ~1.1 Gyr | ~2.0 Gyr |
+| Hole mass | 4.3 × 10⁶ M☉ | ×1.4 | ×2 | ×3.0 | ×5 | ×19 |
 | Spin (efficiency) | 0.9 (16%) | 0.998 (32%) | 0.998 | 0.998 | 0.998 | 0.998 |
-| People | 1.95 × 10³³ | 2.7 × 10³³ | 3.9 × 10³³ | 5.7 × 10³³ | 9.7 × 10³³ | 3.7 × 10³⁴ |
+| People | 1.87 × 10³³ | 2.6 × 10³³ | 3.7 × 10³³ | 5.5 × 10³³ | 9.3 × 10³³ | 3.6 × 10³⁴ |
 | Lantern radius | 0.82 pc | 0.96 pc | 1.16 pc | 1.40 pc | 1.83 pc | 3.6 pc |
 | Shade | 0.9–1.25 pc | 1.05–1.46 pc | 1.27–1.77 pc | 1.53–2.13 pc | 2.01–2.73 pc | 4.0–5.4 pc |
 | Farthest pair, one way: relays / around | 8 / 10 yr | 9 / 12 yr | 11 / 14 yr | 14 / 17 yr | 18 / 22 yr | 35 / 43 yr |
 | Orbit in the Shade (mid-Shade) | ~36,000 yr | ~39,000 yr | ~43,000 yr | ~47,000 yr | ~54,000 yr | ~76,000 yr |
 | Fuel | 0.018 M☉/yr | 0.012 M☉/yr | 0.018 M☉/yr | 0.026 M☉/yr | 0.044 M☉/yr | ~0.17 M☉/yr |
-| Metal import to keep pace | 0.024 M☉/yr | 0.013 M☉/yr | 0.019 M☉/yr | 0.027 M☉/yr | 0.046 M☉/yr | ~0.18 M☉/yr |
+| Metal import to keep pace | 0.023 M☉/yr | 0.012 M☉/yr | 0.018 M☉/yr | 0.026 M☉/yr | 0.044 M☉/yr | ~0.17 M☉/yr |
 
 - **The pace.** Feeding spins the hole from 0.9 to ~0.998 in ~150–170 Myr, while it grows ~40%. After that the disk turns ~32% of the feed into light, so the hole grows more slowly per unit of light: it doubles every ~0.5 Gyr, a growth rate of ~1.4 × 10⁻⁹ a year. On any human timescale the population is closed.
   - **If the spin stalls lower.** 0.998 is the limit for a bare thin disk; magnetized flows may hold the hole at ~0.93–0.99. Efficiency is then ~17–26%, the hole keeps more of what it eats, and it grows faster: ×19 in ~0.9–1.6 Gyr instead of ~2.0, with the fuel store emptying sooner. The end state, set by metal, is the same. Planning gives the horizon as ~1–2 Gyr.
 - **What stays fixed:** the share of Eddington, so the Lantern's lift, flux and skin temperatures; the conversion efficiency; the Shade's weight relative to the hole (~2.2×); the per-person budget.
 - **What grows:** everything with a length scales as the square root of the hole's mass, and orbits as its fourth root. The Lantern creeps outward ~18,000 km a year (faster while the hole spins up), so collectors are added and re-sited continuously, and new rafts join at the Shade's outer edge.
   - **Rafts must climb.** The fuel and metal fall in from outside and exert no torque on a raft, so a free orbit shrinks as the hole grows (radius ∝ 1/mass) while the Lantern widens (∝ √mass). An untrimmed raft at the inner edge sinks ~40,000 km a year and meets the shell within ~45 Myr (~18 Myr while the hole spins up). Every raft keeps a steady prograde push of ~4–5 × 10⁻¹² m/s² (~2.5× that while the hole spins up): ~4 W/m² of photon thrust, a tilt of about half a degree in what its back radiates, ~120–150 km/s of Δv per Gyr. It's a rule of the road (governance.md).
-- **Fuel.** The nuclear star cluster's stripped hydrogen and helium (~2.1 × 10⁷ M☉) covers the feed and the growing population's shields for ~665 Myr (~760 Myr at the common budget's 1.27 × 10³³ people). Before the front caps thickened against the corona's MeV tail (2 Nov 2026) it was ~750 Myr. After that, fuel must be imported at ~0.03 M☉/yr and rising: about the Galaxy's own present inflow to the central parsecs.
+- **Fuel.** The nuclear star cluster's stripped hydrogen and helium (~2.1 × 10⁷ M☉) covers the feed and the growing population's shields for ~675 Myr (~770 Myr at the common budget's 1.21 × 10³³ people). Before the front caps thickened against the corona's MeV tail (2 Nov 2026) it was ~750 Myr, and ~665 Myr while the Lantern still ran the batch compute (1.95 × 10³³ people, 1–6 Nov 2026). After that, fuel must be imported at ~0.03 M☉/yr and rising: about the Galaxy's own present inflow to the central parsecs.
   - **Where it's kept.** Not as gas: at the cluster's density it would form stars within ~30,000 years, drag the Shade's rafts out of orbit within about one orbit, and block the beams once the X-rays ionize it. Not as ice: solid hydrogen must stay below ~4 K, and everything within 100 pc sits at 28–280 K. So the stripped gas is re-merged into ~4 × 10⁸ brown dwarfs of ~0.05 M☉, below the hydrogen-burning limit, parked at ~10–30 pc clear of the widening Shade. Gravity holds them for Gyr, and lifting fuel off one costs ~10¹¹ J/kg, ~3 × 10⁻⁶ of what it yields in the disk (matter-delivery.md).
 - **Metal.** Growth needs heavy elements ~1.5× as fast as the hole gains mass, since the Shade's metal weighs ~1.5× the hole (matter-delivery.md). Drums take ~75% of their metal as white-dwarf carbon and oxygen, since phosphorus, not bulk, binds first (element-cycles.md). So the living stars of the nuclear stellar disk and the inner bulge, out to ~0.4 kpc, cover ~2.0 Gyr of growth, to a hole ~19× today's; the disk's alone would last ~1.7 Gyr (×13). All-solar-mix metal would run out at ~1.1 Gyr. The Central Molecular Zone's gas and the bar's inflow extend it further.
 - **Throttling is a trap.** Holding the light fixed instead would let the share of Eddington fall as the hole grows, and with it the Lantern's lift (see Held up by its own light).
@@ -352,7 +355,6 @@ Not in the baseline. A Blandford–Znajek (BZ) tap draws on the hole's rotation 
 - The best louvered fronts. Returned glow adds ~10–30% to radiator loads (The Shade), which is why inner rafts take more than 3 m² a person.
 - The disk's real brightness pattern around a spinning hole (planning: ~2.6× at the poles), and how fast its wind erodes the Lantern's mirrors.
 - Who runs the Lantern and its relays. economy.md and governance.md set out the options: a constitution in hardware, a cooperative of rafts, an order of keepers or regional blocs. (deliberately open)
-- How compute really splits between the rafts and the Lantern (planning: half each). Every kWe moved to the rafts costs ~1.2 kW of light.
 - Large-scale dynamics of the Shade, how far the hole wanders inside it, and how the Lantern's centring keeps up.
 - **Fuel after the cluster's gas:** answered in matter-delivery.md § Growth and the frontier: the Galaxy's own inflow, then the frontier's stream.
 - Who pays to refill the tank farm after a dim (~780 kWh a person; economy.md).
@@ -367,14 +369,14 @@ Not in the baseline. A Blandford–Znajek (BZ) tap draws on the hole's rotation 
   - balance: weight per m² = total push ÷ (GM/r²). Both scale as 1/r², so one unit of the average disk light's push holds (L/L_Edd) × m_p/σ_T = 7.5 kg/m² at 30%.
   - Off-centre growth rate: γ² = (2/3)(1 − β) GM/r³, where β (~0–0.2) is the share of support from the direct disk light, which follows the hole; the trapped infrared doesn't.
 - Ring limit: bands nest h/50 apart with h = 1.1 km/s ÷ Ω, so tides restore Ω²h/50 = 22 m/s × Ω against the pull 2πGΣ. That holds while the period is ≤ 22 m/s ÷ GΣ ≈ 16 years at 650 kg/m².
-- Loads (1 Nov 2026): daily-life.md's 2 kWe life; batch compute (0.30 kWe) on the Lantern; hull, travel, industry, growth and interactive compute (1.70 kWe) beamed at 75% with a 3% margin: 2.64 kWe generated and 8.30 kW of light per person. Populations are ×1.54 the common budget's (0.5 + 2.59 kWe: 4.06 kWe generated, 12.8 kW of light), and the metal, fuel and Shade-mass rows scale with them. Oct 2026 revision: populations had been scaled by 12.2/12.8 ≈ 0.95 from the all-on-Lantern version.
-- Shade: 9.9 t per person (6.7 t heavy elements, 3.2 t hydrogen in 3 km drums), ~9.7 × 10⁶ M☉ spread evenly through 1.10–1.49 Lantern radii. Enclosed mass is the hole plus the part of the Shade inside. Passes: raft density × π × (raft width)² × relative speed. Collision courses come from radial speeds of ~eccentricity × orbital speed. Sky covered: raft area ÷ 4πr², averaged through the Shade.
+- Loads (6 Nov 2026): daily-life.md's 2 kWe life, all of it beamed at 75% with a 3% margin: 2.00 × 1.03 ÷ 0.75 = 2.75 kWe generated and 8.65 kW of light per person, so 0.98 × 0.324 × 1.62 × 10³⁷ W ÷ 2.75 kWe ≈ 1.87 × 10³³ people. Populations are ×1.55 the common budget's (3.09 kWe beamed: 4.24 kWe generated, 13.4 kW of light, 1.21 × 10³³ people), and the metal, fuel and Shade-mass rows scale with them. Until 6 Nov 2026 the Lantern ran 0.30 kWe of batch compute unbeamed (2.64 kWe generated, 8.30 kW of light, 1.95 × 10³³ people); the Oct 2026 revision before that had scaled populations by 12.2/12.8 ≈ 0.95 from the all-on-Lantern version.
+- Shade: 9.9 t per person (6.7 t heavy elements, 3.2 t hydrogen in 3 km drums), ~9.3 × 10⁶ M☉ spread evenly through 1.10–1.49 Lantern radii (9.7 × 10⁶ until 6 Nov 2026; the orbit, pass and glow figures were run at that mass and are good to a few percent). Enclosed mass is the hole plus the part of the Shade inside. Passes: raft density × π × (raft width)² × relative speed. Collision courses come from radial speeds of ~eccentricity × orbital speed. Sky covered: raft area ÷ 4πr², averaged through the Shade.
 - Forced eccentricity (6 Nov 2026): with the Shade's mass inside an orbit, κ² = Ω²(1 + d ln M_enc/d ln r) = Ω²(1 + k), k = 3.4–4.5 across the Shade, so κ/Ω = 2.1–2.35 and the glow's 2Ω forcing is detuned by 5–17%. The glow's push on a mirror front varies by ~1.4 kW/m² ÷ c over a raft's 2,950 kg/m² between belt and pole, ~1.6 × 10⁻⁹ m/s²; forced e = Δa ÷ (r(κ² − 4Ω²)) ≈ 0.001 at the inner edge to ~0.003 at the outer.
 - Climbing: with no torque, h = √(G M_enc r) is fixed, so r ∝ 1/M_enc as mass falls in. Holding r ∝ √M takes a prograde push of ½ × (M_hole/M_enc + ½) × v × (d ln M/dt): ¾ v (d ln M/dt) at the inner edge, ~0.4 v (d ln M/dt) at the outer, where the Shade inside a raft doesn't grow. d ln M/dt is 1.4 × 10⁻⁹ a year once spun up (3.6 × 10⁻⁹ before).
-- Tank farm: 20% of 1.75 kWe beamed for 30 days (252 kWh) from methanol at 19.9 MJ/kg (lower heating value) in reformer cells at 48%; CH₃OH + 1.5 O₂ → CO₂ + 2 H₂O. Refill by electrolysis and synthesis at 74%, plus ~0.4 kWh/kg to liquefy the oxygen. The cells' heat is net of the rectenna losses the dip frees. Survival reserve: 60 kg of oxygen with 7.6 kg of shield hydrogen at 55% gives ~100 W for 55 days.
+- Tank farm: 20% of 1.75 kWe for 30 days (252 kWh; the beam less its 0.30 kWe of batch work, which waits out a dim) from methanol at 19.9 MJ/kg (lower heating value) in reformer cells at 48%; CH₃OH + 1.5 O₂ → CO₂ + 2 H₂O. Refill by electrolysis and synthesis at 74%, plus ~0.4 kWh/kg to liquefy the oxygen. The cells' heat is net of the rectenna losses the dip frees. Survival reserve: 60 kg of oxygen with 7.6 kg of shield hydrogen at 55% gives ~100 W for 55 days.
 - Radiator exposure: numerical view factors to a sphere at 1.1–1.5 radii.
 - Message paths around the Lantern: two tangent lines plus the arc between them.
 - Beam apertures: transmitter area × receiver area ≈ (2 × wavelength × distance)² for ~95–98% capture.
 - X-ray shielding: slab Monte Carlo, method in habitat-design.md (drums) and raft-transport.md (travellers). From 2 Nov 2026 the leak's planning spectrum is a thermal bulk (Γ = 2.0, cut off at 160 keV) plus a tail of 10% of the leak, flat in νF_ν from 0.3 to 100 MeV; thick shields are sized with a slant-path slab and buildup (threads/radiation, radiation_calc.py).
 - Cosmic rays and the quiet hole: hadrons above 10 TeV at 1 pc, 1 eV/cm³ ≈ 6 × 10²⁹ W streaming out; shower depth profiles behind the jacket (as 200–570 g/cm² of water) give ~5–40 mSv/yr on the Low decks per eV/cm³ from all sides, ~160–600 mGy/yr on the front-wall terraces as a beam from the hole. Neutron decay length ~0.9 pc per 100 TeV. Hedge: ~2 eV/cm³ both ways, +1,300–1,500 g/cm² of liquid hydrogen on the front cap and +425–650 elsewhere.
-- Growth: held at 30% of Eddington from spin 0.9; Bardeen spin evolution capped at 0.998; Novikov–Thorne efficiency. Cluster gas ~2.1 × 10⁷ M☉ after setting aside its white dwarfs, shared between fuel and shields (3.2 t per person; 2.2 t before 2 Nov 2026). Metal at 6.7 t per person, from 6.6 × 10⁶ M☉ today. Living stars: the nuclear stellar disk's ~1.7 × 10⁷ M☉ of shipped metal plus the inner bulge's ~0.9 × 10⁷, used at (1 − w) × 6.6 × 10⁶ M☉ × (hole mass ÷ today's − 1) with w ≈ 0.78 (element-cycles.md). Orbits in the growth table are mid-Shade, scaling as the fourth root of the hole's mass.
+- Growth: held at 30% of Eddington from spin 0.9; Bardeen spin evolution capped at 0.998; Novikov–Thorne efficiency. Cluster gas ~2.1 × 10⁷ M☉ after setting aside its white dwarfs, shared between fuel and shields (3.2 t per person; 2.2 t before 2 Nov 2026). Metal at 6.7 t per person, from 6.3 × 10⁶ M☉ today. Living stars: the nuclear stellar disk's ~1.7 × 10⁷ M☉ of shipped metal plus the inner bulge's ~0.9 × 10⁷, used at (1 − w) × 6.3 × 10⁶ M☉ × (hole mass ÷ today's − 1) with w ≈ 0.78 (element-cycles.md); the horizons were run at 6.6 × 10⁶ and are ~4% short. Orbits in the growth table are mid-Shade, scaling as the fourth root of the hole's mass.

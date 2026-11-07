@@ -1,6 +1,6 @@
 # Daily life at 2 kW
 
-*Design notes from a working session, Oct 2026. Builds on energy-budget.md (the line items), food-system.md and cuisine.md (food and its prices), habitat-design.md (the nation drum), full-swarm.md (life in the Shade), raft-transport.md (getting around) and matter-delivery.md (the cost of metal). "2 kW" means 2 kWe of delivered electricity per person, time-averaged, as in energy-budget.md. (If it meant light, a resident would get ~0.5 kWe, below the lean budget.) The resident lives in a nation drum on a raft in the Shade. Food uses cuisine.md's best-case prices, which suit a mature swarm. "The commons", "the wallet" and the culture notes are proposals. Travel revised Oct 2026 to raft-transport.md: ~1% of a car's kinetic energy lost per trip instead of 3%, free glides between neighbouring drums, and cyclers for long trips. How wallets are set, work, property and children are in economy.md. Revised again Oct 2026 for the 3 km nation drum (habitat-design.md, raft-habitat.md): cryocooling, the Hollow's sky, parks, cabs and the Glide's times change; the totals don't. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the population closes at this 2 kWe life. The Lantern feeds ~1.95 × 10³³ people at ~8.3 kW of light each, and the metal came too, so each keeps 6.7 t and 100 m² of floor. The crowded and dimmer alternatives are set aside, hull radiators are given as ~1.9 m² to match full-swarm.md, and the 10 M☉ figures are a design study.*
+*Design notes from a working session, Oct 2026. Builds on energy-budget.md (the line items), food-system.md and cuisine.md (food and its prices), habitat-design.md (the nation drum), full-swarm.md (life in the Shade), raft-transport.md (getting around) and matter-delivery.md (the cost of metal). "2 kW" means 2 kWe of delivered electricity per person, time-averaged, as in energy-budget.md. (If it meant light, a resident would get ~0.5 kWe, below the lean budget.) The resident lives in a nation drum on a raft in the Shade. Food uses cuisine.md's best-case prices, which suit a mature swarm. "The commons", "the wallet" and the culture notes are proposals. Travel revised Oct 2026 to raft-transport.md: ~1% of a car's kinetic energy lost per trip instead of 3%, free glides between neighbouring drums, and cyclers for long trips. How wallets are set, work, property and children are in economy.md. Revised again Oct 2026 for the 3 km nation drum (habitat-design.md, raft-habitat.md): cryocooling, the Hollow's sky, parks, cabs and the Glide's times change; the totals don't. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the population closes at this 2 kWe life. The Lantern feeds ~1.95 × 10³³ people at ~8.3 kW of light each, and the metal came too, so each keeps 6.7 t and 100 m² of floor. The crowded and dimmer alternatives are set aside, hull radiators are given as ~1.9 m² to match full-swarm.md, and the 10 M☉ figures are a design study. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute runs on the Lantern (its electronics live in ~8–20 MGy a year; full-swarm.md), so all 0.8 kWe of it runs in the raft's data halls and the whole 2 kWe is beamed: ~2.75 kWe generated, ~8.7 kW of light, ~1.87 × 10³³ people.*
 
 ## Summary
 - **2 kWe is 48 kWh a day: a kWh every half hour.** That's two-thirds of the common budget (3.1 kWe) and twice the lean one (~1 kWe).
@@ -11,9 +11,9 @@
   - Speed: a trip costs speed squared, not distance. A cycler at 2 km/s crosses a million km in ~6 days for ~1 kWh; the express does it in 16 hours for ~220 kWh by tube car, ten days of a wallet (~110, five days, by cycler). The next drum is a free glide.
   - Light: a private 10 m² garden lit like an overcast day takes a fifth of a wallet.
   - Mass: new things cost ~25 kWh per kg, so a chair costs as much as fifty dinners.
-- **Compute is the biggest line (0.8 kW) and the one people cut first.** Interactive compute can't run on the Lantern, which is 3 months to 1.4 years away by light. It runs in data halls on the raft.
+- **Compute is the biggest line (0.8 kW) and the one people cut first.** None of it runs on the Lantern, which is 3 months to 1.4 years away by light and whose electronics live in ~8–20 MGy a year (full-swarm.md). All of it runs in data halls on the raft.
 - **Energy can't buy a child or a bigger flat.** Both are metal, which arrives only as fast as the hole grows.
-- **For the swarm:** ~8.3 kW of light per person instead of 12.8, so the Lantern feeds ~1.95 × 10³³ people. The metal came too: a wider harvest gives each the full 6.7 t and 100 m² of floor (full-swarm.md).
+- **For the swarm:** ~8.7 kW of light per person instead of 13.4, so the Lantern feeds ~1.87 × 10³³ people. The metal came too: a wider harvest gives each the full 6.7 t and 100 m² of floor (full-swarm.md).
 
 ## The budget
 kWe per person, time-averaged. Lean and Common are from energy-budget.md (food at planning values; travel as its vactrain at 3%).
@@ -44,7 +44,7 @@ kWe per person, time-averaged. Lean and Common are from energy-budget.md (food a
 - **Travel:** glides, tubes and cyclers at raft-transport.md's ~1% loss. At 0.10 kW it buys about four times the trips it did at 3%, and far more than the common budget's express pattern (see Getting around).
 - **Industry:** ~100 kg remade per person per year, against ~134 kg (2%) in the common budget.
 - **Growth:** the mature swarm needs only a few watts; the common budget's 0.10 covered the build-out.
-- **Compute:** 0.50 on the raft (0.40 personal, 0.10 public services) and 0.30 on the Lantern.
+- **Compute:** all 0.80 on the raft: 0.40 personal, 0.10 public services, 0.30 batch work (research, archives, long simulations) that runs in the lamp-night.
 - The hull's ~0.8 kW of heat needs ~1.9 m² of one-sided radiator per person in the Shade (2.5 in the common budget).
 - **Drum size moves a few lines.** Against a 2 km drum, the 3 km nation drum saves ~8 W of cryocooling and ~17 W of Hollow sky per person (~11 W because its Hollow is a third smaller per person, ~6 W because the sunline now stops short of the end walls; raft-habitat.md), and its cabs need ~3–5 W more (drum-transport.md). So 0.01 kW moves from cryocooling to cabs, and the Hollow's saving goes to parks.
 
@@ -54,7 +54,7 @@ Two layers. The commons is what the drum and raft run for everyone. The wallet i
 | Commons | kW |
 |---|---|
 | Food credit: a Mill-table day, incl. air and water loops and kitchens | 0.23 |
-| Public compute: raft services 0.10, Lantern batch work 0.30 | 0.40 |
+| Public compute: raft services 0.10, batch work 0.30, both in the raft's data halls | 0.40 |
 | Public services & robots: schools, clinics, shops, offices, maintenance | 0.12 |
 | Remaking infrastructure: decks, ducts, raft truss, rectennas (~40 kg/yr) | 0.12 |
 | Public lighting: the Hollow's sky, parks, workplaces, corridors | 0.10 |
@@ -199,13 +199,13 @@ An orchard apple, a new shirt and 1,000 km flat out cost about the same. A chair
 
 ## Compute
 - **Compute is the biggest line: 0.8 kW, 40% of the budget, and the swing line.** It's ~13× what US data centres drew per person in 2024 (energy-budget.md).
-- **Interactive compute has to run on the raft.** The Lantern is 0.08–0.43 pc from the Shade: 3 months to 1.4 years each way by light.
-  - Assistants, tutors, games, shared worlds, medical support and the raft's own services run in data halls on the raft, on beamed power (0.50 kW per person here).
-  - The Lantern keeps work that can wait years: research, archives and long simulations (0.30).
-- **full-swarm.md and energy-budget.md use this split,** with half the common budget's compute on the rafts. Each kWe moved to a raft costs ~1.2 kW more light, for beam losses, so the common budget needs ~12.8 kW of light per person instead of ~12.2, and the Lantern would feed ~5% fewer people at it (~1.27 × 10³³). The 2 kWe life, with only its 0.30 of batch work on the Lantern, needs ~8.3 kW, and the Lantern feeds ~1.95 × 10³³ people at it.
+- **All compute runs on the raft.** The Lantern is 0.08–0.43 pc from the Shade, 3 months to 1.4 years each way by light, so nothing interactive could run there; and its electronics take ~8–20 MGy a year of hard X-rays, which rules out the batch work too (full-swarm.md).
+  - Assistants, tutors, games, shared worlds, medical support and the raft's own services run in water-walled data halls on the raft, on beamed power (0.50 kW per person).
+  - Work that can wait, research, archives and long simulations (0.30), runs in the same halls through the lamp-night.
+- **Every kWe of compute is beamed,** at ~1.2 kW of light more per kWe than compute at the Lantern would have cost. That is why the 2 kWe life takes ~8.7 kW of light rather than ~8.3, and the common budget ~13.4 rather than ~12.8; the Lantern feeds ~1.87 × 10³³ people at the 2 kWe life (~1.95 × 10³³ while it ran the batch work itself, 1–6 Nov 2026).
 - **Personal compute (0.40 kW, 9.6 kWh a day) is 44% of a wallet,** and the first thing people cut to afford something. Going dark for about three weeks pays for an express leg by tube car, or twelve days by cycler.
 - **Real-time reach.** Talk without noticeable lag (a tenth of a second each way) reaches everyone within ~30,000 km, ~10¹⁵ people. Calls across a raft take seconds to minutes, between rafts minutes to hours, across the Shade years.
-- **Machine country is a letter away.** Minds stay biological in this setting (governance.md), so nobody lives on the Lantern. A job sent there comes back months to years later, and its rules are written and audited at the same remove.
+- **Machine country is a letter away.** Minds stay biological in this setting (governance.md), so nobody lives on the Lantern, and since 6 Nov 2026 none of anyone's work runs there either; its rules are written and audited from months to years away.
 
 ## What energy can't buy
 - **A child.** A new person needs 6.7 t of new metal, which costs ~25–55 PJ to gather (matter-delivery.md): 400,000–900,000 years of a 2-kW budget. Metal arrives only as fast as the hole grows (~10⁻⁹ a year; full-swarm.md), so births match deaths: about two children per couple, on average. Every new household lives in an older one, remade. How shares for children are allotted is in economy.md.
@@ -237,10 +237,10 @@ An orchard apple, a new shirt and 1,000 km flat out cost about the same. A chair
 | A sofa | 1,000 kWh (46 days) |
 
 ## What 2 kW means for the swarm
-- **Light per person is ~8.3 kW,** down from ~12.8 at the common budget: 0.30 kWe of Lantern compute plus 1.70 kWe beamed at 75% with a 3% margin, so ~2.64 kWe generated, at the Lantern's 32.4% on the 98% of light it catches.
-- **So the Lantern feeds ~1.95 × 10³³ people,** ×1.54 the common budget's ~1.27 × 10³³. This is the Shade's population (full-swarm.md).
-- **The metal came too.** At 6.7 t each they need ~6.6 × 10⁶ M☉ of heavy elements, ~1.5× the ~4.3 × 10⁶ M☉ first planned, and a wider harvest brings it (full-swarm.md). So everyone keeps 100 m² of floor. On the old total each would have had ~4.4 t, or ~55 m².
-- **The other route is set aside:** the same ~1.27 × 10³³ people on a feed at ~20% of Eddington. A Lantern with infrared-mirror inner walls would still float there, but black walls need ~30%, and the feed is held at 30% as the hole grows (full-swarm.md).
+- **Light per person is ~8.7 kW,** down from ~13.4 at the common budget: 2.00 kWe beamed at 75% with a 3% margin, so ~2.75 kWe generated, at the Lantern's 32.4% on the 98% of light it catches.
+- **So the Lantern feeds ~1.87 × 10³³ people,** ×1.55 the common budget's ~1.21 × 10³³. This is the Shade's population (full-swarm.md).
+- **The metal came too.** At 6.7 t each they need ~6.3 × 10⁶ M☉ of heavy elements, ~1.5× the ~4.3 × 10⁶ M☉ first planned, and a wider harvest brings it (full-swarm.md). So everyone keeps 100 m² of floor. On the old total each would have had ~4.6 t, or ~60 m².
+- **The other route is set aside:** the same ~1.21 × 10³³ people on a feed at ~20% of Eddington. A Lantern with infrared-mirror inner walls would still float there, but black walls need ~30%, and the feed is held at 30% as the hole grows (full-swarm.md).
 - Hull radiators shrink to ~1.9 m² per person (one-sided), from 2.5.
 - The 10 M☉ design study (22% conversion, 10% firm-load overhead): ~9.5 kW of light per person instead of ~15.
 

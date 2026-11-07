@@ -1,6 +1,6 @@
 # Economy: a stationary state in the Shade
 
-*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger, the posted price) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family. Revised again 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Lantern's output ÷ population is the 2 kWe life, ~1.95 × 10³³ people on ~6.6 × 10⁶ M☉ of metal, so the 2-kW world is the Shade itself, not a crowded alternative. Revised 2 Nov 2026 (radiation decisions, Jeff): the High decks' dose is low, not the lowest (habitat-design.md). Revised again 2 Nov 2026 (Jeff's decisions; people.md): stem places. A place passes whole to one heir, so it is one household's home and a nation drum of 200 M has ~90 M of them; children belong to a place; the placeless live in houses, a second tenure held by bodies that don't die. Revised 6 Nov 2026 (Jeff's decisions; people.md § What births do to the gene pool): births follow places and wallets follow deaths, nobody waits on a death to have a child, and most steady drums post a price for a shareless child's keep. Revised 6 Nov 2026 (consistency audit): new metal founds new drums at the raft's edge (~400 a year on a 0.1 AU raft), never new floor in a standing drum.*
+*Design proposal from a working session, Oct 2026. How people in the Shade earn, spend, own, save and trade, inside the limits the other docs set: a fixed share of the beam (daily-life.md's 2 kWe), a fixed share of metal (~6.7 t, habitat-design.md), a closed population (matter-delivery.md), rafts that reach each other only by light (full-swarm.md), and a Lantern months to years away. Builds on daily-life.md's commons and wallet, with prices in kWh as there. The institutions and names here (the dividend, the place, the share, birth rights, the heat cap, the ledger, the posted price) are proposals; the limits under them are the physics of the other docs. Revised Oct 2026 for the 3 km nation drum of ~200 M (raft-habitat.md): more births and new places per drum, and a smaller Hollow per person. Revised 1 Nov 2026 (Jeff's decisions; people.md): places are household land, like farms, ~150 M to a nation drum; each person's wallet comes with a share, freed by a death in the family. Revised again 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Lantern's output ÷ population is the 2 kWe life, ~1.95 × 10³³ people on ~6.6 × 10⁶ M☉ of metal, so the 2-kW world is the Shade itself, not a crowded alternative. Revised 2 Nov 2026 (radiation decisions, Jeff): the High decks' dose is low, not the lowest (habitat-design.md). Revised again 2 Nov 2026 (Jeff's decisions; people.md): stem places. A place passes whole to one heir, so it is one household's home and a nation drum of 200 M has ~90 M of them; children belong to a place; the placeless live in houses, a second tenure held by bodies that don't die. Revised 6 Nov 2026 (Jeff's decisions; people.md § What births do to the gene pool): births follow places and wallets follow deaths, nobody waits on a death to have a child, and most steady drums post a price for a shareless child's keep. Revised 6 Nov 2026 (consistency audit): new metal founds new drums at the raft's edge (~400 a year on a 0.1 AU raft), never new floor in a standing drum. Revised 6 Nov 2026 (world audit, Jeff's decisions): the Lantern runs no compute (full-swarm.md), so the Shade is ~1.87 × 10³³ people at ~2.75 kWe generated each.*
 
 ## Summary
 - **A stationary state.** Energy is a flow fixed per person, metal a stock fixed per person, and the population is closed (growth ~10⁻⁹ a year). Nothing compounds. In shape it's an agrarian economy, with metal for land and the beam for the harvest, rents and status, and machines doing all the farming.
@@ -17,7 +17,7 @@
 ## Who holds what
 | Layer | People | Holds | Decides |
 |---|---|---|---|
-| The Lantern | None | The power, batch compute, the relays | Beam per raft; cuts |
+| The Lantern | None | The power and the relays | Beam per raft; cuts |
 | A raft | 10¹⁹–10²² | The beam contract; truss, rectennas, radiators, tubes, cyclers, data halls, the Yards | Beam per drum; cycler speeds; its drum size |
 | A drum | ~200 M | The commons, the food plant, the reserve, fixed goods, the pool of places and shares | The commons' size; who gets fixed goods; birth rights; what houses may hold |
 | A household | ~2¼ | One place, held by an heir; the spouse marries in | Who lodges; whom to name heir |
@@ -28,7 +28,7 @@
 ## What's scarce
 | | Kind | Per person, at 2 kW | Supply | Priced by |
 |---|---|---|---|---|
-| Electricity | Flow | ~2 kWe (17,500 kWh a year): 1.1 commons, 0.9 wallet | The Lantern's output ÷ ~1.95 × 10³³ people: ~2.64 kWe generated each, ~2 delivered | It's the unit |
+| Electricity | Flow | ~2 kWe (17,500 kWh a year): 1.1 commons, 0.9 wallet | The Lantern's output ÷ ~1.87 × 10³³ people: ~2.75 kWe generated each, ~2 delivered | It's the unit |
 | In-hull heat | Flow, capped | ~0.8 kW of 300 K radiator | The raft's back layer (raft-habitat.md) | A premium once the cap binds |
 | Metal | Stock | ~6.7 t: 100 m² of floor (~35 m² of it home) and the rest of a share | New metal founds new drums at the raft's edge, ~400 a year on a 0.1 AU raft: one share per existing drum every ~3.6 years, never new floor | Rent |
 | Belongings | Stock | ~2.5 t of furnishings, belongings and greenery, shared with workplaces and public rooms | Fixed | Remaking (~25 kWh/kg), plus rent if mass is short |
@@ -240,7 +240,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 
 ## If minds run as software
 - **Not in this setting, for now.** Minds stay biological (governance.md). This section is what would change if they didn't.
-- **At a brain's ~20 W,** the light behind one 2-kW life (~8.3 kW, ~2.6 kWe on the Lantern) would run ~130 minds, with no place and no hull. One mind costs ~0.8% of a person's light.
+- **At a brain's ~20 W,** the light behind one 2-kW life (~8.7 kW, ~2.75 kWe at the Lantern) would run ~140 minds, with no place and no hull. One mind costs ~0.7% of a person's light.
 - **That's energy-budget.md's sharp exchange rate.** Anyone who could choose would face it.
 - **Going up.** A person who moves to the Lantern frees a share for a child and costs the civilization ~1% of what they did. If that's possible, every pressure in this doc points up, and the line between the Shade and machine country (full-swarm.md) becomes an emigration route.
 - If it isn't, compute stays a consumer good: the biggest line in every wallet (daily-life.md).
@@ -283,7 +283,7 @@ All made, Oct 2026:
 
 ## Method
 - Flows: daily-life.md's 2-kW split over 8,766 hours a year.
-- Population (full-swarm.md): the Lantern's ~5.2 × 10³⁶ W (98% of the disk's 1.6 × 10³⁷ W, at 32.4%) ÷ 2.64 kWe generated per person (0.30 of batch compute on the Lantern, 1.70 beamed at 75% with a 3% margin) ≈ 1.95 × 10³³ people, at 6.7 t each ≈ 6.6 × 10⁶ M☉ of metal.
+- Population (full-swarm.md): the Lantern's ~5.1 × 10³⁶ W (98% of the disk's 1.6 × 10³⁷ W, at 32.4%) ÷ 2.75 kWe generated per person (all 2.00 kWe beamed at 75% with a 3% margin; nothing runs on the Lantern) ≈ 1.87 × 10³³ people, at 6.7 t each ≈ 6.3 × 10⁶ M☉ of metal.
 - Shares: 6.7 t and ~0.75 TJ to build (habitat-design.md, energy-budget.md); floor at 50 kg/m² and ~25 kWh/kg; new metal 25–55 PJ from stars, 0.1 TJ–0.4 PJ from gas (matter-delivery.md).
 - New shares per drum: ~200 M × growth rate (1.4 × 10⁻⁹ a year after spin-up, 4 × 10⁻⁹ during); new places at ~45% of that, one for every ~2.2 shares.
 - Places: one to a household. The family-tree model in people.md settles at ~2.2 people a place, so 200 M ÷ 2.22 ≈ 90 M places of 35 × 2.22 ≈ 78 m² of home.

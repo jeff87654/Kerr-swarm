@@ -14,10 +14,10 @@
 
 | | Questions |
 |---|---|
-| Open | 76 |
+| Open | 74 |
 | Deliberately open (story space) | 17 |
-| Answered elsewhere, with a pointer left in the doc | 29 |
-| Docs with questions still open | 23 |
+| Answered elsewhere, with a pointer left in the doc | 30 |
+| Docs with questions still open | 22 |
 
 ## The questions by theme
 Each links to its doc's own list, which is the source. Answered questions are left out here; their pointers stay in the docs.
@@ -27,7 +27,6 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [full-swarm.md](full-swarm.md#open-questions): The best louvered fronts. Returned glow adds ~10–30% to radiator loads (The Shade), which is why inner rafts take more than 3 m² a person.
 - [full-swarm.md](full-swarm.md#open-questions): The disk's real brightness pattern around a spinning hole (planning: ~2.6× at the poles), and how fast its wind erodes the Lantern's mirrors.
 - [full-swarm.md](full-swarm.md#open-questions): Who runs the Lantern and its relays. economy.md and governance.md set out the options: a constitution in hardware, a cooperative of rafts, an order of keepers or regional blocs. *(deliberately open)*
-- [full-swarm.md](full-swarm.md#open-questions): How compute really splits between the rafts and the Lantern (planning: half each). Every kWe moved to the rafts costs ~1.2 kW of light.
 - [full-swarm.md](full-swarm.md#open-questions): Large-scale dynamics of the Shade, how far the hole wanders inside it, and how the Lantern's centring keeps up.
 - [full-swarm.md](full-swarm.md#open-questions): Who pays to refill the tank farm after a dim (~780 kWh a person; economy.md).
 - [sgr-a-scope.md](sgr-a-scope.md#open-questions): Layer era: power sharing between shaded and sunny rafts (short beams, markets, or scheduling orbits to avoid shade).
@@ -41,7 +40,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [matter-delivery.md](matter-delivery.md#open-questions): **Where catchers sit** among the Shade's rafts and beams (The catch describes solid and plasma catches).
 - [matter-delivery.md](matter-delivery.md#open-questions): **Epoch:** whether the bar still feeds the CMZ in the setting's era. If not, stars and white dwarfs are the ore.
 - [matter-delivery.md](matter-delivery.md#open-questions): **The long run:** what comes after the ~1–2 Gyr growth horizon (README), when the disk's living stars and the inner bulge out to ~0.4 kpc run low.
-- [matter-delivery.md](matter-delivery.md#open-questions): **Building ahead:** whether a Lantern finished before its people spends its spare output (~1.8 × 10³⁶ W at first) on mining, which would gather the ~2.3 × 10⁶ M☉ that the 2 kWe population adds in well under a Myr of lifting.
+- [matter-delivery.md](matter-delivery.md#open-questions): **Building ahead:** whether a Lantern finished before its people spends its spare output (~1.8 × 10³⁶ W at first) on mining, which would gather the ~2.0 × 10⁶ M☉ that the 2 kWe population adds in well under a Myr of lifting.
 
 ### Habitats and materials
 - [habitat-design.md](habitat-design.md#open-questions): How lean interiors are: contents per m² dominates the budget.
@@ -76,7 +75,6 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [raft-transport.md](raft-transport.md#open-questions): How districts of different drum sizes connect, since they can't glide to each other (raft-habitat.md § Life inside: a raft picks one size to glide).
 
 ### Energy and food
-- [energy-budget.md](energy-budget.md#open-questions): How compute really splits between the rafts and the Lantern. Batch work lives on the Lantern and interactive work within a few thousand km of its users; planning takes 0.5 kWe on the raft and 0.3 on the Lantern at 2 kWe (daily-life.md).
 - [xray-power.md](xray-power.md#open-questions): Any optical/IR from the starved hole's outer disk or jet. (The fed hole's output is worked out in hole-choice.md and full-swarm.md.)
 - [xray-power.md](xray-power.md#open-questions): Skins only on remote rings (saves metal) vs. standard tiles everywhere (saves light, reach and knot-night storage).
 - [xray-power.md](xray-power.md#open-questions): Parasols vs. placing drums behind heavy tiles.
