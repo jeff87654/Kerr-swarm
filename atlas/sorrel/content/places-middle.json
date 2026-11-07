@@ -428,8 +428,8 @@
   ]
  },
  {
-  "id": "lantern-desk",
-  "name": "The Lantern Desk",
+  "id": "batch-desk",
+  "name": "The Batch Desk",
   "kind": "culture",
   "zone": "deck",
   "deck": 255,
@@ -438,20 +438,20 @@
   "hour": 12,
   "r": null,
   "wall": null,
-  "blurb": "Where Sorrelers send research to the Lantern as batch work, and collect the answers about two years later.",
-  "text": "Interactive compute runs on the raft, but the Lantern does the slow work: long simulations, deep searches, the questions that can wait. Merrow's patch of it is about eleven light-months away, so a question sent from this small office in Lark comes back in a little under two years at best. The desk keeps a ledger of questions in flight, about nine thousand at any time, each with the sender's name and a contact in case the sender has moved, gone up or died. A good share of answers are collected by somebody else: a grandchild, a colleague, a whole class that inherited a project. By custom the clerk reads each answer's first line aloud at the counter, to whoever is there.",
-  "detail": "Questions go free from the commons' share of Lantern work, after a review of about a month. Answers wait at the desk for twenty years, then go to the Reading Decks.",
+  "blurb": "Where Sorrelers queue research for Merrow's data halls, which take the raft's batch work in the lamp-night, and collect the answers in the morning.",
+  "text": "All of Sorrel's compute runs on the raft, in the data-hall vaults out in the mid-raft; nothing computes on the Lantern, eleven light-months away and lit by X-rays that kill a chip in hours. The slow work, long simulations, deep searches, the questions that can wait, is batch work, and it runs in the lamp-night, when the raft's evening load is over and kWh are cheapest. This small office in Lark is where a question is lodged and an answer collected. The desk keeps a ledger of questions in flight, a few thousand at any time, most of them a night long and a few, the great simulations, weeks. Some answers are collected by somebody else: a colleague, or a class that inherited a project. By custom the clerk reads each answer's first line aloud at the counter, to whoever is there.",
+  "detail": "Questions go free from the commons' share of batch work (0.3 kW a head, daily-life.md), the big ones after a review of about a month. Answers wait at the desk for twenty years, then go to the Reading Decks.",
   "who": {
    "name": "Dov Amari",
    "age": 57,
    "role": "desk clerk",
-   "line": "A woman asked if a pear could bloom without its winter. Two years later her son collected the answer. It was no, with a reading list."
+   "line": "A woman asked whether a pear could bloom without its winter. The answer was waiting next morning. It was no, with a reading list."
   },
-  "canon": null,
+  "canon": "daily-life.md",
   "tags": [
-   "lantern",
    "research",
-   "batch-work"
+   "batch-work",
+   "compute"
   ]
  },
  {

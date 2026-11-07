@@ -248,15 +248,51 @@ Matches: birth right, birth rights
 
 ### Holdings
 
-The common way drums hold births to deaths: places and shares pass in the family. A couple's last death frees their place for one heir, usually a great-grandchild, and each death frees a share for a newborn; a child born ahead of a death has no share until one frees; and couples have children once they have a place, so a drum's extra children become the placeless rather than more households. Nobody waits on a death to have a child. Because a child's keep is the commons', custom alone holds two for only a few centuries against the families that have thirds, and most holdings drums add the posted price. See people.md, economy.md.
+The common way drums hold births to deaths: places and shares pass in the family. A couple's last death frees their place for one heir, usually a great-grandchild, and each death frees a share for a newborn; a child born ahead of a death has no share until one frees; and couples have children once they have a place, so a drum's extra children become the placeless rather than more households. Nobody waits on a death to have a child. Because a child's keep is the commons', custom alone holds two for only a few centuries against the families that have thirds, and most holdings drums add the posted price and, in time, the draw. See people.md, economy.md, families.md.
 
 Matches: holdings
 
 ### The posted price
 
-What most steady drums charge a household for a shareless child's keep, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted beside the Count at every station ring and moving with it: a charge when the drum is over par, a purse paid the other way when it is under. It makes a third child cost its family what Lack's principle needs it to, so the wish for children stays tuned to places. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md.
+What most steady drums charge a household for a shareless child's keep, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted beside the Count at every station ring and moving with it: a charge when the drum is over par, a purse paid the other way when it is under. It holds the drum's numbers by making fewer households have a third; it does not tune the wish, which climbs behind it, so the price climbs too, and old drums cap it and add the draw. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md, families.md.
 
 Matches: posted price, the purse
+
+### The draw
+
+A lottery for third children (proposal): each year a drum issues as many permits as its childless households and early dead leave room for, and draws them among couples with two who want a third; a permitted third pays no price. Wanting a third still pays, by the room the childless leave, so over thousands of years the wish saturates: most couples enter and about one in ten wins. It holds the numbers so long as thirds born without a permit stay few, and it is the rule old drums converge on; pool drums run theirs from unspent rights. See families.md, people.md.
+
+Matches: Draw Day, third-child draw, draw for thirds
+
+### Portions
+
+In portion drums (proposal), the place passes whole to one heir and the other children each carry a portion of the family's savings, belongings and rents to their marriage, and heirs marry the best portion going, as Irish farmers married fortunes. A third child shrinks its siblings' portions, which decides who carries the cost of a big family but barely slows the wish. See families.md.
+
+Matches: portion drum, portion drums
+
+### Split estates
+
+Drums (proposal) where a household's place and shares are one estate, split equally among the children as each marries, with a minimum a couple must hold to have children, as nineteenth-century Württemberg made the poor prove their means to marry. Rare and short-lived: the minimum creeps down and the numbers swing. See families.md.
+
+Matches: split estate, split estates, split-estate drum, split-estate drums
+
+### Sibling households
+
+Drums (proposal) where a place stays with its sibling group for life, partners visit and never move, and children belong to their mother's place, as among the Mosuo. Uncles raise their sisters' children, and when a generation outgrows the place the excess leave for houses. See families.md.
+
+Matches: sibling household, sibling households
+
+### Room drums
+
+Holdings drums that let couples without a place raise children in rented rooms (Jeff, 6 Nov 2026): young and crowded, with rents two to four times a steady drum's and a renting class, running well above par and reaching the Count sooner than their neighbours. Other drums ban such births, with varying severity, or frown on them and the children grow up poorer. See families.md.
+
+Matches: room drum, room drums
+
+### The drum's own children
+
+A rare rule (proposal): children drawn by lot from every family's banked embryos to replace a drum's childless and early dead, carried by volunteers and raised by them or by tables. The one rule under which wanting more children gains a family nothing. See families.md.
+
+Matches: drum's own children
 
 ### The placeless
 

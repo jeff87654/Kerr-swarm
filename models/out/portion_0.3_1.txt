@@ -1,0 +1,8 @@
+== market: portion, 2.18 children a couple, seed 1
+  par snapshot: people per place 2.28; before the window (settled over par): pop 1.137 of par, ppp 2.59, no household at 45+ 5.8%, shareless adults 3.1%; after: pop 1.150, no household at 45+ 6.7%
+  tagged households with their whole brood in the window: 1168 with two children, 466 with three
+  children who headed a household: two-child households 0.950 each (w2 = 1.90); three-child households: first two 0.938 each, the third 0.863 (P), w3 = 2.74
+  the third's advantage w3 − w2 = +0.84 reproducing children; its own chance P = 0.86; the siblings' cost m_children = +0.02
+  grandchildren who headed a household: 3.80 per two-child household, 5.34 per three-child household (advantage +1.54; a reproducing child yields 2.00 such grandchildren, so in reproducing-child units +0.77)
+  m by the line (P minus the grandchildren advantage, in reproducing children): +0.10
+  tagged children still shareless at the end: two-child households 2.3%, three-child households 0.4%

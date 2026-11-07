@@ -29,7 +29,7 @@ THEMES = [
     ("Getting around", ["drum-transport", "raft-transport"]),
     ("Energy and food", ["energy-budget", "xray-power", "food-system", "cuisine"]),
     ("Economy and governance", ["economy", "governance", "daily-life"]),
-    ("People and culture", ["people", "open-drums", "ashgrove", "wander-year", "sorrel", "eating-out"]),
+    ("People and culture", ["people", "families", "open-drums", "ashgrove", "wander-year", "sorrel", "eating-out"]),
     ("Earlier eras: the ring design study", ["swarm-rings", "ring-weave"]),
 ]
 
