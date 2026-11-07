@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -20,13 +20,13 @@ Matches: Eddington
 
 ### The Lantern
 
-A closed shell of hovering collectors ~0.82 pc from the hole that catches ~98% of the disk's light and turns ~32% of it into electricity (~2.64 kWe for each person in the Shade), most of it beamed out by microwave. It is held up mainly by infrared trapped inside it, weighs ~50,000 M☉, runs the batch compute and carries the fastest messages, and nobody lives on it. Seen from the Shade it's a black disk 85–130° across that glows in the infrared. See full-swarm.md, governance.md.
+A closed shell of hovering collectors ~0.82 pc from the hole that catches ~98% of the disk's light and turns ~32% of it into electricity (~2.75 kWe for each person in the Shade), all of it beamed out by microwave. It is held up mainly by infrared trapped inside it, weighs ~50,000 M☉, carries the fastest messages, remakes its own electronics (which live in ~8–20 MGy a year, so no compute runs there), and nobody lives on it. Seen from the Shade it's a black disk 85–130° across that glows in the infrared. See full-swarm.md, governance.md.
 
 Matches: Lantern
 
 ### The Shade
 
-The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.95 × 10³³ people living the 2 kWe life, in rafts on crossing orbits that take ~35,000–39,000 years. It weighs ~9.7 × 10⁶ M☉, ~2.2× the hole, and ~6.6 × 10⁶ M☉ of that is heavy elements, 6.7 t a person. See full-swarm.md, daily-life.md.
+The inhabited zone outside the Lantern, ~0.9–1.25 pc from the hole: ~1.87 × 10³³ people living the 2 kWe life, in rafts on crossing orbits that take ~35,000–39,000 years. It weighs ~9.3 × 10⁶ M☉, ~2.2× the hole, and ~6.3 × 10⁶ M☉ of that is heavy elements, 6.7 t a person. See full-swarm.md, daily-life.md.
 
 Matches: Shade
 
@@ -38,7 +38,7 @@ Matches: none
 
 ### The glow
 
-The infrared the Lantern's skin can't help giving off, ~74% of the disk's light: ~1.5 kW/m² on average, ~4 over the poles, almost nothing over the disk plane. Glow sails run on it. See governance.md.
+The infrared the Lantern's skin can't help giving off, ~70% of the disk's light: ~1.4 kW/m² on average, ~3.6 over the poles, almost nothing over the disk plane. Glow sails run on it. See governance.md.
 
 Matches: the glow
 
@@ -154,7 +154,7 @@ Matches: heliox
 
 ### Rectenna
 
-A receiving antenna that turns the Lantern's microwave beam back into electricity, at ~90%. A raft's front layer is a field of them, ~2 m² per person at 2 kWe. See full-swarm.md, raft-habitat.md.
+A receiving antenna that turns the Lantern's microwave beam back into electricity, at ~90%. A raft's front layer is a field of them, ~2.3 m² per person at 2 kWe. See full-swarm.md, raft-habitat.md.
 
 Matches: rectenna, rectennas
 
@@ -166,7 +166,7 @@ Matches: mid-raft
 
 ### Data halls
 
-Water-walled vaults in the mid-raft that run a raft's interactive compute on beamed power, since the Lantern is months to years away by light. See full-swarm.md, raft-habitat.md.
+Water-walled vaults in the mid-raft that run all of a raft's compute, interactive and batch, on beamed power: the Lantern is months to years away by light, and its electronics live in ~8–20 MGy a year. See full-swarm.md, raft-habitat.md.
 
 Matches: data halls, data hall
 
@@ -212,7 +212,7 @@ Matches: cycler, cyclers
 
 ### Common budget
 
-A comfortable common life: ~3.1 kWe per person delivered (~1.0 in the habitat, ~0.5 for travel, ~1.6 remote), which would take ~12.8 kW of the disk's light in the full swarm, enough for ~1.27 × 10³³ people. It is a reference budget. The Shade's people live daily-life.md's leaner 2 kWe life, ~8.3 kW of light each, which sets the population (~1.95 × 10³³) and the raft layout. See energy-budget.md, daily-life.md.
+A comfortable common life: ~3.1 kWe per person delivered (~1.0 in the habitat, ~0.5 for travel, ~1.6 remote), which would take ~13.4 kW of the disk's light in the full swarm, enough for ~1.21 × 10³³ people. It is a reference budget. The Shade's people live daily-life.md's leaner 2 kWe life, ~8.7 kW of light each, which sets the population (~1.87 × 10³³) and the raft layout. See energy-budget.md, daily-life.md.
 
 Matches: common budget
 

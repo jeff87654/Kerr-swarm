@@ -166,7 +166,7 @@ Every powered trip converts the car's kinetic energy four times: grid to motor a
 
 ## Method
 - Drum (habitat-design.md): rim 3,000 m at 1 g, ω = 0.0572 rad/s (109.9 s a turn), length 3.75 km. Quay at 3,050 m: 174.4 m/s, 1.02 g. (A 2 km drum: 0.0700 rad/s, quay at 2,050 m, 143.6 m/s.)
-- Pitch √(200 M × 3 m²) = 24.5 km; hop 24.5 km ÷ 174.4 m/s = 140 s. 3 m² per person is the raft standard, sized for daily-life.md's 2 kWe life. A raft living at the full common budget would need ~3.5 m² for its radiators (raft-habitat.md), stretching the pitch to ~26.5 km and the hop to ~152 s.
+- Pitch √(200 M × 3 m²) = 24.5 km; hop 24.5 km ÷ 174.4 m/s = 140 s. 3 m² per person is the raft standard, sized for daily-life.md's 2 kWe life. A raft living at the full common budget would need ~3.7 m² for its radiators (raft-habitat.md), stretching the pitch to ~27 km and the hop to ~156 s.
 - Glide reach: Manhattan distance n = (T − 5.6 min of cab rides and quays − 1 min per turn) ÷ 140 s; drums within reach 2n² + 2n + 1. Cab rides from drum-transport.md; quay waits 73 s out and 37 s in (a 2 km drum's 60 and 30, scaled with the drum's turn).
 - Tube trips: 1 g, cap 20 km/s; time 2√(d/g) below the cap, d/v + v/g above. Reach is the diamond of Manhattan radius d at 3.3 × 10⁵ people per km², after 7 min of overhead.
 - Loss per trip = f × ½mv² at peak speed, with m = 400 kg per seat, ~200 kg per capsule, ~1 t per sleeper berth: 0.56 / 0.28 / 1.39 kWh per (km/s)² at f = 1%.

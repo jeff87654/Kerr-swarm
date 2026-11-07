@@ -1,11 +1,11 @@
 # Energy budget per person
 
-*Design proposal from a working session, Sept 2026. Companion to habitat-design.md, food-system.md, swarm-rings.md, xray-power.md, full-swarm.md, daily-life.md and raft-transport.md. Figures are time-averaged kW of delivered electricity (kWe) per person unless marked "light". Revised Oct 2026: in the full swarm, interactive compute runs on the rafts, not the Lantern (daily-life.md). Revised again Oct 2026: the nation drum is now 3 km in radius (habitat-design.md), which moves ~0.01 kW per person from shield cryocooling to cabs; totals are unchanged. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people live daily-life.md's 2 kWe life, ~2.64 kWe generated and ~8.3 kW of light each, which sets the population at ~1.95 × 10³³. The common budget, ~12.8 kW of light in the full swarm, is a reference budget. Revised 2 Nov 2026 (radiation decisions, Jeff): a nation drum's shield is ~3.2 t of hydrogen a person, with a thicker front cap (habitat-design.md).*
+*Design proposal from a working session, Sept 2026. Companion to habitat-design.md, food-system.md, swarm-rings.md, xray-power.md, full-swarm.md, daily-life.md and raft-transport.md. Figures are time-averaged kW of delivered electricity (kWe) per person unless marked "light". Revised Oct 2026: in the full swarm, interactive compute runs on the rafts, not the Lantern (daily-life.md). Revised again Oct 2026: the nation drum is now 3 km in radius (habitat-design.md), which moves ~0.01 kW per person from shield cryocooling to cabs; totals are unchanged. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people live daily-life.md's 2 kWe life, ~2.64 kWe generated and ~8.3 kW of light each, which sets the population at ~1.95 × 10³³. The common budget, ~12.8 kW of light in the full swarm, is a reference budget. Revised 2 Nov 2026 (radiation decisions, Jeff): a nation drum's shield is ~3.2 t of hydrogen a person, with a thicker front cap (habitat-design.md). Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute runs on the Lantern, whose electronics live in ~8–20 MGy a year (full-swarm.md); everything is beamed, so the 2 kWe life takes ~2.75 kWe generated and ~8.7 kW of light, the common budget ~4.24 kWe and ~13.4 kW, and the Lantern feeds ~1.87 × 10³³ people.*
 
 ## Summary
 - A comfortable common life needs **~3.1 kWe per person: ~1.0 inside the habitat, ~0.5 for vactrain travel and ~1.6 remote** (industry, growth, compute). The plausible range runs from ~1 kWe (lean) to ~13 kWe (generous).
 - **Ring design study (10 M☉ hole):** the hole's X-rays convert at **~22%** with the standard tile (xray-power.md), not the 40% first assumed for sunlight. With 10% for carrying firm loads through knot nights, the common budget needs **~15 kW of light** per person. swarm-rings.md's tables now use 15 kW (they first assumed 10).
-- **Full swarm (Sgr A* at 30% of Eddington, full-swarm.md):** hull, travel, industry, growth and interactive compute arrive by microwave beam from the Lantern at ~75%; batch compute runs on the Lantern itself; there are no nights, so the margin drops to 3%. The common budget would need **~4.1 kWe generated and ~12.8 kW of light** per person at ~32% conversion. The Shade's people live daily-life.md's leaner **2 kWe life: ~2.64 kWe generated and ~8.3 kW of light** each, so the Lantern feeds ~1.95 × 10³³ of them.
+- **Full swarm (Sgr A* at 30% of Eddington, full-swarm.md):** everything, compute included, arrives by microwave beam from the Lantern at ~75%, since the Lantern's own electronics live in ~8–20 MGy a year and nothing computes there; there are no nights, so the margin drops to 3%. The common budget would need **~4.24 kWe generated and ~13.4 kW of light** per person at ~32% conversion. The Shade's people live daily-life.md's leaner **2 kWe life: ~2.75 kWe generated and ~8.7 kW of light** each, so the Lantern feeds ~1.87 × 10³³ of them.
 - The habitat's own heat load is **~1 kW, not 10**. Radiators shrink from ~12 m² to ~1.2 m² per person (two-sided); in the Shade, where radiators work one-sided, ~2.5 m² (~1.9 m² for the 2 kWe life's 0.8 kW).
 - Food, air and water are the largest in-hull item (~45% of habitat heat). Bright lighting is the largest discretionary one.
 - Travel is the one local item that can outgrow everything else. Compute is the one item with no natural ceiling.
@@ -20,9 +20,8 @@
 | Anywhere | Industry, growth, compute | Only the swarm's total population | Yes: these can follow the light and need no night storage |
 
 - Remote loads can go on rings of their own, or along band edges where knot nights are longest. People's stretch of band then carries only firm loads: ~7.5 kW of light per person (common), or ~12 m² of band instead of 23. People pack ~2× denser, and the number of people within a few hours' trip rises about as much.
-- In the full swarm, "anywhere" splits three ways.
-  - **Batch compute** (research, archives, long simulations) sits on the Lantern, beside the power, and skips the beam losses.
-  - **Interactive compute** (assistants, games, shared worlds, the rafts' own services) can't: the Lantern is 0.08–0.43 pc from the Shade, 3 months to 1.4 years each way by light. It runs in data halls on the rafts, on beamed power. Planning puts half the common budget's compute line here, and 0.50 of the 2 kWe life's 0.80.
+- In the full swarm, "anywhere" means the rafts.
+  - **All compute runs in data halls on the rafts,** on beamed power. Interactive work (assistants, games, shared worlds, the rafts' own services) has to: the Lantern is 0.08–0.43 pc from the Shade, 3 months to 1.4 years each way by light. Batch work (research, archives, long simulations) could have sat on the Lantern beside the power and skipped the beam losses, but the Lantern's electronics take ~8–20 MGy a year and can't be shielded or cheaply replaced (full-swarm.md), so it rides the beam too, at ~1.2 kW of light per kWe.
   - **Industry and growth** stay in the Shade, where the metal is, and are beamed like the hull and travel loads.
 
 ## Budget
@@ -50,10 +49,10 @@ kWe per person, time-averaged. These three are reference budgets. The Shade's pe
 | **Total delivered** | **0.96** | **3.09** | **12.7** |
 | Habitat share of total | 62% | 33% | 18% |
 | Light per person, 10 M☉ ring design study (22% conversion) | 4.7 kW | 15 kW | 60 kW |
-| Light per person, full swarm (32%, beamed; half of compute on the rafts) | 4.1 kW | 12.8 kW | 52 kW |
+| Light per person, full swarm (32%, everything beamed) | 4.2 kW | 13.4 kW | 55 kW |
 
-- **The life the Shade lives** (daily-life.md, full-swarm.md): 2.00 kWe delivered, 0.80 in the hull, 0.10 for travel and 1.10 remote. Its 0.30 kWe of batch compute runs on the Lantern, and the other 1.70 is beamed: 0.30 + 1.70 × 1.03 margin ÷ 0.75 beam chain ≈ 2.64 kWe generated, or ~8.3 kW of light at 32.4% on the 98% caught.
-- **That sets the population.** The Lantern's ~5.2 × 10³⁶ W feeds ~1.95 × 10³³ people at 2.64 kWe each, against ~1.27 × 10³³ at the common budget's 4.06. At 6.7 t each they hold ~6.6 × 10⁶ M☉ of heavy elements.
+- **The life the Shade lives** (daily-life.md, full-swarm.md): 2.00 kWe delivered, 0.80 in the hull, 0.10 for travel and 1.10 remote, all of it beamed: 2.00 × 1.03 margin ÷ 0.75 beam chain ≈ 2.75 kWe generated, or ~8.7 kW of light at 32.4% on the 98% caught.
+- **That sets the population.** The Lantern's ~5.1 × 10³⁶ W feeds ~1.87 × 10³³ people at 2.75 kWe each, against ~1.21 × 10³³ at the common budget's 4.24. At 6.7 t each they hold ~6.3 × 10⁶ M☉ of heavy elements.
 
 ## Line notes
 - **Food, air & water:** from food-system.md (ration, common and generous diets). ~15% of the common total but ~45% of the habitat's heat.
@@ -75,12 +74,12 @@ kWe per person, time-averaged. These three are reference budgets. The Shade's pe
   - Metal arrives slowly, so growth is slow. During the build-out from 3% to 30% of Eddington it runs ~2 × 10⁻⁸ a year; after that the hole is held at 30% and the civilization grows with it, ~1–4 × 10⁻⁹ a year (doubling every ~0.5 Gyr once the hole has spun up; full-swarm.md).
   - Gathering that metal costs ~0.1 kW per person at the start of the build-out, when the population is small, and a few watts once growth tracks the hole.
   - The common value keeps 0.10 kW, which covers the build-out; in the mature swarm most of it is slack.
-  - An early draft assumed 0.4%/yr growth. On today's ~6.6 × 10⁶ M☉ of metal that would need ~26,000 M☉/yr, over 400,000× what the frontier delivers.
+  - An early draft assumed 0.4%/yr growth. On today's ~6.3 × 10⁶ M☉ of metal that would need ~25,000 M☉/yr, over 400,000× what the frontier delivers.
 - **Compute:** US data centres use ~60 W per person (2024) and are heading for ~140 W by 2030 (IEA base case). The world average is ~6 W.
   - The 1 kW common value is a guess for an AI-saturated economy.
-  - It's the only line that could make 10 kW look small, and the obvious thing to put on remote rings, or on the Lantern.
+  - It's the only line that could make 10 kW look small, and the obvious thing to put on remote rings. In the full swarm it can't go on the Lantern, whose electronics live in ~8–20 MGy a year (full-swarm.md).
   - Latency limits where it can go. Interactive use needs its data halls within a few thousand km of the user (a hundredth of a second by light); work that can wait can go anywhere.
-  - In the full swarm each kWe moved from the Lantern to a raft costs ~1.2 kW more light, for beam losses.
+  - In the full swarm every kWe of it is beamed, which costs ~1.2 kW of light more per kWe than compute at the Lantern would have.
 
 ## Travel
 Vacuum maglev per swarm-rings.md: 400 kg per seat, 1 g, 3% of kinetic energy lost per trip, 20 km/s cap.
@@ -122,7 +121,7 @@ Vacuum maglev per swarm-rings.md: 400 kg per seat, 1 g, 3% of kinetic energy los
 
 - Firm loads (hull and travel) carry a 10% overhead for knot-night storage or transmission. Flywheels need less; hydrogen storage needs more. Remote loads need none.
 - Conversion figures are from xray-power.md: a silicon-carbide X-ray-voltaic skin in front of a 2 mm iron plate driving Stirling engines. Skins alone (13%) save ~0.6 t of metal per person; a 10 mm plate (25%) costs 1.3 t more.
-- **Full swarm:** the Lantern generates ~4.06 kWe per person for the common budget: 0.5 of batch compute used on the spot, plus 2.59 kWe of beamed loads (hull, travel, industry, growth and 0.5 of interactive compute) × 1.03 margin ÷ 0.75 beam chain. At ~32% that's ~12.8 kW of light (full-swarm.md). With all compute on the Lantern it was 3.88 kWe and ~12.2 kW.
+- **Full swarm:** the Lantern generates ~4.24 kWe per person for the common budget: all 3.09 kWe beamed × 1.03 margin ÷ 0.75 beam chain. At ~32% that's ~13.4 kW of light (full-swarm.md). With half its compute on the Lantern it was 4.06 kWe and ~12.8 kW; with all of it there, 3.88 and ~12.2.
 
 ## Heat and radiators
 - At 300 K, two-sided, emissivity 0.9, radiators shed ~830 W/m²: ~1.2 m² per person (common), 0.7 (lean), 2.8 (generous). The old 10 kW needed 12.
@@ -160,7 +159,7 @@ At 15 kW of light per person and 1 kW/m²:
 - Data centres: 415 TWh worldwide in 2024 (~6 W per person worldwide, ~60 W per person in the US), ~945 TWh by 2030 (IEA base case).
 
 ## Open questions
-- How compute really splits between the rafts and the Lantern. Batch work lives on the Lantern and interactive work within a few thousand km of its users; planning takes 0.5 kWe on the raft and 0.3 on the Lantern at 2 kWe (daily-life.md).
+- **How compute splits between the rafts and the Lantern:** answered in full-swarm.md § The Lantern: none of it runs on the Lantern, whose electronics live in ~8–20 MGy a year; all 0.8 kWe at the 2 kWe life runs in the rafts' data halls.
 - **Pricing long-distance travel:** answered in daily-life.md § Getting around and raft-transport.md § Cyclers: speed is the fare.
 - **Knot-night strategy:** answered in ring-weave.md § The three fixes compared, and When the orange slice is still the right call.
 - **The price of new metal:** answered in matter-delivery.md § Energy per kg of heavy element: ~25–55 PJ for a new person's metal from stars.
