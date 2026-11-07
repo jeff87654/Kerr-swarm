@@ -14,8 +14,8 @@
 
 | | Questions |
 |---|---|
-| Open | 74 |
-| Deliberately open (story space) | 17 |
+| Open | 77 |
+| Deliberately open (story space) | 19 |
 | Answered elsewhere, with a pointer left in the doc | 30 |
 | Docs with questions still open | 22 |
 
@@ -87,6 +87,8 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [economy.md](economy.md#open-questions): Who runs the Lantern (governance.md § The dials sets out the options). *(deliberately open)*
 - [economy.md](economy.md#open-questions): What government looks like for a raft of 10¹⁹–10²² people, above its drums (governance.md § The raft and the orbit family). *(deliberately open)*
 - [economy.md](economy.md#open-questions): Who pays for the catch ramp when rafts swap shares (people.md § Leaving has the swaps).
+- [economy.md](economy.md#open-questions): Which drums run a usury rule and which let interest run, and what the workarounds look like in each (Saving and interest).
+- [economy.md](economy.md#open-questions): What else the Shade sells the frontier besides beam, and the price of a kilogram of metal in kWh at the catch (The frontier).
 - [governance.md](governance.md#open-questions): Glow-sail yields with real skin temperatures. If the interior spreads heat toward the belt, the belt runs warmer and is harder to starve.
 - [governance.md](governance.md#open-questions): How fast a sail field deploys, and whether that fits inside a raft's ~55-day reserve.
 - [governance.md](governance.md#open-questions): Whether orbit families become polities, and how families treat each other. *(deliberately open)*
@@ -94,6 +96,9 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [governance.md](governance.md#open-questions): Whether the Lantern can shield itself against a kinetic coalition. Leverage puts wrecking 1% of the shell at very roughly a solar mass of debris.
 - [governance.md](governance.md#open-questions): The founding: who sealed the Lantern, under what rules, and how the layer era's rafts consented (full-swarm.md, sgr-a-scope.md). *(deliberately open)*
 - [governance.md](governance.md#open-questions): Who holds the fuel reserves, the ~4 × 10⁸ brown dwarfs at ~10–30 pc that the feed depends on. *(deliberately open)*
+- [governance.md](governance.md#open-questions): Who aims the fuel bodies through the Shade, and how a raft in their path is warned and compensated. *(deliberately open)*
+- [governance.md](governance.md#open-questions): The settlement's terms, who keeps them, and whether the hole is Sgr A* itself or a nucleus like it (Minds, machines and the settlement). *(deliberately open)*
+- [governance.md](governance.md#open-questions): What the Shade sells the frontier for its metal (Core and frontier; economy.md § The frontier).
 - [governance.md](governance.md#open-questions): Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares). *(deliberately open)*
 - [daily-life.md](daily-life.md#open-questions): The median wallet. The floor is the commons with no dividend, for the shareless (economy.md § Children); the median depends on how much people spend on each other's time.
 

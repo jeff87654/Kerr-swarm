@@ -326,7 +326,7 @@ Matches: Dark
 
 ### The Burn
 
-Focusing the Lantern's beam to destroy a raft outright. Nothing in the hardware forbids it; it is held back by horror, as the one crime against all that unites the other rafts. See governance.md.
+Focusing the Lantern's beam to destroy a raft outright. Nothing in the hardware need forbid it, unless the patches were built as independent sub-arrays that can't focus tighter than a raft's beacons; otherwise it is held back by horror, as the one crime against all that unites the other rafts. See governance.md.
 
 Matches: Burn
 

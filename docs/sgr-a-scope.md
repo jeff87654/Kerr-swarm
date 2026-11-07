@@ -109,6 +109,7 @@ Full design in full-swarm.md. In brief:
     - ~100 r_g (~4 AU, where the near-Eddington disk is puffy): the disk answers in ~months;
     - ~1,000 r_g (~40 AU, thin disk): it answers in ~2,000–20,000 years.
   - Close injection gives nimble control, but in a relativistic, brutally bright zone. Far injection is gentle but sluggish, so output must be planned millennia ahead.
+  - **What arrives** (6 Nov 2026, proposal): Jupiter-mass bodies of hydrogen from the brown-dwarf store, ~19 a year, which survive the ~6,000-year fall through the Lantern's interior and are boiled away within a day of periapsis by the disk's own light (~6 × 10¹¹ W/m² at 10 AU), so the feed enters as gas with the angular momentum its launch gave it (full-swarm.md § Growth at 30%). Each is a few millionths of the gas already spiralling in through the disk (~10³²–10³³ kg inside 40 AU), so the feed is smooth on any human timescale.
 - **Steady window.** Real black-hole binaries keep steady thin disks from ~1% to ~30% of Eddington. 30% is the practical ceiling; running at the limit means designing around flicker, wind and beaming.
 
 ## Why the orange slice fails here
