@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -62,7 +62,7 @@ Matches: orbit family
 
 ### Rules of the road
 
-Traffic rules that keep rafts' orbits nearly round (eccentricity under ~0.003), cutting collision courses ~10×. A miss between rafts releases 10³³–10³⁶ J. They also make every raft keep a steady prograde push (~4–5 × 10⁻¹² m/s²), so it climbs as the hole grows instead of sinking into the Lantern. See full-swarm.md, governance.md.
+Traffic rules that keep rafts' orbits nearly round (free eccentricity under ~0.003, not counting the ~0.001–0.003 the Lantern's glow forces on inclined orbits), cutting collision courses ~10×. A miss between rafts releases 10³³–10³⁶ J. They also make every raft keep a steady prograde push (~4–5 × 10⁻¹² m/s²), so it climbs as the hole grows instead of sinking into the Lantern. See full-swarm.md, governance.md.
 
 Matches: rules of the road
 
@@ -518,7 +518,7 @@ Matches: Merrow
 
 ### The Eleven Days
 
-A beam gap within living memory in Merrow, after which the raft ran its main cycler trunks fast as a store of energy, with slow lines beside them. See ashgrove.md.
+A beam gap within living memory in Merrow, officially from a failed patch, which the Lantern's daily hand-offs should have covered within hours; what really caused it is left open. Afterwards the raft ran its main cycler trunks fast as a store of energy, with slow lines beside them. See ashgrove.md.
 
 Matches: Eleven Days
 
