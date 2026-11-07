@@ -84,3 +84,4 @@ All in [`docs/`](docs/).
 ## Models
 
 - [models/stem_places.py](models/stem_places.py): the family-tree model behind `people.md`'s figures for stem places, the placeless and shares. Pure Python; each run takes a few minutes.
+- [models/ratchet.py](models/ratchet.py): the cohort model of the wish for children under stem places behind `people.md`'s § What births do to the gene pool, written up in [models/ratchet.md](models/ratchet.md). Needs numpy and scipy; a few seconds.
