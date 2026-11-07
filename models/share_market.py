@@ -10,6 +10,10 @@ Market rules:
   none     stem_places.py as it stands: pairing at random by age
   heir     a place-holder marries only someone who holds a share
   assort   share-holders marry share-holders, the shareless marry each other
+  portion  each child's portion is 1 / the number of its parents' children;
+           every year heirs choose first, each taking the unmarried partner
+           within five years of age with the largest portion; the rest pair
+           at random by age
 
 Method: run the stem model to par, switch every new couple to 2 + e children
 (e = 0.3 → 30% of households have a third, 2.19 children a couple on average)
@@ -25,7 +29,7 @@ chance to head a household. Then, by household size:
 m_children = 2 × (f2 − f3_first_two): what the siblings lose, in reproducing
 children. m_line adds the grandchildren's shortfall, per tagged child.
 
-Usage: python3 share_market.py <none|heir|assort> [e] [seed]
+Usage: python3 share_market.py <none|heir|assort|portion> [e] [seed]
 Each run takes several minutes in CPython.
 """
 import statistics
@@ -48,7 +52,43 @@ class MarketModel(sp.Model):
             return not ((self.established(a) and not b.share) or (self.established(b) and not a.share))
         if self.market == "assort":
             return a.share == b.share
+        if self.market == "portion":
+            return True
         raise ValueError(self.market)
+
+    def portion(self, p):
+        """A family's portion splits among its children: 1 / the number of them."""
+        if not p.parents:
+            return 0.5
+        return 1.0 / max(1, len(self.people[p.parents[0]].children))
+
+    def portion_pass(self, cands, used):
+        """Heirs choose first, each taking the unmarried partner within five years
+        of age with the largest portion (the portion drum)."""
+        import bisect
+        borns = [p.born for p in cands]
+        est = [a for a in cands if self.established(a)]
+        self.rng.shuffle(est)
+        for a in est:
+            if a.id in used:
+                continue
+            lo = bisect.bisect_left(borns, a.born - 5)
+            hi = bisect.bisect_right(borns, a.born + 5)
+            best, bp = None, -1.0
+            for b in cands[lo:hi]:
+                if b.id in used or b.id == a.id:
+                    continue
+                if a.gps & b.gps or a.id in b.gps or b.id in a.gps:
+                    continue
+                pb = self.portion(b) + 1e-6 * self.rng.random()
+                if pb > bp:
+                    best, bp = b, pb
+            if best is not None:
+                used.update((a.id, best.id))
+                if self.recording:
+                    self.stats["wedding_age"] += [self.age(a), self.age(best)]
+                    self.stats["est_at_wedding"].append(1)
+                self.marry(a, best)
 
     def birth(self, aid, bid):
         before = self.people[aid].kids
@@ -87,6 +127,8 @@ class MarketModel(sp.Model):
         self.rng.shuffle(cands)
         cands.sort(key=lambda p: p.born)
         used = set()
+        if self.places_on and self.market == "portion":
+            self.portion_pass(cands, used)
         for i, a in enumerate(cands):
             if a.id in used:
                 continue
