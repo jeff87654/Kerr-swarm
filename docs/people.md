@@ -49,7 +49,7 @@ Most of what the drum changes is what it stops asking for.
 ## Births
 ### What binds
 - **Each drum gets a fixed allotment of beam** from its raft and decides what to do with it (governance.md). Extra people don't take beam from neighbours; they thin their own drum's commons and their families' wallets.
-- **Metal is fixed.** A drum gains one new share every ~3.6 years (and a new place every ~8) against ~1.7 M births a year at 120-year lives (economy.md), so births wait on deaths.
+- **Metal is fixed.** A drum gains one new share every ~3.6 years (and a new place every ~8) against ~1.7 M births a year at 120-year lives (economy.md), so over a generation births match deaths or thin the drum.
 - **A drum with no limit hits the wall in about a century.** At three children a couple it is 10% over par in ~25 years, down to the lean 1 kWe a person in ~95, and at the bottom of the survival floor (~0.5 kWe, 25 m² of floor) in ~155. Growth starts slowly, at ~0.4% a year, because at first only the newest cohort is bigger. It reaches its long-run ~1.2% a year after about a century. Every lasting drum has some way of holding births to deaths, formal or not. The commonest is that children belong to a place (Places and shares).
 
 ### Places and shares
