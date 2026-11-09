@@ -14,9 +14,9 @@
 
 | | Questions |
 |---|---|
-| Open | 83 |
-| Deliberately open (story space) | 20 |
-| Answered elsewhere, with a pointer left in the doc | 30 |
+| Open | 87 |
+| Deliberately open (story space) | 19 |
+| Answered elsewhere, with a pointer left in the doc | 32 |
 | Docs with questions still open | 23 |
 
 ## The questions by theme
@@ -89,6 +89,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [economy.md](economy.md#open-questions): Who pays for the catch ramp when rafts swap shares (people.md § Leaving has the swaps).
 - [economy.md](economy.md#open-questions): Which drums run a usury rule and which let interest run, and what the workarounds look like in each (Saving and interest).
 - [economy.md](economy.md#open-questions): What else the Shade sells the frontier besides beam, and the price of a kilogram of metal in kWh at the catch (The frontier).
+- [economy.md](economy.md#open-questions): What a household owes that can't pay the posted price for a child born outside its allowance: hours, Hollow time, or nothing (Children).
 - [governance.md](governance.md#open-questions): Glow-sail yields with real skin temperatures. If the interior spreads heat toward the belt, the belt runs warmer and is harder to starve.
 - [governance.md](governance.md#open-questions): How fast a sail field deploys, and whether that fits inside a raft's ~55-day reserve.
 - [governance.md](governance.md#open-questions): Whether orbit families become polities, and how families treat each other. *(deliberately open)*
@@ -109,16 +110,18 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [people.md](people.md#open-questions): How drums choose an heir: birth order, the holders' choice, the ablest, or lot. Each gives a different politics. *(deliberately open)*
 - [people.md](people.md#open-questions): What houses may hold, and how drums settle mortmain: every place a house holds is one fewer household with children.
 - [families.md](families.md#open-questions): Which kinds of drum sit where on Merrow, and their names.
-- [families.md](families.md#open-questions): How strongly the wish for children passes from parents to children over thousands of years. The models take a regression of 0.2–0.5; a fast churn of fashions would lower it (Kolk et al. 2014), and everything here would run slower.
-- [families.md](families.md#open-questions): How canon squares Sorrel's ~23,000-year Register with the floor: whether most people in old drums want a third, whether the wish passes down weakly, or whether old drums raise their own children. *(deliberately open)*
-- [families.md](families.md#open-questions): How drums with a draw answer thirds born without a permit once most couples want one.
-- [families.md](families.md#open-questions): The posted price in kWh, and where a priced drum caps it.
+- [families.md](families.md#open-questions): How many children are born outside the allowance and how many of them are placed: canon takes ~3% of births and one in ten.
+- [families.md](families.md#open-questions): How old the Shade must be for the leak to be that small. If the habit of keeping to a line was ever lost, it takes ~8,000–19,000 years of shut doors, or ~45,000–110,000 at one in ten placed, to bring births outside back to one household in twenty (people.md leaves the Shade's age open).
+- [families.md](families.md#open-questions): What keeps one couple in twenty childless in a Shade where selection has thinned everyone who wanted no children. If it is nearer one in fifty, one family in twenty is given a third and the door has to be that much narrower.
+- [families.md](families.md#open-questions): Whether steady drums fit their placeless-born, and how many do. It ends the line outside, and it is counting one group.
+- [families.md](families.md#open-questions): How a marriage across the line is treated in each kind of drum, and who gives the leave for it.
+- [families.md](families.md#open-questions): How strongly habits pass from parents to children over thousands of years. The models take a regression of 0.2–0.5; a fast churn of fashions would lower it (Kolk et al. 2014), and a line outside would grow more slowly.
+- [families.md](families.md#open-questions): The keep in kWh, and what a household owes that can't pay it.
 - [families.md](families.md#open-questions): Whether any drum raises the drum's own children, and who raises them.
-- [families.md](families.md#open-questions): How much childlessness each drum's clinics leave, and how a drum gets through the overshoot when they improve.
 - [open-drums.md](open-drums.md#open-questions): Whether orbit families or whole rafts ever become open in the same sense, with a Margin of shares held at raft scale.
 - [open-drums.md](open-drums.md#open-questions): How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. *(deliberately open)*
 - [open-drums.md](open-drums.md#open-questions): What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
-- [open-drums.md](open-drums.md#open-questions): How custom with teeth works at block scale, and whether a block ever comes to count its own (people.md § What births do to the gene pool).
+- [open-drums.md](open-drums.md#open-questions): How a block gives its leave (by turn, by need, by lot or by a vote), and whether a block ever comes to count its own (families.md § How leave is given).
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Glide catches and the frail.** Hedda doesn't glide. Is there a gentler catch lane, or do the old and the ill simply stay home? (raft-transport.md)
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Spirits across the quay.** Sorrel's cheap gin, carried over in visitors' bags, may be part of what keeps Lovage's methanol deaths as low as they are. *(deliberately open)*
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Hollow time by age** gives Sorrel's elders several times an equal share: economy.md's "allotted by age or service" column at work. How much do Low-deck families mind? *(deliberately open)*
