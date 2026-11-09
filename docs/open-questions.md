@@ -14,7 +14,7 @@
 
 | | Questions |
 |---|---|
-| Open | 87 |
+| Open | 88 |
 | Deliberately open (story space) | 19 |
 | Answered elsewhere, with a pointer left in the doc | 32 |
 | Docs with questions still open | 23 |
@@ -23,6 +23,7 @@
 Each links to its doc's own list, which is the source. Answered questions are left out here; their pointers stay in the docs.
 
 ### The hole and the Lantern
+- [full-swarm.md](full-swarm.md#open-questions): Whether a foil blanket can hold a 100 km hydrogen slug's loss to a tenth over its fall (it must pass under ~2 × 10⁻⁴ of the light on it), where the boil-off goes, and how wide the rain's lanes and the Lantern's ports are (Growth at 30%).
 - [full-swarm.md](full-swarm.md#open-questions): How the Lantern is assembled and sealed in practice: From rings to the full swarm has it built from light pieces and closed as a whole, but not the order or how long the closing takes.
 - [full-swarm.md](full-swarm.md#open-questions): The best louvered fronts. Returned glow adds ~10–30% to radiator loads (The Shade), which is why inner rafts take more than 3 m² a person.
 - [full-swarm.md](full-swarm.md#open-questions): The disk's real brightness pattern around a spinning hole (planning: ~2.6× at the poles), and how fast its wind erodes the Lantern's mirrors.
@@ -97,7 +98,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [governance.md](governance.md#open-questions): Whether the Lantern can shield itself against a kinetic coalition. Leverage puts wrecking 1% of the shell at very roughly a solar mass of debris.
 - [governance.md](governance.md#open-questions): The founding: who sealed the Lantern, under what rules, and how the layer era's rafts consented (full-swarm.md, sgr-a-scope.md). *(deliberately open)*
 - [governance.md](governance.md#open-questions): Who holds the fuel reserves, the ~4 × 10⁸ brown dwarfs at ~10–30 pc that the feed depends on. *(deliberately open)*
-- [governance.md](governance.md#open-questions): Who aims the fuel bodies through the Shade, and how a raft in their path is warned and compensated. *(deliberately open)*
+- [governance.md](governance.md#open-questions): Who steers the fuel rain through the Shade's belt, and how a raft in its path is warned and compensated. *(deliberately open)*
 - [governance.md](governance.md#open-questions): The settlement's terms, who keeps them, and whether the hole is Sgr A* itself or a nucleus like it (Minds, machines and the settlement). *(deliberately open)*
 - [governance.md](governance.md#open-questions): What the Shade sells the frontier for its metal (Core and frontier; economy.md § The frontier).
 - [governance.md](governance.md#open-questions): Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares). *(deliberately open)*
