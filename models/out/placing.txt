@@ -1,0 +1,99 @@
+Born to a place: the leak, the door and the line outside.
+
+1. THE LEDGER: thirds left to give, and the placeless-born a drum carries, by leak and door
+   room = 5.7% of replacement births (one family in 8.3 given a third if none is spent on placing)
+   leak  door   placed   thirds: one family in   over par   placeless-born (of people)
+     1%     0%    0.00%        8.3      1.0%      1.0%
+     1%    10%    0.10%        8.5      0.9%      0.9%
+     1%    50%    0.50%        9.1      0.5%      0.5%
+     1%   100%    1.00%       10.1      0.0%      0.0%
+     2%     0%    0.00%        8.3      2.0%      2.0%
+     2%    10%    0.20%        8.6      1.8%      1.8%
+     2%    50%    1.00%       10.1      1.0%      1.0%
+     2%   100%    2.00%       12.9      0.0%      0.0%
+     3%     0%    0.00%        8.3      3.0%      2.9%
+     3%    10%    0.30%        8.8      2.7%      2.6%
+     3%    50%    1.50%       11.3      1.5%      1.5%
+     3%   100%    3.00%       17.7      0.0%      0.0%
+     5%     0%    0.00%        8.3      5.0%      4.8%
+     5%    10%    0.50%        9.1      4.5%      4.3%
+     5%    50%    2.50%       14.9      2.5%      2.4%
+     5%   100%    5.00%       70.9      0.0%      0.0%
+     8%     0%    0.00%        8.3      8.0%      7.4%
+     8%    10%    0.80%        9.7      7.2%      6.7%
+     8%    50%    4.00%       28.3      4.0%      3.8%
+     8%   100%    5.67%       none      2.3%      2.3%
+   Room by how many couples are childless (leak 3%, one in ten placed):
+   childless   room    thirds: one family in   a household's odds of leave
+   1 in 12      8.6%        5.5                 18.3%
+   1 in 20      5.7%        8.8                 11.4%
+   1 in 33      3.7%       14.3                  7.0%
+   1 in 50      2.7%       20.4                  4.9%
+   1 in 100     1.7%       35.3                  2.8%
+
+2. WHETHER DEFIANCE PAYS: a household's gain in householders left, by the door
+   (2% of households defy by habit and 1% by accident at the start; defiant households are out of the draw)
+   door    gain at start   b     habit after 30 / 100 / 300 generations   leak doubles / halves in
+      0%    -0.12         0.20    1.92% /  1.76% /  1.40%                  neither in 400 gen
+      0%    -0.12         0.35    1.86% /  1.60% /  1.12%                  habit halves in 377 gen (~12441 yr)
+      0%    -0.12         0.50    1.81% /  1.47% /  0.93%                  habit halves in 264 gen (~8712 yr)
+     10%    -0.02         0.20    1.99% /  1.96% /  1.87%                  neither in 400 gen
+     10%    -0.02         0.35    1.98% /  1.92% /  1.78%                  neither in 400 gen
+     10%    -0.02         0.50    1.97% /  1.89% /  1.70%                  neither in 400 gen
+     25%    +0.13         0.20    2.09% /  2.34% /  3.41%                  neither in 400 gen
+     25%    +0.13         0.35    2.17% /  2.66% /  6.10%                  doubles in 262 gen (~8646 yr)
+     25%    +0.13         0.50    2.25% /  3.07% / 15.22%                  doubles in 184 gen (~6072 yr)
+     50%    +0.39         0.20    2.29% /  3.35% / 31.69%                  doubles in 157 gen (~5181 yr)
+     50%    +0.39         0.35    2.56% /  5.84% / 83.56%                  doubles in 90 gen (~2970 yr)
+     50%    +0.39         0.50    2.89% / 13.60% / 93.19%                  doubles in 63 gen (~2079 yr)
+    100%    +0.91         0.20    2.81% / 10.69% / 75.07%                  doubles in 68 gen (~2244 yr)
+    100%    +0.91         0.35    3.84% / 41.89% / 91.26%                  doubles in 39 gen (~1287 yr)
+    100%    +0.91         0.50    5.70% / 65.62% / 95.45%                  doubles in 28 gen (~924 yr)
+   The door at which defiance neither pays nor costs is the draw's own odds: 12% a household.
+   What the forfeit does (b = 0.35): gain at start, and the habit after 100 / 300 generations
+   out of the draw, no door                                       -0.12    1.60% /  1.12%
+   keeps its draw, no door                                        +0.00    2.00% /  2.00%
+   keeps its draw, one in ten placed                              +0.10    2.46% /  4.18%
+   leave is sold and the household can't pay, one in ten placed   +0.10    2.49% /  4.41%
+   leave is sold and the household can't pay, one in four placed  +0.25    3.74% / 49.85%
+   Where the habit is common, the few who wait have the room to themselves:
+   80% of households with a child outside: a waiting household's chance of leave is 63%, and waiting gains +0.63
+   50% of households with a child outside: a waiting household's chance of leave is 25%, and waiting gains +0.25
+   20% of households with a child outside: a waiting household's chance of leave is 15%, and waiting gains +0.15
+    5% of households with a child outside: a waiting household's chance of leave is 13%, and waiting gains +0.13
+   Years for the habit to fall from four households in five to one in five / one in twenty / one in thirty:
+   door    b = 0.20                    b = 0.35                    b = 0.50
+      0%     6831 /  18909 /  24882        3894 /  10791 /  14223        2706 /   7557 /   9933
+      5%    11682 /  32406 /  42636        6666 /  18513 /  24354        4653 /  12936 /  17028
+     10%    40722 / 113025 / 148764       23265 /  64581 /  84975       16269 /  45177 /  59466
+   With every placeless-born child placed (b = 0.35), placings take all the room, and no third is given by leave, after 59 generations (~1947 yr).
+
+3. THE LINE OUTSIDE: births to the placeless-born, as a share of a drum's replacement births
+   (leak 3% a generation; one in ten placed; one placeless-born couple in 25 has children at first, three each; b = 0.35; unless shown)
+   case                                                       after 3 / 6 / 10 / 15 / 20 generations         reaches 1% / 3% / 10% of births in
+   pairing at random among the placeless-born                   0.19% /   0.19% /   0.19% /   0.19% /   0.19%    never / never / never
+     the same, one couple in 10 at first                        0.58% /   0.59% /   0.59% /   0.59% /   0.59%    never / never / never
+     the same, b = 0.8                                          0.22% /   0.23% /   0.23% /   0.23% /   0.23%    never / never / never
+   half of the line pairs within it                             0.20% /   0.20% /   0.20% /   0.20% /   0.20%    never / never / never
+     the same, b = 0.5                                          0.23% /   0.23% /   0.24% /   0.24% /   0.24%    never / never / never
+     the same, b = 0.8                                          0.32% /   0.37% /   0.39% /   0.40% /   0.41%    never / never / never
+   the line keeps to itself                                     0.22% /   0.22% /   0.23% /   0.23% /   0.23%    never / never / never
+     the same, b = 0.2                                          0.19% /   0.19% /   0.19% /   0.19% /   0.19%    never / never / never
+     the same, b = 0.5                                          0.28% /   0.34% /   0.40% /   0.48% /   0.59%    29 gen (~957 yr) / 38 gen (~1254 yr) / 45 gen (~1485 yr)
+     the same, b = 0.8                                          0.50% /   1.05% /   2.73% /   9.76% /  37.58%    6 gen (~198 yr) / 11 gen (~363 yr) / 16 gen (~528 yr)
+     the same, couples outside have two                         0.13% /   0.13% /   0.13% /   0.13% /   0.13%    never / never / never
+     the same, couples outside have four                        0.33% /   0.37% /   0.40% /   0.42% /   0.44%    never / never / never
+     the same, half placed                                      0.10% /   0.10% /   0.10% /   0.10% /   0.10%    never / never / never
+     the same, leak 1%                                          0.07% /   0.07% /   0.08% /   0.08% /   0.08%    never / never / never
+   fitted until placed                                          0.00% /   0.00% /   0.00% /   0.00% /   0.00%    never / never / never
+   old lines marry old lines, b = 0.20                          0.19% /   0.19% /   0.19% /   0.19% /   0.19%    46 gen (~1518 yr) / 51 gen (~1683 yr) / 55 gen (~1815 yr)
+   old lines marry old lines, b = 0.35                          0.22% /   0.24% /   0.28% /   0.38% /   0.72%    22 gen (~726 yr) / 27 gen (~891 yr) / 32 gen (~1056 yr)
+   old lines marry old lines, b = 0.50                          0.28% /   0.39% /   0.65% /   1.64% /   5.37%    13 gen (~429 yr) / 18 gen (~594 yr) / 23 gen (~759 yr)
+   old lines marry old lines, b = 0.80                          0.49% /   1.04% /   2.82% /  10.64% /  42.97%    6 gen (~198 yr) / 11 gen (~363 yr) / 15 gen (~495 yr)
+   old lines marry old lines, two children                      0.13% /   0.13% /   0.13% /   0.13% /   0.13%    never / never / never
+   old lines marry old lines, half placed                       0.10% /   0.10% /   0.11% /   0.11% /   0.11%    never / never / never
+   old lines marry old lines, one couple in 10 at first         0.68% /   0.82% /   1.09% /   1.90% /   4.57%    9 gen (~297 yr) / 18 gen (~594 yr) / 24 gen (~792 yr)
+   A line that keeps to itself (b = 0.35), share of its couples having children: gen 1: 16%, gen 2: 18%, gen 3: 20%, gen 4: 20%, gen 5: 21%, gen 6: 21%, gen 8: 21%, gen 10: 21%
+   The line outgrows the leak once (share having children) x (children / 2) x (1 - door) passes 1:
+   at three children and one in ten placed, once three couples in four have them.
+
