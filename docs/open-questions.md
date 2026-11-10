@@ -15,7 +15,7 @@
 | | Questions |
 |---|---|
 | Open | 88 |
-| Deliberately open (story space) | 19 |
+| Deliberately open (story space) | 20 |
 | Answered elsewhere, with a pointer left in the doc | 32 |
 | Docs with questions still open | 23 |
 
@@ -100,6 +100,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [governance.md](governance.md#open-questions): Who holds the fuel reserves, the ~4 × 10⁸ brown dwarfs at ~10–30 pc that the feed depends on. *(deliberately open)*
 - [governance.md](governance.md#open-questions): Who steers the fuel rain through the Shade's belt, and how a raft in its path is warned and compensated. *(deliberately open)*
 - [governance.md](governance.md#open-questions): The settlement's terms, who keeps them, and whether the hole is Sgr A* itself or a nucleus like it (Minds, machines and the settlement). *(deliberately open)*
+- [governance.md](governance.md#open-questions): The minds that run on the Shade's compute: who they are, what standing they have, and what the settlement says of them (Minds, machines and the settlement). *(deliberately open)*
 - [governance.md](governance.md#open-questions): What the Shade sells the frontier for its metal (Core and frontier; economy.md § The frontier).
 - [governance.md](governance.md#open-questions): Law between rafts: crime, extradition and emigration across years of light-delay (economy.md's swaps of shares). *(deliberately open)*
 - [daily-life.md](daily-life.md#open-questions): The median wallet. The floor is the commons with no dividend, for the shareless (economy.md § Children); the median depends on how much people spend on each other's time.

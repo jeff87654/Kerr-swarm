@@ -92,7 +92,7 @@ Far in the future, ~10³³ people live around the Milky Way's central black hole
 - No animals except very rare luxury ones (a henhouse is famous). No pets, bees, birds, fish ponds, horses. Animal words survive only as names.
 - No ships, planets, moons, beaches with tides, mountains, forests in the Earth sense. Woods exist inside Hollows (yews, birches, pears, apples, bamboo, etc.), tended by woodwardens.
 - No currency except kWh ("kays"). No buying land or places. No large families as a casual thing (two children is normal; a third is notable).
-- Nobody lives on the Lantern; nobody sees it. Minds are biological. No robots as characters (robots exist as appliances: cleaning robots, cooking robots in halls).
+- Nobody lives on the Lantern; nobody sees it. The people you meet are biological. Machine minds (tutors, assistants) stay off-stage: no machine characters, and the robots on stage are appliances (cleaning robots, cooking robots in halls).
 - Nothing travels between rafts except light (messages, recipes, genomes); emigration is a rare swap during a Passing.
 - Distances: neighbouring drums 24.5 km and 140 s by glide; across Merrow is weeks by slow cycler.
 - Keep invented numbers modest and consistent with the price list.
