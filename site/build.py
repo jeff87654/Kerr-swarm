@@ -93,6 +93,20 @@ def build_atlas(out):
     return True
 
 
+# ---------------------------------------------------------------- round the clock
+CLOCK = ROOT / "games" / "round-the-clock"
+
+
+def build_clock(out):
+    """Build Round the Clock into out/round-the-clock/. Returns True if built."""
+    script = CLOCK / "tools" / "build.py"
+    if not script.is_file():
+        return False
+    subprocess.run([sys.executable, str(script), "--standalone", str(out / "round-the-clock")],
+                   check=True, stdout=subprocess.DEVNULL)
+    return True
+
+
 # ---------------------------------------------------------------- README
 def parse_readme():
     """Intro, canon decisions, and the doc groups from the README."""
@@ -395,8 +409,13 @@ def nav_html(groups, current):
         out.append("</ul></div>")
     if (ATLAS / "tools" / "build.py").is_file():
         out.append('<div class="nav-group"><p class="nav-label">Explore</p><ul><li><a href="sorrel-atlas/">The Sorrel Atlas</a></li></ul></div>')
+    play = []
     if (GAME / "tools" / "build.py").is_file():
-        out.append('<div class="nav-group"><p class="nav-label">Play</p><ul><li><a href="three-nights/">Three Nights Anywhere</a></li></ul></div>')
+        play.append('<li><a href="three-nights/">Three Nights Anywhere</a></li>')
+    if (CLOCK / "tools" / "build.py").is_file():
+        play.append('<li><a href="round-the-clock/">Round the Clock</a></li>')
+    if play:
+        out.append(f'<div class="nav-group"><p class="nav-label">Play</p><ul>{"".join(play)}</ul></div>')
     out.append("</nav>")
     return "".join(out)
 
@@ -525,6 +544,7 @@ def build(out, fragment_index=False):
         shutil.copytree(DOCS / "diagrams", out / "diagrams")
     game = build_game(out)
     atlas = build_atlas(out)
+    clock = build_clock(out)
 
     # backlinks
     cites = {s: set() for s in docs}
@@ -663,6 +683,10 @@ def build(out, fragment_index=False):
     if game:
         extra_links.append('<li><a class="card" href="three-nights/"><span class="card-title">Three Nights Anywhere</span>'
                            '<span class="card-blurb">A game: wander Merrow for a year on guest-right, three nights a drum, and send cards home</span>'
+                           '<span class="card-meta">play</span></a></li>')
+    if clock:
+        extra_links.append('<li><a class="card" href="round-the-clock/"><span class="card-title">Round the Clock</span>'
+                           '<span class="card-blurb">Twelve small games, one for each Hour of Sorrel, played with the drum\'s own physics from a full g at the rim to none on the axis; then run the Round</span>'
                            '<span class="card-meta">play</span></a></li>')
     if extra_links:
         group_html.append(f'<section class="topic"><h2 id="more">More</h2><ul class="cards">{"".join(extra_links)}</ul></section>')

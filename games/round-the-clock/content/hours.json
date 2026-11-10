@@ -1,0 +1,182 @@
+[
+  {
+    "n": 1,
+    "a": "#b0834f",
+    "b": "#f1e3c2",
+    "keeps": "midwives, and stair races",
+    "club": "Hare Harriers",
+    "nick": "the Boxers",
+    "host": { "name": "Ama Teague", "role": "holds the Light Round record" },
+    "lines": [
+      "You ran the top like the bottom. Up there your feet take their time, and you have to let them.",
+      "You got up. Every Hare has, the first time on somebody's hip.",
+      "Good. You felt the stair go slow under you and went slow with it.",
+      "Light at the top and not one stumble. Are you sure nobody in your family is Hare?"
+    ]
+  },
+  {
+    "n": 2,
+    "a": "#4f86ad",
+    "b": "#f2f5f4",
+    "keeps": "the water",
+    "club": "Heron Waders",
+    "nick": "the Stilts",
+    "host": { "name": "Joss Imura", "role": "tide engineer" },
+    "lines": [
+      "The water was late, so the drum was slow. Send it before the train goes, not when you see it leave.",
+      "Sorrel turned a little slow this morning. Nobody will notice but me, and I'll mention it.",
+      "Trim enough. The gauge barely moved, and I was watching it.",
+      "A hundred and ten seconds a turn, all morning. The water knew where everyone went, and so did you."
+    ]
+  },
+  {
+    "n": 3,
+    "a": "#7c5596",
+    "b": "#e2c98f",
+    "keeps": "the lamp-night",
+    "club": "Owl Athletic",
+    "nick": "the Yawners",
+    "host": { "name": "Dasha Kolle", "role": "cook at the Lid Wall" },
+    "lines": [
+      "Cold soup under other people's lids. Sit down, have a bowl, and look at the wall while you eat.",
+      "Most of them got their own lid, and warm enough. The rest were polite about it.",
+      "Hot, and under the right lids. A year of that and you'd earn a hook.",
+      "You know my wall better than I do, and I hung it. Lids on."
+    ]
+  },
+  {
+    "n": 4,
+    "a": "#d2a21e",
+    "b": "#1c1a17",
+    "keeps": "orchards and rotas",
+    "club": "Bee Rota",
+    "nick": "the Brushes",
+    "host": { "name": "Sunniva Paek", "role": "keeps the brush rota" },
+    "lines": [
+      "You brushed each tree onto itself. Nothing will come of it but the exercise.",
+      "Some will set. The crew will know which rows were yours by the apples that never come.",
+      "A good morning's brushing. I've put you on the rota for next week, and the week after.",
+      "Every blossom got its brush. I'd put you on every rota we have, and we have a rota for that."
+    ]
+  },
+  {
+    "n": 5,
+    "a": "#b9552c",
+    "b": "#f6efe6",
+    "keeps": "trade",
+    "club": "Fox Rovers",
+    "nick": "the Reds",
+    "host": { "name": "Sabine Kroll", "role": "stallholder at the Second Market" },
+    "lines": [
+      "You went home with what you came with. That isn't a both, that's a walk.",
+      "You got there the long way round. Half the market has had your things through its hands.",
+      "Nicely done. Everyone you swapped with thinks they won, which is the whole trick.",
+      "Straight there and not a swap wasted. I'd say sit down, but you'd price the chair."
+    ]
+  },
+  {
+    "n": 6,
+    "a": "#1f8a8e",
+    "b": "#f0f6f3",
+    "keeps": "the baths and the lake",
+    "club": "Otter Lake Club",
+    "nick": "the Wets",
+    "host": { "name": "Femi Strand", "role": "lifeguard on the jetty" },
+    "lines": [
+      "Half a g gives you time to fix a bad dive. You spent it shouting.",
+      "You went in, mostly head first. The bench has seen worse, and said so.",
+      "Clean enough that your robe stayed dry on the rail. The elders gave you a nod.",
+      "No splash to speak of. The bench had its cards up before you surfaced."
+    ]
+  },
+  {
+    "n": 7,
+    "a": "#748328",
+    "b": "#c08f4f",
+    "keeps": "freight and furniture",
+    "club": "Stag Heavies",
+    "nick": "the Antlers",
+    "host": { "name": "Tomas Idowu", "role": "moves furniture" },
+    "lines": [
+      "It came down before the door shut. We'll stack it again, and this time you can watch.",
+      "It rode up, most of it. The rest is on the landing, being argued about.",
+      "A good stack. Heavy at the bottom and steady at the top, like a proper dinner.",
+      "Right to the top and not a wobble. That's heavy. You've earned your pudding."
+    ]
+  },
+  {
+    "n": 8,
+    "a": "#4a47a6",
+    "b": "#cdd2dc",
+    "keeps": "the cabs",
+    "club": "Swift Lattice",
+    "nick": "the Leaners",
+    "host": { "name": "Odile Barros", "role": "gimbal fitter" },
+    "lines": [
+      "You're wearing the tea. The gimbal does this ninety million times an hour and nobody thanks it.",
+      "Half a cup left. In a real cab you'd never have felt the lean, which is the point of us.",
+      "Most of the tea and the whole bun. You can ride with me.",
+      "Not a drop, through the brake and all. Leave early, arrive leaning."
+    ]
+  },
+  {
+    "n": 9,
+    "a": "#45423f",
+    "b": "#ecebe3",
+    "keeps": "the recyclers",
+    "club": "Badger United",
+    "nick": "the Stripes",
+    "host": { "name": "Esme Kowal", "role": "passport clerk at the Take-Apart" },
+    "lines": [
+      "A good chair in the steel bin. I've seen that done once before, and we still talk about him.",
+      "Sorted, more or less. I'll go through the bins after you. I go through them after everyone.",
+      "Tidy. Nothing went in a bin that had a year left in it.",
+      "Every scrap where it belongs, and the crusts in a pan. You may come again. Bring a jar."
+    ]
+  },
+  {
+    "n": 10,
+    "a": "#b56f98",
+    "b": "#aaa6ae",
+    "keeps": "lamps and wing-sleeves",
+    "club": "Moth Lamplight",
+    "nick": "the Dusties",
+    "host": { "name": "Mahsa Ferro", "role": "remakes wing-sleeves, flew for sixty years" },
+    "lines": [
+      "You aimed at every hoop and the drum moved you off it. Aim where the turn is taking you.",
+      "A few lamps threaded. The warden only had to fetch you the once.",
+      "You let the turn carry you and corrected late, like a flyer. I sewed those fins. Mind them.",
+      "Crosswise all the way and never off the lamps. I flew for sixty years and managed that in about forty of them."
+    ]
+  },
+  {
+    "n": 11,
+    "a": "#b23444",
+    "b": "#5c6672",
+    "keeps": "the crews",
+    "club": "Wolf Crews",
+    "nick": "the Pack",
+    "host": { "name": "Roisin Abara", "role": "calls for the Pack" },
+    "lines": [
+      "You threw like someone in the old pictures. Here the ball has opinions.",
+      "A few went in. Spin sinks, anti floats. You'll be saying it in your sleep.",
+      "That's a wing's arm. The Pack sang for you, and we don't sing for visitors.",
+      "Both ends, near and far. Come and eat: six to a pot, and you're the sixth."
+    ]
+  },
+  {
+    "n": 12,
+    "a": "#3d9455",
+    "b": "#6f4b2d",
+    "keeps": "breakfast and flutes",
+    "club": "Lark Harmonic",
+    "nick": "the Earlies",
+    "host": { "name": "Iolo Marchetti", "role": "sells crepes at the stair-head" },
+    "lines": [
+      "That one's still on its way down. The higher you cook, the longer it's up there and the further it lands.",
+      "Breakfast was served, and a little late by Lark's reckoning. So, late.",
+      "Golden both sides and caught where it came down. Early.",
+      "Not one dropped, all the way up the wall. Early, early, early."
+    ]
+  }
+]
