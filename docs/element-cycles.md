@@ -182,7 +182,7 @@ If all of a person's 6.7 t were shipped solar mix:
 | Radiator fluid | ~2–4 kg; ~3 m² of panel | At 10⁻⁴ a year: 0.2–0.4 g a year | ≤0.1 mg a year | Compartments; leak-chasers; radiolysis traps |
 | Solids in the X-ray flood | The raft's frame, rectennas, radiators | Polyethylene shields: 4–16 g of hydrogen a year | ≤0.1 mg a year | Bare carbon, ceramic and metal only |
 | Yards and data halls | ~100 kg a year through industry | — | ≤0.1 mg a year | Closed chambers; ≤10⁻⁹ escapes |
-| The Lantern | ~70 kg; ~6 m² | — | ~0.002–0.2 mg a year | Mostly blown back onto its own walls |
+| The Lantern | ~50 kg; ~4 m² | — | ~0.002–0.2 mg a year | Mostly blown back onto its own walls |
 | The dead | ~0.6–0.8 kg of phosphorus a body | Sent away: 7–10 g of phosphorus a year | 0 | The dead come home |
 | Fires | ~11 t of oxygen in a 100 m compartment | Vented overboard | Dumped into a tank in the cold | Nothing vents |
 | **Total, heavy elements** | | **~13 kg a year, nearly all air** | **≲1 mg a year** | |

@@ -14,7 +14,7 @@
 
 | | Questions |
 |---|---|
-| Open | 88 |
+| Open | 89 |
 | Deliberately open (story space) | 19 |
 | Answered elsewhere, with a pointer left in the doc | 32 |
 | Docs with questions still open | 23 |
@@ -23,6 +23,7 @@
 Each links to its doc's own list, which is the source. Answered questions are left out here; their pointers stay in the docs.
 
 ### The hole and the Lantern
+- [full-swarm.md](full-swarm.md#open-questions): Whether the disk wind's hydrogen is vented or bottled (Where the wind goes): vented, the cluster's gas lasts ~545 Myr instead of ~675; bottled, it has to reach the belt before it can be dropped. Also whether the cold hydrogen hanging over the Lantern's outer skin dims beams longer than ~1 cm.
 - [full-swarm.md](full-swarm.md#open-questions): Whether a foil blanket can hold a 100 km hydrogen slug's loss to a tenth over its fall (it must pass under ~2 × 10⁻⁴ of the light on it), where the boil-off goes, and how wide the rain's lanes and the Lantern's ports are (Growth at 30%).
 - [full-swarm.md](full-swarm.md#open-questions): How the Lantern is assembled and sealed in practice: From rings to the full swarm has it built from light pieces and closed as a whole, but not the order or how long the closing takes.
 - [full-swarm.md](full-swarm.md#open-questions): The best louvered fronts. Returned glow adds ~10–30% to radiator loads (The Shade), which is why inner rafts take more than 3 m² a person.
