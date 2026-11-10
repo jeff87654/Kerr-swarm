@@ -2,7 +2,7 @@
 
 A browser game set in **Sorrel**, the nation drum of 200 million on Herb Row (`docs/sorrel.md`, `docs/ashgrove.md`). It exists to show off how much variety one drum holds. Sorrel is cut like a clock into twelve **Hours**, each a county with its own colours, trade, word and dish. You join one Hour's running club and go round the clock: a small game in every Hour, played with the drum's real physics, from a full g at the rim to none at all on the axis. Each Hour ties a thread in its colours on your wrist. Then you run **the Round**, the Hours' yearly race right round deck 201, and every thread you wear makes that Hour's crowd carry you.
 
-Play it on the world-bible site at **https://jeff87654.github.io/Kerr-swarm/round-the-clock/**. It is also published as a claude.ai artifact (rebuild and republish `dist/round-the-clock.html` to update it).
+Play it on the world-bible site at **https://jeff87654.github.io/Kerr-swarm/round-the-clock/**. It is also published as a claude.ai artifact, https://claude.ai/artifact/XWekQuY44FnxZTeDa67aBG (rebuild and republish `dist/round-the-clock.html` there to update it).
 
 ## The twelve games
 
