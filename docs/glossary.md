@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match. Revised 10 Nov 2026 (a placeless-born life worked through; third-chair.md, families.md; Jeff's steer, names proposals): waiting shares, the box, the certificate, marrying late, third chair and the Emptying; the draw, the placeless-born, houses and Tansy to match.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -260,7 +260,7 @@ Matches: posted price, the keep
 
 ### The draw
 
-A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing. Nearly every couple enters, and one in eight to sixteen ever wins. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
+A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing. Nearly every couple enters, and one in eight to sixteen ever wins. A couple across the line enters the same draw, and a win places the partner born outside. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
 
 Matches: Draw Day, third-child draw, draw for thirds
 
@@ -278,7 +278,7 @@ Matches: by leave, the block's leave
 
 ### The placeless-born
 
-People born outside a household's allowance (proposal): registered, proofread, fed and schooled like anyone, but with no claim on a place and, in most drums, last in the family's line for a share. They are placed, and count from then on as born to a place, by adoption into an heirless place, by a marriage the drum allows, by long service, or by a later place when their parents' place comes. Every placing spends the room a third child would have had, so about one in ten is placed. About one person in forty in a steady drum. Not the wild-born, who are born outside the clinics. See families.md, people.md.
+People born outside a household's allowance (proposal): registered, proofread, fed and schooled like anyone, but with no claim on a place and, in most drums, last in the family's line for a share. They are placed, and count from then on as born to a place, by adoption into an heirless place, by a marriage the drum allows, by long service, or by a later place when their parents' place comes. Every placing spends the room a third child would have had, so about one in ten is placed. About one person in forty in a steady drum. With no share, they work for ~80% of a wallet from eighteen, and old age rests on a house's box, kin or savings. Not the wild-born, who are born outside the clinics. See families.md, people.md, third-chair.md.
 
 Matches: placeless-born
 
@@ -326,9 +326,39 @@ Matches: placeless
 
 ### Houses
 
-Homes for the placeless held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election, with no heir and no nursery. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy. See people.md, economy.md.
+Homes for the placeless held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election, with no heir and no nursery. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy. About one place in fifty houses every placeless-born adult, and a drum with that many sits near par, not ~2.7% over. A house keeps a box. See people.md, economy.md, families.md.
 
 Matches: none
+
+### Waiting shares
+
+Shares that are unheld between a death and the child they wait for (proposal): about 3% of a drum's shares at any time, ~6 M in a nation drum, as many as there are children waiting for a share. In most drums their dividends (~5.4 GW) fall to the commons. A few, Chervil among them, lend them to placeless-born elders as waiting wallets, each held until the share's child is born. See families.md, economy.md.
+
+Matches: waiting share, waiting shares, waiting wallet, waiting wallets
+
+### The box
+
+A house's common fund (proposal): members pay in about fifteen parts in a hundred of their pay while they work and draw ~4 kWh a day once they stop, as guilds and friendly societies kept a box. For someone with no share and no rooms to let, it is most of old age. See families.md, third-chair.md.
+
+Matches: none
+
+### The certificate
+
+What a drum writes for one of its people who lodges in another (proposal): the home drum answers for their commons and for any child born to them there. Standing is settled by birth, so a host drum's door and its leave are for its own. See families.md.
+
+Matches: none
+
+### Marrying late
+
+A second marriage between someone born to a place, whose children already have households, and a placeless-born partner (proposal). It costs a line nothing, so it is how most marriages across the line happen, and it ends with a year's grace in the place when the holder dies. See families.md, third-chair.md.
+
+Matches: marrying late
+
+### Third chair
+
+Tansy's word for a child born outside its household's allowance; a household with one is carrying a chair. See third-chair.md.
+
+Matches: third chair, third chairs
 
 ### Proofreading
 
@@ -524,9 +554,15 @@ Matches: Chervil
 
 ### Tansy
 
-A steady drum one glide from Sorrel along Herb Row, known for its strawberries, the longest strain library on the Row, and the Row's only henhouse. See eating-out.md.
+A steady drum one glide from Sorrel along Herb Row, known for its strawberries, the longest strain library on the Row, and the Row's only henhouse. A drawn-holdings drum: its houses hold about one place in fifty, and its draw is kept by keepers from other drums. Home of Nell Varga. See eating-out.md, third-chair.md.
 
 Matches: Tansy
+
+### The Emptying
+
+Tansy's dissolution of its houses about nine hundred years ago: room for ~3.7 M children at once, forty-two years of leave, and ~4 M people put into lodgings. Tansy ran 2.7% over par for three centuries and took four more to found its houses again. See third-chair.md, families.md.
+
+Matches: the Emptying
 
 ### Yarrow and Borage
 

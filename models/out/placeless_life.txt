@@ -1,0 +1,82 @@
+A placeless-born life: the sums.
+
+The drum: 200 M shares, 90 M places of 78 m2, mean life 120 yr,
+  ~1.67 M births a year at par; shares of a steady population over 18 / 28 / 85 / 100: 85% / 77% / 30% / 18%
+  born outside the allowance: 50,103 a year (one birth in 33); placed: 5,010 a year;
+  placeless-born carried: 5.4 M, 2.6% of people (one in 38)
+  of the placeless-born, children of the placeless-born (placing.py: 0.19% of births): 6%, one in 16
+
+1. THE KEEP: a household of five on four wallets, charged for the third's keep to 18
+   keep (kW)   kWh a day   over 18 years (kWh)   wallet-years   wallets, kWh a head a day
+    0.00         0.0               0            0.0           17.3   (a family of four: 21.6)
+    0.23         5.5          36,291            4.6           16.2   (a family of four: 21.6)
+    0.55        13.2          86,783           11.0           14.6   (a family of four: 21.6)
+    1.10        26.4         173,567           22.0           12.0   (a family of four: 21.6)
+   A placeless-born couple, both working full time, with one child outside:
+     keep 0.23 kW =  5.5 kWh a day, 16% of their 34 kWh a day
+     keep 0.55 kW = 13.2 kWh a day, 39% of their 34 kWh a day
+     keep 1.10 kW = 26.4 kWh a day, 78% of their 34 kWh a day
+
+2. INCOME BY STANDING, kWh a day
+   a share, not working                  21.6
+   a share, working full time            38.6
+   no share, working full time           17.0   (79% of a wallet; 44% of a working sibling's)
+   no share, not working                  0.0   (the commons only)
+   a 20 m2 room at par: 2.0 kWh a day, 12% of full-time pay; a whole place: 7.8
+
+3. OLD AGE WITHOUT A SHARE
+   Banking a constant share of full-time pay from 18, re-lent each booking year at no interest (a usury drum):
+   stop work at   years worked   years after (to 120)   to live on 10 kWh a day after, bank   live on meanwhile
+    75             57             45                     7.9 kWh a day (46% of pay)         9.1
+    85             67             35                     5.2 kWh a day (31% of pay)        11.8
+    95             77             25                     3.2 kWh a day (19% of pay)        13.7
+   The same at 3% a year (a rentier drum), stopping at 85:
+     bank 1.03 kWh a day (6.1% of pay): interest does the rest, and lenders live on it
+   A house's box: members pay in a share of pay from election (~31) to 85, and draw from 85:
+     10% of pay in (1.7 kWh a day) -> 2.6 kWh a day out
+     15% of pay in (2.5 kWh a day) -> 3.9 kWh a day out
+     20% of pay in (3.4 kWh a day) -> 5.2 kWh a day out
+
+4. WAITING SHARES: shares unheld between a death and the birth they wait for
+   At par shares equal people, so the ~3% of people who are shareless (children waiting ~6 years)
+   are matched by as many shares waiting in other families: ~6 M (stem_places.py: 'held for the next child born there').
+   Check: 60% of 1.67 M births wait ~6 years = 6.0 M.
+   Their dividends: 5.4 GW. The placeless-born's whole commons: 5.4 M x 1.1 kW = 5.9 GW.
+   If unheld dividends fall to the commons: (400 - 174.6) GW / 205.4 M = 1.097 kW a head,
+     against 1.127 kW with no placeless-born to carry, and the 1.1 kW of a drum with every share held.
+   A waiting wallet for every placeless-born person over 85: 1.61 M wallets, 27% of the waiting shares,
+     1.45 GW: the commons at 1.090 kW a head (0.6% thinner)
+   A waiting wallet for every placeless-born person over 100: 0.96 M wallets, 16% of the waiting shares,
+     0.87 GW: the commons at 1.093 kW a head (0.4% thinner)
+
+5. HOUSES: places held by bodies that don't die
+   Placeless-born past 28: 4.14 M. At 35 m2 each they fill 1.86 M places, 2.1% of the drum's: one place in 48.
+   houses hold   households   born to a place   placeless-born   people     against par
+    0.0%          90.0 M       200.0 M          5.4 M            205.4 M   +2.7%
+    1.0%          89.1 M       198.0 M          5.3 M            203.3 M   +1.7%
+    2.1%          88.1 M       195.9 M          5.3 M            201.1 M   +0.6%
+    3.0%          87.3 M       194.0 M          5.2 M            199.2 M   -0.4%
+   Dissolving them: 1.86 M places x 2 householders = 3.7 M slots, against 89,600 thirds by leave a year: 42 years' leave at once.
+   Founding them: ~47,305 places a year end without an heir. A tenth of those to the houses builds the stock in 394 years; half, in 79.
+
+6. THE DOORS, A YEAR (an illustrative split of the placings; proposal)
+   Room: 94,610 slots a year, half the households' to name and half the drum's to give.
+   The households' half (47,305): 44,005 heirs named unborn, 3,300 placeless-born adults adopted (7% of heirless places).
+   The drum's half (47,305): 1,500 placings for service, 45,805 permits drawn, of which 200 fall to couples across the line.
+   Thirds by leave: 89,610. Placings: 5,000 of 50,103 born outside: one in 10.
+     by adoption  one of a year's births outside in 15
+     by service   one of a year's births outside in 33
+     by marriage  one of a year's births outside in 251
+   A crew that places 1,500 a year after 25 years holds ~37,500 hands on the placing track at once,
+     and elects 1,500 a year from ~45,092 who will never be placed another way: one in 30.
+   Draw Day: 45,805 permits at nine station rings, ~5,089 each; read out at five seconds a name: 7.1 hours.
+
+7. MARRIAGE ACROSS THE LINE
+   A household's lifetime chance of a third by leave: 11% (one in 8.8); by the draw alone, where the heirless
+   name half the room: 5.7% (one in 18) over ~25 years of entering, ~0.23% a year (one in 440).
+   What is given up, in householders: by a child outside with the door shut, 0.12; by marrying across the line unplaced, 2.
+   A couple across the line entering the same draw for  4 years: 0.9% chance of a placing
+   A couple across the line entering the same draw for 10 years: 2.3% chance of a placing
+   A couple across the line entering the same draw for 32 years: 7.0% chance of a placing
+   200 placings a year at those odds means ~87,917 such couples entered at once: ~2,747 a cohort if they enter
+     for 32 years, 6% of a cohort's unplaced placeless-born.
