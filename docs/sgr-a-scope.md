@@ -182,7 +182,7 @@ The ordering comes from shade and from heat rejection:
 ## Other consequences
 - **The central parsec's corpses.** Perhaps ~10⁴ stellar black holes, plus neutron stars, can't be mined; they must be herded out or fed to Sgr A*. White dwarfs can be: they're nearly pure carbon and oxygen (matter-delivery.md).
 - **Leftover hydrogen and helium** from stripped stars is fuel for hundreds of millions of years at 30%, free shielding, and free propellant for traffic control.
-- **Winds.** Disks near Eddington blow fast outflows (~0.1c) carrying up to a few percent of the luminosity. In the Lantern era the collectors take them; in the layer era rafts need shielding, or can harvest the wind.
+- **Winds.** Disks near Eddington blow fast outflows (~0.1c) carrying up to a few percent of the luminosity. In the Lantern era the collectors take them, and the wind's hydrogen, a third or more of the feed, passes through them and out (full-swarm.md § Where the wind goes); in the layer era rafts need shielding, or can harvest the wind.
 - **Seen from outside:** an infrared ember.
   - At 3% of Eddington it is ~0.75 pc across, at ~360 K, and gives ~10% of the Milky Way's output.
   - At 30% it is ~2.5 pc across and matches the whole galaxy. Most of the light leaves the Lantern's skin at ~420 K (hotter toward the poles), seen through the Shade, which radiates the beamed fifth at ~300 K. It peaks near 7–10 µm.
