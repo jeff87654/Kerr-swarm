@@ -210,6 +210,12 @@ export function setupFlow(game) {
     // the station's lift lobby is a stop like any other (its builder calls game.cab.open('station') at the berths)
     const sl = game.spawns['station-lobby'];
     if (sl && !game.cab.stops.find((q) => q.id === 'station')) game.cab.addStop({ id: 'station', name: 'Station Ring 2', sub: 'the glide platform, the Ledger, the guest desk', banner: 'Station Ring 2', frame: sl.frame, x: sl.x, y: sl.y, z: sl.z, yaw: sl.yaw || 0 });
+    if (ui && ui.setKeys) ui.setKeys([
+      { k: ['W', 'A', 'S', 'D'], t: 'Walk' }, { k: ['Mouse'], t: 'Look about' }, { k: ['Shift'], t: 'Hurry' }, { k: ['Space'], t: 'Jump' },
+      { k: ['E'], t: 'Use, talk, sit' }, { k: ['F'], t: 'Throw a ball you have borrowed' },
+      { k: ['J'], t: 'Journal' }, { k: ['M'], t: 'Map' }, { k: ['P'], t: 'Photo mode' }, { k: ['Esc'], t: 'Pause' },
+      { k: ['W', 'S', 'Space', 'C'], t: 'In the Spindle: row, lift, sink' },
+    ]);
     if (ui) { ui.setChapters && ui.setChapters(CHAPTERS.map((c) => ({ id: c[0], title: c[1], sub: c[2] }))); ui.loading.hide(); if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) ui.touch.enable(true); }
     if (game.params.auto) { game.started = true; if (ui) { ui.hud.show(true); ui.hud.wallet(game.wallet.kwh); } return; }
     const title = game.spawns.court ? ['court', 1, 20.4] : game.spawns.hollow ? ['hollow', 1, 11] : ['start', 1, 12];

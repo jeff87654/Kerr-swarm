@@ -133,9 +133,9 @@ export const place = {
     const FLIGHT_PHASES = ['up', 'drift', 'choir'];
     const flightPhase = async (G, phase) => {
       if (phase === 'end') {
-        if (F(G).flew) return;
+        if (F(G).flight_done) return;
         toast(G, 'As far as the end wall, almost four kilometres off, small lights drift along the axis like a slow river.');
-        F(G).flew = true; found(G, 'dark-cable'); found(G, 'flyers-at-once');
+        F(G).flew = true; F(G).flight_done = true; found(G, 'dark-cable'); found(G, 'flyers-at-once');
         start(G, 'booking-day'); step(G, 'booking-day', 5); done(G, 'booking-day');
         return;
       }
@@ -362,11 +362,14 @@ export const place = {
         if (id === 'painted-dawn' && day(g) === 2) { Fl.saw_rehearsal = true; start(g, 'middle'); step(g, 'middle', 0); }
       } catch (e) { err(e); }
     });
+    // two things you find by going up: the lift whose floor swings, and why the sunline stops short of the wall
+    g.events.on('cab:arrive', (e) => { try { if (e && e.to === 'flying-hall') found(g, 'down-goes-sideways'); } catch (er) { err(er); } });
+    g.events.on('fly:start', (e) => { try { if (e && !e.long) found(g, 'short-sunline'); } catch (er) { err(er); } });
     g.events.on('fly:stop', (e) => {
       try {
         const long = e && e.long, Fl = F(g);
-        if (!long || Fl.flew || !(day(g) === 3 || day(g) === 4)) return;
-        Fl.flew = true; found(g, 'dark-cable'); found(g, 'flyers-at-once');
+        if (!long || Fl.flight_done || !(day(g) === 3 || day(g) === 4)) return;
+        Fl.flew = true; Fl.flight_done = true; found(g, 'dark-cable'); found(g, 'flyers-at-once');
         start(g, 'booking-day'); step(g, 'booking-day', 5); done(g, 'booking-day');
       } catch (er) { err(er); }
     });
@@ -413,6 +416,7 @@ export const place = {
       // the mother: the thread starts when you have the crock and have signed in
       if (Fl.signed_in && !started(g, 'mother') && g.inv && g.inv.has('spelt-mother')) { start(g, 'mother'); if (g.journal.focus && !Fl.has_flat) g.journal.focus('three-nights'); }
       if (place === 'hall' && started(g, 'mother') && d === 1) step(g, 'mother', 0);
+      if (place === 'back-foot' && g.clock.sun && g.clock.sun() > 0.5) found(g, 'short-sunline');
       // tomorrow's sprig
       if (Fl.carrying_tray && fr === 'station') step(g, 'sprig', 0);
       // the jar of bruise in Oona's flat
