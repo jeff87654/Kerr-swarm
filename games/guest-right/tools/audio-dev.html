@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guest-Right audio</title>
+<style>
+  :root { --bg: #14100c; --panel: #1d1813; --line: rgba(255,217,160,.18); --text: #F3EDE2; --dim: #A99F90; --lamp: #FFD9A0; --teal: #3FE0D0; --warn: #FF5468; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; padding: 16px; }
+  h1 { font: italic 600 26px Georgia, serif; color: #FFE3A8; margin: 0 0 4px; }
+  h2 { font: 600 12px system-ui; letter-spacing: .14em; text-transform: uppercase; color: var(--lamp); margin: 18px 0 6px; }
+  .note { color: var(--dim); margin: 0 0 10px; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; }
+  button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 4px; padding: 5px 9px; font: 13px system-ui; cursor: pointer; }
+  button:hover { border-color: var(--lamp); }
+  button.on { background: #3a2a14; border-color: var(--lamp); color: #FFE3A8; }
+  .sliders { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 16px; }
+  label { display: flex; align-items: center; gap: 8px; color: var(--dim); }
+  label input[type=range] { flex: 1; }
+  #status { font: 12px ui-monospace, monospace; color: var(--teal); white-space: pre; margin-top: 8px; }
+  canvas { background: #0d0a07; border: 1px solid var(--line); border-radius: 4px; max-width: 100%; }
+  input[type=text] { background: var(--panel); color: var(--text); border: 1px solid var(--line); padding: 5px; width: min(520px, 100%); }
+  table { border-collapse: collapse; font: 12px ui-monospace, monospace; margin-top: 8px; }
+  td, th { border-bottom: 1px solid var(--line); padding: 2px 8px; text-align: right; }
+  td:first-child, th:first-child, td:nth-child(2), th:nth-child(2) { text-align: left; }
+  tr.bad td { color: var(--warn); }
+</style>
+</head>
+<body>
+<h1>Guest-Right audio</h1>
+<p class="note">Click anywhere first to unlock audio. Every sound is synthesised in <code>src/audio/</code>. <span id="unlock">Locked.</span></p>
+
+<h2>Volumes</h2>
+<div class="sliders" id="vols"></div>
+<div class="row" style="margin-top:6px">
+  <button id="duck">Duck 3 s</button>
+  <button id="stopall">Stop loops</button>
+</div>
+
+<h2>Reverb</h2>
+<div class="row" id="reverbs"></div>
+
+<h2>Ambience beds</h2>
+<div class="row" id="beds"></div>
+
+<h2>Music cues</h2>
+<div class="row" id="cues"></div>
+<div class="sliders" style="margin-top:6px">
+  <label>progress <input type="range" id="progress" min="0" max="1" step="0.01" value="0"><span id="progressV">0.00</span></label>
+  <label>intensity <input type="range" id="intensity" min="0" max="1" step="0.01" value="0.5"><span id="intensityV">0.50</span></label>
+  <label><input type="checkbox" id="cuepos"> play positional cues at the moving source</label>
+</div>
+
+<h2>One-shots</h2>
+<div class="row" id="sfx"></div>
+<label style="margin-top:6px"><input type="checkbox" id="sfxpos"> play one-shots at the moving source</label>
+
+<h2>Loops</h2>
+<div class="row" id="loops"></div>
+<div class="sliders" style="margin-top:6px">
+  <label>loop param <input type="range" id="lparam" min="0" max="1" step="0.01" value="0.5"><span id="lparamV">0.50</span></label>
+  <label><input type="checkbox" id="looppos" checked> loops follow the moving source</label>
+</div>
+
+<h2>Footsteps</h2>
+<div class="row" id="steps"></div>
+<div class="sliders" style="margin-top:6px">
+  <label>g <input type="range" id="stepg" min="0.03" max="1" step="0.01" value="0.98"><span id="stepgV">0.98</span></label>
+  <label><input type="checkbox" id="walk"> walk (two steps a second on the last surface)</label>
+</div>
+
+<h2>Interface</h2>
+<div class="row" id="ui"></div>
+
+<h2>Dialogue babble</h2>
+<div class="row" id="timbres"></div>
+<div style="margin-top:6px"><input type="text" id="line" value="You'll be seated next to someone. That's the point. Have you eaten?"></div>
+<div class="sliders" style="margin-top:6px">
+  <label>pitch <input type="range" id="vpitch" min="0.6" max="1.6" step="0.01" value="1"><span id="vpitchV">1.00</span></label>
+  <label>speed <input type="range" id="vspeed" min="0.6" max="1.6" step="0.01" value="1"><span id="vspeedV">1.00</span></label>
+</div>
+
+<h2>Moving source</h2>
+<p class="note">Top-down: you are the dot at the centre facing up (−z). Drag to place the source, or let it orbit.</p>
+<div class="row"><button id="orbit" class="on">Orbit</button><button id="flyby">Fly-by</button><button id="far">Far (120 m)</button></div>
+<canvas id="map" width="320" height="320" style="margin-top:6px"></canvas>
+
+<h2>Self-test</h2>
+<div class="row"><button id="selftest">Run self-test (renders offline)</button></div>
+<div id="status"></div>
+<div id="report"></div>
+
+<script type="module">
+import { createAudio } from '../src/audio/audio.js';
+
+// ------------------------------------------------------------ mock game
+const store = { volMaster: 1, volMusic: 1, volSfx: 1, volVoice: 1, volAmbience: 1 };
+const handlers = {};
+const game = {
+  settings: { get: (k) => store[k], set: (k, v) => { store[k] = v; game.events.emit('settings', { k, v }); }, all: () => ({ ...store }) },
+  events: {
+    on: (n, f) => { (handlers[n] = handlers[n] || []).push(f); },
+    emit: (n, d) => { for (const f of handlers[n] || []) f(d); },
+  },
+};
+game.events.on('audio:music-end', (id) => log('music ended: ' + id));
+
+const audio = createAudio(game);
+window.audio = audio;
+const L = audio.lists;
+const $ = (id) => document.getElementById(id);
+let statusExtra = '';
+function log(s) { statusExtra = s; }
+
+function unlock() { audio.unlock(); $('unlock').textContent = 'Unlocked.'; }
+document.addEventListener('pointerdown', unlock, { capture: true });
+document.addEventListener('keydown', unlock, { capture: true });
+
+function buttons(container, names, fn, toggle) {
+  const el = $(container);
+  for (const n of names) {
+    const b = document.createElement('button');
+    b.textContent = n;
+    b.onclick = () => {
+      unlock();
+      if (toggle) { for (const o of el.children) o.classList.remove('on'); b.classList.add('on'); }
+      fn(n, b);
+    };
+    el.appendChild(b);
+  }
+}
+
+// ------------------------------------------------------------ moving source
+let src = [3, 0, -4];
+let mode = 'orbit', angle = 0, flyT = 0;
+const posFn = () => src;
+function moveSource(dt) {
+  if (mode === 'orbit') { angle += dt * 0.6; src = [Math.sin(angle) * 5, 0.2, -Math.cos(angle) * 5]; }
+  else if (mode === 'flyby') { flyT += dt; const x = ((flyT * 8) % 80) - 40; src = [x, 0.5, -3]; }
+  else if (mode === 'far') { angle += dt * 0.15; src = [Math.sin(angle) * 120, 30, -Math.cos(angle) * 120]; }
+}
+for (const id of ['orbit', 'flyby', 'far']) $(id).onclick = () => { mode = id; for (const x of ['orbit', 'flyby', 'far']) $(x).classList.toggle('on', x === id); };
+const map = $('map'), mc = map.getContext('2d');
+map.addEventListener('pointerdown', (e) => {
+  const r = map.getBoundingClientRect();
+  const s = (mode === 'far' ? 150 : 15) / 160;
+  src = [((e.clientX - r.left) * map.width / r.width - 160) * s, 0, ((e.clientY - r.top) * map.height / r.height - 160) * s];
+  mode = 'manual'; for (const x of ['orbit', 'flyby', 'far']) $(x).classList.remove('on');
+});
+function drawMap() {
+  const s = 160 / (mode === 'far' ? 150 : 15);
+  mc.clearRect(0, 0, 320, 320);
+  mc.strokeStyle = 'rgba(255,217,160,.15)';
+  for (let r = 1; r <= 3; r++) { mc.beginPath(); mc.arc(160, 160, r * 50, 0, 7); mc.stroke(); }
+  mc.fillStyle = '#FFD9A0'; mc.beginPath(); mc.arc(160, 160, 5, 0, 7); mc.fill();
+  mc.beginPath(); mc.moveTo(160, 148); mc.lineTo(154, 158); mc.lineTo(166, 158); mc.fill();
+  mc.fillStyle = '#3FE0D0'; mc.beginPath(); mc.arc(160 + src[0] * s, 160 + src[2] * s, 6, 0, 7); mc.fill();
+}
+
+// ------------------------------------------------------------ controls
+const VOLS = [['master', 'volMaster'], ['music', 'volMusic'], ['sfx', 'volSfx'], ['voice', 'volVoice'], ['ambience', 'volAmbience']];
+for (const [k] of VOLS) {
+  const lab = document.createElement('label');
+  lab.innerHTML = `${k} <input type="range" min="0" max="1" step="0.01" value="1"><span>1.00</span>`;
+  const inp = lab.querySelector('input'), sp = lab.querySelector('span');
+  inp.oninput = () => { sp.textContent = (+inp.value).toFixed(2); audio.setVolumes({ [k]: +inp.value }); };
+  $('vols').appendChild(lab);
+}
+function slider(id, fn) { const i = $(id); const v = $(id + 'V'); i.oninput = () => { v.textContent = (+i.value).toFixed(2); fn(+i.value); }; }
+slider('progress', (v) => audio.musicParam('progress', v));
+slider('intensity', (v) => audio.musicParam('intensity', v));
+slider('lparam', (v) => { for (const h of Object.values(liveLoops)) h.set({ param: v }); });
+slider('stepg', () => {});
+slider('vpitch', () => {}); slider('vspeed', () => {});
+$('duck').onclick = () => { unlock(); audio.duck(0.7, 3); };
+$('stopall').onclick = () => { for (const k in liveLoops) { liveLoops[k].stop(0.5); delete liveLoops[k]; } for (const b of $('loops').children) b.classList.remove('on'); };
+
+buttons('reverbs', L.reverbs, (n) => audio.reverb(n), true);
+buttons('beds', L.beds, (n) => audio.ambience(n, { fade: 2 }), true);
+buttons('cues', ['(stop)'].concat(L.cues), (n) => {
+  if (n === '(stop)') { audio.music(null); return; }
+  audio.music(n, $('cuepos').checked ? { pos: posFn } : {});
+}, true);
+buttons('sfx', L.sfx, (n) => audio.play(n, $('sfxpos').checked ? { pos: src.slice() } : {}));
+const liveLoops = {};
+buttons('loops', L.loops, (n, b) => {
+  if (liveLoops[n]) { liveLoops[n].stop(0.6); delete liveLoops[n]; b.classList.remove('on'); return; }
+  liveLoops[n] = audio.loop(n, { pos: $('looppos').checked ? posFn : undefined, vol: 1, radius: 3, param: +$('lparam').value });
+  b.classList.add('on');
+});
+let lastSurface = 'stone';
+buttons('steps', L.surfaces.concat(L.surfaces.map((s) => s + ' land')), (n) => {
+  const land = n.endsWith(' land'), s = n.replace(' land', '');
+  lastSurface = s;
+  audio.footstep(s, { g: +$('stepg').value, speed: 1.4, land });
+});
+buttons('ui', L.ui, (n) => audio.ui(n));
+let typing = null;
+buttons('timbres', L.timbres, (n) => {
+  const text = $('line').value;
+  const profile = { pitch: +$('vpitch').value, speed: +$('vspeed').value, timbre: n };
+  if (typing) clearInterval(typing);
+  let i = 0;
+  audio.duck(0.5, text.length / 45 + 0.5);
+  typing = setInterval(() => { if (i >= text.length) { clearInterval(typing); typing = null; return; } audio.voice(profile, text[i++]); }, 1000 / 45);
+});
+
+// ------------------------------------------------------------ frame loop
+let last = performance.now(), walkT = 0, upd = 0, updN = 0, updMax = 0;
+function frame(now) {
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  moveSource(dt);
+  if ($('walk').checked) { walkT += dt; if (walkT > 0.5) { walkT = 0; audio.footstep(lastSurface, { g: +$('stepg').value, speed: 1.4 }); } }
+  const t0 = performance.now();
+  audio.update(dt);
+  const ut = performance.now() - t0;
+  upd += ut; updN++; if (ut > updMax) updMax = ut;
+  drawMap();
+  if (updN >= 30) {
+    const d = audio.debug;
+    $('status').textContent = audio.ready
+      ? `voices ${d.activeVoices()}  loops ${d.loops()}  bed ${d.bed()}  room ${d.room()}  cue ${d.cue()}  update ${(upd / updN).toFixed(3)} ms (max ${updMax.toFixed(2)})  ${statusExtra}`
+      : 'locked';
+    upd = 0; updN = 0; updMax = 0;
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// ------------------------------------------------------------ self-test
+const SR = 48000;
+const LONG = { bell: 6.5, gong: 6, applause: 5, cheer: 4, 'glide-catch': 3.5, 'glide-release': 3 };
+
+function fft(re, im) {
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++) {
+    let bit = n >> 1;
+    for (; j & bit; bit >>= 1) j ^= bit;
+    j ^= bit;
+    if (i < j) { [re[i], re[j]] = [re[j], re[i]]; [im[i], im[j]] = [im[j], im[i]]; }
+  }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = -2 * Math.PI / len, wr = Math.cos(ang), wi = Math.sin(ang);
+    for (let i = 0; i < n; i += len) {
+      let cr = 1, ci = 0;
+      for (let j = 0; j < len / 2; j++) {
+        const ar = re[i + j], ai = im[i + j], br = re[i + j + len / 2], bi = im[i + j + len / 2];
+        const tr = br * cr - bi * ci, ti = br * ci + bi * cr;
+        re[i + j] = ar + tr; im[i + j] = ai + ti; re[i + j + len / 2] = ar - tr; im[i + j + len / 2] = ai - ti;
+        const nc = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = nc;
+      }
+    }
+  }
+}
+
+function analyse(buf, from, to) {
+  const chans = [];
+  for (let c = 0; c < buf.numberOfChannels; c++) chans.push(buf.getChannelData(c));
+  const s = Math.floor((from || 0) * buf.sampleRate), e = Math.min(buf.length, Math.floor((to || buf.duration) * buf.sampleRate));
+  let peak = 0, sum = 0, nan = 0, n = 0;
+  for (const ch of chans) for (let i = s; i < e; i++) {
+    const v = ch[i];
+    if (v !== v) { nan++; continue; }
+    const a = Math.abs(v); if (a > peak) peak = a;
+    sum += v * v; n++;
+  }
+  // loudness while sounding: RMS over 50 ms windows above -60 dB
+  const W = 2400; let act = 0, actN = 0;
+  for (let i = s; i + W <= e; i += W) {
+    let w = 0;
+    for (const ch of chans) for (let k = i; k < i + W; k++) { const v = ch[k]; if (v === v) w += v * v; }
+    w /= W * chans.length;
+    if (w > 1e-6) { act += w; actN++; }
+  }
+  // spectral centroid over 2048-sample frames
+  const N = 2048, re = new Float32Array(N), im = new Float32Array(N);
+  let num = 0, den = 0;
+  for (let i = s; i + N <= e; i += N * 2) {
+    for (let k = 0; k < N; k++) { let v = 0; for (const ch of chans) v += ch[i + k] || 0; re[k] = v * (0.5 - 0.5 * Math.cos(2 * Math.PI * k / N)); im[k] = 0; }
+    fft(re, im);
+    for (let k = 1; k < N / 2; k++) { const p = re[k] * re[k] + im[k] * im[k]; num += p * k * buf.sampleRate / N; den += p; }
+  }
+  return {
+    peak, rms: Math.sqrt(sum / Math.max(1, n)), activeRms: actN ? Math.sqrt(act / actN) : 0,
+    activeFrac: actN / Math.max(1, Math.floor((e - s) / W)), nan, centroid: den > 0 ? num / den : 0,
+  };
+}
+
+const db = (x) => (x > 0 ? 20 * Math.log10(x) : -Infinity);
+
+// Render `seconds` of the engine on an OfflineAudioContext, stepping update() every 50 ms.
+async function render(seconds, setup, onStep) {
+  const ctx = new OfflineAudioContext(2, Math.ceil(SR * seconds), SR);
+  const errors = [];
+  const warns = [];
+  const ow = console.warn;
+  console.warn = (...a) => { warns.push(a.join(' ')); ow.apply(console, a); };
+  const a = createAudio(game, { context: ctx, limiter: false, seed: 4321 });
+  a.unlock();
+  const step = 0.05;
+  for (let k = 1; k * step < seconds - 0.01; k++) {
+    const t = k * step;
+    ctx.suspend(t).then(() => {
+      try { if (onStep) onStep(a, t); a.update(step); } catch (e) { errors.push(e.message); }
+      ctx.resume();
+    });
+  }
+  try { setup(a, ctx); a.update(0); } catch (e) { errors.push(e.message); }
+  const t0 = performance.now();
+  const buf = await ctx.startRendering();
+  console.warn = ow;
+  return { buf, errors: errors.concat(warns), ms: performance.now() - t0, audio: a };
+}
+
+async function testItem(kind, name, seconds, setup, onStep, expect) {
+  const r = await render(seconds, setup, onStep);
+  const an = analyse(r.buf);
+  const row = { kind, name, seconds, ms: Math.round(r.ms), peak: an.peak, peakDb: db(an.peak), rmsDb: db(an.rms), activeDb: db(an.activeRms),
+    active: an.activeFrac, centroid: Math.round(an.centroid), nan: an.nan, errors: r.errors, fail: [] };
+  if (r.errors.length) row.fail.push('errors: ' + r.errors.slice(0, 2).join('; '));
+  if (an.nan) row.fail.push('NaN');
+  if (an.peak > 0.98) row.fail.push('peak');
+  if ((!expect || !expect.silent) && an.peak < 1e-4) row.fail.push('silent');
+  if (expect && expect.check) { const m = expect.check(r, an); if (m) row.fail.push(m); }
+  return row;
+}
+
+const PROFILES = { warm: 1, bright: 1, low: 1, child: 1, elder: 1 };
+const LINE = "You'll be seated next to someone. That's the point. Where have you slept? Have you eaten?";
+
+window.audioSelfTest = async function (opt) {
+  const o = opt || {};
+  const only = o.only ? o.only.split(',') : null;
+  const want = (k) => !only || only.includes(k);
+  const rows = [];
+  const status = (s) => { $('status').textContent = s; };
+  const run = async (kind, name, sec, setup, onStep, expect) => {
+    if (o.name && !o.name.split(',').includes(name)) return;
+    status(`rendering ${kind} ${name}`);
+    try { rows.push(await testItem(kind, name, sec, setup, onStep, expect)); }
+    catch (e) { rows.push({ kind, name, fail: ['exception: ' + e.message], errors: [] }); }
+  };
+  if (want('sfx')) for (const n of L.sfx) await run('sfx', n, LONG[n] || 2.5, (a) => { a.play(n); a.play(n, { pos: [2, 0, -3], delay: 0.6 }); });
+  if (want('ui')) for (const n of L.ui) await run('ui', n, 2.2, (a) => a.ui(n));
+  if (want('steps')) for (const s of L.surfaces) {
+    await run('step', s, 3, (a) => a.footstep(s, { g: 1, speed: 1.4 }), (a, t) => {
+      const k = Math.round(t / 0.05);
+      if (k % 10 === 0 && k < 50) a.footstep(s, { g: t < 1.5 ? 1 : 0.1, speed: 1.4 });
+      if (k === 50) a.footstep(s, { g: 1, land: true });
+    });
+  }
+  if (want('voice')) for (const tb of L.timbres) {
+    await run('voice', tb, 4, (a) => {}, (a, t) => {
+      const i = Math.round(t / 0.05);
+      // two characters per 50 ms step is ~40 characters a second, the UI's typing speed
+      for (const k of [i * 2, i * 2 + 1]) if (k < LINE.length) a.voice({ pitch: 1, speed: 1, timbre: tb }, LINE[k]);
+    }, { check: (r, an) => (an.activeRms > 0 && (db(an.activeRms) < -30 || db(an.activeRms) > -14) ? 'babble level ' + db(an.activeRms).toFixed(1) : '') });
+  }
+  if (want('loops')) for (const n of L.loops) await run('loop', n, 5, (a) => { a.loop(n, { pos: () => [2, 0, -3], param: 0.6 }); });
+  if (want('beds')) for (const b of L.beds) await run('bed', b, b === 'none' ? 1 : 8, (a) => a.ambience(b, { fade: 0.5 }), null, { silent: b === 'none' });
+  if (want('reverbs')) for (const rv of L.reverbs) {
+    const sec = rv === 'open' ? 12 : 4;
+    await run('reverb', rv, sec, (a) => { a.reverb(rv); }, (a, t) => { if (Math.abs(t - 0.5) < 0.01) a.play('clunk', { vol: 2 }); }, rv === 'open' ? {
+      check: (r) => {
+        const pre = analyse(r.buf, 7.5, 9.6), echo = analyse(r.buf, 10.1, 11.4);
+        return echo.rms > pre.rms * 3 ? '' : 'no echo at 9.7 s (' + db(pre.rms).toFixed(1) + ' vs ' + db(echo.rms).toFixed(1) + ')';
+      },
+    } : null);
+  }
+  if (want('cues')) for (const c of L.cues) {
+    const sec = c === 'card-home' ? 90 : c === 'dawn' ? 60 : c === 'long-flight' ? 40 : 30;
+    let ended = false;
+    const onEnd = (id) => { if (id === c) ended = true; };
+    game.events.on('audio:music-end', onEnd);
+    await run('cue', c, sec, (a) => { a.musicParam('progress', 0); a.music(c, { fade: 0.5 }); },
+      (a, t) => { if (c === 'dawn') a.musicParam('progress', Math.min(1, t / (sec - 5))); },
+      c === 'card-home' ? { check: () => (ended ? '' : 'card-home did not end') } : null);
+    handlers['audio:music-end'] = (handlers['audio:music-end'] || []).filter((f) => f !== onEnd);
+  }
+  if (want('api')) { status('api test'); rows.push(await apiTest()); }
+  let cpu = null;
+  if (want('cpu')) { status('cpu test'); cpu = await cpuTest(); }
+  const fails = rows.filter((r) => r.fail.length);
+  status(`${rows.length} items, ${fails.length} failing`);
+  drawReport(rows, cpu);
+  return { rows, cpu, ok: fails.length === 0 && (!cpu || cpu.ok) };
+};
+
+// Every call must be safe before unlock; what was asked for must start once unlocked.
+async function apiTest() {
+  const row = { kind: 'api', name: 'before-unlock', fail: [], errors: [] };
+  try {
+    const a = createAudio(game);
+    a.update(0.016); a.play('door'); a.play('nope'); a.ui('click'); a.footstep('wood', { g: 0.5 }); a.voice({ timbre: 'warm' }, 'a');
+    a.setVolumes({ master: 0.9, music: 0.8 }); a.duck(0.5, 1); a.musicParam('progress', 0.3);
+    const h = a.loop('fountain', { pos: () => [1, 0, -2] }); h.set({ vol: 0.5, param: 0.2 });
+    const h2 = a.loop('steam'); h2.stop(0.1);
+    a.ambience('court'); a.reverb('ring'); a.music('title');
+    if (a.ready) row.fail.push('ready before unlock');
+    a.unlock(); a.unlock();
+    await new Promise((r) => setTimeout(r, 400));
+    a.update(0.016);
+    const d = a.debug;
+    if (!a.ready) row.fail.push('not ready after unlock');
+    if (d.bed() !== 'court') row.fail.push('bed ' + d.bed());
+    if (d.room() !== 'ring') row.fail.push('room ' + d.room());
+    if (d.cue() !== 'title') row.fail.push('cue ' + d.cue());
+    if (d.loops() !== 1) row.fail.push('loops ' + d.loops());
+    a.music(null, { fade: 0.1 }); a.ambience('none', { fade: 0.1 }); h.stop(0.1);
+    await new Promise((r) => setTimeout(r, 300));
+    a.update(0.016);
+    if (d.loops() !== 0 || d.cue() !== null || d.bed() !== 'none') row.fail.push('did not stop');
+    a.dispose();
+    try { await a.context.close(); } catch (e) { /* fine */ }
+  } catch (e) { row.fail.push('exception: ' + e.message); }
+  return row;
+}
+
+// A realtime run: a bed, a reverb, a music cue and 20 positional one-shots a second.
+async function cpuTest() {
+  unlock();
+  await new Promise((r) => setTimeout(r, 300));
+  const a = audio;
+  if (!a.context || a.context.state !== 'running') return { ok: false, note: 'context not running: ' + (a.context && a.context.state) };
+  // the game unlocks audio on the title screen; by play time the idle warm-up has rendered the buffers
+  const w0 = performance.now();
+  while (!a.debug.warmed() && performance.now() - w0 < 30000) await new Promise((r) => setTimeout(r, 100));
+  const warmSeconds = (performance.now() - w0) / 1000;
+  a.debug.profile(true);
+  a.ambience('hall', { fade: 0.2 }); a.reverb('hall'); a.music('feast', { fade: 0.2 });
+  const h = a.loop('murmur', { pos: () => [3, 0, -5], param: 0.8 });
+  const names = L.sfx;
+  const times = [];
+  const ticks = [];
+  let k = 0;
+  const fire = setInterval(() => { a.play(names[k++ % names.length], { pos: [Math.sin(k) * 6, 0, Math.cos(k) * 6], vol: 0.5 }); }, 50);
+  const t0 = performance.now();
+  await new Promise((resolve) => {
+    const iv = setInterval(() => {
+      let s = performance.now(); a.update(1 / 60); times.push(performance.now() - s);
+      s = performance.now(); a.debug.tick(); ticks.push(performance.now() - s);
+      if (performance.now() - t0 > 6000) { clearInterval(iv); resolve(); }
+    }, 16);
+  });
+  clearInterval(fire);
+  h.stop(0.3); a.music(null, { fade: 0.3 }); a.ambience('none', { fade: 0.3 }); a.reverb('none');
+  const worst = a.debug.profile(false);
+  times.sort((x, y) => x - y); ticks.sort((x, y) => x - y);
+  const mean = times.reduce((s, x) => s + x, 0) / times.length;
+  const p95 = times[Math.floor(times.length * 0.95)];
+  const tmean = ticks.reduce((s, x) => s + x, 0) / ticks.length;
+  return { ok: mean < 1 && p95 < 1, warmSeconds: +warmSeconds.toFixed(1), frames: times.length, updateMean: mean, updateP95: p95, updateMax: times[times.length - 1],
+    tickMean: tmean, tickP95: ticks[Math.floor(ticks.length * 0.95)], tickMax: ticks[ticks.length - 1], voices: a.debug.activeVoices(), worstTick: worst };
+}
+
+function drawReport(rows, cpu) {
+  const f = (x, d) => (x === undefined ? '' : Number.isFinite(x) ? x.toFixed(d) : '-inf');
+  let h = '<table><tr><th>kind</th><th>name</th><th>peak dB</th><th>rms dB</th><th>active dB</th><th>centroid Hz</th><th>NaN</th><th>ms</th><th>result</th></tr>';
+  for (const r of rows) h += `<tr class="${r.fail.length ? 'bad' : ''}"><td>${r.kind}</td><td>${r.name}</td><td>${f(r.peakDb, 1)}</td><td>${f(r.rmsDb, 1)}</td><td>${f(r.activeDb, 1)}</td><td>${r.centroid ?? ''}</td><td>${r.nan ?? ''}</td><td>${r.ms ?? ''}</td><td>${r.fail.join('; ') || 'ok'}</td></tr>`;
+  h += '</table>';
+  if (cpu) h += `<p>CPU: ${JSON.stringify(cpu)}</p>`;
+  $('report').innerHTML = h;
+}
+$('selftest').onclick = () => window.audioSelfTest();
+window.audioDevReady = true;
+</script>
+</body>
+</html>

@@ -107,6 +107,20 @@ def build_clock(out):
     return True
 
 
+# ---------------------------------------------------------------- guest-right
+GUEST = ROOT / "games" / "guest-right"
+
+
+def build_guest(out):
+    """Build Guest-Right into out/guest-right/. Returns True if built."""
+    script = GUEST / "tools" / "build.py"
+    if not script.is_file():
+        return False
+    subprocess.run([sys.executable, str(script), "--standalone", str(out / "guest-right")],
+                   check=True, stdout=subprocess.DEVNULL)
+    return True
+
+
 # ---------------------------------------------------------------- README
 def parse_readme():
     """Intro, canon decisions, and the doc groups from the README."""
@@ -414,6 +428,8 @@ def nav_html(groups, current):
         play.append('<li><a href="three-nights/">Three Nights Anywhere</a></li>')
     if (CLOCK / "tools" / "build.py").is_file():
         play.append('<li><a href="round-the-clock/">Round the Clock</a></li>')
+    if (GUEST / "tools" / "build.py").is_file():
+        play.append('<li><a href="guest-right/">Guest-Right</a></li>')
     if play:
         out.append(f'<div class="nav-group"><p class="nav-label">Play</p><ul>{"".join(play)}</ul></div>')
     out.append("</nav>")
@@ -545,6 +561,7 @@ def build(out, fragment_index=False):
     game = build_game(out)
     atlas = build_atlas(out)
     clock = build_clock(out)
+    guest = build_guest(out)
 
     # backlinks
     cites = {s: set() for s in docs}
@@ -687,6 +704,11 @@ def build(out, fragment_index=False):
     if clock:
         extra_links.append('<li><a class="card" href="round-the-clock/"><span class="card-title">Round the Clock</span>'
                            '<span class="card-blurb">Twelve small games, one for each Hour of Sorrel, played with the drum\'s own physics from a full g at the rim to none on the axis; then run the Round</span>'
+                           '<span class="card-meta">play</span></a></li>')
+    if (GUEST / "tools" / "build.py").is_file():
+        extra_links.append('<li><a class="card" href="guest-right/"><span class="card-title">Guest-Right</span>'
+                           '<span class="card-blurb">A first-person game: three nights in Chervil on guest-right. Walk its streets, eat at the long table, '
+                           'stand in the Hollow under the far bank, and fly the Spindle on Booking night</span>'
                            '<span class="card-meta">play</span></a></li>')
     if extra_links:
         group_html.append(f'<section class="topic"><h2 id="more">More</h2><ul class="cards">{"".join(extra_links)}</ul></section>')

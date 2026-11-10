@@ -1,0 +1,13 @@
+/* The game's four type families (SIL Open Font License; see the LICENSE-*.txt files beside this one).
+   tools/build.py inlines these files as data URIs in the release page. */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url(cormorant-garamond-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url(cormorant-garamond-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url(cormorant-garamond-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 600; font-display: swap; src: url(cormorant-garamond-latin-600-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(barlow-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url(barlow-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(barlow-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 500; font-display: swap; src: url(barlow-condensed-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url(barlow-condensed-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Caveat'; font-style: normal; font-weight: 500; font-display: swap; src: url(caveat-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Caveat'; font-style: normal; font-weight: 600; font-display: swap; src: url(caveat-latin-600-normal.woff2) format('woff2'); }

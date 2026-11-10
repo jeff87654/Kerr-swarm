@@ -1,0 +1,9 @@
+{
+  "name": "guest-right-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only tools for Guest-Right (screenshots and smoke tests). The game itself needs no install.",
+  "devDependencies": {
+    "puppeteer-core": "^23.10.0"
+  }
+}

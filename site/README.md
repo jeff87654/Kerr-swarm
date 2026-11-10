@@ -9,7 +9,7 @@ A static website built from `docs/`. The markdown is the only content: the site 
 - **Glossary links.** Each term in `docs/glossary.md` is linked on its first mention on every page, with its definition on hover. The glossary page counts how often each doc uses each term.
 - **Search** over every section, in the browser, from `search.json`.
 - **Diagrams.** Images in `docs/diagrams/` referenced from a doc (`![alt](diagrams/x.svg "caption")`) are inlined so they follow the site's light or dark theme, and gathered on a Diagrams page.
-- **The games.** `games/three-nights/` is built into `three-nights/` and `games/round-the-clock/` into `round-the-clock/`, each linked from the home page and sidebar (see their READMEs: [Three Nights Anywhere](../games/three-nights/README.md), [Round the Clock](../games/round-the-clock/README.md)).
+- **The games.** `games/three-nights/` is built into `three-nights/`, `games/round-the-clock/` into `round-the-clock/` and `games/guest-right/` into `guest-right/`, each linked from the home page and sidebar (see their READMEs: [Three Nights Anywhere](../games/three-nights/README.md), [Round the Clock](../games/round-the-clock/README.md), [Guest-Right](../games/guest-right/README.md)).
 - **Doc notes.** A doc's opening italic paragraph (sources and revisions) folds into an "About this doc" box.
 
 ## Editing
