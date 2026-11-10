@@ -44,6 +44,11 @@ export const place = {
         if (game.audio) { fly.wind = game.audio.loop('wind', { vol: 0.5, param: 0 }); if (long) game.audio.music('long-flight', { fade: 4 }); }
         if (game.ui) { await game.ui.fade(false, 0.9); game.ui.banner(long ? 'The Long Flight' : 'The flying hall', long ? 'the whole Spindle, front to back' : 'inside the net'); }
         game.events.emit('fly:start', { long });
+        // how to fly, the first two times (a touch screen has its own stick)
+        if (game.ui && !(game.ui.touch && game.ui.touch.enabled) && (game.flags.fly_told || 0) < 2) {
+          game.flags.fly_told = (game.flags.fly_told || 0) + 1;
+          setTimeout(() => { if (fly.active && game.ui) game.ui.toast('W and S row you along your line of sight. Space lifts, C sinks, Shift pulls harder. E takes you back to the gate.', { kind: 'info', dur: 10 }); }, 4500);
+        }
       },
       async stop() {
         if (!fly.active) return; const p = game.player; fly.active = false;
@@ -64,7 +69,7 @@ export const place = {
         if (game.ui && !game.busy && !promptOn) { promptOn = true; game.ui.prompt('Go back to the gate', 'E'); }
         if (game.input.use() && !game.busy) fly.stop();
         if (fly.wind) fly.wind.set({ param: clamp(p.fly.speed / 12, 0, 1), vol: 0.25 + 0.6 * clamp(p.fly.speed / 12, 0, 1) });
-        if (fly.long && p.fly.p[2] < 520 && !game.flags.flew) { game.flags.flew = true; if (game.ui) game.ui.toast('The front gate. You have flown the Length of Chervil.', { kind: 'thread' }); if (game.journal) game.journal.find('long-flight'); }
+        if (fly.long && p.fly.p[2] < 520 && !game.flags.flew) { game.flags.flew = true; if (game.ui) game.ui.toast('The front gate. You have flown the Length of Chervil.', { kind: 'thread' }); }
       } else if (promptOn) { promptOn = false; if (game.ui) game.ui.prompt(null); }
       // lamps: only on the dark nights when the Spindle is open; a few stragglers on ordinary nights
       const night = game.clock.night(), booking = game.clock.day === 3 && game.clock.hours >= 21.8 || (game.clock.day === 4 && game.clock.hours < 5.5);

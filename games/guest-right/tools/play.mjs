@@ -548,6 +548,27 @@ const SCENARIOS = {
     }
     T.log('  wallet now ' + (await T.st()).kwh + ' kWh; carrying ' + JSON.stringify(await T.ev(() => window.game.inv.list().map((i) => i.id + '×' + i.n))));
   },
+
+  // The Long Flight flown the whole way to the front gate, then landed: the journal must still close Booking Day.
+  async fullflight(T) {
+    await T.load('');
+    await T.ev(() => { const g = window.game; g.newGame(); g.events.emit('game:new'); g.events.emit('ui:chapter', 'flight'); g.clock.set(3, 22.05); });
+    await T.wait(2);
+    await T.use('Take off', { frame: 'hub', talk: false });
+    await T.until(() => window.game.player.mode === 'fly' && !window.game.busy, 20);
+    await T.shot('hint', 6.5);
+    T.log('  toasts: ' + JSON.stringify(await T.toasts()));
+    await T.ev(() => { const f = window.game.player.fly; f.p[2] = 512; f.v[2] = -1; });
+    await T.until(() => window.game.flags.flew, 40);
+    await T.shot('front-gate', 1.5);
+    if (!(await T.ev(() => !!window.game.flags.flew))) throw new Error('the front gate did not mark the flight as flown');
+    T.log('  flew=' + JSON.stringify(await T.ev(() => ({ flew: !!window.game.flags.flew, done: !!window.game.flags.flight_done, z: Math.round(window.game.player.fly.p[2]) }))));
+    await T.key('e'); await T.until(() => window.game.player.mode !== 'fly' && !window.game.busy, 20);
+    await T.shot('landed', 2);
+    const j = await T.ev(() => ({ done: !!window.game.flags.flight_done, threads: window.game.journal.threads().map((t) => t.title + (t.done ? ' (done)' : ' ' + t.steps.filter((s) => s.done).length + '/' + t.steps.length)), found: ['long-flight', 'dark-cable', 'flyers-at-once'].filter((k) => window.game.story.state.found[k]) }));
+    T.log('  after landing: ' + JSON.stringify(j));
+    if (!j.threads.some((t) => /^Booking Day \(done\)/.test(t))) throw new Error('Booking Day was not closed after a full flight');
+  },
 };
 
 if (!names.length || names[0] === 'list') { console.log('scenarios: ' + Object.keys(SCENARIOS).join(', ')); process.exit(0); }
