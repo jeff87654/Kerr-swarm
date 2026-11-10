@@ -135,7 +135,7 @@ Lunch is the Mill table, from the commons: glass noodles and jelly cubes in chil
 
 Teo tells them about the yogurt man, without his name.
 
-**20:00.** Anselm spends two hours in a shared world with three friends from his apprenticeship, who live in Tansy, Rue and a drum four rows over; they're all within a few hundred kilometres, so the world runs without lag. Teo reads. Ossian does half an hour with his tutor, which is mostly patient. Wren practises in her room, which shares a wall with Ilka's, and Ilka knocks twice, which means *lovely, now stop*.
+**20:00.** Anselm spends two hours in a shared world with three friends from his apprenticeship, who live in Tansy, Rue and a drum four rows over; they're all within a few hundred kilometres, so the world runs without lag. Teo reads. Ossian does half an hour with his tutor, who is mostly patient. Wren practises in her room, which shares a wall with Ilka's, and Ilka knocks twice, which means *lovely, now stop*.
 
 **23:00.** The lamps fade. Anselm sets the laundry for one in the morning, when kWh are cheapest. Across Sorrel the kitchens shut and the evening worlds wind down, and the machines take the lamp-night: the raft's batch work and the Yards run harder, and the slow vat lines turn over. The Daces have spent ~42 kWh on the day itself. The rest has gone to their accounts and to other people.
 
