@@ -1,0 +1,187 @@
+// hall.js: the people of Marit Vell's Hall. Rhoswen cooks the other six days; the eleven volunteers,
+// nine of them over seventy, run the table. Gideon and Pilar are two of Marit's aunts.
+
+export const TALK_HALL = {
+  rhos: [
+    { id: 'rhos-first', once: true, priority: 30,
+      script: [
+        { t: "I cook the other six days. I taught Marit where the lids live. She still puts the big ones back on the wrong hook." },
+        { t: 'Where did they put you? Candlewick 19. That terrace sags in the middle. Sleep on the spinward side.' },
+      ] },
+    { id: 'rhos-loop', once: true, priority: 20,
+      script: [
+        { t: 'Look at this. The food plant runs its waste heat through every kitchen at sixty-five degrees, and it costs nobody anything.' },
+        { t: "So holding, brewing, slow cooking: free. A litre from the hot tap to the boil is four and a half hundredths of a kay. It's the searing that costs." },
+        { t: 'That one plate over there draws more than the whole loop wall. We sear one thing a dish and make it count.' },
+        { found: 'waste-heat' },
+        { custom: 'The waste-heat loop' },
+      ] },
+    { id: 'rhos-steaks', once: true, priority: 25,
+      when: (g) => g.clock.day >= 2 || g.clock.hours >= 15,
+      script: [
+        { t: "When were the steaks started? Six weeks ago. They've been growing in their vat lines since. The cheese since last Booking Day, near enough." },
+        { t: 'Cook the whole feast in one day, every hall in the drum, and the water would warm by tens of degrees. So it grows slowly, and on the day we only cook.' },
+        { t: 'About a third of a kay a head, on the day. I have it on a card. Marit borrows the card and gives it back folded.' },
+        { found: 'feast-grown' },
+      ] },
+    { id: 'rhos-quiet', once: true, priority: 35,
+      when: { day: 2 },
+      script: [
+        { t: 'On the Quiet my kitchen cooks small. Jook in the morning, the red stew tonight, and nothing that wants a screen to time it.' },
+        { t: "Everyone in the drum saves about nine point six kays of compute today. Tomorrow that's a steak, a salad, cheese, wine and half an apple each." },
+        { t: 'That is what we are saving for. Four hundred people, all saving at once, without noticing.' },
+        { found: 'quiet-savings' },
+        { custom: 'The Quiet' },
+      ] },
+    { id: 'rhos-apples', once: true, priority: 60,
+      when: (g) => g.flags.carrying_apples && g.zone && (g.zone.place === 'kitchen' || g.zone.place === 'hall'),
+      script: [
+        { call: 'apples-in' },
+        { t: 'Fifty. Forty-nine, fifty. Good. Into the cold box, stalks up.' },
+        { t: "Two hundred and twenty kays in a crate, and you walked it through the Hollow at half a g. I'd have run. Don't tell Marit." },
+      ] },
+    { id: 'rhos-day3', priority: 5, when: { day: 3 },
+      script: [{ t: 'Four hundred steaks, a row of hotplates, two minutes a side and rest under a lid. Out of my way, love. Nicely.' }] },
+    { id: 'rhos-day', priority: 0,
+      script: [{ t: 'Lids on. Always lids on. An open pot in this air is a cold pot by the time you turn round.' }] },
+  ],
+
+  mina: [
+    { id: 'mina-first', once: true, priority: 30,
+      script: [
+        { t: "You're next door to the Hallorans. I'm an aunt at their table. If you hear a small person shouting anti at a wall, that's Pip." },
+        { t: 'Have you eaten? Then try the sesame tofu. Cold. No, I will not tell you what is in it.' },
+        { choice: [
+          { t: 'Which dish on the table is yours?', go: 'dish' },
+          { t: 'What does an aunt do?', go: 'aunt' },
+        ] },
+        { label: 'dish' },
+        { t: 'The tofu. Every volunteer brings one family dish on a Thursday. About half a kay each. Pilar brings the dumplings, Gideon the black vinegar eggs.' },
+        { t: 'Nine of us are over seventy. We have had a long time to get our dishes right and we are not going to explain them now.' },
+        { found: 'aunts-dish' },
+        { end: true },
+        { label: 'aunt' },
+        { t: 'You stand up at the naming and then you turn up. For forty years, if they let you. Dinners, birthdays, the Window at eight.' },
+        { t: 'My own two have tables of their own now. So I have Pip and Esi. Much of what you want from children, you get from being an aunt.' },
+        { custom: 'An aunt' },
+      ] },
+    { id: 'mina-quiet', once: true, priority: 25, when: { day: 2 },
+      script: [
+        { t: "The Quiet. Sit with me. I'll tell you the long version of how I met my husband, and you can't check any of it." },
+        { t: 'It was on a Long Flight. He flew into me. Crosswise. He had aimed for a friend and the drum turned under him.' },
+        { t: 'Forty-six years. He still cannot fly crosswise.' },
+      ] },
+    { id: 'mina-day', priority: 0,
+      script: [{ t: 'Sesame tofu. Cold. Eat it, do not ask it questions.' }] },
+  ],
+
+  gideon: [
+    { id: 'gideon-first', once: true, priority: 30,
+      script: [
+        { t: 'I have been to more namings than anyone in Candlewick. Two hundred and six, and I stood up at four. I remember every gift.' },
+        { t: "A naming is two names: the child's, and the person whose share the child carries. The dead's family brings a gift. Usually something remade." },
+        { t: 'Every birth closes somebody\'s funeral. I find that a comfort. Some people find it a lot to think about over soup.' },
+        { found: 'two-names' },
+        { custom: 'A naming' },
+      ] },
+    { id: 'gideon-court-after', once: true, priority: 50,
+      when: (g) => g.flags.saw_court,
+      script: [
+        { t: 'I asked who had waited longest. I ask it every year.' },
+        { t: 'Somebody should ask it out loud, at the court, so that nobody has to ask it quietly afterwards, in a kitchen.' },
+        { t: 'Hanne knew I would. I think she was glad of it. She had been carrying that answer for four years.' },
+      ] },
+    { id: 'gideon-day3', priority: 5, when: { day: 3 },
+      script: [{ t: 'Booking Day. I have seen eighty-odd. This is one of the good ones. I say that every year, and I am right every year.' }] },
+    { id: 'gideon-day', priority: 0,
+      script: [{ t: 'Black vinegar eggs. My grandmother\'s. They are better the second day, and there is never a second day.' }] },
+  ],
+
+  pilar: [
+    { id: 'pilar-first', once: true, priority: 30,
+      script: [
+        { t: 'Marit brought these dumplings home from the Passing. Selkie sent the fold, and a ten-year-old at Carillon worked it out.' },
+        { t: 'I fold them faster than she does. I always could. I folded faster than her mother, too.' },
+        { t: 'Thirty-three minutes, the answer took, from Selkie. Seventeen light-minutes each way. And then dumplings.' },
+      ] },
+    { id: 'pilar-quiet', once: true, priority: 25, when: { day: 2 },
+      script: [
+        { t: 'On the Quiet my hands still fold. Nothing to fold. I fold napkins. Four hundred napkins, all folded like Selkie.' },
+        { t: 'Somebody will open one tomorrow and wonder.' },
+      ] },
+    { id: 'pilar-day', priority: 0,
+      script: [{ t: 'Sit down, you are making the bench look untidy.' }] },
+  ],
+
+  teodor: [
+    { id: 'teodor-first', once: true, priority: 30,
+      script: [
+        { t: 'I am ninety-one and I cut the apples on Booking Day. My hands are steadiest when it matters. The rest of the time they are terrible.' },
+        { t: 'Crosswise. Never top to bottom. Top to bottom you get two halves of an apple. Crosswise you get a star.' },
+        { found: 'apple-star' },
+        { custom: 'The apple star' },
+      ] },
+    { id: 'teodor-quiet', once: true, priority: 25, when: { day: 2 },
+      script: [
+        { t: "Today I sharpen one knife. All day. It is the only thing I'm allowed to do on the Quiet, and I've earned it." },
+        { t: 'Two hundred apples tomorrow. Each one four point four. If I slip, it is not the apple, it is the star. People come for the star.' },
+      ] },
+    { id: 'teodor-day3', priority: 10, when: { day: 3 },
+      script: [{ t: 'Clap when it is cut. Everybody claps. It is the only star any of them will hold.' }] },
+    { id: 'teodor-day', priority: 0,
+      script: [{ t: 'The knife is sharp. The hands are old. Together they are about right.' }] },
+  ],
+
+  femi: [
+    { id: 'femi-first', once: true, priority: 30,
+      script: [
+        { t: "I'm the choir's lowest voice, which in this air is not very low. Everything comes out bright here. Even me." },
+        { t: 'I hum while I ladle and the whole kitchen ends up humming. Rhoswen says it is how she knows the broth is done.' },
+      ] },
+    { id: 'femi-gin', priority: 20,
+      when: { hours: [18, 24] },
+      script: [
+        { call: (g) => ((g.flags.gins || 0) >= 5 ? 'jook' : 'pour') },
+        { label: 'pour' },
+        { t: 'Gin? After six, here only. Point one eight, thiamine in it, lid on the glass. You can drink it anywhere, mind.' },
+        { choice: [
+          { t: 'A gin, please.', go: 'gin', cost: 0.18 },
+          { t: 'Not tonight.', go: 'no' },
+        ] },
+        { label: 'gin' },
+        { pay: 0.18, what: 'Chervil gin', else: 'no' },
+        { call: 'gin' },
+        { t: 'There. Lid on. Sip it, do not race it.' },
+        { end: true },
+        { label: 'no' },
+        { t: 'Wise. Have some Nine instead. Have some Nine is what we say to anyone who looks peaky.' },
+        { end: true },
+        { label: 'jook' },
+        { t: 'Here. Jook. I made too much.' },
+        { t: 'Nobody is counting. Eat that and then see how you feel about a sixth.' },
+        { set: 'jook_slid' },
+      ] },
+    { id: 'femi-day', priority: 0,
+      script: [{ t: "Mm. Mm-mm. That's the broth. Don't mind me." }] },
+  ],
+
+  clem: [
+    { id: 'clem-first', once: true, priority: 30,
+      script: [
+        { t: "I'm one of the two of us under seventy. I wash four hundred lids every Thursday. It's the quiet part." },
+        { t: 'The others are all aunts at four tables. I am an aunt at none yet. They say I will be. They say it like a threat.' },
+      ] },
+    { id: 'clem-places', once: true, priority: 60,
+      when: (g) => g.clock.day === 2 && g.flags.apples_done && !g.flags.laid_places,
+      script: [
+        { t: 'Marit sent you. Good. Four hundred places. A lid, a cup, a knife, a cloth. Straighten every bench so the curve looks like we meant it.' },
+        { t: 'You start at the spinward end. The floor ahead looks uphill all the way, and underfoot it is flat all the way. That is the drum.' },
+        { call: 'lay-places' },
+        { t: 'Done. Look down it now. Four hundred lids, all catching the lamps. That is the best view in Candlewick and nobody ever stops to look.' },
+      ] },
+    { id: 'clem-day3', priority: 10, when: { day: 3, hours: [12, 16] },
+      script: [{ t: 'Plates out to the stretches, lids on, set down from the left. If you drop one, it lands anti. Aim a bit spinward.' }] },
+    { id: 'clem-day', priority: 0,
+      script: [{ t: 'Lid. Lid. Lid. Sorry, I count out loud. Where was I. Lid.' }] },
+  ],
+};

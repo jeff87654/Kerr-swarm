@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guest-Right UI bench</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+  html, body { margin: 0; height: 100%; background: #0d0a07; overflow: hidden; }
+  #bg { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  #dev { position: fixed; left: 0; top: 0; bottom: 0; width: 196px; z-index: 100; overflow-y: auto; padding: 10px 8px 40px;
+         background: rgba(0,0,0,.72); font: 12px/1.2 system-ui, sans-serif; color: #ccc; box-sizing: border-box; }
+  #dev.off { display: none; }
+  #dev h4 { margin: 12px 4px 4px; font: 600 10px/1 system-ui; letter-spacing: .14em; text-transform: uppercase; color: #8a8174; }
+  #dev button { display: block; width: 100%; margin: 2px 0; padding: 5px 7px; text-align: left; font: 12px system-ui; color: #eee;
+                background: #2a2520; border: 1px solid #3d362e; border-radius: 3px; cursor: pointer; }
+  #dev button:hover { background: #3a3128; }
+  #devlog { margin-top: 10px; font: 11px/1.35 ui-monospace, monospace; color: #9fd; white-space: pre-wrap; word-break: break-word; }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="dev"></div>
+<script type="module">
+import { createUI } from '../src/ui/ui.js';
+
+// ---------------- backdrop ----------------
+const bg = document.getElementById('bg');
+let bright = false;
+function drawScene(c, w, h, mode, tint) {
+  const g = c.getContext('2d');
+  if (mode === 'bright') {
+    // the Hollow at full sun: lawns and orchards, the far bank hanging overhead
+    let gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#9fb58a'); gr.addColorStop(0.22, '#c9d6b0'); gr.addColorStop(0.42, '#f4f1dc');
+    gr.addColorStop(0.5, '#fffbe8'); gr.addColorStop(0.6, '#e6eccb'); gr.addColorStop(1, '#7fa063');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(255,252,230,.9)'; g.fillRect(0, h * 0.47, w, h * 0.035);
+    for (let i = 0; i < 60; i++) {
+      const x = (i * 97.3) % w, y = h * 0.62 + ((i * 37) % 9) * h * 0.04;
+      const r = 10 + (i % 5) * 7;
+      g.fillStyle = i % 3 ? 'rgba(74,110,58,.75)' : 'rgba(96,132,70,.7)';
+      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    for (let i = 0; i < 40; i++) {
+      const x = (i * 131.7) % w, y = h * 0.1 + ((i * 53) % 7) * h * 0.035;
+      g.fillStyle = 'rgba(90,120,70,.35)';
+      g.beginPath(); g.arc(x, y, 6 + (i % 4) * 3, 0, Math.PI * 2); g.fill();
+    }
+    g.fillStyle = 'rgba(120,170,200,.55)'; g.fillRect(w * 0.55, h * 0.88, w * 0.4, h * 0.05);
+  } else {
+    // a lamplit arcade on Ladle Row
+    let gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#1a120c'); gr.addColorStop(0.5, '#3a2416'); gr.addColorStop(1, '#120c08');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    const vx = w * 0.55, vy = h * 0.46;
+    for (let i = 0; i < 14; i++) {
+      const t = Math.pow(0.78, i);
+      const aw = w * 0.9 * t, ah = h * 1.1 * t;
+      const x = vx - aw / 2, y = vy - ah * 0.55;
+      g.strokeStyle = 'rgba(255,200,140,' + (0.25 * t + 0.05) + ')';
+      g.lineWidth = 2 * t + 0.5;
+      g.beginPath(); g.moveTo(x, y + ah); g.lineTo(x, y + aw * 0.3); g.quadraticCurveTo(x + aw / 2, y - aw * 0.15, x + aw, y + aw * 0.3); g.lineTo(x + aw, y + ah); g.stroke();
+      const lr = 120 * t + 10;
+      const lg = g.createRadialGradient(vx, y + aw * 0.12, 0, vx, y + aw * 0.12, lr * 2);
+      lg.addColorStop(0, 'rgba(255,214,150,' + (0.55 * t + 0.1) + ')'); lg.addColorStop(1, 'rgba(255,190,120,0)');
+      g.fillStyle = lg; g.fillRect(vx - lr * 2, y + aw * 0.12 - lr * 2, lr * 4, lr * 4);
+    }
+    g.fillStyle = 'rgba(80,50,30,.55)';
+    g.beginPath(); g.moveTo(0, h); g.lineTo(vx - 20, vy + 30); g.lineTo(vx + 20, vy + 30); g.lineTo(w, h); g.fill();
+    g.strokeStyle = 'rgba(255,210,150,.18)'; g.lineWidth = 1;
+    for (let i = -8; i <= 8; i++) { g.beginPath(); g.moveTo(vx + i * 2, vy + 30); g.lineTo(vx + i * w * 0.12, h); g.stroke(); }
+  }
+  if (tint) { g.fillStyle = tint; g.fillRect(0, 0, w, h); }
+}
+function paint() {
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  bg.width = innerWidth * dpr; bg.height = innerHeight * dpr;
+  drawScene(bg, bg.width, bg.height, bright ? 'bright' : 'dark');
+}
+addEventListener('resize', paint);
+paint();
+function snapshot(hue) {
+  const c = document.createElement('canvas');
+  c.width = 480; c.height = 270;
+  drawScene(c, 480, 270, hue % 2 ? 'bright' : 'dark', hue === 2 ? 'rgba(120,60,140,.25)' : hue === 3 ? 'rgba(255,170,90,.2)' : null);
+  return c.toDataURL('image/jpeg', 0.82);
+}
+
+// ---------------- mock game ----------------
+const log = [];
+function note(s) { log.unshift(s); log.length = Math.min(log.length, 14); const el = document.getElementById('devlog'); if (el) el.textContent = log.join('\n'); }
+const settingsStore = { quality: 'high', renderScale: 1, fov: 75, sensitivity: 1, invertY: false, headBob: true, motionBlur: false, subtitles: 'small', volMaster: 0.8, volMusic: 0.7, volSfx: 0.8, volVoice: 0.8, volAmbience: 0.8, daySpeed: 48 };
+const handlers = {};
+const cards = [0, 1, 2, 3].map((i) => ({ id: 'c' + i, src: snapshot(i), place: ['Ladle Row', 'The Hollow', "Oona's studio", 'The Dawn Stand'][i], day: ['Thursday', 'The Quiet', 'The Quiet', 'Booking Day'][i], hour: [13.1, 11.5, 19.75, 6.4][i] }));
+const game = {
+  settings: {
+    get: (k) => settingsStore[k],
+    set: (k, v) => { settingsStore[k] = v; note('set ' + k + ' = ' + v); },
+    all: () => Object.assign({}, settingsStore),
+  },
+  events: {
+    on: (n, f) => { (handlers[n] = handlers[n] || []).push(f); },
+    emit: (n, d) => { note('event ' + n + ' ' + JSON.stringify(d)); (handlers[n] || []).forEach((f) => f(d)); },
+  },
+  audio: { ui: (n) => { if (n !== 'hover') note('sfx ' + n); } },
+  journal: {
+    threads: () => [
+      { id: 'baker', title: 'The same baker', text: "Pell sent you with a spoon of this year's mother for Marit Vell. She cooks the Ring 2 hall on Thursdays.", done: false,
+        steps: [{ text: 'Sign in at the guest desk', done: true }, { text: 'Find your Margin flat in Candlewick', done: true }, { text: 'Find Marit at the long table', done: false }, { text: 'Give her the starter', done: false }] },
+      { id: 'dawn', title: 'Whose dawn it is', text: "Oona, one of Marit's aunts, paints this Booking Day's dawn. She rehearses it on a model Hollow in her studio.", done: false, steps: [{ text: 'Find the lamp-painting studio on Thread Street', done: false }] },
+      { id: 'guest', title: 'Guest-right', text: 'Three nights in a Margin flat, and a seat at any hall in Chervil.', done: true, steps: [{ text: 'Glide in to Station Ring 2', done: true }, { text: 'Sign in at the guest desk', done: true }] },
+    ],
+    found: () => [
+      { id: 'long-table', title: 'One long table', text: "Marit Vell's Hall seats four hundred at a single table 124 metres long. Stand at one end and you can see it curve up with the drum.", where: "Marit Vell's Hall", found: true, hint: 'Where Ladle Row is widest.' },
+      { id: 'ledger', title: 'The Ledger', text: 'Shares, people, the Margin, places, and the names, each newborn beside the dead whose share they carry.', where: 'Station Ring 2', found: true, hint: '' },
+      { id: 'ring-counter', title: 'The ring counter', text: 'A free cup of Mill broth and a sticky rice ball, with a sprig of whatever the hall cut that day.', where: 'Station Ring 2', found: true, hint: '' },
+      { id: 'lids', title: 'Every dish under a lid', text: 'Heliox pulls heat from food about four times faster than air, so nothing leaves a kitchen uncovered.', where: "Marit Vell's Hall", found: true, hint: '' },
+      { id: 'grocer', title: 'Glass cases', text: '', where: 'Ladle Row', found: false, hint: "The nearest thing to a jeweller's." },
+      { id: 'cup', title: 'Spin sinks', text: '', where: 'The school', found: false, hint: "Drop something in the school's long hall." },
+      { id: 'flute', title: 'A long flute', text: '', where: 'Thread Street', found: false, hint: 'Listen for a flute a metre and a bit long.' },
+      { id: 'far', title: 'The far bank', text: '', where: 'The Hollow', found: false, hint: 'Look up from the Hollow.' },
+    ],
+    people: () => [
+      { id: 'marit', name: 'Marit Vell', role: 'Hall cook', line: 'Cooks the Ring 2 hall on Thursdays. Four months home from her wander year.', met: true, colour: '#c9552e' },
+      { id: 'oona', name: 'Oona', role: 'Lamp-painter, eighty-one', line: "One of Marit's aunts. This Booking Day's dawn is hers, a year in the making.", met: true, colour: '#7a5a9a' },
+      { id: 'pell', name: 'Pell', role: 'Baker at Spelt', line: 'Keeps the crock room where wanderers leave a spoon of starter. Your baker, and Marit’s friend.', met: true, colour: '#b08a4a' },
+      { id: 'jory', name: 'Jory', role: 'Keeps a book room', line: "Marit's partner. Has already measured her flat for his books.", met: false, colour: '#2f6f8f' },
+    ],
+    customs: () => [
+      { term: 'Guest-right', text: 'Any traveller from a drum that grants the same may stay three nights in a Margin flat and eat at the halls.', seen: true },
+      { term: 'Aunts', text: 'A child has a table: parents, and three or four adults who stood at the naming, called aunt whatever their sex.', seen: true },
+      { term: 'Visible mending', text: "The mend is shown. A coat's seams tell its owners' story.", seen: true },
+      { term: 'The Quiet', text: 'The day before Booking Day. No worlds, no messages. People sit in the halls and talk.', seen: false },
+    ],
+    cards: () => cards,
+  },
+  mapData: () => ({
+    drum: { you: { deck: 16, ring: 2, thetaDeg: 212, zM: -1250, rho: 2940 } },
+    local: localPlan(),
+  }),
+  photo: {
+    set: (o) => note('photo.set ' + JSON.stringify(o)),
+    take: () => { const s = snapshot(Math.floor(Math.random() * 4)); cards.push({ id: 'c' + cards.length, src: s, place: 'Wick Court', day: 'Thursday', hour: 14 }); return s; },
+  },
+  clock: { label: () => '13:05' },
+  wallet: { kwh: 21.6 },
+  input: {},
+};
+function localPlan() {
+  const L = [];
+  const rect = (x0, z0, x1, z1, k) => { L.push([x0, z0, x1, z0, k], [x1, z0, x1, z1, k], [x1, z1, x0, z1, k], [x0, z1, x0, z0, k]); };
+  // Ladle Row, its fronts and the hall
+  L.push([-160, 6, -40, 6, 'wall'], [-28, 6, 160, 6, 'wall'], [-160, -6, -40, -6, 'wall'], [-28, -6, 160, -6, 'wall']);
+  rect(-92, 6, 32, 26, 'wall');
+  L.push([-32, 6, -26, 6, 'door'], [-86, 16, 26, 16, 'furniture']);
+  rect(-34, 10, -22, 13, 'furniture');
+  // shops on the far side
+  for (const [a, b] of [[-150, -110], [-110, -78], [-78, -46], [-22, 20], [20, 52], [52, 84]]) rect(a, -6, b, -22, 'wall');
+  // Thread Street along the axis
+  L.push([-40, 6, -40, 80, 'wall'], [-28, 6, -28, 80, 'wall'], [-40, -6, -40, -80, 'wall'], [-28, -6, -28, -80, 'wall']);
+  // Wick Court, with its planted terraces
+  rect(50, 6, 112, 68, 'wall');
+  rect(57, 13, 105, 61, 'green');
+  rect(70, 26, 92, 48, 'water');
+  // lift lobby
+  rect(120, -6, 134, -20, 'wall');
+  return {
+    title: 'Candlewick, deck 16',
+    lines: L,
+    labels: [
+      { x: 0, z: 0, text: 'Ladle Row', kind: 'big' }, { x: -34, z: -50, text: 'Thread St' }, { x: -30, z: 21, text: "Marit Vell's Hall" },
+      { x: 81, z: 54, text: 'Wick Court', kind: 'big' }, { x: -130, z: -14, text: 'Greengrocer' }, { x: -94, z: -14, text: 'Bakery' },
+      { x: -62, z: -14, text: 'Mender' }, { x: 0, z: -14, text: 'Baths' }, { x: 36, z: -14, text: 'Herbs' }, { x: 68, z: -14, text: 'Larder' }, { x: 127, z: -13, text: 'Lifts' },
+    ],
+    you: { x: 18, z: -2, yaw: 290 },
+    markers: [{ x: -29, z: 8, kind: 'thread', label: 'Marit' }, { x: -34, z: 60, kind: 'place', label: 'Studio' }],
+  };
+}
+
+// ---------------- the UI ----------------
+let ui = createUI(game);
+window.ui = ui; window.game = game;
+let yaw = 18;
+let anim = true;
+let lastT = performance.now();
+function loop(t) {
+  const dt = (t - lastT) / 1000; lastT = t;
+  if (anim) { yaw = (yaw + dt * 6) % 360; ui.hud.compass(yaw); }
+  ui.update(dt);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+const MARIT = { name: 'Marit Vell', colour: '#c9552e' };
+const OONA = { name: 'Oona', colour: '#7a5a9a' };
+const markers = [
+  { id: 'hall', bearing: 24, label: "Marit Vell's Hall", kind: 'thread', dist: 140 },
+  { id: 'court', bearing: 104, label: 'Wick Court', kind: 'place', dist: 320 },
+  { id: 'lift', bearing: 300, label: 'Lift lobby', kind: 'place', dist: 60 },
+  { id: 'oona', bearing: 205, label: 'Oona', kind: 'person', dist: 40 },
+];
+
+const SETTINGS0 = Object.assign({}, settingsStore);
+const dev = {
+  results: [],
+  reset() { ui = createUI(game); window.ui = ui; dev.hud(); },
+  // back to the state of a fresh page load, without reloading it
+  clean() {
+    bright = false; paint(); anim = true; yaw = 18;
+    game.wallet.kwh = 21.6; cards.length = 4; Object.assign(settingsStore, SETTINGS0);
+    dev.results.length = 0;
+    ui = createUI(game); window.ui = ui; dev.hud();
+  },
+  backdrop(m) { bright = m === 'bright' ? true : m === 'dark' ? false : !bright; paint(); },
+  strip(on) { document.getElementById('dev').classList.toggle('off', on === false); },
+  spin(on) { anim = on !== false; },
+  hud() {
+    ui.hud.show(true);
+    ui.hud.place('Candlewick · Ladle Row', 'Deck 16 · Ring Two · 0.98 g');
+    ui.hud.clock('13:05 · Thursday');
+    ui.hud.wallet(21.6);
+    ui.hud.weight(0.98);
+    ui.hud.compass(yaw, markers);
+    ui.hud.thread('Find Marit Vell at the long table on Ladle Row.');
+    ui.reticle('use');
+    ui.prompt('Sit at the long table', 'E');
+  },
+  spend() { game.wallet.kwh = +(game.wallet.kwh - 1.77).toFixed(2); ui.hud.wallet(game.wallet.kwh, -1.77); ui.toast('Thursday ramen  1.77 kWh', { kind: 'spend' }); },
+  gain() { game.wallet.kwh = +(game.wallet.kwh + 0.5).toFixed(2); ui.hud.wallet(game.wallet.kwh, 0.5); ui.toast('Pell sent half a kay for the stamp  0.50 kWh', { kind: 'gain' }); },
+  talk() { ui.reticle('talk'); ui.prompt('Talk to Marit', 'E'); },
+  async marit() {
+    await ui.say(MARIT, [
+      "You'll be the wanderer from Spelt. Pell wrote that you were coming.",
+      'Where did you sleep last night? And have you eaten?',
+      { s: OONA, t: 'She asks everyone that, love. Sit down before the ramen goes round.' },
+    ], { onChar: () => {} });
+    const v = await ui.choose(MARIT, 'Well, sit. You will be seated next to someone. That is the point.', [
+      { label: 'Give her the spoon of starter', sub: "Pell's mother, this year's", value: 'starter' },
+      { label: 'Ask what the aunts brought today', value: 'aunts' },
+      { label: 'A glass of gin', cost: 0.18, disabled: 'The halls pour after six', value: 'gin' },
+      { label: 'Say you will come back later', value: 'later' },
+    ]);
+    dev.results.push(['choose', v]);
+    note('choose -> ' + v);
+    return v;
+  },
+  async menu(wallet) {
+    const v = await ui.menu({
+      kicker: 'The long table · Thursday', title: "Marit Vell's Hall", note: 'Lift the lid when it reaches you.', wallet: wallet != null ? wallet : 3.84,
+      footer: 'Guests eat free on guest-right.',
+      items: [
+        { id: 'ramen', name: 'Thursday ramen', desc: 'Mill noodles in a broth held all night on the loop, with a vat egg.', price: 1.77, tag: 'Thursday' },
+        { id: 'aunts', name: "The aunts' dish", desc: 'Whatever the volunteers brought. Today, pickled greens and toasted seeds.', price: 0.5 },
+        { id: 'mill', name: 'The Mill table', desc: 'Starch, sugar, fat and a bowl of the bitter Nine. For everyone, always.', price: 0 },
+        { id: 'gin', name: 'A glass of gin', desc: 'Poured only in the halls, and only after six.', price: 0.18, disabled: 'After six' },
+        { id: 'apple', name: 'An orchard apple', desc: 'Grown under the sunline in the Hollow. Mostly given as a gift.', price: 4.4 },
+      ],
+    });
+    dev.results.push(['menu', v]);
+    note('menu -> ' + v);
+    return v;
+  },
+  async hour() { const v = await ui.pickHour({ title: 'Sit at the long table', from: 13.08, to: 23, now: 13.08 }); note('hour -> ' + v); return v; },
+  discovery() { ui.card({ kicker: 'Found · 4 of 24', title: 'One long table', text: "Marit Vell's Hall seats four hundred at a single table 124 metres long. Stand at one end and you can see it curve up with the drum.", dur: 30 }); },
+  arrival() { ui.banner('Candlewick', 'Deck 16 · Ring Two · 0.98 g'); },
+  toasts() {
+    ui.toast('New thread: find Marit Vell at the long table', { kind: 'thread', dur: 30 });
+    ui.toast('Found: one long table', { kind: 'found', dur: 30 });
+    ui.toast('Thursday ramen  1.77 kWh', { kind: 'spend', dur: 30 });
+    ui.toast('Your Margin flat is on a terrace over Wick Court', { kind: 'info', dur: 30 });
+  },
+  subs() {
+    ui.subtitle('A child', 'Axis flies true, spin sinks, anti floats.', 30);
+    ui.subtitle({ name: 'At the counter' }, 'Two broths, please. One for the guest.', 30);
+  },
+  bubble() {
+    const t0 = performance.now();
+    ui.bubble('jory', 'I measured her flat for the books. Twice.', () => ({ x: innerWidth * 0.7 + Math.sin((performance.now() - t0) / 900) * 30, y: innerHeight * 0.58, visible: true, dist: 4 }));
+  },
+  ride() { ui.ride({ kicker: 'Cab · channel four', big: 'Deck 16', sub: 'Candlewick, Ring Two' }); },
+  rideOff() { ui.ride(null); },
+  async fade() { await ui.fade(true, 0.8); ui.banner('The Quiet', 'Day two · no worlds, no messages'); await new Promise((r) => setTimeout(r, 900)); await ui.fade(false, 1.2); },
+  letterbox(on) { ui.letterbox(on !== false); },
+  pause() { return ui.pause.open({ chapters: CHAPTERS }).then((v) => { dev.results.push(['pause', v]); note('pause -> ' + JSON.stringify(v)); return v; }); },
+  journal(tab) { ui.journal.open(tab || 'threads'); },
+  map(view) { ui.map.open(view); },
+  photo() { ui.photo.enter(); },
+  photoExit() { ui.photo.exit(); },
+  async cardHome(none) {
+    const v = await ui.cardHome({ photos: none ? [] : cards, to: 'Pell, at Spelt', place: 'Chervil', day: 'Day 4', delay: '14.2 s' });
+    dev.results.push(['card', v]);
+    note('card -> ' + JSON.stringify(v && { front: v.front, text: v.text }));
+    return v;
+  },
+  async title() {
+    const v = await ui.titleScreen({ canContinue: true, continueSub: 'The Quiet, 11:20', chapters: CHAPTERS });
+    dev.results.push(['title', v]);
+    note('title -> ' + JSON.stringify(v));
+    return v;
+  },
+  loading() {
+    ui.loading.show();
+    ui.loading.set(0.42, 'Laying the long table');
+    ui.loading.tip('Every dish comes under a lid. Heliox pulls the heat out of food four times faster than air.');
+  },
+  loadingRun() {
+    dev.loading();
+    let p = 0.42;
+    const steps = ['Laying the long table', 'Lighting Ladle Row', 'Hanging felt in the hall', 'Filling the baths'];
+    const id = setInterval(() => {
+      p += 0.08;
+      ui.loading.set(p, steps[Math.floor(p * 10) % steps.length]);
+      if (p > 0.7) ui.loading.tip('Chervil people ask where you have slept and whether you have eaten, in that order.');
+      if (p >= 1) { clearInterval(id); setTimeout(() => ui.loading.hide(), 400); }
+    }, 500);
+  },
+  loadingOff() { ui.loading.hide(); },
+  credits() { return ui.credits(); },
+  touch(on) { ui.touch.enable(on !== false); },
+};
+const CHAPTERS = [
+  { id: 'day1', title: 'Thursday', sub: 'The glide in, the guest desk, ramen at one' },
+  { id: 'day2', title: 'The Quiet', sub: 'No worlds, no messages. The halls are full.' },
+  { id: 'day3', title: 'Booking Day', sub: "Oona's dawn, the Ledger, the feast and the vote" },
+  { id: 'flight', title: 'The Long Flight', sub: 'The sunline stays dark and the Spindle opens' },
+];
+window.dev = dev;
+
+// ---------------- control strip ----------------
+const groups = [
+  ['Scene', [['Bright / dark backdrop', () => dev.backdrop()], ['Spin compass', () => dev.spin(!anim)], ['Reset UI', () => dev.reset()]]],
+  ['HUD', [['Full HUD', () => dev.hud()], ['HUD off', () => ui.hud.show(false)], ['Reticle: talk', () => dev.talk()], ['Reticle: dot, no prompt', () => { ui.reticle('dot'); ui.prompt(null); }], ['Reticle: aim', () => ui.reticle('aim')], ['Spend 1.77', () => dev.spend()], ['Gain 0.50', () => dev.gain()], ['Toasts', () => dev.toasts()], ['Discovery card', () => dev.discovery()], ['Arrival banner', () => dev.arrival()], ['Subtitles', () => dev.subs()], ['Bubble', () => dev.bubble()], ['Ride on / off', () => (document.querySelector('.gr-ride.is-on') ? dev.rideOff() : dev.ride())], ['Fade and banner', () => dev.fade()], ['Letterbox on / off', () => ui.letterbox(!document.querySelector('.gr-l-letter.is-on'))]]],
+  ['Talk', [['Marit: say then choose', () => dev.marit()], ['Hall menu (3.84 kWh)', () => dev.menu()], ['Hall menu (21.60 kWh)', () => dev.menu(21.6)], ['Sit a while', () => dev.hour()]]],
+  ['Screens', [['Title', () => dev.title()], ['Pause', () => dev.pause()], ['Journal', () => dev.journal()], ['Journal: found', () => dev.journal('found')], ['Journal: cards', () => dev.journal('cards')], ['Map: here', () => dev.map('local')], ['Map: drum', () => dev.map('drum')], ['Photo mode', () => dev.photo()], ['Card home', () => dev.cardHome()], ['Card home, no photos', () => dev.cardHome(true)], ['Credits', () => dev.credits()], ['Loading', () => dev.loadingRun()]]],
+  ['Touch', [['Touch on', () => dev.touch(true)], ['Touch off', () => dev.touch(false)]]],
+];
+const strip = document.getElementById('dev');
+for (const [name, list] of groups) {
+  const h = document.createElement('h4'); h.textContent = name; strip.appendChild(h);
+  for (const [label, fn] of list) { const b = document.createElement('button'); b.textContent = label; b.addEventListener('click', (e) => { e.currentTarget.blur(); fn(); }); strip.appendChild(b); }
+}
+const lg = document.createElement('div'); lg.id = 'devlog'; strip.appendChild(lg);
+addEventListener('keydown', (e) => { if (e.key === '`') dev.strip(document.getElementById('dev').classList.contains('off')); });
+if (location.search.indexOf('bare') >= 0) dev.strip(false);
+dev.hud();
+</script>
+</body>
+</html>
