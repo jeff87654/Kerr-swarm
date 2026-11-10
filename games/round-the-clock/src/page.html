@@ -1,0 +1,238 @@
+<title>Round the Clock</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A fair of twelve small games, one for each Hour of Sorrel, a spinning drum of two hundred million people. Play each Hour at its own game, then run the Round.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: a club room on the Round Arcade the night before the race. The square stage is the board
+   everyone is watching; the card beside it belongs to whichever Hour you are in, and re-dyes itself
+   in that Hour's two colours. One look, dark felt, by choice: the twelve dyes are the colour. */
+:root {
+  --felt: #14181b;
+  --felt-2: #1b2125;
+  --felt-3: #242c31;
+  --rule: #343e44;
+  --chalk: #f3eee2;
+  --chalk-2: #bdb9ab;
+  --chalk-3: #8b8b7f;
+  --brass: #c9a55a;
+  --a: #c9a55a;
+  --b: #f3eee2;
+  --on-a: #14181b;
+  --hi: #f3eee2;
+  --font-sign: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.9rem;
+  --step-3: clamp(2.6rem, 5.4vw, 4.2rem);
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--felt); color: var(--chalk);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.5;
+  -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--felt); }
+button { font: inherit; color: inherit; }
+a { color: var(--hi); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--hi); outline-offset: 2px; }
+.app { min-height: 100%; display: flex; flex-direction: column; }
+
+/* ---------- top bar ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  display: flex; align-items: center; gap: 8px 16px; flex-wrap: wrap;
+  padding-block: 8px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: rgba(20, 24, 27, 0.95); border-bottom: 1px solid var(--rule);
+}
+.brand {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--font-sign); font-weight: 800; font-size: 1.35rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--chalk); white-space: nowrap;
+}
+.brand i { font-style: normal; color: var(--hi); }
+.top-info { flex: 1; min-width: 0; display: flex; gap: 4px 16px; flex-wrap: wrap; align-items: center; font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-2); }
+.top-info b { font-weight: 500; color: var(--chalk); }
+.top-btns { display: flex; gap: 6px; }
+.tbtn {
+  background: var(--felt-2); border: 1px solid var(--rule); border-radius: 6px; cursor: pointer;
+  padding: 5px 10px; font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-2);
+}
+.tbtn:hover { border-color: var(--chalk-3); color: var(--chalk); }
+.tbtn[aria-pressed="true"] { color: var(--chalk); }
+.band { display: inline-flex; gap: 2px; align-items: center; vertical-align: middle; }
+.band span { width: 12px; height: 7px; border-radius: 2px; background: var(--felt-3); }
+.band span.on { background: repeating-linear-gradient(115deg, var(--ta) 0 3px, var(--tb) 3px 6px); }
+
+/* ---------- stage and card ---------- */
+.wrap {
+  flex: 1; width: 100%; box-sizing: border-box; max-width: 1380px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 430px); gap: 28px; align-items: start;
+  padding-block: 18px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.stage-col { min-width: 0; display: flex; justify-content: center; }
+.stage-box { position: relative; width: min(100%, calc(100vh - 104px)); width: min(100%, calc(100dvh - 104px)); max-width: 100%; scroll-margin-top: 100px; }
+.stage {
+  position: relative; width: 100%; aspect-ratio: 1 / 1;
+  border-radius: 10px; overflow: hidden; background: #0e1113;
+  box-shadow: 0 0 0 1px var(--rule), 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; outline: none; cursor: pointer; }
+.hud {
+  position: absolute; top: 10px; pointer-events: none; max-width: 46%;
+  font-family: var(--font-mono); font-size: clamp(11px, 1.6vw, 14px); font-variant-numeric: tabular-nums; line-height: 1.3;
+  color: var(--chalk); background: rgba(14, 17, 19, 0.72); border-radius: 5px; padding: 4px 8px; white-space: pre-line;
+}
+.hud-l { left: 10px; }
+.hud-r { right: 10px; text-align: right; }
+.hud-say {
+  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); pointer-events: none;
+  max-width: calc(100% - 28px); width: max-content; text-align: center; text-wrap: balance;
+  font-family: var(--font-body); font-style: italic; font-size: clamp(13px, 2vw, 18px); line-height: 1.3;
+  color: var(--chalk); background: rgba(14, 17, 19, 0.82); border-radius: 6px; padding: 6px 12px;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.hud-say.in { opacity: 1; }
+.veil {
+  position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 6px; text-align: center;
+  background: rgba(14, 17, 19, 0.55); pointer-events: none;
+}
+.veil.tap { pointer-events: auto; cursor: pointer; }
+.veil-big { font-family: var(--font-sign); font-weight: 800; font-size: clamp(54px, 13vw, 150px); line-height: 0.95; letter-spacing: 0.04em; text-transform: uppercase; color: var(--chalk); text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6); }
+.veil-sub { font-family: var(--font-mono); font-size: clamp(12px, 1.8vw, 15px); color: var(--chalk); background: rgba(14, 17, 19, 0.7); padding: 4px 10px; border-radius: 5px; }
+.watch-tag {
+  position: absolute; left: 10px; top: 10px; pointer-events: none; max-width: calc(100% - 20px);
+  font-family: var(--font-mono); font-size: clamp(11px, 1.6vw, 13px); color: var(--chalk); background: rgba(14, 17, 19, 0.78); border-radius: 5px; padding: 4px 8px;
+}
+
+.panel { min-width: 0; display: flex; flex-direction: column; gap: 14px; padding-top: 2px; }
+.panel > * { margin: 0; }
+.eyebrow { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--chalk-2); }
+.swatch { display: inline-block; width: 26px; height: 12px; border-radius: 3px; background: linear-gradient(115deg, var(--a) 0 50%, var(--b) 50% 100%); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12); margin-right: 9px; vertical-align: -1px; }
+h1, h2, h3 { font-family: var(--font-sign); font-weight: 800; text-transform: uppercase; letter-spacing: 0.035em; line-height: 0.98; text-wrap: balance; color: var(--chalk); }
+h1 { font-size: var(--step-3); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-2); font-weight: 700; }
+h4 { font-family: var(--font-mono); font-weight: 500; font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--chalk-2); margin: 0 0 2px; }
+.panel p { max-width: 62ch; }
+.lede { font-size: var(--step-1); line-height: 1.4; }
+.club { font-family: var(--font-sign); font-weight: 700; font-size: var(--step-1); letter-spacing: 0.05em; text-transform: uppercase; color: var(--hi); }
+.quiet { color: var(--chalk-2); }
+.saying { font-style: italic; font-size: var(--step-1); line-height: 1.35; }
+.gamebox {
+  display: flex; flex-direction: column; gap: 10px;
+  background: var(--felt-2); border-radius: 10px; padding: 16px 18px 18px;
+  border-top: 6px solid var(--a);
+}
+.gamebox > * { margin: 0; }
+.where { font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-2); }
+.how { font-size: var(--step-0); }
+.how b { font-weight: 500; color: var(--hi); }
+.keys { display: block; font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-3); margin-top: 2px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn {
+  cursor: pointer; border-radius: 8px; padding: 9px 18px 8px;
+  font-family: var(--font-sign); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.07em; text-transform: uppercase;
+  background: transparent; color: var(--chalk); border: 1.5px solid var(--rule);
+}
+.btn:hover { border-color: var(--chalk-2); }
+.btn.primary { background: var(--a); color: var(--on-a); border-color: var(--a); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.big { font-size: 1.6rem; padding: 11px 26px 10px; }
+.knots { display: inline-flex; gap: 5px; align-items: center; }
+.knots i { width: 13px; height: 13px; border-radius: 50%; box-sizing: border-box; border: 2px solid var(--chalk-3); }
+.knots i.on { background: var(--hi); border-color: var(--hi); }
+.knots.big i { width: 26px; height: 26px; border-width: 3px; }
+.marks { font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-2); }
+.score { font-family: var(--font-sign); font-weight: 800; font-size: var(--step-3); line-height: 0.98; letter-spacing: 0.03em; text-transform: uppercase; }
+.host { font-size: var(--step-1); line-height: 1.4; }
+.host cite { display: block; font-style: normal; font-family: var(--font-mono); font-size: var(--step--1); color: var(--chalk-2); margin-top: 4px; }
+.note { border-left: 4px solid var(--a); padding: 2px 0 2px 14px; }
+.note p { margin: 0; }
+.thread-line { height: 10px; border-radius: 5px; background: repeating-linear-gradient(115deg, var(--a) 0 6px, var(--b) 6px 12px); max-width: 220px; }
+
+/* the twelve Hours as a list of chips */
+.hours { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(172px, 1fr)); gap: 8px; }
+.hours.long { grid-template-columns: 1fr; gap: 4px; }
+.chip {
+  width: 100%; box-sizing: border-box; cursor: pointer; text-align: left;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center;
+  background: var(--felt-2); border: 1.5px solid transparent; border-radius: 8px; padding: 8px 10px;
+}
+.chip:hover, .chip.hot { border-color: var(--ca); background: var(--felt-3); }
+.chip .sw { width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(115deg, var(--ca) 0 50%, var(--cb) 50% 100%); flex: none; }
+.chip .nm { font-family: var(--font-sign); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05; min-width: 0; }
+.chip .nm small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 0.86rem; letter-spacing: 0; text-transform: none; color: var(--chalk-2); line-height: 1.25; }
+.chip .me { font-family: var(--font-mono); font-size: 11px; color: var(--chalk-2); }
+.chip.mine { border-color: var(--rule); }
+
+/* about sheet */
+.sheet { position: fixed; inset: 0; z-index: 40; background: rgba(10, 12, 14, 0.8); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.sheet-in { background: var(--felt-2); border: 1px solid var(--rule); border-radius: 12px; max-width: 640px; max-height: 100%; overflow: auto; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+.sheet-in > * { margin: 0; }
+.sheet-in h2 { font-size: var(--step-2); }
+.sheet-in ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+
+@media (max-width: 880px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 12px 40px; }
+  .stage-box { width: min(100%, 560px); }
+  /* on a small screen the caption sits under the stage, in a space kept for it, so it never covers the game */
+  .hud-say { position: static; transform: none; width: auto; max-width: none; margin: 8px 0 0; min-height: 2.7em; background: none; padding: 0 4px; font-size: 15px; display: grid; place-items: center; }
+  .brand { font-size: 1.15rem; }
+  .top-info { order: 3; flex-basis: 100%; }
+}
+@media (max-width: 420px) {
+  .hud { top: 6px; font-size: 10.5px; padding: 2px 6px; background: rgba(14, 17, 19, 0.62); }
+  .hud-l { left: 6px; } .hud-r { right: 6px; }
+  .watch-tag { top: 6px; left: 6px; }
+  .tbtn { padding: 4px 8px; }
+  .hours { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { .hud-say { transition: none; } }
+</style>
+
+<div class="app" id="app">
+  <header class="top">
+    <button class="brand" id="brand" type="button" title="Back to the clock">Round the <i>Clock</i></button>
+    <div class="top-info" id="topInfo"></div>
+    <div class="top-btns">
+      <button class="tbtn" id="sndBtn" type="button" aria-pressed="true">Sound on</button>
+      <button class="tbtn" id="aboutBtn" type="button">About</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="stage-col">
+      <div class="stage-box" id="stageBox">
+      <div class="stage" id="stage">
+        <canvas id="cv" width="1000" height="1000" tabindex="0" aria-label="The game board"></canvas>
+        <div class="hud hud-l" id="hudL" hidden></div>
+        <div class="hud hud-r" id="hudR" hidden></div>
+        <div class="veil" id="veil" hidden><div class="veil-big" id="veilBig"></div><div class="veil-sub" id="veilSub" hidden></div></div>
+        <div class="watch-tag" id="watchTag" hidden>The house shows you how. Tap to play.</div>
+      </div>
+      <div class="hud-say" id="hudSay" aria-live="polite"></div>
+    </div>
+    </div>
+    <div class="panel" id="panel" aria-live="polite"></div>
+  </main>
+  <div class="sheet" id="about" hidden>
+    <div class="sheet-in" role="dialog" aria-modal="true" aria-labelledby="aboutH">
+      <h2 id="aboutH">Where this is</h2>
+      <p>Sorrel is a drum: a spinning cylinder three kilometres in radius and nearly four long, home to two hundred million people. It turns once every 110 seconds. Out is down. You weigh what you'd weigh on Earth at the rim and half that on the floor of the Hollow, the open middle, where the other side of the country hangs three kilometres overhead.</p>
+      <p>Because the floor is turning, nothing flies straight. Run spinward and you get heavier. Run antispinward and you float. A dropped cup lands a little antispinward of where it was aimed, and children say "anti", as though the drum had done it. Every game here is played with those rules, and with the real numbers.</p>
+      <ul>
+        <li>Sorrel is one of 300 billion drums on the raft Merrow, in the Shade of a black hole's Lantern. It is part of the <a href="https://jeff87654.github.io/Kerr-swarm/" target="_blank" rel="noopener">Kerr swarm world bible</a>.</li>
+        <li>Every place in these games is on <a href="https://jeff87654.github.io/Kerr-swarm/sorrel-atlas/" target="_blank" rel="noopener">the Sorrel Atlas</a>, a cutaway of the whole drum.</li>
+        <li>The Hours, their clubs and the Round come from the atlas. Going round the clock, the threads and each Hour's game are this page's own inventions.</li>
+      </ul>
+      <div class="row"><button class="btn" id="aboutClose" type="button">Close</button><button class="btn" id="resetBtn" type="button">Start over</button></div>
+    </div>
+  </div>
+</div>

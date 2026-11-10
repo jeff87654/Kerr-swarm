@@ -86,6 +86,7 @@ All in [`docs/`](docs/).
 
 - [The Sorrel Atlas](atlas/sorrel/): an interactive cutaway of one drum, Sorrel, where every point opens a place: 213 hand-written landmarks from the quay to the axle, and all 69,426 neighbourhoods, generated from their addresses. [Explore it on the site](https://jeff87654.github.io/Kerr-swarm/sorrel-atlas/). Its landmarks are written up in `docs/sorrel.md`; its generated neighbourhoods are not canon.
 - [Three Nights Anywhere](games/three-nights/): a browser game of a wander year across Merrow, three nights a drum on guest-right. [Play it on the site](https://jeff87654.github.io/Kerr-swarm/three-nights/). Its generated drums and customs are not canon; its 16 hand-written drums follow the docs.
+- [Round the Clock](games/round-the-clock/): twelve small games, one for each Hour of Sorrel, played with the drum's own physics from a full g at the rim to none on the axis (a stair race up through falling weight, the morning tide, spinball, night flying across the Spindle), and then the Round. [Play it on the site](https://jeff87654.github.io/Kerr-swarm/round-the-clock/). The Hours, clubs and places follow the atlas and `docs/sorrel.md`; going round the clock, the threads and each Hour's game are the game's own inventions, not canon.
 
 ## Models
 
