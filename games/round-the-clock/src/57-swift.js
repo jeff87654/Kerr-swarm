@@ -13,7 +13,7 @@
   const ACC = 1.5, VMAX = 20, TJ = 1.0;          // m/s2, m/s, seconds (real) to ease into and out of each push
   const D_START = 4, D_TOP = 363, D_END = 77;    // deck 363 is the High line deck
   const LEAN_MAX = 36 * DEG;                     // the gimbal's stops
-  const CURVE_A = 0.85;                          // m/s2 sideways at a junction (8 m/s round a 75 m curve)
+  const CURVE_A = 1.43;                          // m/s2 sideways at a junction: 10 m/s round a 70 m curve (drum-transport.md)
   const CX = 500, CY = 548;                      // the gimbal's pivot on the stage
   const HW = 235, HH = 180;                      // half the cabin, stage units
   const FLOOR = 150, BOBX = 92, BOB_TOP = -166, BOB_LEN = 228;
@@ -142,6 +142,7 @@
       if (!s.said.brake) { ctx.sfx.tone({ f: 880, dur: 0.18, vol: 0.08, type: "triangle" }); ctx.sfx.tone({ f: 660, dur: 0.3, vol: 0.08, type: "triangle", at: 0.16 }); }
       sayOnce(s, ctx, "brake", "Braking. This is the steep one.", 3.2);
     }
+    if (seg.k === "line") sayOnce(s, ctx, "line", "A line deck. Two junction curves coming, one each way.", 3.4);
 
     // --- you are the gimbal ---
     if (!ended) {
@@ -484,7 +485,7 @@
     intro: "A cab climbing through a spinning drum is pushed spinward, so its cabin hangs on a gimbal and leans against the push. Nobody notices: the cab is a room. Swift's fitters test newcomers with the gimbal on hand and a cup of tea with its lid off.",
     how: "Slide your finger left and right to lean the cabin. Keep the bob over the mark and the tea in the cup.",
     keys: "left and right arrows to lean",
-    marks: [45, 75, 92], unit: "per cent of the tea", fmt: (v) => String(Math.round(v)),
+    marks: [30, 60, 84], unit: "per cent of the tea", fmt: (v) => String(Math.round(v)),
     result: (s) => Math.round(s.tea * 100) + "% of the tea, steepest lean " + Math.round((s.maxLean > 5 * DEG ? s.maxLean : (s.maxPhi || 0)) / DEG) + "°",
     create, update, draw, bot,
   });
