@@ -404,6 +404,60 @@ Everything else along the streets is the street modules' to fill with ordinary f
 
 **The Hollow** (frame `hollow`: `game.world.frame('hollow', 1500, 0, 0)`; z is the drum's own z; the lead builds the land, the lake, the trees and the sky). Places there are assigned later.
 
+## The whole drum
+
+Candlewick, the station, the festival Hollow and the back wall are built by hand when the game starts. Everything else in Chervil is either **generated** (the indoor city: every block of every deck) or a **landmark** built by hand the first time somebody goes there. `content/expansion-brief.md` is the brief for builders of both; this section is the map of the code.
+
+### The grid (`src/core/layout.js`)
+
+The residential decks between the fifteen line decks are cut into 58 **layers** of five or six decks (layer 0 is decks 16 to 21, Candlewick's). Each layer is cut into **cells**: one block each, about 210 m round the drum and 208.33 m along it. A cell is `(L, i, j)`: layer, index round the drum (0 at Candlewick's meridian, counting spinward, wrapping at `LAYERS[L].N`, 88 on layer 0 and 45 on layer 57), index along the axis (1 to 17; Candlewick is j = 3). 65,807 cells in all. Every layer has one frame (`candlewick` for layer 0, `layer<L>` for the rest) with the same origin, so in a layer's flat coordinates cell `(i, j)` is centred at `x = signedI * pitch`, `z = (j - 3) * 208.33`. On the far side of the drum a layer's x jumps by one circumference: the streamer moves the player across it unseen.
+
+### The city (`src/city/`)
+
+- `city.js`: `cellInfo(L, i, j)` gives everything about a block that follows from its address: name, avenue, street, hall, cook, dish, decks, weight, band, ring, style. `game.city` (made by `src/places/city.js`) adds `info`, `frame(L)`, `cellOfPlayer()`, `above(cell, dL)`, `visit`, `visited`, `arrive(cell)` (builds a block and returns its lift lobby), `stairs(cell, dir)`, `stop(cell)` (a cab stop for any block), `pick()` (the cab's address list, `picker.js`) and `go(cell, lot)` for tests.
+- `plan.js`: `planCell(L, i, j)`: the block's plan, pure and cheap. The avenue runs spinward through the cell's middle (8 m wide), the street along the axis (6 m); they cross in the court (40 to 56 m by 28 to 34 m, two to six decks tall). The hall lies along the court's front side. Every arm is lined with **lots** (shops, the block's rooms, the lift lobby, one or two special places) and ordinary house fronts. The whole layout is mirrored by the seed, so a lot's `front` may be any of n, s, e, w.
+- `streets.js`: the four arms, from the same parts as Ladle Row (`src/places/street_parts.js`). `court.js`: the atrium, its terraces (drawn lifted, on their own levels), its luminous ceiling and one of six middles.
+- `lots.js`: the registry (`registerLot(key, fn)`) and the plain builders. A richer module for a key lives in `src/places/lots_*.js` and simply takes the key over.
+- `streamer.js`: builds a block in slices of a few milliseconds a frame (`tick()`), in one managed scope with its own origin (so vertices keep sub-millimetre precision nine kilometres round) and its own page of the sign atlas, then shows it a few meshes a frame and tells the people (`game.people.addScope`). It keeps loaded the block the player is in and the blocks its streets lead into when the player could see down them; it lets go of the rest. An open street end whose next block is not built yet holds the player back for the moment it takes.
+
+Hand-built and generated blocks meet at arches: Candlewick's stand at x = -105 and 105 and z = 104, and the blocks beside it begin exactly there.
+
+### Scopes that come and go
+
+`world.scope(id, frame, { origin: [x, z], managed: true })`: `origin` moves the scope's vertex zero (callers still draw in frame coordinates); `managed` means the people are told when it is ready and before it goes, instead of re-reading the world. `scope.finish(max)` builds at most `max` batches and returns how many are left. `scope.onDispose(fn)`, `scope.every(fn)`, `scope.loop(name, x, y, z, o)` and `scope.court(x0, z0, x1, z1)` (an atrium seen through several decks) all end with the scope.
+
+### Landmarks (`src/game/regions.js`)
+
+A place module with `region: '<id>'` is not built at start-up. All the places of a region are built together when a cab is called to one of its `stops`, or (with `near`) when the player walks close, and disposed when the player has gone on. What a region made is found by comparing the world before and after: its scopes, frames, spawns, the listeners it added and the loops it started. Its signs go on pages of the atlas lent to it (`atlas.begin(id)` ... `end()`, `release(id)`).
+
+| Region | File | Frame | Where | Cab group |
+|---|---|---|---|---|
+| `keel-vats` | `lm_keel_vats.js` | `keel-vats`: deck 9, theta 0.9, z0 1875 | the Keel, Ring Five | The Keel |
+| `keel-garden` | `lm_keel_garden.js` | `keel-garden`: deck 6, theta 0.9, z0 1460 | the Keel, Ring Four | The Keel |
+| `keel-heat` | `lm_keel_heat.js` | `keel-heat`: deck 3, theta 2.4, z0 2710 | the Keel, Ring Seven | The Keel |
+| `keel-library` | `lm_keel_library.js` | `keel-library`: deck 11, theta -1.2, z0 1040 | the Keel, Ring Three | The Keel |
+| `ring-five` | `lm_ring_five.js` | `ring-five`: deck 1, theta 0, z0 1875 | Station Ring Five | The stations |
+| `ring-nine` | `lm_ring_nine.js` | `ring-nine`: deck 1, theta 0, z0 3540 | Station Ring Nine | The stations |
+| `line-works` | `lm_line_works.js` | `line38`: deck 38, theta 0.35, z0 625 | the first line deck above Candlewick | The line decks |
+| `line-rides` | `lm_line_rides.js` | `line63`: deck 63, theta -0.8, z0 2290 | a line deck, Ring Six | The line decks |
+| `chimney` | `lm_chimney.js` | `chimney`: deck 40 at y = 0, theta 1.5, z0 2290 | the Low decks, Ring Six | The Low decks |
+| `felt-organ` | `lm_felt_organ.js` | `felt-organ`: deck 150, theta 1.9, z0 1460 | the Middle decks, Ring Four | The Middle decks |
+| `lot-hall` | `lm_lot_hall.js` | `lot-hall`: deck 200, theta -2.2, z0 1875 | the Middle decks, Ring Five | The Middle decks |
+| `up-decks` | `lm_up_decks.js` | `up-decks`: deck 340, theta 0.3, z0 1040 | the High decks, Ring Three | The High decks |
+| `hollow-island` | `lm_hollow_island.js` | `hollow`, near (620, 1760) | the lake's island | The Hollow |
+| `hollow-grounds` | `lm_hollow_grounds.js` | `hollow`, near (-900, 2300) | the playing grounds | The Hollow |
+| `hollow-front` | `lm_hollow_front.js` | `hollow`, near (200, 350) | the front wood | The Hollow |
+| `front-wall` | `lm_front_wall.js` | `fwall1` (rho 1450), `fwall10` (rho 1000), z0 0 | the front end wall | The end walls |
+| `back-upper` | `lm_back_upper.js` | `quarter` (rho 750), `tenth` (rho 300), `twentieth` (rho 150), z0 3750 | the back wall's high tiers | The end walls |
+| `axle-back` | `lm_axle_back.js`, `lm_window.js` | `axle-back` (rho 60, z0 3760), `still-side` | the back axle and the still side | The axles |
+| `axle-front` | `lm_axle_front.js` | `axle-front` (rho 60, z0 -10) | the front axle | The axles |
+
+### Tools for the whole drum
+
+- `?cell=L:i:j&lot=<key>` goes straight to a block (and to a lot of that kind, in the nearest block that has one). `?citylog` prints each block's build time by part and its share of the sign atlas. `?nocity` runs without the city.
+- `node tools/walk.mjs --q "at=ladle-east-end" --yaw 1.5708 --secs 60`: holds W (and Shift) and reports position, block, frame rate, the worst frame and any fall, every two seconds.
+- `node tools/prof.mjs --q "..." --run "<js>" --secs 6`: a CPU profile of the running game by function.
+
 ## Music
 
 `src/game/director.js` decides which of the score's cues is playing (`src/audio/music.js` composes them): `title` on the title screen; `arrival` for the first minutes off the glide; `court-evening` from the bandstand in Wick Court on the Thursday evening and on Booking Day, and from the bandstand on the festival green; `choir` in the court at half past seven on the Thursday; `busker` (one flute) outside the Long Pipe, in the Quaysides lane and on the green on the Quiet; `reel` on the Third; `dawn` wherever the Hollow can be seen during Oona's dawn, driven by `game.dawnProgress()`; `feast` in the hall on Booking Day; `card-home` from the writing of the card to the end of the credits. A place may still call `audio.music()` itself (the studio's model dawn, the Long Flight): the director wraps that call, stands back while the place's cue plays, and takes over again when the place stops it. `game.music.hold(id, opts)` pins a cue for a scripted moment; `game.music.hold(null)` lets go.

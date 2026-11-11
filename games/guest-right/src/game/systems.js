@@ -133,27 +133,33 @@ export function setupSystems(game) {
     }
   });
 
-  // ---- cheap extra culling: other frames are never in view, and inside Candlewick only the decks you could see are drawn.
-  // Wick Court is open through six decks; everything else is one deck at a time.
-  const COURT = { x0: -35.5, x1: 35.5, z0: -21.5, z1: 27.5 };
-  let camLevel = 0, inCourt = false, nearCourt = false, camFrame = null;
+  // ---- cheap extra culling: other frames are never in view, and inside a layer of the city only the decks you could see are
+  // drawn. A court (Wick Court, any block's atrium) is open through several decks; everything else is one deck at a time.
+  world.courts.push({ frame: null, frameId: 'candlewick', x0: -35.5, x1: 35.5, z0: -21.5, z1: 27.5, scope: null });
+  let camLevel = 0, camFrame = null, camCity = false;
+  const openCourts = [];                 // the courts the camera is in or near, this frame
   game.events.on('prerender', () => {
     camFrame = player.frame; player.eyePos(_e);
     camLevel = Math.max(0, Math.floor((_e.y - 0.9) / 4));
-    inCourt = camFrame && camFrame.id === 'candlewick' && _e.x > COURT.x0 && _e.x < COURT.x1 && _e.z > COURT.z0 && _e.z < COURT.z1;
-    const dx = Math.max(COURT.x0 - _e.x, 0, _e.x - COURT.x1), dz = Math.max(COURT.z0 - _e.z, 0, _e.z - COURT.z1);
-    nearCourt = Math.hypot(dx, dz) < 80;
+    camCity = !!camFrame && (camFrame.id === 'candlewick' || camFrame.city === true);
+    openCourts.length = 0;
+    if (!camCity) return;
+    for (const c of world.courts) {
+      if (c.frame ? c.frame !== camFrame : c.frameId !== camFrame.id) continue;
+      const dx = Math.max(c.x0 - _e.x, 0, _e.x - c.x1), dz = Math.max(c.z0 - _e.z, 0, _e.z - c.z1);
+      if (Math.hypot(dx, dz) < 80) openCourts.push(c);
+    }
   });
   // the Hollow, its terraces and the Spindle see each other; a deck sees only itself
   const group = (f) => (f.id === 'hollow' || f.hollowView) ? 'h' : f.id;
   world.culler = (u) => {
     const f = u.frame; if (u.always) return true;
     if (f !== camFrame) return camFrame ? group(f) === group(camFrame) && group(f) === 'h' : false;
-    if (f.id !== 'candlewick') return true;
+    if (!camCity) return true;
     if (u.level === camLevel) return true;
     const x = u.origin[0] + u.center[0], z = u.origin[2] + u.center[2];
-    const inBox = x > COURT.x0 && x < COURT.x1 && z > COURT.z0 && z < COURT.z1;
-    return inBox && (inCourt || nearCourt);
+    for (let i = 0; i < openCourts.length; i++) { const c = openCourts[i]; if (x > c.x0 && x < c.x1 && z > c.z0 && z < c.z1) return true; }
+    return false;
   };
 
   // ---- footsteps and landings

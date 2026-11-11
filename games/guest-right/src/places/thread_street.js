@@ -232,17 +232,18 @@ export const place = {
 
     // ---------------- the far end: the arch into Saffron Yard, and the street running on ----------------
     thresholdArch(s, st, 104, 1, 'SAFFRON YARD', sy ? sy.note : 'decks 16 to 22', 'CANDLEWICK', [-3.5, -0.3, 98, 3.5, H + 0.3, 110]);
-    runOn(s, st, { a0: 104, a1: 144, dir: 1, clip: [-3.5, -0.3, 103.6, 3.5, H + 0.3, 144.2], name: 'Saffron Yard', seed: 2,
+    if (!game.city) runOn(s, st, { a0: 104, a1: 144, dir: 1, clip: [-3.5, -0.3, 103.6, 3.5, H + 0.3, 144.2], name: 'Saffron Yard', seed: 2,
       lobbySub: 'lifts · stairs · decks 16 to 22',
       lobbyPlate: { kind: 'plate', text: 'SAFFRON YARD CORE', lines: ['cabs · decks 16 to 22'] },
       cabText: 'A Saffron Yard cab hums in its berth. Candlewick is back up the street, under the arch.' });
 
     // ---------------- people ----------------
     const vS = 1.6;
-    const mid = stations(20, 144, 3, lines);
+    const far = game.city ? 104 : 144;        // with the city, Saffron Yard is a real block that begins at the arch
+    const mid = stations(20, far, 3, lines);
     rowPath(s, st, 0, mid);
-    rowPath(s, st, -vS, stations(21, 141.5, 3, lines.concat(doorsW)));
-    rowPath(s, st, vS, stations(21, 141.5, 3, lines.concat(doorsE)));
+    rowPath(s, st, -vS, stations(21, far - 2.5, 3, lines.concat(doorsW)));
+    rowPath(s, st, vS, stations(21, far - 2.5, 3, lines.concat(doorsE)));
     for (const a of lines) s.path([st.xz(a, -vS), st.xz(a, 0), st.xz(a, vS)]);
     for (const a of doorsW) s.path([st.xz(a, -2.4), st.xz(a, -vS)], { width: 1.0 });
     for (const a of doorsE) s.path([st.xz(a, 2.4), st.xz(a, vS)], { width: 1.0 });
@@ -251,7 +252,7 @@ export const place = {
 
     // ---------------- zones, sound, discoveries ----------------
     s.zoneBox({ id: 'thread-street', place: 'thread-street', box: [-3, -0.5, 20, 3, H, 104], name: 'Thread Street', sub: 'Candlewick · deck 16 · runs along the axis', ambience: 'arcade', reverb: 'felt' });
-    s.zoneBox({ id: 'saffron-street', box: [-3, -0.5, 104, 3, H, 147.6], name: 'Saffron Yard', sub: 'the next block · Thread Street runs on', ambience: 'arcade', reverb: 'felt' });
+    if (!game.city) s.zoneBox({ id: 'saffron-street', box: [-3, -0.5, 104, 3, H, 147.6], name: 'Saffron Yard', sub: 'the next block · Thread Street runs on', ambience: 'arcade', reverb: 'felt' });
     W.dynamics.push({ scope: s, t: 0, update(dt) {
       const p = game.player; if (!p || p.frame !== f || Math.abs(p.pos.x) > 3 || p.pos.z < 20 || p.pos.z > 144) { this.t = 0; return; }
       if (Math.abs(p.vel.z) > 4.2) { this.t += dt; if (this.t > 1.6) { found(game, 'axis-street'); this.t = -1e9; } } else if (this.t > 0) this.t = 0;

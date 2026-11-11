@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { createPartMeshes, makeLook, makeBody, solve, shiftBones, emitParts, emitOne, CH, BONE, NBONES, bonePoint, eulerYXZ } from './people_rig.js';
 import { poseTarget, emitItems, ITEM_COL } from './people_poses.js';
-import { indexWorld, MAGNETS, castPlan, findSpot, crowdPoints, takeSpot, releaseSpot, poseForSpot, stayFor, nowMin, planRoute, activeMagnet, spotFree, isMeal, wantsFor, pickKey } from './people_mind.js';
+import { indexWorld, indexScope, indexSpots, unindexScope, refreshFrame, MAGNETS, castPlan, findSpot, crowdPoints, takeSpot, releaseSpot, poseForSpot, stayFor, nowMin, planRoute, activeMagnet, spotFree, isMeal, wantsFor, pickKey } from './people_mind.js';
 import { CAST } from '../content/cast.js';
 import { CHATTER } from '../content/chatter.js';
 import { PLACES } from '../content/places.js';
@@ -31,7 +31,7 @@ export function createPeople(game) {
   }
   const M = {
     game, meshes, origin, frames: null, people: [], byId: new Map(), cast: new Map(), density: 1, magnets: MAGNETS, rng: new Rng(hashStr('chervil')),
-    frameId: null, lastNow: 0, grid: new Map(), nextId: 1, cleared: false, spotCount: -1, tickList: [],
+    frameId: null, lastNow: 0, grid: new Map(), nextId: 1, cleared: false, spotCount: -1, tickList: [], dirty: new Set(), fill: [],
   };
   const stats = { people: 0, present: 0, drawn: 0, lod0: 0, lod1: 0, lod2: 0, parts: 0, tris: 0, ms: 0, msMind: 0, msPose: 0, msDraw: 0, walkers: 0 };
 
@@ -424,7 +424,8 @@ export function createPeople(game) {
   // ------------------------------------------------------------------ settling a frame (start, arrival in a frame, a jump in time)
   function targetCount(fi) {
     let spots = 0; for (const s of fi.spots) if (!s.who && s.pp.cat !== 'bed') spots++;
-    return Math.round(clamp((spots * 0.72 + fi.pathLen / 7.5) * M.density, 0, 900));
+    // each city block that is loaded brings its own people, up to what the machine can carry
+    return Math.round(clamp((spots * 0.72 + fi.pathLen / 7.5) * M.density, 0, Math.min(1500, 900 + 200 * (fi.managed || 0))));
   }
   function populate(fi) {
     const want = M.cleared ? 0 : targetCount(fi);
@@ -438,34 +439,40 @@ export function createPeople(game) {
   function settle(fi) {
     const now = clockNow(), hour = hourNow(), day = dayNow();
     for (const p of fi.people) { leaveSpot(p); p.route = null; p.goal = null; }
-    for (const p of fi.people.slice()) {
-      if (p.directed) continue;
+    for (const p of fi.people.slice()) settleOne(p, fi, now, hour, day, null);
+  }
+  // Put one person somewhere sensible for the hour. only: { spots, nodes } keeps them to one scope (a block that has just loaded).
+  function settleOne(p, fi, now, hour, day, only) {
+    {
+      if (p.directed) return;
       if (p.kind === 'cast') {
         const plan = castPlan(p.castId, day, hour);
         const tg = plan && (castTarget(p, plan.place) || (plan.alt && castTarget(p, plan.alt)));
-        if (!tg) { p.state = 'away'; p.backAt = now + 30; continue; }
+        if (!tg) { p.state = 'away'; p.backAt = now + 30; return; }
         if (tg.fi !== p.fi) { moveToFrame(p, tg.fi); }
-        occupy(p, tg.s, plan.kind === 'work' ? 'work' : 'cast', true); snapPose(p); continue;
+        occupy(p, tg.s, plan.kind === 'work' ? 'work' : 'cast', true); snapPose(p); return;
       }
-      if (p.kind === 'crowd') { const s = findSpot(M, p, null, p.pin); if (s) { occupy(p, s, 'magnet', true); snapPose(p); } continue; }
-      const mag = activeMagnet(fi, day, hour, M.magnets);
+      if (p.kind === 'crowd') { const s = findSpot(M, p, null, p.pin); if (s) { occupy(p, s, 'magnet', true); snapPose(p); } return; }
+      const mag = only ? null : activeMagnet(fi, day, hour, M.magnets);
       const Wt = wantsFor(p, hour, day, fi, mag);
       let tot = 0; for (const k in Wt) tot += Wt[k];
-      if (M.rng.next() < Wt.away / (tot || 1)) { p.state = 'away'; p.backAt = now + Math.random() * (hour >= 23 || hour < 6.4 ? 400 : 60); continue; }
+      if (M.rng.next() < Wt.away / (tot || 1)) { p.state = 'away'; p.backAt = now + Math.random() * (hour >= 23 || hour < 6.4 ? 400 : 60); return; }
       Wt.away = 0;
       let placed = false;
       for (let tries = 0; tries < 4 && !placed; tries++) {
         const cat = pickKey(M.rng, Wt);
-        if (cat === 'wander') { placeOnPath(p); placed = true; break; }
-        const s = cat === 'magnet' ? findSpot(M, p, null, mag.place) : findSpot(M, p, cat, null);
+        if (cat === 'wander') { placeOnPath(p, only && only.nodes); placed = true; break; }
+        let s = null;
+        if (only) { for (let k = 0; k < 10 && !s; k++) { const q = only.spots[(Math.random() * only.spots.length) | 0]; if (q && q.pp && q.pp.cat === cat && spotFree(q, p) && !q.pp.blocked && !(cat === 'play' && !p.body.L.child)) s = q; } }
+        else s = cat === 'magnet' ? findSpot(M, p, null, mag.place) : findSpot(M, p, cat, null);
         if (s && !(seenAt(fi, s.x, s.z) && Math.hypot(s.x - eye.x, s.z - eye.z) < 2.5)) { occupy(p, s, cat, true); snapPose(p); placed = true; }
         else Wt[cat] = 0;
       }
-      if (!placed) placeOnPath(p);
+      if (!placed) placeOnPath(p, only && only.nodes);
     }
   }
-  function placeOnPath(p) {
-    const nodes = p.fi.nav.nodes;
+  function placeOnPath(p, among) {
+    const nodes = among && among.length ? among : p.fi.nav.nodes;
     if (!nodes.length) { p.state = 'away'; p.backAt = clockNow() + 30; return; }
     for (let i = 0; i < 8; i++) {
       const n = nodes[(Math.random() * nodes.length) | 0]; if (!n.links.length || privateNode(n)) continue;
@@ -482,7 +489,7 @@ export function createPeople(game) {
   // ------------------------------------------------------------------ setting up
   function init() {
     M.frames = indexWorld(game);
-    M.spotCount = W.spots.length;
+    M.spotCount = W.spots.length - W.managedSpots;
     for (const fi of M.frames.values()) populate(fi);
     // the named cast
     for (const id in CAST) {
@@ -667,7 +674,9 @@ export function createPeople(game) {
     const t0 = performance.now();
     if (!player.frame) return;
     if (!M.ready) init();
-    if (W.spots.length !== M.spotCount) { reindex(); }
+    if (W.spots.length - W.managedSpots !== M.spotCount) { reindex(); }
+    if (M.dirty.size) { for (const f of M.dirty) { if (M.frames.get(f.id) === f) { refreshFrame(game, f); if (!M.fill.some((j) => j.fi === f)) populate(f); } } M.dirty.clear(); }
+    if (M.fill.length) fillSome();
     player.eyePos(eye);
     frameNo++;
     // the player's seat is nobody else's
@@ -739,12 +748,53 @@ export function createPeople(game) {
     // places were (re)built: keep everyone, but re-read the world
     const old = M.frames;
     for (const p of M.people) { leaveSpot(p); }
-    M.frames = indexWorld(game); M.spotCount = W.spots.length;
+    M.frames = indexWorld(game); M.spotCount = W.spots.length - W.managedSpots; M.dirty.clear(); M.fill.length = 0;
     for (const p of M.people) { const fi = M.frames.get(p.frame ? p.frame.id : ''); p.fi = fi || null; }
     for (const fi of M.frames.values()) fi.people = M.people.filter((p) => p.fi === fi);
     for (const p of M.people.slice()) if (!p.fi) removePerson(p);
     for (const fi of M.frames.values()) { populate(fi); settle(fi); }
     void old;
+  }
+  // A scope that manages itself (a city block) has finished building: read it in, and people it, without disturbing anyone else.
+  function addScope(scope) {
+    scope.live = true;
+    if (!M.ready || !M.frames) return;
+    const r = indexScope(game, M.frames, scope);
+    let cx = 0, cz = 0; for (const n of r.nodes) { cx += n.x; cz += n.z; } if (r.nodes.length) { cx /= r.nodes.length; cz /= r.nodes.length; }
+    // its spots are read in, and then its people come, a few a frame (see fillSome): nothing stops while a block is peopled
+    M.fill.push({ fi: r.fi, scope, r, cx, cz, left: -1 });
+  }
+  function fillSome() {
+    const job = M.fill[0], fi = job.fi;
+    if (M.frames.get(fi.id) !== fi || !job.scope.live || !job.scope.active || M.cleared) { M.fill.shift(); return; }
+    if (job.left < 0) {
+      if (!indexSpots(game, job.r, 36)) return;
+      let anon0 = 0; for (const p of fi.people) if (p.kind === 'anon') anon0++;
+      job.left = job.r.spots.length || job.r.nodes.length ? Math.max(0, targetCount(fi) - anon0) : 0;
+    }
+    const want = targetCount(fi); let anon = 0; for (const p of fi.people) if (p.kind === 'anon') anon++;
+    const now = clockNow(), hour = hourNow(), day = dayNow();
+    for (let n = 0; n < 6 && anon < want && job.left > 0; n++) {
+      const p = newPerson(fi, 'anon', hashStr(fi.id + ':' + M.nextId) ^ (M.nextId * 2654435761), null, null);
+      p.x = job.cx; p.z = job.cz; p.y = 0; settleOne(p, fi, now, hour, day, job.r); anon++; job.left--;
+    }
+    if (anon >= want || job.left <= 0) M.fill.shift();
+  }
+  // ...and is about to go: nobody may be left standing in it, or walking toward it.
+  function removeScope(scope) {
+    scope.live = false;
+    if (!M.ready || !M.frames) return;
+    const fi = M.frames.get(scope.frame.id); if (!fi) return;
+    for (const p of fi.people.slice()) {
+      const sp = p.spot, inSpot = !!sp && (sp.scope === scope || !!(sp.pp && sp.pp.zone && sp.pp.zone.scope === scope));
+      const onPath = !!p.route && p.route.some((w) => w.node && w.node.owner === scope);
+      let inside = false; if (p.state !== 'away') { const zn = W.zoneAt(fi.frame, p.x, p.y + 0.6, p.z); inside = !!zn && zn.scope === scope; }
+      if (!inSpot && !onPath && !inside) continue;
+      if (p.kind === 'anon' && !p.directed && (inside || inSpot)) { removePerson(p); continue; }
+      leaveSpot(p); p.route = null; p.goal = null; p.state = 'idle'; p.idleT = 0.5; p.pose = 'stand';
+    }
+    unindexScope(game, M.frames, scope);
+    M.dirty.add(fi);
   }
 
   // ------------------------------------------------------------------ drawing
@@ -884,7 +934,7 @@ export function createPeople(game) {
     return api;
   }
   const people = {
-    update,
+    update, addScope, removeScope, reindex() { if (M.ready) reindex(); },
     byId(id) { if (!M.ready && player.frame) init(); const p = M.cast.get(id) || M.people.find((q) => q.id === id); return p ? handle(p) : null; },
     count() { let n = 0; for (const p of M.people) if (p.state !== 'away') n++; return n; },
     setDensity(k) { M.density = clamp(+k || 0, 0, 2); M.cleared = false; if (M.ready) for (const fi of M.frames.values()) { const before = fi.people.length; populate(fi); if (fi.people.length > before) { for (const p of fi.people) if (p.state === 'away' && p.backAt === 0) p.backAt = clockNow() + Math.random() * 6; } } },

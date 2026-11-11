@@ -198,7 +198,7 @@ export function setupFlow(game) {
         say(29, 'J opens your journal, M the map, P takes a picture for a card, Esc the menu.');
       }
     } else {
-      if (!game.loadGame()) go('start', 1, 9.667);
+      if (!(await game.loadGame())) go('start', 1, 9.667);
       if (ui) { ui.hud.wallet(game.wallet.kwh); ui.hud.show(true); await ui.fade(false, 1.0); ui.hud.thread(game.journal.current()); }
       game.events.emit('game:continue');
     }

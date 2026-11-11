@@ -23,7 +23,7 @@ DIST = os.path.join(ROOT, "dist")
 BANNED = ["testament to", "tapestry", "bustling", "nestled", "whispers of", "symphony of", "vibrant",
           "hum of life", "in a world where", "delve", "realm", "beacon", "labyrinthine", "a dance of"]
 # folders whose strings a player reads
-PROSE_DIRS = ("content", "places", "ui", "game")
+PROSE_DIRS = ("content", "places", "ui", "game", "city")
 
 IMPORT_RE = re.compile(r"^import\s+(?P<what>[\s\S]*?)\s+from\s+['\"](?P<path>[^'\"]+)['\"]\s*;?[ \t]*$", re.M)
 IMPORT_BARE_RE = re.compile(r"^import\s+['\"]([^'\"]+)['\"]\s*;?[ \t]*$", re.M)

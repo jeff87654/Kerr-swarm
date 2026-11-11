@@ -309,6 +309,48 @@ export const PLACES = {
     sub: 'The axis · end to end',
     blurb: "The whole axis, 3.75 kilometres of it, opened in the dark on the night of the Long Flight, with the unlit sunline a cable down the middle.",
   },
+
+  // The rest of Chervil: the kinds of place every block has (the blocks themselves are named in src/city/city.js).
+  'city-avenue': {
+    name: 'an avenue', sign: '', area: 'city', kind: 'avenue',
+    sub: 'Chervil · runs spinward',
+    blurb: "A block's avenue. Every one runs spinward, so every one curves up ahead of you and behind you.",
+  },
+  'city-street': {
+    name: 'a street', sign: '', area: 'city', kind: 'street',
+    sub: 'Chervil · runs along the axis',
+    blurb: "A block's street, running along the axis, where the floor stays level as far as you can see.",
+  },
+  'city-court': {
+    name: 'a block court', sign: '', area: 'city', kind: 'atrium',
+    sub: 'Chervil',
+    blurb: "The atrium where a block's avenue and street cross, open through its decks under a ceiling the block lights for itself.",
+  },
+  'city-hall': {
+    name: 'a hall', sign: '', area: 'city', kind: 'hall',
+    sub: 'Chervil · the long table',
+    blurb: "A block's hall: one long table, one cook whose name is on the door, and a seat for any guest who has slept somewhere.",
+  },
+  'city-shop': {
+    name: 'a shop', sign: '', area: 'city', kind: 'shop',
+    sub: 'Chervil',
+    blurb: "One of a block's shops, kept by somebody who lives within a hundred metres of it.",
+  },
+  'city-room': {
+    name: 'a block room', sign: '', area: 'city', kind: 'room',
+    sub: 'Chervil',
+    blurb: "One of the rooms a block keeps for itself: a clinic, a choir room, an office, a laundry.",
+  },
+  'city-lobby': {
+    name: 'a lift core', sign: 'CABS', area: 'city', kind: 'lobby',
+    sub: 'Chervil · cabs and stairs',
+    blurb: "A lift core's lobby. There is one every hundred metres, and a cab from any of them will take you to any other.",
+  },
+  'city-special': {
+    name: 'a block place', sign: '', area: 'city', kind: 'room',
+    sub: 'Chervil',
+    blurb: "The large room a block is known for: a school, a bath house, a dim wood, a bright square.",
+  },
 };
 
 Object.defineProperty(PLACES, 'neighbours', {
