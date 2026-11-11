@@ -91,7 +91,7 @@ export async function buildWorlds(s, lot, plan, game, tick) {
   const dp = 1.5;
   const clip = await shell(L, info, { H, floor: pal.floor, ceil: ['felt', shadeHex(pal.felt, 0.6)], wall: { tint: pal.wall, dado: { h: 1.0, mat: 'wood', tint: pal.wood }, skirt: '#2a1c14' },
     glow: { sky: '#d8c8b0', ground: '#5a4a3a', power: 0.2 },
-    front: { style: 'house', fin: { mat: 'paint', tint: pal.felt, dado: { h: 1.0, mat: 'wood', tint: '#3a2a20' }, trim: '#e8c26a', door: pal.felt2 }, door: { p: dp, w: 1.2 }, windows: [{ p: 2.7, w: Math.min(3.6, W - 4.6), h: 1.4, sill: 0.95 }], sign: { emblem: 'lamp', palette: pal.sign }, mat: pal.felt2 } });
+    front: { style: 'house', fin: { mat: 'paint', tint: pal.felt, dado: { h: 1.0, mat: 'wood', tint: '#3a2a20' }, trim: '#e8c26a', door: pal.felt2 }, door: { p: dp, w: 1.2 }, windows: [{ p: 2.7, w: Math.min(3.6, W - 4.6), h: 1.4, sill: 0.95 }], sign: { emblem: 'lamp', palette: pal.sign, w: 2.3 }, mat: pal.felt2 } });
   await tick();
   ceilingWorks(L, H, { beam: pal.wood, every: 2.4, duct: '#8d8478', pipe: '#b07a45', side: 'lo' });
   trims(L, H, { rail: 2.2, railTint: pal.wood, band: pal.felt2, bandH: 0.18 });
@@ -152,10 +152,10 @@ export async function buildWorlds(s, lot, plan, game, tick) {
   ws.sort((a, b) => a[3] - b[3]);
   const BOARD = { kind: 'board', title: 'Open tonight', lines: ws.slice(0, 5).map((w) => w[0] + '|' + w[1] + ' · ' + w[2]), palette: pal.sign };
   const bq = Math.max(3.4, (D - bd) / 2 + 0.6);
-  L.sign(BOARD, 0.17, 1.7, bq, [1, 0], { w: 1.6, h: 1.0, back: pal.wood });
+  L.sign(BOARD, 0.17, 1.7, bq, [1, 0], { w: 0.9, h: 0.64, back: pal.wood });
   L.lamp('strip', 0.42, 2.55, bq - 0.7, { to: [0.42, 2.55, bq + 0.7], K: 2800, power: 0.4, clip, range: 3 });
   L.interact({ p: 1.0, q: bq, y: 1.5, radius: 1.3, prompt: 'Read the board of open worlds', onUse: (gm) => say(gm, 'Open tonight', [ws.slice(0, 5).map((w) => w[0] + ': ' + w[1] + ', ' + (w[2] === 'none' ? 'no lag' : w[2] + ' each way')).join('. ') + '.', 'Written underneath: "The Quiet: nothing. Not even the garden. It will wait; that is what it is for."']) });
-  L.sign({ kind: 'notice', title: 'Slow worlds', lines: ['Say your move.', 'Then wait.', 'The lamp will tell you.', 'Talk softly:', 'the felt is thin.'], hand: true }, 0.17, 1.55, bq + 1.6, [1, 0], { w: 0.3, h: 0.4 });
+  L.sign({ kind: 'notice', title: 'Slow worlds', lines: ['Say your move.', 'Then wait.', 'The lamp will tell you.', 'Talk softly:', 'the felt is thin.'], hand: true }, 0.17, 1.55, bq + 1.6, [1, 0], { w: 0.26, h: 0.34 });
 
   // ---- a bench under the window for whoever is waiting for a booth, plants, a lantern
   L.prop('bench', 2.7 + Math.min(3.6, W - 4.6) / 2, 0, KIT_T + 0.55, 0, { w: 2.0, back: true, wood: pal.wood }, { noSpots: true });
@@ -257,9 +257,9 @@ export async function buildLetters(s, lot, plan, game, tick) {
   const fromList = [['From Spelt', '11 minutes'], ['From a passing raft', '6 hours'], ['From Gull Row', '2 minutes'], ['From across the Shade', '8 years'], ['From Kelp Row', '40 seconds'], ['From a cycler', '3 days'], ['From the far side', '9 years'], ['From Weather Row', '1 minute']];
   const fl = []; for (let k = 0; k < 4; k++) fl.push(fromList[(lot.seed + k * 5) % fromList.length]);
   const BOARD = { kind: 'board', title: 'Came in by light today', lines: fl.map((f) => f[0] + '|' + f[1]).concat(['Readings|ask at the chair']), palette: pal.sign };
-  L.sign(BOARD, W - 0.17, 1.75, Math.min(D - 1.9, wq + 1.9), [-1, 0], { w: 1.4, h: 0.95, back: '#5b3d27' });
+  L.sign(BOARD, W - 0.17, 1.75, Math.min(D - 1.9, wq + 1.9), [-1, 0], { w: 0.9, h: 0.65, back: '#5b3d27' });
   L.interact({ p: W - 1.0, q: Math.min(D - 1.9, wq + 1.9), y: 1.5, radius: 1.2, prompt: 'Read what came in today', onUse: (gm) => say(gm, 'Came in by light today', [fl.map((f) => f[0] + ', ' + f[1] + ' on the way').join('. ') + '.', 'Underneath, in a different hand: "Read once. Ask before you bring a friend. Bring a friend."']) });
-  L.sign({ kind: 'notice', title: 'Readings', lines: ['Once, aloud,', 'to whoever it is for,', 'and whoever they ask.', 'Then it is theirs.'], hand: true }, W - 0.17, 1.5, KIT_T + 1.4, [-1, 0], { w: 0.3, h: 0.38 });
+  L.sign({ kind: 'notice', title: 'Readings', lines: ['Once, aloud,', 'to whoever it is for,', 'and whoever they ask.', 'Then it is theirs.'], hand: true }, W - 0.17, 1.5, KIT_T + 1.4, [-1, 0], { w: 0.26, h: 0.33 });
 
   // ---- light: pendants over the ring, a lantern by the window
   L.lamp('globe', cx - 1.2, 2.4, cq - R * 0.6, { K: 2700, power: 0.55, clip, drop: 0.75, r: 0.15 });
@@ -350,9 +350,9 @@ export async function buildNotes(s, lot, plan, game, tick) {
 
   // ---- the board, and a notice
   const BOARD = { kind: 'board', title: 'The yearly notes', lines: ['Come in|by hand, never by light', 'Kept|until read', 'Read|by the family of the named', 'Carried|by anybody going up', 'This year|' + (300 + lot.seed % 400) + ' so far'], palette: pal.sign };
-  L.sign(BOARD, 0.17, 1.7, big ? 5.4 : 4.2, [1, 0], { w: 1.4, h: 0.95, back: pal.wood });
+  L.sign(BOARD, 0.17, 1.7, big ? 5.4 : 4.2, [1, 0], { w: 0.9, h: 0.65, back: pal.wood });
   L.interact({ p: 1.0, q: big ? 5.4 : 4.2, y: 1.5, radius: 1.2, prompt: 'Read the board', onUse: (gm) => say(gm, 'The yearly notes', ['They come in by hand, never by light. They are kept until read, and read by the family of the one the child was named for.', 'Carried by anybody going up. This year: ' + (300 + lot.seed % 400) + ' so far.']) });
-  L.sign({ kind: 'notice', title: 'Going up', lines: ['If you are going to', 'the High decks, ask at', 'the Low decks\' office', 'if there are notes', 'to carry.'], hand: true }, 0.17, 1.5, KIT_T + 1.3, [1, 0], { w: 0.3, h: 0.4 });
+  L.sign({ kind: 'notice', title: 'Going up', lines: ['If you are going to', 'the High decks, ask at', 'the Low decks\' office', 'if there are notes', 'to carry.'], hand: true }, 0.17, 1.5, KIT_T + 1.3, [1, 0], { w: 0.26, h: 0.34 });
   L.prop('civic.armchair', 1.0, 0, D - 1.2, Math.PI * 0.75, { cloth: pal.accent, wood: pal.wood, mend: '#e8c26a' }, { noSpots: true }); L.spot('sit', 1.0, 0.43, D - 1.2, Math.PI * 0.75, { tags: ['read', 'notes-room'] });
   L.prop('plant', W - 0.6, 0, D - 0.7, 0.3, { kind: 'flower', size: 1.0, pot: pal.accent, seed: 3 });
   L.prop('plant', 0.6, 0, KIT_T + 0.6, 0.3, { kind: 'broad', size: 1.3, pot: pal.dado, seed: 5 });

@@ -57,7 +57,7 @@ export const place = {
     await tick(game);
     await buildRooms(game, s, f);
 
-    s.zoneBox({ id: 'up-decks-pool', place: 'up-decks', box: [HALL.x0, -3.0, HALL.z0, HALL.x1, HALL.crown, HALL.z1], name: 'The Simmer', sub: 'The slow water · deck 340 · 0.55 g', ambience: 'baths', reverb: 'tile', headroom: 7.4, env: ENV });
+    s.zoneBox({ id: 'up-decks-pool', place: 'up-decks', box: [HALL.x0, -3.0, HALL.z0, HALL.x1, HALL.crown, HALL.z1], name: 'The Simmer', sub: 'The slow water · deck 340', ambience: 'baths', reverb: 'tile', headroom: 7.4, env: ENV });
     s.zoneBox({ id: 'up-decks-balcony', place: 'up-decks', box: [BAL.x, 3.8, HALL.z0, HALL.x1, HALL.crown, HALL.z1], name: 'The Simmer', sub: 'The balcony · deck 341', ambience: 'baths', reverb: 'tile', headroom: 3.4, env: ENV });
     s.zoneBox({ id: 'up-decks-balcony-w', place: 'up-decks', box: [HALL.x0, 3.8, HALL.z0, -BAL.x, HALL.crown, HALL.z1], name: 'The Simmer', sub: 'The balcony · deck 341', ambience: 'baths', reverb: 'tile', headroom: 3.4, env: ENV });
     for (const xx of [[4, 6], [-6, -4]]) s.loop('water-lap', xx[0] < 0 ? -5 : 5, -0.2, -22, { vol: 0.32, radius: 14 });
@@ -281,7 +281,7 @@ function balcony(s) {
         g.mat('wood', PAL.dark); g.box(Math.min(sx * HALL.x1, sx * (HALL.x1 - 0.1)), y + 2.15, dz0 - 0.08, Math.max(sx * HALL.x1, sx * (HALL.x1 - 0.1)), y + 2.23, dz0 + 1.08, { bevel: 0.008 });
         // the window: a lit blind, two curtains, a sill with a pot on it
         const lit = (k * 7 + (sx > 0 ? 3 : 0)) % 5 !== 0;
-        g.mat('diffuser', lit ? ['#f6d9a2', '#f2c98a', '#f8e2b8'][k % 3] : '#6a5a48', lit ? { emissive: 1.4, lamp: true } : {});
+        g.mat('diffuser', lit ? ['#e2a868', '#d99a5a', '#e8b878'][k % 3] : '#6a5a48', lit ? { emissive: 0.75, lamp: true } : {});
         g.box(Math.min(wx, wx + sx * 0.04), y + 0.9, wz0, Math.max(wx, wx + sx * 0.04), y + 2.15, wz0 + 1.5, { faces: sx > 0 ? 'x' : 'X' });
         g.mat('weave', [PAL.plum, PAL.coral, '#3f6f8a', PAL.ochre][k % 4]);
         g.box(Math.min(wx - sx * 0.02, wx - sx * 0.05), y + 0.95, wz0 + 0.02, Math.max(wx - sx * 0.02, wx - sx * 0.05), y + 2.12, wz0 + 0.32, { faces: sx > 0 ? 'x' : 'X' });
@@ -341,7 +341,7 @@ function backEnd(s) {
     const zf = DIAL.z, R = DIAL.r;
     g.push(); g.move(DIAL.x, DIAL.y, zf); g.rotX(PI / 2);
     g.mat('tile', PAL.coral); g.cyl(0, 0.0, 0, R + 0.22, 0.06, { segs: 40 });
-    g.mat('paint', '#f3ead4', { emissive: 0.7, lamp: true }); g.cyl(0, -0.012, 0, R, 0.02, { segs: 40 });
+    g.mat('paint', '#f6ecd2', { emissive: 0.9, lamp: true }); g.cyl(0, -0.012, 0, R, 0.02, { segs: 40 });
     g.pop();
     g.mat('paint', PAL.ink);
     for (let k = 0; k < CROSS_S; k++) {
@@ -351,8 +351,28 @@ function backEnd(s) {
       g.box(Math.min(p0[0], p1[0]) - w, Math.min(p0[1], p1[1]) - w, zf - 0.04, Math.max(p0[0], p1[0]) + w, Math.max(p0[1], p1[1]) + w, zf - 0.035, { faces: 'z' });
     }
   });
+  // over the arch at the front end, a frieze of slow waves in glazed mosaic, the length of the wall
+  run(-12.5, 12.5, 8.4, (a, b) => s.structure(() => {
+    const z = HALL.z0 + 0.095, cell = 0.25, cols = [PAL.deep, PAL.teal, PAL.sea, '#9fd0c4', PAL.cream, PAL.coral];
+    for (let x = a; x < b - 0.01; x += cell) for (let y = 3.9; y < 6.3; y += cell) {
+      const v = (y - 4.0) / 2.3 + 0.16 * Math.sin((x + cell / 2) * 0.42) + 0.05 * Math.sin((x + cell / 2) * 1.3);
+      const c = cols[Math.max(0, Math.min(cols.length - 1, Math.floor(v * 6)))];
+      g.mat('mosaic', c); g.box(x + 0.012, y + 0.012, z - 0.012, x + cell - 0.012, y + cell - 0.012, z, { faces: 'Z' });
+    }
+    g.mat('tile', PAL.coral); g.box(a, 3.78, z - 0.02, b, 3.86, z, { faces: 'ZY' });
+  }));
+  // a sunburst of glazed tile round the clock, coral, ochre and cream, up into the lunette
+  s.structure(() => {
+    const zf = DIAL.z + 0.015, n = 22, cols = [PAL.coral, PAL.cream, PAL.ochre, PAL.cream];
+    for (let i = 0; i < n; i++) {
+      const a0 = -0.32 + (PI + 0.64) * i / n, a1 = -0.32 + (PI + 0.64) * (i + 1) / n;
+      const ray = (a, r) => [DIAL.x + Math.cos(a) * r, DIAL.y + Math.sin(a) * r];
+      const reach = (a) => { let r = i % 2 ? 4.6 : 3.9; for (let k = 0; k < 30; k++) { const p = ray(a, r); if (p[1] < vaultY(p[0]) - 0.12 && p[1] > 1.6) break; r -= 0.12; } return r; };
+      const p0 = ray(a0, DIAL.r + 0.24), p1 = ray(a1, DIAL.r + 0.24), q1 = ray(a1, reach(a1)), q0 = ray(a0, reach(a0));
+      g.mat('mosaic', cols[i % 4]); quadN(g, [p0[0], p0[1], zf], [p1[0], p1[1], zf], [q1[0], q1[1], zf], [q0[0], q0[1], zf], [0, 0, -1]);
+    }
+  });
   sign(s, { kind: 'label', text: 'paddle · steps', ink: '#2a2218' }, DIAL.x, DIAL.y - 0.62, DIAL.z - 0.045, { face: 'z', w: 0.9, h: 0.14, board: false });
-  sign(s, { kind: 'letters', text: 'The Simmer', palette: ['#f1e6c9'] }, 0, 6.95, HALL.z1 - 0.1, { face: 'z', w: 6.4, h: 0.9, glow: 1.4 });
   sign(s, { kind: 'letters', text: 'The Simmer', palette: ['#f1e6c9'] }, 0, 6.95, HALL.z0 + 0.1, { face: 'Z', w: 6.4, h: 0.9, glow: 1.2 });
   // a long warm bench under the clock, robes on a rail behind it
   prop(s, 'updecks.bench', -2.2, 0, 32.9, PI, { w: 2.6, wood: '#8a6240', cushion: PAL.ochre });
@@ -437,7 +457,7 @@ function hallLights(s) {
   }
   // the far end: two lanterns either side of the wave clock, and a wash on the back wall
   for (const sx of [-1, 1]) lamp(s, 'lantern', sx * 2.6, 5.4, 33.2, { tint: PAL.ochre, drop: 1.6, r: 0.32, hh: 0.5, clip: CLIP, K: 2500, power: 1.8, range: 10 });
-  s.light({ at: [0, 3.0, 31.5], type: 'spot', dir: [0, 0.55, 1], cone: [55, 30], color: '#ffd9a0', power: 9, range: 9, clip: CLIP, lamp: true });
+  s.light({ at: [0, 3.0, 31.5], type: 'spot', dir: [0, 0.55, 1], cone: [55, 30], color: '#ffd9a0', power: 4, range: 9, clip: CLIP, lamp: true });
   // the front end: sconces either side of the arch
   for (const sx of [-1, 1]) lamp(s, 'sconce', sx * 4.6, 2.6, HALL.z0 + 0.1, { face: 'Z', clip: CLIP, K: 2700, power: 0.9 });
   roomGlow(s, HALL.x0, -0.2, HALL.z0, HALL.x1, HALL.crown, HALL.z1, { sky: '#ffdcb0', ground: '#6fb0aa', power: 0.3 });
@@ -527,7 +547,7 @@ function hallUse(game, s, f, water) {
     p.sit({ x: best.x, y: best.y, z: best.z, yaw: best.yaw, eye: 0.62, simmer: true });
     p.yaw = PI - best.yaw; p.pitch = 0.02;
     sfx(gm, 'splash', f, best.x, POOL.water, best.z, { vol: 0.4 });
-    if (!gm.flags.simmerIn) { gm.flags.simmerIn = true; if (gm.ui) gm.ui.subtitle(null, 'Warm to the chin. The swell lifts you a hand\'s width, holds you there, and puts you down again, slowly.', 6); custom(gm, 'The Simmer'); }
+    if (!gm.flags.simmerIn) { gm.flags.simmerIn = true; if (gm.ui) gm.ui.subtitle(null, 'Warm to the chin. The swell lifts you a hand\'s width, holds you there, and puts you down again, slowly.', 6); custom(gm, 'The waste-heat loop'); }
   } });
   // a splash that hangs
   s.interact({ x: 3.6, y: 0.4, z: -25.6, radius: 2.0, prompt: 'Slap the water and watch the splash', onUse(gm) {
@@ -554,7 +574,7 @@ function hallUse(game, s, f, water) {
   // the plate at the paddle desk
   s.interact({ x: 10.5, y: 1.2, z: 26.1, radius: 1.6, prompt: 'Read the plate on the paddle desk', onUse(gm) {
     card(gm, 'A brass plate on the paddle desk', 'The Simmer', 'Fifty metres of warm water at 0.55 g, along the axis, so a swimmer weighs the same both ways. A wave from the paddle takes thirteen seconds to reach the steps; at a full g it would be there in under ten. The same push stands it about a third taller up here. Water off the 65 degree loop, cooled to thirty-six.');
-    custom(gm, 'The Simmer');
+    custom(gm, 'The waste-heat loop');
   } });
   // the paddle keeper
   s.interact({ x: 10.5, y: 1.2, z: 28.4, radius: 1.4, kind: 'talk', prompt: 'Ask about the paddle', async onUse(gm) {

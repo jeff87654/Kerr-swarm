@@ -32,8 +32,12 @@ export function sfx(game, name, f, x, y, z) { if (game.audio && game.sfxAt) game
 export function find(game, id) { if (game.journal && game.journal.find) game.journal.find(id); }
 export function custom(game, term) { if (game.journal && game.journal.custom) game.journal.custom(term); }
 // Wait a frame between big parts of the build, then take the region's atlas group back.
+// It only waits when the build has had the thread for more than a few milliseconds since the last wait.
+let lastYield = 0;
 export async function tick(game) {
+  if (performance.now() - lastYield < 12) return;
   await new Promise((res) => { let done = false; const go = () => { if (!done) { done = true; res(); } }; requestAnimationFrame(go); setTimeout(go, 40); });
+  lastYield = performance.now();
   if (game.atlas && game.atlas.begin) game.atlas.begin('region:' + REGION);
 }
 // m:ss.s
@@ -180,7 +184,7 @@ defineProp('mile.bay', (g, p) => {
   g.mat('speckle', C.track, { rough: 0.1 }); g.box(0, -0.02, F, L, 0, TR.l1 + 0.25, { faces: 'Y' });
   g.mat('speckle', '#7e3524', { rough: 0.15 }); g.box(0, -0.02, F, L, 0.001, TR.l0, { faces: 'Y' });
   g.mat('paint', C.line, { rough: -0.1 });
-  for (const z of [-3.2, -1.7, -0.2, 1.3, 2.8]) g.box(0, 0, z - 0.025, L, 0.003, z + 0.025, { faces: 'Y' });
+  for (const z of [-3.2, -1.7, -0.2, 1.3, 2.8]) g.box(0, 0, z - 0.035, L, 0.003, z + 0.035, { faces: 'Y' });
   // the kerb: a low ochre-and-cream lip under the rail
   for (let i = 0; i < 4; i++) { g.mat('paint', i % 2 ? C.cream : C.ochre, { rough: -0.05 }); g.box(i * 5, 0, 2.98, i * 5 + 5, 0.06, 3.12, { faces: 'yYzZ', bevel: 0.01 }); }
   // the spectators' walk: boards, a worn strip, a skirting
@@ -190,7 +194,7 @@ defineProp('mile.bay', (g, p) => {
   const pad = PADS[p.c || 0];
   for (let i = 0; i < 8; i++) { g.mat('weave', i % 3 === 1 ? shade(pad, 0.9) : pad, { rough: 0.2 }); g.box(i * 2.5 + 0.03, 0.12, F, i * 2.5 + 2.47, 1.6, F + 0.1, { faces: 'xXyYZ', bevel: 0.03 }); }
   g.mat('wood', '#3a2d22'); g.box(0, 0, F, L, 0.12, F + 0.06, { faces: 'yYZ' });
-  g.mat('cast', C.brass, { rough: -0.15 }); g.box(0, 1.6, F, L, 1.66, F + 0.13, { faces: 'yYZ' });
+  g.mat('wood', '#5b4030', { rough: 0.05 }); g.box(0, 1.6, F, L, 1.66, F + 0.13, { faces: 'yYZ' });
   g.mat('plaster', C.plaster); g.box(0, 1.66, F - 0.1, L, H, F, { faces: 'Z' });
   g.mat('paint', pad); g.box(0, 2.9, F, L, 3.05, F + 0.005, { faces: 'Z' });
   // outer wall: tiled dado, plaster, a picture rail
@@ -201,14 +205,17 @@ defineProp('mile.bay', (g, p) => {
   // the ceiling: dark panels, cream beams every 5 m, a cable tray over the walk, a duct over the front wall
   g.mat('panel', C.ceil); g.box(0, H, F, L, H + 0.05, TR.wall, { faces: 'y' });
   g.mat('paint', C.beam, { rough: -0.05 }); for (let i = 0; i < 4; i++) g.box(i * 5 - 0.12, H - 0.24, F, i * 5 + 0.12, H, TR.wall, { faces: 'xXy' });
-  g.mat('cast', '#5a5f5a'); g.box(0, H - 0.3, 4.1, L, H - 0.26, 4.6, { faces: 'yY' }); g.box(0, H - 0.3, 4.1, L, H - 0.22, 4.13, { faces: 'zZ' }); g.box(0, H - 0.3, 4.57, L, H - 0.22, 4.6, { faces: 'zZ' });
-  g.mat('brushed', '#8a8478'); g.box(0, H - 0.7, F + 0.05, L, H - 0.24, F + 0.55, { faces: 'yZ' });
+  g.mat('paint', '#4a4e48', { rough: 0.2 }); g.box(0, H - 0.3, 4.1, L, H - 0.26, 4.6, { faces: 'yY' }); g.box(0, H - 0.3, 4.1, L, H - 0.22, 4.13, { faces: 'zZ' }); g.box(0, H - 0.3, 4.57, L, H - 0.22, 4.6, { faces: 'zZ' });
+  g.mat('paint', C.red, { rough: 0.15 }); for (let i = 0; i < 6; i++) g.tube([[0, H - 0.29 - i * 0.0, 4.2 + i * 0.065], [L, H - 0.29, 4.2 + i * 0.065]], 0.018, { segs: 4, caps: false });
+  // the air duct over the front wall: painted, banded every bay
+  g.mat('paint', '#5b6b64', { rough: 0.25 }); g.box(0, H - 0.62, F + 0.05, L, H - 0.24, F + 0.5, { faces: 'yZ' });
+  g.mat('paint', pad); g.box(0, H - 0.63, F + 0.05, 0.4, H - 0.24, F + 0.51, { faces: 'yZxX' });
   // the rail: brass top, iron posts and a mid rail, with a gap for crossing
   const r0 = p.gap ? 1.4 : 0;
   g.mat('cast', C.iron); for (let x = r0 + 1.25; x < L; x += 2.5) g.tube([[x, 0.06, TR.rail], [x, 1.05, TR.rail]], 0.025, { segs: 6 });
   if (p.gap) for (const x of [0.02, r0]) g.tube([[x, 0.06, TR.rail], [x, 1.08, TR.rail]], 0.035, { segs: 6 });
   g.tube([[r0, 0.55, TR.rail], [L, 0.55, TR.rail]], 0.012, { segs: 5 });
-  g.mat('cast', C.brass, { rough: -0.2 }); g.tube([[r0, 1.06, TR.rail], [L, 1.06, TR.rail]], 0.032, { segs: 8 });
+  g.mat('wood', '#6b4a2f', { rough: -0.05 }); g.tube([[r0, 1.06, TR.rail], [L, 1.06, TR.rail]], 0.034, { segs: 8 });
   // a door in the outer wall: a stair to the decks above and below
   if (p.door) {
     const dx = 10;
@@ -260,7 +267,7 @@ defineProp('mile.tap', (g) => {
 // Drawn along z at x = 0, spanning the lanes. Front of the clock faces +z here; the scope turns it.
 defineProp('mile.gantry', (g, p) => {
   const z0 = TR.l0 - 0.15, z1 = TR.l1 + 0.12, top = 3.18;
-  g.mat('cast', p.col || C.red, { rough: -0.1 });
+  g.mat('paint', p.col || C.red, { rough: 0.05 });
   for (const z of [z0, z1]) { g.box(-0.09, 0, z - 0.09, 0.09, top, z + 0.09, { bevel: 0.015 }); g.box(-0.16, 0, z - 0.16, 0.16, 0.12, z + 0.16, { bevel: 0.02 }); }
   g.box(-0.1, top - 0.2, z0, 0.1, top, z1, { bevel: 0.015 });
   // a chequer band on the beam, the lane numbers' little brass plates

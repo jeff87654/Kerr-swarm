@@ -18,7 +18,7 @@ import { sign } from '../world/signs.js';
 import { deckRadius } from '../core/drum.js';
 import { Rng } from '../core/util.js';
 import { PI, REGION, HALL, GAL, ROWS, LANES, STREET, RACK_D, RX0, RX1, RACK_TOP, HALL_CLIP, C, PACK, LOBBY, BELT_X0, TOMATO, TEA, COOL, TANKS, FAR,
-  bays, say, toast, find, tick, runX, lineX, gardenAtlas, glyphWord } from './lm_keel_garden_props.js';
+  BUILD, bays, say, toast, find, tick, runX, lineX, gardenAtlas, glyphWord } from './lm_keel_garden_props.js';
 import { buildRooms } from './lm_keel_garden_rooms.js';
 
 const H = HALL.h;
@@ -37,10 +37,11 @@ export const place = {
   ],
   async build(game) {
     const t0 = performance.now();
+    BUILD.wait = 0;
     const W = game.world;
     const f = W.frame('keel-garden', deckRadius(6), 0.9, 1460);
     const s = W.scope('keel-garden', f);
-    const tA = performance.now(); const R = gardenAtlas(game); console.log('[lm-keel-garden] atlas ' + (performance.now() - tA).toFixed(0) + ' ms');
+    const R = gardenAtlas(game);
     const r = new Rng(6146);
     const BAYS = bays();
     const lifts = planLifts(r, BAYS);
@@ -64,10 +65,10 @@ export const place = {
 
     let left = s.finish(80);
     while (left) { await tick(game); left = s.finish(80); }
-    game.spawns['keel-garden'] = { frame: f, x: LOBBY.x0 + 3.2, y: 0, z: 14, yaw: PI / 2 };
+    game.spawns['keel-garden'] = { frame: f, x: LOBBY.x0 + 3.2, y: 0, z: 15.5, yaw: PI / 2 };
     game.spawns['keel-garden-far'] = { frame: f, x: FAR.x1 - 1.6, y: 0, z: -3, yaw: -PI / 2 };
     mark('done');
-    console.log('[lm-keel-garden] built in ' + (performance.now() - t0).toFixed(0) + ' ms (' + T.join(', ') + ')');
+    console.log('[lm-keel-garden] built in ' + (performance.now() - t0).toFixed(0) + ' ms, ' + (performance.now() - t0 - BUILD.wait).toFixed(0) + ' ms of it working (' + T.join(', ') + ')');
   },
 };
 
@@ -230,8 +231,8 @@ function glassWalk(game, s, f, R, r) {
   runX(X0, X1, 12, (a, b) => s.structure(() => { g.mat('tile', '#2f6f73'); g.box(a, 4.45, Z0 + 0.15, b, 4.75, Z0 + 0.19, { faces: 'ZyY' }); g.mat('wood', '#5b4636'); g.box(a, 1.05, Z0 + 0.15, b, 1.12, Z0 + 0.2, { faces: 'ZY' }); }));
   // a line of small lamps along the top of the plaster and another high under the roof: they trace the curve
   runX(X0, X1, 8, (a, b) => s.structure(() => {
-    g.mat('diffuser', '#ffc890', { emissive: 4 }); g.box(a + 3.9, 4.8, Z0 + 0.15, a + 4.1, 4.9, Z0 + 0.2, { faces: 'Zy' });
-    g.mat('diffuser', '#ff8ac8', { emissive: 4 }); g.box(a + 3.85, H - 0.9, Z0 + 0.15, a + 4.15, H - 0.8, Z0 + 0.2, { faces: 'Zy' });
+    g.mat('diffuser', '#ffc890', { emissive: 6 }); for (const x of [a + 1.9, a + 5.9]) g.box(x, 4.84, Z0 + 0.15, x + 0.24, 4.96, Z0 + 0.22, { faces: 'Zy' });
+    g.mat('diffuser', '#ff9ad0', { emissive: 7 }); for (const x of [a + 1.85, a + 5.85]) g.box(x, H - 0.95, Z0 + 0.15, x + 0.3, H - 0.8, Z0 + 0.22, { faces: 'Zy' });
     g.mat('cast', '#2a2830'); g.box(a, H - 0.75, Z0 + 0.15, b, H - 0.65, Z0 + 0.3, { faces: 'ZyY' });
   }));
   // the far end closes over the far lobby's door

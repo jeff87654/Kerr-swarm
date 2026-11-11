@@ -70,7 +70,7 @@ function lobby(game, s, f) {
   sign(s, WAY, L.x1 - 0.1, 1.7, -38.6, { face: 'x', w: 1.3, h: 0.9 });
   s.interact({ x: L.x0 + 0.8, y: 1.4, z: -38.3, radius: 1.4, prompt: 'Read the deck plate', onUse(gm) {
     card(gm, 'A brass plate by the berths', 'Deck 340', 'Ring Three, the High decks. 1,644 metres from the axis, so 0.55 of a g: you weigh a little over half what you weighed on the glide platform, and a fall here carries a little over half the hurt. That is why the old come up. The Hollow\'s floor is thirty-six decks over your head.');
-    custom(gm, 'The High decks');
+    custom(gm, 'Out and up');
   } });
   s.interact({ x: L.x1 - 0.8, y: 1.4, z: -38.6, radius: 1.4, prompt: 'Read the way board', onUse(gm) { say(gm, { name: 'This way', colour: '#FFD9A0' }, ['The Simmer, straight on. Second Pot and the Up Table off the Simmer\'s anti side; Potherb Lane off its spinward side, and at the lane\'s end the Carver and the Lake Stair.', 'Chalked at the bottom: ramen Thursday, the long table on 341, guests eat free.']); } });
   // light: two panels, the berths' own glow, and the hall's light through the arch
@@ -99,7 +99,7 @@ function teaRoom(game, s, f) {
   room(s, { x0: T.x0, z0: T.z0, x1: T.x1, z1: T.z1, h: T.h, floor: ['planks', '#9a6a42'], ceil: ['paint', '#e8d8b8'], wall: { tint: '#e3b46a', mat: 'plaster', dado: { h: 1.0, mat: 'flute', tint: PAL.plum }, skirt: PAL.dark }, open: { e: false }, glow: { sky: '#ffd6a0', ground: '#9a6a42', power: 0.3 } });
   s.structure(() => {
     g.mat('wood', PAL.dark); for (let z = T.z0 + 2; z < T.z1; z += 2.6) g.box(T.x0 + 0.08, T.h - 0.2, z - 0.09, T.x1 - 0.08, T.h, z + 0.09, { bevel: 0.012 });
-    g.mat('tile', PAL.coral); g.box(T.x0 + 0.08, 1.0, T.z0 + 0.08, T.x0 + 0.1, 1.06, T.z1 - 0.08, { faces: 'X' });
+    g.mat('tile', PAL.coral); g.box(T.x0 + 0.16, 1.0, T.z0 + 0.16, T.x0 + 0.18, 1.06, T.z1 - 0.08, { faces: 'X' });
   });
   // felt baffles, plum and ochre, between the beams
   s.deco(() => { for (let k = 0; k < 5; k++) { g.mat('felt', [PAL.ochre, PAL.plum, PAL.teal, PAL.coral, PAL.ochre][k]); const z = T.z0 + 3.3 + k * 2.6; g.sheet([T.x0 + 0.6, T.h - 0.22, z], [T.x1 - 0.6, T.h - 0.22, z], [T.x1 - 0.6, T.h - 0.62, z], [T.x0 + 0.6, T.h - 0.62, z], { nu: 8, nv: 2, sag: 0.06 }); } });
@@ -113,11 +113,11 @@ function teaRoom(game, s, f) {
   const glz = [PAL.cream, PAL.sea, PAL.ochre, PAL.coral, '#e8d9b8', PAL.plum];
   for (let i = 0; i < 6; i++) prop(s, 'baths.teapot', T.x0 + 1.4, 0.92, -14.6 + i * 0.22, 0.5 * i, { glaze: glz[i] });
   for (const shz of [-17.6, -10.4]) {
-    prop(s, 'shelving', T.x0 + 0.2, 0, shz, PI / 2, { w: 1.8, h: 2.1, d: 0.32, shelves: 4, wood: '#6b4a2f' });
-    for (let r = 0; r < 4; r++) for (let i = 0; i < 6; i++) prop(s, i % 3 === 0 ? 'baths.teapot' : 'cup', T.x0 + 0.22, 0.105 + r * 0.495, shz - 0.7 + i * 0.28, i * 0.6, i % 3 === 0 ? { glaze: glz[(r + i) % 6] } : { glaze: glz[(r * 2 + i) % 6], lid: glz[(r + i + 3) % 6] });
+    prop(s, 'shelving', T.x0 + 0.36, 0, shz, PI / 2, { w: 1.8, h: 2.1, d: 0.32, shelves: 4, wood: '#6b4a2f' });
+    for (let r = 0; r < 4; r++) for (let i = 0; i < 6; i++) prop(s, i % 3 === 0 ? 'baths.teapot' : 'cup', T.x0 + 0.38, 0.105 + r * 0.495, shz - 0.7 + i * 0.28, i * 0.6, i % 3 === 0 ? { glaze: glz[(r + i) % 6] } : { glaze: glz[(r * 2 + i) % 6], lid: glz[(r + i + 3) % 6] });
   }
-  sign(s, { kind: 'chalk', title: 'Second Pot', lines: ['Long-pour tea · 0.15', 'A pot for the table · 0.25', 'Ginger biscuit · 0.05', 'Broth · free', 'Guests · on the house'] }, T.x0 + 0.1, 2.15, -14, { face: 'X', w: 0.9, h: 1.0 });
-  sign(s, { kind: 'letters', text: 'Second Pot', palette: [PAL.plum] }, T.x0 + 0.1, 2.95, -14, { face: 'X', w: 2.2, h: 0.36 });
+  sign(s, { kind: 'chalk', title: 'Second Pot', lines: ['Long-pour tea · 0.15', 'A pot for the table · 0.25', 'Ginger biscuit · 0.05', 'Broth · free', 'Guests · on the house'] }, T.x0 + 0.18, 2.15, -14, { face: 'X', w: 0.9, h: 1.0 });
+  sign(s, { kind: 'letters', text: 'Second Pot', palette: [PAL.plum] }, T.x0 + 0.18, 2.95, -14, { face: 'X', w: 2.2, h: 0.36 });
   // tables by the glass and in the room, chairs with backs, lidded cups, a game of cards half played
   const tables = [[-17.2, -19.6], [-17.2, -15.0], [-17.2, -10.6], [-21.6, -18.2], [-21.6, -12.0], [-24.6, -8.4]];
   tables.forEach((tb, k) => {
@@ -143,7 +143,7 @@ function teaRoom(game, s, f) {
   sign(s, { kind: 'label', text: 'Second Pot · tea', ink: '#f1e6c9' }, -14.86, 2.62, -7.9, { face: 'X', w: 1.1, h: 0.16 });
   // the yearly notes: a rack of pigeonholes on the front wall, cards in most of them
   s.furniture(() => {
-    const z = T.z0 + 0.1, x0 = -26.5, x1 = -23.3, y0 = 1.0, y1 = 2.2;
+    const z = T.z0 + 0.17, x0 = -26.5, x1 = -23.3, y0 = 1.0, y1 = 2.2;
     g.mat('wood', '#5a3d28'); g.box(x0, y0, z, x1, y1, z + 0.26, { faces: 'Z' });
     g.box(x0 - 0.05, y0 - 0.05, z, x1 + 0.05, y0, z + 0.28, { bevel: 0.008 }); g.box(x0 - 0.05, y1, z, x1 + 0.05, y1 + 0.05, z + 0.28, { bevel: 0.008 });
     for (let i = 0; i <= 8; i++) { const x = x0 + (x1 - x0) * i / 8; g.box(x - 0.012, y0, z, x + 0.012, y1, z + 0.26); }
@@ -151,14 +151,14 @@ function teaRoom(game, s, f) {
     const cc = [PAL.paper, '#cfe0f0', '#f2d9c0', PAL.paper, '#e8e0f0', '#d9ecd0'];
     for (let i = 0; i < 8; i++) for (let j = 0; j < 4; j++) { if ((i * 3 + j * 5) % 7 === 0) continue; const x = x0 + (x1 - x0) * (i + 0.5) / 8, y = y0 + (y1 - y0) * j / 4 + 0.012; g.mat('paper', cc[(i + j) % 6]); g.box(x - 0.14, y, z + 0.06, x + 0.14, y + 0.2 - (i % 2) * 0.04, z + 0.075 + (j % 2) * 0.02); }
   });
-  s.solid(-26.55, 0.95, T.z0 + 0.08, -23.25, 2.25, T.z0 + 0.38);
-  sign(s, { kind: 'label', text: 'Yearly notes · read them here, put them back', ink: '#2a2218' }, -24.9, 2.42, T.z0 + 0.11, { face: 'Z', w: 2.3, h: 0.16, board: false });
+  s.solid(-26.55, 0.95, T.z0 + 0.16, -23.25, 2.25, T.z0 + 0.45);
+  sign(s, { kind: 'label', text: 'Yearly notes · read them here, put them back', ink: '#2a2218' }, -24.9, 2.42, T.z0 + 0.18, { face: 'Z', w: 2.3, h: 0.16, board: false });
   prop(s, 'updecks.armchair', -24.9, 0, -20.4, PI, { cloth: PAL.coral }, { spot: { tags: ['tea', 'read'] } });
   s.interact({ x: -24.9, y: 1.5, z: T.z0 + 0.9, radius: 1.6, prompt: 'Read one of the yearly notes', onUse(gm) {
     const k = (gm.flags.upNotes || 0) % NOTES.length; gm.flags.upNotes = k + 1;
     sfx(gm, 'paper', f, -24.9, 1.6, T.z0 + 0.3);
     card(gm, NOTES[k][0], 'The yearly notes', NOTES[k][1] + ' (Once a year, by hand, from each family whose child carries one of the dead\'s shares, to that person\'s family. Up here they are read over tea, and then aloud.)');
-    custom(gm, 'Yearly notes');
+    custom(gm, 'A naming');
   } });
   // ordering tea
   s.interact({ x: T.x0 + 2.4, y: 1.2, z: -14, radius: 1.8, kind: 'talk', prompt: 'Ask Roza for tea', async onUse(gm) {
@@ -203,7 +203,7 @@ function upTable(game, s, f) {
   room(s, { x0: T.x0, z0: T.z0, x1: T.x1, z1: T.z1, h: T.h, floor: ['planks', '#7a5233'], ceil: ['paint', '#e6d4b0'], wall: { tint: '#ecd9b2', mat: 'plaster', dado: { h: 1.1, mat: 'flute', tint: PAL.deep }, skirt: PAL.dark }, open: { e: false }, glow: { sky: '#ffd8a8', ground: '#7a5233', power: 0.3 } });
   s.structure(() => {
     g.mat('wood', PAL.dark); for (let x = T.x0 + 2.2; x < T.x1; x += 2.75) g.box(x - 0.1, T.h - 0.24, T.z0 + 0.08, x + 0.1, T.h, T.z1 - 0.08, { bevel: 0.014 });
-    g.mat('tile', PAL.ochre); g.box(T.x0 + 0.08, 1.1, T.z0 + 0.08, T.x1 - 0.08, 1.16, T.z0 + 0.1, { faces: 'Z' }); g.box(T.x0 + 0.08, 1.1, T.z1 - 0.1, T.x1 - 0.08, 1.16, T.z1 - 0.08, { faces: 'z' });
+    g.mat('tile', PAL.ochre); g.box(T.x0 + 0.16, 1.1, T.z0 + 0.16, T.x1 - 0.08, 1.16, T.z0 + 0.18, { faces: 'Z' }); g.box(T.x0 + 0.16, 1.1, T.z1 - 0.18, T.x1 - 0.08, 1.16, T.z1 - 0.08, { faces: 'z' });
     // a runner down the room under the table, plum with an ochre border
     g.mat('motif', PAL.plum); g.box(-34, 0.004, 8.4, -18.4, 0.012, 11.6, { faces: 'Y' });
     g.mat('weave', PAL.ochre); g.box(-34, 0.004, 8.3, -18.4, 0.014, 8.45, { faces: 'Y' }); g.box(-34, 0.004, 11.55, -18.4, 0.014, 11.7, { faces: 'Y' });
@@ -211,7 +211,7 @@ function upTable(game, s, f) {
   // felt hangings on the long walls, in Chervil's loud colours
   s.deco(() => {
     const cols = [PAL.coral, PAL.ochre, PAL.teal, PAL.plum, '#8a2f3c', PAL.ochre];
-    for (let k = 0; k < 6; k++) { const x0 = T.x0 + 1.6 + k * 3.4; for (const sz of [-1, 1]) { const z = sz < 0 ? T.z0 + 0.1 : T.z1 - 0.1; g.mat('felt', cols[(k + (sz > 0 ? 3 : 0)) % 6]); g.sheet([x0, 3.2, z], [x0 + 1.6, 3.2, z], [x0 + 1.6, 1.4, z], [x0, 1.4, z], { nu: 5, nv: 4, ripple: 0.02, rippleN: 6 }); } }
+    for (let k = 0; k < 6; k++) { const x0 = T.x0 + 1.6 + k * 3.4; for (const sz of [-1, 1]) { const z = sz < 0 ? T.z0 + 0.2 : T.z1 - 0.2; g.mat('felt', cols[(k + (sz > 0 ? 3 : 0)) % 6]); g.sheet([x0, 3.2, z], [x0 + 1.6, 3.2, z], [x0 + 1.6, 1.4, z], [x0, 1.4, z], { nu: 5, nv: 4, ripple: 0.02, rippleN: 6 }); } }
   });
   // the long table: fourteen metres of it, the clerk's end by the board
   s.furniture(() => {
@@ -243,9 +243,9 @@ function upTable(game, s, f) {
   });
   // the board of the year's moves up, on the end wall over the clerk
   const BOARD = { kind: 'board', title: 'Up this week · Ring Three', lines: MOVES, palette: [PAL.deep, '#f2e8d2', PAL.ochre] };
-  sign(s, BOARD, T.x0 + 0.1, 2.15, 10, { face: 'X', w: 3.4, h: 1.75 });
-  sign(s, { kind: 'plate', text: 'This year', lines: ['this table: 3,118 came up', 'Ring Three: 162,400', 'asked for another year: 1 in 9'] }, T.x0 + 0.1, 0.95, 10, { face: 'X', w: 0.9, h: 0.42 });
-  sign(s, { kind: 'letters', text: 'The Up Table', palette: [PAL.ochre] }, T.x0 + 0.1, 3.2, 10, { face: 'X', w: 2.6, h: 0.36 });
+  sign(s, BOARD, T.x0 + 0.18, 2.15, 10, { face: 'X', w: 3.4, h: 1.75 });
+  sign(s, { kind: 'plate', text: 'This year', lines: ['this table: 3,118 came up', 'Ring Three: 162,400', 'asked for another year: 1 in 9'] }, T.x0 + 0.18, 0.95, 10, { face: 'X', w: 0.9, h: 0.42 });
+  sign(s, { kind: 'letters', text: 'The Up Table', palette: [PAL.ochre] }, T.x0 + 0.18, 3.2, 10, { face: 'X', w: 2.6, h: 0.36 });
   // the families' chairs: a row along each long wall, a little apart from the table
   for (let i = 0; i < 8; i++) {
     const cl = [PAL.coral, PAL.teal, PAL.ochre, PAL.plum][i % 4];
@@ -256,15 +256,15 @@ function upTable(game, s, f) {
   prop(s, 'baths.fernpot', -16.0, 0, T.z0 + 0.6, 1.1, { pot: PAL.teal, size: 1.1 });
   prop(s, 'updecks.sticks', -16.2, 0, 12.4, 0.5, { n: 6, seed: 4 });
   // the notice by the door
-  const RULE = { kind: 'notice', title: 'Who comes up', lines: ['Offered the year you turn ninety-five', 'Sooner for knees and hips: the clinic signs', 'Couples come up together, on the elder\'s year', 'Your place below goes to your heir that day', 'The drum lends you a flat up here for life', 'Say no as often as you like', 'Lunch after, at the long table'], palette: ['#f2e8d2', PAL.ink, PAL.coral] };
+  const RULE = { kind: 'notice', title: 'Who comes up', lines: ['Offered the year you turn ninety-five', 'Sooner for knees and hips: the clinic signs', 'Couples come up together, on the elder\'s year', 'Your heir moves into your place below that day','The drum lends you a flat up here for life', 'Say no as often as you like', 'Lunch after, at the long table'], palette: ['#f2e8d2', PAL.ink, PAL.coral] };
   sign(s, RULE, -15.3, 1.55, 12.6, { face: 'x', w: 0.62, h: 0.86 });
   s.interact({ x: -16.1, y: 1.4, z: 12.6, radius: 1.3, prompt: 'Read the notice by the door', onUse(gm) {
     say(gm, { name: 'Who comes up', colour: '#FFD9A0' }, [
       'A flat on the High decks is offered the year you turn ninety-five, sooner for knees and hips if the clinic signs for them. Couples come up together, on the elder\'s year.',
-      'The day you come up, your place below goes to your heir: you see them have it. The drum lends you a flat up here for life, from the Margin, and takes it back after.',
+      'The day you come up, your heir moves into your place below: it stays yours while you live, and you see them have the rooms. The drum lends you a flat up here for life, from the Margin, and takes it back after.',
       'Say no as often as you like. About one in nine asks for another year, most of them to keep cooking. Lunch after, at the long table.',
     ]);
-    custom(gm, 'Coming up');
+    custom(gm, 'A place');
   } });
   s.interact({ x: T.x0 + 1.4, y: 1.6, z: 10, radius: 1.8, prompt: 'Read the board of who came up', onUse(gm) {
     say(gm, { name: 'Up this week · Ring Three', colour: '#FFD9A0' }, [MOVES.slice(0, 4).join('. ') + '.', MOVES.slice(4).join('. ') + '.', 'Under it, a brass plate: this table, this year, 3,118 came up; Ring Three, 162,400. One in nine asked for another year.']);
@@ -286,7 +286,7 @@ function upTable(game, s, f) {
   } });
   // lamps low over the table, sconces by the board
   for (const x of [-31, -27, -23, -19.6]) lamp(s, 'globe', x, 1.95, 10, { r: 0.2, drop: T.h - 2.0, clip, K: 2650, power: 0.95 });
-  for (const z of [7.6, 12.4]) lamp(s, 'sconce', T.x0 + 0.1, 2.3, z, { face: 'X', clip, K: 2700, power: 0.7 });
+  for (const z of [7.6, 12.4]) lamp(s, 'sconce', T.x0 + 0.18, 2.3, z, { face: 'X', clip, K: 2700, power: 0.7 });
   lamp(s, 'sconce', -15.2, 2.5, 7.0, { face: 'x', clip, K: 2700, power: 0.6 });
   // people and walkways
   group(s, -17.6, 6.2, 3, 0.6, ['uptable']); group(s, -21.8, 14.6, 2, 0.5, ['uptable']);
@@ -302,10 +302,10 @@ function upTable(game, s, f) {
 // whatever garden is behind it
 // ---------------------------------------------------------------------------------------------------------------
 const DOORX = []; for (let i = 0; i < 10; i++) DOORX.push(18.6 + i * 4.6);
-const NAMES_N = ['Marsh', 'Okonkwo', 'Lindqvist', 'Tamura', 'Garden open', 'Abara', 'Fonseca', 'Kowal', 'Rahim', 'Delacroix'];
+const NAMES_N = ['Marsh', 'Okonkwo', 'Lindqvist', 'Tamura', 'Petrov', 'Abara', 'Fonseca', 'Kowal', 'Rahim', 'Delacroix'];
 const NAMES_S = ['Haddad', 'Pereira', 'Novak and Ito', 'Mensah', 'Byrne', 'Sorensen', 'Achebe', 'Quint', 'Yilmaz', 'Oduya'];
 // how bright the garden behind each door is (0 = none kept), and its light
-const GLOW_N = [0.2, 2.6, 0.0, 1.2, 0, 0.5, 3.0, 0.0, 1.6, 0.3];
+const GLOW_N = [0.2, 2.6, 0.0, 1.2, 0.8, 0, 3.0, 0.0, 1.6, 0.3];
 const GLOW_S = [1.8, 0.0, 2.4, 0.4, 0.0, 3.2, 0.9, 0.2, 0.0, 2.0];
 function lane(game, s, f) {
   const g = s.g, L = LANE, clip = [L.x0, -0.2, L.z0 - 0.1, L.x1 + 0.2, L.h + 0.1, L.z1 + 0.1];
@@ -331,7 +331,7 @@ function lane(game, s, f) {
   const doorCols = [PAL.coral, PAL.deep, PAL.ochre, PAL.plum, '#3f6f8a', '#6b7a3a', '#8a2f3c', PAL.teal, '#c9a46a', PAL.coral];
   for (const sz of [-1, 1]) DOORX.forEach((dx, i) => {
     const north = sz < 0, name = north ? NAMES_N[i] : NAMES_S[i], glow = north ? GLOW_N[i] : GLOW_S[i];
-    if (north && i === 4) return;                 // the open door is the garden's (below)
+    if (north && i === 5) return;                 // the open door is the garden's (below)
     const z = sz * (L.z1 - 0.08), fz = -sz;    // the wall face, and the way the door faces (into the lane)
     s.structure(() => {
       g.mat('wood', PAL.dark); g.box(dx - 0.55, 0, Math.min(z, z + fz * 0.06), dx - 0.47, 2.2, Math.max(z, z + fz * 0.06), { bevel: 0.008 }); g.box(dx + 0.47, 0, Math.min(z, z + fz * 0.06), dx + 0.55, 2.2, Math.max(z, z + fz * 0.06), { bevel: 0.008 });
@@ -367,7 +367,7 @@ function lane(game, s, f) {
   roomGlow(s, L.x0, 0, L.z0, L.x1, L.h, L.z1, { sky: '#ffd8a8', ground: '#8a6240', power: 0.16 });
   s.interact({ x: 27.8, y: 0.6, z: -1.0, radius: 1.3, prompt: 'Look at the light under the door', onUse(gm) {
     toast(gm, 'White light, almost hard, a lamp strong enough to grow under. Somebody in there keeps a garden lit like an overcast day: four square metres of it costs about 1.9 kays a day, a tenth of a wallet. You can tell who keeps a bright garden by the light under the door.');
-    custom(gm, 'Bright gardens');
+    custom(gm, 'The Garden');
   } });
   s.interact({ x: 32.6, y: 0.6, z: 1.0, radius: 1.3, prompt: 'Look at the dark under the door', onUse(gm) {
     toast(gm, 'No light under this one at all. A note pinned at eye height: Gone to my granddaughter\'s naming, back Thursday, water the fern if you are passing. A fern, outside, slightly dry.');
@@ -393,7 +393,7 @@ function garden(game, s, f) {
   const g = s.g, G = GARDEN, clip = [G.x0 - 0.05, -0.2, G.z0 - 0.05, G.x1 + 0.05, 2.75, G.z1 + 0.9];
   floor(s, G.x0, G.z0, G.x1, G.z1 - 0.08, 0, 'tile', '#b9a07a');
   ceiling(s, G.x0, G.z0, G.x1, G.z1, 2.7, 'paint', '#f0ecdf');
-  const gw = { mat: 'plaster', tint: '#eef0e2', dado: { h: 0.6, mat: 'tile', tint: '#6b7a3a' }, skirt: false };
+  const gw = { mat: 'plaster', tint: '#d9dcc4', dado: { h: 0.6, mat: 'tile', tint: '#6b7a3a' }, skirt: false };
   wall(s, G.x0, G.z0, G.x1, G.z0, 0, 2.7, gw);
   wall(s, G.x0, G.z0, G.x0, G.z1 - 0.08, 0, 2.7, gw);
   wall(s, G.x1, G.z0, G.x1, G.z1 - 0.08, 0, 2.7, gw);
@@ -419,11 +419,16 @@ function garden(game, s, f) {
   });
   s.solid(G.x0 + 0.1, 0, G.z0 + 0.1, G.x1 - 0.1, 0.55, G.z0 + 0.8);
   s.detail(() => {
-    g.mat('leafA', '#ffffff', { sway: 0.4 });
-    for (let k = 0; k < 26; k++) { const x = G.x0 + 0.45 + (k * 0.37) % 3.1, y = 0.65 + ((k * 0.61) % 1.6), a = k * 1.7; g.card(x, y, G.z0 + 0.42 + (k % 3) * 0.06, 0.32, 0.36, a, { tilt: 0.3 }); }
-    g.mat('glaze', '#c8321e', { rough: -0.35 }); for (const t of [[0.9, 1.2], [1.0, 1.05], [1.85, 1.5], [2.7, 0.95], [2.8, 1.12], [3.3, 1.7]]) g.ball(G.x0 + t[0], t[1], G.z0 + 0.5, 0.045, 0.042, 0.045, { segs: 10, rings: 7 });
-    g.mat('glaze', '#e0902a', { rough: -0.35 }); g.ball(G.x0 + 1.9, 1.3, G.z0 + 0.52, 0.04, 0.038, 0.04, { segs: 10, rings: 7 });
-    g.mat('glaze', '#6b9a3a', { rough: -0.3 }); g.ball(G.x0 + 2.2, 1.75, G.z0 + 0.48, 0.035, 0.033, 0.035, { segs: 8, rings: 6 });
+    // four vines, one up each cane: a stem that wanders, leaves in pairs along it, trusses of fruit hanging off it
+    const fruit = ['#c8321e', '#d2401f', '#b82a1a', '#e0902a', '#6b9a3a'];
+    for (let c = 0; c < 4; c++) {
+      const cx = G.x0 + 0.6 + c * 0.9, zc = G.z0 + 0.42, pts = [];
+      for (let k = 0; k <= 12; k++) { const y = 0.52 + k * 0.15; pts.push([cx + 0.04 * k / 12 + 0.07 * Math.sin(k * 1.3 + c), y, zc + 0.05 * Math.cos(k * 1.1 + c)]); }
+      g.mat('bark', '#6b8a3a'); g.tube(pts, 0.012, { segs: 5 });
+      g.mat('leafA', '#e8ffd8', { sway: 0.45 });
+      for (let k = 1; k <= 12; k++) { const p = pts[k]; for (const sd of [-1, 1]) g.card(p[0] + sd * 0.12, p[1] - 0.05, p[2] + 0.04 * sd, 0.36, 0.38, sd * 0.9 + k * 0.4 + c, { tilt: 0.55 }); }
+      for (const k of [3, 5, 8]) { if ((k + c) % 3 === 0) continue; const p = pts[k]; for (let n = 0; n < 3; n++) { g.mat('glaze', fruit[(c + k + n) % (k > 6 ? 5 : 3)], { rough: -0.35 }); g.ball(p[0] + 0.08 + n * 0.05, p[1] - 0.1 - n * 0.06, p[2] + 0.1, 0.045, 0.042, 0.045, { segs: 10, rings: 7 }); } }
+    }
   });
   for (let k = 0; k < 4; k++) prop(s, 'plant', G.x0 + 0.5 + k * 0.32, 0.53, G.z0 + 0.7, k, { pot: '#8a6d3b', kind: 'fine', size: 0.32, seed: k + 20, leaf: '#d8f0a0' }, { noCollide: true });
   // a chair, a little table with a saucer of seed twists, the can
@@ -443,11 +448,11 @@ function garden(game, s, f) {
       'Four square metres, lit like the Hollow under cloud, twelve hours a day. One point nine kays a day. I eat less light than I used to and I spend it here.',
       'Take a twist of seed from the saucer. It came up from my own place downstairs, from my mother\'s plant. Plant it anywhere with a lamp.',
     ]);
-    if (!gm.flags.upSeed) { gm.flags.upSeed = true; if (gm.inv && gm.inv.give) gm.inv.give('tomato-seed'); toast(gm, 'A twist of tomato seed', 'gain'); }
-    custom(gm, 'Bright gardens');
+    if (!gm.flags.upSeed) { gm.flags.upSeed = true; toast(gm, 'A twist of tomato seed', 'gain'); }
+    custom(gm, 'The Garden');
   } });
   s.zoneBox({ id: 'up-decks-garden', place: 'up-decks', box: [G.x0, -0.5, G.z0, G.x1, 2.7, G.z1 - 0.1], name: 'A garden behind a door', sub: 'Potherb Lane · four square metres', ambience: 'flat', reverb: 'room' });
-  s.path([[G.door, -1.9], [G.door, -2.8], [G.x1 - 0.9, G.z1 - 1.9]], { width: 0.9 });
+  s.path([[G.door, -1.9], [G.door, -2.5]], { width: 0.9 });
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -479,11 +484,13 @@ function foot(game, s, f) {
   sign(s, { kind: 'notice', title: 'The Carver', lines: ['This year: Ama Okafor, 119', 'the eldest on deck 340', 'Next to sit in it: whoever', 'is eldest on Booking Day', 'Kept two hundred years', 'mended in three woods'], palette: ['#f2e8d2', PAL.ink, PAL.coral] }, 70.95, 1.25, -6.6, { face: 'Z', w: 0.42, h: 0.58 });
   s.structure(() => { g.mat('wood', PAL.dark); g.tube([[70.95, 0.16, -6.62], [70.95, 0.94, -6.62]], 0.012, { segs: 5 }); });
   lamp(s, 'spot', 69, 2.88, -7.4, { clip: [A.x0, -0.2, A.z0, A.x1, 3.0, A.z1 + 0.8], K: 2500, power: 0.7, cone: [40, 18] });
+  for (const x of [A.x0 + 0.25, A.x1 - 0.25]) lamp(s, 'sconce', x, 2.0, -7.6, { face: x < 69 ? 'X' : 'x', clip: [A.x0, -0.2, A.z0, A.x1, 3.0, A.z1 + 0.5], K: 2400, power: 0.45 });
+  roomGlow(s, A.x0, 0, A.z0, A.x1, 2.9, A.z1, { sky: '#ffcf9a', ground: '#8a2f3c', power: 0.22 });
   s.interact({ x: 69, y: 0.9, z: -6.2, radius: 1.6, prompt: 'The Carver is kept for the eldest this year', onUse(gm) {
     const c = CARVER[0];
     card(gm, 'A card on a little stand', 'The Carver', 'This year it is ' + c[0] + '\'s, ' + c[1] + '. ' + c[2] + ' Nobody else sits in it, not the clerk, not a great-grandchild, not a guest, however tired. Next Booking Day it goes to whoever is eldest on the deck that morning, and the year after to whoever follows.');
     if (gm.ui) gm.ui.subtitle('A man on the bench', 'Not you, wanderer. Not me either, and I am a hundred and six. Sit here with me instead; the bench is very good.', 7);
-    custom(gm, 'The Carver');
+
   } });
   // benches along the south wall, a rail, ferns, a stand of sticks
   prop(s, 'updecks.bench', 66.4, 0, F.z1 - 0.42, PI, { w: 2.2, wood: '#7a5233', cushion: PAL.coral }, { spot: { tags: ['stair', 'wait'] } });
@@ -491,6 +498,15 @@ function foot(game, s, f) {
   s.detail(() => { g.mat('cast', PAL.brass, { rough: -0.2 }); g.tube([[63.4, 0.9, F.z1 - 0.12], [74.6, 0.9, F.z1 - 0.12]], 0.022, { segs: 8 }); });
   prop(s, 'baths.fernpot', 74.3, 0, -5.3, 0.4, { pot: PAL.coral, size: 1.2 }); prop(s, 'baths.fernpot', 74.3, 0, 5.3, 1.4, { pot: PAL.ochre, size: 1.2 });
   prop(s, 'updecks.sticks', 63.8, 0, 5.2, 0, { n: 6, seed: 3 });
+  prop(s, 'rug', 69.2, 0, 0.4, 0, { w: 6.4, d: 3.4, a: PAL.plum, b: PAL.ochre });
+  // hangings over the benches, and the board of lamp-dawns
+  s.deco(() => { const cols = [PAL.teal, PAL.coral, PAL.ochre, PAL.plum]; for (let k = 0; k < 4; k++) { const x0 = 64.4 + k * 2.6; g.mat('felt', cols[k]); g.sheet([x0, 3.1, F.z1 - 0.2], [x0 + 2.0, 3.1, F.z1 - 0.2], [x0 + 2.0, 1.45, F.z1 - 0.19], [x0, 1.45, F.z1 - 0.19], { nu: 5, nv: 4, ripple: 0.02, rippleN: 7 }); } });
+  const DAWNS = { kind: 'board', title: 'Lamp-dawns this week', lines: ['Thursday · plain, 06:00', 'The Quiet · plain, 06:00', 'Booking Day · painted, from Candlewick', 'Lift waits from 05:20', 'Robes from the rail, back by noon', 'Go slowly. Everyone does.'], palette: [PAL.deep, '#f2e8d2', PAL.ochre] };
+  sign(s, DAWNS, F.x0 + 0.1, 1.75, -3.4, { face: 'X', w: 1.1, h: 0.85 });
+  s.interact({ x: F.x0 + 0.8, y: 1.5, z: -3.4, radius: 1.4, prompt: 'Read the board of lamp-dawns', onUse(gm) {
+    say(gm, { name: 'Lamp-dawns this week', colour: '#FFD9A0' }, ['Thursday, plain, six o\'clock. The Quiet, plain. Booking Day, painted, by a lamp-painter from Candlewick, a year in the making.', 'The lift waits from twenty past five. Robes from the rail, back by noon. Go slowly. Everyone does.']);
+  } });
+  prop(s, 'baths.robes', 74.85, 0, 3.6, -PI / 2, { w: 2.0, n: 5, seed: 9 });
   // the Lake Stair: double doors in deep blue, a plate, a lamp over them
   s.structure(() => {
     const x = F.x1 - 0.08, z0 = -1.4, z1 = 1.4;

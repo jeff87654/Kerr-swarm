@@ -34,6 +34,13 @@ export function movingMesh(s, draw, o = {}) {
   s.meshes.push(mesh);
   return { mesh, origin };
 }
+// A plain stand-in seen from far off (beyond `near` metres from (cx, cz)), when the real thing's furniture has faded out.
+export function farMesh(s, draw, cx, cz, near, radius) {
+  const mm = movingMesh(s, draw, { center: [cx, 2, cz], radius: radius || 40, far: 1400 });
+  const u = mm.mesh.userData; u.hidden = true;
+  s.every((dt, gm) => { const p = gm.player; u.hidden = !(p.frame === s.frame && Math.hypot(p.pos.x - cx, p.pos.z - cz) > near); });
+  return mm;
+}
 
 // ---------------------------------------------------------------------------------------------------------------
 // Apple trees. p: { seed (0..5), kind: 'old' (in leaf, small apples, a prop under the heavy limb, a mended tie) |
@@ -73,7 +80,7 @@ defineProp('lmhi.apple', (g, p) => {
   const cen = tips.filter((q, i) => i % 2 === 0);
   if (bloom) {
     g.mat('grass', '#c9d9b8', { rough: 0.2, shade: 'foliage' });
-    for (const c of cen) g.ball(c[0], c[1], c[2], 0.32, 0.24, 0.32, { segs: 6, rings: 4 });
+    for (const c of cen) g.ball(c[0], c[1], c[2], 0.2, 0.15, 0.2, { segs: 6, rings: 4 });
     g.mat('blossom', '#fff6f4', { sway: 0.35 });
     for (const c of tips) for (let k = 0; k < 6; k++) { const a = r.f(0, 6.283), d = r.f(0.05, 0.45), sz = r.f(0.32, 0.55); g.card(c[0] + Math.cos(a) * d, c[1] + r.f(-0.25, 0.2), c[2] + Math.sin(a) * d, sz, sz, a, { tilt: r.f(-0.6, 0.6) }); }
     g.mat('blossom', '#f6c9d2', { sway: 0.35 });
@@ -93,14 +100,10 @@ defineProp('lmhi.apple', (g, p) => {
   return { posts: [[0, 0, tr * 1.3, 0, H]], tier: 's' };
 });
 
-// A bare apple tree for the winter tents, with rime on its upper twigs and a row tag tied on. p: { seed, tag }
+// A bare apple tree for the winter tents, with a row tag tied on. p: { seed, tag }
 defineProp('lmhi.bare', (g, p) => {
   bareTree(g, 0, 0, 0, 'lmhi' + (p.seed || 0), 1);
-  const r = new Rng(hashStr('lmhi.bare.rime' + (p.seed || 0)));
-  // rime: small pale flecks along the upper twigs
-  g.mat('plain', '#eef5f8', { rough: 0.4 });
-  for (let k = 0; k < 26; k++) { const a = r.f(0, 6.283), d = r.f(0.35, 1.25), y = 1.75 + r.f(0, 1.1); g.box(Math.cos(a) * d - 0.025, y, Math.sin(a) * d - 0.025, Math.cos(a) * d + 0.025, y + 0.012, Math.sin(a) * d + 0.025); }
-  // the row tag: a white card on a string at shoulder height, numbered
+    // the row tag: a white card on a string at shoulder height, numbered
   g.mat('weave', '#d8cdb8'); g.tube([[0.09, 1.25, 0.0], [0.13, 1.18, 0.04]], 0.004, { segs: 3, caps: false });
   g.mat('paper', p.tag || '#f4efe2'); g.box(0.12, 1.08, 0.03, 0.2, 1.18, 0.035);
   return { posts: [[0, 0, 0.12, 0, 1.6]], tier: 's' };
@@ -205,7 +208,7 @@ function drawHull(g, o) {
   // the rope guides on the -z side: two iron brackets with sheaves, the rope running through them and back into the water
   g.mat('cast', IP.iron);
   for (const sx of [-1, 1]) { g.box(sx * 2.4 - 0.05, D - 0.1, -B - 0.12, sx * 2.4 + 0.05, D + 0.42, -B); g.push(); g.move(sx * 2.4, D + 0.3, -B - 0.2); g.rotX(Math.PI / 2); g.mat('cast', IP.brass); g.cyl(0, -0.03, 0, 0.11, 0.06, { segs: 12 }); g.pop(); g.mat('cast', IP.iron); }
-  g.mat('weave', '#c9b48a'); g.tube([[-L - 1.4, -0.35, -B - 0.25], [-2.4, D + 0.41, -B - 0.2], [2.4, D + 0.41, -B - 0.2], [L + 1.4, -0.35, -B - 0.25]], 0.025, { segs: 5 });
+  g.mat('weave', '#c9b48a'); g.tube([[-L - 2.2, -0.4, -B - 0.25], [-2.4, D + 0.41, -B - 0.2], [2.4, D + 0.41, -B - 0.2], [L + 2.2, -0.4, -B - 0.25]], 0.016, { segs: 4 });
   // a pole at the stern with a cloth lantern, and a coil of spare line
   g.mat('wood', '#4a3a2c'); g.tube([[-2.75, 0.07, 0.6], [-2.75, 1.7, 0.6]], 0.03, { segs: 5 });
   g.mat('cast', IP.brass); g.tube([[-2.75, 1.66, 0.6], [-2.55, 1.72, 0.6]], 0.012, { segs: 4 });
@@ -218,11 +221,11 @@ function drawHull(g, o) {
 // The splash, in pieces that rise and fall on their own: a column, a crown, a spray and a ring of foam (all drawn upward
 // from y = 0 at their own zero; the caller moves them).
 export function drawColumn(g) {
-  g.mat('plain', '#f2f8fa', { rough: -0.35, emissive: 0.25 });
+  g.mat('plain', '#ffffff', { rough: -0.35, emissive: 1.1 });
   g.lathe(0, 0, [[0.34, -3.0], [0.3, -1.6], [0.2, -0.6], [0.13, -0.2], [0.08, 0.0], [0.0, 0.1]], { segs: 12 });
 }
 export function drawCrown(g) {
-  g.mat('plain', '#eef6f8', { rough: -0.35, emissive: 0.2 });
+  g.mat('plain', '#ffffff', { rough: -0.35, emissive: 1.0 });
   for (let k = 0; k < 18; k++) {
     const a = k / 18 * 6.283, a1 = (k + 0.5) / 18 * 6.283, a2 = (k + 1) / 18 * 6.283, r0 = 0.55, r1 = 0.75;
     g.quad([Math.cos(a) * r0, -1.0, Math.sin(a) * r0], [Math.cos(a2) * r0, -1.0, Math.sin(a2) * r0], [Math.cos(a1) * r1, 0.0 + (k % 3) * 0.12, Math.sin(a1) * r1], [Math.cos(a1) * r1, 0.0 + (k % 3) * 0.12, Math.sin(a1) * r1], { double: true });
@@ -230,10 +233,10 @@ export function drawCrown(g) {
 }
 export function drawSpray(g) {
   const r = new Rng(hashStr('spray'));
-  g.mat('plain', '#f4fafc', { rough: -0.4, emissive: 0.3 });
+  g.mat('plain', '#ffffff', { rough: -0.4, emissive: 1.2 });
   for (let k = 0; k < 46; k++) { const a = r.f(0, 6.283), el = r.f(0.2, 1.4), d = r.f(0.5, 1.5); g.ball(Math.cos(a) * Math.cos(el) * d, Math.sin(el) * d * 0.8 - 0.6, Math.sin(a) * Math.cos(el) * d, 0.05, 0.07, 0.05, { segs: 5, rings: 3 }); }
 }
 export function drawFoam(g) {
-  g.mat('plain', '#e8f2f2', { rough: -0.2 });
-  g.lathe(0, 0, [[1.9, 0.0], [1.5, 0.04], [0.9, 0.05], [0.5, 0.04], [0.0, 0.03]], { segs: 18 });
+  g.mat('plain', '#f4fafa', { rough: -0.2, emissive: 0.5 });
+  g.lathe(0, 0, [[2.1, 0.0], [1.7, 0.05], [1.2, 0.07], [0.8, 0.05], [0.55, 0.02]], { segs: 20, capTop: false, capBottom: false });
 }

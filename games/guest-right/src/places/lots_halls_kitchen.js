@@ -39,6 +39,7 @@ export async function kitchen(C, tick) {
   g.mat('cast', '#2a2624'); for (const pl of plates) L.cyl(pl[0], 0.9, pl[1], 0.16, 0.012, { segs: 10 });
   g.mat('cast', '#ff6a2a', { emissive: 2.2 }); L.cyl(sear[0], 0.912, sear[1], 0.12, 0.003, { segs: 10 });
   s.flush({ tier: 's' });
+  if (tick) await tick();
   const pots = [];
   for (const pl of plates) {
     if (pl === sear) continue;
@@ -54,6 +55,7 @@ export async function kitchen(C, tick) {
   g.mat('cast', '#b8863b'); for (const p of [ip0 + 0.3, ip1 - 0.3]) L.tube([[p, 1.32, iq1 - 0.12], [p, H, iq1 - 0.12]], 0.055, { segs: 8 });
   for (const pl of pots) L.tube([[pl[0], 1.32, iq1 - 0.16], [pl[0], 1.32, iq1 - 0.26], [pl[0], 1.1, iq1 - 0.26]], 0.013, { segs: 5 });
   s.flush({ tier: 's' });
+  if (tick) await tick();
   // the hood, its strip of light, a rail of ladles
   g.mat('brushed', '#b9b3a8', { rough: -0.05 }); L.box(ra - 0.05, 2.15, iq1 - 1.1, rb + 0.05, 2.6, iq1, { bevel: 0.01 });
   g.mat('diffuser', '#fff1dc', { emissive: 3.2, lamp: true }); L.box(ra + 0.3, 2.14, iq1 - 1.0, rb - 0.3, 2.145, iq1 - 0.9, { faces: 'y' });
@@ -92,6 +94,7 @@ export async function kitchen(C, tick) {
   g.mat('wood', '#5a3826'); L.box(we, 1.3, sq0, we + wd * 0.03, 2.75, sq1, { bevel: 0.005 });
   s.flush({ tier: 's', cast: true });
   L.solid(Math.min(we, we + wd * 0.7), 0, sq0, Math.max(we, we + wd * 0.7), 0.92, sq1);
+  if (tick) await tick();
   // the lids on pegs, a gap for every lid out at the table
   g.mat('glaze', '#e9e1cf');
   for (let row = 0; row < 3; row++) for (let i = 0; i < Math.floor((sq1 - sq0 - 0.3) / 0.36); i++) {
@@ -113,6 +116,7 @@ export async function kitchen(C, tick) {
     for (let sh = 0; sh < 4; sh++) for (let i = 0; i < 4; i++) if ((sh + i + C.salt) % 5 !== 0) L.prop('lots-halls.crock', de + dd * 0.18, 0.105 + sh * 0.4975, qc - 0.42 + i * 0.28, i, { glaze: ['#8a5a3c', '#3a4a7a', '#2f6c66', '#c9a24a', '#b5653a', '#e9e1cf'][(sh * 4 + i) % 6], h: 0.2 + (i % 3) * 0.04, r: 0.08 });
   }
   for (let i = 0; i < 2; i++) L.prop('kitchen.sack', de + dd * (0.35 + (i % 2) * 0.5), 0, Math.min(iq1 - 0.35, q0 + 4.8 + Math.floor(i / 2) * 0.5), i, { col: i % 2 ? '#e2d8c2' : '#d8ccb0', band: i % 2 ? '#2f6f8f' : '#8c2c26' });
+  if (tick) await tick();
   // herbs on two shelves in the back corner, under a pink grow-lamp
   const ha = doorLo ? ip0 + 0.3 : ip1 - 3.0, hb = ha + 2.7;
   g.mat('wood', '#6b4a2f'); for (const y of [1.1, 1.75]) L.box(ha, y, iq1 - 0.34, hb, y + 0.035, iq1, { bevel: 0.006 });
@@ -120,6 +124,7 @@ export async function kitchen(C, tick) {
   g.mat('diffuser', '#ffd2f4', { emissive: 5 }); L.box(ha + 0.05, 2.375, iq1 - 0.27, hb - 0.05, 2.38, iq1 - 0.15, { faces: 'y' });
   s.flush({ tier: 's' });
   if (ha < ra - 0.2 || ha > rb + 0.2) for (const y of [1.135, 1.785]) for (let p = ha + 0.2; p < hb - 0.1; p += 0.34) L.prop('lots-halls.herbs', p, y, iq1 - 0.17, p * 3, { seed: Math.round(p * 7) % 3, pot: ['#b4643e', '#a9573a', '#c47a4e', '#2f6c66'][Math.round(p * 3) % 4], leaf: ['#cfe8a0', '#b8d890', '#e0f0b0'][Math.round(p * 5) % 3] });
+  if (tick) await tick();
   // a knife strip on the back wall past the range
   const kx = doorLo ? rb + 0.6 : ra - 2.0;
   g.mat('wood', '#3a2a1e'); L.box(kx, 1.5, iq1 - 0.03, kx + 1.4, 1.56, iq1, { bevel: 0.005 }); s.flush({ tier: 'd' });

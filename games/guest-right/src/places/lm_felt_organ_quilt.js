@@ -10,7 +10,7 @@ import { room } from '../world/kit2.js';
 import { prop } from '../world/props.js';
 import { sign } from '../world/signs.js';
 import { PI, QU, QRISE, CORR, KET, SDOOR, C, FELTS, say, toast, find, hour, day, tick, runX, wallRun, pickBy } from './lm_felt_organ_props.js';
-import { shadeHex, Rng } from '../core/util.js';
+import { shadeHex } from '../core/util.js';
 
 const CLIP = [QU.x0 - 0.1, -0.3, QU.z0 - 0.1, QU.x1 + 0.1, QU.h + 0.1, QU.z1 + 0.1];
 const SEATZ = (() => { const out = []; let z = -23.26; for (const n of [9, 13, 9]) { for (let i = 0; i < n; i++) out.push(z + 0.26 + i * 0.52); z += n * 0.52 + 1.2; } return out; })();
@@ -115,7 +115,7 @@ function seats(game, s) {
     for (let i = 0; i < SEATZ.length; i++) {
       const z = SEATZ[i], c = FELTS[(k * 7 + i * 3 + (i > 8 ? 1 : 0)) % 8];
       prop(s, 'feltorgan.seat', cx, y, z, PI / 2, { c }, { tier: 'd' });
-      if (k >= 1 && k <= 10) s.spot('sit', cx + 0.02, y + 0.48, z, PI / 2, { tags: ['listen'] });
+      if (k >= 1 && k <= 9 && (i + k) % 3 === 0) s.spot('sit', cx + 0.02, y + 0.48, z, PI / 2, { tags: ['listen'] });
     }
     // the end seats of each block carry an iron standard on their open side
     s.detail((gg) => { gg.mat('cast', C.iron); for (const z of [SEATZ[8] + 0.26, SEATZ[21] + 0.26, SEATZ[30] + 0.26]) gg.box(cx - 0.26, y, z - 0.0, cx + 0.18, y + 0.64, z + 0.025, { faces: 'zZY' }); });
@@ -181,7 +181,7 @@ function stage(game, s, r) {
     prop(s, 'chair', x, Y, z, yaw, { wood: r.pick(['#6b4a2f', '#5a3a24', '#7a5233']), seat: r.pick(['#d9c08a', '#b9552e', '#2f6f73']), back: r.chance(0.5) ? 'slat' : 'hoop' }, { noSpots: true });
     if (r.chance(0.8)) prop(s, 'feltorgan.stand', x + Math.sin(yaw) * 0.62, Y, z + Math.cos(yaw) * 0.62, yaw + PI, {});
   }
-  for (const k of [1, 4, 9, 13]) { const [x, z, yaw] = chairs[k]; prop(s, 'feltorgan.flute', x - Math.cos(yaw) * 0.5, Y + 0.465, z + Math.sin(yaw) * 0.5, yaw + PI / 2, { L: 1.2 }); }
+  for (const k of [1, 4, 9, 13]) { const [x, z, yaw] = chairs[k]; prop(s, 'feltorgan.flute', x - Math.cos(yaw) * 0.6, Y + 0.465, z + Math.sin(yaw) * 0.6, yaw, { L: 1.2 }); }
   // hand drums on the stage's south side, a stool
   for (const [x, z, rr] of [[47.0, -20.5, 0.28], [47.8, -21.2, 0.22], [46.3, -21.4, 0.32]]) s.furniture((gg) => { gg.mat('wood', '#7a4a2a'); gg.lathe(x, z, [[rr * 0.7, Y], [rr * 0.85, Y + 0.25], [rr, Y + 0.55], [rr * 1.02, Y + 0.6]], { segs: 14 }); gg.mat('weave', '#e6d6b0'); gg.lathe(x, z, [[rr * 1.02, Y + 0.6], [0, Y + 0.61]], { segs: 14, capBottom: false }); });
   prop(s, 'stool', 46.9, Y, -19.8, 0, { wood: '#6b4a2f' });
@@ -210,7 +210,7 @@ function stage(game, s, r) {
     const d = day(gm);
     await say(gm, 'The programme', [
       d === 3 ? 'BOOKING DAY. No concert tonight: the halls have the feast and the Spindle has the flight. The Quilt is open for anyone who wants to sit somewhere quiet.' : d === 2 ? 'THE QUIET. No performance, no recording, no messages. The Quilt is open all day for sitting in and for talking quietly.' : 'TONIGHT AT HALF PAST SEVEN: THE RING FOUR CHOIRS, and a new piece for eight flutes and the Bellows, called Rain on a Roof.',
-      'A note on the piece, for those who were not sure: Rain was water that fell out of the sky on old Earth, in drops, without anyone pouring it. It fell on roofs, which were lids on houses to keep it off. It made a sound on them like this piece. People liked to sleep to it.',
+      'A note on the piece, for those who were not sure: Rain was water that fell on old Earth from clouds high overhead, in drops, without anyone pouring it. It fell on roofs, which were lids on houses to keep it off. It made a sound on them like this piece. People liked to sleep to it.',
       'The flutes are cut for this hall, at twenty-two degrees. Please do not clap between the parts: in this room you will hear the silence, and it is part of it.',
     ]);
   } });
@@ -235,7 +235,7 @@ function light(s) {
 function corridor(game, s, r) {
   const X0 = CORR.x0, X1 = CORR.x1, Z0 = CORR.z0, Z1 = CORR.z1, H = CORR.h, g = s.g;
   const clip = [X0, -0.2, Z0, X1 + 0.1, H + 0.1, Z1 + 0.1];
-  floor(s, X0, Z0 + 0.1, X1, Z1, 0, 'terrazzo', '#c2ae8e');
+  floor(s, X0, Z0, X1, Z1, 0, 'terrazzo', '#c2ae8e');
   ceiling(s, X0, Z0, X1, Z1, H, 'paint', '#efe2c8');
   wallRun(s, 'x', Z1 + 0.08, X0, X1, 0, H, { tint: '#e3d2b0', t: 0.16, dado: { h: 1.1, mat: 'panel', tint: '#7a2f2a' } });
   wallRun(s, 'z', X1 + 0.08, Z0, Z1, 0, H, { tint: '#e3d2b0', t: 0.16, dado: { h: 1.1, mat: 'panel', tint: '#7a2f2a' } });
@@ -266,7 +266,7 @@ function corridor(game, s, r) {
 // ---------------------------------------------------------------------------------------------------------------
 function kettleRoom(game, s, f, r) {
   const K = KET, g = s.g;
-  const clip = room(s, { x0: K.x0, z0: K.z0, x1: K.x1, z1: K.z1 - 0.1, y: 0, h: K.h, floor: ['planks', '#9a6a40'], ceil: ['paint', '#e9dcc0'], wall: { tint: '#c9d0b0', dado: { h: 1.0, mat: 'panel', tint: '#2f5d5a' } }, open: { w: false, s: false } });
+  const clip = room(s, { x0: K.x0 - 0.2, z0: K.z0, x1: K.x1, z1: K.z1, y: 0, h: K.h, floor: ['planks', '#9a6a40'], ceil: ['paint', '#e9dcc0'], wall: { tint: '#c9d0b0', dado: { h: 1.0, mat: 'panel', tint: '#2f5d5a' } }, open: { w: false, s: false } });
   // a long table, chairs that do not match, cups under lids, an urn on the loop
   prop(s, 'table', 57.2, 0, -7.5, PI / 2, { w: 3.2, d: 0.9, wood: '#6b4a2f' });
   const cols = ['#d9c08a', '#b9552e', '#2f6f73', '#e7b547'];
@@ -280,17 +280,24 @@ function kettleRoom(game, s, f, r) {
     gg.mat('cast', '#2f6f73'); gg.tube([[60.98, 1.25, -4.4], [60.6, 1.25, -4.4]], 0.015, { segs: 5 });
   });
   // instrument cases on a shelf, coats on pegs, a mirror lit from both sides, a rota on the wall
-  prop(s, 'shelving', 54.1, 0, -11, PI / 2, { w: 2.2, h: 1.9, d: 0.4, wood: '#5a3a24' });
+  prop(s, 'shelving', 58.6, 0, K.z0 + 0.3, 0, { w: 2.2, h: 1.9, d: 0.4, wood: '#5a3a24' });
   s.detail((gg) => {
-    for (let i = 0; i < 5; i++) { gg.mat('weave', r.pick(['#3a2a20', '#2a3a3a', '#4a2a2a'])); gg.box(54.0, 0.1 + i * 0.37, -12.0, 54.4, 0.26 + i * 0.37, -10.0 + (i % 2) * -0.4, { bevel: 0.03 }); }
+    for (let i = 0; i < 4; i++) { gg.mat('weave', r.pick(['#3a2a20', '#2a3a3a', '#4a2a2a'])); gg.box(57.6 + (i % 2) * 0.3, 0.1 + i * 0.45, K.z0 + 0.14, 59.6 - (i % 2) * 0.2, 0.3 + i * 0.45, K.z0 + 0.46, { bevel: 0.03 }); }
     gg.mat('wood', '#5b4636'); gg.box(53.55, 1.86, -8.5, 53.6, 1.96, -3.5);
     for (let i = 0; i < 8; i++) { const z = -8.2 + i * 0.6; gg.mat('weave', r.pick(['#3f4a5a', '#7a3a2a', '#4a5a3a', '#6a5a4a', '#2f3f6a'])); gg.box(53.6, 0.95, z - 0.2, 53.7, 1.8, z + 0.2, { bevel: 0.03 }); gg.mat('knit', r.pick([C.saffron, '#b5532e', '#2f6f73'])); gg.box(53.7, 1.2, z - 0.08, 53.705, 1.3, z + 0.02, { faces: 'X' }); }
-    gg.mat('brushed', '#cfd8d8', { rough: -0.45 }); gg.box(K.x1 - 0.08, 1.0, -12.6, K.x1 - 0.06, 2.0, -11.2, { faces: 'x' });
-    gg.mat('diffuser', '#ffe2b0', { emissive: 3, lamp: true }); for (const z of [-12.75, -11.05]) gg.box(K.x1 - 0.1, 1.1, z - 0.04, K.x1 - 0.06, 1.9, z + 0.04, { faces: 'x' });
+    gg.mat('brushed', '#cfd8d8', { rough: -0.45 }); gg.box(K.x1 - 0.08, 1.0, -9.6, K.x1 - 0.06, 2.0, -8.2, { faces: 'x' });
+    gg.mat('diffuser', '#ffe2b0', { emissive: 3, lamp: true }); for (const z of [-9.75, -8.05]) gg.box(K.x1 - 0.1, 1.1, z - 0.04, K.x1 - 0.06, 1.9, z + 0.04, { faces: 'x' });
   });
   sign(s, { kind: 'notice', title: 'The Quilt · this week', lines: ['Thu 16:00 flutes (cut Tuesday)', 'Thu 19:30 the Ring Four choirs', 'Fri: the Quiet. No calls.', 'Sat: Booking Day. Feast at your', 'own hall. Flight at ten.', 'Kettle: last one out unplugs it.'] }, K.x1 - 0.08, 1.6, -6.6, { face: 'x', w: 0.7, h: 0.8 });
-  lamp(s, 'panel', 57.2, K.h, -7.5, { w: 2.0, d: 0.5, K: 3000, power: 0.9, clip });
-  lamp(s, 'globe', 55.2, K.h - 0.5, -3.0, { K: 2700, power: 0.6, drop: 0.5, clip });
+  // a rug under the table, a sofa of two benches and felt cushions, a low table, a plant, a lantern over the table
+  prop(s, 'rug', 57.2, 0, -7.5, PI / 2, { w: 4.2, d: 2.6, a: '#7a2f2a', b: '#d9a64a' });
+  prop(s, 'bench', 54.15, 0, -5.6, PI / 2, { w: 2.0, wood: '#5a3a24', back: true });
+  s.detail((gg) => { for (let i = 0; i < 3; i++) { gg.mat('felt', [C.saffron, C.tealL, C.madder][i]); gg.box(54.0, 0.46, -6.4 + i * 0.62, 54.4, 0.58, -5.9 + i * 0.62, { bevel: 0.04 }); } gg.mat('felt', C.plum); gg.box(53.9, 0.6, -6.3, 54.05, 0.95, -5.0, { bevel: 0.05 }); });
+  prop(s, 'table', 55.2, 0, -5.6, 0, { w: 0.6, d: 0.5, h: 0.45, round: true, wood: '#6b4a2f' });
+  prop(s, 'cup', 55.1, 0.45, -5.55, 0, { glaze: '#e7b547' });
+  prop(s, 'plant', 54.0, 0, K.z0 + 0.5, 0, { kind: 'broad', size: 1.3, pot: '#a3563a' });
+  lamp(s, 'lantern', 57.2, 2.3, -7.5, { tint: C.saffron, r: 0.32, hh: 0.5, drop: 0.5, power: 1.0, range: 6, K: 2700, clip });
+  lamp(s, 'panel', 57.2, K.h, -4.2, { w: 2.0, d: 0.5, K: 3000, power: 0.6, clip });
   s.loop('steam', 60.5, 1.4, -4.4, { vol: 0.06, radius: 3 });
   s.spot('chat', 55.4, 0, -2.4, 0.6, {}); s.spot('chat', 56.1, 0, -1.7, -2.6, {}); s.spot('chat', 54.7, 0, -1.6, 2.2, {});
   s.spot('work', 59.9, 0, -4.4, PI / 2, { tags: ['serve'] });

@@ -9,6 +9,8 @@ import * as THREE from 'three';
 import { Geo, MeshBuf } from '../world/meshbuilder.js';
 import { PI, POOL, STEPS, GEE, vaultY } from './lm_up_decks_props.js';
 
+// the surface as opaque glaze (lit like the rest of the hall, reflecting the lamps and the vault) or as glass over the tiles
+const OPAQUE = true;
 export const CROSS_S = 13;                          // seconds from the paddle to the steps
 export const DIAL = { x: 0, y: 4.75, z: 33.88, r: 1.35 };   // the wave clock on the back wall, facing the length of the pool
 const C = (POOL.z1 - POOL.z0) / CROSS_S;            // the swell's speed
@@ -44,15 +46,15 @@ export function buildWater(game, s) {
   const NX = 33, NZ = Math.round((Z1 - Z0) / 0.5) + 1;
   const cx = (X0 + X1) / 2, cz = (Z0 + Z1) / 2;
   const sg = new Geo(new MeshBuf(NX * NZ + 4, (NX - 1) * (NZ - 1) * 6 + 6));
-  sg.mat('plain', '#2f8a90'); sg._col[3] = 92; sg._mat[3] = 10;
+  if (OPAQUE) sg.mat('glaze', '#2b7b82', { rough: -0.45 }); else { sg.mat('plain', '#1f6f78'); sg._col[3] = 150; sg._mat[3] = 8; }
   const gx = [], gz = [];
   for (let i = 0; i < NX; i++) gx.push(X0 + (X1 - X0) * i / (NX - 1));
   for (let j = 0; j < NZ; j++) gz.push(Z0 + (Z1 - Z0) * j / (NZ - 1));
   for (let j = 0; j < NZ; j++) for (let i = 0; i < NX; i++) sg.v(gx[i] - cx, 0, gz[j] - cz, 0, 1, 0, gx[i] * 0.25, gz[j] * 0.25, 1, true);
   for (let j = 0; j < NZ - 1; j++) for (let i = 0; i < NX - 1; i++) { const a = j * NX + i; sg.quadI(a, a + NX, a + NX + 1, a + 1); }
   const sGeo = sg.buf.toGeometry();
-  const surf = new THREE.Mesh(sGeo, W.fwdMats.glass);
-  W.addRenderable(surf, { frame: f, origin: [cx, POOL.water, cz], center: [0, 0, 0], radius: Math.hypot(X1 - X0, Z1 - Z0) / 2 + 1, far: 260, caster: false, forward: true, scope: s });
+  const surf = new THREE.Mesh(sGeo, OPAQUE ? W.mats.opaque : W.fwdMats.glass);
+  W.addRenderable(surf, { frame: f, origin: [cx, POOL.water, cz], center: [0, 0, 0], radius: Math.hypot(X1 - X0, Z1 - Z0) / 2 + 1, far: 260, caster: false, forward: !OPAQUE, scope: s });
   s.meshes.push(surf);
   const sPos = sGeo.attributes.position, sNrm = sGeo.attributes.normal;
   const envM = gz.map(mainEnv), envS = gz.map(sideEnv);
@@ -77,14 +79,14 @@ export function buildWater(game, s) {
     return geo.attributes.aMat;
   };
   const ceilPts = [], floorPts = [];
-  for (let x = -10.8; x <= 10.81; x += 0.8) for (let z = -25.6; z <= 24.4; z += 0.8) ceilPts.push([x, z]);
-  for (let x = -7.6; x <= 7.61; x += 0.8) for (let z = -24.7; z <= 24.2; z += 0.8) floorPts.push([x, z]);
-  const ceilMat = glowSheet(ceilPts, 1.55, '#cdeef0', (x) => vaultY(x) - 0.05);
+  for (let x = -10.75; x <= 10.76; x += 0.5) for (let z = -25.75; z <= 24.5; z += 0.5) ceilPts.push([x, z]);
+  for (let x = -7.75; x <= 7.76; x += 0.5) for (let z = -24.75; z <= 24.3; z += 0.5) floorPts.push([x, z]);
+  const ceilMat = glowSheet(ceilPts, 1.1, '#cdeef0', (x) => vaultY(x) - 0.05);
   // the floor cards sit on whatever step they are over
-  const floorMat = (() => {
+  const floorMat = OPAQUE ? null : (() => {
     const g = new Geo(new MeshBuf(floorPts.length * 4 + 4, floorPts.length * 6 + 6));
     g.mat('plain', '#e6fbff'); g._col[3] = 128; g._mat[3] = 0;
-    for (const p of floorPts) { const y = bottomAt(p[1]) + 0.025, h = 0.68; g.quad([p[0] - h, y, p[1] - h], [p[0] - h, y, p[1] + h], [p[0] + h, y, p[1] + h], [p[0] + h, y, p[1] - h], { uv: [0, 0, 1, 1] }); }
+    for (const p of floorPts) { const y = bottomAt(p[1]) + 0.025, h = 0.5; g.quad([p[0] - h, y, p[1] - h], [p[0] - h, y, p[1] + h], [p[0] + h, y, p[1] + h], [p[0] + h, y, p[1] - h], { uv: [0, 0, 1, 1] }); }
     const geo = g.buf.toGeometry(); const mesh = new THREE.Mesh(geo, W.fwdMats.glow); mesh.renderOrder = 2;
     W.addRenderable(mesh, { frame: f, origin: [0, 0, 0], center: [0, -2, 0], radius: 27, far: 160, caster: false, forward: true, scope: s });
     s.meshes.push(mesh);
@@ -119,11 +121,11 @@ export function buildWater(game, s) {
   // ------------------------------------------------------------------------------------------------
   // a splash: droplets thrown up from the surface, falling at 0.55 g
   // ------------------------------------------------------------------------------------------------
-  const ND = 60, dg = new Geo(new MeshBuf(ND * 6 + 6, ND * 24 + 6));
-  dg.mat('glaze', '#e4f6f4', { rough: -0.45, emissive: 0.35 });
+  const ND = 90, dg = new Geo(new MeshBuf(ND * 6 + 6, ND * 24 + 6));
+  dg.mat('glaze', '#dff4f2', { rough: -0.5, emissive: 0.4 });
   const shape = [];
   for (let d = 0; d < ND; d++) {
-    const r = 0.018 + (d % 5) * 0.007, v0 = dg.buf.nv;
+    const r = 0.014 + (d % 5) * 0.005, v0 = dg.buf.nv;
     const P = [[r, 0, 0], [-r, 0, 0], [0, r * 1.3, 0], [0, -r * 1.3, 0], [0, 0, r], [0, 0, -r]];
     for (const p of P) { const l = Math.hypot(p[0], p[1], p[2]); dg.v(p[0], p[1] - 20, p[2], p[0] / l, p[1] / l, p[2] / l, 0, 0, 1, true); shape.push(p); }
     const F = [[0, 2, 4], [4, 2, 1], [1, 2, 5], [5, 2, 0], [4, 3, 0], [1, 3, 4], [5, 3, 1], [0, 3, 5]];
@@ -181,19 +183,23 @@ export function buildWater(game, s) {
     // the light it throws, twenty times a second
     if (acc > 0.05) {
       acc = 0;
+      // bright bands where the swell's crests focus the light, broken up by the chop; the finest ripples are left out
+      // (the cards are half a metre apart and would only flicker)
+      const CW = [0.62, 0.3, 0.26, 0.16];
       const caustic = (pts, mat, base, gain, edge, sx) => {
         const A = mat.array;
         for (let c = 0; c < pts.length; c++) {
-          const x = pts[c][0] * sx, z = pts[c][1]; let k2 = 0; const em = mainEnv(z), es = sideEnv(z);
-          for (let k = 0; k < WAVES.length; k++) { const w = WAVES[k]; k2 += w.A * (w.main ? em : es) * w.k2 * Math.sin(w.kx * x + w.kz * z - w.w * t + w.ph); }
-          let v = (base + gain * Math.max(0, k2 - 0.04)) * (edge ? edge[c] : 1);
+          const x = pts[c][0] * sx, z = pts[c][1]; let k2 = 0; const em = mainEnv(z) * groupAt(z), es = sideEnv(z);
+          for (let k = 0; k < CW.length; k++) { const w = WAVES[k]; k2 += CW[k] * (w.main ? Math.min(1.3, em) : es) * Math.sin(w.kx * x + w.kz * z - w.w * t + w.ph); }
+          const q = Math.max(0, k2 - 0.25);
+          let v = (base + gain * q * q) * (edge ? edge[c] : 1);
           v = Math.max(0, Math.min(255, Math.round(v * 255)));
           A[c * 16 + 3] = v; A[c * 16 + 7] = v; A[c * 16 + 11] = v; A[c * 16 + 15] = v;
         }
         mat.needsUpdate = true;
       };
-      caustic(ceilPts, ceilMat, 0.006, 0.075, ceilEdge, 0.74);
-      caustic(floorPts, floorMat, 0.004, 0.06, null, 1);
+      caustic(ceilPts, ceilMat, 0.003, 0.07, ceilEdge, 0.74);
+      if (floorMat) caustic(floorPts, floorMat, 0.0, 0.028, null, 1);
     }
     // the paddle leans into each stroke as the swell leaves it
     {

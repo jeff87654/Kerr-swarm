@@ -122,7 +122,7 @@ export function setupSystems(game) {
       const where = rho <= DRUM.HOLLOW_R + 1 ? 'The Hollow' : 'Deck ' + deck;
       // the zone's own line if it has one (builders write the deck and street into it); otherwise the plain address
       const sub = z && z.sub ? z.sub : where + ' · Ring ' + RING_NAMES[ring - 1];
-      game.ui.hud.place(title, /\d g/.test(sub) ? sub : sub + ' · ' + player.gNow.toFixed(2) + ' g');
+      game.ui.hud.place(title, /\d\s?g\b/.test(sub) ? sub : sub + ' · ' + player.gNow.toFixed(2) + ' g');
       game.ui.hud.clock(game.clock.label() + ' · ' + game.clock.dayName());
       game.ui.hud.weight(player.gNow);
     }

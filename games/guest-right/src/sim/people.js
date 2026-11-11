@@ -798,6 +798,8 @@ export function createPeople(game) {
       leaveSpot(p); p.route = null; p.goal = null; p.state = 'idle'; p.idleT = 0.5; p.pose = 'stand';
     }
     unindexScope(game, M.frames, scope);
+    // a crowd called to a place that has just gone (spawnCrowd) goes with it
+    for (const p of fi.people.slice()) if (p.kind === 'crowd' && p.pin && !fi.places.has(p.pin)) removePerson(p);
     M.dirty.add(fi);
   }
 

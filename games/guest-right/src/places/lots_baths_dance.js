@@ -117,7 +117,7 @@ export async function buildDance(s, lot, plan, game, tick) {
   const dances = []; { const pool = DANCES.slice(); const rr = new Rng(seed ^ 0x51ed); rr.shuffle(pool); for (let k = 0; k < 5; k++) dances.push(pool[k]); }
   const times = ['two', 'half past two', 'three', 'four', 'five'];
   const bp = cx + Math.min(3.4, fw / 2 - 1.6);
-  L.sign({ kind: 'board', title: pickBy(seed, 3, ['This afternoon', 'The dances today', 'On the floor', 'The programme']), lines: dances.map((d, i) => d + '|' + times[i]), palette: [S.deep2, '#f3e6c8', S.gilt] }, bp, 1.55, F - 0.1, [0, -1], { w: 1.25, h: 1.0 });
+  L.sign({ kind: 'board', title: pickBy(seed, 3, ['This afternoon', 'The dances today', 'On the floor', 'The programme']), lines: dances.map((d, i) => d + '|' + times[i]), palette: [S.deep2, '#f3e6c8', S.gilt] }, bp, 1.55, F - 0.1, [0, -1], { w: 1.1, h: 0.88 });
   await T();
   L.spot('stand', bp, 0, F - 0.8, Math.PI, { tags: ['read', 'board'] }); L.spot('stand', bp - 0.7, 0, F - 0.9, Math.PI - 0.3, { tags: ['read', 'board'] });
   chatRing(L, cx - 3.0, F * 0.45, 3, 0.6, ['teadance']);

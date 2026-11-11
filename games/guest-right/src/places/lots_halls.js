@@ -91,8 +91,9 @@ async function buildHall(s, lot, plan, game, tick) {
       }
     }
   }
+  await tk();
   // the hall's name over the middle opening, on the court side
-  { const pm = midsA[Math.floor(midsA.length / 2)]; L.sign({ kind: 'plate', text: info.hall.toUpperCase(), sub: 'one long table · ' + info.dish[0] }, pm, (colonnade ? 2.85 : arches[0].h) + 0.19, -0.01, [0, -1], { w: Math.min(2.6, arches[0].w), h: 0.26 }); }
+  { const pm = midsA[Math.floor(midsA.length / 2)]; L.sign({ kind: 'fascia', text: info.hall.toUpperCase(), sub: 'one long table', palette: ['#2e2a24', '#f0e2c0', '#d1952c'] }, pm, (colonnade ? 2.85 : arches[0].h) + 0.19, -0.01, [0, -1], { w: Math.min(1.9, arches[0].w), h: 0.26 }); }
   ph('shell'); await dress(C, tk); ph('dress');
 
   // =============================================================== the tables
@@ -164,6 +165,7 @@ async function buildHall(s, lot, plan, game, tick) {
     g.mat('diffuser', '#ffb070', { emissive: 4, lamp: true }); for (let p = pass[0] + 0.6; p < pass[1] - 0.3; p += 1.2) L.box(p - 0.2, 2.17, D - 0.35, p + 0.2, 2.18, D - 0.15, { faces: 'y' });
     s.flush({ tier: 's', cast: true });
     L.solid(pass[0], 0, D - 0.6, pass[1], 0.94, D + 0.47);
+    await tk();
     let i = salt;
     for (let p = pass[0] + 0.3; p < pass[1] - 0.2; p += 0.34, i++) {
       if (i % 4 !== 1) L.prop('lots-halls.bowl', p, 0.94, D - 0.3 + (i % 2) * 0.12, i, { glaze: GLAZES[i % 6] });
@@ -193,11 +195,12 @@ async function buildHall(s, lot, plan, game, tick) {
   const backQ = D - T;
   // the guests' shelf: crocks with cloth caps, sprigs in water
   L.prop('shelving', shelfP, 0, backQ - 0.17, Math.PI, { w: 1.5, h: 1.8, d: 0.32, shelves: 4, wood: shadeHex(K.dado || '#5a3a26', 1.1) }, { noSpots: true });
-  { let j = salt; for (let sh = 0; sh < 4; sh++) for (let x = -0.55; x <= 0.56; x += 0.22, j++) { const y = 0.105 + sh * 0.4225; if (sh === 3 || (j % 3 === 0 && sh > 0)) L.prop('lots-halls.sprig', shelfP + x, y, backQ - 0.17, j, { leaf: ['#cfe8a0', '#b8d890', '#e0f0b0', '#a8d080'][j % 4], fine: j % 2 === 0, seed: j % 5 }); else if (j % 5 !== 2) L.prop('lots-halls.guestcrock', shelfP + x, y, backQ - 0.17, Math.PI + (j % 3) * 0.3, { glaze: ['#8a5a3c', '#3a4a7a', '#2f6c66', '#c9a24a', '#b5653a', '#e9e1cf'][j % 6], cap: ['#e8d8b8', '#d9b25c', '#c9552e', '#a9c6b0'][j % 4], h: 0.14 + (j % 3) * 0.03 }); } }
-  L.sign({ kind: 'label', text: 'GUESTS', sub: 'bring herbs, not gin' }, shelfP, 1.92, backQ - 0.01, [0, -1], { w: 0.7, h: 0.2 });
+  { let j = salt; for (let sh = 0; sh < 4; sh++) for (let x = -0.55; x <= 0.56; x += 0.22, j++) { const y = 0.105 + sh * 0.4225; if (sh === 3 || (j % 3 === 0 && sh > 0)) L.prop('lots-halls.sprig', shelfP + x, y, backQ - 0.17, j, { leaf: ['#cfe8a0', '#b8d890', '#e0f0b0', '#a8d080'][j % 4], fine: j % 2 === 0, seed: j % 5 }); else if (j % 5 !== 2) L.prop('lots-halls.guestcrock', shelfP + x, y, backQ - 0.17, Math.PI + (j % 3) * 0.3, { glaze: ['#8a5a3c', '#3a4a7a', '#2f6c66', '#c9a24a', '#b5653a', '#e9e1cf'][j % 6], cap: ['#e8d8b8', '#d9b25c', '#c9552e', '#a9c6b0', '#e8d8b8', '#d9b25c'][j % 6], h: 0.14 + (j % 6 % 3) * 0.03 }); } }
+  L.sign({ kind: 'label', text: 'GUESTS', sub: 'bring herbs, not gin' }, shelfP, 1.92, backQ - 0.01, [0, -1], { w: 0.6, h: 0.18 });
   L.spot('browse', shelfP, 0, backQ - 1.0, 0, { tags: ['hall', 'guests'] });
+  await tk();
   // the day's dish chalked up, with a light over it
-  L.sign({ kind: 'chalk', title: 'Today', lines: [info.dish[0], 'guests: a seat is yours', 'gin after six'] }, chalkP, 1.65, backQ - 0.02, [0, -1], { w: 0.9, h: 1.15 });
+  L.sign({ kind: 'chalk', title: 'Today', lines: [info.dish[0], 'guests: a seat is yours', 'gin after six'] }, chalkP, 1.6, backQ - 0.02, [0, -1], { w: 0.62, h: 0.85 });
   L.lamp('sconce', chalkP, 2.5, backQ - 0.02, { face: [0, -1], K: 2700, power: 1.0, clip: C.clip });
   // the cook's own corner: a high stool, a little shelf with a lidded cup, an apron on a peg, a card pinned up
   L.prop('stool', cornerP, 0, backQ - 0.45, 0, { h: 0.68, wood: shadeHex(K.dado || '#5a3a26', 1.2) }, { noSpots: true });
@@ -210,11 +213,13 @@ async function buildHall(s, lot, plan, game, tick) {
   L.prop('hall.apron', cornerP + dir * 0.55, 1.85, backQ, Math.PI, { col: '#ece4d0', tie: K.runner || K.dado || '#c9552e' });
   // trolleys parked by the shelf
   for (const j of [0, 1]) { const p = shelfP - dir * (1.6 + j * 1.15); if ((courtLo ? p : W - p) < 1.5) continue; L.prop('hall.trolley', p, 0, backQ - 0.55, Math.PI, { wood: '#8a6240' }); L.prop('lots-halls.stack', p - 0.2, 0.885, backQ - 0.55, 0, { n: 8, glaze: GLAZES[(j + salt) % 6] }); L.prop('lots-halls.stack', p + 0.2, 0.325, backQ - 0.55, 0, { n: 6, glaze: '#e9e1cf', r: 0.11 }); L.prop('lots-halls.bowl', p + 0.25, 0.885, backQ - 0.55, 0, { glaze: GLAZES[(j + 2) % 6] }); }
+  await tk();
   // coats on pegs on the court end's wall, a bench under them
   const ne = near + dir * T;
   g.mat('wood', shadeHex(K.dado || '#5a3a26', 0.9)); for (const qr of [[1.0, 4.4], [D - 4.4, D - 1.0]]) L.box(ne, 1.66, qr[0], ne + dir * 0.04, 1.78, qr[1], { bevel: 0.006 }); s.flush({ tier: 's' });
-  { let j = salt; for (const qr of [[1.0, 4.4], [D - 4.4, D - 1.0]]) for (let q = qr[0] + 0.25; q < qr[1] - 0.1; q += 0.42, j++) if (j % 5 !== 1) L.prop('hall.coat', ne + dir * 0.02, 1.72, q, Math.atan2(dir, 0), { col: COATS[(j * 3) % COATS.length], patch: j % 3 === 0 ? ['#e0b04a', '#c9552e', '#3fa7a3', '#f1e6cf'][j % 4] : null, len: 0.8 + (j % 4) * 0.06 }); }
+  { let j = salt; for (const qr of [[1.0, 4.4], [D - 4.4, D - 1.0]]) for (let q = qr[0] + 0.25; q < qr[1] - 0.1; q += 0.42, j++) if (j % 5 !== 1) L.prop('hall.coat', ne + dir * 0.02, 1.72, q, Math.atan2(dir, 0), { col: COATS[(j * 3) % COATS.length], patch: (j * 3) % COATS.length % 3 === 0 ? '#e0b04a' : null, len: 0.9 }); }
   L.prop('lots-halls.bench', ne + dir * 0.3, 0, D - 2.7, Math.atan2(dir, 0), { len: 2.6, wood: shadeHex(K.dado || '#5a3a26', 1.2) }, { spot: { tags: ['hall', 'wait'] } });
+  await tk();
   // plants by the openings onto the court
   for (const p of [arches[0].at - 0.55, arches[arches.length - 1].at + arches[arches.length - 1].w + 0.55]) if (p > 0.6 && p < W - 0.6) L.prop('plant', p, 0, T + 0.4, 0, { kind: ['broad', 'fern', 'fine'][(salt + Math.round(p)) % 3], size: 1.3, pot: ['#b4643e', '#2f6c66', '#d4a24a'][salt % 3] });
   // sideboards (refectory, elders) or benches (whitewash, felts) along the free stretches of the back wall
@@ -224,6 +229,7 @@ async function buildHall(s, lot, plan, game, tick) {
     for (let i = 0; i < n; i++) {
       const p = fr[0] + len * (i + 0.5) / n;
       if (Math.abs(p - shelfP) < 2.2) continue;
+      if (i % 2 === 1) await tk();
       if (kind === 'refectory' || kind === 'elders') {
         L.prop('counter', p, 0, backQ - 0.27, Math.PI, { w: 2.2, d: 0.5, h: 0.88, body: [K.runner || '#2f6c66', '#2f6c66', '#7a2f28', '#3c5a3e'][(i + salt) % 4], top: shadeHex(K.dado, 1.2) }, { noSpots: true });
         for (let j = 0; j < 4; j++) { const x = p - 0.75 + j * 0.5; if ((j + i) % 2) L.prop('lots-halls.stack', x, 0.88, backQ - 0.3, 0, { n: 6 + (j % 2) * 2, glaze: GLAZES[(i + j + salt) % 6] }); else L.prop('lots-halls.crock', x, 0.88, backQ - 0.3, 0, { glaze: ['#8a5a3c', '#3a4a7a', '#c9a24a'][(i + j) % 3], h: 0.22, r: 0.08 }); }
@@ -239,6 +245,7 @@ async function buildHall(s, lot, plan, game, tick) {
     s.flush({ tier: 's' });
     L.prop('lots-halls.clock', pc, 2.6, backQ - 0.01, Math.PI, { wood: K.panel });
   }
+  await tk();
   // the children's table, on the Low decks: low, with stools, drawn on underneath
   let kidsAt = null;
   if (info.band === 'low') {
@@ -370,7 +377,7 @@ async function buildHall(s, lot, plan, game, tick) {
     const st = seats.filter((x) => x.side > 0)[Math.min(3, seats.length - 1)] || seats[0];
     if (st) L.interact({ p: st.p, q: tq + 0.25, y: 0.9, radius: 1.3, prompt: 'Lift one of the heavy lids', onUse: async (gm) => { if (gm.audio) L.sfx(gm, 'lid-up', st.p, 0.8, tq, { vol: 0.6 }); await say(gm, 'A cast lid', pickBy(lot.seed, 77, HEAVY).map(F)); if (gm.audio) L.sfx(gm, 'lid-down', st.p, 0.8, tq, { vol: 0.6 }); } });
     const hp = (pc + cornerP) / 2 + dir * 1.9;
-    L.sign({ kind: 'board', title: 'One hundred', lines: ['this year|' + (2 + (lot.seed % 5)), 'the breakfast|Monday', 'the end seat|kept'], palette: ['#2a1c14', '#f3e6c8', '#d1952c'] }, hp, 1.6, backQ - 0.01, [0, -1], { w: 0.9, h: 0.65 });
+    L.sign({ kind: 'board', title: 'One hundred', lines: ['this year|' + (2 + (lot.seed % 5)), 'the breakfast|Monday', 'the end seat|kept'], palette: ['#2a1c14', '#f3e6c8', '#d1952c'] }, hp, 1.6, backQ - 0.01, [0, -1], { w: 0.7, h: 0.5 });
     L.interact({ p: hp, q: backQ - 0.5, y: 1.5, radius: 1.4, prompt: 'Read the hundred board', onUse: (gm) => say(gm, 'The hundred board', pickBy(lot.seed, 79, HUNDRED).map(F)) });
   }
   if (kidsAt) L.interact({ p: kidsAt[0], q: kidsAt[1], y: 0.5, radius: 1.3, wide: true, prompt: 'Look under the children’s table', onUse: (gm) => say(gm, 'The children’s table', pickBy(lot.seed, 81, KIDS).map(F)) });

@@ -109,7 +109,7 @@ function buildFerry(game, f, zones) {
     { mm: movingMesh(s, (bg) => drawBoat(bg, { hull: '#6a2f3a', gun: '#e7b547', cushions: ['#2f8f8a', '#efe6d2'], lantern: '#e07a6a', yaw: YAW }), { radius: 4.5 }), sPos: L, side: -1, phase: 1.9 },
   ];
   let clock = 0, anim = null, riding = false;
-  const place = (b) => { const p = at(b.sPos, b.side); const o = b.mm.origin; o[0] = p[0]; o[2] = p[1]; o[1] = W - 0.06 + Math.sin(clock * 0.85 + b.phase) * 0.045; };
+  const place = (b) => { const p = at(b.sPos, b.side); const o = b.mm.origin; o[0] = p[0]; o[2] = p[1]; o[1] = W + 0.1 + Math.sin(clock * 0.85 + b.phase) * 0.045; };
   boats.forEach(place);
   s.every((dt, gm) => {
     clock += dt;

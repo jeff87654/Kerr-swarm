@@ -91,7 +91,7 @@ export async function shell(L, info, o) {
   const signFace = L.face(0, -1);
   const sp = fr.sign || {};
   if (fr.style === 'glazed') {
-    shopfront(s, { side: lot.front, a0: oo.a0 + 0.25, a1: oo.a1 - 0.25, c: oo.c, y: 0, h: LOT_H, fascia: { kind: 'fascia', text: lot.name, sub: lot.sub, emblem: sp.emblem, palette: sp.palette }, fasciaW: sp.w,
+    shopfront(s, { side: lot.front, a0: oo.a0 + 0.25, a1: oo.a1 - 0.25, c: oo.c, y: 0, h: LOT_H, fascia: { kind: 'fascia', text: lot.name, sub: lot.sub, emblem: sp.emblem, palette: sp.palette }, fasciaW: sp.w || 2.4,
       palette: { frame: fr.frame, plinth: fr.plinth, awning: fr.awning || ['#c9552e', '#f1e6cf'] }, door: { kind: fr.doorKind || 'slide', at: dp - dw / 2 - 0.25, w: dw, tint: fr.doorTint, style: 'glazed' },
       awning: fr.awning ? { depth: 0.9 } : false, plinth: fr.plinthH === undefined ? 0.5 : fr.plinthH, glow: 0.6, lights: !!fr.lights });
     g.mat('paint', fr.frame || '#2d3b36');
@@ -109,7 +109,7 @@ export async function shell(L, info, o) {
     wall(s, a[0], a[1], b[0], b[1], 0, H, { t: 0.06, mat: wi.mat, tint: wi.tint, dado: wi.dado, skirt: wi.skirt, noCollide: true, openings: ops.map((op) => ({ at: op.at - 0.16, w: op.w, h: op.h, sill: op.sill })) });
     // the door: a glazed leaf that opens as you come, a fanlight over it lit from the room
     const hp = L.P(dp - dw / 2 + 0.04, KIT_T * 0.5);
-    door(s, { x: hp[0], y: 0, z: hp[1], w: dw - 0.08, h: 2.12, along: oo.alongX ? 'x' : 'z', dir: 1, swing: lot.front === 'n' || lot.front === 'w' ? 1 : -1, kind: 'hinge', style: 'glazed', tint: fr.doorTint || fin.door, auto: true });
+    door(s, { x: hp[0], y: 0, z: hp[1], w: dw - 0.08, h: 2.12, along: oo.alongX ? 'x' : 'z', dir: 1, swing: lot.front === 'n' || lot.front === 'w' ? -1 : 1, kind: 'hinge', style: 'glazed', tint: fr.doorTint || fin.door, auto: true });
     L.structure(() => {
       g.mat('wood', fin.trim);
       L.box(dp - dw / 2, 2.14, 0.02, dp + dw / 2, 2.2, KIT_T - 0.02);
@@ -127,7 +127,7 @@ export async function shell(L, info, o) {
     pilaster(s, sd, oo.a0 + 0.15, LOT_H + 0.37); pilaster(s, sd, oo.a1 - 0.15, LOT_H + 0.37);
     const fq = L.P(W / 2, -0.03);
     if (L.tick) await L.tick();
-    sign(s, { kind: 'fascia', text: lot.name, sub: lot.sub, emblem: sp.emblem, palette: sp.palette }, fq[0], 2.97, fq[1], { face: signFace, w: Math.min(sp.w || 3.6, W - 1.2), h: 0.4, glow: 0.6, board: false });
+    sign(s, { kind: 'fascia', text: lot.name, sub: lot.sub, emblem: sp.emblem, palette: sp.palette }, fq[0], 2.97, fq[1], { face: signFace, w: Math.min(sp.w || 2.6, W - 1.2), h: 0.4, glow: 0.6, board: false });
   }
   // the threshold: a step and a mat outside the door
   L.structure(() => {

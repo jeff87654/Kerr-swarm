@@ -116,11 +116,13 @@ export async function tableRun(C, pa, pb, tq, o, tick) {
       if (o.cushions && r.chance(0.35)) { g.mat('felt', r.pick(o.cushions)); L.box(a0 + 0.05, 0.45, bq - 0.13, a1 - 0.05, 0.47, bq + 0.13, { bevel: 0.008 }); }
       s.flush({ tier: 's', cast: true });
       L.solid(a0, 0, bq - 0.16, a1, 0.45, bq + 0.16, { surf: 'wood' });
+      if (tick && k % 4 === 3) await tick();
     }
     // a seat every 0.75 m, a laid place in front of each
     const ns = Math.floor((pb - pa - 0.15) / 0.75), off = (pb - pa - ns * 0.75) / 2 + 0.375;
     for (let i = 0; i < ns; i++) {
       const p = pa + off + i * 0.75;
+      if (tick && i % 8 === 7) await tick();
       const spot = L.spot('sit', p, 0.45, bq, a, { tags: ['hall', 'eat', 'table'].concat(o.tags || []) });
       seats.push({ p, q: bq, a, spot, side: sg });
       const gi = (i * 7 + (sg > 0 ? 3 : 0) + C.salt) % GLAZES.length;
@@ -184,6 +186,7 @@ export async function ovalTable(C, pa, pb, tq, R, tick) {
     const ns = Math.floor((s1 - s0 - 0.1) / 0.75), off = (s1 - s0 - ns * 0.75) / 2 + 0.375;
     for (let i = 0; i < ns; i++) {
       const p = s0 + off + i * 0.75;
+      if (tick && i % 8 === 7) await tick();
       seats.push({ p, q: bq, a, spot: L.spot('sit', p, 0.45, bq, a, { tags: ['hall', 'eat', 'table'] }), side: sg });
       const gi = (i * 5 + (sg > 0 ? 2 : 0) + C.salt) % GLAZES.length;
       L.prop('lots-halls.place', p, 0.75, tq + sg * (R - 0.24), sg < 0 ? Math.PI : 0, { mat: MATS[(gi + C.salt) % 2], glaze: GLAZES[gi], lid: LIDS[gi] }, { tint: [r.f(0.9, 1.04), r.f(0.9, 1.02), r.f(0.88, 1.0)] });
@@ -201,6 +204,7 @@ export async function ovalTable(C, pa, pb, tq, R, tick) {
       L.prop('lots-halls.place', pc + dp * (R - 0.24), 0.75, tq + dq * (R - 0.24), a + Math.PI, { mat: MATS[(i + C.salt) % 2], glaze: GLAZES[(i + C.salt) % 6], lid: LIDS[(i + C.salt) % 6] });
     }
   }
+  if (tick) await tick();
   // two lines of things down the middle, and a big herb pot at each end
   centre(C, s0, s1, [tq - 0.4, tq + 0.4], 1.7, null);
   for (const pc of [s0, s1]) L.prop('plant', pc, 0.754, tq, 0, { kind: 'fine', size: 0.55, pot: K.rim });
@@ -216,7 +220,7 @@ export async function dress(C, tick) {
   if (kind === 'refectory') {
     // beams across the room every 2.5 m, a wall plate along both long walls
     g.mat('wood', K.beam, { rough: 0.05 });
-    for (let p = 1.25; p < W - 0.5; p += 2.5) L.box(p - 0.12, H - 0.3, t, p + 0.12, H, D - t, { bevel: 0.015 });
+    for (let p = 1.25; p < W - 0.5; p += 2.5) L.box(p - 0.12, H - 0.3, t, p + 0.12, H, D - t);
     for (const q of [t, D - t - 0.16]) L.box(0, H - 0.22, q, W, H, q + 0.16, { bevel: 0.01 });
     s.flush({ tier: 's' });
     // a plate shelf on the back wall at 1.95 wherever the wall is free, plates stood along it
@@ -226,6 +230,7 @@ export async function dress(C, tick) {
       g.mat('wood', K.dado); L.box(fr[0] + 0.1, 1.92, D - t - 0.16, fr[1] - 0.1, 1.96, D - t, { bevel: 0.006 }); L.box(fr[0] + 0.1, 1.86, D - t - 0.03, fr[1] - 0.1, 1.92, D - t);
       s.flush({ tier: 's' });
       for (let p = fr[0] + 1.0; p < fr[1] - 0.9; p += 2.4, k++) L.prop('lots-halls.platerow', p, 1.96, D - t - 0.08, Math.PI, { k: k % 6 });
+      if (tick) await tick();
     }
   } else if (kind === 'whitewash') {
     // a stepped cornice all round, pilasters on the back wall, a coloured border in the floor

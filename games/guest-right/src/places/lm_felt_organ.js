@@ -13,7 +13,7 @@
 //   The foyer with the cloak counter and the tea stall, the long foyer, the Kettle Room behind the stage, a cab lobby.
 //
 // Frame 'felt-organ': x spinward, z toward the back cap, y up; deck 150 at y = 0. Plan in lm_felt_organ_props.js.
-import { floor, ceiling, lamp, stairs } from '../world/kit.js';
+import { floor, ceiling, wall, lamp, stairs } from '../world/kit.js';
 import { railing, column } from '../world/kit2.js';
 import { prop } from '../world/props.js';
 import { sign } from '../world/signs.js';
@@ -62,7 +62,7 @@ export const place = {
 
     let left = s.finish(48);
     while (left) { await tick(game); left = s.finish(48); }
-    game.spawns['felt-organ'] = { frame: f, x: 0, y: 0, z: 17.6, yaw: 0 };
+    game.spawns['felt-organ'] = { frame: f, x: 0, y: 0, z: 11.6, yaw: 0 };
     console.log('[lm-felt-organ] built in ' + (performance.now() - t0).toFixed(0) + ' ms');
   },
 };
@@ -131,27 +131,32 @@ function galleries(s) {
       s.structure((gg) => {
         gg.mat('paint', C.teal); gg.box(Math.min(xi, xi - sx * 0.12), y - 0.55, za, Math.max(xi, xi - sx * 0.12), y + 0.02, k > 1 ? GAL.back : 0, { faces: sx > 0 ? 'xyY' : 'XyY' });
         gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(Math.min(xi - sx * 0.12, xi - sx * 0.14), y - 0.32, za, Math.max(xi - sx * 0.12, xi - sx * 0.14), y - 0.26, k > 1 ? GAL.back : 0, { faces: sx > 0 ? 'x' : 'X' });
-        gg.mat('paint', '#e6d2b0'); gg.box(Math.min(xo, xi), y - 0.56, za, Math.max(xo, xi), y - 0.55, 0, { faces: 'y' });
+        gg.mat('wood', '#6b4a32'); gg.box(Math.min(xo, xi), y - 0.56, za, Math.max(xo, xi), y - 0.55, 0, { faces: 'y' });
         if (k !== 2) { gg.mat('paint', C.teal); gg.box(Math.min(xo, xi), y - 0.55, za - 0.12, Math.max(xo, xi), y + 0.02, za, { faces: 'zyY' }); }
       }, k);
     }
     if (k >= 2) {
-      floor(s, -GAL.xi, GAL.back, GAL.xi, 0, y, 'planks', '#8a6040', { level: k });
-      s.structure((gg) => {
-        runX(-GAL.xi, GAL.xi, 8, (a, b) => {
-          gg.mat('paint', C.teal); gg.box(a, y - 0.55, GAL.back - 0.12, b, y + 0.02, GAL.back, { faces: 'zyY' });
-          gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(a, y - 0.32, GAL.back - 0.14, b, y - 0.26, GAL.back - 0.12, { faces: 'z' });
-          gg.mat('paint', '#e6d2b0'); gg.box(a, y - 0.56, GAL.back, b, y - 0.55, 0, { faces: 'y' });
-        });
-      }, k);
-      s.deco((gg) => { gg.mat('felt', C.madder); runX(-11, 11, 8, (a, b) => gg.box(a, y, -2.2, b, y + 0.006, -1.2, { faces: 'Y' })); }, k);
+      // on 152 the back gallery stops short each side at the rooms' doors, so the middle stays open to the organ
+      const spans = k === 2 ? [[-GAL.xi, -6.2], [6.2, GAL.xi]] : [[-GAL.xi, GAL.xi]];
+      for (const [xa, xb] of spans) {
+        floor(s, xa, GAL.back, xb, 0, y, 'planks', '#8a6040', { level: k });
+        s.structure((gg) => {
+          runX(xa, xb, 8, (a, b) => {
+            gg.mat('paint', C.teal); gg.box(a, y - 0.55, GAL.back - 0.12, b, y + 0.02, GAL.back, { faces: 'zyY' });
+            gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(a, y - 0.32, GAL.back - 0.14, b, y - 0.26, GAL.back - 0.12, { faces: 'z' });
+            gg.mat('wood', '#6b4a32'); gg.box(a, y - 0.56, GAL.back, b, y - 0.55, 0, { faces: 'y' });
+          });
+          if (k === 2) { gg.mat('paint', C.teal); const xe = xa < 0 ? xb : xa, sg = xa < 0 ? 1 : -1; gg.box(Math.min(xe, xe + sg * 0.12), y - 0.55, GAL.back - 0.12, Math.max(xe, xe + sg * 0.12), y + 0.02, 0, { faces: (sg > 0 ? 'X' : 'x') + 'yY' }); }
+        }, k);
+        s.deco((gg) => { gg.mat('felt', C.madder); runX(Math.max(xa, -11), Math.min(xb, 11), 8, (a, b) => gg.box(a, y, -2.2, b, y + 0.006, -1.2, { faces: 'Y' })); }, k);
+      }
     }
     // rails: brass on iron, every deck
     const ro = { h: 1.05, tint: '#2a3434', rail: C.brass, railMat: 'cast', level: k };
     if (k === 1) for (const sx of [-1, 1]) railing(s, [[sx * 15, GAL.z0], [sx * GAL.xi, GAL.z0], [sx * GAL.xi, -14], [sx * GAL.xi, 0]], y, ro);
     else if (k === 2) {
-      railing(s, [[-GAL.xi, BR.z1], [-GAL.xi, -14], [-GAL.xi, GAL.back]], y, ro); railing(s, [[GAL.xi, BR.z1], [GAL.xi, -14], [GAL.xi, GAL.back]], y, ro);
-      railing(s, [[-GAL.xi, GAL.back], [-4, GAL.back], [4, GAL.back], [GAL.xi, GAL.back]], y, ro);
+      railing(s, [[-GAL.xi, BR.z1], [-GAL.xi, -14], [-GAL.xi, GAL.back], [-6.2, GAL.back], [-6.2, 0]], y, ro);
+      railing(s, [[GAL.xi, BR.z1], [GAL.xi, -14], [GAL.xi, GAL.back], [6.2, GAL.back], [6.2, 0]], y, ro);
     } else {
       railing(s, [[-15, GAL.z0], [-GAL.xi, GAL.z0], [-GAL.xi, -14], [-GAL.xi, GAL.back], [-4, GAL.back], [4, GAL.back], [GAL.xi, GAL.back], [GAL.xi, -14], [GAL.xi, GAL.z0], [15, GAL.z0]], y, ro);
     }
@@ -167,15 +172,37 @@ function galleries(s) {
   }
   // light along every gallery and under it: a warm tube in the soffit, and one along the ground-floor aisles
   for (let k = 0; k < 5; k++) {
-    const y = k === 4 ? TOP - 0.7 : DY[k] + 3.4;
+    const y = (k === 4 ? TOP - 0.6 : DY[k] + 3.4) - 0.5;
+    const trough = (gg, x0, x1, z0, z1) => {
+      gg.mat('wood', '#4a2e1e'); gg.box(x0 - 0.06, y, z0, x1 + 0.06, y + 0.12, z1, { faces: 'xXzZY' });
+      gg.mat('diffuser', '#ffd9a0', { emissive: 1.1, lamp: true }); gg.box(x0, y - 0.005, z0 + 0.04, x1, y, z1 - 0.04, { faces: 'y' });
+      gg.mat('cast', C.brass); for (let z = z0 + 0.5; z < z1; z += 3) gg.tube([[(x0 + x1) / 2, y + 0.12, z], [(x0 + x1) / 2, y + 0.5, z]], 0.008, { segs: 4 });
+    };
     for (const sx of [-1, 1]) {
-      s.light({ at: [sx * 13.3, y, GAL.z0 + 1.5], to: [sx * 13.3, y, -1.5], type: 'tube', color: [1.0, 0.78, 0.52], power: 4.2, range: 6.5, radius: 0.2, lamp: true, clip: [Math.min(sx * 11.2, sx * 15.2), DY[k] - 0.2, GAL.z0 - 0.4, Math.max(sx * 11.2, sx * 15.2), DY[k] + 4, 0.2] });
-      s.deco((gg) => { gg.mat('diffuser', '#ffd9a0', { emissive: 2.6, lamp: true }); gg.box(sx * 13.3 - 0.05, y - 0.03, GAL.z0 + 1.5, sx * 13.3 + 0.05, y, -1.5, { faces: 'yxX' }); }, k);
+      s.light({ at: [sx * 12.9, y - 0.05, GAL.z0 + 1.5], to: [sx * 12.9, y - 0.05, -1.5], type: 'tube', color: [1.0, 0.76, 0.5], power: 1.1, range: 6, radius: 0.15, lamp: true, clip: [Math.min(sx * 11.2, sx * 15.2), DY[k] - 0.2, GAL.z0 - 0.4, Math.max(sx * 11.2, sx * 15.2), DY[k] + 4, 0.2] });
+      runX(GAL.z0 + 1.5, -1.5, 8, (a, b) => s.deco((gg) => trough(gg, sx * 12.9 - 0.09, sx * 12.9 + 0.09, a, b), k));
     }
-    if (k >= 2) {
-      s.light({ at: [-10, y, -1.7], to: [10, y, -1.7], type: 'tube', color: [1.0, 0.78, 0.52], power: 3.4, range: 5.5, radius: 0.2, lamp: true, clip: [-11.8, DY[k] - 0.2, -3.6, 11.8, DY[k] + 4, 0.2] });
-      s.deco((gg) => { gg.mat('diffuser', '#ffd9a0', { emissive: 2.6, lamp: true }); runX(-10, 10, 8, (a, b) => gg.box(a, y - 0.03, -1.75, b, y, -1.65, { faces: 'yzZ' })); }, k);
+    if (k >= 3) {
+      s.light({ at: [-10, y - 0.05, -1.7], to: [10, y - 0.05, -1.7], type: 'tube', color: [1.0, 0.76, 0.5], power: 1.2, range: 5, radius: 0.15, lamp: true, clip: [-11.8, DY[k] - 0.2, -3.6, 11.8, DY[k] + 4, 0.2] });
     }
+  }
+  // along the outer walls of the galleries: benches between the pilasters, old bills in frames, a door to the loft
+  const bills = [
+    { kind: 'poster', title: 'THE LONG NOTE', sub: 'the bottom C held from dusk to lamp-night', palette: ['#2a2c2c', '#f1e6c9', '#d99a2b'], emblem: 'drum' },
+    { kind: 'poster', title: 'CHOIRS OF THE MIDDLE DECKS', sub: 'every block that would come', palette: ['#7a2f2a', '#f1e6c9', '#e8b84a'], emblem: 'star' },
+    { kind: 'poster', title: 'THE BELLOWS RE-CLOTHED', sub: 'every reservoir, the year of the second blower', palette: ['#2f5d5a', '#f1e6c9', '#e8b84a'], emblem: 'lamp' },
+    { kind: 'poster', title: 'EIGHT FLUTES, NO WALLS', sub: 'a night in the Hollow, at half a g', palette: ['#2f3f6a', '#f1e6c9', '#8fc0d0'], emblem: 'flute' },
+  ];
+  for (let k = 1; k < 5; k++) for (const sx of [-1, 1]) {
+    const y = DY[k], xw = sx * 14.75;
+    for (const z of [-21.1, -7.1]) prop(s, 'bench', xw, y, z, -sx * PI / 2, { w: 2.2, wood: k % 2 ? '#7a5233' : '#6b4429', back: true }, { level: k, noSpots: (k + (z < -10 ? 1 : 0)) % 2 === 0 });
+    sign(s, bills[(k * 2 + (sx > 0 ? 1 : 0)) % 4], sx * 14.98, y + 1.75, -14.1, { face: sx > 0 ? 'x' : 'X', w: 0.85, h: 1.2, level: k });
+    s.structure((gg) => {
+      const xf = sx * 14.99, z0 = -27.4, z1 = -26.4;
+      gg.mat('wood', '#3a2418'); gg.box(Math.min(xf, xf - sx * 0.06), y, z0 - 0.1, Math.max(xf, xf - sx * 0.06), y + 2.25, z1 + 0.1, { faces: sx > 0 ? 'x' : 'X' });
+      gg.mat('paint', k % 2 ? C.madder : C.tealL); gg.box(Math.min(xf, xf - sx * 0.08), y, z0, Math.max(xf, xf - sx * 0.08), y + 2.1, z1, { faces: (sx > 0 ? 'x' : 'X') + 'zZ', bevel: 0.01 });
+      gg.mat('cast', C.brass); gg.box(Math.min(xf - sx * 0.08, xf - sx * 0.12), y + 1.0, z1 - 0.15, Math.max(xf - sx * 0.08, xf - sx * 0.12), y + 1.1, z1 - 0.1);
+    }, k);
   }
 }
 
@@ -230,13 +257,13 @@ function stairHall(s, sx) {
 // ---------------------------------------------------------------------------------------------------------------
 function courtFloor(game, s, f, r, organ) {
   const g = s.g;
-  floor(s, ATR.x0, -29.75, ATR.x1, ATR.z1, 0, 'terrazzo', C.floor);
+  floor(s, ATR.x0, -29.75, ATR.x1, ATR.z1, 0, 'terrazzo', C.floor, { matOpts: { rough: 0.35 } });
   s.deco((gg) => {
-    gg.mat('terrazzo', C.madder); runX(-29, -1, 8, (a, b) => gg.box(-1.2, 0, a, 1.2, 0.004, b, { faces: 'Y' }));
-    gg.mat('terrazzo', '#2a3a3a'); runX(-29, -1, 8, (a, b) => { gg.box(-1.5, 0, a, -1.2, 0.005, b, { faces: 'Y' }); gg.box(1.2, 0, a, 1.5, 0.005, b, { faces: 'Y' }); });
+    gg.mat('terrazzo', C.madder, { rough: 0.4 }); runX(-29, -1, 8, (a, b) => gg.box(-1.2, 0, a, 1.2, 0.004, b, { faces: 'Y' }));
+    gg.mat('terrazzo', '#2a3a3a', { rough: 0.4 }); runX(-29, -1, 8, (a, b) => { gg.box(-1.5, 0, a, -1.2, 0.005, b, { faces: 'Y' }); gg.box(1.2, 0, a, 1.5, 0.005, b, { faces: 'Y' }); });
     // a band across under the bridge, where the organ's light falls
-    gg.mat('terrazzo', '#c9b490'); gg.box(-11.6, 0, -29.4, 11.6, 0.004, -27.2, { faces: 'Y' });
-    gg.mat('terrazzo', '#2a3a3a'); for (const z of [-29.45, -27.2]) gg.box(-11.6, 0, z - 0.06, 11.6, 0.005, z + 0.06, { faces: 'Y' });
+    gg.mat('terrazzo', '#c9b490', { rough: 0.4 }); gg.box(-11.6, 0, -29.4, 11.6, 0.004, -27.2, { faces: 'Y' });
+    gg.mat('terrazzo', '#2a3a3a', { rough: 0.4 }); for (const z of [-29.45, -27.2]) gg.box(-11.6, 0, z - 0.06, 11.6, 0.005, z + 0.06, { faces: 'Y' });
   });
   // benches in rows facing the organ, a little curved, every one a different age
   const woods = ['#7a5233', '#6b4429', '#8a6040', '#5a3a24', '#7a5a3a'];
@@ -244,7 +271,7 @@ function courtFloor(game, s, f, r, organ) {
     const z = -22.5 + row * 2.6;
     for (const side of [-1, 1]) for (const b of [0, 1]) {
       const x = side * (2.9 + b * 4.2), yaw = PI + side * (b ? 0.08 : 0.03);
-      prop(s, 'bench', x, 0, z, yaw, { w: 3.6, wood: woods[(row + b * 2 + (side > 0 ? 1 : 0)) % woods.length], back: true });
+      prop(s, 'bench', x, 0, z, yaw, { w: 3.6, wood: woods[(row + b * 2 + (side > 0 ? 1 : 0)) % woods.length], back: true }, { noSpots: (row + b) % 2 === 1 });
     }
   }
   // a felt cushion here and there, a coat over a back, a lidded cup left under a bench
@@ -259,7 +286,7 @@ function courtFloor(game, s, f, r, organ) {
   let i = 0;
   for (const z of [-22, -14, -6]) for (const x of [-6.5, 0, 6.5]) {
     const y = 11.5 + ((i * 5) % 3) * 1.4;
-    lamp(s, 'lantern', x, y, z, { tint: lc[i], r: 0.5, hh: 0.8, drop: TOP - y - 0.4, power: 3.2, range: 15, K: 2600, clip: COURT_CLIP });
+    lamp(s, 'lantern', x, y, z, { tint: lc[i], r: 0.5, hh: 0.8, drop: TOP - y - 0.4, power: 2.0, glow: 1.4, range: 15, K: 2600, clip: COURT_CLIP });
     i++;
   }
   // the court's own bounce light: warm off stone and gilt
@@ -285,7 +312,7 @@ function courtFloor(game, s, f, r, organ) {
 // ---------------------------------------------------------------------------------------------------------------
 function courtLife(s) {
   // the walkways: down the middle aisle to the organ, along the aisles under the galleries, along every gallery
-  s.path([[0, 4], [0, 0.5], [0, -12], [0, -26.8]], { width: 2.2 });
+  s.path([[0, 0.6], [0, -12], [0, -26.8]], { width: 2.2 });
   s.path([[0, -26.8], [-8, -27.6], [-13.3, -27.6], [-13.3, -14], [-13.3, -2.4], [-14.2, -2.4]], { width: 1.6 });
   s.path([[0, -26.8], [8, -27.6], [13.3, -27.6], [13.3, -14], [13.3, -2.4], [14.2, -2.4]], { width: 1.6 });
   s.path([[0, -12], [-9.4, -12], [-13.3, -14]], { width: 1.4 });
@@ -295,10 +322,11 @@ function courtLife(s) {
   for (let k = 1; k < 5; k++) {
     const y = DY[k];
     for (const sx of [-1, 1]) s.path([[sx * 14.2, y, -2.4], [sx * 13.3, y, -2.4], [sx * 13.3, y, -14], [sx * 13.3, y, k === 2 ? -27.6 : -27.2]], { width: 1.4 });
-    if (k >= 2) s.path([[-13.3, y, -2.4], [-13.3, y, -1.6], [-4, y, -1.6], [0, y, -1.6], [4, y, -1.6], [13.3, y, -1.6], [13.3, y, -2.4]], { width: 1.4 });
+    if (k >= 3) s.path([[-13.3, y, -2.4], [-13.3, y, -1.6], [-4, y, -1.6], [0, y, -1.6], [4, y, -1.6], [13.3, y, -1.6], [13.3, y, -2.4]], { width: 1.4 });
+    if (k === 2) for (const sx of [-1, 1]) s.path([[sx * 13.3, y, -2.4], [sx * 13.3, y, -1.6], [sx * 7.55, y, -1.6], [sx * 7.55, y, -0.6]], { width: 1.2 });
     // people at the rails, looking across at the pipes
     for (const sx of [-1, 1]) for (const z of [-25.5, -18.4, -9.8]) s.spot('stand', sx * (GAL.xi + 0.55), y, z + (k % 2) * 1.3, sx > 0 ? -PI / 2 - 0.5 : PI / 2 + 0.5, { tags: ['rail'] });
-    if (k >= 2) for (const x of [-6, 5.2]) s.spot('stand', x, y, GAL.back + 0.55, PI, { tags: ['rail'] });
+    if (k >= 2) for (const x of k === 2 ? [-9.4, 9.0] : [-6, 5.2]) s.spot('stand', x, y, GAL.back + 0.55, PI, { tags: ['rail'] });
   }
   // a pair talking on the floor by the aisle, a pair under the west gallery
   s.spot('chat', -1.9, 0, -25.8, -0.6, { tags: ['view'] }); s.spot('chat', -2.7, 0, -25.1, 2.4, { tags: ['view'] });
@@ -321,7 +349,7 @@ function zonesAndSound(game, s, f, r, organ) {
     const id = gm.zone.id;
     if (!seen && id === 'fo-court') { seen = true; toast(gm, 'A court five decks tall, and its whole front end is pipes.'); }
     if (id !== 'fo-court' && id !== 'fo-foyer') return;
-    const h = hour(gm); if (h < 9 || h >= 21.5) return;
+    const h = hour(gm); if (h < 9 || h >= 21.5 || (gm.clock && gm.clock.day === 2)) return;
     if (organ.busy()) return;
     wait -= dt; if (wait > 0) return;
     wait = 30 + Math.random() * 45;

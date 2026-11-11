@@ -6,7 +6,6 @@ import { floor, ceiling, wall, lamp, roomGlow, block } from '../world/kit.js';
 import { railing, planter } from '../world/kit2.js';
 import { prop } from '../world/props.js';
 import { sign } from '../world/signs.js';
-import { door } from '../world/doors.js';
 import { Rng, shadeHex, mixHex } from '../core/util.js';
 import { SH, GO, NG, BR, CORE, PAL, ROUTE_COLS, SUB, toast, sfx, say, choose, read, find, seat, frameWait, movable } from './lm_chimney_parts.js';
 import { R0, G0, MAT_TOP, driftFrom, fallTime, gOfDeck, cm, f2, D0 } from './lm_chimney_phys.js';
@@ -199,9 +198,8 @@ function gallery(game, s, k) {
   const win = k <= 4 ? [{ at: 2, w: 13, h: 1.5, sill: 0.95 }] : [];
   wall(s, GO.x, GO.z - 0.08, SH.x1, GO.z - 0.08, y, 4, { tint: mixHex(PAL.cream, c, 0.14), tintB: '#d9cdb2', dado, openings: win, level: k });
   if (k <= 4) { s.glass(GO.x + 2.05, y + 0.95, GO.z - 0.08, GO.x + 14.95, y + 2.45, GO.z - 0.08, { level: k }); s.structure((gg) => { gg.mat('cast', '#2c3a40'); for (let x = GO.x + 2; x <= GO.x + 15.01; x += 1.625) gg.box(x - 0.03, y + 0.95, GO.z - 0.14, x + 0.03, y + 2.45, GO.z - 0.02); gg.box(GO.x + 2, y + 0.9, GO.z - 0.2, GO.x + 15, y + 0.95, GO.z + 0.06); }, k); }
-  wall(s, GO.x - 0.08, CORE.z1, GO.x - 0.08, SH.z1, y, 4, { tint: mixHex(PAL.cream, c, 0.14), dado, level: k });
-  wall(s, GO.x - 0.08, GO.z, GO.x - 0.08, CORE.z1, y, 4, { tint: mixHex(PAL.cream, c, 0.14), dado, openings: [{ at: 0.6, w: 1.1, h: 2.2 }], level: k });
-  door(s, { x: GO.x - 0.08, y, z: GO.z + 0.6, w: 1.1, h: 2.2, along: 'z', dir: 1, kind: 'hinge', style: 'panel', tint: shadeHex(c, 0.75), locked: true, lockedText: 'The stair is through here: use the plate beside the door.', level: k });
+  wall(s, GO.x - 0.08, GO.z, GO.x - 0.08, SH.z1, y, 4, { tint: mixHex(PAL.cream, c, 0.14), dado, level: k });
+  stairDoor(s, y, shadeHex(c, 0.75), k);
   // on the gallery: a bench against the anti wall, a planter, coat hooks, a drinking tap, the deck's notice
   prop(s, 'bench', GO.x + 0.42, y, 1.2, PI / 2, { w: 2.2, back: true, wood: PAL.wood }, { level: k });
   prop(s, 'bench', -3.2, y, GO.z + 0.42, 0, { w: 2.0, back: true, wood: shadeHex(PAL.wood, 1.1) }, { level: k });
@@ -237,7 +235,7 @@ function gallery(game, s, k) {
 // ---------------------------------------------------------------------------------------------------------------
 function bridge(game, s) {
   const g = s.g, k = BR.k, y = 4 * k;
-  floor(s, XB0, SH.z0, XB1, SH.z1 - 0.02, y, 'deckplate', '#8a8f8a', { level: k });
+  floor(s, XB0, SH.z0, XB1, SH.z1 - 0.02, y, 'deckplate', '#5f6663', { level: k });
   s.structure((gg) => {
     // two box girders and cross ties underneath, painted the deck's colour
     gg.mat('paint', DECK_COL[k]);
@@ -269,11 +267,12 @@ function bridge(game, s) {
 function mat(game, s) {
   const g = s.g, r = new Rng(55);
   // cushions two metres square, stitched, in two blues; walkable at MAT_TOP
+  g.mat('plain', '#16243a'); g.box(SH.x0, 0.001, SH.z0, SH.x1, 0.004, SH.z1, { faces: 'Y' });
   for (let i = 0; i < 7; i++) {
     for (let j = 0; j < 7; j++) {
       const x0 = SH.x0 + i * 2, z0 = SH.z0 + j * 2;
       g.mat('speckle', (i + j) % 2 ? '#2f5f9a' : '#2a568c', { rough: 0.2 });
-      g.box(x0 + 0.01, 0, z0 + 0.01, x0 + 1.99, MAT_TOP, z0 + 1.99, { bevel: 0.05, aoBottom: 0.6 });
+      g.box(x0 + 0.004, 0, z0 + 0.004, x0 + 1.996, MAT_TOP, z0 + 1.996, { bevel: 0.07, aoBottom: 0.55 });
     }
     s.flush({ tier: 's', cast: false });
   }
@@ -423,6 +422,18 @@ function chalkDrop(game, s) {
   } });
 }
 
+// the stair's door on a deck: a panelled leaf in a frame on the anti wall's face, its number over it
+function stairDoor(s, y, tint, k) {
+  const x = GO.x, z0 = GO.z + 0.6, z1 = z0 + 1.1;
+  s.structure((gg) => {
+    gg.mat('wood', '#5b4636'); gg.box(x, y, z0 - 0.08, x + 0.06, y + 2.3, z0, { bevel: 0.01 }); gg.box(x, y, z1, x + 0.06, y + 2.3, z1 + 0.08, { bevel: 0.01 }); gg.box(x, y + 2.22, z0 - 0.08, x + 0.06, y + 2.3, z1 + 0.08, { bevel: 0.01 });
+    gg.mat('wood', tint); gg.box(x, y, z0, x + 0.04, y + 2.22, z1, { bevel: 0.006 });
+    gg.mat('wood', shadeHex(tint, 1.15)); for (const pn of [[0.15, 1.0], [1.12, 2.08]]) gg.box(x + 0.04, y + pn[0], z0 + 0.12, x + 0.05, y + pn[1], z1 - 0.12, { bevel: 0.006 });
+    gg.mat('cast', '#c8a45a'); gg.tube([[x + 0.05, y + 1.0, z1 - 0.1], [x + 0.1, y + 1.0, z1 - 0.1], [x + 0.1, y + 1.0, z1 - 0.22]], 0.01, { segs: 5 });
+  }, k);
+  sign(s, { kind: 'plate', text: 'Stair', lines: ['deck ' + (D0 + k)] }, x + 0.02, y + 2.5, (z0 + z1) / 2, { face: 'X', w: 0.42, h: 0.18, level: k });
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // the stair: a plate beside the door on every deck; it takes you to any deck of the Rack
 // ---------------------------------------------------------------------------------------------------------------
@@ -457,11 +468,11 @@ function stairDoors(game, s) {
 function ground(game, s) {
   const g = s.g, r = new Rng(12);
   // columns carrying the anti galleries' outer wall, and the front aisle's wall into the Spouts
-  for (const z of [-5.2, -0.2, 4.8]) { block(s, GO.x - 0.2, 0, z - 0.2, GO.x + 0.2, 3.6, z + 0.2, 'paint', DECK_COL[0], { bevel: 0.02 }); }
+  for (const z of [-5.4, -1.3, 4.8]) { block(s, GO.x - 0.2, 0, z - 0.2, GO.x + 0.2, 3.6, z + 0.2, 'paint', DECK_COL[0], { bevel: 0.02 }); }
   s.structure((gg) => { gg.mat('paint', '#d8ccb4'); gg.box(GO.x - 0.25, 3.4, CORE.z1, GO.x + 0.25, 4.0, SH.z1, { faces: 'xXy' }); });
   wall(s, GO.x, GO.z - 0.08, SH.x1, GO.z - 0.08, 0, 4, { tint: mixHex(PAL.cream, DECK_COL[0], 0.14), tintB: '#d9cdb2', dado: { h: 1.1, mat: 'paint', tint: shadeHex(DECK_COL[0], 0.85) }, openings: [{ at: 8, w: 6, h: 3.2 }] });
-  wall(s, GO.x - 0.08, GO.z, GO.x - 0.08, CORE.z1, 0, 4, { tint: mixHex(PAL.cream, DECK_COL[0], 0.14), dado: { h: 1.1, mat: 'paint', tint: shadeHex(DECK_COL[0], 0.85) }, openings: [{ at: 0.6, w: 1.1, h: 2.2 }] });
-  door(s, { x: GO.x - 0.08, y: 0, z: GO.z + 0.6, w: 1.1, h: 2.2, along: 'z', dir: 1, kind: 'hinge', style: 'panel', tint: shadeHex(DECK_COL[0], 0.75), locked: true, lockedText: 'The stair is through here: use the plate beside the door.' });
+  wall(s, GO.x - 0.08, GO.z, GO.x - 0.08, CORE.z1, 0, 4, { tint: mixHex(PAL.cream, DECK_COL[0], 0.14), dado: { h: 1.1, mat: 'paint', tint: shadeHex(DECK_COL[0], 0.85) } });
+  stairDoor(s, 0, shadeHex(DECK_COL[0], 0.75), 0);
   // benches of parents under the anti gallery, facing the wall
   for (const z of [-2.7, 2.3]) { prop(s, 'bench', GO.x + 0.6, 0, z, PI / 2, { w: 2.2, back: true, wood: PAL.wood }); seat(s, GO.x + 0.6, 0, z, PI / 2, 'Sit with the parents', { pitch: 0.25 }); }
   for (const x of [-6.6, 5.4]) prop(s, 'bench', x, 0, GO.z + 0.45, 0, { w: 2.0, back: true, wood: shadeHex(PAL.wood, 1.1) });

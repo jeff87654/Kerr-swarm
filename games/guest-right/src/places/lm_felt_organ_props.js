@@ -28,16 +28,15 @@ export const BR = { y: 8, z0: -29.65, z1: -27.6, bx: 2.6, bz: -25.2 };
 export const STW = { x0: -19.4, x1: -15.1, z0: -9, z1: -1.6 };
 export const STE = { x0: 15.1, x1: 19.4, z0: -9, z1: -1.6 };
 export const SDOOR = { z0: -3.1, w: 1.4 };
-// the foyer behind the court, two decks tall, open to it between the piers; the cab lobby behind that
+// the foyer behind the court, two decks tall, open to it between the piers; the cab berths in its back wall
 export const FOY = { x0: -15, x1: 15, z0: 0, z1: 14, h: 7.4 };
-export const LOB = { x0: -6, x1: 6, z0: 14, z1: 20, h: 3.4 };
 // the long foyer to the Quilt's stalls door and the Kettle Room
 export const CORR = { x0: 15, x1: 61, z0: 0, z1: 8, h: 3.4 };
 // the Quilt, the concert hall: three decks tall; thirteen raked rows rising anti from the front cross aisle; the stage
 export const QU = { x0: 19.6, x1: 53, z0: -28, z1: 0, h: 11.4, front: 38.8, rows: 13, pitch: 1.15, stage: 41.5, stageH: 1.0, sz0: -25, sz1: -3 };
 export const QRISE = 4 / 13;
 // the Kettle Room, the players' room behind the stage
-export const KET = { x0: 53.4, x1: 61, z0: -14, z1: 0, h: 3.2 };
+export const KET = { x0: 53.4, x1: 61, z0: -10.5, z1: 0, h: 3.2 };
 // rooms over the foyer: the Cutting Room and the Wind Room on deck 152, the Sound Larder on deck 153
 export const BACK = { z0: 0, z1: 11, h: 3.3 };
 export const CUT = { x0: -15, x1: -0.1 };
@@ -47,7 +46,7 @@ export const LAR = { x0: -15, x1: 15 };
 // colours
 export const C = {
   plaster: '#d8b98c', plasterD: '#b89668', teal: '#1f4f52', tealL: '#2f6f73', gilt: '#c9a24a', brass: '#b08a45',
-  walnut: '#4a2e1e', walnutD: '#2c1a12', oak: '#8a5a34', tin: '#d8d5cc', zinc: '#a9a7a0', copper: '#b8704a',
+  walnut: '#4a2e1e', walnutD: '#2c1a12', oak: '#8a5a34', tin: '#e6e3da', zinc: '#b4b1a8', copper: '#b8704a',
   floor: '#b8a58a', madder: '#9b2f2a', saffron: '#d99a2b', ochre: '#b8782f', plum: '#5b3a5e', indigo: '#2f3f6a',
   moss: '#5f7a3a', rose: '#c46a6a', iron: '#2a2c2c', cream: '#efe4c8', ink: '#22302c',
 };
@@ -116,7 +115,7 @@ export function organPlayer(game, s, f) {
   const note = (delay, m, vol) => at(delay, (d) => {
     if (!game.audio || !game.sfxAt) return;
     const p = where(m);
-    game.sfxAt('flute-note', f, p[0], p[1], p[2], { pitch: Math.pow(2, (m - 74) / 12), vol: vol, radius: m < 40 ? 16 : 11, delay: d });
+    game.sfxAt('flute-note', f, p[0], p[1], p[2], { pitch: Math.pow(2, (m - 74) / 12), vol: vol, radius: m < 40 ? 16 : 11, delay: d, exact: true });
   });
   const api = {
     busy() { return until > t; },
@@ -173,14 +172,14 @@ export function organPlayer(game, s, f) {
 defineProp('feltorgan.pipe', (g, p) => {
   const L = p.L, r = p.r, foot = p.foot || Math.max(0.3, Math.min(1.4, r * 5)), seg = r > 0.15 ? 18 : r > 0.07 ? 12 : 8;
   const metal = p.metal || C.tin;
-  g.mat('cast', metal, { rough: -0.4 });
+  g.mat('brushed', metal, { rough: 0.05 });
   g.lathe(0, 0, [[r * 0.14, 0], [r * 0.2, foot * 0.12], [r * 0.98, foot]], { segs: seg, capBottom: false, capTop: false });
   g.lathe(0, 0, [[r, foot], [r, foot + L - 0.03], [r * 1.025, foot + L - 0.02], [r * 1.025, foot + L]], { segs: seg, capBottom: false, capTop: false });
   // the inside, dark, a hand down from the rim
   g.mat('cast', '#1a1816', { rough: 0.3 }); g.lathe(0, 0, [[r * 0.99, foot + L], [r * 0.97, foot + L - 0.04], [0, foot + L - 0.06]], { segs: seg, capBottom: false, capTop: false });
   // the mouth: the flattened upper lip, the dark slot, the languid's line
   const mw = r * 1.15, mh = Math.max(0.03, r * 0.42), zf = r * 0.985;
-  g.mat('cast', shadeHex(metal, 1.08), { rough: -0.5 });
+  g.mat('brushed', shadeHex(metal, 1.08), { rough: -0.1 });
   g.prism([[-mw / 2, zf - 0.004], [mw / 2, zf - 0.004], [mw / 2 * 0.2, zf + r * 0.06], [-mw / 2 * 0.2, zf + r * 0.06]], foot + mh, foot + mh + r * 1.3);
   g.mat('cast', '#121010'); g.box(-mw / 2, foot, zf - 0.01, mw / 2, foot + mh, zf + 0.004, { faces: 'Z' });
   g.mat('cast', shadeHex(metal, 0.8)); g.box(-mw / 2, foot - 0.012, zf - 0.006, mw / 2, foot, zf + 0.01, { faces: 'ZY' });

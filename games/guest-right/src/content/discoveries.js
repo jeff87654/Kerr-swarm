@@ -850,4 +850,16 @@ export const DISCOVERIES = {
     where: 'the open Spindle', place: 'spindle',
     hint: 'Look for the red lamps on the Long Flight.',
   },
+  'two-miles': {
+    title: 'One mile, two records',
+    text: "The Measure is a mile of lanes laid spinward along one deck. Run it spinward and you weigh a little more at every stride; run it anti and you weigh less. So the drum keeps two records, a Heavy Mile and a Light Mile, about fifteen seconds apart, and never adds them together.",
+    where: 'the Measure', place: 'mile-hall',
+    hint: 'Take a cab to the Measure, on deck 52 in Ring Seven.',
+  },
+  'both-miles': {
+    title: 'The same legs both ways',
+    text: "You have run the mile heavy and run it light on the same legs, and the clock agrees with the records board about which is quicker.",
+    where: 'the Measure', place: 'mile-hall',
+    hint: 'Run the Measure spinward and then anti.',
+  },
 };

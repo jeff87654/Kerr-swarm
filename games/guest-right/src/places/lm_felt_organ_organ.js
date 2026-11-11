@@ -10,13 +10,15 @@ import { floor, lamp, block } from '../world/kit.js';
 import { railing } from '../world/kit2.js';
 import { prop } from '../world/props.js';
 import { sign } from '../world/signs.js';
-import { PI, TOP, ORG, BR, GAL, C, say, choose, toast, find, hour, tick, runX, pipeLen, pipeRad } from './lm_felt_organ_props.js';
+import { PI, TOP, ORG, BR, GAL, C, say, choose, find, hour, tick, runX, pipeLen, pipeRad } from './lm_felt_organ_props.js';
 
 const CLIP = [-15.2, -0.3, -34.2, 15.2, TOP + 0.1, -22];
 const Q = (v, k) => Math.round(v / k) * k;
-const FLAT_L = [24, 26, 28, 30, 32, 31, 29, 27, 25];          // the sixteen-foot principal, outer to inner, anti side
-const FLAT_X = (i) => -11.45 + i * 0.9625;
-
+// the flats: fifteen pipes in front and fourteen behind, each flat a V, long at its ends; C side anti, C sharp spinward
+const FLAT_N = 15, FLAT_SP = 0.545;
+const flatX = (sx, i) => sx * (11.55 - i * FLAT_SP);               // i = 0 at the outer end
+const flatM = (sx, i, back) => 24 + 2 * (7 - Math.abs(i - 7)) + (sx > 0 ? 1 : 0) - (back ? 1 : 0);
+const flatTop = (m) => ORG.impost + 0.9 + pipeLen(m);
 export async function buildOrgan(game, s, f, r, organ) {
   caseWork(s);
   await tick(game);
@@ -87,37 +89,40 @@ function caseWork(s) {
 // the front pipes
 // ---------------------------------------------------------------------------------------------------------------
 function facade(s) {
-  // the middle tower: the principal's lowest five, bottom C in the middle
-  const mid = [[-2.2, 15], [-1.1, 13], [0, 12], [1.1, 14], [2.2, 16]];
-  for (const [x, m] of mid) prop(s, 'feltorgan.pipe', x, 0.5, ORG.pz, 0, { L: Q(pipeLen(m), 0.05), r: Q(pipeRad(m), 0.01), foot: 1.3, solid: true }, { tier: 's' });
-  // the wooden towers: C, D, E anti; C sharp, D sharp, F spinward, the longest outermost
-  const wood = [[-14.35, 12], [-13.45, 14], [-12.55, 16], [14.35, 13], [13.45, 15], [12.55, 17]];
-  for (const [x, m] of wood) prop(s, 'feltorgan.woodpipe', x, 0.3, -31.15, 0, { L: Q(pipeLen(m), 0.05), w: 0.64 }, { tier: 's' });
-  // the two flats on the impost
-  for (let i = 0; i < 9; i++) for (const sx of [-1, 1]) {
-    const m = FLAT_L[i] + (sx > 0 ? 1 : 0);
-    prop(s, 'feltorgan.pipe', sx * -FLAT_X(i), ORG.impost, ORG.pz, 0, { L: Q(pipeLen(m), 0.05), r: Q(pipeRad(m), 0.01), foot: 0.9 }, { tier: 's' });
+  // the middle tower: nine of the principal's lowest notes, bottom C in the middle, standing on the floor
+  const mid = [20, 18, 16, 14, 12, 13, 15, 17, 19];
+  mid.forEach((m, i) => prop(s, 'feltorgan.pipe', (i - 4) * 0.68, 0.5, ORG.pz, 0, { L: Q(pipeLen(m), 0.05), r: 0.28, foot: 1.3, solid: true }, { tier: 's' }));
+  // the wooden towers: C, D, E anti; C sharp, D sharp, F spinward, the longest outermost; two more behind each
+  const wood = [[-14.4, 12], [-13.45, 14], [-12.5, 16], [14.4, 13], [13.45, 15], [12.5, 17]];
+  for (const [x, m] of wood) prop(s, 'feltorgan.woodpipe', x, 0.3, -31.15, 0, { L: Q(pipeLen(m), 0.05), w: 0.78, wood: '#8a5a34', front: '#b07a48' }, { tier: 's' });
+  for (const [x, m] of [[-13.9, 18], [-12.95, 20], [13.9, 19], [12.95, 21]]) prop(s, 'feltorgan.woodpipe', x, 0.3, -32.4, 0, { L: Q(pipeLen(m), 0.05), w: 0.7, wood: '#7a4a2a', front: '#9a6a3a' }, { tier: 's' });
+  // the two flats on the impost, two rows deep
+  for (const sx of [-1, 1]) for (let i = 0; i < FLAT_N; i++) {
+    prop(s, 'feltorgan.pipe', flatX(sx, i), ORG.impost, ORG.pz, 0, { L: Q(pipeLen(flatM(sx, i)), 0.05), r: 0.2, foot: 0.9 }, { tier: 's' });
+    if (i < FLAT_N - 1) prop(s, 'feltorgan.pipe', flatX(sx, i + 0.5), ORG.impost, ORG.pz - 0.45, 0, { L: Q(pipeLen(flatM(sx, i + 0.5, true)), 0.05), r: 0.17, foot: 0.9, metal: '#d2cfc6' }, { tier: 's' });
   }
-  // gilt shades over every flat pipe's top, up to the trumpets' beam
+  // gilt shades in a band over the flats, under the trumpets' beam
   s.structure((gg) => {
     gg.mat('grille', C.gilt, { rough: -0.1 });
-    for (let i = 0; i < 9; i++) for (const sx of [-1, 1]) {
-      const m = FLAT_L[i] + (sx > 0 ? 1 : 0), top = ORG.impost + 0.9 + pipeLen(m), x = sx * -FLAT_X(i);
-      gg.box(x - 0.47, top + 0.08, ORG.pz + 0.22, x + 0.47, 12.5, ORG.pz + 0.26, { faces: 'zZ' });
-    }
-    // and over the wooden towers
-    for (const sx of [-1, 1]) gg.box(sx < 0 ? -15 : 12.1, 18.55, -30.5, sx < 0 ? -12.1 : 15, TOP - 0.36, -30.46, { faces: 'zZ' });
+    for (const sx of [-1, 1]) runX(sx < 0 ? -11.85 : 3.4, sx < 0 ? -3.4 : 11.85, 9, (a, b) => gg.box(a, 11.8, ORG.pz + 0.24, b, 12.5, ORG.pz + 0.28, { faces: 'zZ' }));
+    gg.mat('cast', C.gilt, { rough: -0.2 });
+    for (const sx of [-1, 1]) runX(sx < 0 ? -11.85 : 3.4, sx < 0 ? -3.4 : 11.85, 9, (a, b) => gg.box(a, 11.72, ORG.pz + 0.22, b, 11.8, ORG.pz + 0.32, { bevel: 0.01 }));
+    for (const sx of [-1, 1]) gg.box(sx < 0 ? -15 : 12.05, 18.7, -30.5, sx < 0 ? -12.05 : 15, TOP - 0.36, -30.46, { faces: 'zZ' });
   });
-  // the trumpets laid flat, on a beam over the flats
+  // the trumpets laid flat, on a beam over the flats, and the upper flats standing on the beam in front of the shutters
   for (const sx of [-1, 1]) {
+    const xa = sx < 0 ? -11.9 : 3.35, xb = sx < 0 ? -3.35 : 11.9;
     s.structure((gg) => {
-      const xa = sx < 0 ? -11.9 : 3.35, xb = sx < 0 ? -3.35 : 11.9;
-      gg.mat('wood', C.walnut); gg.box(xa, 12.5, -31.0, xb, 13.1, -30.3, { bevel: 0.015 });
-      gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(xa, 12.55, -30.3, xb, 12.62, -30.26, { faces: 'ZY' }); gg.box(xa, 13.0, -30.3, xb, 13.06, -30.26, { faces: 'ZY' });
+      gg.mat('wood', C.walnut); gg.box(xa, 12.5, -31.0, xb, 13.25, -30.0, { bevel: 0.015 });
+      gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(xa, 12.55, -30.0, xb, 12.62, -29.96, { faces: 'ZY' }); gg.box(xa, 13.18, -30.0, xb, 13.25, -29.96, { faces: 'ZY' });
     });
-    for (let i = 0; i < 9; i++) {
-      const x = sx * -FLAT_X(i), L = Q(2.3 - Math.abs(i - 4) * 0.18 - (sx > 0 ? 0.05 : 0), 0.05);
-      prop(s, 'feltorgan.trumpet', x, 12.82, -30.3, 0, { L, r: 0.12 }, { tier: 's' });
+    for (let i = 0; i < 11; i++) {
+      const x = sx * (11.3 - i * 0.78), L = Q(2.4 - Math.abs(i - 5) * 0.16, 0.05);
+      prop(s, 'feltorgan.trumpet', x, 12.88, -30.0, 0, { L, r: 0.13 }, { tier: 's' });
+    }
+    for (let i = 0; i < 17; i++) {
+      const m = 36 + 2 * Math.abs(i - 8) + (sx > 0 ? 1 : 0);
+      prop(s, 'feltorgan.pipe', sx * (11.5 - i * 0.5), 13.25, -30.55, 0, { L: Q(pipeLen(m), 0.05), r: 0.1, foot: 0.5 }, { tier: 's' });
     }
   }
 }
@@ -148,12 +153,12 @@ function swellBoxes(s) {
   for (const sx of [-1, 1]) {
     const xa = sx < 0 ? -11.8 : 3.4, xb = sx < 0 ? -3.4 : 11.8, y0 = 13.3, y1 = TOP - 0.45;
     s.structure((gg) => {
-      gg.mat('wood', C.walnut); gg.box(xa, y0, -30.9, xb, y0 + 0.2, -29.9, { bevel: 0.01 }); gg.box(xa, y1 - 0.2, -30.9, xb, y1, -29.9, { bevel: 0.01 });
+      gg.mat('wood', C.walnut); gg.box(xa, y0, -31.5, xb, y0 + 0.2, -30.75, { bevel: 0.01 }); gg.box(xa, y1 - 0.2, -31.5, xb, y1, -30.75, { bevel: 0.01 });
       gg.mat('wood', '#140c08'); gg.box(xa, y0 + 0.2, -31.6, xb, y1 - 0.2, -31.5, { faces: 'Z' });
       const n = 13, w = (xb - xa) / n;
       for (let i = 0; i < n; i++) {
         const cx = xa + (i + 0.5) * w;
-        gg.push(); gg.move(cx, 0, -30.4); gg.rotY(0.55);
+        gg.push(); gg.move(cx, 0, -31.05); gg.rotY(0.55);
         gg.mat('paint', C.teal, { rough: -0.1 }); gg.box(-w * 0.5, y0 + 0.2, -0.035, w * 0.5, y1 - 0.2, 0.035, { faces: 'xXzZ' });
         gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(-w * 0.5, y0 + 0.2, 0.035, -w * 0.42, y1 - 0.2, 0.04, { faces: 'Z' });
         gg.pop();
@@ -180,7 +185,7 @@ function bridge(game, s, f, organ) {
     gg.mat('paint', C.teal); gg.box(-BR.bx, y - 0.6, BR.bz, BR.bx, y + 0.02, BR.bz + 0.12, { faces: 'ZyY' });
     for (const sx of [-1, 1]) gg.box(sx * BR.bx - 0.06, y - 0.6, BR.z1, sx * BR.bx + 0.06, y + 0.02, BR.bz + 0.12, { faces: 'xXy' });
     gg.mat('cast', C.gilt, { rough: -0.2 }); gg.box(-BR.bx, y - 0.34, BR.bz + 0.12, BR.bx, y - 0.28, BR.bz + 0.14, { faces: 'Z' });
-    gg.mat('paint', '#e6d2b0'); runX(-15, 15, 8, (p, q) => gg.box(p, y - 0.61, BR.z0, q, y - 0.6, BR.z1, { faces: 'y' })); gg.box(-BR.bx, y - 0.61, BR.z1, BR.bx, y - 0.6, BR.bz, { faces: 'y' });
+    gg.mat('wood', '#6b4a32'); runX(-15, 15, 8, (p, q) => gg.box(p, y - 0.61, BR.z0, q, y - 0.6, BR.z1, { faces: 'y' })); gg.box(-BR.bx, y - 0.61, BR.z1, BR.bx, y - 0.6, BR.bz, { faces: 'y' });
     gg.mat('cast', '#2a3434');
     for (const x of [-9.2, -5.4, 5.4, 9.2, -BR.bx + 0.3, BR.bx - 0.3]) {
       const zEnd = Math.abs(x) < 3 ? BR.bz + 0.4 : BR.z1 - 0.1;
@@ -222,7 +227,7 @@ function bridge(game, s, f, organ) {
       'The organist is small and seventy-three, and moves up the bench for you without being asked. "Guests may. Everything is drawn for the principals already."',
       '"Not the red knobs. Those are the trumpets, and then the whole court hears it, and the block upstairs writes to us."',
     ]);
-    const pick = await choose(gm, 'The Bellows', 'What will you play?', [
+    const pick = await choose(gm, 'The Bellows', 'Everything is drawn for the principals.', [
       { label: 'The bottom C', sub: '17.4 metres of pipe, sixteen beats a second', value: 'c' },
       { label: 'A cadence on the principals', sub: 'five chords, the pedal holding its D', value: 'chord' },
       { label: "The drum's tune", sub: 'the one the buskers play, with Mirela on the right hand', value: 'tune' },
@@ -259,12 +264,15 @@ function bridge(game, s, f, organ) {
 // the light on the organ: four uplights at its foot, a wash from under the bridge, two lamps on the swell boxes
 function organLight(s) {
   for (const [x, z] of [[-13.4, -29.0], [13.4, -29.0], [-1.7, -29.2], [1.7, -29.2]]) {
-    s.light({ at: [x, 0.3, z], type: 'spot', dir: [0, 1, -0.1], cone: [24, 12], color: [1, 0.86, 0.66], power: 90, range: 22, shadow: true, clip: CLIP });
+    s.light({ at: [x, 0.3, z], type: 'spot', dir: [0, 1, -0.12], cone: [28, 14], color: [1, 0.86, 0.66], power: 150, range: 22, shadow: true, lamp: Math.abs(x) > 5, clip: CLIP });
     s.furniture((gg) => { gg.mat('cast', '#2a2622'); gg.cyl(x, 0, z, 0.16, 0.12, { segs: 10 }); gg.mat('diffuser', '#ffe2b0', { emissive: 4 }); gg.cyl(x, 0.12, z, 0.12, 0.01, { segs: 10 }); });
   }
-  s.light({ at: [-10.5, 7.2, -29.3], to: [10.5, 7.2, -29.3], type: 'tube', color: [1, 0.8, 0.55], power: 9, range: 6, radius: 0.15, clip: CLIP });
-  s.light({ at: [-10.5, 8.4, -29.4], to: [10.5, 8.4, -29.4], type: 'tube', color: [1, 0.82, 0.6], power: 7, range: 6, radius: 0.15, clip: CLIP });
-  for (const sx of [-1, 1]) s.light({ at: [sx * 12.6, 17.2, -27.6], type: 'spot', dir: [-sx * 0.42, -0.08, -0.9], cone: [40, 22], color: [1, 0.84, 0.62], power: 38, range: 14, shadow: false, clip: CLIP });
+  s.light({ at: [-10.5, 7.1, -29.6], to: [10.5, 7.1, -29.6], type: 'tube', color: [1, 0.8, 0.55], power: 3.5, range: 5, radius: 0.15, lamp: true, clip: CLIP });
+  s.light({ at: [-10.5, 8.5, -29.6], to: [10.5, 8.5, -29.6], type: 'tube', color: [1, 0.82, 0.6], power: 2.5, range: 5, radius: 0.15, lamp: true, clip: CLIP });
+  // the front light: two lamps high on the back gallery, aimed down the court at the organ's middle
+  for (const sx of [-1, 1]) s.light({ at: [sx * 7, TOP - 0.8, -1.2], type: 'spot', dir: [-sx * 0.12, -0.3, -0.95], cone: [22, 12], color: [1, 0.88, 0.7], power: 420, range: 46, shadow: false, lamp: true, clip: [-15.2, -0.3, -34.2, 15.2, TOP, 0.3] });
+  for (const sx of [-1, 1]) s.deco((gg) => { gg.mat('cast', '#2a2622'); gg.push(); gg.move(sx * 7, TOP - 0.8, -1.2); gg.rotX(-1.25); gg.cyl(0, -0.2, 0, 0.18, 0.4, { segs: 10 }); gg.mat('diffuser', '#ffe8c0', { emissive: 4 }); gg.cyl(0, -0.21, 0, 0.15, 0.01, { segs: 10 }); gg.pop(); });
+  for (const sx of [-1, 1]) s.light({ at: [sx * 12.6, 17.2, -27.6], type: 'spot', dir: [-sx * 0.42, -0.08, -0.9], cone: [40, 22], color: [1, 0.84, 0.62], power: 38, range: 14, shadow: false, lamp: true, clip: CLIP });
 }
 
 // the plate at the foot of the bottom C
@@ -278,5 +286,4 @@ function plate(game, s) {
     ]);
     find(gm, 'long-pipes');
   } });
-  void toast;
 }

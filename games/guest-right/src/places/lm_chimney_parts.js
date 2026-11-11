@@ -323,8 +323,14 @@ export function sweepTrough(s, pts, o = {}) {
     stripe(i, j, a0, a1, closed ? SEG + 6 : SEG, r + t, false, o.col || '#d4452c', step);
     s.flush({ tier: 's', cast: true, level: lv });
     if (!closed) {
-      // the rolled lips
+      // bands painted round the inside every two metres, so a rider sees the speed
       g.mat('glaze', o.lip || '#f3e6c8');
+      for (let k = i + 5; k < j; k += 10) {
+        const F0 = frames[k], F1 = frames[Math.min(j, k + 1)], base = g.buf.nv, segs = 12;
+        for (const F of [F0, F1]) for (let m = 0; m <= segs; m++) { const ang = -A * 0.96 + 2 * A * 0.96 * m / segs, q = ring(F, ang, r - 0.006); g.v(q.p[0], q.p[1], q.p[2], -q.n[0], -q.n[1], -q.n[2], m * 0.1, 0); }
+        for (let m = 0; m < segs; m++) { const a = base + m, b = a + 1, c = base + segs + 1 + m, d = c + 1; g.quadI(a, b, d, c); }
+      }
+      // the rolled lips
       for (const sa of [-A, A]) { const line = []; for (let k = i; k <= j; k += step) line.push(ring(frames[k], sa, r + t / 2).p); const e = ring(frames[j], sa, r + t / 2).p; const last = line[line.length - 1]; if (last[0] !== e[0] || last[2] !== e[2]) line.push(e); g.tube(line, t * 0.9, { segs: 6, caps: false }); }
       s.flush({ tier: 'd', cast: false, level: lv });
     } else {

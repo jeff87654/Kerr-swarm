@@ -5,6 +5,7 @@
 import { floor, ceiling, wall, lamp, roomGlow } from '../world/kit.js';
 import { railing } from '../world/kit2.js';
 import { prop, defineProp } from '../world/props.js';
+import { sign } from '../world/signs.js';
 import { PAL, movable, rotX, signK, drawCar, carSolids, CAR } from './station_parts.js';
 import { ledgerParts, painted, drawFigure, drawNames, drawTitle, drawPlate, num } from './ledger_parts.js';
 import { LEDGER } from '../content/ledger.js';
@@ -291,10 +292,10 @@ export function liftLobby(s, game, f, o) {
   });
   const lz = (Z0 + Z1) / 2;
   s.deco(() => {
-    const ring = []; for (let k = 0; k < 24; k++) { const a = k / 24 * PI * 2; ring.push([cx + Math.cos(a) * 0.9, H - 0.95, lz + Math.sin(a) * 0.9]); }
+    const ring = []; for (let k = 0; k < 24; k++) { const a = k / 24 * PI * 2; ring.push([cx + Math.cos(a) * 0.9, H - 0.75, lz + Math.sin(a) * 0.9]); }
     g.mat('cast', P.brass, { rough: -0.25 }); g.tube(ring, 0.03, { segs: 8, closed: true });
-    for (let k = 0; k < 3; k++) { const a = k * PI * 2 / 3 + 0.3; g.tube([[cx + Math.cos(a) * 0.9, H - 0.95, lz + Math.sin(a) * 0.9], [cx, H, lz]], 0.007, { segs: 3 }); }
-    g.mat('diffuser', '#ffe7bf', { emissive: 4.5, lamp: o.lampFlag !== false }); for (let k = 0; k < 6; k++) { const a = k / 6 * PI * 2; g.ball(cx + Math.cos(a) * 0.9, H - 1.1, lz + Math.sin(a) * 0.9, 0.1, 0.12, 0.1, { segs: 10, rings: 6 }); }
+    for (let k = 0; k < 3; k++) { const a = k * PI * 2 / 3 + 0.3; g.tube([[cx + Math.cos(a) * 0.9, H - 0.75, lz + Math.sin(a) * 0.9], [cx, H, lz]], 0.007, { segs: 3 }); }
+    g.mat('diffuser', '#ffe7bf', { emissive: 3.2, lamp: o.lampFlag !== false }); for (let k = 0; k < 6; k++) { const a = k / 6 * PI * 2; g.ball(cx + Math.cos(a) * 0.9, H - 0.88, lz + Math.sin(a) * 0.9, 0.08, 0.1, 0.08, { segs: 10, rings: 6 }); }
   });
   s.light({ at: [cx, H - 1.3, lz], color: [1, 0.78, 0.5], power: 12, range: 11, clip: LC, shadow: true, lamp: o.lampFlag !== false, radius: 0.8 });
   roomGlow(s, X0, 0, Math.min(Z0, Z1), X1, H, Math.max(Z0, Z1), { sky: '#ffdcae', ground: '#b09474', power: 0.26 });
@@ -326,6 +327,7 @@ export function liftLobby(s, game, f, o) {
   seatOnBench(s, X0 + 0.6, benchZ, PI / 2, 2.2, o.stop + 'lb0'); seatOnBench(s, X1 - 0.6, benchZ, -PI / 2, 2.2, o.stop + 'lb1');
   prop(s, 'plant', X0 + 0.55, 0, back + sg * 0.7, 0, { kind: 'broad', size: 1.7, pot: P.pot || '#2f6f73' });
   prop(s, 'plant', X1 - 0.55, 0, back + sg * 0.7, 0, { kind: 'fern', size: 1.3, pot: '#c08a2e' });
+  for (let i = 0; i < (o.posters || []).length; i++) { const sp = o.posters[i]; if (sp) sign(s, sp, i % 2 ? X1 - 0.13 : X0 + 0.13, 1.75, back + sg * (1.5 + Math.floor(i / 2) * 0.95), { face: i % 2 ? 'x' : 'X' }); }
   if (o.board) signK(s, o.board, X1 - 0.13, 2.05, (Z0 + Z1) / 2 - sg * 1.6, { face: 'x', w: 1.7, h: 1.15, k: 2.2 });
   if (o.boardLines) s.interact({ x: X1 - 0.4, y: 2.0, z: (Z0 + Z1) / 2 - sg * 1.6, radius: 1.8, prompt: 'Read the berth board', onUse: (gm) => say(gm, o.boardTitle || 'Cab berths', o.boardLines) });
   // people: waiting by the berths, a walkway out to the platform

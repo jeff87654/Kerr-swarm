@@ -9,7 +9,7 @@ import { sign } from '../world/signs.js';
 import { heightAt, LAND } from '../world/land.js';
 import { Rng, hashStr, shadeHex } from '../core/util.js';
 import { gy, maxGround, say, toast, found, sfx, buyFrom, lanternString } from './hollow_parts.js';
-import { IP, DYES, openZone, who, card, pick, movingMesh, drawColumn, drawCrown, drawSpray, drawFoam } from './lm_hollow_island_parts.js';
+import { IP, DYES, openZone, who, card, pick, movingMesh, farMesh, drawColumn, drawCrown, drawSpray, drawFoam } from './lm_hollow_island_parts.js';
 
 const W = LAND.WATER;
 // the landing stage (the ferry moors along its low-z side), the Settle, the rail, the Kettle, the pier and the high board
@@ -41,7 +41,7 @@ export function buildIsland(game, f, zones) {
     g.mat('wood', '#6f6252'); for (const z of [ST.z0, ST.z1]) g.box(ST.x0, ST.y - 0.3, z - 0.08, ST.x1, ST.y - 0.01, z + 0.08, { bevel: 0.01 });
     g.mat('wood', '#5a4e40'); for (let x = ST.x0 + 0.6; x < ST.x1; x += 2.2) g.box(x - 0.08, ST.y - 0.28, ST.z0, x + 0.08, ST.y - 0.12, ST.z1);
     // a fender of old rope along the mooring side
-    g.mat('weave', '#b49a6e'); g.tube([[ST.x0 + 0.5, ST.y - 0.12, ST.z0 - 0.1], [ST.x0 + 5.5, ST.y - 0.2, ST.z0 - 0.12], [ST.x1 - 1.5, ST.y - 0.12, ST.z0 - 0.1]], 0.06, { segs: 6 });
+    g.mat('weave', '#8a7656'); for (let x = ST.x0 + 0.8; x < ST.x1 - 2; x += 1.6) g.lathe(x, ST.z0 - 0.14, [[0.0, ST.y - 0.42], [0.09, ST.y - 0.38], [0.11, ST.y - 0.25], [0.09, ST.y - 0.12], [0.0, ST.y - 0.08]], { segs: 8 });
   });
   for (let x = ST.x0 + 0.6; x <= ST.x1 - 1.2; x += 2.2) for (const z of [ST.z0 + 0.05, ST.z1 - 0.05]) {
     const yb = Math.min(gy(x, z), W - 1.0) - 0.3;
@@ -235,6 +235,25 @@ export function buildIsland(game, f, zones) {
     const a = ring[k], b = ring[k + 1];
     lanternString(s, [a[0], gy(a[0], a[1]) + 2.62, a[1]], [b[0], gy(b[0], b[1]) + 2.62, b[1]], { offset: k * 3, sag: 0.55, r: 0.12 });
   }
+  // the mast in the middle of the ring: lantern strings run down from its crown to every post, so the ring is a tent of
+  // lanterns you can see from the jetty, and the lake side is left open
+  {
+    const MX = 618.6, MZ = 1759.6, my = gy(MX, MZ), MH = 8.5, crown = [MX, my + MH - 0.35, MZ];
+    s.furniture(() => {
+      g.mat('stone', '#bfb4a2'); g.lathe(MX, MZ, [[0.55, my - 0.3], [0.55, my + 0.3], [0.45, my + 0.36], [0, my + 0.36]], { segs: 10 });
+      g.mat('paint', '#8a2f3c'); g.lathe(MX, MZ, [[0.15, my + 0.36], [0.12, my + 1.0], [0.09, my + MH - 0.2], [0.1, my + MH]], { segs: 10 });
+      ['#e7b547', '#2f8f8a', '#efe6d2', '#e7b547', '#3b4a8f'].forEach((c, i) => { g.mat('paint', c); g.cyl(MX, my + 1.4 + i * 1.3, MZ, 0.13 - i * 0.008, 0.24, { segs: 10 }); });
+      g.mat('cast', IP.brass); g.lathe(MX, MZ, [[0.11, my + MH], [0.2, my + MH + 0.06], [0.12, my + MH + 0.22], [0.03, my + MH + 0.6], [0, my + MH + 0.65]], { segs: 10 });
+      g.mat('cast', IP.iron); g.lathe(MX, MZ, [[0.5, my + MH - 0.42], [0.52, my + MH - 0.36], [0.5, my + MH - 0.3]], { segs: 14, capTop: false, capBottom: false });
+    });
+    s.post(MX, MZ, 0.2, my, my + MH);
+    ring.forEach(([x, z, k]) => { if (k % 2) return; lanternString(s, crown, [x, gy(x, z) + 2.66, z], { offset: k, sag: 0.35, r: 0.11, n: 7 }); });
+    s.light({ at: [MX, my + 3.2, MZ], color: [1, 0.7, 0.42], power: 2.0, range: 12, night: true, radius: 0.3 });
+    s.interact({ x: MX + 0.6, y: my + 1.2, z: MZ, radius: 1.2, prompt: 'Read the plate on the mast', onUse: (gm) => say(gm, { name: 'The lantern mast', colour: '#e7b547' }, [
+      'A brass plate at eye height: the lanterns are lit at lamp-night for whoever is still on the Settle, and taken down and mended every Knotnight by the blocks whose elders sat here that year.',
+      'The ring is left open on the lake side, it says, so that nobody has to look at the lake through a string of lanterns.',
+    ]) });
+  }
   // the lanterns of the posts themselves, cloth over a wire frame, lit at night
   s.deco(() => { ring.forEach(([x, z, k]) => { const y = gy(x, z); g.mat('weave', '#3a332c'); g.tube([[x + 0.32, y + 2.86, z], [x + 0.32, y + 2.62, z]], 0.005, { segs: 3, caps: false }); g.mat('paper', pick(['#f2b56b', '#e07a6a', '#e7b547', '#f4e2c0'], k), { emissive: 3.2, night: true }); g.lathe(x + 0.32, z, [[0.05, y + 2.18], [0.15, y + 2.27], [0.17, y + 2.4], [0.15, y + 2.53], [0.05, y + 2.62]], { segs: 10 }); }); });
 
@@ -294,7 +313,7 @@ export function buildIsland(game, f, zones) {
     const p = gm.player;
     try {
       if (gm.ui) await gm.ui.fade(true, 0.35);
-      p.place(f, PX - 0.35, PY + 0.02, PZ0 + 1.0, Math.PI, 0.18);
+      p.place(f, PX - 0.1, PY + 0.02, TZ1 - 0.5, Math.PI, 0.22);
       if (gm.ui) await gm.ui.fade(false, 0.5);
     } finally {
       p.locked = false; gm.busy = Math.max(0, (gm.busy || 1) - 1); dive = null;
@@ -312,6 +331,16 @@ export function buildIsland(game, f, zones) {
   s.path([[SX + 1.4, gy(SX + 1.4, 1758), 1758], [SX + 1.3, gy(SX + 1.3, 1768.2), 1768.2], [623.5, gy(623.5, 1772.5), 1772.5], [PX, gy(PX, PZ0 - 0.6), PZ0 - 0.6], [PX, PY, PZ0 + 0.6], [PX, PY, SZ - 0.8]]);
   s.path([[621.5, gy(621.5, 1757.6), 1757.6], [KX1 + 1.4, gy(KX1 + 1.4, KZ0 + 2.5), KZ0 + 2.5]]);
   s.spot('work', 622.5, gy(622.5, 1760.8), 1760.8, 0.4, { tags: ['island', 'sweep'] });
+
+  // ---- seen from the shore: the trees, the mast, the hut and the board as plain shapes, once the real ones have faded
+  farMesh(s, (fg) => {
+    for (const [x, z] of OLD) { const y = gy(x, z); fg.mat('bark', '#6a5848'); fg.cyl(x, y, z, 0.16, 1.9, { segs: 5, r1: 0.1 }); fg.mat('grass', '#a6c48c', { shade: 'foliage' }); fg.ball(x, y + 2.3, z, 1.7, 1.1, 1.7, { segs: 7, rings: 4 }); }
+    const MX = 618.6, MZ = 1759.6, my = gy(MX, MZ); fg.mat('paint', '#8a2f3c'); fg.cyl(MX, my, MZ, 0.13, 8.6, { segs: 6 });
+    fg.mat('paint', '#2f6f73'); fg.box(KX0, KY, KZ0, KX1, KY + 2.3, KZ1); fg.mat('flute', '#a8503a'); fg.prism([[KX0 - 0.4, KZ0 - 0.4], [KX1 + 0.4, KZ0 - 0.4], [KX1 + 0.4, KZ1 + 0.4], [KX0 - 0.4, KZ1 + 0.4]], KY + 2.3, KY + 2.6);
+    fg.mat('wood', '#8a5a33'); fg.box(SX - 0.4, gy(SX, 1758) + 0.3, SZ0, SX + 0.3, gy(SX, 1758) + 1.1, SZ1);
+    fg.mat('wood', '#5a4e40'); fg.box(PX - 1.0, PY - 0.3, TZ0, PX + 1.0, TY, TZ1); fg.box(PX - 0.95, PY - 0.3, PZ0, PX + 0.95, PY, TZ0); fg.mat('wood', '#d9b25c'); fg.box(PX - 0.3, TY - 0.05, TZ1, PX + 0.3, TY + 0.05, BZ1);
+    fg.mat('planks', '#b3a58e'); fg.box(ST.x0, ST.y - 0.3, ST.z0, ST.x1, ST.y, ST.z1);
+  }, 619, 1758, 70, 45);
 
   // ---- zones
   openZone(s, zones, { id: 'lmhi-island', box: [588, -4, 1724, 648, 30, 1796], name: 'Lid Island', sub: 'the lake · the Settle, the Kettle, the high board' });

@@ -9,7 +9,7 @@ import { sign } from '../world/signs.js';
 import { heightAt } from '../world/land.js';
 import { Rng, hashStr, hash2i } from '../core/util.js';
 import { gy, say, toast, found, sfx } from './hollow_parts.js';
-import { IP, DYES, openZone, who, card, pick } from './lm_hollow_island_parts.js';
+import { IP, DYES, openZone, who, card, pick, farMesh } from './lm_hollow_island_parts.js';
 
 const Z0 = 1520, Z1 = 1550, TW = 4.7, WALL = 1.1, ARCH = 3.8, RIB = 2.5, NA = 18;
 const PW = 1.7, PWALL = 1.05, PARCH = 1.6, PL = 2.5;
@@ -39,6 +39,17 @@ export function buildWinter(game, f, zones) {
   const r = new Rng(hashStr('cold-rows'));
   const A = archPts(TW, WALL, ARCH, NA), AP = archPts(PW, PWALL, PARCH, 10);
   TENTS.forEach((T, ti) => buildTent(game, s, f, T, ti, A, AP, r, zones));
+
+  // seen from across the lake: four white barrels, when the real cloth has gone past the distance it is drawn to
+  farMesh(s, (fg) => {
+    for (const T of TENTS) {
+      const prof = archPts(TW, WALL, ARCH, 10).map(([u, v]) => [T.x + u, gy(T.x, (Z0 + Z1) / 2) + v]);
+      fg.mat('weave', '#f4f6f3', { emissive: 1.5, lamp: true }); fg.extrude(prof.slice().reverse(), Z0, Z1, 'z');
+      fg.quad([T.x - TW, gy(T.x, Z1), Z1], [T.x + TW, gy(T.x, Z1), Z1], [T.x, gy(T.x, Z1) + WALL + ARCH, Z1], [T.x, gy(T.x, Z1) + WALL + ARCH, Z1], { double: true });
+      fg.quad([T.x - TW, gy(T.x, Z0), Z0], [T.x + TW, gy(T.x, Z0), Z0], [T.x, gy(T.x, Z0) + WALL + ARCH, Z0], [T.x, gy(T.x, Z0) + WALL + ARCH, Z0], { double: true });
+    }
+    fg.mat('grass', '#e9d6dc', { shade: 'foliage' }); for (const bx of BLOOM_X) for (let k = 0; k < 8; k++) { const z = Z0 + 2.4 + k * 3.65; fg.ball(bx, gy(bx, z) + 2.1, z, 1.3, 0.9, 1.3, { segs: 6, rings: 4 }); }
+  }, 200, 1535, 300, 60);
 
   // ---- the yard between the second and third tents: the board of which rows are in winter, crates, a barrow of brushes
   {
@@ -91,10 +102,10 @@ export function buildWinter(game, f, zones) {
     await say(gm, who('Odile, up a ladder'), n === 1 ? [
       'Mind the ladder. Where did you sleep, and have you eaten? Good. Hold that leg, then, it walks at half a g.',
       'A touch to every open flower with the soft brush, then the next. That carries the pollen. Nobody here has ever seen a bee. My grandmother had a picture of one and we thought it was a sweet.',
-      'Six weeks in the cold tent, and now they all open in one week, which is the whole point of the cold. Out of season you would be up here for a month.',
+      'Six weeks in the cold tent, and now they all open in one week, which is the whole point of the cold. Without the cold you would be up here for a month.',
     ] : pick([
       ['Eleven trees today. Each flower is a possible apple, and each apple is four point four kays on somebody’s table. So you count.'],
-      ['The pink ones open first. By the end of the week the rows look like somebody spilt milk on them, and then the petals come down slow as anything.'],
+      ['The pink ones open first. By the end of the week the rows look as if somebody spilt flour down them, and then the petals come down slow as anything.'],
       ['Next six weeks they move the tent to thirteen and fourteen. Forty of us carry it. You could come.'],
     ], n));
     found(gm, 'hand-pollinated');
@@ -120,15 +131,15 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
   const P = (k, z, w) => { const p = A[k]; const yb = base(z); const foot = (k === 0 || k === A.length - 1) ? gy(cx + p[0], z) - 0.05 : yb + p[1]; return [cx + p[0] * (w || 1), foot, z]; };
   const label = 'Rows ' + T.rows[0] + ' · ' + T.rows[1];
   // ---- the cloth: quilted panels between the hoops, sagging a hand's width; a liner inside, lit by the day through it
-  s.furniture(() => {
+  s.structure(() => {
     for (let b = 0; b < ribs.length - 1; b++) {
       const z0 = ribs[b], z1 = ribs[b + 1], zm = (z0 + z1) / 2;
       for (let k = 0; k < A.length - 1; k++) {
         const p0 = P(k, z0), q0 = P(k + 1, z0), p1 = P(k, z1), q1 = P(k + 1, z1);
         const sag = (k > 0 && k < A.length - 2) ? 0.1 : 0.0;
         const pm = [cx + (p0[0] - cx) * (1 - sag / TW), (p0[1] + p1[1]) / 2 - (k === 0 ? 0 : sag * 0.6), zm], qm = [cx + (q0[0] - cx) * (1 - sag / TW), (q0[1] + q1[1]) / 2 - (k + 1 === A.length - 1 ? 0 : sag * 0.6), zm];
-        g.mat('weave', k % 2 ? '#f2f3ef' : '#e9ece8', { emissive: 0.55, night: true });
-        g.quad(p0, q0, qm, pm, { double: true }); g.quad(pm, qm, q1, p1, { double: true });
+        g.mat('weave', k % 2 ? '#ffffff' : '#f6f8f6', { emissive: 1.2, lamp: true });
+        g.quad(pm, qm, q0, p0, { double: true }); g.quad(p1, q1, qm, pm, { double: true });
       }
     }
   });
@@ -139,8 +150,8 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
       for (let k = 1; k < A.length - 2; k++) {
         const a = A[k], c = A[k + 1], i0 = 0.12;
         const pa = (z) => [cx + a[0] * (1 - i0 / TW), base(z) + a[1] - i0 * 0.5, z], pc = (z) => [cx + c[0] * (1 - i0 / TW), base(z) + c[1] - i0 * 0.5, z];
-        g.mat('felt', k % 2 ? '#e4ecf0' : '#dde6eb', { emissive: 0.32, lamp: true });
-        g.quad(pa(z0), pa(z1), pc(z1), pc(z0));
+        g.mat('felt', k % 2 ? '#eef4f8' : '#e6eef3', { emissive: 0.5, lamp: true });
+        g.quad(pc(z0), pc(z1), pa(z1), pa(z0));
       }
     }
   });
@@ -161,7 +172,7 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
   for (const sx of [-1, 1]) for (let b = 0; b < ribs.length - 1; b++) { const z0 = ribs[b], z1 = ribs[b + 1], x = cx + sx * TW; s.solid(x - 0.12, Math.min(gy(x, z0), gy(x, z1)) - 0.5, z0, x + 0.12, Math.max(gy(x, z0), gy(x, z1)) + 2.0, z1); }
   // ---- the closed end, and the door end with the porch cut out of it
   const yE0 = base(Z0), yE1 = base(Z1), yP = base(Z1 + PL / 2);
-  s.furniture(() => {
+  s.structure(() => {
     for (const [z, door] of [[Z0, false], [Z1, true]]) {
       const yb = base(z);
       for (let k = 0; k < A.length - 1; k++) {
@@ -172,8 +183,8 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
         for (const [u0, u1] of [[0, 0.5], [0.5, 1]]) {
           const x0 = p[0] + (q[0] - p[0]) * u0, x1 = p[0] + (q[0] - p[0]) * u1, t0 = yTop(p, k) + (yTop(q, k + 1) - yTop(p, k)) * u0, t1 = yTop(p, k) + (yTop(q, k + 1) - yTop(p, k)) * u1;
           const b0 = bot(x0), b1 = bot(x1); if (t0 <= b0 + 0.01 && t1 <= b1 + 0.01) continue;
-          g.mat('weave', (k + (u0 > 0 ? 1 : 0)) % 2 ? '#f2f3ef' : '#e6e9e4', { emissive: 0.55, night: true });
-          g.quad([cx + x0, Math.min(b0, t0), z], [cx + x1, Math.min(b1, t1), z], [cx + x1, t1, z], [cx + x0, t0, z], { double: true });
+          g.mat('weave', (k + (u0 > 0 ? 1 : 0)) % 2 ? '#ffffff' : '#f3f5f2', { emissive: 1.2, lamp: true });
+          if (door) g.quad([cx + x0, Math.min(b0, t0), z], [cx + x1, Math.min(b1, t1), z], [cx + x1, t1, z], [cx + x0, t0, z], { double: true }); else g.quad([cx + x0, t0, z], [cx + x1, t1, z], [cx + x1, Math.min(b1, t1), z], [cx + x0, Math.min(b0, t0), z], { double: true });
         }
       }
     }
@@ -182,8 +193,8 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
     for (let b = 0; b < 2; b++) for (let k = 0; k < AP.length - 1; k++) {
       const z0 = pz[b], z1 = pz[b + 1], p = AP[k], q = AP[k + 1];
       const y = (pp, kk, z) => (kk === 0 || kk === AP.length - 1) ? gy(cx + pp[0], z) - 0.05 : base(z) + pp[1];
-      g.mat('weave', k % 2 ? '#f2f3ef' : '#e6e9e4', { emissive: 0.55, night: true });
-      g.quad([cx + p[0], y(p, k, z0), z0], [cx + q[0], y(q, k + 1, z0), z0], [cx + q[0], y(q, k + 1, z1), z1], [cx + p[0], y(p, k, z1), z1], { double: true });
+      g.mat('weave', k % 2 ? '#ffffff' : '#f3f5f2', { emissive: 1.2, lamp: true });
+      g.quad([cx + p[0], y(p, k, z1), z1], [cx + q[0], y(q, k + 1, z1), z1], [cx + q[0], y(q, k + 1, z0), z0], [cx + p[0], y(p, k, z0), z0], { double: true });
     }
     g.mat('cast', '#c9ccc8'); for (const z of pz) g.tube(AP.map((p, k) => [cx + p[0], (k === 0 || k === AP.length - 1) ? gy(cx + p[0], z) - 0.05 : base(z) + p[1] + 0.03, z]), 0.035, { segs: 5 });
     const zf = Z1 + PL;
@@ -243,8 +254,8 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
   s.ambient({ box: [cx - TW, base(Z0) - 0.4, Z0, cx + TW, base(Z0) + WALL + ARCH, Z1], sky: '#dcecff', ground: '#c0d4e2', power: 0.85, soft: 0.6, spec: 0.3 });
   // ---- the chiller at the closed end, its pipe into the duct
   const chx = cx + 2.3, chz = Z0 - 1.5, chy = gy(chx, chz);
-  prop(s, 'lmhi.chiller', chx, chy, chz, Math.PI, {});
-  s.furniture(() => { g.mat('weave', '#cfd6d8'); g.tube([[chx - 0.5, chy + 1.9, chz - 0.6 + 1.35], [chx - 0.5, base(Z0) + 3.2, Z0 - 0.4], [cx, base(Z0) + WALL + ARCH - 0.75, Z0 + 0.3]], 0.22, { segs: 10 }); });
+  prop(s, 'lmhi.chiller', chx, chy, chz, 0, {});
+  s.furniture(() => { g.mat('weave', '#cfd6d8'); g.tube([[chx + 0.5, chy + 1.85, chz + 0.72], [chx + 0.5, chy + 2.3, chz + 1.05], [chx + 0.2, base(Z0) + 3.3, Z0 - 0.3], [cx, base(Z0) + WALL + ARCH - 0.75, Z0 + 0.3]], 0.2, { segs: 10 }); });
   if (ti === 0 || ti === 2) s.loop('air', chx, chy + 1, chz, { vol: 0.35, radius: 16 });
   // ---- reading the thermometer; walking in
   s.interact({ x: cx + 1.0, y: gy(cx + 1, Z1 - 1.2) + 1.3, z: Z1 - 0.7, radius: 1.3, prompt: 'Read the thermometer', onUse: (gm) => say(gm, { name: label + ', the thermometer', colour: '#8fc7e0' }, [
@@ -261,7 +272,7 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
     if (!gm.flags.lmhiWinter) { gm.flags.lmhiWinter = true; card(gm, 'The Cold Rows', 'Four degrees, six weeks', 'The only winter in Chervil you can walk into. Apple trees will not bloom without six weeks of cold, so the orchard takes its winters a tent at a time, two rows to a tent.'); return; }
     toast(gm, pick(['Four degrees. Your breath shows, and hangs in front of you, and takes its time going.', 'Cold enough to see your breath. The cloth glows white overhead; the trees stand bare in their two rows.', 'Your breath shows in the white light. Somebody has drawn a face in the frost by the duckboards.', 'The cold comes through your shoes first. Your breath shows. Everybody in here talks a little more quietly.'], ti + (nIn++)) + (gm.flags.lmhiCoat ? '' : ' A coat would help: there are some on the rack in the porch.'));
   } });
-  openZone(s, zones, { id: 'lmhi-tent-' + (ti + 1), box: [cx - TW + 0.15, -3, Z0, cx + TW - 0.15, base(Z0) + WALL + ARCH, Z1 + PL], name: 'The Cold Rows · ' + label, sub: 'four degrees · day ' + T.day + ' of 42', reverb: 'felt', sky: false, sun: false, headroom: 4.5, env: Object.assign({}, COLD_ENV) });
+  openZone(s, zones, { id: 'lmhi-tent-' + (ti + 1), box: [cx - 3.2, -3, Z0 + 0.3, cx + 3.2, Math.min(base(Z0), base(Z1)) + 3.75, Z1 + PL - 0.2], name: 'The Cold Rows · ' + label, sub: 'four degrees · day ' + T.day + ' of 42', reverb: 'felt', sky: false, sun: false, headroom: 4.5, env: Object.assign({}, COLD_ENV) });
   // a path down the duckboards
   s.path([[cx, gy(cx, Z1 + 4.5), Z1 + 4.5], [cx, gy(cx, Z1 + PL - 0.3), Z1 + PL - 0.3], [cx, gy(cx, Z1 - 1.5), Z1 - 1.5], [cx, gy(cx, Z0 + 1.5), Z0 + 1.5]]);
 }

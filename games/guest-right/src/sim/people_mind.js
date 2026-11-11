@@ -267,7 +267,8 @@ export function wantsFor(p, hour, day, fi, magnet) {
   W.read = (q ? 0.5 : 0.3) * (child ? 0.4 : 1) * (night ? 0.1 : 1);
   W.play = child && hour >= 7.5 && hour < 20.5 ? 3.2 : 0;
   W.work = !child && L.age < 86 && hour >= 7.2 && hour < 19 ? (q ? 0.5 : 1.0) : 0;
-  W.perform = !child && L.age < 88 && hour >= 17.5 && hour < 23 ? 2.2 : 0.02;
+  // players play in the evening; a few in the afternoon too (a tea dance on the High decks starts at two)
+  W.perform = !child && L.age < 88 ? (hour >= 17.5 && hour < 23 ? 2.2 : hour >= 14 && hour < 17.5 ? 0.45 : 0.02) : 0.02;
   W.bath = night ? 0 : hour >= 7 && hour < 22 ? 0.45 : 0.05;
   W.bed = night ? 1.5 : 0;
   W.wander = night ? 0.25 : early ? 1.6 : 0.9;
@@ -283,7 +284,7 @@ const WANT = {};
 export function pickKey(rng, W) { let sum = 0; for (const k in W) sum += W[k]; let u = rng.next() * sum; for (const k in W) { u -= W[k]; if (u <= 0) return k; } return 'wander'; }
 
 export function activeMagnet(fi, day, hour, list) {
-  for (const m of list) if (m.day === day && hour >= m.from && hour < m.to && fi.places.has(m.place)) return m;
+  for (const m of list) if ((!m.day || m.day === day) && hour >= m.from && hour < m.to && fi.places.has(m.place)) return m;      // day 0: every day
   return null;
 }
 

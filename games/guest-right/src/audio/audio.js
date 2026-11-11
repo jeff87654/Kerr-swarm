@@ -397,8 +397,9 @@ export function createAudio(game, options) {
     if (!d) { warn('unknown sound ' + name); return; }
     const p = o || {};
     const buf = sfxBuffer(name);
-    const pitch = (p.pitch || 1) * (1 + (rnd() - 0.5) * 0.06);
-    const vol = d.gain * (p.vol === undefined ? 1 : p.vol) * (1 + (rnd() - 0.5) * 0.24);
+    // exact: a note of an instrument, played at the pitch asked for (everything else varies a little each time)
+    const pitch = (p.pitch || 1) * (p.exact ? 1 : 1 + (rnd() - 0.5) * 0.06);
+    const vol = d.gain * (p.vol === undefined ? 1 : p.vol) * (p.exact ? 1 : 1 + (rnd() - 0.5) * 0.24);
     playBuffer(buf, { pos: p.pos, vol, rate: pitch, delay: p.delay, send: d.send === undefined ? 1 : d.send, bus: 'sfx', radius: p.radius });
   }
 

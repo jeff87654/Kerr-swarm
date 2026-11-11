@@ -226,4 +226,16 @@ export const THREADS = [
     ],
     later: [0, 1, 2],
   },
+  {
+    id: 'day-out', title: 'A day out',
+    text: "Some of what Chervil builds is for nothing but the fun of it, and the best of that is built round the one thing a drum has and a planet has not: which way you are going changes what you weigh and where you land.",
+    steps: [
+      'Ride a slide at the Spouts, on deck 40 in Ring Six',
+      'Run the Measure on deck 52 in Ring Seven, either way',
+      'Run a lap of the track at the Breadboard, in the Hollow',
+      'Dive off the board at Lid Island, on the lake',
+      'Ride the Glide to Sorrel and back',
+    ],
+    later: [0, 1, 2, 3, 4],
+  },
 ];

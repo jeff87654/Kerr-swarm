@@ -149,9 +149,10 @@ export async function buildChoir(s, lot, plan, game, tick) {
   const BOARD = band === 'high' ? { kind: 'board', title: 'Elders\' choir', lines: ['Afternoons|three o\'clock', 'Tea after|in the small room', 'Nobody too old|ever', 'Low parts|wanted', 'Long Flight|from the terrace'], palette: [felt[1], '#f1e6cf', '#e8b04a'] }
     : band === 'middle' ? { kind: 'board', title: 'Every evening somewhere', lines: ['Here|half past seven', nb1 + '|eight', nb2 + '|nine', 'The court|Thursdays', 'Long Flight|first shift'], palette: [felt[1], '#f1e6cf', '#e8b04a'] }
       : { kind: 'board', title: 'Rehearsals', lines: ['Tuesdays|half past seven', 'Thursdays|the court', 'Children|half past five', 'Booking Day|a round before the feast', 'Long Flight|first shift'], palette: [felt[1], '#f1e6cf', '#e8b04a'] };
-  L.sign(BOARD, W - 0.18, 1.7, bq + 1.9 > qR0 - 0.4 ? bq - 1.4 : bq + 1.9, [-1, 0], { w: 1.2, h: 0.85 });
+  L.sign(BOARD, W - 0.18, 1.7, bq + 1.9 > qR0 - 0.4 ? bq - 1.4 : bq + 1.9, [-1, 0], { w: 0.9, h: 0.7 });
   L.interact({ p: W - 1.0, q: bq, y: 1.4, radius: 1.3, prompt: 'Read the choir\'s board', onUse: (gm) => say(gm, BOARD.title, [BOARD.lines.map((l) => l.replace('|', ': ')).join('. ') + '.', fill(pickBy(lot.seed, 'board', ['Underneath, in chalk: "Sleeves are not for singing in. They are for flying in while singing."', 'Pinned below: a list of who has which part book, two names crossed out and written back in.', 'Somebody has added, small: "{leader} says breathe where the pencil says, not where your lungs say."', 'At the bottom: "Every block has a choir. Ours is the loud one."']), info, { leader })]) });
 
+  await tick();
   // ---- listeners' chairs by the window, a lamp over them
   const nl = big ? 5 : 3;
   for (let k = 0; k < nl; k++) {
@@ -301,6 +302,7 @@ export async function buildTea(s, lot, plan, game, tick) {
     const a = L.pt(0.4, 2.7, 1.2), b = L.pt(W - 0.4, 2.7, D - 1.4), c = L.pt(0.4, 2.75, D - 1.4), d = L.pt(W - 0.4, 2.75, 1.2);
     bunting(s, a, b, { colors: cols, sag: 0.25 }); bunting(s, c, d, { colors: cols, sag: 0.25 });
   }
+  await tick();
   // ---- light: pendants over the floor and a lantern at the window
   L.lamp('globe', fc[0] - fw * 0.22, 2.5, fc[1], { K: 2700, power: 0.8, clip, drop: 0.7, r: 0.18 });
   L.lamp('globe', fc[0] + fw * 0.22, 2.5, fc[1], { K: 2700, power: 0.8, clip, drop: 0.7, r: 0.18 });

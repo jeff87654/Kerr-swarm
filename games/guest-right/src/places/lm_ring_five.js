@@ -54,11 +54,12 @@ export const place = {
     const sp = liftLobby(s, game, f, { x0: -6, x1: 6, z0: ZS, z1: ZS + 11, open: 'n', H: 4.6, stop: 'ring-five', name: 'The Ring 5 lift lobby', sub: 'Station Ring 5 · cab berths', place: 'ring-five',
       pal: { wall: '#e3d2ae', dado: PAL5.terra, floor: '#cdb995', ceil: '#ead9b8', wood: '#5b4030', accent: PAL5.indigo, brass: PAL5.brass, yellow: PAL5.yellow, pot: PAL5.terra },
       board: { kind: 'board', title: 'CABS FROM RING FIVE', lines: ['One party a cab', 'Anywhere in Chervil in twelve minutes', 'The Hollow: about two and a half', 'Mid-drum: about two', 'Cabs lean. Let them.'] },
+      posters: [SIGNS['poster.flight'], SIGNS['poster.booking'], SIGNS['poster.feast'], SIGNS['poster.homecoming']],
       boardTitle: 'Cabs from Ring Five', boardLines: ['One party a cab, door to door, with no changes. Anywhere in Chervil in about twelve minutes, most places in six.', 'From the rim to the Hollow is about two and a half minutes. The cabin leans against the push as you climb. Let it.'] });
     signK(s, { kind: 'fascia', text: 'CAB BERTHS', sub: 'up into the drum · anywhere in twelve minutes', palette: [PAL5.indigoDark, '#f3e6c8', PAL5.ochre] }, 0, 4.1, ZS - 0.32, { face: 'z', w: 6.2, h: 0.62, glow: 1.2, k: 1.8 });
     life(s, game);
     s.zoneBox({ id: 'ring-five-concourse', place: 'ring-five', box: [-XM, -0.5, ZN, XM, 18, ZS], name: 'Station Ring 5', sub: 'the concourse · deck 1 · the rim · 1 g', ambience: 'station', reverb: 'station', headroom: 16, env: ENV });
-    for (const sx of [-1, 1]) s.zoneBox({ id: 'ring-five-hall-' + (sx > 0 ? 'e' : 'w'), box: [sx > 0 ? XM : -XE, -0.5, ZN, sx > 0 ? XE : -XM, 18, ZS], name: 'Station Ring 5', sub: (sx > 0 ? 'the spinward platforms' : 'the anti platforms') + ' · deck 1 · 1 g', ambience: 'station', reverb: 'station', headroom: 16, env: ENV });
+    for (const sx of [-1, 1]) s.zoneBox({ id: 'ring-five-hall-' + (sx > 0 ? 'e' : 'w'), place: 'ring-five', box: [sx > 0 ? XM : -XE, -0.5, ZN, sx > 0 ? XE : -XM, 18, ZS], name: 'Station Ring 5', sub: (sx > 0 ? 'the spinward platforms' : 'the anti platforms') + ' · deck 1 · 1 g', ambience: 'station', reverb: 'station', headroom: 16, env: ENV });
     for (const x of [-150, -60, 0, 60, 150]) s.loop('platform', x, 6, ZN + 2, { vol: 0.45, radius: 70 });
     s.loop('murmur', 0, 1.6, -4, { vol: 0.55, radius: 60, param: 0.8 });
     s.loop('murmur', -100, 1.6, 0, { vol: 0.3, radius: 50, param: 0.4 }); s.loop('murmur', 100, 1.6, 0, { vol: 0.3, radius: 50, param: 0.4 });
@@ -91,8 +92,8 @@ function shell(s) {
     }
   }
   // the concourse: terrazzo, cut round the well and the two stairs down to the tube level
-  const T = '#cdb58c';
-  floor(s, -XM, -ZE, XM, -4, 0, 'terrazzo', T);
+  const T = '#cdb58c', RO = { matOpts: { rough: 0.25 } };
+  floor(s, -XM, -ZE, XM, -4, 0, 'terrazzo', T, RO);
   floor(s, -XM, -4, -27.6, ZS, 0, 'terrazzo', T); floor(s, 27.6, -4, XM, ZS, 0, 'terrazzo', T);
   floor(s, -27.6, -4, -12, 0.5, 0, 'terrazzo', T); floor(s, 12, -4, 27.6, 0.5, 0, 'terrazzo', T);
   floor(s, -14, 0.5, -12, 3.5, 0, 'terrazzo', T); floor(s, 12, 0.5, 14, 3.5, 0, 'terrazzo', T);
@@ -419,7 +420,7 @@ function life(s, game) {
   s.spot('work', -10, 0, 12, 0.3, { tags: ['sweep'] }); s.spot('work', 24, 0, -10, 2.1, { tags: ['sweep'] }); s.spot('work', -66, 0, -4, 1.0, { tags: ['sweep'] });
   // the half-hour crowd: the people here gather under the board for the cars that leave on the half hour
   const list = [];
-  for (let d = 1; d <= 8; d++) for (let h = 6; h <= 22; h++) list.push({ day: d, from: h + 0.4, to: h + 0.58, place: 'ring-five', k: 0.5 });
+  for (let h = 6; h <= 22; h++) list.push({ day: 0, from: h + 0.4, to: h + 0.58, place: 'ring-five', k: 0.5 });      // day 0: every day
   magnets(game, s, list);
 }
 

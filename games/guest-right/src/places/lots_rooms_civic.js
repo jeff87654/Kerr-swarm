@@ -38,7 +38,7 @@ export async function buildOffice(s, lot, plan, game, tick) {
   const dp = W - 1.5, ww = Math.min(4.2, W - 4.4);
   const clip = await shell(L, info, { H, floor: ['planks', pal.floor], ceil: ['paint', '#e9dfc8'], wall: { tint: pal.plaster, dado: { h: 1.05, mat: 'flute', tint: pal.walnut }, skirt: '#2a1c14' },
     glow: { sky: '#ffdcae', ground: pal.floor, power: 0.24 },
-    front: { style: 'house', fin: { mat: 'paint', tint: pal.green, dado: { h: 1.0, mat: 'tile', tint: pal.ox }, trim: '#efe4cc', door: pal.ox }, door: { p: dp, w: 1.2 }, windows: [{ p: 1.0, w: ww, h: 1.45, sill: 0.95 }], sign: { emblem: 'book', palette: [pal.green, '#f3e6c8', pal.saff] }, mat: pal.ox } });
+    front: { style: 'house', fin: { mat: 'paint', tint: pal.green, dado: { h: 1.0, mat: 'tile', tint: pal.ox }, trim: '#efe4cc', door: pal.ox }, door: { p: dp, w: 1.2 }, windows: [{ p: 1.0, w: ww, h: 1.45, sill: 0.95 }], sign: { emblem: 'book', palette: [pal.green, '#f3e6c8', pal.saff], w: 2.3 }, mat: pal.ox } });
   await tick();
   ceilingWorks(L, H, { beam: pal.walnut, every: 2.3, duct: '#a9a49a', pipe: '#b07a45', side: 'lo' });
   trims(L, H, { rail: 2.45, railTint: pal.walnut, band: pal.green, bandH: 0.3 });
@@ -101,7 +101,7 @@ export async function buildOffice(s, lot, plan, game, tick) {
   const d0 = info.d0, cpl = [pick2(1), pick2(2), pick2(3), pick2(4)];
   const tr1 = d0 + 1 + (lot.seed % 3), tr2 = d0 + 2 + (lot.seed % 2);
   const LOT = { kind: 'board', title: 'The flat lottery', lines: ['Terrace ' + tr1 + ' · ' + (4 + lot.seed % 19) + '|' + cpl[0], 'Terrace ' + tr2 + ' · ' + (2 + lot.seed % 23) + '|' + cpl[1], "Hollow's edge " + (1 + lot.seed % 9) + '|' + cpl[2], 'Deck ' + d0 + ' · ' + (10 + lot.seed % 40) + '|' + cpl[3], 'Lent five years|or till a place', 'Next draw|after Booking Day'], palette: pal.board };
-  L.sign(LOT, 0.17, 1.75, big ? 4.2 : 3.2, [1, 0], { w: 1.6, h: 1.1, back: pal.walnut });
+  L.sign(LOT, 0.17, 1.75, big ? 4.2 : 3.2, [1, 0], { w: 0.8, h: 0.58, back: pal.walnut });
   L.lamp('strip', 0.42, 2.6, (big ? 4.2 : 3.2) - 0.7, { to: [0.42, 2.6, (big ? 4.2 : 3.2) + 0.7], K: 2900, power: 0.45, clip, range: 3 });
   L.interact({ p: 1.0, q: big ? 4.2 : 3.2, y: 1.5, radius: 1.3, prompt: 'Read the flat lottery', onUse: (gm) => {
     if (gm.journal && gm.journal.find) gm.journal.find('flat-draw');
@@ -110,7 +110,7 @@ export async function buildOffice(s, lot, plan, game, tick) {
   const MATTERS = [['Noise', 'flute practice after ten'], ['Heat', 'deck ' + (d0 + 3) + ', spinward end, runs warm'], ['Rooms', (d0 + 1) + ' · 3 and ' + (d0 + 4) + ' · 6 wish to swap'], ['Hollow', 'a turn swap with the next block'], ['Leave', 'a family asks for a third'], ['Light', 'the court ceiling, a colour too pink'], ['Noise', 'the laundry at one in the morning'], ['Rooms', 'a spare room let for hours, not kays']];
   const mm = []; for (let k = 0; k < 4; k++) mm.push(MATTERS[(lot.seed + k * 3) % MATTERS.length]);
   const COURT = { kind: 'board', title: 'Block court this week', lines: mm.map((m) => m[0] + '|' + m[1]).concat(['Sitting|the court, 19:00']), palette: pal.board };
-  L.sign(COURT, W - 0.17, 1.75, big ? 4.2 : 3.0, [-1, 0], { w: 1.6, h: 1.1, back: pal.walnut });
+  L.sign(COURT, W - 0.17, 1.75, big ? 4.2 : 3.0, [-1, 0], { w: 0.8, h: 0.58, back: pal.walnut });
   L.interact({ p: W - 1.0, q: big ? 4.2 : 3.0, y: 1.5, radius: 1.3, prompt: 'Read this week\'s matters', onUse: (gm) => { if (gm.journal && gm.journal.find) gm.journal.find('blocks-leave'); return say(gm, 'Block court this week', [mm.map((m) => m[0] + ': ' + m[1]).join('. ') + '.', 'Sitting: in the court, at seven. Out loud and in minutes.']); } });
   if (band === 'high') {
     // the hour desk by the window, with its own small board
@@ -120,16 +120,17 @@ export async function buildOffice(s, lot, plan, game, tick) {
     L.prop('chair', hp + 0.35, 0, hq + 0.65, Math.PI + 0.2, { wood: pal.walnut, seat: pal.ox, back: 'slat' }, { noSpots: true }); L.spot('sit', hp + 0.35, 0.46, hq + 0.65, Math.PI + 0.2, { tags: ['office', 'wait'] });
     L.detail(() => { g.mat('leather', pal.green); L.box(hp - 0.3, 0.74, hq - 0.2, hp + 0.25, 0.76, hq + 0.15); g.mat('paper', '#f3ead6'); L.box(hp - 0.28, 0.76, hq - 0.18, hp + 0.23, 0.775, hq + 0.13); g.mat('plain', '#3a2c20'); for (let i = 0; i < 7; i++) L.box(hp - 0.24, 0.776, hq - 0.15 + i * 0.04, hp + 0.15 - (i % 3) * 0.05, 0.777, hq - 0.145 + i * 0.04); });
     const HB = { kind: 'notice', title: 'The hour desk', lines: ['Spare Hollow hours,', 'signed over here to', 'grandchildren, neighbours,', 'and anyone who stayed', 'late for you.'], paper: '#f3e3d0' };
-    L.sign(HB, 0.17, 1.55, hq + 0.2, [1, 0], { w: 0.34, h: 0.46 });
+    void HB;
     L.interact({ p: hp, q: hq + 0.9, y: 1.0, radius: 1.1, prompt: 'Read the hour desk\'s book', onUse: (gm) => sayPick(gm, 'The hour desk', lot.seed, 'hours', HOUR_LINES, info) });
   } else {
     const born = 20 + (lot.seed % 14), died = born - 2 + (lot.seed % 5);
     const BL = { kind: 'board', title: info.name + ' this year', lines: ['Born|' + born, 'Died|' + died, 'Thirds by leave|' + ['none yet', 'one', 'one, asked twice'][lot.seed % 3], 'Room for a third|about one a year'], palette: ['#3a1e24', '#f3e6c8', '#e0a040'] };
-    L.sign(BL, W / 2 - 1.6, 1.95, D - 0.17, [0, -1], { w: 1.0, h: 0.8, back: '#c8a45a' });
+    L.deco(() => { g.mat('cast', '#c8a45a'); L.box(W / 2 - 2.1, 1.55, D - 0.2, W / 2 - 1.1, 2.35, D - 0.165); g.mat('paper', '#f3ead6'); L.box(W / 2 - 2.04, 1.61, D - 0.21, W / 2 - 1.16, 2.29, D - 0.2); g.mat('plain', '#3a2c20'); for (let i = 0; i < 6; i++) L.box(W / 2 - 1.98, 2.18 - i * 0.1, D - 0.212, W / 2 - 1.3 - (i % 3) * 0.08, 2.19 - i * 0.1, D - 0.21); });
     L.interact({ p: W / 2 - 1.6, q: CQ + 0.6, y: 1.5, radius: 1.1, prompt: 'Read the block\'s own ledger', onUse: (gm) => say(gm, BL.title, ['Born, ' + born + '. Died, ' + died + '. ' + BL.lines[2].replace('|', ': ') + '. Room for a third: about one a year.', 'The same lines stand on the Ledger at every station ring for every block in Chervil, births against deaths against room, where anyone can read them.']) });
   }
   await tick();
 
+  await tick();
   // ---- waiting: mismatched chairs under the window, an armchair, plants
   const nc = big ? 5 : 3;
   for (let k = 0; k < nc; k++) {
@@ -254,10 +255,11 @@ export async function buildLaundry(s, lot, plan, game, tick) {
   }
   await tick();
 
+  await tick();
   // ---- the price board, the clock, the sock shelf, the bench by the window
-  const PRICES = { kind: 'chalk', title: 'A load', lines: ['Lamp-noon · 0.24', 'Mornings, evenings · 0.20', 'After eleven · 0.15', 'One till lamp-dawn · 0.12', 'The machines want the night.', 'So does your washing.'] };
+  const PRICES = { kind: 'board', palette: ['#2a2622', '#f4ecd8', '#f2d27a'], title: 'A load', lines: ['Lamp-noon · 0.24', 'Mornings, evenings · 0.20', 'After eleven · 0.15', 'One till lamp-dawn · 0.12', 'The machines want the night.', 'So does your washing.'] };
   const pq = big ? 5.2 : 3.6;
-  L.sign(PRICES, 0.17, 1.65, pq, [1, 0], { w: 1.0, h: 1.1 });
+  L.sign(PRICES, 0.17, 1.65, pq, [1, 0], { w: 0.9, h: 0.75 });
   wallClock(s, game, ...(() => { const c = L.P(0.17, pq + 1.1); return [c[0], 2.45, c[1]]; })(), L.face(1, 0), { r: 0.22, rim: pal.cobalt });
   L.interact({ p: 0.9, q: pq, y: 1.5, radius: 1.2, prompt: 'Read the price board', onUse: (gm) => { const h = hourOf(gm), p = priceNow(h); return say(gm, 'A load', ['Lamp-noon, 0.24. Mornings and evenings, 0.20. After eleven, 0.15. One till lamp-dawn, 0.12.', 'Now: ' + p.toFixed(2) + '. Power costs most at lamp-noon and least in the lamp-night, when the drum belongs to the machines.', pickBy(lot.seed, 'price', ['Chalked underneath: "Set it going at one and sleep. Everybody does."', 'Underneath, a tally of loads done after one in the morning this week: a long one.', 'Somebody has added: "Socks at any price."', 'A note: "Lids on the soap or it dries to a cake."'])]); } });
   const sp = 0.4, sq = big ? 3.2 : 2.0;
@@ -283,6 +285,7 @@ export async function buildLaundry(s, lot, plan, game, tick) {
     L.solid(ip - 0.7, 0, iq - 0.2, ip + 0.7, 0.9, iq + 0.2);
     L.spot('work', ip, 0, iq + 0.55, Math.PI, { tags: ['iron', 'laundry'] });
   }
+  await tick();
   // ---- light: warm globes over the tables, a strip over the washers
   for (const p of tp) L.lamp('globe', p, 2.55, tq0 + 0.9, { K: 3000, power: 0.75, clip, drop: 0.55, r: 0.17 });
   L.lamp('strip', 1.0, H - 0.05, D - 1.2, { to: [W - 1.0, H - 0.05, D - 1.2], K: 3400, power: 0.55, clip, range: 4 });

@@ -135,6 +135,7 @@ export async function buildClinic(s, lot, plan, game, tick) {
     L.prop('lots-rooms.bay', p, 0, D - 0.18 - bayD, Math.PI, { w: bayW, d: bayD, curtain: pal.curtain, couch: pal.couch, left: k === 0, drawn: [0.4, 0.55, 0.3, 0.5][(k + lot.seed) % 4], blanket: [pal.warm, '#e8c27a', '#8cc0b6'][k % 3] });
     L.spot('sit', p - bayW / 2 + 0.69, 0.72, D - 1.2, Math.PI / 2, { tags: ['patient', 'clinic'] });
     if (k % 2 === 0) L.spot('work', p + 0.4, 0, D - bayD + 0.5, -Math.PI / 2 + 0.6, { tags: ['nurse', 'clinic'] });
+    if (k % 2 === 1) await tick();
   }
   L.interact({ p: bx0 + bayW * 0.5, q: D - bayD - 0.4, y: 1.0, radius: 1.3, prompt: 'Look behind the curtain', onUse: (gm) => sayPick(gm, 'A bay', lot.seed, 'bay', BAY_LINES, info) });
   await tick();
@@ -180,10 +181,11 @@ export async function buildClinic(s, lot, plan, game, tick) {
     g.mat('glaze', pal.accent); L.cyl(deskP + 0.15, 0.92, dq + 0.25, 0.035, 0.1, { segs: 10 });
     g.mat('weave', '#3a4f6b'); L.tube([[deskP - 0.1, 0.94, dq + 0.3], [deskP, 0.95, dq + 0.42], [deskP + 0.05, 0.94, dq + 0.32]], 0.016, { segs: 5 });
   });
+  await tick();
   L.prop('shelving', W - 0.35, 0, dq, -Math.PI / 2, { w: 2.2, h: 2.0, d: 0.3, shelves: 4, wood: pal.birch });
   L.detail(() => {
     const rj = new Rng(lot.seed ^ 77), glazes = ['#e9efe9', pal.tile, '#f4efe4', pal.warm, pal.accent, '#d6c49a'];
-    for (let k = 1; k < 4; k++) {
+    for (let k = 2; k < 4; k++) {
       const y = 0.08 + k * (2.0 - 0.11) / 4 + 0.025; let q = dq - 1.0;
       while (q < dq + 0.9) { const rr = rj.f(0.04, 0.065), hh = rj.f(0.1, 0.2); const c = L.P(W - 0.35 + rj.f(-0.03, 0.03), q + rr); jar(g, c[0], y, c[1], rr, hh, rj.chance(0.5) ? '#dfeae6' : '#f0ead8', glazes[rj.i(0, glazes.length - 1)], rj.chance(0.6) ? ['#f4efe4', '#e8c27a', '#d4878a', '#a9d8c8'][rj.i(0, 3)] : null); q += rr * 2 + rj.f(0.03, 0.08); }
     }
@@ -220,7 +222,7 @@ export async function buildClinic(s, lot, plan, game, tick) {
   if (band === 'high') L.prop('lots-rooms.chairscale', scaleAt[0], 0, scaleAt[1], scaleAt[2], { cloth: pal.tile }, { noSpots: true });
   else L.prop('lots-rooms.scale', scaleAt[0], 0, scaleAt[1], scaleAt[2], { wood: pal.birch, bands: [pal.accent, shadeHex(pal.tile, 0.8), pal.tile, '#e8c27a', pal.warm] });
   L.spot(band === 'high' ? 'sit' : 'stand', scaleAt[0] + (band === 'high' ? 0 : 0.4), band === 'high' ? 0.52 : 0, scaleAt[1], Math.PI / 2, { tags: ['measure', 'clinic'] });
-  L.sign({ kind: 'label', text: 'MEASURED AT ' + info.g.toFixed(2) + ' g', sub: 'deck ' + info.d0 + ' · ' + (band === 'high' ? 'sit, do not stand' : 'socks on the plate'), ink: '#24403d' }, 0.18, 2.45, scaleAt[1], [1, 0], { w: 0.66, h: 0.16 });
+  L.sign({ kind: 'label', text: 'MEASURED AT ' + info.g.toFixed(2) + ' g', sub: 'deck ' + info.d0 + ' · ' + (band === 'high' ? 'sit, do not stand' : 'socks on the plate'), ink: '#24403d' }, 0.18, 2.45, scaleAt[1], [1, 0], { w: 0.6, h: 0.14 });
   L.interact({ p: scaleAt[0] + 0.55, q: scaleAt[1], y: 1.0, radius: 1.1, prompt: band === 'high' ? 'Sit in the weighing chair' : 'Be weighed', onUse: async (gm) => {
     const gg = gHere(gm, info), kg = 64, reads = (kg * gg).toFixed(1);
     L.sfx(gm, 'clunk', scaleAt[0] + 0.3, 0.2, scaleAt[1]);
@@ -251,19 +253,21 @@ export async function buildClinic(s, lot, plan, game, tick) {
     L.prop('plant', cp + 1.4, 0, cq - 0.3, 0.6, { kind: 'fern', size: 1.0, pot: pal.warm, seed: 5 });
     L.lamp('lantern', cp, 2.3, cq + 0.3, { tint: '#f0d9a8', clip, power: 0.5, drop: 0.7 });
   }
+  await tick();
   // pegs by the door with coats on them, a window box of herbs outside, a plate on the door jamb
   L.deco(() => { g.mat('wood', pal.birch); L.box(dp + 0.75, 1.62, KIT_T + 0.07, dp + 1.75, 1.7, KIT_T + 0.1); g.mat('cast', '#c8a45a'); for (let k = 0; k < 4; k++) L.tube([[dp + 0.88 + k * 0.25, 1.66, KIT_T + 0.1], [dp + 0.88 + k * 0.25, 1.68, KIT_T + 0.17]], 0.01, { segs: 4 }); });
   for (let k = 0; k < 3; k++) if ((lot.seed >> k) & 1 || k === 0) L.prop('school.coat', dp + 0.88 + k * 0.25, 1.66, KIT_T + 0.12, 0, { a: ['#26306b', '#8a2f3c', '#6b7a3a', '#c9962e'][(lot.seed + k) % 4], lining: pal.warm, len: band === 'low' && k === 2 ? 0.42 : 0.68, patch: k === 1 ? pal.tile : null });
   L.block(2.7, 0.62, -0.32, 2.7 + ww, 0.84, -0.04, 'wood', pal.accent, { bevel: 0.01, cast: false });
   L.detail(() => { const rh = new Rng(lot.seed ^ 9); g.mat('soil', '#ffffff'); L.box(2.75, 0.84, -0.29, 2.65 + ww, 0.86, -0.07); for (let p = 2.9; p < 2.6 + ww; p += 0.22) { g.mat(rh.chance(0.5) ? 'leafB' : 'leafA', '#ffffff', { sway: 0.4 }); const c = L.P(p + rh.f(-0.05, 0.05), -0.18); g.card(c[0], 0.85, c[1], 0.22, rh.f(0.18, 0.3), rh.f(0, 3)); } });
-  L.sign({ kind: 'plate', text: 'ALWAYS FREE', lines: ['from the commons · walk in'] }, dp - 0.75, 1.45, -0.02, [0, -1], { w: 0.42, h: 0.18 });
+  L.sign({ kind: 'plate', text: 'ALWAYS FREE', lines: ['from the commons · walk in'] }, dp - 0.75, 1.45, -0.02, [0, -1], { w: 0.36, h: 0.15 });
   // the notice by the door (one sign: bone days, by band)
   const BONE = band === 'high' ? { kind: 'notice', title: 'Bone days', lines: ['Tuesdays: a cab down to', 'the Low decks, a morning', 'at nearly a full weight.', 'Back for the hall lunch.', 'Sticks provided.'] }
     : band === 'low' ? { kind: 'notice', title: 'Bone days', lines: ['Every child measured once', 'a year, in their birthday', 'week, here at ' + info.g.toFixed(2) + ' g.', 'Shoes off. Bring an aunt.', 'Nobody is too old. Ask.'] }
       : { kind: 'notice', title: 'The nurse is in', lines: ['Seven till seven: ' + nurse, 'Lamp-night: ring the bell', 'and someone comes down.', 'Always free.', 'Have some Nine.'] };
-  L.sign(BONE, W - 0.18, 1.55, KIT_T + 0.9, [-1, 0], { w: 0.34, h: 0.46 });
+  L.sign(BONE, W - 0.18, 1.55, KIT_T + 0.9, [-1, 0], { w: 0.26, h: 0.34 });
   L.interact({ p: W - 0.8, q: KIT_T + 0.9, y: 1.5, radius: 0.9, prompt: 'Read the notice', onUse: (gm) => say(gm, BONE.title, [BONE.lines.join(' ').replace(/\s+/g, ' ')]) });
   L.prop('plant', W - 0.55, 0, big ? D - bayD - 2.6 : KIT_T + 1.8, 0.4, { kind: 'broad', size: 1.4, pot: pal.accent, seed: 2 });
+  await tick();
   // light: a cool panel over the waiting room, the warm lamps already placed
   L.lamp('panel', W * 0.45, H - 0.04, big ? 3.0 : 3.6, { w: 1.2, d: 0.6, K: 4000, power: 0.6, clip, range: 6 });
 

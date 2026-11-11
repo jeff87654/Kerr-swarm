@@ -76,8 +76,11 @@ export function toast(game, text, kind) { if (game.ui) game.ui.toast(text, { kin
 export function sfx(game, name, f, x, y, z) { if (game.audio && game.sfxAt) game.sfxAt(name, f, x, y, z); }
 export function find(game, id) { if (game.journal && game.journal.find) game.journal.find(id); }
 // Wait a frame between big parts of the build, then take the region's atlas group back (another builder may have had it).
+export const BUILD = { wait: 0 };
 export async function tick(game) {
+  const t = performance.now();
   await new Promise((res) => { let done = false; const go = () => { if (!done) { done = true; res(); } }; requestAnimationFrame(go); setTimeout(go, 50); });
+  BUILD.wait += performance.now() - t;
   if (game.atlas && game.atlas.begin) game.atlas.begin('region:' + REGION);
 }
 // Run fn(a, b, i) over [a0, a1] in pieces no longer than `step` (long things must be cut so the drum can bend them).
@@ -171,13 +174,13 @@ defineProp('keelgarden.bay', (g, p) => {
   const vine = p.crop === 'cucumber';
   const shelves = vine ? SHELF.filter((y, k) => k % 2 === 0) : SHELF;
   // uprights: one at the anti end and one in the middle of each face; a cross tie between them at every deck line
-  g.mat('brushed', C.frame, { rough: 0.05 });
+  g.mat('paint', C.frame, { rough: 0.1 });
   for (const x of [-hx + 0.05, 0]) for (const sz of [-1, 1]) g.box(x - 0.05, 0, sz * D - 0.05 * sz - 0.03, x + 0.05, RACK_TOP, sz * D + 0.02 * sz, { faces: 'xXzZ' });
   // the deck lines: an orange beam along both faces at 4, 8, 12, 16 (the rack is five decks tall)
   g.mat('paint', C.deck, { rough: -0.1 });
   for (const y of [3.95, 7.95, 11.95, 15.95]) for (const sz of [-1, 1]) g.box(-hx, y - 0.07, sz * (D + 0.02) - 0.03, hx, y + 0.07, sz * (D + 0.02) + 0.03, { faces: 'yY' + (sz > 0 ? 'Z' : 'z') });
   // the cap
-  g.mat('brushed', C.frameDark); g.box(-hx, RACK_TOP, -D - 0.04, hx, RACK_TOP + 0.14, D + 0.04, { faces: 'yYzZ' });
+  g.mat('paint', C.frameDark); g.box(-hx, RACK_TOP, -D - 0.04, hx, RACK_TOP + 0.14, D + 0.04, { faces: 'yYzZ' });
   g.mat('diffuser', p.lamp === 'off' ? '#5080ff' : '#7fe08a', { emissive: 3 }); for (const sz of [-1, 1]) g.box(-0.08, RACK_TOP + 0.03, sz * (D + 0.04) - 0.01, 0.08, RACK_TOP + 0.11, sz * (D + 0.04) + 0.01, { faces: sz > 0 ? 'Z' : 'z' });
   // trays, crops, lamps
   const lm = LAMP_EM[p.lamp] || LAMP_EM.pink;
@@ -223,7 +226,7 @@ defineProp('keelgarden.bay', (g, p) => {
 defineProp('keelgarden.rackend', (g) => {
   const D = RACK_D + 0.06;
   g.mat('panel', '#2f5d5a', { rough: 0.05 }); g.box(-D, 0, -0.06, D, RACK_TOP + 0.14, 0.06, { faces: 'xXzZY' });
-  g.mat('brushed', C.frame); for (const sx of [-1, 1]) g.box(sx * D - 0.06, 0, -0.1, sx * D + 0.06, RACK_TOP + 0.2, 0.1, { bevel: 0.01 });
+  g.mat('paint', C.frame); for (const sx of [-1, 1]) g.box(sx * D - 0.06, 0, -0.1, sx * D + 0.06, RACK_TOP + 0.2, 0.1, { bevel: 0.01 });
   g.mat('paint', C.deck); for (const y of [3.95, 7.95, 11.95, 15.95]) g.box(-D, y - 0.07, 0.06, D, y + 0.07, 0.075, { faces: 'ZyY' });
   g.mat('cast', '#3a3430'); g.box(-D, 0, 0.06, D, 0.25, 0.09, { faces: 'ZY' });
   return { solid: [[-D, 0, -0.1, D, RACK_TOP, 0.1]], tier: 's', cast: false, surf: 'metal' };
@@ -301,7 +304,7 @@ defineProp('keelgarden.vine', (g, p) => {
   g.mat('cast', '#9c968a'); g.tube(lineX(-hx, hx, 3.4, 0, 2), 0.01, { segs: 4, caps: false });
   g.mat('paper', '#d8d0bc'); for (let x = -hx + 0.25; x < hx; x += 0.5) g.box(x - 0.003, 0.7, -0.003, x + 0.003, 3.4, 0.003, { faces: 'xXzZ' });
   // the vine: two crossed leaf strips climbing the strings
-  g.mat('leafA', '#9ac880', { sway: 0.2 });
+  g.mat('leafA', '#6aa846', { sway: 0.2 });
   for (const sz of [-0.07, 0.07]) {
     g.quad([-hx + 0.05, 0.72, sz], [hx - 0.05, 0.72, sz], [hx - 0.05, 3.3, sz], [-hx + 0.05, 3.3, sz], { uv: [0.3, 0.0, L / 0.42 + 0.3, 3.2] });
     g.quad([hx - 0.05, 0.72, sz], [-hx + 0.05, 0.72, sz], [-hx + 0.05, 3.3, sz], [hx - 0.05, 3.3, sz], { uv: [0, 0.0, L / 0.42, 3.2] });
@@ -323,15 +326,19 @@ defineProp('keelgarden.tea', (g, p) => {
   const L = p.len || 8, hx = L / 2;
   g.mat('wood', '#5b4636'); g.box(-hx, 0, -0.42, hx, 0.34, 0.42, { bevel: 0.02 });
   g.mat('soil', '#b89a78'); g.box(-hx + 0.04, 0.34, -0.38, hx - 0.04, 0.35, 0.38, { faces: 'Y' });
-  for (let i = 0; i < Math.round(L / 0.8); i++) {
-    const x = -hx + 0.4 + i * 0.8;
-    g.mat('bark', '#ffffff'); g.cyl(x, 0.34, 0, 0.04, 0.3, { segs: 6 });
-    g.mat('plain', '#24401f', { rough: 0.3 }); g.ball(x, 0.78, 0, 0.42, 0.18, 0.36, { segs: 10, rings: 6 });
-    g.mat('leafA', '#4f8a3a', { sway: 0.1 });
-    for (let k = 0; k < 4; k++) { const a = k * PI / 4 + i * 0.7; g.card(x + Math.cos(a) * 0.05, 0.62, Math.sin(a) * 0.05, 0.78, 0.36, a + PI / 2, { tilt: 0.2 }); }
-    // the flush: pale new leaves on the clipped table
-    g.mat('leafB', '#a8d870', { sway: 0.2 }); g.card(x, 0.86, 0, 0.6, 0.16, i * 1.3, { tilt: 0.1 });
+  // the bushes' stems, then the hedge they make, clipped flat on top at the plucking table
+  g.mat('bark', '#ffffff'); for (let i = 0; i < Math.round(L / 0.8); i++) g.cyl(-hx + 0.4 + i * 0.8, 0.34, 0, 0.045, 0.3, { segs: 6 });
+  g.mat('plain', '#1c3418', { rough: 0.35 }); g.box(-hx + 0.08, 0.5, -0.4, hx - 0.08, 0.9, 0.4, { bevel: 0.14 });
+  g.mat('leafA', '#8ec070', { sway: 0.1 });
+  for (const sz of [-1, 1]) for (const lay of [0, 1]) {
+    const z = sz * (0.43 - lay * 0.08), y0 = 0.46 + lay * 0.06, y1 = 0.98 - lay * 0.04, reps = L / 0.42, o = lay * 0.5;
+    if (sz > 0) g.quad([-hx + 0.05, y0, z], [hx - 0.05, y0, z], [hx - 0.05, y1, z], [-hx + 0.05, y1, z], { uv: [o, 0.05, o + reps, 0.95] });
+    else g.quad([hx - 0.05, y0, z], [-hx + 0.05, y0, z], [-hx + 0.05, y1, z], [hx - 0.05, y1, z], { uv: [o, 0.05, o + reps, 0.95] });
   }
+  for (const sx of [-1, 1]) { const x = sx * (hx - 0.03); g.quad([x, 0.46, sx * 0.42], [x, 0.46, -sx * 0.42], [x, 0.98, -sx * 0.42], [x, 0.98, sx * 0.42], { uv: [0, 0.05, 2, 0.95] }); }
+  // the flush: pale new leaves standing up out of the clipped top
+  g.mat('leafB', '#c8f090', { sway: 0.25 });
+  for (const z of [-0.2, 0.05, 0.25]) { g.quad([-hx + 0.1, 0.86, z], [hx - 0.1, 0.86, z], [hx - 0.1, 1.04, z], [-hx + 0.1, 1.04, z], { uv: [z * 3, 0.3, z * 3 + L / 0.2, 0.95] }); g.quad([hx - 0.1, 0.86, z], [-hx + 0.1, 0.86, z], [-hx + 0.1, 1.04, z], [hx - 0.1, 1.04, z], { uv: [z * 3, 0.3, z * 3 + L / 0.2, 0.95] }); }
   return { solid: [[-hx, 0, -0.45, hx, 0.95, 0.45]], tier: 'd' };
 });
 
@@ -360,11 +367,11 @@ defineProp('keelgarden.logs', (g, p) => {
 defineProp('keelgarden.tank', (g, p) => {
   const h = p.h || 4.6, R = 0.55;
   g.mat('cast', '#2c3133'); g.lathe(0, 0, [[R + 0.12, 0], [R + 0.12, 0.42], [R + 0.05, 0.48], [0, 0.48]], { segs: 16 });
-  g.mat('diffuser', p.col || '#3fd0b0', { emissive: 2.4 }); g.lathe(0, 0, [[R - 0.06, 0.48], [R - 0.06, h - 0.3], [0, h - 0.3]], { segs: 16, capBottom: false });
+  g.mat('diffuser', p.col || '#3fd0b0', { emissive: 1.3 }); g.lathe(0, 0, [[R - 0.06, 0.48], [R - 0.06, h - 0.3], [0, h - 0.3]], { segs: 16, capBottom: false });
   g.mat('cast', '#2c3133'); g.lathe(0, 0, [[R + 0.08, h - 0.32], [R + 0.08, h], [0.12, h + 0.08], [0, h + 0.1]], { segs: 16 });
   g.mat('brushed', '#9c968a'); for (const y of [1.6, 2.9]) g.lathe(0, 0, [[R + 0.02, y - 0.03], [R + 0.02, y + 0.03]], { segs: 16, capTop: false, capBottom: false });
   // light inside: bands of brighter water where the lamp strings hang
-  g.mat('diffuser', '#c8fff0', { emissive: 4 }); for (const a of [0, 2.1, 4.2]) { g.push(); g.rotY(a); g.box(-0.015, 0.6, R - 0.072, 0.015, h - 0.45, R - 0.062, { faces: 'Z' }); g.pop(); }
+  g.mat('diffuser', '#b8ffe8', { emissive: 2.6 }); for (const a of [0, 2.1, 4.2]) { g.push(); g.rotY(a); g.box(-0.015, 0.6, R - 0.072, 0.015, h - 0.45, R - 0.062, { faces: 'Z' }); g.pop(); }
   // bubbles rising
   g.mat('diffuser', '#e8fff8', { emissive: 3 }); for (let i = 0; i < 9; i++) g.ball(Math.sin(i * 2.3) * 0.2, 0.7 + i * (h - 1.2) / 9, R - 0.05, 0.022, 0.022, 0.012, { segs: 6, rings: 4 });
   g.mat('cast', C.water); g.tube([[0, h + 0.1, 0], [0, h + 0.6, 0]], 0.05, { segs: 6 });

@@ -422,13 +422,16 @@ The residential decks between the fifteen line decks are cut into 58 **layers** 
 
 Hand-built and generated blocks meet at arches: Candlewick's stand at x = -105 and 105 and z = 104, and the blocks beside it begin exactly there.
 
+- `pavilions.js`: the Hollow's lift pavilions. Where the Hollow's paths cross (every 170 m) a lift core comes up through the floor: a small pavilion with a cab berth and the head of the last stair, which goes down to the block of decks 371 to 375 underneath. The nine nearest the player are kept built. `game.city.toHollow(cell)` is the same stair climbed from below (the top layer's lift lobbies offer it); `game.city.hollowStop(cell)` is a cab stop at the pavilion over any block.
+- `picker.js`: the cab's list for "another block of Chervil": on the map (the UI's Round the drum view as a chooser), straight up or down, the Hollow over this block, by address (band, decks, ring, block), somewhere you have been, anywhere.
+
 ### Scopes that come and go
 
 `world.scope(id, frame, { origin: [x, z], managed: true })`: `origin` moves the scope's vertex zero (callers still draw in frame coordinates); `managed` means the people are told when it is ready and before it goes, instead of re-reading the world. `scope.finish(max)` builds at most `max` batches and returns how many are left. `scope.onDispose(fn)`, `scope.every(fn)`, `scope.loop(name, x, y, z, o)` and `scope.court(x0, z0, x1, z1)` (an atrium seen through several decks) all end with the scope.
 
 ### Landmarks (`src/game/regions.js`)
 
-A place module with `region: '<id>'` is not built at start-up. All the places of a region are built together when a cab is called to one of its `stops`, or (with `near`) when the player walks close, and disposed when the player has gone on. What a region made is found by comparing the world before and after: its scopes, frames, spawns, the listeners it added and the loops it started. Its signs go on pages of the atlas lent to it (`atlas.begin(id)` ... `end()`, `release(id)`).
+A place module with `region: '<id>'` is not built at start-up. All the places of a region are built together when a cab is called to one of its `stops`, or (with `near`) when the player walks close, and disposed when the player has gone on. What a region made is found by comparing the world before and after: its scopes (made managed, so the people are told of each without anybody else being disturbed), frames, spawns, the listeners it added and the loops it started. Its signs come out of the atlas's pool (`atlas.begin(id)` ... `end()`, `release(id)`): the lent pages are shared by every region and block that is loaded, a freed slot going to the next sign of the same size.
 
 | Region | File | Frame | Where | Cab group |
 |---|---|---|---|---|
@@ -458,6 +461,8 @@ A place module with `region: '<id>'` is not built at start-up. All the places of
 - `?cell=L:i:j&lot=<key>` goes straight to a block (and to a lot of that kind, in the nearest block that has one). `?citylog` prints each block's build time by part and its share of the sign atlas. `?nocity` runs without the city.
 - `node tools/walk.mjs --q "at=ladle-east-end" --yaw 1.5708 --secs 60`: holds W (and Shift) and reports position, block, frame rate, the worst frame and any fall, every two seconds.
 - `node tools/prof.mjs --q "..." --run "<js>" --secs 6`: a CPU profile of the running game by function.
+- `node tools/play.mjs drum`: out of Candlewick on foot, a generated hall, a cab to the High decks, the stair, the last stair into the Hollow, a landmark, and a save and a reload in a generated block.
+- `python tools/build.py` also asks node whether every module parses, and may be run by several people at once.
 
 ## Music
 

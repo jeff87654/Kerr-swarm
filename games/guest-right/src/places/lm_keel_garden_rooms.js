@@ -67,7 +67,7 @@ function lobby(game, s, f) {
   // a sill of herb pots under their own lamp: the herb pot is the last of the Garden to go dark
   s.furniture(() => { g.mat('wood', '#6b4a2f'); g.box(L.x0 + 6.4, 0.95, L.z0 + 0.08, L.x1 - 0.8, 1.0, L.z0 + 0.42, { bevel: 0.01 }); g.mat('cast', '#3d4245'); for (const x of [L.x0 + 6.6, L.x1 - 1.0]) g.box(x - 0.02, 0.6, L.z0 + 0.08, x + 0.02, 0.95, L.z0 + 0.4); });
   for (let i = 0; i < 7; i++) prop(s, 'plant', L.x0 + 6.8 + i * 0.62, 1.0, L.z0 + 0.25, i, { kind: ['fine', 'fern', 'broad', 'fine', 'fern', 'fine', 'broad'][i], size: 0.42, pot: ['#a3563a', '#2f6f73', '#c9962e', '#e9e1cf', '#a3563a', '#5b4060', '#2f6f73'][i] });
-  lamp(s, 'strip', L.x0 + 6.6, 1.9, L.z0 + 0.3, { to: [L.x1 - 1.0, 1.9, L.z0 + 0.3], color: '#ff6ab8', power: 0.45, clip, lampFlag: false });
+  lamp(s, 'strip', L.x0 + 6.6, 1.9, L.z0 + 0.3, { to: [L.x1 - 1.0, 1.9, L.z0 + 0.3], color: '#ff6ab8', power: 0.22, range: 2.5, clip, lampFlag: false });
   // coats on pegs: Garden coats, pale, each with a name in the lining
   coats(s, L.x0 + 3.2, L.x1 - 1.0, L.z1 - 0.12, -1, ['#e8e2d6', '#dcd6ca', '#e8e2d6', '#d8e0d8', '#e8e2d6', '#e6d8d8']);
   sign(s, { kind: 'notice', title: 'Visitors', lines: ['The Glass Walk is open to anyone.', 'Please do not touch the glass:', 'it is cleaned by hand, both sides.', 'Crews: your own peg, your own coat.', 'Nothing from the street', 'goes past the Lock.'] }, L.x0 + 2.1, 1.6, L.z1 - 0.1, { face: 'z', w: 0.62, h: 0.62 });
@@ -194,7 +194,7 @@ function packingHall(game, s, f, R, r) {
   // stacks of lidded crates on pallets, each column labelled for a block, along the back wall and the front
   let k = 0;
   for (let i = 0; i < 5; i++) { crateStack(s, R, -19.6 + i * 3.9, P.z1 - 0.8, PI, k, r); k += 3; }
-  for (let i = 0; i < 3; i++) { crateStack(s, R, -18.5 + i * 3.9, P.z0 + 0.8, 0, k, r); k += 3; }
+  for (const cx of [-14.5, -4.8]) { crateStack(s, R, cx, P.z0 + 0.8, 0, k, r); k += 3; }
   for (const p of [[-16, 25.6, 0.4], [-8, 25.4, -0.3], [-15, -1.6, 3.0]]) s.spot('work', p[0], 0, p[1], p[2], { tags: ['porter'] });
   // the crate-labels interact: read one stack's tag
   const S = sends();
@@ -239,6 +239,17 @@ function packingHall(game, s, f, R, r) {
   for (let i = 0; i < 6; i++) prop(s, 'keelgarden.crate', P.x0 + 0.85, 0.34 + Math.floor(i / 3) * 0.6, 26.1 + (i % 3) * 0.62, PI / 2, { w: 0.6, d: 0.4, h: 0.3 });
   s.spot('work', P.x0 + 1.9, 0, 24.5, -PI / 2, { tags: ['wash'] });
   s.spot('work', -6, 0, 6.5, 2.0, { tags: ['sweep'] });
+  // two cold rooms in the front wall, where the packed crates wait for the night freight
+  for (const cx of [-19.5, -9.5]) {
+    s.furniture(() => {
+      g.mat('paint', '#d6a640'); g.box(cx - 1.55, 0, P.z0 + 0.15, cx + 1.55, 3.0, P.z0 + 0.32, { faces: 'ZxXY' });
+      g.mat('panel', '#e8ecea', { rough: -0.1 }); g.box(cx - 1.35, 0.05, P.z0 + 0.32, cx + 1.35, 2.75, P.z0 + 0.42, { bevel: 0.02 });
+      g.mat('brushed', '#9c968a'); g.box(cx - 0.06, 0.05, P.z0 + 0.42, cx + 0.06, 2.75, P.z0 + 0.45); for (const dx of [-0.35, 0.35]) g.box(cx + dx - 0.02, 0.9, P.z0 + 0.45, cx + dx + 0.02, 1.4, P.z0 + 0.52);
+      g.mat('plain', '#c8d4d8', { rough: -0.3 }); for (let x = cx - 1.3; x < cx + 1.3; x += 0.13) g.box(x, 0.06, P.z0 + 0.5, x + 0.11, 2.7, P.z0 + 0.52, { faces: 'zZ' });
+      g.mat('diffuser', '#7fe08a', { emissive: 2 }); g.box(cx + 1.0, 2.82, P.z0 + 0.32, cx + 1.2, 2.9, P.z0 + 0.35);
+    });
+    sign(s, { kind: 'plate', text: 'COLD ROOM · 4°', sub: 'leaves wait here for the night freight' }, cx, 3.35, P.z0 + 0.33, { face: 'Z', w: 1.2, h: 0.32 });
+  }
   // the send map: the blocks this Garden sends to, high on the back wall where the whole floor can see it
   const MAP = { kind: 'board', title: 'Ring Four · tonight\'s sends', palette: ['#22302c', '#f1e6c9', '#ff7ab8'], lines: [] };
   for (let i = 0; i < 8; i++) MAP.lines.push(S[i * 2].name + '  ·  ' + S[i * 2 + 1].name + '|' + (i < 5 ? 'sent' : i < 7 ? 'packing' : 'open'));
@@ -247,7 +258,7 @@ function packingHall(game, s, f, R, r) {
   // light: big cool panels hung on rods, and the hall's white bounce
   for (const lz of [4.5, 13.6, 22.7]) for (const lx of [-20, -12, -4]) {
     s.deco(() => { g.mat('cast', '#7a7a72'); for (const dx of [-1.2, 1.2]) g.tube([[lx + dx, P.h - 0.6, lz], [lx + dx, 6.6, lz]], 0.012, { segs: 4 }); });
-    lamp(s, 'panel', lx, 6.6, lz, { w: 3.0, d: 1.0, K: 5200, power: 1.5, range: 12, clip });
+    lamp(s, 'panel', lx, 6.6, lz, { w: 3.0, d: 1.0, K: 5200, power: 1.5, range: 12, glow: 2.2, clip });
   }
   s.ambient({ box: clip, sky: '#eef4ff', ground: '#c4cac8', power: 0.42, soft: 1.2, spec: 0.5, lamp: false });
   s.loop('murmur', -12, 1.5, 13.6, { vol: 0.32, radius: 26, param: 0.35 });
@@ -257,7 +268,7 @@ function packingHall(game, s, f, R, r) {
   s.path([[-19.4, 15.6], [-19.4, 11.8], [-14, 11.8], [-4, 11.8]], { width: 1.6 });
   s.path([[LOBBY.x1 + 4, 14], [-20, 6], [P.x0 + 3.6, 3.4]], { width: 1.6 });
   s.path([[-20, 6], [-12, 1.5], [-4, -2]], { width: 2 });
-  s.path([[-19.4, 15.6], [-20, 22], [P.x0 + 2.4, 24.5]], { width: 1.4 });
+  s.spot('work', -9.5, 0, P.z0 + 1.3, PI, { tags: ['porter'] });
   s.zoneBox({ id: 'keel-garden-pack', place: 'keel-garden', box: [P.x0, -0.5, P.z0, P.x1, P.h, P.z1], name: 'The Packing Hall', sub: 'The Garden · crates for the halls of Ring Four', ambience: 'station', reverb: 'hall', headroom: P.h, env: { exposure: 1.0, autoKey: 0.2, bloom: 0.045, warmth: -0.08, contrast: 1.04, saturation: 0.96 } });
   s.zoneBox({ id: 'keel-garden-lock', place: 'keel-garden', box: [LOCK.x0, -0.5, LOCK.z0, 0, 2.7, LOCK.z1], name: 'The Lock', sub: 'The Garden · crews only past the curtain', ambience: 'quiet', reverb: 'room', headroom: 2.6 });
 }
@@ -380,7 +391,7 @@ function tomatoHouse(game, s, f, r) {
   s.interact({ x: px, y: 1.0, z: bz + 0.9, radius: 1.4, prompt: 'Try the brush bench', onUse: async (gm) => {
     await say(gm, 'The brush bench', [
       'A jar of soft brushes, each with a coloured thread round the handle so its owner can find it, and a small humming wand in a cradle.',
-      'On Earth, bees did this. There are no bees here, and no insect of any kind, so every strawberry flower in the Garden is brushed by hand, flower to flower, and every tomato truss is shaken with the wand, because a tomato flower wants shaking rather than brushing.',
+      'There are no bees in Chervil, and no insect of any kind, so every strawberry flower in the Garden is brushed by hand, flower to flower, and every tomato truss is shaken with the wand, because a tomato flower wants shaking rather than brushing.',
       'A good pollinator does about four hundred flowers an hour and hums while doing it.',
     ]);
     toast(gm, 'You brush one strawberry flower. Yellow dust on the brush. Somebody will eat that in about a month.');
@@ -388,7 +399,7 @@ function tomatoHouse(game, s, f, r) {
   // the case's interact: look, and buy one
   s.interact({ x: (cx0 + cx1) / 2, y: 1.1, z: cz + 1.0, radius: 1.6, prompt: 'Look at the tomatoes in the case', onUse: async (gm) => {
     await say(gm, 'The case', [
-      'Twelve tomatoes on twelve cushions, each under its own small lamp, each with a card. The cards have names on them: Ada, Pim, the Bishop, Little Ruth. The grower names them. The shops take the names off.',
+      'Twelve tomatoes on twelve cushions, each under its own small lamp, each with a card. The cards have names on them: Ada, Pim, Old Ned, Little Ruth. The grower names them. The shops take the names off.',
       'A tomato is about a hundred and twenty grams and half a kay, and nearly all of that is light. In Chervil it is the nearest thing to jewellery that grows.',
     ]);
     if (!gm.ui || !gm.ui.choose) return;
@@ -433,7 +444,7 @@ function teaRows(game, s, f, r) {
   sign(s, { kind: 'fascia', text: 'The Tea Rows', sub: 'two leaves and a bud · the tasting bench', palette: ['#2f5d5a', '#f1e6c9', '#c9962e'] }, door + dw / 2, 3.2, GAL.z0 + 0.17, { face: 'Z', w: 3.2, h: 0.58, glow: 0.6 });
   const rows = [-10.2, -13.2, -16.2];
   for (const z of rows) {
-    for (const x of [70.5, 78.5]) prop(s, 'keelgarden.tea', x, 0, z, 0, { len: 8 });
+    prop(s, 'keelgarden.tea', 74.5, 0, z, 0, { len: 16 });
     s.structure(() => {
       g.mat('cast', '#3a3430'); g.box(66.4, 2.5, z - 0.08, 82.6, 2.54, z + 0.08); for (const x of [67, 74.5, 82]) g.box(x - 0.015, 2.54, z - 0.015, x + 0.015, B.h, z + 0.015);
       g.mat('diffuser', '#ffb0d8', { emissive: 3 }); g.box(66.4, 2.44, z - 0.06, 82.6, 2.5, z + 0.06, { faces: 'yzZ' });
@@ -524,7 +535,6 @@ function coolRooms(game, s, f, r) {
   s.light({ at: [hx + 0.2, 1.75, hz], color: [1.0, 0.68, 0.36], power: 3.2, range: 7, radius: 0.05, shadow: true, clip });
   s.light({ at: [door + dw / 2, 2.4, WZ - 0.4], color: [0.4, 0.8, 0.7], power: 0.25, range: 2.5, radius: 0.04, clip });
   s.glowCard(hx + 0.2, 1.75, hz + 0.05, { face: 'Z', color: '#ffb060', size: 0.7, strength: 0.25, follow: 'always' });
-  for (const z of rows) s.glowCard(B.x0 + 10, 0.35, z + 0.9, { face: 'y', color: '#c8d0d0', size: 3.0, strength: 0.03, follow: 'always' });
   s.interact({ x: hx + 0.6, y: 1.5, z: hz + 0.4, radius: 1.3, prompt: 'Look at the hand lamp', onUse: async (gm) => {
     await say(gm, 'The hand lamp', [
       'The only lamp in the Cool Rooms, on a hook, for whoever is picking. Mushrooms want no light at all. What they want is cool, wet air, and for you to stop opening the curtain.',
@@ -554,7 +564,7 @@ function greenTanks(game, s, f, r) {
   const door = B.x0 + 4, dw = 2.4;
   roomShell(s, B, { floor: ['tile', '#9aa8a4'], floorOpts: { matOpts: { rough: -0.4 } }, ceil: ['panel', '#1e2a2a'], wall: ['tile', '#7f9890'], dado: { h: 1.2, mat: 'tile', tint: '#2f5d5a' }, skirt: false });
   sign(s, { kind: 'fascia', text: 'The Green Tanks', sub: 'algae · lit from inside', palette: ['#1e3a36', '#d8f4ea', '#3fd0b0'] }, door + dw / 2, 3.6, GAL.z0 + 0.17, { face: 'Z', w: 3.2, h: 0.58, glow: 0.8 });
-  const xs = [141, 144.6, 148.2, 151.8, 155.4], zs = [-8.2, -11.8, -15.4], cols = ['#3fd0b0', '#38c8a0', '#52d8b0', '#46c8b8'];
+  const xs = [141, 144.6, 148.2, 151.8, 155.4], zs = [-8.2, -11.8, -15.4], cols = ['#2fb890', '#34b078', '#40c498', '#2aa8a0'];
   for (let j = 0; j < zs.length; j++) for (let i = 0; i < xs.length; i++) prop(s, 'keelgarden.tank', xs[i], 0, zs[j], (i + j) * 0.7, { h: 4.6, col: cols[(i + j * 2) % cols.length] });
   // the manifold over each row and the drops to the tanks
   s.structure(() => {

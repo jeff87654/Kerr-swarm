@@ -5,7 +5,7 @@
 // slow, Float fast, and True is the fair one. You can ride any of them; the board keeps your time.
 import { floor, ceiling, wall, lamp, block, stairs } from '../world/kit.js';
 import { railing } from '../world/kit2.js';
-import { prop } from '../world/props.js';
+import { prop, bunting } from '../world/props.js';
 import { sign, signRect } from '../world/signs.js';
 import { Rng, shadeHex, clamp } from '../core/util.js';
 import { HALL, PAL, SUB, toast, sfx, say, read, seat, frameWait, movable, softPit, sweepTrough, drawRider } from './lm_chimney_parts.js';
@@ -40,7 +40,7 @@ export async function buildSpouts(game, s) {
 // ---------------------------------------------------------------------------------------------------------------
 function hall(game, s) {
   const g = s.g, H = HALL.h, r = new Rng(321);
-  floor(s, HALL.x0, HALL.z0, HALL.x1, HALL.z1, 0, 'speckle', '#c9b48e');
+  floor(s, HALL.x0, HALL.z0, HALL.x1, HALL.z1, 0, 'speckle', '#6f7a72');
   // painted lanes from the tower to each pit, in the slide's colour
   s.detail((gg) => {
     for (const id of IDS) {
@@ -68,19 +68,78 @@ function hall(game, s) {
     gg.mat('paint', SLIDES.sink.col); gg.box(HALL.x1 - 0.01, 2.2, HALL.z0, HALL.x1, 5.3, HALL.z1, { faces: 'x' });
     gg.mat('paint', SLIDES.float.col); gg.box(HALL.x0, 2.2, HALL.z0, HALL.x0 + 0.01, 5.3, HALL.z1, { faces: 'X' });
   });
-  // the rule, in big letters, across the front wall; each slide's name on its own end
-  sign(s, { kind: 'letters', text: 'Axis flies true · spin sinks · anti floats', palette: ['#f6ecd6'] }, 0, 11.5, HALL.z0 + 0.02, { face: 'Z', w: 26, h: 2.2 });
+  // the rule, in big letters on a dark band across the front wall; each slide's name on its own end
+  s.structure((gg) => { gg.mat('paint', PAL.dark); gg.box(-24, 9.9, HALL.z0 + 0.005, 24, 13.1, HALL.z0 + 0.02, { faces: 'Z' }); gg.mat('paint', SLIDES.true.col); gg.box(-24, 9.7, HALL.z0 + 0.005, 24, 9.9, HALL.z0 + 0.025, { faces: 'Z' }); gg.box(-24, 13.1, HALL.z0 + 0.005, 24, 13.3, HALL.z0 + 0.025, { faces: 'Z' }); });
+  sign(s, { kind: 'letters', text: 'Axis flies true · spin sinks · anti floats', font: 'caps', palette: ['#f6ecd6'] }, 0, 11.5, HALL.z0 + 0.03, { face: 'Z', w: 44, h: 2.6 });
   sign(s, { kind: 'letters', text: 'Sink', font: 'caps', palette: ['#f6ecd6'] }, HALL.x1 - 0.02, 8.6, -18.5, { face: 'x', w: 7, h: 2.4 });
   sign(s, { kind: 'letters', text: 'Float', font: 'caps', palette: ['#f6ecd6'] }, HALL.x0 + 0.02, 8.6, -18.5, { face: 'X', w: 7, h: 2.4 });
   s.structure((gg) => {
     gg.mat('paint', SLIDES.sink.col); gg.box(HALL.x1 - 0.015, 6.8, -23, HALL.x1 - 0.005, 10.4, -14, { faces: 'x' });
     gg.mat('paint', SLIDES.float.col); gg.box(HALL.x0 + 0.005, 6.8, -23, HALL.x0 + 0.015, 10.4, -14, { faces: 'X' });
-    gg.mat('paint', shadeHex(SLIDES.true.col, 0.9)); gg.box(-14, 10.2, HALL.z0 + 0.005, 14, 12.8, HALL.z0 + 0.015, { faces: 'Z' });
   });
+  // felt baffles under the ceiling, because a bare hall rings: rows of hanging panels in every colour the drum has
+  const felt = [SLIDES.sink.col, PAL.ochre, PAL.teal, PAL.cream, PAL.plum, SLIDES.true.col, SLIDES.float.col, PAL.green, PAL.indigo];
+  for (let z = HALL.z0 + 4; z < HALL.z1 - 1; z += 5.5) {
+    s.deco((gg) => {
+      gg.mat('cast', '#3d4a45'); gg.tube([[HALL.x0 + 1, H - 1.1, z], [HALL.x1 - 1, H - 1.1, z]], 0.02, { segs: 4, caps: false });
+      for (let x = HALL.x0 + 2; x < HALL.x1 - 1.5; x += 2.2) {
+        if (x > -7.5 && x < 7.5 && z > -23 && z < -10) continue;
+        if (nearSlide(x, z, H - 2.5 - 1.4)) continue;
+        const c = felt[Math.abs(Math.round(x / 2.2 + z / 5.5 * 3)) % felt.length];
+        gg.mat('felt', c); gg.box(x - 0.9, H - 2.5, z - 0.03, x + 0.9, H - 1.15, z + 0.03, { bevel: 0.015 });
+      }
+    });
+  }
+  // bunting across the hall, slide colours and cream
+  for (const z of [-30, -42]) bunting(s, [HALL.x0 + 0.4, 10.5, z], [HALL.x1 - 0.4, 10.5, z], { colors: [SLIDES.sink.col, PAL.cream, SLIDES.true.col, PAL.cream, SLIDES.float.col, PAL.cream], sag: 2.2, drop: 0.35, n: 120 });
+  // great painted slides on the end walls: broad bands sweeping down in the slide's colour
+  s.structure((gg) => {
+    for (const sx of [-1, 1]) {
+      const x = sx > 0 ? HALL.x1 - 0.012 : HALL.x0 + 0.012, c = sx > 0 ? SLIDES.sink.col : SLIDES.float.col;
+      for (let b = 0; b < 3; b++) {
+        gg.mat('paint', shadeHex(c, 1 + b * 0.12));
+        const z0 = -56 + b * 1.6, zA = -26 + b * 1.6, yA = 16 - b * 1.6, yB = 5.6 - b * 1.6;
+        const P = [[z0, yB - 1.1], [zA, yA - 1.1], [zA, yA], [z0, yB]];
+        const q = P.map((p) => [x, p[1], p[0]]);
+        if (sx > 0) gg.quad(q[0], q[1], q[2], q[3]); else gg.quad(q[0], q[3], q[2], q[1]);
+      }
+    }
+  });
+  // stands for parents at the far end: three tiers of benches each side of True's pit
+  for (const sx of [-1, 1]) {
+    const xa = sx > 0 ? 9 : -29, xb = sx > 0 ? 29 : -9;
+    for (let t = 0; t < 3; t++) {
+      const z0 = HALL.z0 + 0.3 + (2 - t) * 1.0, ytop = 0.42 * (t + 1);
+      block(s, xa, 0, z0, xb, ytop, z0 + 1.0, 'wood', t % 2 ? '#8a6240' : '#7a5233', { tier: 's' });
+      s.structure((gg) => { gg.mat('paint', [SLIDES.float.col, SLIDES.true.col, SLIDES.sink.col][t]); gg.box(xa, ytop - 0.08, z0 + 0.985, xb, ytop, z0 + 1.005, { faces: 'Z' }); });
+      for (let x = xa + 1.2; x < xb - 0.6; x += 2.6) { prop(s, 'bench', x, ytop, z0 + 0.45, 0, { w: 2.2, back: t === 2, wood: shadeHex(PAL.wood, 1.0 + (t % 2) * 0.12) }); }
+    }
+  }
+  seat(s, 14, 0.84, HALL.z0 + 1.75, 0, 'Sit in the stand', { pitch: 0.1 });
+  // a tea cart by the stands: cups under lids, an urn on the loop
+  s.furniture((gg) => {
+    const x = 32.5, z = HALL.z0 + 3;
+    gg.mat('paint', PAL.teal); gg.box(x - 0.8, 0.3, z - 0.45, x + 0.8, 0.95, z + 0.45, { bevel: 0.02 });
+    gg.mat('wood', '#8a6240'); gg.box(x - 0.85, 0.95, z - 0.5, x + 0.85, 0.99, z + 0.5, { bevel: 0.01 });
+    gg.mat('cast', '#3d4a45'); for (const sx of [-0.6, 0.6]) for (const sz of [-0.32, 0.32]) gg.cyl(x + sx, 0, z + sz, 0.14, 0.08, { segs: 10 });
+    gg.mat('cast', '#b08a45', { rough: -0.1 }); gg.lathe(x - 0.4, z, [[0.16, 0.99], [0.18, 1.1], [0.18, 1.42], [0.12, 1.5], [0.04, 1.55], [0, 1.56]], { segs: 14 });
+    gg.mat('weave', SLIDES.sink.col); for (let i = 0; i < 5; i++) gg.quad([x - 0.9 + i * 0.36, 2.2, z - 0.6], [x - 0.54 + i * 0.36, 2.2, z - 0.6], [x - 0.54 + i * 0.36, 2.0, z - 0.9], [x - 0.9 + i * 0.36, 2.0, z - 0.9], { double: true });
+    gg.mat('cast', '#3d4a45'); for (const sx of [-0.8, 0.8]) gg.tube([[x + sx, 0.99, z - 0.45], [x + sx, 2.2, z - 0.6]], 0.02, { segs: 5 });
+  });
+  for (let i = 0; i < 6; i++) prop(s, 'cup', 32.3 + (i % 3) * 0.16, 0.99, HALL.z0 + 2.8 + Math.floor(i / 3) * 0.16, 0, { glaze: [PAL.cream, SLIDES.float.col, SLIDES.true.col][i % 3] }, { noCollide: true });
+  s.solid(31.7, 0, HALL.z0 + 2.55, 33.3, 0.99, HALL.z0 + 3.45);
+  s.spot('counter', 32.5, 0, HALL.z0 + 3.8, PI, { tags: ['tea'] });
+  s.interact({ x: 32.5, y: 1.1, z: HALL.z0 + 4.0, radius: 1.5, prompt: 'Have a cup of tea from the cart', onUse: async (gm) => {
+    if (gm.wallet && !gm.wallet.spend(0.15, 'Tea at the Spouts')) { toast(gm, 'Tea is 0.15 kWh, and you are short of it.'); return; }
+    sfx(gm, 'pour', s.frame, 32.5, 1.1, HALL.z0 + 3);
+    await say(gm, { name: 'The tea cart', colour: '#e9c43d' }, ['Under a lid, or it is cold before you are back in your seat. Heliox takes the heat out of a cup in no time.', 'Parents drink it, children spill it, the slides get the credit for both.']);
+  } });
+  // warm lamps along the long walls, at the height of the benches
+  for (const x of [-36, -18, 18, 36]) lamp(s, 'sconce', x, 3.2, HALL.z1 - 0.12, { face: 'z', K: 2800, power: 1.4, clip: [HALL.x0, -0.5, HALL.z0, HALL.x1, H, HALL.z1] });
+  for (const x of [-24, -12, 12, 24]) lamp(s, 'sconce', x, 3.2, HALL.z0 + 0.12, { face: 'Z', K: 2800, power: 1.4, clip: [HALL.x0, -0.5, HALL.z0, HALL.x1, H, HALL.z1] });
   // benches for parents along the walls, a drinking tap, mats rolled up, a lost-property crate
   for (const x of [-34, -24, 22, 32]) { prop(s, 'bench', x, 0, HALL.z1 - 0.5, PI, { w: 2.4, back: true, wood: PAL.wood }); }
   for (const z of [-48, -38]) { prop(s, 'bench', HALL.x1 - 0.5, 0, z, -PI / 2, { w: 2.4, back: true, wood: PAL.wood }); prop(s, 'bench', HALL.x0 + 0.5, 0, z, PI / 2, { w: 2.4, back: true, wood: PAL.wood }); }
-  for (const x of [-14, 14]) prop(s, 'bench', x, 0, HALL.z0 + 0.5, 0, { w: 2.4, back: true, wood: PAL.wood });
   seat(s, 22, 0, HALL.z1 - 0.5, PI, 'Sit and watch the slides', { pitch: 0.18 });
   prop(s, 'crate', 9.5, 0, HALL.z1 - 0.5, 0.1, { w: 0.8, h: 0.5, d: 0.5, wood: '#b08d5e' });
   s.detail((gg) => {
@@ -91,10 +150,16 @@ function hall(game, s) {
   // light: big soft downlights from the ceiling, a warm wash, and the shaft's light through the gallery windows
   const CLIP = [HALL.x0 - 0.1, -0.5, HALL.z0 - 0.1, HALL.x1 + 0.1, H + 0.1, HALL.z1 + 0.1];
   for (const x of [-30, -10, 10, 30]) for (const z of [-22, -46]) s.light({ at: [x, H - 1.0, z], type: 'spot', dir: [0, -1, 0], cone: [70, 40], color: '#fff0dc', power: 240, range: 26, shadow: true, radius: 1.4, clip: CLIP, lamp: true });
-  s.ambient({ box: [HALL.x0, 0, HALL.z0, HALL.x1, H, HALL.z1], sky: '#fff0de', ground: '#c9b48e', power: 1.0, skylit: true, lamp: true, soft: 2.2 });
+  s.ambient({ box: [HALL.x0, 0, HALL.z0, HALL.x1, H, HALL.z1], sky: '#fff0de', ground: '#c9b48e', power: 1.7, skylit: true, lamp: true, soft: 2.2 });
   s.deco((gg) => {
     for (const x of [-30, -10, 10, 30]) for (const z of [-22, -46]) { gg.mat('paint', '#2c3a40'); gg.cyl(x, H - 0.9, z, 0.9, 0.9, { segs: 16, r1: 0.45 }); gg.mat('diffuser', '#fff3dc', { emissive: 4, lamp: true }); gg.cyl(x, H - 0.92, z, 0.82, 0.02, { segs: 16 }); }
   });
+}
+
+// is any slide higher than y within a metre and a half of (x, z)?
+function nearSlide(x, z, y) {
+  for (const id of IDS) { const P = slidePath(id).pts; for (let i = 0; i < P.length; i += 3) { const p = P[i]; if (p[1] > y && Math.abs(p[0] - x) < 1.6 && Math.abs(p[2] - z) < 1.6) return true; } }
+  return false;
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -137,6 +202,11 @@ function tower(game, s) {
       for (const e of edges) railing(s, e, yb, { h: 1.0, tint: rail, rail: '#7a5233', posts: 0.6 });
     }
   }
+  // the space under the first landings is closed in, so nobody walks under the stair at the foot
+  s.solid(CX + CORE, 0, CZ - A - SW / 2, CX + A + SW / 2, 1.2, CZ + A + SW / 2);
+  s.solid(CX - A - SW / 2, 0, CZ + CORE, CX + CORE, 1.2, CZ + A + SW / 2);
+  s.solid(CX - A - SW / 2, 0, CZ - CORE, CX - CORE, 1.2, CZ + CORE);
+  s.structure((gg) => { gg.mat('paint', PAL.dark); gg.box(CX + CORE, 0, CZ - A - SW / 2 + 0.02, CX + A + SW / 2 - 0.02, 1.2, CZ + A + SW / 2 - 0.02, { faces: 'XzZ' }); gg.box(CX - A - SW / 2 + 0.02, 0, CZ + CORE, CX + CORE, 1.2, CZ + A + SW / 2 - 0.02, { faces: 'xZ' }); gg.box(CX - A - SW / 2 + 0.02, 0, CZ - CORE, CX - CORE, 1.2, CZ + CORE, { faces: 'x' }); });
   // the platform, with a hole for the last two flights
   const y = TOP;
   const pieces = [[-6, -21, 6, -17.2], [-6, -17.2, 1.2, -14.8], [2.4, -17.2, 6, -12], [-6, -14.8, -1.2, -12], [-1.2, -13.6, 2.4, -12]];
@@ -318,6 +388,8 @@ function gates(game, s, st) {
     }, 4);
     const face = Math.abs(ux) > Math.abs(uz) ? (ux > 0 ? 'x' : 'X') : (uz > 0 ? 'z' : 'Z');
     sign(s, { kind: 'street', text: S.name, sub: WAY[id], palette: [shadeHex(S.col, 0.7), '#f6ecd6'] }, gx - ux * 0.08, y + 2.5, gz - uz * 0.08, { face, w: 1.5, h: 0.32, level: 4, glow: 0.6 });
+    // the mouth is closed to walking: a gate at the bar, which riders go under sitting down
+    s.solid(Math.min(gx - sx * 0.8, gx + sx * 0.8) - 0.05, y, Math.min(gz - sz * 0.8, gz + sz * 0.8) - 0.05, Math.max(gx - sx * 0.8, gx + sx * 0.8) + 0.05, y + 1.1, Math.max(gz - sz * 0.8, gz + sz * 0.8) + 0.05);
     s.spot('queue', a[0] - ux * 1.6 + sx * 0.3, y, a[2] - uz * 1.6 + sz * 0.3, Math.atan2(ux, uz), { tags: ['kids'] });
     s.spot('queue', a[0] - ux * 2.3 - sx * 0.2, y, a[2] - uz * 2.3 - sz * 0.2, Math.atan2(ux, uz), { tags: ['kids'] });
     s.interact({ x: a[0] - ux * 0.6, y: y + 1.1, z: a[2] - uz * 0.6, radius: 1.3, prompt: (gm) => (st.riding ? S.name : 'Ride ' + S.name + ', ' + WAY[id]), onUse: (gm) => rideSlide(gm, s, st, id) });
@@ -333,7 +405,7 @@ async function rideSlide(game, s, st, id) {
   try {
     if (ui) await ui.fade(true, 0.35);
     const run = rider(id, { k: SLIDE_K * r.f(0.94, 1.06), mu: SLIDE_MU * r.f(0.985, 1.015) });
-    const seatObj = { x: run.x, y: run.y + 0.02, z: run.z, yaw: 0, eye: 0.86 };
+    const seatObj = { x: run.x, y: run.y + 0.02, z: run.z, yaw: 0, eye: 1.02 };
     p.place(f, run.x, run.y, run.z, Math.atan2(run.tx, -run.tz), -0.25);
     p.sit(seatObj); p.locked = true; p.eyeY = seatObj.y + seatObj.eye;
     if (ui) { ui.hud.thread(null); ui.ride({ kicker: S.name + ' · ' + WAY[id], big: 'Hold the bar', sub: 'the light is green' }); await ui.fade(false, 0.35); }
@@ -347,7 +419,7 @@ async function rideSlide(game, s, st, id) {
       off = game.events.on('update', (dt) => {
         const q = run.step(Math.min(dt, 0.05));
         seatObj.x = q.x; seatObj.y = q.y + 0.02; seatObj.z = q.z; p.pos.x = q.x; p.pos.y = q.y; p.pos.z = q.z; p.eyeY = seatObj.y + seatObj.eye;
-        const yaw = Math.atan2(q.tx, -q.tz); p.yaw = yaw; p.pitch = Math.asin(clamp(q.ty, -1, 1)) * 0.75 - 0.1;
+        const yaw = Math.atan2(q.tx, -q.tz); p.yaw = yaw; p.pitch = Math.asin(clamp(q.ty, -1, 1)) * 0.45 - 0.04;
         // lean into the turns: the side component of the curve, times the speed squared
         const sl = Math.hypot(q.tx, q.tz) || 1, side = (q.kx * (-q.tz / sl) + q.kz * (q.tx / sl)) * q.v * q.v / 9.81;
         p.roll = clamp(-side * 0.35, -0.32, 0.32);

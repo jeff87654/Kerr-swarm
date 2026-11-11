@@ -386,6 +386,11 @@ export const PLACES = {
     sub: 'the Keel · deck 1 · Ring Nine',
     blurb: "The last ring, nearest the back cap and the heat end, with a Ledger of its own and a ring counter like every other.",
   },
+  glide: {
+    name: 'the Glide', sign: 'THE GLIDE', area: 'station', kind: 'platform',
+    sub: 'the rim · the quay · Ring Two',
+    blurb: "A boarding hall on the quay, where armoured cars are let go at 174 metres a second to coast for 140 seconds to Sorrel, and the one window in each looks aft between the drums.",
+  },
   // The line decks: fifteen of them, two decks deep, one in the middle of each band of twenty-five. Nobody lives on them.
   'line-works': {
     name: 'the cab depot', sign: 'DEPOT', area: 'lines', kind: 'works',
@@ -412,6 +417,11 @@ export const PLACES = {
     name: 'the lot hall', sign: 'THE LOT HALL', area: 'city', kind: 'civic',
     sub: 'the Middle decks · deck 200 · Ring Five',
     blurb: "Where the assembly sits: about a thousand residents drawn by lot each year to set the commons, in chairs that belonged to the years before them.",
+  },
+  'mile-hall': {
+    name: 'the Measure', sign: 'THE MEASURE', area: 'city', kind: 'sport',
+    sub: 'the Low decks · deck 52 · Ring Seven',
+    blurb: "A mile of sprung lanes laid spinward along one deck, with a clock at each end and a record for each way, and beside it the Tin, where spinball is practised against three walls.",
   },
   'up-decks': {
     name: "the elders' arcade", sign: '', area: 'city', kind: 'arcade',

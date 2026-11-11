@@ -12,6 +12,9 @@
 //   axle:heard                                stood in the heat hall at the back axle (game.flags.heard_axle)
 //   window:seen                               sat at the Window (game.flags.saw_river)
 //   ride:done   { ride }                      rode the loop heavy or light (game.flags.rode_heavy, .rode_light)
+//   slide:done, mile:done, glide:done         rode a slide at the Spouts, ran the Measure, rode the Glide (flags rode_slide,
+//                                             ran_heavy_mile, ran_light_mile, rode_glide; also ran_lap and dived_island, which
+//                                             the Breadboard and Lid Island set)
 // The landmark builders set those flags; one that is never set (a landmark not built yet) leaves its step waiting.
 // It also reads game.flags.halls_eaten and .slept, the hall:<cell> flags, game.city.visited,
 // the player's frame and zone, and game.regions (which landmarks exist, and which one the player is in).
@@ -36,7 +39,9 @@ const frameId = (g) => (g.player && g.player.frame ? g.player.frame.id : null);
 const zonePlace = (g) => (g.zone ? (g.zone.place || null) : null);
 
 // the threads this file owns, in the order they are offered
-const DRUM = ['other-tables', 'three-weights', 'nine-rings', 'the-works', 'top-of-wall', 'the-river', 'heavy-light'];
+const DRUM = ['other-tables', 'three-weights', 'nine-rings', 'the-works', 'top-of-wall', 'the-river', 'heavy-light', 'day-out'];
+// the things built for fun, in the order of the steps of 'day-out', and the flag each sets when it has been done
+const FUN = ['chimney', 'mile-hall', 'hollow-grounds', 'hollow-island', 'glide'];
 // the works a visitor can see; the first is the one the thread asks for by name
 const WORKS = ['keel-vats', 'keel-garden', 'keel-heat', 'keel-library', 'line-works'];
 // what each landmark tells you when you arrive, and what it tells you after a while there
@@ -46,6 +51,7 @@ const ARRIVE = {
   chimney: 'falls-anti', 'felt-organ': 'long-pipes', 'lot-hall': 'drawn-by-lot', 'up-decks': 'elders-up',
   'hollow-island': 'lake-clear', 'hollow-grounds': 'break-twice', 'hollow-front': 'dim-ends',
   'front-wall': 'quiet-wall', 'axle-back': 'heat-river', 'axle-front': 'power-in',
+  'mile-hall': 'two-miles', glide: 'glide',
 };
 const LINGER = { 'keel-vats': 'vat-lines', 'line-works': 'nothing-burns' };
 const LINGER_S = 45;
@@ -85,6 +91,7 @@ export const place = {
       if (id === 'top-of-wall') return exists('back-upper');
       if (id === 'the-river') return exists('axle-back');
       if (id === 'heavy-light') return exists('line-rides');
+      if (id === 'day-out') return FUN.some(exists);
       return false;
     }
 
@@ -182,6 +189,15 @@ export const place = {
         if (heavy && light) done(g, 'heavy-light');
       }
       if (heavy && light) found(g, 'for-the-feeling');
+      // A day out: a step for each thing built for fun. One that is not built cannot hold the thread open.
+      {
+        const did = [!!Fl.rode_slide, !!(Fl.ran_heavy_mile || Fl.ran_light_mile), !!Fl.ran_lap, !!Fl.dived_island, !!Fl.rode_glide];
+        if (ready('day-out', did.some(Boolean))) {
+          for (let k = 0; k < did.length; k++) if (did[k]) step(g, 'day-out', k);
+          if (did.every((d, k) => d || !exists(FUN[k]))) done(g, 'day-out');
+        }
+      }
+      if (Fl.ran_heavy_mile && Fl.ran_light_mile) found(g, 'both-miles');
     }
 
     // offer the next thread: one that already has something done first, then the rest in order
@@ -251,6 +267,9 @@ export const place = {
     on('axle:heard', () => { arrive('axle-back'); found(g, 'heat-river'); sync(); });
     on('window:seen', () => { arrive('axle-back'); sync(); });
     on('ride:done', () => { arrive('line-rides'); sync(); });
+    on('slide:done', () => { arrive('chimney'); sync(); });
+    on('mile:done', () => { arrive('mile-hall'); sync(); });
+    on('glide:done', () => { arrive('glide'); sync(); });
     on('found', () => sync());
 
     // ---------------------------------------------------------------- the tick: where you are

@@ -110,8 +110,8 @@ export class Atlas {
     return { page, x: best.x, y: best.y };
   }
   // cw, ch: the size of the slot when it is bigger than the sign (the rest is cleared, so nothing of an old sign shows)
-  _paint(page, x, y, pw, ph, w, h, draw, cw, ch) {
-    const c = this.scratch, S = this.scale;
+  _paint(page, x, y, pw, ph, w, h, draw, cw, ch, k) {
+    const c = this.scratch, S = this.scale * (k || 1);
     c.width = cw || pw; c.height = ch || ph;        // resizing clears it and resets the context
     const ctx = this.sctx;
     ctx.save(); ctx.scale(S, S);
@@ -129,22 +129,28 @@ export class Atlas {
   add(w, h, draw, key) {
     const G = this.group ? this.groups.get(this.group) : null, cache = G ? G.cache : this.cache;
     if (key && cache.has(key)) return cache.get(key);
-    const S = this.scale; const pw = Math.max(1, Math.ceil(w * S)), ph = Math.max(1, Math.ceil(h * S));
+    const S = this.scale; let pw = Math.max(1, Math.ceil(w * S)), ph = Math.max(1, Math.ceil(h * S)), k = 1;
+    // a picture too big for a page (with its margins, and a lent slot's rounding) is drawn a little smaller, not left out
+    const lim = this.size - 16;
+    if (pw > lim || ph > lim) { k = Math.min(lim / pw, lim / ph); pw = Math.max(1, Math.floor(pw * k)); ph = Math.max(1, Math.floor(ph * k)); }
     const at = this._place(pw, ph);
     if (!at) {
       if (!this._warned) { console.warn('[atlas] full' + (this.group ? ' (group ' + this.group + ')' : '') + ': later signs reuse a blank rect'); this._warned = true; }
       const r0 = { page: 0, u0: 0.001, v0: 0.001, u1: 0.002, v1: 0.002, w, h }; if (key) cache.set(key, r0); return r0;
     }
-    this._paint(at.page, at.x, at.y, pw, ph, w, h, draw, at.sw, at.sh);
+    this._paint(at.page, at.x, at.y, pw, ph, w, h, draw, at.sw, at.sh, k);
     const r = { page: at.page, u0: (at.x + 0.5) / this.size, v0: (at.y + 0.5) / this.size, u1: (at.x + pw - 0.5) / this.size, v1: (at.y + ph - 0.5) / this.size, w, h };
+    if (k !== 1) r.k = k;
     if (key) cache.set(key, r);
     this.count++;
     return r;
   }
   // Redraw an existing rect (a changing board).
   redraw(r, draw) {
-    const S = this.scale, x = Math.round(r.u0 * this.size - 0.5), y = Math.round(r.v0 * this.size - 0.5), pw = Math.max(1, Math.ceil(r.w * S)), ph = Math.max(1, Math.ceil(r.h * S));
-    this._paint(r.page, x, y, pw, ph, r.w, r.h, draw);
+    const S = this.scale, k = r.k || 1, x = Math.round(r.u0 * this.size - 0.5), y = Math.round(r.v0 * this.size - 0.5);
+    let pw = Math.max(1, Math.ceil(r.w * S)), ph = Math.max(1, Math.ceil(r.h * S));
+    if (k !== 1) { pw = Math.max(1, Math.floor(pw * k)); ph = Math.max(1, Math.floor(ph * k)); }
+    this._paint(r.page, x, y, pw, ph, r.w, r.h, draw, undefined, undefined, k);
   }
   // Rebuild the mipmaps if anything was drawn. Call once a frame (cheap when nothing changed).
   flush() {

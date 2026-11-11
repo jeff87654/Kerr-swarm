@@ -132,21 +132,25 @@ function luggage(s, game) {
   // the racks: three rows of shelving full of bags, cases and parcels, all tagged
   const r = new Rng(hashStr('luggage5'));
   const CAS = ['#6b3a2a', '#2f5d6b', '#8a5a24', '#3b4a7a', '#5b6b3a', '#7a2a3a', '#a8865a', '#4a4038'];
+  const caseAt = (cx, y, cz, w, h, d, c) => {
+    g.mat('weave', c); g.box(cx - w / 2, y, cz - d / 2, cx + w / 2, y + h, cz + d / 2, { bevel: 0.025 });
+    g.mat('cast', '#b08a45'); g.box(cx - w / 2 - 0.004, y + h * 0.45, cz + d / 2 - 0.01, cx + w / 2 + 0.004, y + h * 0.53, cz + d / 2 + 0.004);
+    g.mat('leather', '#3a2618'); g.box(cx - 0.07, y + h, cz - 0.015, cx + 0.07, y + h + 0.05, cz + 0.015);
+    g.mat('paper', '#efe6d2'); g.box(cx + w / 2 - 0.12, y + h * 0.6, cz + d / 2, cx + w / 2 - 0.03, y + h * 0.78, cz + d / 2 + 0.006);
+  };
   for (const zr of [28.2, 31.2, 34.4]) {
-    for (let x = -45.4; x < X1 - 1.2; x += 2.6) {
-      prop(s, 'shelving', x + 1.25, 0, zr, 0, { w: 2.5, h: 2.6, d: 0.6, shelves: 4, wood: '#6b4a2f', back: zr > 34 });
-      for (let k = 0; k < 4; k++) {
+    for (let x = -45.4; x < X1 - 1.2; x += 2.6) prop(s, 'shelving', x + 1.25, 0, zr, 0, { w: 2.5, h: 2.6, d: 0.6, shelves: 4, wood: '#6b4a2f', back: zr > 34 });
+    s.detail(() => {
+      for (let x = -45.4; x < X1 - 1.2; x += 2.6) for (let k = 0; k < 4; k++) {
         const y = 0.06 + k * 0.62; let xx = x + 0.18;
         while (xx < x + 2.3) {
-          const kind = r.next(), w = kind < 0.5 ? r.f(0.45, 0.7) : r.f(0.3, 0.5);
-          if (xx + w > x + 2.4) break;
-          if (r.chance(0.12)) { xx += w; continue; }
-          if (kind < 0.5) prop(s, 'lmring.case', xx + w / 2, y, zr, r.f(-0.06, 0.06), { c: r.pick(CAS), w: Math.round(w * 20) / 20, h: Math.round(r.f(0.3, 0.46) * 20) / 20, d: 0.3 });
-          else prop(s, 'platform.bag', xx + w / 2, y, zr, PI / 2 + r.f(-0.2, 0.2), { c: r.pick(CAS) }, { scale: 0.75 });
-          xx += w + 0.06;
+          const w = r.f(0.32, 0.68); if (xx + w > x + 2.4) break;
+          if (r.chance(0.16)) { xx += w; continue; }
+          caseAt(xx + w / 2, y, zr + r.f(-0.04, 0.04), w, r.f(0.26, 0.48), r.f(0.24, 0.42), r.pick(CAS));
+          xx += w + 0.05;
         }
       }
-    }
+    });
   }
   sign(s, { kind: 'fascia', text: 'LEFT LUGGAGE', sub: 'free · nine days · then up to Lost Property', palette: ['#1c2346', '#efe3c8', '#d29a34'] }, -38, 4.15, ZS - 0.32, { face: 'z', w: 6.0, h: 0.62, glow: 0.9 });
   sign(s, { kind: 'chalk', title: 'Left luggage', lines: ['Free, nine days', 'Tag it: name, drum, day back', 'Day ten: up to Lost Property', 'A year there, then the menders', 'No hot food. It was tried.'] }, -45.85, 1.75, 23.6, { face: 'X', w: 1.1, h: 1.3 });
@@ -156,7 +160,7 @@ function luggage(s, game) {
   s.spot('counter', -36.5, 0, 26.4, PI, { tags: ['porter'] }); s.spot('work', -41.0, 0, 29.6, 0, { tags: ['porter', 'stall'] });
   s.spot('customer', -37.5, 0, 24.3, 0, { tags: ['wait'] }); s.spot('queue', -38.3, 0, 23.2, 0, { tags: ['wait'] });
   s.path([[-38, ZS - 1.5], [-38, 23.6]], { width: 1.6 });
-  s.zoneBox({ id: 'ring-five-luggage', box: [X0, -0.5, Z0, X1, H, Z1], name: 'Left luggage', sub: 'Station Ring 5', ambience: 'shop', reverb: 'room', headroom: H });
+  s.zoneBox({ id: 'ring-five-luggage', place: 'ring-five', box: [X0, -0.5, Z0, X1, H, Z1], name: 'Left luggage', sub: 'Station Ring 5', ambience: 'shop', reverb: 'room', headroom: H });
   const LINES = [
     ['Free. Tag it with your name, your drum and the day you\'ll be back, and it sits on the shelf nine days.', 'On the tenth it goes up to Lost Property on a line deck, where it is kept a year and then given to the menders. Most of what comes back down is better than it went up.'],
     ['People leave bags here for a day out to Sorrel. Wanderers leave them for longer. The case on the top shelf has been collected and left again eleven times by the same woman.', 'Nothing hot. Somebody tried a pot of stew once. We still talk about it.'],
@@ -185,7 +189,7 @@ function ledgerAlcove(s, game) {
   sign(s, { kind: 'fascia', text: 'THE LEDGER', sub: 'Chervil · as at every station ring', palette: ['#5a2f24', '#f2e6c8', '#d29a34'] }, -18, 4.95, ZS - 0.32, { face: 'z', w: 5.2, h: 0.6, glow: 0.8 });
   for (const p of [[-22, 27.6, PI], [-20.8, 28.0, PI + 0.2], [-15.2, 27.8, PI - 0.2], [-13.8, 27.3, PI + 0.3]]) s.spot('stand', p[0], 0, p[1], p[2] + PI, { tags: ['board', 'read'] });
   s.path([[-17.5, ZS - 1.5], [-17.5, 27]], { width: 2.0 });
-  s.zoneBox({ id: 'ring-five-ledger', box: [X0, -0.5, Z0, X1, H, Z1], name: 'The Ledger', sub: 'Station Ring 5', ambience: 'station', reverb: 'hall', headroom: H });
+  s.zoneBox({ id: 'ring-five-ledger', place: 'ring-five', box: [X0, -0.5, Z0, X1, H, Z1], name: 'The Ledger', sub: 'Station Ring 5', ambience: 'station', reverb: 'hall', headroom: H });
 }
 
 // the tin shelf: food for the car, under lids, and the ring counter's hatch: x[11, 25] z[22, 29]
@@ -207,7 +211,14 @@ function tinShelf(s, game, f) {
   const r = new Rng(hashStr('tins5'));
   for (let x = 12.4; x < 23.8; x += 0.52) prop(s, 'lmring.tins', x, 1.02, 23.35 + r.f(-0.08, 0.08), r.f(-1, 1), { c: r.pick(['#c9552e', '#2f6f73', '#e7b547', '#8a2f3c']), n: 1 + r.i(0, 2) });
   for (let k = 0; k < 3; k++) prop(s, 'shelving', 14.5 + k * 3.5, 0.97, Z1 - 0.45, PI, { w: 3.2, h: 1.9, d: 0.32, shelves: 4, wood: '#6b4a2f', back: true });
-  for (let k = 0; k < 3; k++) for (let sh = 0; sh < 4; sh++) for (let i = 0; i < 9; i++) if (r.chance(0.82)) prop(s, 'lmring.tins', 13.1 + k * 3.5 + i * 0.34, 1.0 + sh * 0.47, Z1 - 0.47, 0, { c: r.pick(['#c9552e', '#2f6f73', '#e7b547', '#8a2f3c']), n: 1 + r.i(0, 2) });
+  s.detail(() => {
+    for (let k = 0; k < 3; k++) for (let sh = 0; sh < 4; sh++) for (let i = 0; i < 9; i++) {
+      if (!r.chance(0.82)) continue;
+      const x = 13.1 + k * 3.5 + i * 0.34, y = 1.0 + sh * 0.47, z = Z1 - 0.47, n = 1 + r.i(0, 2);
+      for (let j = 0; j < n; j++) { g.mat('glaze', r.pick(['#c9552e', '#2f6f73', '#e7b547', '#8a2f3c']), { rough: -0.2 }); g.cyl(x, y + j * 0.075, z, 0.092, 0.07, { segs: 10 }); }
+      g.mat('cast', '#b08a45'); g.cyl(x, y + n * 0.075 - 0.005, z, 0.097, 0.02, { segs: 10 });
+    }
+  });
   prop(s, 'station.urnTrolley', 22.6, 0, Z1 - 1.6, PI, {}); prop(s, 'lmring.pot', 23.6, 0.97, Z1 - 0.55, 0, { r: 0.24, h: 0.36 });
   prop(s, 'station.cupRack', 21.6, 0.97, Z1 - 0.5, PI, {});
   sign(s, { kind: 'fascia', text: 'THE TIN SHELF', sub: 'food for the car, under lids · broth and a rice ball, free', palette: ['#b5532e', '#f6ead0', '#1c2346'] }, 18, 4.15, ZS - 0.32, { face: 'z', w: 6.4, h: 0.62, glow: 0.9 });
@@ -223,7 +234,7 @@ function tinShelf(s, game, f) {
   s.spot('counter', 16.5, 0, 24.4, PI, { tags: ['stall', 'serve'] }); s.spot('work', 22.4, 0, 24.6, PI, { tags: ['serve', 'cook'] }); s.spot('work', 19.6, 0, 27.6, 0, { tags: ['stall'] });
   for (const q of [[16.5, 22.3], [17.2, 21.5], [17.9, 20.8], [21.4, 22.3], [21.6, 21.4]]) s.spot('queue', q[0], 0, q[1], PI, { tags: ['wait', 'queue'] });
   s.path([[18, ZS - 1.5], [18, 22.4]], { width: 2.0 });
-  s.zoneBox({ id: 'ring-five-tins', box: [X0, -0.5, Z0, X1, H, Z1], name: 'The tin shelf', sub: 'Station Ring 5 · food for the car', ambience: 'shop', reverb: 'tile', headroom: H });
+  s.zoneBox({ id: 'ring-five-tins', place: 'ring-five', box: [X0, -0.5, Z0, X1, H, Z1], name: 'The tin shelf', sub: 'Station Ring 5 · food for the car', ambience: 'shop', reverb: 'tile', headroom: H });
   s.loop('kitchen', 18, 1.2, Z1 - 1, { vol: 0.25, radius: 12 });
   const MENU = [
     { id: 'dumplings', name: 'Dumplings in a string bag', desc: 'Six, steamed, in a lidded tin you bring back next time. For the platform at the far end.', price: 0.6 },
@@ -261,8 +272,8 @@ function scale(s, game) {
     g.mat('paint', '#a8302a'); g.push(); g.move(x, 1.85, z + 0.385); g.rotZ(-0.35); g.box(-0.007, -0.04, 0, 0.007, 0.24, 0.004); g.pop();
   });
   s.solid(x - 0.15, 0, z + 0.36, x + 0.15, 1.9, z + 0.64);
-  painted(s, 'ring5.weights', 2.2, 1.6, 150, drawPlate('WHAT YOU WEIGH IN SIX DRUMS', ['Chervil, at the rim  ·  a full g', 'Sorrel, at the rim  ·  a full g', 'Lovage, at the rim  ·  a full g', 'Tansy, at the rim  ·  a full g', 'Rue, at the rim  ·  a full g', 'Spelt, at the rim  ·  a full g', 'Every drum is spun to the same weight at its rim.', 'What changes is how high you live.'], { titleK: 0.12, a: '#2b3566', b: '#3a4680', c: '#232c55', ink: '#f2e6c8' }), x, 2.6, ZS - 0.31, { face: 'z', glow: 0.25 });
-  lamp(s, 'spot', x, 4.6, ZS - 1.5, { dir: [0, -0.7, 0.7], cone: [50, 24], clip: [x - 4, -0.5, 14, x + 4, 5, ZS + 0.1], K: 3000, power: 0.7 });
+  painted(s, 'ring5.weights', 2.2, 1.6, 150, drawPlate('WHAT YOU WEIGH IN SIX DRUMS', ['Chervil, at the rim  ·  a full g', 'Sorrel, at the rim  ·  a full g', 'Lovage, at the rim  ·  a full g', 'Tansy, at the rim  ·  a full g', 'Rue, at the rim  ·  a full g', 'Spelt, at the rim  ·  a full g', 'Every drum is spun to the same weight at its rim.', 'What changes is how high you live.'], { titleK: 0.12, a: '#2b3566', b: '#3a4680', c: '#232c55', ink: '#f2e6c8' }), x + 1.9, 2.3, ZS - 0.31, { face: 'z', glow: 0.25 });
+  lamp(s, 'spot', x + 1.2, 4.6, ZS - 1.5, { dir: [0, -0.7, 0.7], cone: [50, 24], clip: [x - 4, -0.5, 14, x + 4, 5, ZS + 0.1], K: 3000, power: 0.7 });
   sign(s, { kind: 'plate', text: 'THE SCALE', sub: 'free · step on' }, x - 1.5, 1.5, ZS - 0.31, { face: 'z' });
   s.spot('stand', x + 1.4, 0, z - 0.8, PI + 0.6, { tags: ['wait'] }); s.spot('queue', x - 1.3, 0, z - 1.0, PI - 0.5, { tags: ['wait', 'queue'] });
   s.interact({ x, y: 0.6, z, radius: 1.4, prompt: 'Step on the scale', onUse: async (gm) => {
@@ -274,7 +285,7 @@ function scale(s, game) {
     ]);
     found(gm, 'full-weight');
   } });
-  s.interact({ x, y: 2.6, z: ZS - 1.0, radius: 1.6, prompt: 'Read: What you weigh in six drums', onUse: (gm) => say(gm, 'What you weigh in six drums', ['Chervil, Sorrel, Lovage, Tansy, Rue, Spelt: a full g, at every rim.', 'Every drum is spun to the same weight at its rim. What changes is how high you live. Somebody paints the same joke on every scale on the Row, and nobody minds.']) });
+  s.interact({ x: x + 1.9, y: 2.3, z: ZS - 1.0, radius: 1.6, prompt: 'Read: What you weigh in six drums', onUse: (gm) => say(gm, 'What you weigh in six drums', ['Chervil, Sorrel, Lovage, Tansy, Rue, Spelt: a full g, at every rim.', 'Every drum is spun to the same weight at its rim. What changes is how high you live. Somebody paints the same joke on every scale on the Row, and nobody minds.']) });
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -309,7 +320,7 @@ export function buildTube(s, game, f) {
   // the tube hall: floors, the trench, walls, the ceiling under the concourse
   floor(s, -X, ZP, X, ZB, Y, 'terrazzo', '#b9a582');
   floor(s, -X, ZA, X, ZP, YT, 'concrete', '#3c3b38');
-  const ceil = (x0, z0, x1, z1) => ceiling(s, x0, z0, x1, z1, -0.45, 'panel', '#cfc3a8');
+  const ceil = (x0, z0, x1, z1) => ceiling(s, x0, z0, x1, z1, -0.45, 'panel', '#cfc3a8', { noCollide: true });
   ceil(-X, ZA, X, -4); ceil(-X, -4, -27.6, ZB); ceil(27.6, -4, X, ZB); ceil(-27.6, -4, -12, 0.5); ceil(12, -4, 27.6, 0.5); ceil(-27.6, 3.5, -12, ZB); ceil(12, 3.5, 27.6, ZB); ceil(-12, 4, 12, ZB); ceil(-14, 0.5, -12, 3.5); ceil(12, 0.5, 14, 3.5);
   const WT = { t: 0.3, mat: 'tile', tint: '#efe3c8', dado: { h: 1.6, mat: 'tile', tint: P.terra }, skirt: '#2a221c' };
   runX(-X, X, 16, (a, b) => wall(s, a, ZB - 0.15, b, ZB - 0.15, Y, 7.55, WT));
@@ -359,7 +370,7 @@ export function buildTube(s, game, f) {
   for (let i = 0; i < 18; i++) { const x = -34 + i * 4 + (i % 3) * 0.4; s.spot(i % 4 === 0 ? 'queue' : 'stand', x, Y, 0.3 + (i % 2) * 0.7, PI, { tags: ['wait'] }); }
   for (const q of [[-50, 4, 0.4], [-44, 6, -2.4], [20, 7, 2.6], [50, 5, -0.4]]) s.spot('stand', q[0], Y, q[1], q[2], { tags: ['wait'] });
   s.spot('work', 8, Y, 7.5, 2.0, { tags: ['sweep'] });
-  s.zoneBox({ id: C, box: [-X, YT - 0.2, ZA, X, -0.4, ZB], name: 'The tube level', sub: 'Station Ring 5 · rim trains and cycler capsules', ambience: 'station', reverb: 'tile', headroom: 7.4 });
+  s.zoneBox({ id: C, place: 'ring-five', box: [-X, YT - 0.2, ZA, X, -0.4, ZB], name: 'The tube level', sub: 'Station Ring 5 · rim trains and cycler capsules', ambience: 'station', reverb: 'tile', headroom: 7.4 });
   s.loop('air', 0, -2, 8, { vol: 0.3, radius: 30 });
 }
 
@@ -430,12 +441,12 @@ function train(s, game, f, Y, LC) {
       for (const [wx0, wx1] of [[x0 + 0.35, x0 + 1.55], [x0 + 2.85, x0 + 4.55], [x0 + 5.85, x0 + 7.05]]) for (const zf of [z1, z0]) {
         const sgn = zf === z1 ? 1 : -1, fc = sgn > 0 ? 'Z' : 'z';
         gg.mat('plain', '#2a2622'); gg.box(wx0 - 0.06, Y + 1.14, Math.min(zf, zf + sgn * 0.02), wx1 + 0.06, Y + 2.16, Math.max(zf, zf + sgn * 0.02), { faces: fc });
-        gg.mat('plain', '#e9b878', { emissive: 0.75 }); gg.box(wx0, Y + 1.2, Math.min(zf, zf + sgn * 0.025), wx1, Y + 2.1, Math.max(zf, zf + sgn * 0.025), { faces: fc });
+        gg.mat('plain', '#9a6436', { rough: -0.4, emissive: 0.45 }); gg.box(wx0, Y + 1.2, Math.min(zf, zf + sgn * 0.025), wx1, Y + 2.1, Math.max(zf, zf + sgn * 0.025), { faces: fc });
         gg.mat('plain', '#3a2e26'); gg.box((wx0 + wx1) / 2 - 0.03, Y + 1.2, Math.min(zf, zf + sgn * 0.03), (wx0 + wx1) / 2 + 0.03, Y + 2.1, Math.max(zf, zf + sgn * 0.03), { faces: fc });
       }
       for (const dx of [2.2, 5.2]) {
         gg.mat('panel', i % 2 ? '#8f3f22' : '#7a3a20'); gg.box(x0 + dx - 0.6, Y + 0.05, z1, x0 + dx + 0.6, Y + 2.2, z1 + 0.015, { faces: 'Z' });
-        gg.mat('plain', '#e9b878', { emissive: 0.6 }); for (const sx of [-1, 1]) gg.box(x0 + dx + sx * 0.3 - 0.18, Y + 1.25, z1 + 0.015, x0 + dx + sx * 0.3 + 0.18, Y + 2.0, z1 + 0.02, { faces: 'Z' });
+        gg.mat('plain', '#9a6436', { rough: -0.4, emissive: 0.4 }); for (const sx of [-1, 1]) gg.box(x0 + dx + sx * 0.3 - 0.18, Y + 1.25, z1 + 0.015, x0 + dx + sx * 0.3 + 0.18, Y + 2.0, z1 + 0.02, { faces: 'Z' });
         gg.mat('cast', P.brass); gg.box(x0 + dx - 0.02, Y + 0.05, z1 + 0.015, x0 + dx + 0.02, Y + 2.2, z1 + 0.025, { faces: 'Z' });
         gg.mat('paint', P.yellow); gg.box(x0 + dx - 0.64, Y + 0.05, z1 + 0.012, x0 + dx - 0.6, Y + 2.24, z1 + 0.02, { faces: 'Z' }); gg.box(x0 + dx + 0.6, Y + 0.05, z1 + 0.012, x0 + dx + 0.64, Y + 2.24, z1 + 0.02, { faces: 'Z' });
       }
