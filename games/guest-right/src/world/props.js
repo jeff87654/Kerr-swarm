@@ -41,6 +41,13 @@ function build(name, p, atlas) {
   return c;
 }
 
+// A sign group has been given back (a block or a region has gone): the props drawn with its signs are of no more use.
+export function forgetPropsOf(group) {
+  const tail = '@' + group; let n = 0;
+  for (const k of [...CACHE.keys()]) if (k.endsWith(tail)) { CACHE.delete(k); n++; }
+  return n;
+}
+
 // Place a prop. o: { tint: [r,g,b] multiply (cheap per-copy variety), tier, cast, level, noCollide, noSpots, scale }
 export function prop(s, name, x, y, z, yaw = 0, p, o = {}) {
   const c = build(name, p, s.world && s.world.game ? s.world.game.atlas : null), m = c.meta, g = s.g;

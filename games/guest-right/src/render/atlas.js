@@ -55,6 +55,7 @@ export class Atlas {
     // nothing left in use: start the pool afresh, so odd sizes do not silt it up
     if (P.live <= 0) { P.live = 0; P.px = 0; P.free.clear(); for (let i = this.pages; i < this.total; i++) P.sky[i] = [{ x: 2, y: 2, w: this.size - 4 }]; }
     this.groups.delete(id); if (this.group === id) this.group = null;
+    if (this.onRelease) { try { this.onRelease(id); } catch (e) { console.error('[atlas] ' + e); } }
   }
   // how full the permanent pages are (0..1), and how many lent pages are out
   usage() {

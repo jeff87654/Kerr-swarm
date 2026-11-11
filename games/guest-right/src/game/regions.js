@@ -64,6 +64,13 @@ export function createRegions(game) {
       r.spawns = Object.keys(game.spawns).filter((k) => !spawns0.has(k));
       r.loaded = true; r.loading = null; r.used = game.time;
       for (const k of r.scopes) { const sc = W.scopes.get(k); if (!sc) continue; if (game.people && game.people.addScope) game.people.addScope(sc); else sc.live = true; }
+      // its meshes go to the graphics card six a frame from now on (each is drawn once, wherever it is), so that the cab's
+      // door does not open on a stall, nor the next room
+      {
+        const list = []; for (const k of r.scopes) { const sc = W.scopes.get(k); if (sc && sc.meshes) for (const m of sc.meshes) list.push(m); }
+        let wi = 0; const offW = on.call(game.events, 'update', () => { for (let n = 0; n < 6 && wi < list.length; n++) { const m = list[wi++]; if (m && m.userData) m.userData.warm = 1; } if (wi >= list.length) offW(); });
+        r.unsubs.push(offW);
+      }
       console.log('[region ' + id + '] built in ' + (performance.now() - t0).toFixed(0) + ' ms: ' + r.scopes.length + ' scopes, ' + r.frames.length + ' frames');
       game.events.emit('region:load', id);
       return true;

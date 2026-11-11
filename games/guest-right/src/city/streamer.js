@@ -96,9 +96,16 @@ export function createStreamer(game, city) {
       ms.sort((a, b) => dist(a) - dist(b));
       for (const m of ms) m.userData.hidden = true;
       s.visible = true;
-      for (let k = 0; k < ms.length; k += 8) { for (let q = k; q < Math.min(ms.length, k + 8); q++) ms[q].userData.hidden = false; await nextFrame(); if (c.fast) break; }
+      for (let k = 0; k < ms.length; k += 8) { for (let q = k; q < Math.min(ms.length, k + 8); q++) { ms[q].userData.hidden = false; ms[q].userData.warm = 1; } await nextFrame(); if (c.fast) break; }
       for (const m of ms) m.userData.hidden = false;
       t0 = performance.now(); pt = t0;
+    }
+    // A block built in a hurry (somebody is waiting at its door, or on the way in a cab) is shown all at once. Its meshes
+    // still go to the graphics card a few a frame from here on, each drawn once wherever it is, so that the first look
+    // down its avenue does not stall on all of them together.
+    if (c.fast) {
+      const ms = s.meshes.slice(); let wi = 0;
+      const offW = game.events.on('update', () => { if (c.dead || !s.active) { offW(); return; } for (let n = 0; n < 8 && wi < ms.length; n++) { const m = ms[wi++]; if (m && m.userData) m.userData.warm = 1; } if (wi >= ms.length) offW(); });
     }
     s.visible = true; mark('people');
     if (game.people && game.people.addScope) game.people.addScope(s); else s.live = true;
@@ -162,10 +169,14 @@ export function createStreamer(game, city) {
   }
   function drop(c) {
     if (c.state === 'ready') {
+      const log = game.params && game.params.citylog, t0 = log ? performance.now() : 0;
       if (game.people && game.people.removeScope) game.people.removeScope(c.scope);
-      c.scope.dispose(); if (game.atlas) game.atlas.release('cell:' + c.key);
+      const t1 = log ? performance.now() : 0;
+      c.scope.dispose(); const t2 = log ? performance.now() : 0;
+      if (game.atlas) game.atlas.release('cell:' + c.key);
       cells.delete(c.key); stats.dropped++;
       game.events.emit('city:unload', c.plan.info);
+      if (log) console.log('[city] let go of ' + c.plan.info.name + ' in ' + (performance.now() - t0).toFixed(0) + ' ms (people ' + (t1 - t0).toFixed(0) + ', scope ' + (t2 - t1).toFixed(0) + ', the rest ' + (performance.now() - t2).toFixed(0) + ')');
     } else if (c.state === 'queued') { cells.delete(c.key); c.fail(new Cancelled()); }
     else c.dead = true;                                              // building: its next slice stops it
   }
@@ -224,15 +235,17 @@ export function createStreamer(game, city) {
     if (L < 0) away += 0.2; else away = 0;
     // let go of what is far: beyond the drop distance in the player's layer, or everything once they have been elsewhere a while
     const list = [...cells.values()];
+    let let1 = false;                                                // one finished block is let go at a time: it costs a frame
+    const letGo = (c) => { if (c.state === 'ready') { if (let1) return; let1 = true; } drop(c); };
     for (const c of list) {
       if (keep.has(c.key)) { c.used = game.time; continue; }
       if (c.hold > game.time) continue;                              // somebody asked for it by name and is on their way
       const idle = game.time - c.used;
-      if (c.L !== L) { if ((L >= 0 || away > 12) && idle > 2.5) drop(c); continue; }
+      if (c.L !== L) { if ((L >= 0 || away > 12) && idle > 2.5) letGo(c); continue; }
       // how far outside the block the player stands
       const info = city.info(c), ly = LAYERS[L]; let ddx = Math.abs(p.pos.x - info.x); ddx = Math.min(ddx, ly.N * ly.pitch - ddx);
       const out = Math.max(ddx - ly.pitch / 2, Math.abs(p.pos.z - info.z) - BLOCK_Z / 2);
-      if ((out > DROP_D - 45 && idle > 2.5) || (out > 70 && idle > 25)) drop(c);
+      if ((out > DROP_D - 45 && idle > 2.5) || (out > 70 && idle > 25)) letGo(c);
     }
     // never more than the machine can carry: the least lately wanted goes first
     if (cells.size > MAX_CELLS) { const extra = [...cells.values()].filter((c) => !keep.has(c.key) && !(c.hold > game.time)).sort((a, b) => a.used - b.used); for (let i = 0; i < extra.length && cells.size > MAX_CELLS; i++) drop(extra[i]); }

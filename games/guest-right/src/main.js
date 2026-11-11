@@ -10,6 +10,7 @@ import { Save, Settings, Clock, makeEvents } from './core/state.js';
 import { Player } from './sim/player.js';
 import { DRUM, deckOf, gAt, ringOf, RING_NAMES } from './core/drum.js';
 import { Atlas } from './render/atlas.js';
+import { forgetPropsOf } from './world/props.js';
 import { createForwardMaterials } from './render/fwdmat.js';
 import { loadSignFonts } from './world/signs.js';
 import { setupSystems } from './game/systems.js';
@@ -71,6 +72,7 @@ async function start(opts) {
   await loadSignFonts();
   // ten permanent pages for the places built at start-up, and a pool of eight shared by regions and city blocks as they come and go
   const atlas = game.atlas = new Atlas(pipeline.renderer, { size: settings.get('quality') === 'low' ? 1024 : 2048, pages: 10, dynamic: 8 });
+  atlas.onRelease = forgetPropsOf;          // props drawn with the signs of a block or region that has gone are of no more use
   worldUniforms.tAtlas.value = atlas.texture;
   const fwd = game.fwdMats = createForwardMaterials(pipeline);
   world.fwdMats.glass = fwd.glass; world.fwdMats.glow = fwd.glow;

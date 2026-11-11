@@ -93,7 +93,10 @@ export class World {
     for (let i = 0; i < R.length; i++) {
       const m = R[i], u = m.userData, f = u.frame, o = u.origin;
       const sc = u.scope;
-      if ((sc && !(sc.active && sc.visible)) || u.hidden || (this.culler && !this.culler(u))) { m.visible = false; continue; }
+      if ((sc && !(sc.active && sc.visible)) || u.hidden) { m.visible = false; continue; }
+      // warm: drawn this once whatever the distance, the view or the frame (see streamer.js and regions.js)
+      const warm = u.warm > 0; if (warm) u.warm--;
+      if (!warm && this.culler && !this.culler(u)) { m.visible = false; continue; }
       // frame row (see GLSL_BEND): dTheta, dRho, dZ relative to the anchor, and rho0 on the diagonal
       const e = m.matrixWorld.elements;
       e[3] = wrapPi(f.theta0 + o[0] / f.rho0 - A.theta); e[7] = A.rho - (f.rho0 - o[1]); e[11] = f.z0 + o[2] - A.z; e[15] = f.rho0;
@@ -101,13 +104,13 @@ export class World {
       flatToRender(f, o[0] + c[0], o[1] + c[1], o[2] + c[2], A, _c);
       const d = Math.hypot(_c.x, _c.y, _c.z) - u.radius;
       let mask = 0;
-      if (u.always) mask = 1;
+      if (u.always || warm) mask = 1;
       else if (d < u.far) { sph.center.set(_c.x, _c.y, _c.z); sph.radius = u.radius; if (fr.intersectsSphere(sph)) mask = 1; }
       if (u.caster) {
         const dh = Math.hypot(_c.x, _c.z) - u.radius;      // roughly horizontal distance (the anchor's up is +Y)
-        if (dh < sr.room * 1.42) mask |= 2;
-        if (dh < sr.sky0 * 1.42) mask |= 4;
-        if (dh < sr.sky1 * 1.42) mask |= 8;
+        if (dh < sr.room * 1.42 || (warm && sr.room > 0)) mask |= 2;
+        if (dh < sr.sky0 * 1.42 || (warm && sr.sky0 > 0)) mask |= 4;
+        if (dh < sr.sky1 * 1.42 || (warm && sr.sky1 > 0)) mask |= 8;
       }
       m.layers.mask = mask; m.visible = mask !== 0;
       if (mask & 1) shown++;

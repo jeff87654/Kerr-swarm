@@ -676,10 +676,20 @@ export function createPeople(game) {
   }
   function update1(dt) {
     const t0 = performance.now();
+    M.thinks = 0; M.thinkBy = t0 + 3.5;              // see tick(): at most a few milliseconds a frame go on choosing where to go next
     if (!player.frame) return;
     if (!M.ready) init();
     if (W.spots.length - W.managedSpots !== M.spotCount) { reindex(); }
-    if (M.dirty.size) { for (const f of M.dirty) { if (M.frames.get(f.id) === f) { refreshFrame(game, f); if (!M.fill.some((j) => j.fi === f)) populate(f); } } M.dirty.clear(); }
+    if (M.dirty.size) {
+      const log = game.params && game.params.citylog;
+      for (const f of M.dirty) {
+        if (M.frames.get(f.id) !== f) continue;
+        const a = log ? performance.now() : 0; refreshFrame(game, f); const b = log ? performance.now() : 0;
+        if (!M.fill.some((j) => j.fi === f)) populate(f);
+        if (log) console.log('[city] people, after a scope went from ' + f.id + ': walkways ' + (b - a).toFixed(0) + ' ms, people ' + (performance.now() - b).toFixed(0) + ' ms');
+      }
+      M.dirty.clear();
+    }
     if (M.fill.length) fillSome();
     player.eyePos(eye);
     frameNo++;
@@ -732,10 +742,16 @@ export function createPeople(game) {
   function tick(p, dt, now) {
     if (p.idleLookP === undefined) p.idleLookP = 0;
     switch (p.state) {
-      case 'away': if (now >= p.backAt) { if (p.kind === 'cast') { thinkCast(p); if (p.state === 'away') p.backAt = now + 10; else if (p.state === 'walk') { /* came in */ } } else arrive(p); } return;
+      case 'away': if (now >= p.backAt) { if (p.kind === 'cast') { thinkCast(p); if (p.state === 'away') p.backAt = now + 10; else if (p.state === 'walk') { /* came in */ } } else if (M.thinks < 2 || performance.now() < M.thinkBy) { M.thinks++; arrive(p); } } return;      // (within the frame's budget for making up minds)
       case 'walk': walkStep(p, dt, p.near); if (p.near) look(p, dt); return;
       case 'spot': atSpot(p, dt, p.near, now); if (p.near) look(p, dt); return;
-      case 'idle': p.spd = 0; p.idleT -= dt; if (p.faceYaw !== null) p.yaw += wrapPi(p.faceYaw - p.yaw) * (1 - Math.exp(-dt * 4)); if (p.near) look(p, dt); if (p.idleT <= 0) { if (p.goal && p.goal.kind === 'away') { arrived(p); } else think(p); } return;
+      case 'idle': p.spd = 0; p.idleT -= dt; if (p.faceYaw !== null) p.yaw += wrapPi(p.faceYaw - p.yaw) * (1 - Math.exp(-dt * 4)); if (p.near) look(p, dt);
+        if (p.idleT <= 0) {
+          if (p.goal && p.goal.kind === 'away') arrived(p);
+          else if (p.kind === 'cast' || M.thinks < 2 || performance.now() < M.thinkBy) { M.thinks++; think(p); }
+          else p.idleT = 0.08 + Math.random() * 0.3;            // enough minds made up for one frame: this one waits a moment
+        }
+        return;
       default: think(p);
     }
   }
@@ -789,13 +805,17 @@ export function createPeople(game) {
     scope.live = false;
     if (!M.ready || !M.frames) return;
     const fi = M.frames.get(scope.frame.id); if (!fi) return;
+    // the scope's own zones: only somebody standing in one of them can be inside it (asking the world which zone every
+    // person in the frame is in costs tens of milliseconds)
+    const own = W.zones.filter((zn) => zn.scope === scope);
+    const within = (p) => { const y = p.y + 0.6; for (const zn of own) if ((zn.allRound || (p.x >= zn.x0 && p.x <= zn.x1)) && y >= zn.y0 && y <= zn.y1 && p.z >= zn.z0 && p.z <= zn.z1) return true; return false; };
     for (const p of fi.people.slice()) {
       const sp = p.spot, inSpot = !!sp && (sp.scope === scope || !!(sp.pp && sp.pp.zone && sp.pp.zone.scope === scope));
       const onPath = !!p.route && p.route.some((w) => w.node && w.node.owner === scope);
-      let inside = false; if (p.state !== 'away') { const zn = W.zoneAt(fi.frame, p.x, p.y + 0.6, p.z); inside = !!zn && zn.scope === scope; }
+      let inside = false; if (p.state !== 'away' && within(p)) { const zn = W.zoneAt(fi.frame, p.x, p.y + 0.6, p.z); inside = !!zn && zn.scope === scope; }
       if (!inSpot && !onPath && !inside) continue;
       if (p.kind === 'anon' && !p.directed && (inside || inSpot)) { removePerson(p); continue; }
-      leaveSpot(p); p.route = null; p.goal = null; p.state = 'idle'; p.idleT = 0.5; p.pose = 'stand';
+      leaveSpot(p); p.route = null; p.goal = null; p.state = 'idle'; p.idleT = 0.5 + Math.random() * 4; p.pose = 'stand';
     }
     unindexScope(game, M.frames, scope);
     // a crowd called to a place that has just gone (spawnCrowd) goes with it

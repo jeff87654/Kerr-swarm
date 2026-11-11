@@ -441,6 +441,15 @@ Three rules follow from signs being lent, and the engine keeps them so that plac
 
 A region with `near` and frames of its own (the front wall's tiers) is not counted as far away while the player stands in one of those frames, wherever the Hollow's floor is.
 
+**Keeping the frame rate while things come and go.** Four habits, all in the engine:
+
+- *Meshes are sent to the graphics card a few a frame.* A mesh with `userData.warm = 1` is drawn once wherever it is (any distance, any direction, any frame, and once into each shadow map in use), which uploads its buffers on a frame of our choosing. The streamer warms a block eight meshes a frame as it shows it; a block built in a hurry, and every region, is warmed the same way after it is built. Without this a whole court arrives at the card in the one frame in which it first comes into view.
+- *People make up their minds within a budget.* Choosing a spot and finding a way to it is the dear part of a person (a few milliseconds). `M.thinkBy` gives each frame about 3.5 ms for it (and never fewer than two decisions): idle people past their time and people due back from elsewhere wait a frame or two when a crowd is turned out together (a block let go, a meal ending). Named people are not held.
+- *One finished block is let go at a time,* and when a scope goes the people sim looks only at the people standing in that scope's own zones.
+- *Props drawn with the signs of a group that has gone are forgotten* (`forgetPropsOf`, called by the atlas on `release`), so the prop cache holds what is loaded and not every block the player has walked through.
+
+`?citylog` prints what each of these costs: a block's build by part and by lot, what letting go of it cost, and what the people sim did after. To judge smoothness run the browser with its frame-rate limit on: the test tools switch it off, which shows the worst case for the graphics card and now and then stalls on its own backlog.
+
 Sub-places inside a landmark (the Quarter, the Window's lobby) have their own records in `src/content/places.js` when their zones name them; `node tools/tour.mjs` lists any place id a zone uses that has no record.
 
 | Region | File | Frame | Where | Cab group |
