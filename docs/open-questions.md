@@ -14,10 +14,10 @@
 
 | | Questions |
 |---|---|
-| Open | 98 |
-| Deliberately open (story space) | 22 |
+| Open | 105 |
+| Deliberately open (story space) | 23 |
 | Answered elsewhere, with a pointer left in the doc | 35 |
-| Docs with questions still open | 24 |
+| Docs with questions still open | 25 |
 
 ## The questions by theme
 Each links to its doc's own list, which is the source. Answered questions are left out here; their pointers stay in the docs.
@@ -93,6 +93,14 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [economy.md](economy.md#open-questions): What else the Shade sells the frontier besides beam, and the price of a kilogram of metal in kWh at the catch (The frontier).
 - [economy.md](economy.md#open-questions): In free drums, what a household owes that can't pay the posted price for a child born outside its allowance: hours, Hollow time, or nothing (Children).
 - [economy.md](economy.md#open-questions): Who audits a house's box over the ninety years between a member's first payment and last draw, in a drum that forbids interest (Houses).
+- [work.md](work.md#open-questions): How much of a wallet people spend on each other once compute can keep them company. The planning quarter is a taste, not a derivation; at a twentieth, work shrinks to posts and the placeless.
+- [work.md](work.md#open-questions): Whether Chervil's dear hour can hold for anything but its posts and halls (One market, a metro wide).
+- [work.md](work.md#open-questions): Who may buy a shopfront: residents only, as a borough's burgesses were, or anyone in the metro.
+- [work.md](work.md#open-questions): Whether a keeper may live over the shop or leave it by will, in a free drum, where that is nearly a home to pass on (Shopfronts).
+- [work.md](work.md#open-questions): How much a fitted drum's placeless really work, with a wallet for life and no door to earn. Planning takes full time.
+- [work.md](work.md#open-questions): How drums fill their posts (by lot, election, examination or purchase), and how they keep offices from settling on a few families.
+- [work.md](work.md#open-questions): Whether Sorrel's hand rule asks drill days of every adult or only of its crews.
+- [work.md](work.md#open-questions): What the raft's own service looks like: its crews, who books its beam and who it answers to (governance.md § The raft and the orbit family). *(deliberately open)*
 - [governance.md](governance.md#open-questions): Glow-sail yields with real skin temperatures. If the interior spreads heat toward the belt, the belt runs warmer and is harder to starve.
 - [governance.md](governance.md#open-questions): How fast a sail field deploys, and whether that fits inside a raft's ~55-day reserve.
 - [governance.md](governance.md#open-questions): Whether orbit families become polities, and how families treat each other. *(deliberately open)*

@@ -253,7 +253,7 @@ An orchard apple, a new shirt and 1,000 km flat out cost about the same. A chair
 
 ## Open questions
 - The median wallet. The floor is the commons with no dividend, for the shareless (economy.md § Children); the median depends on how much people spend on each other's time.
-- **Work when production is automated:** answered in economy.md § Income: care, teaching, kitchens, craft, stewardship, governance and culture, paid from other people's wallets.
+- **Work when production is automated:** answered in economy.md § Income: care, teaching, kitchens, craft, stewardship, governance and culture, paid from other people's wallets. work.md has the tech level, who works how much, who employs and where people keep shop.
 - **Lifespans:** answered in people.md § Places and shares: lives of ~120 years.
 - **Heirlooms and going dark:** answered in economy.md § Belongings (heirlooms cost nothing, new mass is the display good) and ashgrove.md (going dark as a fast, with the black thread).
 - **Whether drums specialise:** answered in economy.md § Markets by scale: drums specialise slowly, over centuries.
