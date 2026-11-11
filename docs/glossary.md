@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match. Revised 10 Nov 2026 (a placeless-born life worked through; third-chair.md, families.md; Jeff's steer, names proposals): waiting shares, the box, the certificate, marrying late, third chair and the Emptying; the draw, the placeless-born, houses and Tansy to match. Revised 10 Nov 2026 (Jeff's decisions; work.md): the plant, a wallet's work, shopfronts and Sorrel's hand rule.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -228,6 +228,24 @@ How a person's ~2 kWe splits. The commons (~1.1 kW) is the drum's budget, spent 
 
 Matches: commons, wallet, wallets
 
+### The plant
+
+The machines that make and route everything: automation under standing rules. Not the minds on the Shade's compute, which are their own society and out of the docs' focus. See work.md, governance.md.
+
+Matches: none
+
+### A wallet's work
+
+About 2,550 hours a year, seven hours every day: what an adult with no share works, at ~3 kWh an hour, to earn what a share pays. A free drum's placeless-born work about that much. The average adult sells ~1,000 hours, and about a quarter sell none. See work.md.
+
+Matches: a wallet's work
+
+### Shopfronts
+
+Commons floor for a trade (a shop, a kitchen, a workroom, a stall), ~3 m² a person. A drum auctions a shopfront's lease or sells it outright, so it is the one kind of floor that can be bought, and the placeless can own one. It carries no allowance and is not a place. See work.md, economy.md.
+
+Matches: shopfront, shopfronts
+
 ### The place
 
 Household land, like a farm, passed whole to one heir: one household's home of ~78 m², about 2¼ people's share, so a nation drum of 200 M has ~90 M places. Children and young adults live in a parent's or grandparent's place; an heir usually inherits a great-grandparent's place in their late 20s, and a spouse marries in. Children belong to a place: couples have them once they have one. It can't be sold or pledged, but its rooms can be let. See economy.md, people.md.
@@ -254,19 +272,19 @@ Matches: holdings
 
 ### The posted price
 
-What most steady drums charge a household for the keep of a child born outside its allowance, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted at every station ring and charged until the child is grown or placed. It keeps the cost of a household's choice off its neighbours, as an English parish's bastardy bond did. It doesn't hold a drum's numbers; who is born to a place does that. Rung 1 of the counted-drum ladder, and not counting. Open drums post none. See people.md, economy.md, families.md.
+What a free drum charges a household for the keep of a child born outside its allowance, from the Mill-table credit (~0.23 kW, a tenth of a wallet) up to the child's whole ~1.1 kW of commons, posted at every station ring and charged until the child is grown or placed. It keeps the cost of a household's choice off its neighbours, as an English parish's bastardy bond did. It doesn't hold a drum's numbers; who is born to a place does that. Rung 1 of the counted-drum ladder, and not counting. Most fitted drums post none, since few of their children are born outside, and open drums post none. See people.md, economy.md, families.md.
 
 Matches: posted price, the keep
 
 ### The draw
 
-A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing. Nearly every couple enters, and one in eight to sixteen ever wins. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
+A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing, and the permit takes the couple's implants out again. Nearly every couple enters, and one in nine to eighteen ever wins. The same draw is the lot that places those born outside: everyone unplaced is entered from eighteen to sixty, and about one in seventeen is ever drawn. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
 
-Matches: Draw Day, third-child draw, draw for thirds
+Matches: Draw Day, third-child draw, draw for thirds, the lot
 
 ### Born to a place
 
-A child born inside its household's allowance: two children by right and a third by leave (proposal). It can inherit a place, be named heir to one or marry into one, and its own first two children are born to a place in turn. Leave is issued only as fast as the childless and the early dead leave room, about one birth in eighteen, so a drum's numbers are held by standing and not by a price. See families.md, people.md.
+A child born inside its household's allowance: two children by right and a third by leave (proposal). It can inherit a place, be named heir to one or marry into one, and its own first two children are born to a place in turn. Leave is issued only as fast as the childless and the early dead leave room, about one birth in eighteen, so a drum's numbers are held by standing and not by a price, and in most drums by the fitting behind it. See families.md, people.md.
 
 Matches: born to a place
 
@@ -278,13 +296,13 @@ Matches: by leave, the block's leave
 
 ### The placeless-born
 
-People born outside a household's allowance (proposal): registered, proofread, fed and schooled like anyone, but with no claim on a place and, in most drums, last in the family's line for a share. They are placed, and count from then on as born to a place, by adoption into an heirless place, by a marriage the drum allows, by long service, or by a later place when their parents' place comes. Every placing spends the room a third child would have had, so about one in ten is placed. About one person in forty in a steady drum. Not the wild-born, who are born outside the clinics. See families.md, people.md.
+People born outside a household's allowance (proposal): registered, fed, schooled and fitted like anyone, but with no claim on a place and last in the family's line for a share. In a fitted drum they are about one birth in 400, after a couple has cut its implants out or a clinic has made a mistake, and one person in 430; each holds a waiting wallet from eighteen and is entered in the lot, which places about one in seventeen, and their implants stay in until it does. In a free drum they are about one person in forty, shareless, working for ~80% of a wallet, with an old age on a house's box, kin or savings. Not the wild-born, whom the clinics never see. See families.md, people.md, third-chair.md.
 
 Matches: placeless-born
 
 ### The line outside
 
-The children of the placeless-born, and theirs (proposal). The placeless-born have no place and no draw to lose, so nothing holds them to an allowance. Most have no children, but where the few who do become a people apart, their line can take a tenth of a drum's births in ~500–1,500 years. Drums keep them mixed in, place their children, charge a keep or fit them. See families.md.
+The children of the placeless-born, and theirs (proposal). In a drum that fits nobody the placeless-born have no place and no draw to lose, so nothing holds them to an allowance. Most have no children, but the few who do are the next generation's parents: kept apart, their line can take a tenth of a drum's births in ~500–1,500 years, and even mixed in, the habit comes back into the households with everyone who is placed and takes off within ~70,000–220,000 years. It is the main reason most drums fit. In a fitted drum a child takes two cuts and costs its parents their entries in the lot, and the line stays a trace. See families.md.
 
 Matches: the line outside, line outside
 
@@ -320,15 +338,45 @@ Matches: drum's own children
 
 ### The placeless
 
-Adults who never head a household: mostly the placeless-born, with the few born to a place whom no place or marriage reached, and people who choose a house instead. They can marry, foster, teach and keep offices of trust, but raise no children unless a place comes to them. About one adult in forty in a steady drum; many more in a drum that has loosened its line. See people.md.
+Adults who never head a household: the placeless-born, the few born to a place whom no place or marriage reached, and people who choose a house instead. They can marry, foster, teach and keep offices of trust, but raise no children unless a place comes to them. About one adult in 400 in a fitted drum and one in forty in a free drum; many more in a drum that has loosened its line. See people.md.
 
 Matches: placeless
 
 ### Houses
 
-Homes for the placeless held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election, with no heir and no nursery. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy. See people.md, economy.md.
+Homes held by bodies that don't die (orders, crews, colleges, hall guilds), entered by election, with no heir and no nursery. Every place a house holds is one fewer household with children, so what houses may hold is a drum's quiet birth policy. In a fitted drum they belong mostly to people who chose them. In a free drum they are where the placeless-born live: about one place in fifty houses every one of them past their twenties, and a drum with that many sits near par, not ~2.6% over. See people.md, economy.md, families.md.
 
 Matches: none
+
+### Waiting shares
+
+Shares that are unheld between a death and the child they wait for (proposal): about 3% of a drum's shares at any time, ~6 M in a nation drum, as many as there are children waiting for a share. A fitted drum lends their dividends to its placeless-born as waiting wallets: 21.6 kWh a day from eighteen, for life, resting on one unheld share until its child is born and then moved to another. All of a drum's waiting wallets take about a fifteenth of the unheld dividends (~5.4 GW), and the rest falls to the commons. A waiting wallet can't be left, given or named for anyone. See families.md, economy.md.
+
+Matches: waiting share, waiting shares, waiting wallet, waiting wallets
+
+### The box
+
+A house's common fund in a free drum (proposal): members pay in about fifteen parts in a hundred of their pay while they work and draw ~4 kWh a day once they stop, as guilds and friendly societies kept a box. For someone with no share and no rooms to let, it is most of old age. See families.md § Free drums.
+
+Matches: none
+
+### The certificate
+
+What a drum writes for one of its people who lodges in another (proposal): the home drum answers for their commons and for any child born to them there. Standing is settled by birth, so a host drum's door and its leave are for its own, and a child conceived at a free drum's clinic comes home placeless-born. See families.md.
+
+Matches: none
+
+### Marrying late
+
+A second marriage between someone born to a place, whose children already have households, and a placeless-born partner (proposal). It costs a line nothing, so it is how most marriages across the line happen, and it ends with a year's grace in the place when the holder dies. See families.md, third-chair.md.
+
+Matches: marrying late
+
+### Third chair
+
+Tansy's word for a child born outside its household's allowance. A household that cut for one is carrying a chair; one that got it from a clinic's mistake was handed one. See third-chair.md.
+
+Matches: third chair, third chairs
 
 ### Proofreading
 
@@ -342,11 +390,35 @@ Children conceived and carried outside the clinics: unproofread, unregistered, o
 
 Matches: wild-born
 
+### The fitting
+
+A contraceptive implant for everyone at fourteen, in most drums (Jeff's decision, 10 Nov 2026; the particulars are proposals). The clinic takes it out by right, for two children, once a couple has a place, and again on a permit for a third. So a child is conceived only where a place is waiting, and births outside the allowance fall to about one in 400. The clinic sets one embryo a pregnancy, so the only twins are identical ones, and a pair at a second birth is charged to the drum's room. It is a Count's leftover: every old drum has counted, a Count puts an implant in every arm, and most drums gave back two by right and kept the implant. What separates a fitted drum from a counted one is that two are by right, and the clinicians' guild holds that rule across the Shade. See families.md, people.md.
+
+Matches: the fitting, fitted drum, fitted drums
+
+### A cut
+
+Taking one's own implants out, or having them out at a free drum's clinic, to have a child outside the allowance (proposal). The child is placeless-born and its household is out of the draw. See families.md.
+
+Matches: none
+
+### Having them out
+
+A couple's visit to the clinic when its place has come, to have its implants taken out for two children. How a block hears that a family is starting. See families.md, third-chair.md.
+
+Matches: having them out, had theirs out
+
+### Free drums
+
+Drums that fit nobody and hold their numbers by standing alone (proposal): about three in a hundred. Births outside the allowance settle at seven to fifteen for every placing, so about one person in forty is placeless-born, shareless and at the door of a house, and over tens of thousands of years a line outside takes off and the drum counts. Marked drums fit only those born outside, and service drums let the shareless have the children they can pay for, at the survival floor. See families.md § Drums that chose otherwise.
+
+Matches: free drum, free drums, marked drum, marked drums, service drum, service drums
+
 ### Counted drums
 
-Drums that license births and enforce it (rung 3 and above of people.md's ladder; a keep or a penalty is not counting), about 1% of drums at a quiet time and many more after a raft-wide shock. A drum counts when it has to shrink, since people will wait for a third child and won't wait for a first. Most fit a contraceptive implant at fourteen (the fitting) and stop births for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against shares. See people.md.
+Drums that license first and second children and enforce it (rung 3 and above of people.md's ladder; the fitting, a keep or a penalty is not counting), about 1% of drums at a quiet time and many more after a raft-wide shock. A drum counts when it has to shrink, since people will wait for a third child and won't wait for a first. Where other drums take the implants out by right for two children, a counted drum leaves them in and draws lots, for a decade or two; the darkest are rare and shunned. Named for the Count, the board at every station ring showing people against shares. See people.md.
 
-Matches: counted drum, counted drums, the Count, the fitting
+Matches: counted drum, counted drums, the Count
 
 ### The right of the Glide
 
@@ -512,7 +584,7 @@ Matches: Lovage
 
 ### Rue
 
-A counted drum across the rows from Sorrel, nine years into a birth stop after a blight hit its overspent households. See people.md, ashgrove.md.
+A counted drum across the rows from Sorrel, nine years into a birth stop: a fitted drum that voted a third by right, ran 14% over par and was caught by a blight. See people.md, ashgrove.md.
 
 Matches: Rue
 
@@ -524,9 +596,15 @@ Matches: Chervil
 
 ### Tansy
 
-A steady drum one glide from Sorrel along Herb Row, known for its strawberries, the longest strain library on the Row, and the Row's only henhouse. See eating-out.md.
+A steady drum one glide from Sorrel along Herb Row, known for its strawberries, the longest strain library on the Row, and the Row's only henhouse. A drawn-holdings drum, fitted since its last Count about six hundred years ago and a free drum before that; its draw is kept by keepers from other drums. Home of Nell Varga. See eating-out.md, third-chair.md.
 
 Matches: Tansy
+
+### The Emptying
+
+Tansy's dissolution of its houses about nine hundred years ago, when it was a free drum: room for ~3.6 M children at once, forty-one years of leave, and ~4 M people put into lodgings. Tansy ran 2.6% over par for three centuries and took four more to found its houses again. See third-chair.md, families.md § Free drums.
+
+Matches: the Emptying
 
 ### Yarrow and Borage
 
@@ -645,4 +723,10 @@ Matches: Register of Places
 The pavilion that comes up through the bed of Sorrel's Hollow lake, with the jetty and the elders' bench. See sorrel.md.
 
 Matches: Bench Island
+
+### The hand rule
+
+Sorrel's rule since the Eleven Days (proposal): whatever is on its survival load can be worked by hand with the data halls dark, and its crews drill for it every month. Most drums leave the survival load to the plant. See work.md, sorrel.md.
+
+Matches: hand rule
 

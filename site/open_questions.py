@@ -28,8 +28,8 @@ THEMES = [
     ("Habitats and materials", ["habitat-design", "raft-habitat", "element-cycles"]),
     ("Getting around", ["drum-transport", "raft-transport"]),
     ("Energy and food", ["energy-budget", "xray-power", "food-system", "cuisine"]),
-    ("Economy and governance", ["economy", "governance", "daily-life"]),
-    ("People and culture", ["people", "families", "open-drums", "ashgrove", "wander-year", "sorrel", "eating-out"]),
+    ("Economy and governance", ["economy", "work", "governance", "daily-life"]),
+    ("People and culture", ["people", "families", "open-drums", "ashgrove", "wander-year", "third-chair", "sorrel", "eating-out"]),
     ("Earlier eras: the ring design study", ["swarm-rings", "ring-weave"]),
 ]
 

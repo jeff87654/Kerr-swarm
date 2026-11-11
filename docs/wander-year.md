@@ -125,9 +125,9 @@ P.S. The far side says "kays" like "keys." I'm not having it.
 
 I came to Madder for the colours (the whole row grinds pigments) and got here the week they took the Count down.
 
-Madder counted for fourteen years after a vat fire. Its stop ran past par, the way stops do, and on Booking Day the assembly voted to keep the difference: 1.9%, about 3.8 million unused shares. A Margin. Today they lifted the old Count board off the wall at Ring 4 and put up a Ledger, and this year, for the first time in fourteen, nobody fitted the fourteen-year-olds.
+Madder counted for fourteen years after a vat fire. Its stop ran past par, the way stops do, and on Booking Day the assembly voted to keep the difference: 1.9%, about 3.8 million unused shares. A Margin. Today they lifted the old Count board off the wall at Ring 4 and put up a Ledger, and this year, for the first time in fourteen, a couple with a place could walk into a clinic and have theirs out without a number.
 
-I didn't expect to cry at a board. Everyone did. The old man next to me said his granddaughter turns fourteen next month, and then he couldn't say anything else.
+I didn't expect to cry at a board. Everyone did. The old man next to me said his granddaughter got her place in the spring, and then he couldn't say anything else.
 
 I told them about our Ledger hall, with our old Count hanging beside it. They want to hang theirs the same way. Someone from Rue should come and see this.
 
