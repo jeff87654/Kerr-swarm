@@ -92,10 +92,10 @@ const CANON_DRUMS = {
       { t: "The Henhouse", d: "Forty hens on vat feed behind a glass wall, and the only shell eggs on Herb Row. Parents bring children to watch one cracked: a whole gold yolk is something most people in the Shade never see.", buy: { item: "one fried egg on sourdough", kwh: 1.6 } },
       { t: "Strawberries", d: "Tansy's strawberries go through every Gate on the Row in sealed, certified crates." },
     ],
-    customs: ["The first strawberry of a new rack goes to whoever is working the Gate that day.", "Blight years are kept like vintages, and the steakhouse lists them."],
+    customs: ["The first strawberry of a new rack goes to whoever is working the Gate that day.", "Blight years are kept like vintages, and the steakhouse lists them.", "Draw Day, a week after Booking Day: the year's permits for third children are read out at every station ring, each in the name of a household that ended."],
     rules: {
       goods: "Allots high decks by service on the vat lines and Hollow hours by rotation.",
-      births: "Holdings: places and shares pass in the family.",
+      births: "Holdings, with a draw for thirds: two children by right, and a third if the household's number comes up on Draw Day.",
       gin: "Gin near cost, with thiamine.",
       guests: { t: "Guests get one hour on the floor a day, bright half or dim.", access: "free" },
       lamps: "06:30",
@@ -164,12 +164,12 @@ const CANON_DRUMS = {
 
   Rue: {
     sub: "counted",
-    blurb: "A counted drum across the rows from Sorrel, nine years into a birth stop after a blight hit its overspent households. Its children are fitted with implants at fourteen, its Count is posted on every platform, and Herb Row is quietly glad it counts rather than collapses.",
+    blurb: "A counted drum across the rows from Sorrel, nine years into a birth stop after a blight hit its overspent households. Its children are fitted at fourteen like every drum's on the Row, but no couple there has its implants out without a drawn number. Its Count is posted on every platform, and Herb Row is quietly glad it counts rather than collapses.",
     famous: [{ t: "The Blight Kitchen", d: "Rue cooked its blight menu longer than anyone on the Row after a Fusarium blight took two vat lines, and got very good at it. Young cooks run it now, and it's full of people from across the rows." }],
-    customs: ["The fitting at fourteen is done quietly, at the clinic, with a cake afterwards that nobody calls a fitting cake.", "Rue's councillors go to Chervil's Ledger every Booking Day and take notes."],
+    customs: ["A couple whose licence is drawn has its implants out the same week, and the block bakes a cake that nobody calls a licence cake.", "Rue's councillors go to Chervil's Ledger every Booking Day and take notes."],
     rules: {
       goods: "Allots Hollow hours by rotation, tighter since the stop.",
-      births: "Births are licensed. During the stop, children are fitted with a contraceptive implant at fourteen.",
+      births: "Births are licensed by lottery. During the stop, a couple with a place has its implants out only when its number is drawn.",
       gin: "Gin near cost; the drum would rather have drinkers than bootleggers.",
       guests: { t: "No guest-right during the stop, but anyone may come up to the terraces in the lamp-night.", access: "night" },
       lamps: "06:30",
@@ -417,7 +417,7 @@ const CANON_DRUMS = {
   Madder: {
     sub: "hall",
     blurb: "A drum on Pigment Row that counted for fourteen years after a vat fire. Its stop ran past par, and on Booking Day the assembly voted to keep the difference: a Margin of 1.9%. The old Count hangs beside its first Ledger.",
-    famous: [{ t: "The new Ledger", d: "At Station Ring 4 the old Count board was lifted off the wall and a Ledger put up in its place. This year, for the first time in fourteen, nobody fitted the fourteen-year-olds." }],
+    famous: [{ t: "The new Ledger", d: "At Station Ring 4 the old Count board was lifted off the wall and a Ledger put up in its place. This year, for the first time in fourteen, a couple with a place could walk into a clinic and have theirs out without a number." }],
     customs: ["The whole row grinds colours, and Madder's are red.", "They want to hang the old Count the way Chervil does."],
     rules: {
       goods: "Gives its Hollow hours by lottery now, instead of the old rationing.",
