@@ -21,11 +21,14 @@ export function propNames() { return Array.from(DEFS.keys()); }
 function build(name, p) {
   const key = name + '|' + JSON.stringify(p || {});
   let c = CACHE.get(key);
-  if (!c) {
+  if (c) { if (CACHE.size > 600) { CACHE.delete(key); CACHE.set(key, c); } }      // keep what is in use at the young end
+  else {
     const fn = DEFS.get(name); if (!fn) throw new Error('unknown prop: ' + name);
     const g = new Geo(new MeshBuf(512, 1024));
     const meta = fn(g, p || {}) || {};
     c = { buf: g.buf, meta }; CACHE.set(key, c);
+    // the city makes props in sizes nobody will ask for again (a street bay 6.031 m long): let the oldest go
+    if (CACHE.size > 900) { let n = 0; for (const k of CACHE.keys()) { CACHE.delete(k); if (++n >= 150) break; } }
   }
   return c;
 }

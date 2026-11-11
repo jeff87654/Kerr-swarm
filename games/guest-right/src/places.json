@@ -53,6 +53,7 @@
   "places/lm_line_works.js",
   "places/lm_line_rides.js",
   "places/lm_chimney.js",
+  "places/lm_mile_hall.js",
   "places/lm_felt_organ.js",
   "places/lm_lot_hall.js",
   "places/lm_up_decks.js",
@@ -64,8 +65,8 @@
   "places/lm_axle_back.js",
   "places/lm_window.js",
   "places/lm_axle_front.js",
-  "places/lm_lamp_walk.js",
   "places/lm_glide.js",
   "places/people.js",
-  "places/story.js"
+  "places/story.js",
+  "places/story_drum.js"
 ]

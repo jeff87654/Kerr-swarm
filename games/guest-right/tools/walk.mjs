@@ -21,7 +21,7 @@ let code = 0;
 try {
   const page = await browser.newPage();
   const errors = [];
-  page.on('console', (m) => { const t = m.text(); if (m.type() === 'error' || /^\[city\]/.test(t)) { if (m.type() === 'error') errors.push(t); console.log('  ' + t.slice(0, 260)); } });
+  page.on('console', (m) => { const t = m.text(); if (/favicon|status of 404/.test(t)) return; if (m.type() === 'error' || /^\[city\]/.test(t)) { if (m.type() === 'error') errors.push(t); console.log('  ' + t.slice(0, 260)); } });
   page.on('pageerror', (e) => { errors.push(e.message); console.log('  [pageerror] ' + e.message); });
   await page.goto(`http://127.0.0.1:${port}/?auto&citylog&${q}`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction('window.game && window.game.ready', { timeout: 120000 });

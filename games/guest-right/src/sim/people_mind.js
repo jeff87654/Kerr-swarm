@@ -128,6 +128,8 @@ function finishFrame(game, fi) {
 export function indexScope(game, frames, scope) {
   const W = game.world, f = scope.frame; let fi = frames.get(f.id);
   if (!fi) { fi = newFrameInfo(f); frames.set(f.id, fi); }
+  // a region that was taken down and built again has a new frame under the old name
+  if (fi.frame !== f) { fi.frame = f; for (const p of fi.people) p.frame = f; fi.spots = []; fi.byCat = {}; fi.places = new Map(); fi.crowd = new Map(); fi.managed = 0; }
   fi.managed++;
   for (const zn of W.zones) if (zn.scope === scope) for (const key of [zn.place, zn.id]) { if (!key) continue; let a = fi.places.get(key); if (!a) fi.places.set(key, a = []); if (a.indexOf(zn) < 0) a.push(zn); fi.crowd.delete(key); }
   navInfo(game, fi, true);

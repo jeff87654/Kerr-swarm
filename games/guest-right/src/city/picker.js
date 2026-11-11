@@ -12,15 +12,25 @@ export async function pickBlock(game, city, from) {
   const here = from || city.cellOfPlayer() || city.HOME;
   for (;;) {
     const top = [];
+    // the map's Round the drum, as a chooser (src/ui/map.js): every block of every layer, with what you have seen
+    const onMap = typeof ui.pickBlock === 'function';
+    if (onMap) top.push({ label: 'On the map', sub: 'round the drum, layer by layer', value: 'map' });
     const up = city.above(here, 1), dn = city.above(here, -1);
     if (up) { const q = city.info(up); top.push({ label: 'Straight up: ' + q.name, sub: q.sub, value: 'c' + q.key }); }
     if (dn) { const q = city.info(dn); top.push({ label: 'Straight down: ' + q.name, sub: q.sub, value: 'c' + q.key }); }
+    if (city.hollowStop) top.push({ label: 'The Hollow, over this block', sub: 'the lift pavilion on the floor above ' + city.info(here).name, value: 'hollow' });
     top.push({ label: 'By address', sub: 'band, decks, ring, block', value: 'addr' });
     if (city.visited.size > 1) top.push({ label: 'Somewhere you have been', sub: city.visited.size + ' blocks so far', value: 'been' });
     top.push({ label: 'Anywhere', sub: 'let the cab choose a block of the ' + city.count.toLocaleString('en-GB'), value: 'any' });
     const a = await ask('Which block', top);
     if (!a || a === '__back') return null;
+    if (a === 'map') {
+      const c = await ui.pickBlock({ from: here });
+      if (c && LAYERS[c.L]) return { L: c.L, i: wrapI(c.L, c.i), j: Math.max(J_MIN, Math.min(J_MAX, c.j)) };
+      continue;
+    }
     if (a[0] === 'c') return parseKey(a.slice(1));
+    if (a === 'hollow') { const st = city.hollowStop(here); if (st) return { stop: st }; if (ui.toast) ui.toast('There is no pavilion over this block: the lake is there.', { kind: 'info' }); continue; }
     if (a === 'any') { const L = (Math.random() * LAYERS.length) | 0; return { L, i: (Math.random() * LAYERS[L].N) | 0, j: J_MIN + ((Math.random() * (J_MAX - J_MIN + 1)) | 0) }; }
     if (a === 'been') {
       const keys = [...city.visited].slice(-9).reverse();

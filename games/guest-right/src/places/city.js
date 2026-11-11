@@ -4,6 +4,7 @@
 import { createCity } from '../city/city.js';
 import { createStreamer } from '../city/streamer.js';
 import { pickBlock } from '../city/picker.js';
+import { createPavilions } from '../city/pavilions.js';
 import { cellKey, parseKey, wrapI, J_MIN, J_MAX, cellAt } from '../core/layout.js';
 import { planCell } from '../city/plan.js';
 
@@ -47,6 +48,24 @@ export const place = {
         else if (ui) ui.toast('The stair door is locked from the other side.', { kind: 'info' });
         if (ui) await ui.fade(false, 0.5);
         if (a) { game.events.emit('city:stairs', { to: info, dir }); if (game.saveGame) game.saveGame(); }
+      } finally { game.busy--; }
+    };
+    // The Hollow's lift pavilions, and the last stair: from a block of the top decks up to the pavilion over it.
+    const pav = city.pavilions = createPavilions(game, city);
+    city.hollowStop = (cell) => { const a = pav.over(cell); if (!a) return null; const info = city.info(cell); return { id: 'pav:' + a.ix + ':' + a.iz, name: 'The Hollow', sub: 'the lift pavilion over ' + info.name, banner: 'The Hollow', frame: a.frame, x: a.x, y: a.y, z: a.z, yaw: a.yaw }; };
+    city.toHollow = async (cell) => {
+      if (game.busy || (game.cab && game.cab.riding)) return;
+      const ui = game.ui, a = pav.over(cell);
+      if (!a || !a.frame) { if (ui) ui.toast('The last stair here comes up under the lake. It is kept locked, and a brass plate says why.', { kind: 'info', dur: 7 }); return; }
+      game.busy++;
+      try {
+        if (game.audio) game.sfx('door-open', { vol: 0.5 });
+        if (ui) await ui.fade(true, 0.4);
+        await new Promise((r) => setTimeout(r, 1300));
+        game.player.place(a.frame, a.x, a.y, a.z, a.yaw, 0);
+        if (ui) { await ui.fade(false, 0.7); ui.banner('The Hollow', 'up the last stair from ' + city.info(cell).name); }
+        game.events.emit('city:stairs', { to: null, dir: 1, hollow: true, from: city.info(cell) });
+        if (game.saveGame) game.saveGame();
       } finally { game.busy--; }
     };
     // calling a cab from a block's lobby

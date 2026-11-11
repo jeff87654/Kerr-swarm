@@ -69,7 +69,7 @@ async function start(opts) {
   world.game = game;
   game.env = (o) => Object.assign(pipeline.env, o);
   await loadSignFonts();
-  // ten permanent pages for the places built at start-up, eight lent to regions and city blocks as they come and go
+  // ten permanent pages for the places built at start-up, and a pool of eight shared by regions and city blocks as they come and go
   const atlas = game.atlas = new Atlas(pipeline.renderer, { size: settings.get('quality') === 'low' ? 1024 : 2048, pages: 10, dynamic: 8 });
   worldUniforms.tAtlas.value = atlas.texture;
   const fwd = game.fwdMats = createForwardMaterials(pipeline);

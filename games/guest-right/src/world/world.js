@@ -219,7 +219,7 @@ export class Scope {
         const fwd = name === 'glass' || name === 'glow';
         const detail = name[0] === 'd', cut = name[1] === 'c', cast = name[2] === '1';
         const mat = fwd ? W.fwdMats[name] : cut ? (detail ? M.cutoutDetail : M.cutout) : (detail ? M.opaqueDetail : M.opaque);
-        const mesh = new THREE.Mesh(buf.toGeometry(), mat);
+        const mesh = new THREE.Mesh(buf.toGeometry(this.managed), mat);
         if (name === 'glow') mesh.renderOrder = 2;
         W.addRenderable(mesh, { frame: this.frame, origin: [ch.ox + this.ox, ch.oy, ch.oz + this.oz], center: [cx, cy, cz], radius: rad, far: fwd ? 90 : detail ? FAR_DETAIL : cast ? FAR_FURNITURE : FAR_STRUCT, caster: !fwd && cast, forward: fwd, scope: this, zone: this.zone, level });
         this.meshes.push(mesh);

@@ -549,6 +549,62 @@ const SCENARIOS = {
     T.log('  wallet now ' + (await T.st()).kwh + ' kWh; carrying ' + JSON.stringify(await T.ev(() => window.game.inv.list().map((i) => i.id + '×' + i.n))));
   },
 
+  // The whole drum: out of Candlewick on foot into the next block, its hall, a cab to a block on the High decks, the
+  // stair, the last stair up into the Hollow, a cab to a landmark and back, and a save and a reload in a generated block.
+  async drum(T) {
+    await T.load('t=12.4');
+    await T.ev(() => { const g = window.game; g.newGame(); g.events.emit('game:new'); g.flags.signed_in = true; g.clock.set(1, 12.4); });
+    await T.go('ladle-east-end', 1, 12.4); await T.look(Math.PI / 2);
+    const ok0 = await T.until(() => window.game.city && window.game.city.loaded().indexOf('0:1:3') >= 0, 90);
+    T.log('  Ropewalk built before we reach the arch: ' + ok0);
+    await holdKey(T, 'w', 5.5); await T.shot('ropewalk-on-foot');
+    const here = await T.ev(() => { const g = window.game, c = g.city.cellOfPlayer(); return { name: g.city.info(c).name, y: g.player.pos.y, zone: g.zone ? g.zone.name : '' }; });
+    T.log('  walked into ' + here.name + ' (' + here.zone + '), feet at ' + here.y.toFixed(2));
+    if (here.name !== 'Ropewalk' || here.y < -0.5) throw new Error('did not walk into Ropewalk');
+    // its hall: ask at the pass, eat
+    await T.ev(() => window.game.city.go({ L: 0, i: 1, j: 3 }, 'hall')); await T.wait(2);
+    await T.use('pass', { shot: 'ropewalk-hall', lines: 10 });
+    const ate = await T.ev(() => window.game.flags.halls_eaten || 0);
+    T.log('  halls eaten at: ' + ate);
+    if (ate < 1) throw new Error('eating at a generated hall did not count');
+    // a cab from the lobby to a block on the High decks, by ride (the list is tested by hand: it is a menu of menus)
+    await T.ev(() => window.game.city.go({ L: 0, i: 1, j: 3 }, 'lobby')); await T.wait(1);
+    await T.ev(() => { const g = window.game; g.cab.ride({ id: 'cell:0:1:3' }, g.city.stop({ L: 50, i: 12, j: 9 })); });
+    await T.until(() => !window.game.cab.riding && !window.game.busy && window.game.city.cellOfPlayer() && window.game.city.cellOfPlayer().L === 50, 120);
+    await T.shot('high-deck-lobby');
+    const hi = await T.ev(() => { const g = window.game, c = g.city.cellOfPlayer(); return c ? g.city.info(c) : null; });
+    if (!hi || hi.L !== 50) throw new Error('the cab did not reach the High decks');
+    T.log('  the cab set us down in ' + hi.name + ', ' + hi.address + ', ' + hi.g.toFixed(2) + ' g');
+    // up the stair to the next layer, and again to the top; then the last stair into the Hollow
+    await T.use('Climb the stairs', { lines: 4 });
+    await T.until(() => !window.game.busy && window.game.city.cellOfPlayer() && window.game.city.cellOfPlayer().L === 51, 90);
+    await T.shot('up-one-layer');
+    await T.ev(() => window.game.city.go({ L: 57, i: 40, j: 7 }, 'lobby')); await T.wait(1.5);
+    await T.use('last stair', { lines: 4 });
+    await T.until(() => !window.game.busy && window.game.player.frame.id === 'hollow', 60);
+    await T.wait(1.5); await T.shot('hollow-pavilion');
+    if ((await T.st()).frame !== 'hollow') throw new Error('the last stair did not come up in the Hollow');
+    // a landmark by cab, if one is built, and back to a block; then save, reload, continue
+    const lm = await T.ev(() => { const s = window.game.cab.stops.find((q) => q.region); return s ? s.id : null; });
+    if (lm) {
+      await T.ev((id) => { const g = window.game; g.cab.ride({ id: 'x' }, g.cab.stops.find((q) => q.id === id)); }, lm);
+      await T.until(() => !window.game.cab.riding && !window.game.busy, 120); await T.wait(1); await T.shot('landmark-' + lm);
+      T.log('  landmark ' + lm + ': now in frame ' + (await T.st()).frame);
+    }
+    await T.ev(() => { const g = window.game; g.cab.ride({ id: 'y' }, g.city.stop({ L: 20, i: 5, j: 9 })); });
+    await T.until(() => !window.game.cab.riding && !window.game.busy && window.game.city.cellOfPlayer() && window.game.city.cellOfPlayer().L === 20, 120);
+    await T.ev(() => window.game.saveGame());
+    const before = await T.st();
+    await T.load('', true);                                             // the title screen, then Continue
+    await T.wait(2); await T.clickText('Continue'); await T.wait(8);
+    await T.until(() => window.game.started && !window.game.busy, 60); await T.shot('continued');
+    const after = await T.st();
+    T.log('  saved in ' + before.frame + ' (' + before.pos + '), continued in ' + after.frame + ' (' + after.pos + ')');
+    if (after.frame !== before.frame) throw new Error('continue did not come back to the block');
+    const y = await T.ev(() => window.game.player.pos.y); if (y < -0.5) throw new Error('fell through the block after continue');
+    T.log('  blocks visited: ' + (await T.ev(() => window.game.city.visited.size)) + '; threads: ' + JSON.stringify(await T.ev(() => window.game.journal && window.game.journal.threads ? window.game.journal.threads().filter((t) => t.state !== 'none').map((t) => t.id) : [])));
+  },
+
   // The Long Flight flown the whole way to the front gate, then landed: the journal must still close Booking Day.
   async fullflight(T) {
     await T.load('');

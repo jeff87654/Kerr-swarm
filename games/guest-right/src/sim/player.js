@@ -131,7 +131,12 @@ export class Player {
 
     const gnd = col.ground(this.pos.x, this.pos.z, this.pos.y + (this.onGround ? 0.45 : 0.05), this.radius * 0.6, _g);
     if (this.onGround) {
-      if (gnd && gnd.y >= this.pos.y - 0.4) { this.pos.y = gnd.y; this.vel.y = 0; this.surf = gnd.surf; }
+      if (gnd && gnd.y >= this.pos.y - 0.4) {
+        this.pos.y = gnd.y; this.vel.y = 0; this.surf = gnd.surf;
+        // remember the last firm footing in this frame, to go back to after a fall through a gap
+        const sf = this.safe || (this.safe = { frame: null, x: 0, y: 0, z: 0, t: 0 }); sf.t += dt;
+        if (sf.frame !== f || sf.t > 0.7) { sf.frame = f; sf.x = this.pos.x; sf.y = this.pos.y; sf.z = this.pos.z; sf.t = 0; }
+      }
       else { this.onGround = false; }
     } else {
       this.pos.y += this.vel.y * dt;
@@ -143,7 +148,10 @@ export class Player {
         this.dipV -= Math.min(impact * 0.5, 2.2);
         game.events.emit('player:land', { impact, surf: this.surf, g });
       }
-      if (this.pos.y < -200) { this.pos.y = 2; this.vel.y = 0; }       // fell out of the world: put them back
+      // fell out of the world (a gap in a floor): back to the last firm footing, or failing that up into the air
+      const sf = this.safe;
+      if (sf && sf.frame === f && this.pos.y < sf.y - 60) { this.pos.x = sf.x; this.pos.y = sf.y + 0.1; this.pos.z = sf.z; this.vel.x = this.vel.y = this.vel.z = 0; game.events.emit('player:fell'); }
+      else if (this.pos.y < -200) { this.pos.y = 2; this.vel.y = 0; }
     }
     this._camera(dt, Math.hypot(this.vel.x, this.vel.z));
   }

@@ -35,6 +35,9 @@ export function createRegions(game) {
       const on = game.events.on;
       game.events.on = function (name, fn) { const u = on.call(game.events, name, fn); r.unsubs.push(u); return u; };
       const n0 = loops.length;
+      // its scopes manage themselves: the people are told about each when the region is ready, and nobody else is disturbed
+      const scope0 = W.scope;
+      W.scope = function (sid, frame, opts) { return scope0.call(W, sid, frame, Object.assign({ managed: true }, opts)); };
       if (game.atlas && game.atlas.begin) game.atlas.begin('region:' + id);
       try {
         for (const pl of r.places.slice().sort((a, b) => (a.order || 0) - (b.order || 0))) {
@@ -44,6 +47,7 @@ export function createRegions(game) {
           await tick();
         }
       } finally {
+        W.scope = scope0;
         game.events.on = on;
         if (game.atlas && game.atlas.end) game.atlas.end();
       }
@@ -52,7 +56,7 @@ export function createRegions(game) {
       r.frames = [...W.frames.keys()].filter((k) => !frames0.has(k));
       r.spawns = Object.keys(game.spawns).filter((k) => !spawns0.has(k));
       r.loaded = true; r.loading = null; r.used = game.time;
-      if (game.people && game.people.reindex) game.people.reindex();
+      for (const k of r.scopes) { const sc = W.scopes.get(k); if (!sc) continue; if (game.people && game.people.addScope) game.people.addScope(sc); else sc.live = true; }
       console.log('[region ' + id + '] built in ' + (performance.now() - t0).toFixed(0) + ' ms: ' + r.scopes.length + ' scopes, ' + r.frames.length + ' frames');
       game.events.emit('region:load', id);
       return true;
@@ -64,14 +68,13 @@ export function createRegions(game) {
     const r = regs.get(id); if (!r || !r.loaded) return;
     for (const u of r.unsubs) { try { u(); } catch (e) { /* ignore */ } }
     r.unsubs.length = 0;
-    for (const k of r.scopes) { const sc = W.scopes.get(k); if (sc) sc.dispose(); }
+    for (const k of r.scopes) { const sc = W.scopes.get(k); if (!sc) continue; if (game.people && game.people.removeScope) game.people.removeScope(sc); sc.dispose(); }
     for (let i = loops.length - 1; i >= 0; i--) if (r.frames.indexOf(loops[i].frameId) >= 0 || (r.loops && r.loops.indexOf(loops[i].h) >= 0)) { try { loops[i].h.stop(0.2); } catch (e) { /* gone */ } loops.splice(i, 1); }
     r.loops = [];
     for (const f of r.frames) W.removeFrame(f);
     for (const k of r.spawns) delete game.spawns[k];
     if (game.atlas && game.atlas.release) game.atlas.release('region:' + id);
     r.scopes = []; r.frames = []; r.spawns = []; r.loaded = false;
-    if (game.people && game.people.reindex) game.people.reindex();
     game.events.emit('region:unload', id);
     console.log('[region ' + id + '] unloaded');
   }

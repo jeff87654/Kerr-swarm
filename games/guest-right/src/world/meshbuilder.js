@@ -5,6 +5,8 @@ import { rgb8, clamp } from '../core/util.js';
 import { MAT_INFO } from '../render/texgen.js';
 import { FLAG } from '../render/worldmat.js';
 
+function _drop() { this.array = null; }
+
 export class MeshBuf {
   constructor(vcap = 256, icap = 512) {
     this.pos = new Float32Array(vcap * 3); this.nrm = new Int8Array(vcap * 4); this.uv = new Float32Array(vcap * 2);
@@ -40,7 +42,9 @@ export class MeshBuf {
       this.idx[this.ni++] = dv;
     }
   }
-  toGeometry() {
+  // release: once the graphics card has the data, drop our copy (for geometry nobody edits afterwards: a city block
+  // comes and goes many times, and holding a second copy of every block in memory adds up)
+  toGeometry(release) {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(this.pos.slice(0, this.nv * 3), 3));
     g.setAttribute('normal', new THREE.BufferAttribute(this.nrm.slice(0, this.nv * 4), 4, true));
@@ -48,6 +52,7 @@ export class MeshBuf {
     g.setAttribute('aColor', new THREE.BufferAttribute(this.col.slice(0, this.nv * 4), 4, true));
     g.setAttribute('aMat', new THREE.BufferAttribute(this.mat.slice(0, this.nv * 4), 4, false));
     g.setIndex(new THREE.BufferAttribute(this.nv > 65535 ? this.idx.slice(0, this.ni) : new Uint16Array(this.idx.subarray(0, this.ni)), 1));
+    if (release) { for (const k in g.attributes) g.attributes[k].onUpload(_drop); g.index.onUpload(_drop); }
     return g;
   }
   bounds() {

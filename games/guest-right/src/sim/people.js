@@ -540,7 +540,11 @@ export function createPeople(game) {
   function chatterFor(a, b) {
     const zn = W.zoneAt(a.frame, a.x, a.y + 1, a.z);
     const keys = new Set(); if (zn) { if (zn.place) keys.add(zn.place); if (zn.id) keys.add(zn.id); const P = zn.place && PLACES[zn.place]; if (P && P.area) keys.add(P.area); }
-    keys.add(a.frame.id === 'station' ? 'station' : a.frame.id === 'hollow' ? 'hollow' : 'candlewick');
+    // where talk comes from: the place's own area if it has one; otherwise the frame's (Candlewick is one block of its frame;
+    // the rest of the indoor city is 'city'; a landmark is known by its region's id)
+    const P0 = zn && zn.place && PLACES[zn.place];
+    if (!(P0 && P0.area)) keys.add(a.frame.id === 'station' ? 'station' : a.frame.id === 'hollow' ? 'hollow' : a.frame.id === 'candlewick' && Math.abs(a.x) < 106 && Math.abs(a.z) < 105 ? 'candlewick' : a.frame.city ? 'city' : a.frame.id);
+    const rid = game.regions && game.regions.ofFrame ? game.regions.ofFrame(a.frame.id) : null; if (rid) keys.add(rid);
     const day = 'day' + dayNow(), part = game.clock.part();
     const kids = a.body.L.child || (b && b.body.L.child), elders = a.body.L.elder || (b && b.body.L.elder);
     const pool = [];

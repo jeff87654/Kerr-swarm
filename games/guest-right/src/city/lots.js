@@ -149,6 +149,20 @@ function plainLobby(s, lot, plan, game) {
   const clip = room(s, { x0: lot.x0, z0: lot.z0, x1: lot.x1, z1: lot.z1, y: 0, h: H, floor: ['terrazzo', '#e3dccb'], ceil: ['paint', '#f0e8d6'], wall: { tint: '#d9d2bf', mat: 'tile', dado: { h: 1.1, mat: 'tile', tint: '#2f6f73' } }, open: { [lot.front]: [{ at: 2.5, w: o.W - 5, h: 2.7 }] }, glow: { sky: '#fff0d8', ground: '#d8c8a8', power: 0.7 } });
   const fq = o.P(o.W / 2, -0.04), face = lot.front === 'n' ? 'z' : lot.front === 's' ? 'Z' : lot.front === 'w' ? 'x' : 'X';
   sign(s, { kind: 'fascia', text: 'CABS', sub: info.name + ' core · lifts · stairs · decks ' + info.d0 + ' to ' + info.d1, font: 'caps', palette: ['#14211f', '#ffe3a8', '#3fe0d0'] }, fq[0], 2.86, fq[1], { face, w: Math.min(3.2, o.W - 6), h: 0.26, glow: 3 });
+  // the block's own colour in a band above the dado, a ring in the floor where the cabs set you down, felt overhead, plants
+  {
+    const tint = ['#c9552e', '#8a2f3c', '#33407a', '#6b7a3a', '#5b3a6e', '#d6a640'][info.style % 6];
+    g.mat('tile', tint);
+    for (const b of [o.box(0.09, 0.4, 0.1, o.D - 0.09), o.box(o.W - 0.1, 0.4, o.W - 0.09, o.D - 0.09), o.box(0.09, o.D - 0.1, o.W - 0.09, o.D - 0.09)]) g.box(b[0], 1.1, b[1], b[2], 1.3, b[3]);
+    s.flush({ tier: 's' });
+    const c = o.P(o.W / 2, o.D * 0.5);
+    g.mat('mosaic', tint); g.lathe(c[0], c[1], [[2.3, 0.004], [1.9, 0.004]], { segs: 40 });
+    g.mat('cast', '#b8914a', { rough: -0.2 }); g.lathe(c[0], c[1], [[2.34, 0.006], [2.3, 0.006]], { segs: 40 }); g.lathe(c[0], c[1], [[1.9, 0.006], [1.86, 0.006]], { segs: 40 });
+    s.flush({ tier: 's' });
+    g.mat('felt', tint); for (const pp of [0.25, 0.5, 0.75]) { const b = o.box(o.W * pp - 0.03, 1.2, o.W * pp + 0.03, o.D - 1.2); g.box(b[0], H - 0.42, b[1], b[2], H - 0.02, b[3], { bevel: 0.01 }); }
+    s.flush({ tier: 's' });
+    for (const pp of [0.9, o.W - 0.9]) { const q = o.P(pp, o.D - 0.8); prop(s, 'plant', q[0], 0, q[1], 0, { kind: pp < 2 ? 'broad' : 'fern', size: 1.5, pot: '#a3563a' }); }
+  }
   // berth doors in the back wall
   const berths = [o.W * 0.3, o.W * 0.7];
   for (const p of berths) {
@@ -169,11 +183,22 @@ function plainLobby(s, lot, plan, game) {
   sign(s, { kind: 'plate', text: 'STAIRS', lines: ['up and down · mind your weight'] }, sp[0], 2.35, sp[1], { face: sideFace(true), w: 0.5, h: 0.2 });
   const up = game.city ? game.city.above({ L: info.L, i: info.i, j: info.j }, 1) : null, dn = game.city ? game.city.above({ L: info.L, i: info.i, j: info.j }, -1) : null;
   const stairAt = o.P(0.9, o.D * 0.55);
+  const topDecks = !up && game.city && info.L === game.city.LAYERS.length - 1;
   if (up) s.interact({ x: stairAt[0], y: 1.5, z: stairAt[1], radius: 1.4, priority: 0.1, prompt: () => 'Climb the stairs to ' + game.city.info(up).name, onUse: (gm) => gm.city.stairs(up, 1) });
+  else if (topDecks) s.interact({ x: stairAt[0], y: 1.5, z: stairAt[1], radius: 1.4, priority: 0.1, prompt: 'Climb the last stair to the Hollow', onUse: (gm) => gm.city.toHollow({ L: info.L, i: info.i, j: info.j }) });
   if (dn) { const q = o.P(0.9, o.D * 0.55 + 1.1); s.interact({ x: q[0], y: 0.9, z: q[1], radius: 1.2, prompt: () => 'Go down the stairs to ' + game.city.info(dn).name, onUse: (gm) => gm.city.stairs(dn, -1) }); }
-  sign(s, { kind: 'board', title: info.name, lines: ['decks ' + info.d0 + ' to ' + info.d1 + '|' + info.g.toFixed(2) + ' g', 'Ring ' + info.ringName + '|' + info.bandName, 'the hall|' + info.dish[0], 'about ' + Math.round(info.people / 100) * 100 + ' people|one long table'], palette: ['#22362b', '#f3e6c8', '#d6a640'] }, bp[0], 1.6, bp[1], { face: sideFace(false), w: 1.5, h: 1.0 });
+  sign(s, { kind: 'board', title: info.name, lines: ['decks ' + info.d0 + ' to ' + info.d1 + '|' + info.g.toFixed(2) + ' g', 'Ring ' + info.ringName + '|' + info.bandName, 'the hall|' + info.dish[0], 'about ' + Math.round(info.people / 100) * 100 + ' people|one long table'], palette: ['#22362b', '#f3e6c8', '#d6a640'] }, bp[0], 1.6, bp[1], { face: sideFace(false), w: 1.1, h: 0.74 });
   const rp = o.P(o.W - 1.0, o.D * 0.5);
   s.interact({ x: rp[0], y: 1.5, z: rp[1], radius: 1.6, prompt: 'Read the block board', onUse: (gm) => say(gm, info.name, [info.name + ': decks ' + info.d0 + ' to ' + info.d1 + ', Ring ' + info.ringName + ', ' + info.g.toFixed(2) + ' of a g. About ' + Math.round(info.people / 100) * 100 + ' people.', 'The hall is ' + info.hall + '. Today: ' + info.dish[0] + '.', info.pride]) });
+  // where the ways out of the block lead, on the wall between the berths
+  {
+    const ex = plan.exits, way = (k, label) => (ex[k] && ex[k].open ? label + '|' + ex[k].name : label + '|' + (ex[k] && ex[k].cap ? 'the ' + ex[k].cap + ' cap' : 'no way through'));
+    const upI = up ? game.city.info(up) : null, dnI = dn ? game.city.info(dn) : null;
+    const wq = o.P(o.W * 0.5, o.D - 0.19);
+    sign(s, { kind: 'board', title: 'From ' + info.name, lines: [way('spin', 'spinward'), way('anti', 'anti'), way('front', 'toward the front'), way('back', 'toward the back'), 'up the stair|' + (upI ? upI.name : topDecks ? 'the Hollow' : 'the line deck'), 'down the stair|' + (dnI ? dnI.name : 'the line deck')], palette: ['#14211f', '#f3e6c8', '#3fe0d0'] }, wq[0], 1.62, wq[1], { face, w: 1.1, h: 0.78 });
+    const iq = o.P(o.W * 0.5, o.D - 0.9);
+    s.interact({ x: iq[0], y: 1.5, z: iq[1], radius: 1.3, priority: -0.1, prompt: 'Read the ways board', onUse: (gm) => say(gm, info.name + ' core', ['Spinward is ' + (ex.spin.open ? ex.spin.name : 'closed') + ', anti is ' + (ex.anti.open ? ex.anti.name : 'closed') + '. Toward the front: ' + (ex.front.open ? ex.front.name : ex.front.cap ? 'the front cap, and nothing' : 'no way through') + '. Toward the back: ' + (ex.back.open ? ex.back.name : ex.back.cap ? 'the back cap, and nothing' : 'no way through') + '.', (upI ? 'Up the stair is ' + upI.name + ', decks ' + upI.d0 + ' to ' + upI.d1 + '. ' : topDecks ? 'Up the stair is the floor of the Hollow. ' : 'Up the stair is a line deck, where nobody lives. ') + (dnI ? 'Down it is ' + dnI.name + '.' : 'Down it is a line deck.'), 'A cab from either berth goes to any block there is. There are ' + game.city.count.toLocaleString('en-GB') + ' of them.']) });
+  }
   const bn = o.P(o.W - 1.2, 1.4); prop(s, 'bench', bn[0], 0, bn[1], o.alongX ? (lot.front === 'n' ? 0 : Math.PI) : (lot.front === 'w' ? Math.PI / 2 : -Math.PI / 2), { w: 1.6, back: true, wood: '#6b4a2f' });
   for (const p of [0.3, 0.7]) { const q = o.P(o.W * p, o.D * 0.5); lamp(s, 'panel', q[0], H, q[1], { w: 1.4, d: 0.6, power: 2.0, K: 3700, clip }); }
   s.path([o.P(o.W / 2, -0.7), o.P(o.W / 2, o.D * 0.5), o.P(berths[0], o.D - 1.2)], { width: 1.4 });

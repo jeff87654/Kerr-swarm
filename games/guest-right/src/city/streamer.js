@@ -55,6 +55,7 @@ export function createStreamer(game, city) {
       for (const n of nav.nodes) if (n.owner === s) n._tag = 'row';
       for (const lot of plan.lots) {
         const fn = lotBuilder(lot); mark(lot.kind);
+        const px0 = prof && atlas ? ((atlas.groups.get(gid) || {}).px || 0) : 0, lt0 = prof ? performance.now() : 0, lk = lot.kind === 'special' ? 'special.' + lot.special : lot.kind === 'shop' ? 'shop.' + lot.trade : lot.kind === 'room' ? 'room.' + lot.use : lot.kind;
         try { if (!fn) throw new Error('no builder for a ' + lot.kind); await fn(s, lot, plan, game, tick); }
         catch (e) { if (e instanceof Cancelled) throw e; console.error('[city] lot ' + lot.id + ' (' + lot.kind + (lot.special ? '.' + lot.special : lot.trade ? '.' + lot.trade : '') + ') failed: ' + (e && e.stack ? e.stack : e)); blankFront(s, lot); }
         // the lot's walkways: whatever ends outside its footprint is a door, and joins the nearest street or court walkway
@@ -65,6 +66,7 @@ export function createStreamer(game, city) {
           for (const m of nav.nodes) { if (m.owner !== s || m._tag !== 'row' || Math.abs(m.y - n.y) > 0.6) continue; const d = Math.hypot(m.x - n.x, m.z - n.z); if (d < bd) { bd = d; best = m; } }
           if (best) nav.link(n, best, 1.3);
         }
+        if (prof) { const e = prof.lots || (prof.lots = {}); const q = e[lk] || (e[lk] = { n: 0, ms: 0, px: 0 }); q.n++; q.ms += performance.now() - lt0; q.px += atlas ? ((atlas.groups.get(gid) || {}).px || 0) - px0 : 0; }
         await tick();
       }
       // turn what was drawn into meshes, a few batches a frame
@@ -97,7 +99,7 @@ export function createStreamer(game, city) {
     if (game.people && game.people.addScope) game.people.addScope(s); else s.live = true;
     c.state = 'ready'; c.used = game.time;
     game.events.emit('city:load', info);
-    if (prof) { mark(); const el = performance.now() - t0; if (el > worst) worst = el; console.log('[city] ' + info.name + ' (' + c.key + ') built in ' + stats.lastMs.toFixed(0) + ' ms over ' + slices + ' frames (work ' + work.toFixed(0) + ' ms, worst slice ' + worst.toFixed(0) + ' ms): ' + s.meshes.length + ' meshes, ' + plan.lots.length + ' lots; ' + Object.keys(prof).map((k) => k + ' ' + prof[k].toFixed(0)).join(', ') + '; atlas ' + JSON.stringify(atlas ? atlas.usage().groups : {})); }
+    if (prof) { mark(); const el = performance.now() - t0; if (el > worst) worst = el; console.log('[city] ' + info.name + ' (' + c.key + ') built in ' + stats.lastMs.toFixed(0) + ' ms over ' + slices + ' frames (work ' + work.toFixed(0) + ' ms, worst slice ' + worst.toFixed(0) + ' ms): ' + s.meshes.length + ' meshes, ' + plan.lots.length + ' lots; ' + Object.keys(prof).filter((k) => k !== 'lots').map((k) => k + ' ' + prof[k].toFixed(0)).join(', ') + '; by lot (n, ms each, sign kilopixels each): ' + Object.keys(prof.lots || {}).map((k) => { const q = prof.lots[k]; return k + ' ' + q.n + ' ' + (q.ms / q.n).toFixed(0) + ' ' + Math.round(q.px / q.n / 1000); }).join(', ') + '; atlas ' + JSON.stringify(atlas ? atlas.usage().groups : {})); }
     return c;
   }
   // a lot that could not be built still closes its front
@@ -132,13 +134,13 @@ export function createStreamer(game, city) {
   }
 
   // ------------------------------------------------------------------------------------------------ the queue
-  function want(cell, fast) {
+  function want(cell, fast, dist) {
     const key = cellKey(cell.L, cell.i, cell.j);
     let c = cells.get(key);
     if (fast && building) building.fast = true;
-    if (c) { if (fast) c.fast = true; c.dead = false; c.used = game.time; return c; }
+    if (c) { if (fast) c.fast = true; c.dead = false; c.used = game.time; if (dist !== undefined) c.dist = dist; return c; }
     if (city.info(cell).built) return null;                       // Candlewick: built by hand, always there
-    c = { key, L: cell.L, i: wrapI(cell.L, cell.i), j: cell.j, plan: null, scope: null, state: 'queued', fast: !!fast, dead: false, used: game.time, ready: null, done: null, fail: null };
+    c = { key, L: cell.L, i: wrapI(cell.L, cell.i), j: cell.j, plan: null, scope: null, state: 'queued', fast: !!fast, dead: false, used: game.time, dist: dist === undefined ? 0 : dist, ready: null, done: null, fail: null };
     c.ready = new Promise((res, rej) => { c.done = res; c.fail = rej; }); c.ready.catch(() => {});
     cells.set(key, c);
     pump();
@@ -147,7 +149,7 @@ export function createStreamer(game, city) {
   function pump() {
     if (building) return;
     let next = null;
-    for (const c of cells.values()) if (c.state === 'queued' && (!next || (c.fast && !next.fast) || (c.fast === next.fast && c.used > next.used))) next = c;
+    for (const c of cells.values()) if (c.state === 'queued' && (!next || (c.fast && !next.fast) || (c.fast === next.fast && c.dist < next.dist))) next = c;
     if (!next) return;
     building = next; next.state = 'building';
     build(next).then((c) => { building = null; c.done(c); pump(); }, (e) => { building = null; cells.delete(next.key); next.fail(e); pump(); });
@@ -209,10 +211,10 @@ export function createStreamer(game, city) {
     if (L >= 0) { const ly = LAYERS[L], span = ly.N * ly.pitch, hi = (Math.floor(ly.N / 2) + 0.5) * ly.pitch; if (p.pos.x > hi) p.pos.x -= span; else if (p.pos.x <= hi - span) p.pos.x += span; }
     if (L >= 0 && p.pos.y < 3.5 && p.mode !== 'fly' && !(game.cab && game.cab.riding)) guard(p, L);
     tAcc += dt; if (tAcc < 0.2) return; tAcc = 0;
-    if (game.cab && game.cab.riding) return;                         // the cab decides what is built during a ride
+    if (!game.started || (game.cab && game.cab.riding)) return;      // nothing streams behind the title screen; the cab decides what is built during a ride
     wanted(_want);
     const keep = new Set();
-    for (const w of _want) { const c = want(w.cell, false); if (c) keep.add(c.key); }
+    for (const w of _want) { const c = want(w.cell, false, w.d); if (c) keep.add(c.key); }
     if (L < 0) away += 0.2; else away = 0;
     // let go of what is far: beyond the drop distance in the player's layer, or everything once they have been elsewhere a while
     const list = [...cells.values()];

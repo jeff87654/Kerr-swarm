@@ -441,6 +441,7 @@ A place module with `region: '<id>'` is not built at start-up. All the places of
 | `line-works` | `lm_line_works.js` | `line38`: deck 38, theta 0.35, z0 625 | the first line deck above Candlewick | The line decks |
 | `line-rides` | `lm_line_rides.js` | `line63`: deck 63, theta -0.8, z0 2290 | a line deck, Ring Six | The line decks |
 | `chimney` | `lm_chimney.js` | `chimney`: deck 40 at y = 0, theta 1.5, z0 2290 | the Low decks, Ring Six | The Low decks |
+| `mile-hall` | `lm_mile_hall.js` | `mile-hall`: deck 52, theta -1.9, z0 2710 | the Low decks, Ring Seven | The Low decks |
 | `felt-organ` | `lm_felt_organ.js` | `felt-organ`: deck 150, theta 1.9, z0 1460 | the Middle decks, Ring Four | The Middle decks |
 | `lot-hall` | `lm_lot_hall.js` | `lot-hall`: deck 200, theta -2.2, z0 1875 | the Middle decks, Ring Five | The Middle decks |
 | `up-decks` | `lm_up_decks.js` | `up-decks`: deck 340, theta 0.3, z0 1040 | the High decks, Ring Three | The High decks |

@@ -70,25 +70,31 @@ export function createCab(game) {
         if (!dest) { const b = cab._back; p.stand(); p.locked = false; if (b) p.place(b.frame, b.x, b.y, b.z, b.yaw || 0, 0); if (ui) { await ui.fade(false, 0.6); ui.toast('The cab comes back to where it started. That stop is closed today.', { kind: 'info' }); } riding = false; game.busy--; return; }
         p.stand(); p.locked = false; p.place(dest.frame, dest.x, dest.y, dest.z, dest.yaw || 0, 0);
         if (ui) { await ui.fade(false, 0.6); ui.banner(to.banner || to.name, to.sub || ''); ui.hud.thread(game.journal ? game.journal.current() : null); }
-        game.events.emit('cab:arrive', { from: from && from.id, to: to.id });
+        game.events.emit('cab:arrive', { from: from && from.id, to: to.id, region: to.region || null, cell: to.cell || null });
         if (game.regions) game.regions.trim();
         if (game.saveGame) game.saveGame();
       } catch (e) { console.error('[cab] ' + (e && e.stack ? e.stack : e)); game.player.locked = false; game.player.gOverride = null; game.player.stand(); if (game.ui) game.ui.fade(false, 0.3); }
       riding = false; game.busy--;
     },
   };
+  // the stops built with the first game have no group of their own
+  const GROUP_OF = { 'lobby-a': 'Candlewick', 'lobby-b': 'Candlewick', station: 'The stations', 'lake-pavilion': 'The Hollow', 'dawn-terrace': 'The end walls', 'third-terrace': 'The end walls', 'flying-hall': 'The axles' };
+  const GROUP_ORDER = ['Candlewick', 'The stations', 'The Keel', 'The line decks', 'The Low decks', 'The Middle decks', 'The High decks', 'The Hollow', 'The end walls', 'The axles'];
   // The list at a berth: single stops, groups of stops (a quarter with several berths: stops that carry `group`), and any
   // block of the city by address.
   async function chooseStop(list, city, fromId) {
     const ui = game.ui, who = { name: 'Cab', colour: '#3fe0d0' };
     for (;;) {
       const groups = new Map(), top = [];
-      for (const s of list) { if (s.group) { let g = groups.get(s.group); if (!g) { groups.set(s.group, g = []); top.push({ group: s.group, items: g }); } g.push(s); } else top.push({ stop: s }); }
+      for (const s of list) { const gr = s.group || GROUP_OF[s.id]; if (gr) { let g = groups.get(gr); if (!g) { groups.set(gr, g = []); top.push({ group: gr, items: g }); } g.push(s); } else top.push({ stop: s }); }
+      // nearest things first: Candlewick, then down the drum from the rim to the axis
+      const rank = (t) => { const k = GROUP_ORDER.indexOf(t.group || ''); return k < 0 ? GROUP_ORDER.length : k; };
+      top.sort((a, b) => rank(a) - rank(b));
       const opts = top.map((t) => (t.stop ? { label: t.stop.name, sub: t.stop.sub, value: t.stop.id } : t.items.length === 1 ? { label: t.items[0].name, sub: t.items[0].sub, value: t.items[0].id } : { label: t.group, sub: t.items.length + ' stops', value: 'g:' + t.group }));
       if (city) opts.push({ label: 'Another block of Chervil', sub: 'any of ' + city.count.toLocaleString('en-GB') + ', by address', value: '__city' });
       const pick = await ui.choose(who, 'Where to', opts);
       if (!pick) return null;
-      if (pick === '__city') { const m = /^cell:(.+)$/.exec(fromId || ''); const cell = await city.pick(m ? parseKey(m[1]) : null); if (cell) return city.stop(cell); continue; }
+      if (pick === '__city') { const m = /^cell:(.+)$/.exec(fromId || ''); const cell = await city.pick(m ? parseKey(m[1]) : null); if (cell) return cell.stop ? cell.stop : city.stop(cell); continue; }
       if (pick.slice(0, 2) === 'g:') {
         const items = groups.get(pick.slice(2));
         const p2 = await ui.choose(who, pick.slice(2), items.map((s) => ({ label: s.name, sub: s.sub, value: s.id })).concat([{ label: 'Back', sub: '', value: '__back' }]));
