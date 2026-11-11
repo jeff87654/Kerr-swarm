@@ -67,20 +67,25 @@ try {
     const info = await page.evaluate(async (id, region) => {
       const g = window.game, p = g.player, W = g.world, r = g.regions.get(region), P = window.__PLACES || {};
       const frames = new Set(r ? r.frames : []);
-      const zones = W.zones.filter((z) => z.frame && frames.has(z.frame.id));
+      // a region that builds into somebody else's frame (the far Hollow's places) is known by its scopes
+      const scopes = new Set((r ? r.scopes : []).map((k) => W.scopes.get(k)).filter(Boolean)), own = frames.size > 0;
+      const mine = (o) => (o.frame && frames.has(o.frame.id)) || (o.scope && scopes.has(o.scope));
+      const zones = W.zones.filter(mine);
       const ids = [...new Set(zones.map((z) => z.place).filter(Boolean))];
       const prompt = (it) => { try { return typeof it.prompt === 'function' ? String(it.prompt(g) || '') : String(it.prompt || ''); } catch (e) { return '!' + e.message; } };
-      const its = W.interacts.filter((it) => it.frame && frames.has(it.frame.id));
+      const its = W.interacts.filter(mine);
+      // where the cab sets you down in such a region there is a lift pavilion, which has the berth
+      const near = W.interacts.filter((it) => it.frame === p.frame && /cab/i.test(prompt(it)) && Math.hypot((it.x || 0) - p.pos.x, (it.z || 0) - p.pos.z) < 12).length;
       const fps = await new Promise((res) => { let n = 0; const t = performance.now(); const f = () => { n++; if (performance.now() - t < 1000) requestAnimationFrame(f); else res(n); }; requestAnimationFrame(f); });
       const s = g.pipeline.stats, z = g.zone, u = g.atlas && g.atlas.usage ? g.atlas.usage() : null;
       const sp = g.spawns[(g.cab.stops.find((q) => q.id === id) || {}).spawn];
       return {
-        loaded: !!(r && r.loaded), frame: p.frame ? p.frame.id : null, inRegion: !!(p.frame && frames.has(p.frame.id)),
+        loaded: !!(r && r.loaded), frame: p.frame ? p.frame.id : null, inRegion: own ? !!(p.frame && frames.has(p.frame.id)) : !!(r && r.near && p.frame && p.frame.id === r.near.frame && Math.hypot(p.pos.x - r.near.x, p.pos.z - r.near.z) < r.near.r),
         pos: [p.pos.x, p.pos.y, p.pos.z].map((v) => +v.toFixed(1)), g: +p.gNow.toFixed(3), zone: z ? z.name : null, sub: z ? z.sub || '' : '', place: z ? z.place || '' : '',
         spawn: !!sp, zones: zones.length, ids, missing: ids.filter((k) => !P[k]),
-        interacts: its.length, cabs: its.filter((it) => /cab/i.test(prompt(it))).length, badPrompts: its.map(prompt).filter((t) => t[0] === '!').slice(0, 3),
-        people: g.people.all.filter((q) => q.frame && frames.has(q.frame.id) && q.state !== 'away').length,
-        fps, calls: s.calls, tris: s.tris, lights: s.lights, atlas: u, regions: g.regions.list().filter((q) => q.loaded).map((q) => q.id), frames: [...frames],
+        interacts: its.length, cabs: its.filter((it) => /cab/i.test(prompt(it))).length + (own ? 0 : near), badPrompts: its.map(prompt).filter((t) => t[0] === '!').slice(0, 3),
+        people: g.people.all.filter((q) => q.frame && (own ? frames.has(q.frame.id) : q.frame === p.frame) && q.state !== 'away').length,
+        fps, calls: s.calls, tris: s.tris, lights: s.lights, atlas: u, regions: g.regions.list().filter((q) => q.loaded).map((q) => q.id), walkIn: g.regions.list().filter((q) => q.near).map((q) => q.id), frames: [...frames],
         scopes: r ? r.scopes.length : 0, locked: !!p.locked, busy: g.busy, gOver: p.gOverride === null || p.gOverride === undefined ? null : p.gOverride,
       };
     }, st.id, st.region).catch((e) => ({ err: e.message }));
@@ -97,7 +102,9 @@ try {
       if (info.locked || info.busy || info.gOver !== null) bad.push('player left locked/busy/gOverride: ' + info.locked + '/' + info.busy + '/' + info.gOver);
       if (info.missing.length) bad.push('no place record: ' + info.missing.join(', '));
       if (info.badPrompts.length) bad.push('prompt threw: ' + info.badPrompts.join(' | '));
-      if (info.regions.length > 2) bad.push('regions still loaded: ' + info.regions.join(', '));
+      // the one you are in, the one you were in last, and any walk-in regions of the Hollow that are still near
+      const held = info.regions.filter((id) => !info.walkIn.includes(id));
+      if (held.length > 2) bad.push('regions still loaded: ' + info.regions.join(', '));
     }
     const errs = [...new Set(errors)];
     if (errs.length) { bad.push(errs.length + ' console errors'); code = 1; }

@@ -42,7 +42,8 @@ export const place = {
         if (game.audio) game.sfx('door-open', { vol: 0.5 });
         if (ui) await ui.fade(true, 0.4);
         const t0 = performance.now();
-        const a = await city.arrive(cell);
+        let a = null;
+        try { a = await city.arrive(cell); } catch (e) { console.error('[city] the stair to ' + info.name + ': ' + (e && e.stack ? e.stack : e)); }      // the door stays shut, and the light comes back
         const wait = 1400 - (performance.now() - t0); if (wait > 0) await new Promise((r) => setTimeout(r, wait));     // the climb takes a moment either way
         if (a) { p.place(a.frame, a.x, a.y, a.z, a.yaw || 0, 0); if (ui) ui.toast((dir > 0 ? 'Up the stair to ' : 'Down the stair to ') + info.name + ': ' + info.address + ', ' + info.g.toFixed(2) + ' g.', { kind: 'info', dur: 6 }); }
         else if (ui) ui.toast('The stair door is locked from the other side.', { kind: 'info' });

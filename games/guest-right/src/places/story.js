@@ -285,6 +285,8 @@ export const place = {
         Fl.gave_mother = true; Fl.ate_ramen = true;
         start(g, 'mother'); step(g, 'mother', 0); step(g, 'mother', 1); step(g, 'mother', 2); done(g, 'mother');
       }
+      // the rest of the drum: the journal's threads for it are offered from the first minute (src/places/story_drum.js)
+      if (id === 'drum') Fl.drum_left = true;
       if (d >= 2) { step(g, 'three-nights', 3); done(g, 'three-nights'); }
       if (d >= 3) {
         start(g, 'booking-day');

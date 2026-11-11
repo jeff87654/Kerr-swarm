@@ -605,6 +605,109 @@ const SCENARIOS = {
     T.log('  blocks visited: ' + (await T.ev(() => window.game.city.visited.size)) + '; threads: ' + JSON.stringify(await T.ev(() => window.game.journal && window.game.journal.threads ? window.game.journal.threads().filter((t) => t.state !== 'none').map((t) => t.id) : [])));
   },
 
+  // The landmarks' set pieces, each started from its own prompt: a slide, the two loop rides, the Glide out and back,
+  // the rope ferry and the high board, the wall lift, the Lake Stair, the back axle and the Window, the high tiers, and a
+  // mile run (the last strides of it). Each must hand the player back free, at their own weight, with its flag set.
+  async rides(T) {
+    await T.load('t=13');
+    await T.ev(() => { const g = window.game; g.newGame(); g.events.emit('game:new'); g.flags.signed_in = true; g.flags.slept = true; g.clock.set(2, 13); });
+    const cab = async (id) => {
+      const ok0 = await T.ev((id) => { const g = window.game, to = g.cab.stops.find((q) => q.id === id); if (!to) return false; g.cab.ride({ id: 'play' }, to); return true; }, id);
+      if (!ok0) throw new Error('no cab stop ' + id);
+      const ok = await T.until(() => !window.game.cab.riding && !window.game.busy, 150); await T.wait(1.5);
+      if (!ok) throw new Error('the cab to ' + id + ' did not arrive');
+      T.log('  cab to ' + id + ': frame ' + (await T.st()).frame);
+    };
+    const state = () => T.ev(() => { const g = window.game, p = g.player; return { busy: g.busy, locked: !!p.locked, g: p.gOverride === null || p.gOverride === undefined ? null : p.gOverride, seat: !!p.seat, frame: p.frame ? p.frame.id : null, y: +p.pos.y.toFixed(2) }; });
+    const isFree = async (what) => { const s = await state(); if (s.busy || s.locked || s.g !== null) throw new Error(what + ' left the player ' + JSON.stringify(s)); return s; };
+    // start a set piece from its prompt, wait for its flag and for the player to be let go
+    const ride = async (re, flag, secs, shot) => {
+      const pr = await T.use(re, { lines: 4 });
+      if (!pr) throw new Error('nothing to use matching ' + re);
+      if (shot) { await T.wait(shot.after || 6); await T.shot(shot.name, 0.2); }
+      const ok = await T.until((fl) => { const g = window.game, p = g.player; return !!g.flags[fl] && !g.busy && !p.locked && (p.gOverride === null || p.gOverride === undefined); }, secs, flag);
+      await T.wait(1.2);
+      if (!ok) throw new Error(re + ' did not finish in ' + secs + ' s: flag ' + flag + ' = ' + (await T.ev((fl) => window.game.flags[fl], flag)) + ', ' + JSON.stringify(await state()));
+      const s = await isFree(re);
+      T.log('  ' + re + ': done, ' + flag + ' set, standing in ' + s.frame + ' at y ' + s.y);
+    };
+
+    // RIDES=axle,twentieth node tools/play.mjs rides   runs only those parts (slide, loop, glide, island, wall, simmer, axle, twentieth, mile)
+    const only = (process.env.RIDES || '').split(',').map((q) => q.trim()).filter(Boolean), part = (name) => !only.length || only.includes(name);
+    const need = [];
+
+    if (part('slide')) {
+      await cab('chimney');
+      await ride('Ride Sink', 'rode_slide', 90, { name: 'slide', after: 5 });
+      await T.shot('spouts-after'); need.push('rode_slide');
+    }
+    if (part('loop')) {
+      await cab('line-rides');
+      await ride('Ride the Press', 'rode_heavy', 240, { name: 'press', after: 12 });
+      await ride('Ride the Souffl', 'rode_light', 240, { name: 'souffle', after: 12 }); need.push('rode_heavy', 'rode_light');
+    }
+    if (part('glide')) {
+      await cab('glide-quay');
+      await ride('Board the car for Sorrel', 'rode_glide', 300, { name: 'glide-coast', after: 30 });
+      await T.shot('glide-after'); need.push('rode_glide');
+    }
+    if (part('island')) {
+      await cab('hollow-island');
+      await ride('Take the rope ferry to Lid Island', 'lmhiCrossed', 150, { name: 'ferry', after: 8 });
+      await T.shot('lid-island');
+      await ride('Dive off the high board', 'dived_island', 90, { name: 'dive', after: 2 }); need.push('dived_island');
+    }
+    if (part('wall')) {
+      await cab('front-shelf');
+      await T.shot('warming-shelf');
+      await T.use('Take the wall lift up', { lines: 4 });
+      if (!(await T.until(() => !window.game.busy && window.game.player.frame.id === 'fwall10', 60))) throw new Error('the wall lift did not reach the front Third');
+      await T.shot('front-third'); await isFree('the wall lift');
+    }
+    if (part('simmer')) {
+      await cab('up-decks');
+      await T.shot('simmer');
+      await T.use('Take the Lake Stair', { lines: 6 });
+      if (!(await T.until(() => !window.game.busy && window.game.player.frame.id === 'hollow', 60))) throw new Error('the Lake Stair did not come up in the Hollow');
+      await T.wait(1.5); await T.shot('lake-stair-top'); await isFree('the Lake Stair');
+    }
+    if (part('axle')) {
+      await cab('axle-back');
+      await T.go('axle-hall');
+      if (!(await T.until(() => !!window.game.flags.heard_axle, 40))) throw new Error('standing in the heat hall did not count');
+      await T.shot('heat-hall');
+      await T.ev(() => { const g = window.game; g.places['lm-window'].openNow(); });
+      await T.go('window');
+      if (!(await T.until(() => !!window.game.flags.saw_river, 30))) throw new Error('the Window did not count');
+      await T.shot('the-window', 2);
+      // the still side keeps you at an eighth of a g on purpose; what matters is that it lets go of you when you leave
+      const s1 = await state(); if (s1.busy || s1.locked) throw new Error('the Window left the player ' + JSON.stringify(s1));
+      await cab('axle-front');
+      await isFree('leaving the still side by cab'); need.push('heard_axle', 'saw_river');
+      await T.shot('front-axle');
+    }
+    if (part('twentieth')) {
+      await cab('back-twentieth');
+      if (!(await T.until(() => !!window.game.flags.stood_twentieth, 40))) throw new Error('standing on the Twentieth did not count');
+      await T.shot('twentieth'); await isFree('the Twentieth'); need.push('stood_twentieth');
+    }
+    if (part('mile')) {
+      await cab('mile-hall');
+      await T.use('Start the clock: the Heavy Mile', { lines: 2 });
+      if (!(await T.until(() => !window.game.player.locked && !window.game.busy, 30))) throw new Error('the mile did not start');
+      await T.ev(() => { const g = window.game, p = g.player; p.place(p.frame, 1600, 0, p.pos.z, Math.PI / 2, 0); });
+      await holdKey(T, 'w', 6);
+      if (!(await T.until(() => !!window.game.flags.ran_heavy_mile, 30))) throw new Error('crossing the far line did not finish the mile (x ' + (await T.ev(() => window.game.player.pos.x.toFixed(1))) + ')');
+      await T.shot('far-line'); await isFree('the mile'); need.push('ran_heavy_mile');
+    }
+
+    await T.wait(3);
+    const j = await T.ev(() => { const g = window.game, J = g.journal; const th = J && J.threads ? J.threads().filter((t) => t.state !== 'none').map((t) => t.id + ':' + t.state) : []; return { th, found: J && J.foundCount ? J.foundCount() : null, flags: Object.keys(g.flags).filter((k) => /^(rode_|ran_|dived_|stood_|saw_|heard_|seen:)/.test(k)) }; });
+    T.log('  threads: ' + j.th.join(', '));
+    T.log('  flags: ' + j.flags.join(', '));
+    const missing = need.filter((k) => j.flags.indexOf(k) < 0); if (missing.length) throw new Error('flags not set: ' + missing.join(', '));
+  },
+
   // The Long Flight flown the whole way to the front gate, then landed: the journal must still close Booking Day.
   async fullflight(T) {
     await T.load('');

@@ -209,7 +209,7 @@ export function createStreamer(game, city) {
     }
   }
   const _want = [];
-  let tAcc = 0, away = 0;
+  let tAcc = 0, away = 0, held = null;
   function update(dt) {
     const p = game.player; if (!p.frame) return;
     // the far side of the drum: a layer's flat x wraps there
@@ -226,6 +226,7 @@ export function createStreamer(game, city) {
     const list = [...cells.values()];
     for (const c of list) {
       if (keep.has(c.key)) { c.used = game.time; continue; }
+      if (c.hold > game.time) continue;                              // somebody asked for it by name and is on their way
       const idle = game.time - c.used;
       if (c.L !== L) { if ((L >= 0 || away > 12) && idle > 2.5) drop(c); continue; }
       // how far outside the block the player stands
@@ -234,14 +235,17 @@ export function createStreamer(game, city) {
       if ((out > DROP_D - 45 && idle > 2.5) || (out > 70 && idle > 25)) drop(c);
     }
     // never more than the machine can carry: the least lately wanted goes first
-    if (cells.size > MAX_CELLS) { const extra = [...cells.values()].filter((c) => !keep.has(c.key)).sort((a, b) => a.used - b.used); for (let i = 0; i < extra.length && cells.size > MAX_CELLS; i++) drop(extra[i]); }
+    if (cells.size > MAX_CELLS) { const extra = [...cells.values()].filter((c) => !keep.has(c.key) && !(c.hold > game.time)).sort((a, b) => a.used - b.used); for (let i = 0; i < extra.length && cells.size > MAX_CELLS; i++) drop(extra[i]); }
   }
   game.events.on('update', (dt) => { try { update(dt); } catch (e) { console.error('[city] ' + (e && e.stack ? e.stack : e)); } });
 
   return {
     cells, stats,
     // ensure(cell, fast) -> Promise of the built block (or null for one built by hand)
-    ensure(cell, fast) { const c = want(cell, fast); return c ? c.ready : Promise.resolve(null); },
+    // A block asked for like this is held for forty seconds whatever the player's whereabouts say: whoever asked (a cab,
+    // the stair in a lift core, a saved game) is about to stand in it, and it may take a slow machine a while to build.
+    // Only the latest one asked for is held, so somebody running up twenty flights of stairs does not keep twenty blocks.
+    ensure(cell, fast) { const c = want(cell, fast); if (c) { if (held && held !== c) held.hold = 0; held = c; c.hold = game.time + 40; } return c ? c.ready : Promise.resolve(null); },
     get(cell) { return cells.get(cellKey(cell.L, cell.i, cell.j)) || null; },
     loaded() { return [...cells.values()].filter((c) => c.state === 'ready').map((c) => c.key); },
     dropAll() { for (const c of [...cells.values()]) drop(c); },

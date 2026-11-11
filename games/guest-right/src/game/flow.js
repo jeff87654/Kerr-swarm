@@ -17,6 +17,7 @@ const CHAPTERS = [
   ['feast', 'The feast', 'Booking Day, one o’clock', 'hall', 3, 12.9],
   ['flight', 'The Long Flight', 'Booking night, ten o’clock', 'flying-hall', 3, 21.9],
   ['hollow', 'The Hollow at noon', 'free to wander', 'hollow', 1, 11.5],
+  ['drum', 'The rest of the drum', 'Thursday afternoon, at the cabs: free to wander', 'lobby-a', 1, 14.5],
 ];
 
 export function setupFlow(game) {

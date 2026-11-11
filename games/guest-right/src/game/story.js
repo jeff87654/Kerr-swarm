@@ -180,6 +180,7 @@ export function setupStory(game) {
   game.saveGame = () => {
     const p = game.player; if (!p.frame || !game.started) return;      // never from the title screen: it stands in the court at dusk
     if (p.mode === 'fly' || (game.cab && game.cab.riding)) return;       // nor from the air or a cab: there is nowhere to come back to
+    if (p.locked) return;                                                // nor while a ride has hold of you (a slide, a car on the loop, a rope ferry)
     const where = { frame: p.frame.id, x: p.pos.x, y: p.pos.y, z: p.pos.z, yaw: p.yaw, day: game.clock.day, minutes: game.clock.minutes };
     // a place that is built when you go there has to be built again before you can come back to it
     const region = game.regions ? game.regions.ofFrame(p.frame.id) : null; if (region) where.region = region;

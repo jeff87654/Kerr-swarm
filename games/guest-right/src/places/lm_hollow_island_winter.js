@@ -118,8 +118,8 @@ export function buildWinter(game, f, zones) {
   // ---- paths: along the doors, through the yard, into each tent down its duckboards, up to the blossom rows
   s.path([[244, gy(244, 1556), 1556], [236, gy(236, 1554.8), 1554.8], [TENTS[3].x, gy(TENTS[3].x, 1554.5), 1554.5], [TENTS[2].x, gy(TENTS[2].x, 1554.5), 1554.5], [200.25, gy(200.25, 1555.4), 1555.4], [TENTS[1].x, gy(TENTS[1].x, 1554.5), 1554.5], [TENTS[0].x, gy(TENTS[0].x, 1554.5), 1554.5], [174.5, gy(174.5, 1572), 1572]]);
   s.path([[236, gy(236, 1554.8), 1554.8], [232.6, gy(232.6, 1546), 1546], [232.6, gy(232.6, 1524), 1524]]);
-  openZone(s, zones, { id: 'lmhi-rows', box: [172, -3, 1512, 240, 30, 1560], name: 'The Cold Rows', sub: 'winter tents · four degrees, six weeks' });
-  openZone(s, zones, { id: 'lmhi-bloom', box: [227, -3, 1518, 238.5, 30, 1552], name: 'Rows 9 and 10', sub: 'just out of winter · in blossom' });
+  openZone(s, zones, { id: 'lmhi-rows', place: 'cold-rows', box: [172, -3, 1512, 240, 30, 1560], name: 'The Cold Rows', sub: 'winter tents · four degrees, six weeks' });
+  openZone(s, zones, { id: 'lmhi-bloom', place: 'cold-rows', box: [227, -3, 1518, 238.5, 30, 1552], name: 'Rows 9 and 10', sub: 'just out of winter · in blossom' });
   s.finish();
   return s;
 }
@@ -272,7 +272,7 @@ function buildTent(game, s, f, T, ti, A, AP, r, zones) {
     if (!gm.flags.lmhiWinter) { gm.flags.lmhiWinter = true; card(gm, 'The Cold Rows', 'Four degrees, six weeks', 'The only winter in Chervil you can walk into. Apple trees will not bloom without six weeks of cold, so the orchard takes its winters a tent at a time, two rows to a tent.'); return; }
     toast(gm, pick(['Four degrees. Your breath shows, and hangs in front of you, and takes its time going.', 'Cold enough to see your breath. The cloth glows white overhead; the trees stand bare in their two rows.', 'Your breath shows in the white light. Somebody has drawn a face in the frost by the duckboards.', 'The cold comes through your shoes first. Your breath shows. Everybody in here talks a little more quietly.'], ti + (nIn++)) + (gm.flags.lmhiCoat ? '' : ' A coat would help: there are some on the rack in the porch.'));
   } });
-  openZone(s, zones, { id: 'lmhi-tent-' + (ti + 1), box: [cx - 3.2, -3, Z0 + 0.3, cx + 3.2, Math.min(base(Z0), base(Z1)) + 3.75, Z1 + PL - 0.2], name: 'The Cold Rows · ' + label, sub: 'four degrees · day ' + T.day + ' of 42', reverb: 'felt', sky: false, sun: false, headroom: 4.5, env: Object.assign({}, COLD_ENV) });
+  openZone(s, zones, { id: 'lmhi-tent-' + (ti + 1), place: 'cold-rows', box: [cx - 3.2, -3, Z0 + 0.3, cx + 3.2, Math.min(base(Z0), base(Z1)) + 3.75, Z1 + PL - 0.2], name: 'The Cold Rows · ' + label, sub: 'four degrees · day ' + T.day + ' of 42', reverb: 'felt', sky: false, sun: false, headroom: 4.5, env: Object.assign({}, COLD_ENV) });
   // a path down the duckboards
   s.path([[cx, gy(cx, Z1 + 4.5), Z1 + 4.5], [cx, gy(cx, Z1 + PL - 0.3), Z1 + PL - 0.3], [cx, gy(cx, Z1 - 1.5), Z1 - 1.5], [cx, gy(cx, Z0 + 1.5), Z0 + 1.5]]);
 }

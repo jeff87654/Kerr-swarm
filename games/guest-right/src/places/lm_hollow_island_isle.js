@@ -343,10 +343,10 @@ export function buildIsland(game, f, zones) {
   }, 619, 1758, 70, 45);
 
   // ---- zones
-  openZone(s, zones, { id: 'lmhi-island', box: [588, -4, 1724, 648, 30, 1796], name: 'Lid Island', sub: 'the lake · the Settle, the Kettle, the high board' });
-  openZone(s, zones, { id: 'lmhi-settle', box: [SX - 3.5, -2, SZ0 - 1, RX + 1.5, 30, SZ1 + 1], name: 'The Settle', sub: 'Lid Island · for a hundred and over' });
-  openZone(s, zones, { id: 'lmhi-kettle', box: [KX0 - 0.6, -2, KZ0 - 0.6, KX1 + 4.5, 30, KZ1 + 0.8], name: 'The Kettle', sub: 'Lid Island · tea under a lid' });
-  openZone(s, zones, { id: 'lmhi-board', box: [PX - 3, -4, PZ0 - 0.5, PX + 3, 30, BZ1 + 3], name: 'The high board', sub: 'Lid Island · four and a half metres' });
+  openZone(s, zones, { id: 'lmhi-island', place: 'lid-island', box: [588, -4, 1724, 648, 30, 1796], name: 'Lid Island', sub: 'the lake · the Settle, the Kettle, the high board' });
+  openZone(s, zones, { id: 'lmhi-settle', place: 'lid-island', box: [SX - 3.5, -2, SZ0 - 1, RX + 1.5, 30, SZ1 + 1], name: 'The Settle', sub: 'Lid Island · for a hundred and over' });
+  openZone(s, zones, { id: 'lmhi-kettle', place: 'lid-island', box: [KX0 - 0.6, -2, KZ0 - 0.6, KX1 + 4.5, 30, KZ1 + 0.8], name: 'The Kettle', sub: 'Lid Island · tea under a lid' });
+  openZone(s, zones, { id: 'lmhi-board', place: 'lid-island', box: [PX - 3, -4, PZ0 - 0.5, PX + 3, 30, BZ1 + 3], name: 'The high board', sub: 'Lid Island · four and a half metres' });
   s.finish();
   return s;
 }

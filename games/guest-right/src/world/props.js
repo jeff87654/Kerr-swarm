@@ -18,15 +18,23 @@ export function defineProp(name, fn) { DEFS.set(name, fn); }
 export function hasProp(name) { return DEFS.has(name); }
 export function propNames() { return Array.from(DEFS.keys()); }
 
-function build(name, p) {
-  const key = name + '|' + JSON.stringify(p || {});
-  let c = CACHE.get(key);
+// A prop with a sign on it holds a place in the sign atlas. A sign drawn while a region or a block of the city was
+// building is lent, and is given back when that place is taken down (src/render/atlas.js): so such a prop is good only
+// for the group it was drawn in, and only while that group lasts. One drawn among the permanent signs is good anywhere.
+const SIGNED = new Set();                 // the names of props that have turned out to carry signs
+function build(name, p, atlas) {
+  const base = name + '|' + JSON.stringify(p || {});
+  const grp = atlas ? atlas.group : null, gobj = grp !== null && atlas.groups ? atlas.groups.get(grp) || null : null;
+  let key = base, c = CACHE.get(key);
+  if (!c && SIGNED.has(name) && grp !== null) { key = base + '@' + grp; c = CACHE.get(key); if (c && c.gobj !== gobj) c = undefined; }      // the group has been let go and begun again since
   if (c) { if (CACHE.size > 600) { CACHE.delete(key); CACHE.set(key, c); } }      // keep what is in use at the young end
   else {
     const fn = DEFS.get(name); if (!fn) throw new Error('unknown prop: ' + name);
     const g = new Geo(new MeshBuf(512, 1024));
     const meta = fn(g, p || {}) || {};
-    c = { buf: g.buf, meta }; CACHE.set(key, c);
+    c = { buf: g.buf, meta };
+    if (g.usedAtlas) { SIGNED.add(name); if (grp !== null) { key = base + '@' + grp; c.gobj = gobj; } }
+    CACHE.set(key, c);
     // the city makes props in sizes nobody will ask for again (a street bay 6.031 m long): let the oldest go
     if (CACHE.size > 900) { let n = 0; for (const k of CACHE.keys()) { CACHE.delete(k); if (++n >= 150) break; } }
   }
@@ -35,7 +43,7 @@ function build(name, p) {
 
 // Place a prop. o: { tint: [r,g,b] multiply (cheap per-copy variety), tier, cast, level, noCollide, noSpots, scale }
 export function prop(s, name, x, y, z, yaw = 0, p, o = {}) {
-  const c = build(name, p), m = c.meta, g = s.g;
+  const c = build(name, p, s.world && s.world.game ? s.world.game.atlas : null), m = c.meta, g = s.g;
   g.at(x, y, z, yaw); if (o.scale) g.scale(o.scale);
   g.stamp(c.buf, o.tint); g.pop();
   s.flush({ tier: o.tier || m.tier || 'd', cast: o.cast !== undefined ? o.cast : m.cast !== false, level: o.level });

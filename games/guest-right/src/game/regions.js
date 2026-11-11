@@ -23,13 +23,20 @@ export function createRegions(game) {
     game.loopAt = (name, frame, x, y, z, o) => { const h = raw(name, frame, x, y, z, o); if (frame && h && h.stop) loops.push({ frameId: frame.id, h }); return h; };
   }
   const get = (id) => { let r = regs.get(id); if (!r) regs.set(id, r = { id, places: [], loaded: false, loading: null, scopes: [], frames: [], spawns: [], unsubs: [], near: null, used: 0 }); return r; };
+  // Regions are built one at a time: each draws its signs into its own group of the atlas and finds what it made by
+  // looking at the world before and after, and two building in the same frames would take each other's.
+  let queue = Promise.resolve();
+  // scopes that are made while a region builds but are not its own: blocks of the city and the Hollow's lift pavilions
+  // (and the cab's cabin, which is built the first time anybody rides)
+  const foreign = (sid) => sid === 'cab' || /^(cell|pav):/.test(String(sid));
+  const foreignFrame = (fid) => fid === 'cab' || /^layer\d+$/.test(String(fid));
 
   async function load(id) {
     const r = regs.get(id); if (!r) return false;
     r.used = game.time;
     if (r.loaded) return true;
     if (r.loading) return r.loading;
-    r.loading = (async () => {
+    const run = async () => {
       const t0 = performance.now();
       const scopes0 = new Set(W.scopes.keys()), frames0 = new Set(W.frames.keys()), spawns0 = new Set(Object.keys(game.spawns));
       const on = game.events.on;
@@ -37,7 +44,7 @@ export function createRegions(game) {
       const n0 = loops.length;
       // its scopes manage themselves: the people are told about each when the region is ready, and nobody else is disturbed
       const scope0 = W.scope;
-      W.scope = function (sid, frame, opts) { return scope0.call(W, sid, frame, Object.assign({ managed: true }, opts)); };
+      W.scope = function (sid, frame, opts) { return foreign(sid) ? scope0.call(W, sid, frame, opts) : scope0.call(W, sid, frame, Object.assign({ managed: true }, opts)); };
       if (game.atlas && game.atlas.begin) game.atlas.begin('region:' + id);
       try {
         for (const pl of r.places.slice().sort((a, b) => (a.order || 0) - (b.order || 0))) {
@@ -52,15 +59,17 @@ export function createRegions(game) {
         if (game.atlas && game.atlas.end) game.atlas.end();
       }
       r.loops = loops.slice(n0).map((q) => q.h);
-      r.scopes = [...W.scopes.keys()].filter((k) => !scopes0.has(k));
-      r.frames = [...W.frames.keys()].filter((k) => !frames0.has(k));
+      r.scopes = [...W.scopes.keys()].filter((k) => !scopes0.has(k) && !foreign(k));
+      r.frames = [...W.frames.keys()].filter((k) => !frames0.has(k) && !foreignFrame(k));
       r.spawns = Object.keys(game.spawns).filter((k) => !spawns0.has(k));
       r.loaded = true; r.loading = null; r.used = game.time;
       for (const k of r.scopes) { const sc = W.scopes.get(k); if (!sc) continue; if (game.people && game.people.addScope) game.people.addScope(sc); else sc.live = true; }
       console.log('[region ' + id + '] built in ' + (performance.now() - t0).toFixed(0) + ' ms: ' + r.scopes.length + ' scopes, ' + r.frames.length + ' frames');
       game.events.emit('region:load', id);
       return true;
-    })();
+    };
+    r.loading = queue.then(run, run);
+    queue = r.loading.catch((e) => { r.loading = null; console.error('[region ' + id + '] ' + (e && e.stack ? e.stack : e)); });
     return r.loading;
   }
 
@@ -98,8 +107,10 @@ export function createRegions(game) {
     for (const r of regs.values()) {
       if (!r.near) continue;
       const d = nearDist(r);
+      // a region with frames of its own (the front wall's tiers) is not far while the player stands in one of them
+      const inside = r.loaded && r.frames.indexOf(game.player.frame.id) >= 0;
       if (!r.loaded && !r.loading && d < r.near.r) load(r.id);
-      else if (r.loaded && d > r.near.r * 1.7) { r.far = (r.far || 0) + 0.7; if (r.far > 12) { r.far = 0; unload(r.id); } }
+      else if (r.loaded && !inside && d > r.near.r * 1.7) { r.far = (r.far || 0) + 0.7; if (r.far > 12) { r.far = 0; unload(r.id); } }
       else r.far = 0;
     }
   });

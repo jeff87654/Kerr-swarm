@@ -118,6 +118,7 @@ export class Geo {
     this._col[0] = this._col[1] = this._col[2] = 255; this._col[3] = 255;
     let flags = FLAG.ATLAS, em = 0; if (o) { if (o.emissive) em = emisCode(o.emissive); if (o.lamp) flags |= FLAG.LAMP; if (o.night) flags |= FLAG.NIGHT; }
     this._mat[0] = page; this._mat[1] = em; this._mat[2] = flags; this._mat[3] = o && o.rough !== undefined ? clamp(Math.round(o.rough * 255), 0, 255) : 150; this._tile = 1; this._atlas = true;
+    this.usedAtlas = true;          // what this Geo holds points into the sign atlas (see props.js)
     return this;
   }
   tint(t) { const c = rgb8(t); this._col[0] = c[0]; this._col[1] = c[1]; this._col[2] = c[2]; return this; }

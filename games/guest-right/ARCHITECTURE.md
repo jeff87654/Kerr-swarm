@@ -433,6 +433,16 @@ Hand-built and generated blocks meet at arches: Candlewick's stand at x = -105 a
 
 A place module with `region: '<id>'` is not built at start-up. All the places of a region are built together when a cab is called to one of its `stops`, or (with `near`) when the player walks close, and disposed when the player has gone on. What a region made is found by comparing the world before and after: its scopes (made managed, so the people are told of each without anybody else being disturbed), frames, spawns, the listeners it added and the loops it started. Its signs come out of the atlas's pool (`atlas.begin(id)` ... `end()`, `release(id)`): the lent pages are shared by every region and block that is loaded, a freed slot going to the next sign of the same size.
 
+Three rules follow from signs being lent, and the engine keeps them so that place modules need not think about it:
+
+- **Regions are built one at a time.** `regions.load()` queues: two regions building in the same frames would draw into each other's sign group and claim each other's scopes. Scopes and frames that are not a region's own although they appear while it builds (a block of the city, `cell:...`; a lift pavilion, `pav:...`; the cab's cabin; a layer's frame) are left out of what it takes down.
+- **A prop with a sign on it is cached for the sign group it was drawn in** (`world/props.js`). The geometry of a cached prop points at a slot of the atlas; a slot lent to a region belongs to something else once that region has gone. A prop drawn among the permanent signs is good anywhere.
+- **Anything that outlives a region or a block draws its signs with no group** (`atlas.group = null` round the build, restored after): the cab's cabin and the Hollow's lift pavilions do. Code that sets the group in passing puts the previous one back (the streamer's slices do).
+
+A region with `near` and frames of its own (the front wall's tiers) is not counted as far away while the player stands in one of those frames, wherever the Hollow's floor is.
+
+Sub-places inside a landmark (the Quarter, the Window's lobby) have their own records in `src/content/places.js` when their zones name them; `node tools/tour.mjs` lists any place id a zone uses that has no record.
+
 | Region | File | Frame | Where | Cab group |
 |---|---|---|---|---|
 | `keel-vats` | `lm_keel_vats.js` | `keel-vats`: deck 9, theta 0.9, z0 1875 | the Keel, Ring Five | The Keel |
@@ -445,13 +455,14 @@ A place module with `region: '<id>'` is not built at start-up. All the places of
 | `line-rides` | `lm_line_rides.js` | `line63`: deck 63, theta -0.8, z0 2290 | a line deck, Ring Six | The line decks |
 | `chimney` | `lm_chimney.js` | `chimney`: deck 40 at y = 0, theta 1.5, z0 2290 | the Low decks, Ring Six | The Low decks |
 | `mile-hall` | `lm_mile_hall.js` | `mile-hall`: deck 52, theta -1.9, z0 2710 | the Low decks, Ring Seven | The Low decks |
+| `glide` | `lm_glide.js` | `glide-quay` (the rim, z0 625), `glide-car` (its own, radius 200 km, so the field of drums does not bend) | the quay under Ring Two | The stations |
 | `felt-organ` | `lm_felt_organ.js` | `felt-organ`: deck 150, theta 1.9, z0 1460 | the Middle decks, Ring Four | The Middle decks |
 | `lot-hall` | `lm_lot_hall.js` | `lot-hall`: deck 200, theta -2.2, z0 1875 | the Middle decks, Ring Five | The Middle decks |
 | `up-decks` | `lm_up_decks.js` | `up-decks`: deck 340, theta 0.3, z0 1040 | the High decks, Ring Three | The High decks |
-| `hollow-island` | `lm_hollow_island.js` | `hollow`, near (620, 1760) | the lake's island | The Hollow |
+| `hollow-island` | `lm_hollow_island.js` | `hollow`, near (420, 1780) | the lake shore, the island and the rope ferry between | The Hollow |
 | `hollow-grounds` | `lm_hollow_grounds.js` | `hollow`, near (-900, 2300) | the playing grounds | The Hollow |
-| `hollow-front` | `lm_hollow_front.js` | `hollow`, near (200, 350) | the front wood | The Hollow |
-| `front-wall` | `lm_front_wall.js` | `fwall1` (rho 1450), `fwall10` (rho 1000), z0 0 | the front end wall | The end walls |
+| `hollow-front` | `lm_hollow_front.js` | `hollow`, near (200, 380) | the front wood | The Hollow |
+| `front-wall` | `lm_front_wall.js` | `fwall1` (rho 1450), `fwall10` (rho 1000), z0 0; also near (0, 0) in `hollow` | the front end wall | The end walls |
 | `back-upper` | `lm_back_upper.js` | `quarter` (rho 750), `tenth` (rho 300), `twentieth` (rho 150), z0 3750 | the back wall's high tiers | The end walls |
 | `axle-back` | `lm_axle_back.js`, `lm_window.js` | `axle-back` (rho 60, z0 3760), `still-side` | the back axle and the still side | The axles |
 | `axle-front` | `lm_axle_front.js` | `axle-front` (rho 60, z0 -10) | the front axle | The axles |
@@ -462,6 +473,11 @@ A place module with `region: '<id>'` is not built at start-up. All the places of
 - `node tools/walk.mjs --q "at=ladle-east-end" --yaw 1.5708 --secs 60`: holds W (and Shift) and reports position, block, frame rate, the worst frame and any fall, every two seconds.
 - `node tools/prof.mjs --q "..." --run "<js>" --secs 6`: a CPU profile of the running game by function.
 - `node tools/play.mjs drum`: out of Candlewick on foot, a generated hall, a cab to the High decks, the stair, the last stair into the Hollow, a landmark, and a save and a reload in a generated block.
+- `node tools/play.mjs rides`: every set piece started from its own prompt (a slide at the Spouts, the Press and the Soufflé, the Glide out and back, the rope ferry and the high board, the wall lift, the Lake Stair, the heat hall and the Window, the Twentieth, the last strides of a Heavy Mile). Each must hand the player back unlocked, at their own weight, with its flag set.
+- `node tools/tour.mjs [--stops a,b]`: a cab to every landmark stop in turn, in one session. For each: build time, the zone and weight where you stand, people, things to use, a cab berth to leave by, triangles, lights, frames a second, the sign atlas, console errors, and any place id without a record. A picture of each arrival lands in `out/tour/`.
+- `node tools/lots.mjs [--keys special.school,hall] [--match shop]`: one of every kind of lot the plans produce, in a block that has one: a picture from the street and one from inside, the lot's build time and sign area from `?citylog`, and any error.
+
+A ride or other set piece that takes the player (a seat, `locked`, `gOverride`, `busy`) puts everything back in a `finally`, sets a flag in `game.flags` and emits an event when it is done: the journal (`src/places/story_drum.js`) reads the flags, so a landmark that is not built simply leaves its step waiting.
 - `python tools/build.py` also asks node whether every module parses, and may be run by several people at once.
 
 ## Music

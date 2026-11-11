@@ -32,7 +32,13 @@ export function createPavilions(game, city) {
   // the block of the top decks that lies under a point of the Hollow's floor
   const cellUnder = (x, z) => ({ L: top, i: wrapI(top, Math.round((wrapX(x) / HOLLOW_R) * ly.rho0 / ly.pitch)), j: Math.max(J_MIN, Math.min(J_MAX, Math.round(z / BLOCK_Z))) });
 
+  // A pavilion's plates are the same on every one and are kept for good: they must not land among the signs lent to a
+  // region or a block that happens to be building as the player walks by.
   function build(ix, iz) {
+    const atlas = game.atlas, g0 = atlas ? atlas.group : null; if (atlas) atlas.group = null;
+    try { return raise(ix, iz); } finally { if (atlas) atlas.group = g0; }
+  }
+  function raise(ix, iz) {
     const key = ix + ':' + iz; if (built.has(key)) return built.get(key);
     const f = W.frames.get('hollow'); if (!f) return null;
     const { x, z } = posOf(ix, iz); if (!standsAt(x, z)) return null;

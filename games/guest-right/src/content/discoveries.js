@@ -630,14 +630,14 @@ export const DISCOVERIES = {
   'rack-metre': {
     title: 'A square metre each',
     text: "The Garden grows herbs, greens, tomatoes, cucumbers, strawberries and tea under lamps, on about a square metre of racks for every person in the drum. The light is the dear part, which is why a tomato costs half a kay.",
-    where: 'the garden racks', place: 'keel-garden',
-    hint: 'Take a cab to the garden racks in the Keel.',
+    where: 'the Garden', place: 'keel-garden',
+    hint: 'Take a cab to the Garden in the Keel.',
   },
   'loop-tap': {
     title: 'Sixty-five degrees, for nothing',
     text: "The vats' heat goes round the drum as the 65 degree loop, which warms every bath and kitchen tap. Boiling a litre from the loop's tap costs about 0.045 kWh, because the loop has done most of the work already.",
-    where: 'the loop hall', place: 'keel-heat',
-    hint: 'Visit the loop hall in the Keel.',
+    where: 'the Loop Hall', place: 'keel-heat',
+    hint: 'Take a cab to the Loop Hall in the Keel.',
   },
   'blight-menu': {
     title: 'Three days, a week, a month',
@@ -660,38 +660,38 @@ export const DISCOVERIES = {
   'line-decks': {
     title: 'Nobody lives on a line deck',
     text: "There are fifteen line decks, each two decks deep, one in the middle of every twenty-five. The tubes take a third of the floor; the rest is cab depots, workshops and freight sorting, and nobody lives there.",
-    where: 'the cab depot', place: 'line-works',
-    hint: 'Take a cab to the cab depot on line deck 38.',
+    where: 'the line works', place: 'line-works',
+    hint: 'Take a cab to the line works on line deck 38.',
   },
   'nothing-burns': {
     title: 'Nothing can burn in the tubes',
     text: "The tubes are kept full of helium to cut the drag on the cabs, so nothing can burn in them, and the crews wear masks. Every cab carries its own air: a full cab's lasts about an hour.",
-    where: 'the cab depot', place: 'line-works',
-    hint: 'Spend a while at the cab depot.',
+    where: 'the line works', place: 'line-works',
+    hint: 'Spend a while at the line works.',
   },
   'two-limits': {
     title: 'Spinward runs heavy',
     text: "A cab going spinward round a loop goes round faster than the drum and presses you into your seat; going anti it goes slower, and you weigh less. On the Keel's line deck the same loop is 1.2 g one way and two-thirds of a g the other, so loop signs post two limits.",
-    where: 'the loop rides', place: 'line-rides',
-    hint: 'Take a cab to the loop rides on line deck 63.',
+    where: 'the Press and the Soufflé', place: 'line-rides',
+    hint: 'Take a cab to the Press and the Soufflé on line deck 63.',
   },
   'for-the-feeling': {
     title: 'For the feeling',
     text: "Most people know the Lattice as a small room that hums, leans a little and opens somewhere else. Some choose their route by the loops' two limits, heavy or light, for the feeling alone.",
-    where: 'the loop rides', place: 'line-rides',
+    where: 'the Press and the Soufflé', place: 'line-rides',
     hint: 'Ride the loop both ways.',
   },
   'falls-anti': {
     title: 'Every fall lands anti',
     text: "A dropped cup lands about two centimetres anti of where it was let go. From ten metres up a wall a fall lands about half a metre anti, so the mats under a climbing wall are laid off to one side.",
-    where: 'the climbing hall', place: 'chimney',
-    hint: 'Visit the climbing hall on deck 40.',
+    where: 'the Spice Rack and the Spouts', place: 'chimney',
+    hint: 'Take a cab to the Spice Rack and the Spouts on deck 40.',
   },
   'long-pipes': {
     title: 'Long pipes, deep felt',
     text: "Sound runs about 1.8 times faster in heliox, so a pipe plays about ten semitones sharp for its length, and an organ needs pipes nearly twice as long for the old notes. Bare rooms ring, so a good hall is hung in felt.",
-    where: 'the organ hall', place: 'felt-organ',
-    hint: 'Visit the organ hall on deck 150.',
+    where: 'the Bellows', place: 'felt-organ',
+    hint: 'Take a cab to the Bellows, the organ hall on deck 150.',
   },
   'drawn-by-lot': {
     title: 'A thousand by lot',
@@ -702,20 +702,20 @@ export const DISCOVERIES = {
   'elders-up': {
     title: 'The old live nearest the Hollow',
     text: "The High decks hold about thirty million people, most of them old. At just over half a g the floor is kind to knees, the Hollow is a quarter of a minute away by cab, and a station about three minutes.",
-    where: "the elders' arcade", place: 'up-decks',
-    hint: "Visit the elders' arcade on deck 340.",
+    where: 'the Simmer', place: 'up-decks',
+    hint: 'Take a cab to the Simmer on deck 340.',
   },
   'lake-clear': {
     title: 'Kept starved and clear',
     text: "The lake is about two metres deep and kept starved of nutrients, so it stays clear to the bottom. At half a g its waves come in slow and tall, and a dive takes half again as long to fall.",
-    where: 'the lake island', place: 'hollow-island',
-    hint: 'Go out to the island in the lake.',
+    where: 'Lid Island and the Cold Rows', place: 'hollow-island',
+    hint: 'Take the rope ferry out to Lid Island.',
   },
   'break-twice': {
     title: 'Throws break twice as hard',
     text: "At half a g the drum's turn bends a ball's flight about twice as much as on the decks, so spinball on the Hollow floor is all angles. On the half-g track a sprinter on the heavy bend weighs a fifth more.",
-    where: 'the playing grounds', place: 'hollow-grounds',
-    hint: 'Visit the playing grounds in the Hollow.',
+    where: 'the Breadboard', place: 'hollow-grounds',
+    hint: 'Visit the Breadboard, the playing grounds in the Hollow.',
   },
   'dim-ends': {
     title: 'The dim ends',
@@ -726,8 +726,8 @@ export const DISCOVERIES = {
   'quiet-wall': {
     title: 'The quieter wall',
     text: "The front of the drum is the power end and the back is the heat end. Power comes in without a sound and heat goes out loudly, so the back wall is the busy one and the front wall the quiet one.",
-    where: 'the front terraces', place: 'front-wall',
-    hint: 'Go up to the front terraces.',
+    where: 'the front wall', place: 'front-wall',
+    hint: 'Go up to the Warming Shelf or the front Third, on the front wall.',
   },
   'quarter-light': {
     title: 'A quarter of a g',
@@ -750,20 +750,20 @@ export const DISCOVERIES = {
   'heat-river': {
     title: "A river's worth of heat",
     text: "Every watt the drum uses ends as heat, and about 160 gigawatts of it leave through the back axle's rotary joint as two-phase ammonia, a river's worth, in pipes as wide as rooms. It is the loudest place in the drum.",
-    where: 'the back axle hall', place: 'axle-back',
-    hint: 'Take a cab to the back axle hall.',
+    where: 'the back axle', place: 'axle-back',
+    hint: 'Take a cab to the back axle.',
   },
   'the-river': {
     title: 'The River',
     text: "There is no near star. What fills the Window is what the back crews call the River: a band of stars right across the dark, pale gold and frayed at the edges, with rifts of dust across it whose brown-violet the crews call bruise. Here and there are black shapes where nothing shines: rafts.",
-    where: 'the back axle hall', place: 'axle-back',
+    where: 'the back axle', place: 'axle-back',
     hint: 'Look through the Window, beyond the back axle.',
   },
   'power-in': {
     title: 'Power in, and quiet',
     text: "About 160 gigawatts come into the drum through the front axle's one rotary joint, from the rectennas in front of the raft, and you would never know it by ear. The same amount leaves as heat at the back.",
-    where: 'the front axle hall', place: 'axle-front',
-    hint: 'Take a cab to the front axle hall.',
+    where: 'the front axle', place: 'axle-front',
+    hint: 'Take a cab to the front axle.',
   },
   // The city: found by walking, riding and eating in it.
   'any-hall': {

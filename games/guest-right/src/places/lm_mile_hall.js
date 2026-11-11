@@ -291,7 +291,7 @@ function finishRun(game, ctx) {
   R.phase = 'idle'; R.last = { way, sec }; R.doneAt = game.time;
   const key = 'mile.best.' + way, prev = game.flags[key];
   if (!prev || sec < prev) game.flags[key] = sec;
-  game.flags[way === 'heavy' ? 'ran_heavy_mile' : 'ran_light_mile'] = true;
+  if (way === 'heavy') game.flags.ran_heavy_mile = true; else game.flags.ran_light_mile = true;
   game.events.emit('mile:done', { way, seconds: sec });
   if (game.audio) game.audio.play('cheer', { vol: 0.35 });
   const rec = way === 'heavy' ? '3:46.8' : '3:31.9';
