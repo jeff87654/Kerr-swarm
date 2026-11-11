@@ -1,10 +1,10 @@
 // Walk the city by holding the keys down, and report what happens: where the player gets to, which blocks load and
 // unload, the worst frames, and whether they ever fall out of the world. The dev server must be running.
 //
-//   node tools/walk.mjs --q "at=ladle-east-end" --yaw -1.5708 --secs 70          # spinward out of Candlewick, running
+//   node tools/walk.mjs --q "at=ladle-east-end" --yaw 1.5708 --secs 70           # spinward out of Candlewick, running
 //   node tools/walk.mjs --q "cell=20:5:9" --yaw 3.1416 --secs 40 --walk          # along a street on the middle decks
 //
-// --yaw   which way to face (player yaw: 0 looks to the front, -1.5708 spinward, 1.5708 anti, 3.1416 to the back)
+// --yaw   which way to face (player yaw: 0 looks to the front, 1.5708 spinward, -1.5708 anti, 3.1416 to the back)
 // --secs  how long to hold W      --walk  do not hold Shift      --shot  a folder for a picture every 10 s
 import puppeteer from 'puppeteer-core';
 import fs from 'node:fs';
@@ -12,7 +12,7 @@ import path from 'node:path';
 
 const args = process.argv.slice(2);
 const get = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const q = get('--q', 'at=ladle-east-end'), yaw = parseFloat(get('--yaw', '-1.5708')), secs = parseFloat(get('--secs', '60')), port = get('--port', '5190'), shotDir = get('--shot', '');
+const q = get('--q', 'at=ladle-east-end'), yaw = parseFloat(get('--yaw', '1.5708')), secs = parseFloat(get('--secs', '60')), port = get('--port', '5190'), shotDir = get('--shot', '');
 const chrome = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', '/usr/bin/google-chrome', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find((p) => fs.existsSync(p));
 if (!chrome) { console.log('No Chrome or Edge found.'); process.exit(1); }
 const sleep = (s) => new Promise((r) => setTimeout(r, s * 1000));

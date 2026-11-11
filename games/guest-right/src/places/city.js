@@ -95,7 +95,7 @@ export const place = {
         // stand outside its front, a few metres back, looking at it (player yaw 0 looks toward -z)
         const mx = (l.x0 + l.x1) / 2, mz = (l.z0 + l.z1) / 2, d = lot === 'hall' || l.kind === 'special' ? 5 : 3.2;
         if (l.front === 'n') { x = mx; z = l.z0 - d; yaw = Math.PI; } else if (l.front === 's') { x = mx; z = l.z1 + d; yaw = 0; }
-        else if (l.front === 'w') { x = l.x0 - d; z = mz; yaw = -Math.PI / 2; } else { x = l.x1 + d; z = mz; yaw = Math.PI / 2; }
+        else if (l.front === 'w') { x = l.x0 - d; z = mz; yaw = Math.PI / 2; } else { x = l.x1 + d; z = mz; yaw = -Math.PI / 2; }
         if (l.kind === 'hall' && l.courtSpan) { const m = (l.courtSpan[0] + l.courtSpan[1]) / 2; if (l.front === 'n' || l.front === 's') x = m; else z = m; }
       }
       p.place(f, x, 0, z, yaw, 0);
