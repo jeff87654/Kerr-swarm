@@ -6369,6 +6369,9 @@
     14
    ],
    "k": [
+    "open",
+    "steady",
+    "thin",
     "counted"
    ],
    "where": [
@@ -6386,13 +6389,13 @@
    "lines": [
     "It's a tiny rod under the skin of your arm. {name} had it done last month and said it was nothing. That's the same person who said the catch was nothing and was sick on my shoes.",
     "There's a dinner after. Your whole family, your favourite food, and everyone pretends it's a birthday. Mine's going to be noodles. I've been very clear about the noodles.",
-    "When you're grown, if you win a licence, the clinic takes it out. Mum says by then the Count will be down and nobody will be fitted at all. Mum says a lot of things.",
-    "My cousin in {nb} doesn't get fitted. I asked if I could move there and Dad said yes, as long as I take my own laundry.",
+    "When you're grown and you've a place, the clinic takes it out. Mum says that's a long way off and I should finish my noodles. Mum says a lot of things.",
+    "My cousin in {nb} had hers last year and says the dinner was better than her naming. I asked if I could have two dinners and Dad said yes, as long as I cook the second.",
     "If you're here next {weekday}, come to the hall. There'll be fitting dinners at half the tables and nobody minds a guest. Bring something sweet. Everyone brings something sweet.",
     "Everyone says it doesn't hurt. Everyone also goes very quiet in the queue. I'm going to tell the truth afterwards, whatever it was.",
     "Best rice ball on the ring is at the counter nearest the lifts. Don't tell anyone I told you. It's my spot."
    ],
-   "knows": "Being fourteen in a counted drum: the fitting at the clinic, the family dinner afterwards, friends' stories, the Count and what grown-ups say about par, the best rice ball on the ring, and cousins in drums that don't count."
+   "knows": "Being fourteen on Merrow: the fitting at the clinic, which nearly every drum does, the family dinner afterwards, friends' stories, having it out when you're grown and have a place, the best rice ball on the ring, and cousins in other drums."
   },
   {
    "role": "keeper of the Count board",

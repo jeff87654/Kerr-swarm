@@ -170,7 +170,7 @@ function getDrum(x, y) {
   } else {
     const goods = pickRule(R.goods, { t: "Allots its high decks and Hollow hours by rotation." });
     const births = sub === "counted"
-      ? pickRule((R.births || []).filter((b) => (b.k || []).indexOf("counted") >= 0), { t: "Births are licensed, and fourteen-year-olds are fitted during a stop." })
+      ? pickRule((R.births || []).filter((b) => (b.k || []).indexOf("counted") >= 0), { t: "Births are licensed by lottery during a stop: the implants stay in until a couple's number is drawn." })
       : pickRule((R.births || []).filter((b) => !b.k || b.k.indexOf("counted") < 0), { t: "Holdings: places pass to heirs in the household." });
     const gin = pickRule(R.gin, { t: "Gin near cost, with thiamine." });
     const gw = { hall: { free: 4, lottery: 3, paid: 1, terraces: 1, night: 0.5 }, wood: { free: 4, lottery: 1, paid: 0.5, terraces: 1, night: 1 }, fair: { free: 3, lottery: 2, paid: 2, terraces: 2, night: 0.3 }, maker: { free: 4, lottery: 2, paid: 1, terraces: 1, night: 0.5 },
@@ -312,7 +312,7 @@ function noticesFor(d, day) {
     if (/(duty|smuggl|bootleg|methanol|taxed)/i.test(n.t) && !/(tax|duty|ration|methanol|bottle)/i.test(gin)) return false;
     if (/(near cost|cheap gin)/i.test(n.t) && !/cost/i.test(gin)) return false;
     if (/Margin flat|guest-right/i.test(n.t) && !d.guestRight) return false;
-    if (/\bThe Count\b|THE COUNT|the fitting/i.test(n.t) && d.sub !== "counted") return false;
+    if (/\bThe Count\b|THE COUNT/i.test(n.t) && d.sub !== "counted") return false;
     if (/\bLedger\b|LEDGER/.test(n.t) && d.board !== "ledger") return false;
     return true;
   });
