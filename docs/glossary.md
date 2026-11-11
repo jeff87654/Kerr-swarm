@@ -1,6 +1,6 @@
 # Glossary
 
-*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match. Revised 10 Nov 2026 (a placeless-born life worked through; third-chair.md, families.md; Jeff's steer, names proposals): waiting shares, the box, the certificate, marrying late, third chair and the Emptying; the draw, the placeless-born, houses and Tansy to match.*
+*Short definitions of the setting's named things, for quick reference. The docs they point to are the canon; where a definition here and a doc disagree, the doc wins and this page should be fixed. Most names are proposals (see each doc's notes). On the website, each term's first mention on a page links here, and each entry lists the docs that use it. Revised 1 Nov 2026 after a physics audit (Jeff's decisions; full-swarm.md): the Shade's people, metal and orbits at the 2 kWe life, the common budget as a reference, the frontier, the great year, the rules of the road, the survival reserve and the tank farm. Revised 2 Nov 2026 (radiation decisions, Jeff): the Shade ~2.2× the hole, the jacket's thicker front cap, Windows of ~1.5 m of water and the High decks' dose. Revised again 2 Nov 2026 (stem places, Jeff; people.md): the place, holdings, the Margin, the placeless and houses. Revised 6 Nov 2026 (Jeff's decisions; people.md): births follow places, and the posted price. Revised 6 Nov 2026 (consistency audit): free eccentricity in the rules of the road; the Eleven Days' official cause. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute on the Lantern, everything beamed, ~1.87 × 10³³ people. Revised 9 Nov 2026 (second world audit, Jeff's decision; families.md): born to a place, leave, the placeless-born and the line outside; the posted price as a keep; holdings, the draw, room drums, the placeless, counted drums and open drums to match. Revised 10 Nov 2026 (a placeless-born life worked through; third-chair.md, families.md; Jeff's steer, names proposals): waiting shares, the box, the certificate, marrying late, third chair and the Emptying; the draw, the placeless-born, houses and Tansy to match. Revised 10 Nov 2026 (Jeff's decisions; work.md): the plant, a wallet's work, shopfronts and Sorrel's hand rule.*
 
 *Format, for editing: each entry is a `###` heading, a definition, and an optional "Matches:" line listing the exact words the website links (comma-separated; entries with no capital letters match any case; "none" turns linking off). Without one, the heading is matched, minus a leading "The".*
 
@@ -227,6 +227,24 @@ Matches: kWh
 How a person's ~2 kWe splits. The commons (~1.1 kW) is the drum's budget, spent in kind on air, food, light and services; the wallet (~0.9 kW) is each person's own, paid as an equal beam dividend on each share and topped up by work. See daily-life.md, economy.md.
 
 Matches: commons, wallet, wallets
+
+### The plant
+
+The machines that make and route everything: automation under standing rules. Not the minds on the Shade's compute, which are their own society and out of the docs' focus. See work.md, governance.md.
+
+Matches: none
+
+### A wallet's work
+
+About 2,550 hours a year, seven hours every day: what an adult with no share works, at ~3 kWh an hour, to earn what a share pays. A free drum's placeless-born work about that much. The average adult sells ~1,000 hours, and about a quarter sell none. See work.md.
+
+Matches: a wallet's work
+
+### Shopfronts
+
+Commons floor for a trade (a shop, a kitchen, a workroom, a stall), ~3 m² a person. A drum auctions a shopfront's lease or sells it outright, so it is the one kind of floor that can be bought, and the placeless can own one. It carries no allowance and is not a place. See work.md, economy.md.
+
+Matches: shopfront, shopfronts
 
 ### The place
 
@@ -705,4 +723,10 @@ Matches: Register of Places
 The pavilion that comes up through the bed of Sorrel's Hollow lake, with the jetty and the elders' bench. See sorrel.md.
 
 Matches: Bench Island
+
+### The hand rule
+
+Sorrel's rule since the Eleven Days (proposal): whatever is on its survival load can be worked by hand with the data halls dark, and its crews drill for it every month. Most drums leave the survival load to the plant. See work.md, sorrel.md.
+
+Matches: hand rule
 
