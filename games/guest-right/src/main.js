@@ -10,6 +10,7 @@ import { Save, Settings, Clock, makeEvents } from './core/state.js';
 import { Player } from './sim/player.js';
 import { DRUM, deckOf, gAt, ringOf, RING_NAMES } from './core/drum.js';
 import { Atlas } from './render/atlas.js';
+import { forgetPropsOf } from './world/props.js';
 import { createForwardMaterials } from './render/fwdmat.js';
 import { loadSignFonts } from './world/signs.js';
 import { setupSystems } from './game/systems.js';
@@ -17,6 +18,7 @@ import { setupStory } from './game/story.js';
 import { createCab } from './game/cab.js';
 import { setupFlow } from './game/flow.js';
 import { setupDirector } from './game/director.js';
+import { createRegions } from './game/regions.js';
 
 function params() { const p = {}; try { new URLSearchParams(window.location.search).forEach((v, k) => { p[k] = v === '' ? true : v; }); } catch (e) { /* none */ } return p; }
 const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r()));
@@ -68,7 +70,9 @@ async function start(opts) {
   world.game = game;
   game.env = (o) => Object.assign(pipeline.env, o);
   await loadSignFonts();
-  const atlas = game.atlas = new Atlas(pipeline.renderer, { size: settings.get('quality') === 'low' ? 1024 : 2048, pages: 10 });
+  // ten permanent pages for the places built at start-up, and a pool of eight shared by regions and city blocks as they come and go
+  const atlas = game.atlas = new Atlas(pipeline.renderer, { size: settings.get('quality') === 'low' ? 1024 : 2048, pages: 10, dynamic: 8 });
+  atlas.onRelease = forgetPropsOf;          // props drawn with the signs of a block or region that has gone are of no more use
   worldUniforms.tAtlas.value = atlas.texture;
   const fwd = game.fwdMats = createForwardMaterials(pipeline);
   world.fwdMats.glass = fwd.glass; world.fwdMats.glow = fwd.glow;
@@ -78,6 +82,7 @@ async function start(opts) {
   setupSystems(game);
   setupStory(game);
   game.cab = createCab(game);
+  game.regions = createRegions(game);
   setupFlow(game);
   setupDirector(game);
   const progress = (p, label) => { if (game.ui) game.ui.loading.set(p, label); if (opts.onProgress) opts.onProgress(p, label); };
@@ -119,10 +124,13 @@ async function start(opts) {
   for (const pl of list) {
     n++;
     if (only ? (only.indexOf(pl.id) < 0 && !pl.always) : pl.testOnly) continue;
+    // a place that belongs to a region waits until somebody goes there (unless it was asked for by name, for testing)
+    if (pl.region && !(only && only.indexOf(pl.id) >= 0)) { game.places[pl.id] = pl; game.regions.register(pl); continue; }
     const t0 = performance.now();
     try {
       game.places[pl.id] = pl;
       await pl.build(game);
+      for (const st of pl.stops || []) { const sp = game.spawns[st.spawn]; if (sp) game.cab.addStop(Object.assign({}, st, { frame: sp.frame, x: sp.x, y: sp.y, z: sp.z, yaw: sp.yaw || 0 })); }
     } catch (e) { console.error('[place ' + pl.id + '] failed to build: ' + (e && e.stack ? e.stack : e)); }
     const ms = performance.now() - t0; if (ms > 250) console.log('[place ' + pl.id + '] built in ' + ms.toFixed(0) + ' ms');
     progress(0.3 + 0.68 * n / list.length, 'Building ' + (pl.name || pl.id).toLowerCase());
@@ -130,7 +138,7 @@ async function start(opts) {
     await nextFrame();
   }
 
-  { const used = atlas.shelves.reduce((a, sh, i) => a + (sh.y + sh.h) / atlas.size, 0); console.log('[boot] sign atlas ' + (used / atlas.pages * 100).toFixed(0) + '% full, ' + atlas.cache.size + ' signs'); }
+  console.log('[boot] sign atlas ' + (atlas.usage().permanent * 100).toFixed(0) + '% full, ' + atlas.count + ' signs');
   // --- start position
   const spawns = game.spawns;
   const sp = spawns[P.at] || spawns.start || Object.values(spawns)[0];

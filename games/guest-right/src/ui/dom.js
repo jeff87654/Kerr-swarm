@@ -183,6 +183,23 @@ export function safeGame(game) {
       return Array.isArray(v) ? v : [];
     },
     mapData: () => call(() => g().mapData(), null),
+    // the whole drum: game.city (absent with ?nocity and in older saves), cab stops, landmark regions, flags
+    city: () => call(() => (g().city && g().city.LAYERS && typeof g().city.info === 'function' ? g().city : null), null),
+    flags: () => call(() => g().flags, {}),
+    stops: () => {
+      const v = call(() => g().cab.stops, []);
+      return Array.isArray(v) ? v : [];
+    },
+    regions: () => {
+      const v = call(() => g().regions.list(), []);
+      return Array.isArray(v) ? v : [];
+    },
+    frameId: () => call(() => g().player.frame.id, ''),
+    zonePlace: () => call(() => g().zone.place, ''),
+    placeRegion: (id) => call(() => g().places[id].region, ''),
+    regionOfFrame: (id) => call(() => g().regions.ofFrame(id), ''),
+    store: (k, d) => call(() => g().save.get(k, d), d),
+    storeSet: (k, v) => call(() => g().save.set(k, v), undefined),
     photoSet: (o) => call(() => g().photo.set(o), undefined),
     photoTake: () => call(() => g().photo.take(), null),
     clock: () => call(() => g().clock.label(), ''),

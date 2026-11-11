@@ -12,6 +12,7 @@ import { LIGHT, LF } from '../render/lights.js';
 const CHUNK = 28;                 // metres (bigger chunks mean fewer draw calls, which is what costs here)
 const FAR_STRUCT = 340, FAR_FURNITURE = 75, FAR_DETAIL = 38;
 const _c = { x: 0, y: 0, z: 0 };
+let _rem = new Int32Array(8192);
 
 export class World {
   constructor(lights) {
@@ -33,6 +34,8 @@ export class World {
     this.fwdMats = { glass: null, glow: null };
     this.game = null;
     this.culler = null;                // optional (meshUserData) => bool: a cheap extra visibility test (see game/systems.js)
+    this.courts = [];                  // atria open through several decks: { frame, x0, x1, z0, z1, scope } (see Scope.court)
+    this.managedSpots = 0;             // spots of scopes that tell the people about themselves (city blocks): see Scope opts.managed
     this.shadowRange = { room: 26, sky0: 48, sky1: 300 };
     this._frustum = new THREE.Frustum(); this._pv = new THREE.Matrix4(); this._sph = new THREE.Sphere();
     this.scopeVisible = (s) => s.active && s.visible;
@@ -45,6 +48,11 @@ export class World {
     return f;
   }
   colliders(frame) { return this.collide.get(typeof frame === 'string' ? frame : frame.id); }
+  // Forget a frame that a region made, once every scope in it has been disposed.
+  removeFrame(id) {
+    for (const sc of [...this.scopes.values()]) if (sc.frame && sc.frame.id === id) sc.dispose();
+    this.frames.delete(id); this.collide.delete(id); this.navs.delete(id);
+  }
   nav(frame) { const id = typeof frame === 'string' ? frame : frame.id; let n = this.navs.get(id); if (!n) this.navs.set(id, n = new Nav(this.frames.get(id))); return n; }
   // The smallest zone containing a point of a frame, or null.
   zoneAt(frame, x, y, z) {
@@ -85,7 +93,10 @@ export class World {
     for (let i = 0; i < R.length; i++) {
       const m = R[i], u = m.userData, f = u.frame, o = u.origin;
       const sc = u.scope;
-      if ((sc && !(sc.active && sc.visible)) || u.hidden || (this.culler && !this.culler(u))) { m.visible = false; continue; }
+      if ((sc && !(sc.active && sc.visible)) || u.hidden) { m.visible = false; continue; }
+      // warm: drawn this once whatever the distance, the view or the frame (see streamer.js and regions.js)
+      const warm = u.warm > 0; if (warm) u.warm--;
+      if (!warm && this.culler && !this.culler(u)) { m.visible = false; continue; }
       // frame row (see GLSL_BEND): dTheta, dRho, dZ relative to the anchor, and rho0 on the diagonal
       const e = m.matrixWorld.elements;
       e[3] = wrapPi(f.theta0 + o[0] / f.rho0 - A.theta); e[7] = A.rho - (f.rho0 - o[1]); e[11] = f.z0 + o[2] - A.z; e[15] = f.rho0;
@@ -93,13 +104,13 @@ export class World {
       flatToRender(f, o[0] + c[0], o[1] + c[1], o[2] + c[2], A, _c);
       const d = Math.hypot(_c.x, _c.y, _c.z) - u.radius;
       let mask = 0;
-      if (u.always) mask = 1;
+      if (u.always || warm) mask = 1;
       else if (d < u.far) { sph.center.set(_c.x, _c.y, _c.z); sph.radius = u.radius; if (fr.intersectsSphere(sph)) mask = 1; }
       if (u.caster) {
         const dh = Math.hypot(_c.x, _c.z) - u.radius;      // roughly horizontal distance (the anchor's up is +Y)
-        if (dh < sr.room * 1.42) mask |= 2;
-        if (dh < sr.sky0 * 1.42) mask |= 4;
-        if (dh < sr.sky1 * 1.42) mask |= 8;
+        if (dh < sr.room * 1.42 || (warm && sr.room > 0)) mask |= 2;
+        if (dh < sr.sky0 * 1.42 || (warm && sr.sky0 > 0)) mask |= 4;
+        if (dh < sr.sky1 * 1.42 || (warm && sr.sky1 > 0)) mask |= 8;
       }
       m.layers.mask = mask; m.visible = mask !== 0;
       if (mask & 1) shown++;
@@ -133,7 +144,28 @@ export class Scope {
     this.col = world.colliders(frame);
     this.level = 0;
     this.finished = false;
+    this.cleanups = [];
+    // opts.origin: [x, z], the scope's own zero for its vertex data (see Geo.ox). Everything is still given in frame coordinates.
+    this.ox = opts.origin ? opts.origin[0] : 0; this.oz = opts.origin ? opts.origin[1] : 0; this.g.ox = this.ox; this.g.oz = this.oz;
+    // opts.managed: this scope comes and goes while the game runs (a city block). The people are told when it is ready
+    // (game.people.addScope) and before it goes (removeScope), instead of re-reading the whole world.
+    this.managed = !!opts.managed; this.live = !this.managed;
+    this.gen = 0;
   }
+  // Run fn when this scope is disposed (a region unloading, a block streaming out): stop a sound, drop a listener.
+  // Pass the function that game.events.on() returns, or any function.
+  onDispose(fn) { if (typeof fn === 'function') this.cleanups.push(fn); return fn; }
+  // A per-frame update that lives as long as the scope does. fn(dt, game).
+  every(fn) { const W = this.world; const d = { scope: this, update: (dt) => fn(dt, W.game) }; W.dynamics.push(d); return d; }
+  // A looping positional sound at a point of this scope's frame, stopped when the scope goes. Starts at once.
+  loop(name, x, y, z, o) {
+    const game = this.world.game; if (!game || !game.loopAt) return { stop() {}, set() {} };
+    const h = game.loopAt(name, this.frame, x, y, z, o);
+    this.onDispose(() => { try { h.stop(0.3); } catch (e) { /* already gone */ } });
+    return h;
+  }
+  // An atrium open through several decks: while the camera is in or near this box, every deck inside it is drawn.
+  court(x0, z0, x1, z1) { const c = { frame: this.frame, x0: Math.min(x0, x1), x1: Math.max(x0, x1), z0: Math.min(z0, z1), z1: Math.max(z0, z1), scope: this }; this.world.courts.push(c); return c; }
   // Send what has been drawn since the last flush to the batches. o.tier: 's' structure (seen far) | 'd' detail (fades out by ~40 m).
   // o.cast: casts overhead shadows (furniture, people-sized things, canopies). o.level: an integer to separate decks.
   flush(o) {
@@ -141,7 +173,7 @@ export class Scope {
     const tier = (o && o.tier) || 's', cast = o && o.cast ? 1 : 0, level = o && o.level !== undefined ? o.level : this.level;
     const bb = b.bounds();
     const ix = Math.floor((bb[0] + bb[3]) * 0.5 / CHUNK), iz = Math.floor((bb[2] + bb[5]) * 0.5 / CHUNK);
-    const key = ix + ',' + iz + ',' + level;
+    const key = ix + ',' + iz + ',' + level + (this.gen ? ',' + this.gen : '');
     let ch = this.chunks.get(key);
     if (!ch) { ch = { ox: (ix + 0.5) * CHUNK, oy: Math.round((bb[1] + bb[4]) * 0.5), oz: (iz + 0.5) * CHUNK, bufs: {}, bb: [1e9, 1e9, 1e9, -1e9, -1e9, -1e9] }; this.chunks.set(key, ch); }
     // keep uvs small: shift by whole multiples of 64 tiles (the macro variation in the shader repeats every 64)
@@ -149,15 +181,20 @@ export class Scope {
       const su = 64 * Math.round(b.uv[0] / 64), sv = 64 * Math.round(b.uv[1] / 64);
       if (su || sv) for (let i = 0; i < b.nv; i++) { if (!(b.mat[i * 4 + 2] & FLAG.ATLAS)) { b.uv[i * 2] -= su; b.uv[i * 2 + 1] -= sv; } }
     }
-    const remO = new Int32Array(b.nv).fill(-1), remC = new Int32Array(b.nv).fill(-1);
+    // triangles go to the opaque or the cut-out batch; runs of the same kind are copied in one go
+    if (_rem.length < b.nv * 2) _rem = new Int32Array(Math.max(b.nv * 2, _rem.length * 2));
+    _rem.fill(-1, 0, b.nv * 2);
+    const remO = _rem.subarray(0, b.nv), remC = _rem.subarray(b.nv, b.nv * 2);
     const special = o && (o.glass ? 'glass' : o.glow ? 'glow' : null);
+    const nameO = special || (tier + 'o' + cast), nameC = special || (tier + 'c' + cast);
+    let k0 = 0, curCut = false;
+    const put = (k1) => { if (k1 <= k0) return; const name = curCut ? nameC : nameO; let t = ch.bufs[name]; if (!t) t = ch.bufs[name] = new MeshBuf(1024, 2048); t.appendRange(b, k0, k1, -ch.ox, -ch.oy, -ch.oz, curCut ? remC : remO); };
     for (let k = 0; k < b.ni; k += 3) {
       const v0 = b.idx[k]; const fl = b.mat[v0 * 4 + 2];
       const cut = !special && ((fl & FLAG.ATLAS) ? (fl & 16) !== 0 : isCutoutLayer(b.mat[v0 * 4]));
-      const name = special || (tier + (cut ? 'c' : 'o') + cast);
-      let t = ch.bufs[name]; if (!t) t = ch.bufs[name] = new MeshBuf(1024, 2048);
-      t.appendRange(b, k, k + 3, -ch.ox, -ch.oy, -ch.oz, cut ? remC : remO);
+      if (cut !== curCut) { put(k); k0 = k; curCut = cut; }
     }
+    put(b.ni);
     for (let i = 0; i < 3; i++) { if (bb[i] < ch.bb[i]) ch.bb[i] = bb[i]; if (bb[i + 3] > ch.bb[i + 3]) ch.bb[i + 3] = bb[i + 3]; }
     b.clear();
     return this;
@@ -169,11 +206,14 @@ export class Scope {
   detail(fn, level) { return this.draw(fn, { tier: 'd', cast: true, level }); }
   deco(fn, level) { return this.draw(fn, { tier: 'd', cast: false, level }); }
 
-  // Turn the batches into meshes. Safe to call again after more drawing (new chunks only add; changed chunks are rebuilt).
-  finish() {
-    const W = this.world, M = W.mats;
+  // Turn the batches into meshes. Safe to call again after more drawing (what was drawn since goes into new batches).
+  // finish(max): build at most `max` batches now and return how many are left (call again next frame), to spread the work.
+  finish(max) {
+    const W = this.world, M = W.mats; let done = 0, left = 0;
     for (const [key, ch] of this.chunks) {
       if (ch.built) continue;
+      if (max && done >= max) { left++; continue; }
+      done++;
       const level = parseInt(key.split(',')[2], 10) || 0;
       const cx = (ch.bb[0] + ch.bb[3]) / 2 - ch.ox, cy = (ch.bb[1] + ch.bb[4]) / 2 - ch.oy, cz = (ch.bb[2] + ch.bb[5]) / 2 - ch.oz;
       const rad = 0.5 * Math.hypot(ch.bb[3] - ch.bb[0], ch.bb[4] - ch.bb[1], ch.bb[5] - ch.bb[2]) + 0.5;
@@ -182,15 +222,17 @@ export class Scope {
         const fwd = name === 'glass' || name === 'glow';
         const detail = name[0] === 'd', cut = name[1] === 'c', cast = name[2] === '1';
         const mat = fwd ? W.fwdMats[name] : cut ? (detail ? M.cutoutDetail : M.cutout) : (detail ? M.opaqueDetail : M.opaque);
-        const mesh = new THREE.Mesh(buf.toGeometry(), mat);
+        const mesh = new THREE.Mesh(buf.toGeometry(this.managed), mat);
         if (name === 'glow') mesh.renderOrder = 2;
-        W.addRenderable(mesh, { frame: this.frame, origin: [ch.ox, ch.oy, ch.oz], center: [cx, cy, cz], radius: rad, far: fwd ? 90 : detail ? FAR_DETAIL : cast ? FAR_FURNITURE : FAR_STRUCT, caster: !fwd && cast, forward: fwd, scope: this, zone: this.zone, level });
+        W.addRenderable(mesh, { frame: this.frame, origin: [ch.ox + this.ox, ch.oy, ch.oz + this.oz], center: [cx, cy, cz], radius: rad, far: fwd ? 90 : detail ? FAR_DETAIL : cast ? FAR_FURNITURE : FAR_STRUCT, caster: !fwd && cast, forward: fwd, scope: this, zone: this.zone, level });
         this.meshes.push(mesh);
       }
       ch.bufs = null; ch.built = true;
     }
+    if (left) return left;
+    this.gen++;
     this.finished = true;
-    return this;
+    return max ? 0 : this;
   }
 
   // A pane of glass between two opposite corners (it must be flat in x or z). o: { tint: '#hex', opacity (0.12), rough (0.06), level }
@@ -273,17 +315,20 @@ export class Scope {
   ramp(x0, z0, x1, z1, ya, yb, axis, o) { return this.col.ramp(x0, z0, x1, z1, ya, yb, axis, Object.assign({ owner: this }, o)); }
 
   // ----- things for people and the player -----
-  spot(type, x, y, z, yaw, o) { return this.world.addSpot(Object.assign({ tags: [] }, o, { type, frame: this.frame, x, y, z, yaw: yaw || 0, scope: this })); }
+  spot(type, x, y, z, yaw, o) { if (this.managed) this.world.managedSpots++; return this.world.addSpot(Object.assign({ tags: [] }, o, { type, frame: this.frame, x, y, z, yaw: yaw || 0, scope: this })); }
   interact(o) { return this.world.addInteract(Object.assign({ frame: this.frame, scope: this, radius: 1.6, kind: 'use' }, o)); }
   trigger(o) { return this.world.addTrigger(Object.assign({ frame: this.frame, scope: this }, o)); }
 
   dispose() {
     const W = this.world;
+    for (const fn of this.cleanups) { try { fn(); } catch (e) { console.error('[scope ' + this.id + '] clean-up: ' + e); } }
+    this.cleanups.length = 0;
+    W.courts = W.courts.filter((c) => c.scope !== this);
     for (const m of this.meshes) { W.removeRenderable(m); m.geometry.dispose(); }
     for (const l of this.lights) W.lights.remove(l);
     for (const a of this.ambients) W.lights.removeAmbient(a);
     this.col.removeOwner(this);
-    W.spots = W.spots.filter((s) => s.scope !== this);
+    { const n0 = W.spots.length; W.spots = W.spots.filter((s) => s.scope !== this); if (this.managed) W.managedSpots -= n0 - W.spots.length; }
     W.interacts = W.interacts.filter((s) => s.scope !== this);
     W.triggers = W.triggers.filter((s) => s.scope !== this);
     W.zones = W.zones.filter((s) => s.scope !== this);

@@ -3,6 +3,7 @@
 import { h, btn, clear, isKey, focusEl, hourLabel } from './dom.js';
 import { icon, iconEl } from './icons.js';
 import { openScreen } from './stack.js';
+import { summary, landmarks, parseCell, infoOf, ateAt, cap, BAND_WORDS } from './chervil.js';
 
 const TABS = [
   { id: 'threads', label: 'Threads' },
@@ -10,7 +11,31 @@ const TABS = [
   { id: 'people', label: 'People' },
   { id: 'customs', label: 'Customs' },
   { id: 'cards', label: 'Cards' },
+  { id: 'chervil', label: 'Chervil' },
 ];
+const LATEST = 50;
+const DAY_WORDS = ['Thursday', 'the Quiet', 'Booking Day'];
+const numGB = (n) => Number(n || 0).toLocaleString('en-GB');
+const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
+
+// The Chervil page: a summary, the blocks you have walked into (newest first, the latest fifty), then the landmarks.
+function chervilItems(G, reached) {
+  const sum = summary(G);
+  const flags = G.flags() || {};
+  const lms = reached ? reached.list().slice().reverse() : [];
+  const all = landmarks(G);
+  const items = [];
+  if (!sum.city && !lms.length) return items;
+  items.push({ type: 'sum', sum, lms, nLandmarks: all.length });
+  const keys = sum.keys.slice(-LATEST).reverse();
+  for (const k of keys) {
+    const q = infoOf(sum.city, parseCell(k));
+    if (q) items.push({ type: 'block', key: k, q, ate: ateAt(flags, k) });
+  }
+  if (sum.keys.length > LATEST) items.push({ type: 'more', n: sum.keys.length - LATEST });
+  for (const m of lms) items.push({ type: 'lm', m });
+  return items;
+}
 
 function cardCaption(c) {
   const bits = [c.place, c.day, c.hour != null && c.hour !== '' ? (typeof c.hour === 'number' ? hourLabel(c.hour) : c.hour) : null].filter(Boolean);
@@ -22,7 +47,7 @@ export function createJournal(ctx) {
   let handle = null;
   let tab = 'threads';
   let data = null;
-  const sel = { threads: 0, found: 0, people: 0, customs: 0, cards: -1 };
+  const sel = { threads: 0, found: 0, people: 0, customs: 0, cards: -1, chervil: 0 };
   let els = null;
 
   function load() {
@@ -32,6 +57,7 @@ export function createJournal(ctx) {
       people: G.journal('people').slice().sort((a, b) => (a.met ? 0 : 1) - (b.met ? 0 : 1)),
       customs: G.journal('customs').slice().sort((a, b) => (a.seen ? 0 : 1) - (b.seen ? 0 : 1)),
       cards: G.journal('cards'),
+      chervil: chervilItems(G, ctx.reached),
     };
   }
 
@@ -41,6 +67,7 @@ export function createJournal(ctx) {
     if (id === 'threads') return String(d.filter((x) => !x.done).length);
     if (id === 'people') return String(d.filter((x) => x.met).length);
     if (id === 'customs') return String(d.filter((x) => x.seen).length);
+    if (id === 'chervil') return String(d.length && d[0].type === 'sum' ? d[0].sum.keys.length : 0);
     return String(d.length);
   }
 
@@ -87,6 +114,15 @@ export function createJournal(ctx) {
       if (id === 'found') return it.found ? { cls: 'is-found', ico: 'sprig', t: it.title || '', s: it.where || '' } : { cls: 'is-unfound', ico: 'ring', t: 'Not yet found', s: it.hint || '' };
       if (id === 'people') return { cls: it.met ? '' : 'is-unmet', sw: it.colour, t: it.name || '', s: it.met ? it.role || '' : 'Not yet met' };
       if (id === 'customs') return it.seen ? { cls: '', ico: 'quill', t: it.term || '', s: '' } : { cls: 'is-unfound', ico: 'ring', t: 'Not yet heard', s: '' };
+      if (id === 'chervil') {
+        if (it.type === 'sum') {
+          const n = it.sum.keys.length;
+          return { cls: 'is-sum', ico: 'map', t: 'Where you have been', s: [plural(n, 'block', 'blocks'), plural(it.sum.halls, 'hall', 'halls'), plural(it.lms.length, 'landmark', 'landmarks')].join(' · ') };
+        }
+        if (it.type === 'block') return { cls: it.ate ? 'is-found' : '', ico: it.ate ? 'bowl' : 'place', t: it.q.name || '', s: cap(it.q.address || '') };
+        if (it.type === 'more') return { cls: 'is-unfound', ico: 'ring', t: 'And ' + plural(it.n, 'block', 'blocks') + ' before those', s: 'The map shows every one' };
+        if (it.type === 'lm') return { cls: 'is-lm', ico: 'diamond', t: it.m.name || '', s: cap(it.m.sub || it.m.group || '') };
+      }
       return null;
     });
   }
@@ -125,7 +161,7 @@ export function createJournal(ctx) {
     clear(page);
     const d = data[tab] || [];
     const it = d[sel[tab]];
-    if (!it) { page.appendChild(h('div', 'gr-empty is-page', tab === 'threads' ? 'No threads yet. Somebody will ask you to do something soon enough.' : 'Nothing here yet.')); return; }
+    if (!it) { page.appendChild(h('div', 'gr-empty is-page', tab === 'threads' ? 'No threads yet. Somebody will ask you to do something soon enough.' : tab === 'chervil' ? 'Nowhere yet. Every block you walk into is written down here.' : 'Nothing here yet.')); return; }
     page.scrollTop = 0;
     if (tab === 'threads') {
       const steps = Array.isArray(it.steps) ? it.steps : [];
@@ -164,6 +200,71 @@ export function createJournal(ctx) {
         page.appendChild(h('div', 'gr-kicker', 'Not yet heard'));
         page.appendChild(h('div', 'gr-jp-hint', 'Listen in the halls.'));
       }
+    } else if (tab === 'chervil') {
+      renderChervil(page, it);
+    }
+  }
+
+  function renderChervil(page, it) {
+    if (it.type === 'sum') {
+      const s = it.sum;
+      const n = s.keys.length;
+      page.appendChild(h('div', 'gr-kicker is-lamp', 'Chervil'));
+      page.appendChild(h('div', 'gr-jp-t', 'Where you have been'));
+      const stat = (big, of, label) => h('div', 'gr-jstat', [h('div', 'gr-jstat-n', [h('span', '', big), of ? h('span', 'gr-jstat-of', of) : null]), h('div', 'gr-jstat-l', label)]);
+      const bands = ['low', 'middle', 'high'].filter((b) => s.bands.has(b)).map((b) => BAND_WORDS[b].replace('the ', ''));
+      page.appendChild(h('div', 'gr-jstats', !s.city ? [stat(String(it.lms.length), it.nLandmarks ? 'of ' + it.nLandmarks : '', 'Landmarks reached')] : [
+        stat(numGB(n), s.count ? 'of ' + numGB(s.count) : '', 'Blocks walked into'),
+        stat(String(s.layers.size), s.nLayers ? 'of ' + s.nLayers : '', 'Layers of decks'),
+        stat(String(s.bands.size), 'of 3', bands.length ? bands.join(', ') : 'Bands'),
+        stat(String(s.rings.size), 'of 9', 'Rings'),
+        stat(String(s.halls), '', s.halls === 1 ? 'Hall eaten at' : 'Halls eaten at'),
+        stat(String(it.lms.length), it.nLandmarks ? 'of ' + it.nLandmarks : '', 'Landmarks reached'),
+      ]));
+      if (s.count) {
+        const years = Math.round((s.count - n) / 365);
+        page.appendChild(h('div', 'gr-jp-x', 'At a block a day, the rest would take ' + years + ' years. People here live about 120.'));
+      }
+      if (s.city && ctx.openMapAt) {
+        const b = btn('gr-btn gr-jmap', [iconEl('map'), 'Round the drum, on the map']);
+        b.addEventListener('click', () => { close(); ctx.openMapAt(null); });
+        page.appendChild(b);
+      }
+      return;
+    }
+    if (it.type === 'block') {
+      const q = it.q;
+      const dish = Array.isArray(q.dish) ? q.dish : [String(q.dish || ''), ''];
+      page.appendChild(h('div', 'gr-kicker ' + (it.ate ? 'is-leaf' : 'is-lamp'), it.ate ? 'You ate here' : 'A block you have walked into'));
+      page.appendChild(h('div', 'gr-jp-t', q.name || ''));
+      page.appendChild(h('div', 'gr-jp-where', [iconEl('place'), h('span', '', cap(q.address || '') + ' · ' + (Number(q.g) || 0).toFixed(2) + ' g')]));
+      const row = (label, val, line) => h('div', 'gr-jrowx', [h('div', 'gr-jrowx-l', label), h('div', 'gr-jrowx-v', [val, line ? h('div', 'gr-jrowx-s', line) : null])]);
+      page.appendChild(h('div', 'gr-jrows', [
+        row('Streets', (q.avenue || '') + (q.street ? ' and ' + q.street : '')),
+        row('Hall', q.hall || '', q.cook && String(q.hall || '').indexOf(q.cook) < 0 ? 'Cooked by ' + q.cook : ''),
+        row(it.ate ? 'You ate' : 'Today', cap(dish[0]), dish[1]),
+      ]));
+      if (q.pride) page.appendChild(h('div', 'gr-jp-hint is-pride', q.pride));
+      if (ctx.openMapAt) {
+        const b = btn('gr-btn gr-jmap', [iconEl('map'), 'Show it on the map']);
+        b.addEventListener('click', () => { close(); ctx.openMapAt({ L: q.L, i: q.i, j: q.j }); });
+        page.appendChild(b);
+      }
+      return;
+    }
+    if (it.type === 'more') {
+      page.appendChild(h('div', 'gr-kicker', 'Further back'));
+      page.appendChild(h('div', 'gr-jp-t', 'And ' + plural(it.n, 'block', 'blocks') + ' before those'));
+      page.appendChild(h('div', 'gr-jp-hint', 'The journal keeps the latest ' + LATEST + ' here. Round the drum, on the map, every block you have walked into is filled in.'));
+      return;
+    }
+    if (it.type === 'lm') {
+      const m = it.m;
+      const day = m.day ? (DAY_WORDS[m.day - 1] || 'day ' + m.day) : '';
+      page.appendChild(h('div', 'gr-kicker is-lamp', m.group ? cap(m.group) : 'A landmark'));
+      page.appendChild(h('div', 'gr-jp-t', m.name || ''));
+      if (m.sub) page.appendChild(h('div', 'gr-jp-where', [iconEl('place'), h('span', '', cap(m.sub))]));
+      if (day) page.appendChild(h('div', 'gr-jp-x', 'You first reached it on ' + day + '.'));
     }
   }
 
@@ -222,7 +323,7 @@ export function createJournal(ctx) {
         if (k === 'Escape' && !els.viewer.classList.contains('gr-gone')) { e.preventDefault(); els.viewer.classList.add('gr-gone'); return true; }
         if (k === 'Escape' && els.body.classList.contains('is-detail') && window.innerWidth <= 720) { e.preventDefault(); els.body.classList.remove('is-detail'); return true; }
         if (isKey(e, 'j')) { e.preventDefault(); close(); return true; }
-        if (/^[1-5]$/.test(k)) { e.preventDefault(); setTab(TABS[Number(k) - 1].id, true); focusList(); return true; }
+        if (/^[1-6]$/.test(k)) { e.preventDefault(); setTab(TABS[Number(k) - 1].id, true); focusList(); return true; }
         if (k === 'ArrowRight' || k === 'ArrowLeft') {
           e.preventDefault();
           const onCard = document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('gr-pcard');

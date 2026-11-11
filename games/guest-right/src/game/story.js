@@ -180,13 +180,24 @@ export function setupStory(game) {
   game.saveGame = () => {
     const p = game.player; if (!p.frame || !game.started) return;      // never from the title screen: it stands in the court at dusk
     if (p.mode === 'fly' || (game.cab && game.cab.riding)) return;       // nor from the air or a cab: there is nowhere to come back to
-    save.set('where', { frame: p.frame.id, x: p.pos.x, y: p.pos.y, z: p.pos.z, yaw: p.yaw, day: game.clock.day, minutes: game.clock.minutes });
+    if (p.locked) return;                                                // nor while a ride has hold of you (a slide, a car on the loop, a rope ferry)
+    const where = { frame: p.frame.id, x: p.pos.x, y: p.pos.y, z: p.pos.z, yaw: p.yaw, day: game.clock.day, minutes: game.clock.minutes };
+    // a place that is built when you go there has to be built again before you can come back to it
+    const region = game.regions ? game.regions.ofFrame(p.frame.id) : null; if (region) where.region = region;
+    save.set('where', where);
     persist();
   };
-  game.loadGame = () => {
+  // Resolves to true if the player was put back where they were (the caller starts them at the station otherwise).
+  game.loadGame = async () => {
     const w = save.get('where', null); if (!w) return false;
-    const f = game.world.frames.get(w.frame); if (!f) return false;
-    game.player.place(f, w.x, w.y + 0.05, w.z, w.yaw); game.clock.day = w.day; game.clock.minutes = w.minutes; return true;
+    try {
+      if (w.region && game.regions) await game.regions.load(w.region);
+      let f = game.world.frames.get(w.frame);
+      if (!f && game.city && /^layer\d+$/.test(w.frame)) f = game.city.frame(parseInt(w.frame.slice(5), 10));
+      if (!f) return false;
+      if (game.city && game.city.ensureAt) await game.city.ensureAt(f, w.x, w.z);
+      game.player.place(f, w.x, w.y + 0.05, w.z, w.yaw); game.clock.day = w.day; game.clock.minutes = w.minutes; return true;
+    } catch (e) { console.error('[save] could not go back to where you were: ' + (e && e.stack ? e.stack : e)); return false; }
   };
   game.hasSave = () => !!save.get('where', null);
   game.newGame = () => { for (const k of ['flags', 'items', 'found', 'met', 'customs', 'threads', 'said']) for (const q in st[k]) delete st[k][q]; st.cards.length = 0; persist(); save.remove('where'); save.remove('wallet'); game.wallet.kwh = 21.6; };

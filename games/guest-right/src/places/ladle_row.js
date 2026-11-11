@@ -133,7 +133,7 @@ export const place = {
 
     // ---------------- the east end: the arch into Ropewalk, and the row running on ----------------
     thresholdArch(s, st, 105, 1, 'ROPEWALK', noteOf('Ropewalk', 'decks 16 to 21'), 'CANDLEWICK', [99, -0.3, -4.5, 111, H + 0.3, 4.5]);
-    runOn(s, st, { a0: 105, a1: 145, dir: 1, clip: [104.6, -0.3, -4.5, 145.2, H + 0.3, 4.5], name: 'Ropewalk', seed: 1,
+    if (!game.city) runOn(s, st, { a0: 105, a1: 145, dir: 1, clip: [104.6, -0.3, -4.5, 145.2, H + 0.3, 4.5], name: 'Ropewalk', seed: 1,
       lobbyPlate: { kind: 'plate', text: 'ROPEWALK CORE', lines: ['cabs · decks 16 to 21'] },
       cabText: 'A Ropewalk cab is waiting in the berth. Candlewick is just back down the row, under the arch.' });
 
@@ -201,13 +201,14 @@ export const place = {
 
     // ---------------- the west end: the arch into Pennyfold ----------------
     thresholdArch(s, st, -105, -1, 'PENNYFOLD', noteOf('Pennyfold', 'decks 16 to 21'), 'CANDLEWICK', [-111, -0.3, -4.5, -99, H + 0.3, 4.5]);
-    runOn(s, st, { a0: -105, a1: -145, dir: -1, clip: [-145.2, -0.3, -4.5, -104.6, H + 0.3, 4.5], name: 'Pennyfold', seed: 4,
+    if (!game.city) runOn(s, st, { a0: -105, a1: -145, dir: -1, clip: [-145.2, -0.3, -4.5, -104.6, H + 0.3, 4.5], name: 'Pennyfold', seed: 4,
       lobbyPlate: { kind: 'plate', text: 'PENNYFOLD CORE', lines: ['cabs · decks 16 to 21'] },
       cabText: 'A Pennyfold cab is waiting in the berth. You leave it be: the baths are back under the arch, and so is lunch.' });
 
     // ---------------- people: walkways, groups, places to stand ----------------
     const vS = 2.55;
-    for (const arm of [[28, 145, linesE, doorsN, doorsS], [-145, -28, linesW, doorsN, doorsS]]) {
+    const far = game.city ? 105 : 145;       // with the city, Ropewalk and Pennyfold are real blocks that begin at the arches
+    for (const arm of [[28, far, linesE, doorsN, doorsS], [-far, -28, linesW, doorsN, doorsS]]) {
       const [a0, a1, lines] = arm;
       const inArm = (a) => a >= a0 - 0.1 && a <= a1 + 0.1;
       const dn = arm[3].filter(inArm), ds = arm[4].filter(inArm);
@@ -226,8 +227,10 @@ export const place = {
     // ---------------- zones, sound, discoveries ----------------
     s.zoneBox({ id: 'ladle-row-east', place: 'ladle-row', box: [28, -0.5, -4, 105, H, 4], name: 'Ladle Row', sub: 'Candlewick · deck 16 · runs spinward', ambience: 'arcade', reverb: 'ring' });
     s.zoneBox({ id: 'ladle-row-west', place: 'ladle-row', box: [-105, -0.5, -4, -28, H, 4], name: 'Ladle Row', sub: 'Candlewick · deck 16 · runs anti', ambience: 'arcade', reverb: 'ring' });
-    s.zoneBox({ id: 'ropewalk-row', box: [105, -0.5, -4, 148.6, H, 4], name: 'Ropewalk', sub: 'the next block · Ladle Row runs on', ambience: 'arcade', reverb: 'ring' });
-    s.zoneBox({ id: 'pennyfold-row', box: [-148.6, -0.5, -4, -105, H, 4], name: 'Pennyfold', sub: 'the next block · Ladle Row runs on', ambience: 'arcade', reverb: 'ring' });
+    if (!game.city) {
+      s.zoneBox({ id: 'ropewalk-row', box: [105, -0.5, -4, 148.6, H, 4], name: 'Ropewalk', sub: 'the next block · Ladle Row runs on', ambience: 'arcade', reverb: 'ring' });
+      s.zoneBox({ id: 'pennyfold-row', box: [-148.6, -0.5, -4, -105, H, 4], name: 'Pennyfold', sub: 'the next block · Ladle Row runs on', ambience: 'arcade', reverb: 'ring' });
+    }
     let airOn = false;
     game.events.on('zone', (e) => {
       const z = e && (e.zone || e); if (airOn || !z || z.scope !== s || !game.audio) return; airOn = true;

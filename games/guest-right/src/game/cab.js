@@ -4,8 +4,9 @@ import { room } from '../world/kit2.js';
 import { lamp } from '../world/kit.js';
 import { prop } from '../world/props.js';
 import { sign, signRect } from '../world/signs.js';
-import { deckOf, gAt, DRUM } from '../core/drum.js';
+import { deckOf, deckRadius, gAt, DRUM } from '../core/drum.js';
 import { lerp, smoother, clamp } from '../core/util.js';
+import { parseKey } from '../core/layout.js';
 
 export function createCab(game) {
   const stops = [];
@@ -13,27 +14,36 @@ export function createCab(game) {
   const cab = {
     stops,
     // addStop({ id, name, sub, frame, x, y, z, yaw, when: (game) => bool })   (x, y, z): where you step out
+    // A stop in a region that is built on demand has { region, spawn, deck } in place of the frame and position;
+    // a block of the city has { cell: { L, i, j } } (see src/city/city.js).
     addStop(s) { const i = stops.findIndex((q) => q.id === s.id); if (i >= 0) stops[i] = s; else stops.push(s); return s; },
     get riding() { return riding; },
     // open the berth's list of stops; fromId is the stop you are at
     async open(fromId) {
       if (riding || game.busy) return;
-      const here = stops.find((s) => s.id === fromId);
+      const here = stops.find((s) => s.id === fromId) || { id: fromId };
       const list = stops.filter((s) => s.id !== fromId && (!s.when || s.when(game)));
-      if (!list.length) { if (game.ui) game.ui.toast('No cabs are running from here yet.', { kind: 'info' }); return; }
-      let pick = list[0].id;
-      if (game.ui) { game.busy++; try { pick = await game.ui.choose({ name: 'Cab', colour: '#3fe0d0' }, 'Where to', list.map((s) => ({ label: s.name, sub: s.sub, value: s.id }))); } finally { game.busy--; } }
-      if (!pick) return;
-      return cab.ride(here, stops.find((s) => s.id === pick));
+      const city = game.city && game.city.pick ? game.city : null;
+      if (!list.length && !city) { if (game.ui) game.ui.toast('No cabs are running from here yet.', { kind: 'info' }); return; }
+      let to = list[0] || null;
+      if (game.ui) { game.busy++; try { to = await chooseStop(list, city, fromId); } finally { game.busy--; } }
+      if (!to) return;
+      return cab.ride(here, to);
     },
     async ride(from, to) {
       if (riding || !to) return; riding = true; game.busy++;
       const W = game.world, p = game.player, ui = game.ui;
       try {
-        if (!built) built = buildCabin(game);
+        if (!built) { const g0 = game.atlas ? game.atlas.group : null; if (game.atlas) game.atlas.group = null; try { built = buildCabin(game); } finally { if (game.atlas) game.atlas.group = g0; } }
         const f = built.frame;
-        const rhoA = from ? from.frame.rho(from.y) : p.frame.rho(p.pos.y), rhoB = to.frame.rho(to.y);
-        const dist = Math.abs(rhoB - rhoA) + Math.abs((to.frame.zd(to.z)) - (from ? from.frame.zd(from.z) : p.frame.zd(p.pos.z))) * 0.3;
+        cab._back = { frame: p.frame, x: p.pos.x, y: p.pos.y, z: p.pos.z, yaw: p.yaw };
+        // where the ride ends: known at once for a built place; a region or a city block is built while you ride
+        const lazy = !to.frame;
+        const landing = lazy ? (to.cell && game.city ? game.city.arrive(to.cell) : game.regions.load(to.region).then(() => { const sp = game.spawns[to.spawn]; return sp ? { frame: sp.frame, x: sp.x, y: sp.y, z: sp.z, yaw: sp.yaw || 0 } : null; })) : Promise.resolve(to);
+        const rhoA = p.frame.rho(p.pos.y), zA = p.frame.zd(p.pos.z);
+        const meta = lazy ? (to.cell && game.city ? game.city.where(to.cell) : { rho: deckRadius(to.deck || 1), z: to.zd !== undefined ? to.zd : zA }) : { rho: to.frame.rho(to.y), z: to.frame.zd(to.z) };
+        const rhoB = meta.rho;
+        const dist = Math.abs(rhoB - rhoA) + Math.abs(meta.z - zA) * 0.3;
         const T = clamp(5 + dist / 190, 6, 13);
         if (game.audio) game.sfx('berth-door');
         if (ui) await ui.fade(true, 0.45);
@@ -51,17 +61,49 @@ export function createCab(game) {
             if (t >= T) { off(); res(); }
           });
         });
+        p.gOverride = gAt(rhoB);
+        let dest = null;
+        try { dest = await landing; } catch (e) { console.error('[cab] ' + (e && e.stack ? e.stack : e)); }
         p.roll = 0; p.gOverride = null;
         if (game.audio) { game.sfx('cab-stop'); game.sfx('chime', { delay: 0.25 }); }
         if (ui) await ui.fade(true, 0.45);
-        p.stand(); p.locked = false; p.place(to.frame, to.x, to.y, to.z, to.yaw || 0, 0);
+        if (!dest) { const b = cab._back; p.stand(); p.locked = false; if (b) p.place(b.frame, b.x, b.y, b.z, b.yaw || 0, 0); if (ui) { await ui.fade(false, 0.6); ui.toast('The cab comes back to where it started. That stop is closed today.', { kind: 'info' }); } riding = false; game.busy--; return; }
+        p.stand(); p.locked = false; p.place(dest.frame, dest.x, dest.y, dest.z, dest.yaw || 0, 0);
         if (ui) { await ui.fade(false, 0.6); ui.banner(to.banner || to.name, to.sub || ''); ui.hud.thread(game.journal ? game.journal.current() : null); }
-        game.events.emit('cab:arrive', { from: from && from.id, to: to.id });
+        game.events.emit('cab:arrive', { from: from && from.id, to: to.id, region: to.region || null, cell: to.cell || null });
+        if (game.regions) game.regions.trim();
         if (game.saveGame) game.saveGame();
       } catch (e) { console.error('[cab] ' + (e && e.stack ? e.stack : e)); game.player.locked = false; game.player.gOverride = null; game.player.stand(); if (game.ui) game.ui.fade(false, 0.3); }
       riding = false; game.busy--;
     },
   };
+  // the stops built with the first game have no group of their own
+  const GROUP_OF = { 'lobby-a': 'Candlewick', 'lobby-b': 'Candlewick', station: 'The stations', 'lake-pavilion': 'The Hollow', 'dawn-terrace': 'The end walls', 'third-terrace': 'The end walls', 'flying-hall': 'The axles' };
+  const GROUP_ORDER = ['Candlewick', 'The stations', 'The Keel', 'The line decks', 'The Low decks', 'The Middle decks', 'The High decks', 'The Hollow', 'The end walls', 'The axles'];
+  // The list at a berth: single stops, groups of stops (a quarter with several berths: stops that carry `group`), and any
+  // block of the city by address.
+  async function chooseStop(list, city, fromId) {
+    const ui = game.ui, who = { name: 'Cab', colour: '#3fe0d0' };
+    for (;;) {
+      const groups = new Map(), top = [];
+      for (const s of list) { const gr = s.group || GROUP_OF[s.id]; if (gr) { let g = groups.get(gr); if (!g) { groups.set(gr, g = []); top.push({ group: gr, items: g }); } g.push(s); } else top.push({ stop: s }); }
+      // nearest things first: Candlewick, then down the drum from the rim to the axis
+      const rank = (t) => { const k = GROUP_ORDER.indexOf(t.group || ''); return k < 0 ? GROUP_ORDER.length : k; };
+      top.sort((a, b) => rank(a) - rank(b));
+      const opts = top.map((t) => (t.stop ? { label: t.stop.name, sub: t.stop.sub, value: t.stop.id } : t.items.length === 1 ? { label: t.items[0].name, sub: t.items[0].sub, value: t.items[0].id } : { label: t.group, sub: t.items.length + ' stops', value: 'g:' + t.group }));
+      if (city) opts.push({ label: 'Another block of Chervil', sub: 'any of ' + city.count.toLocaleString('en-GB') + ', by address', value: '__city' });
+      const pick = await ui.choose(who, 'Where to', opts);
+      if (!pick) return null;
+      if (pick === '__city') { const m = /^cell:(.+)$/.exec(fromId || ''); const cell = await city.pick(m ? parseKey(m[1]) : null); if (cell) return cell.stop ? cell.stop : city.stop(cell); continue; }
+      if (pick.slice(0, 2) === 'g:') {
+        const items = groups.get(pick.slice(2));
+        const p2 = await ui.choose(who, pick.slice(2), items.map((s) => ({ label: s.name, sub: s.sub, value: s.id })).concat([{ label: 'Back', sub: '', value: '__back' }]));
+        if (!p2) return null; if (p2 === '__back') continue;
+        return list.find((s) => s.id === p2) || null;
+      }
+      return list.find((s) => s.id === pick) || null;
+    }
+  }
   return cab;
 }
 

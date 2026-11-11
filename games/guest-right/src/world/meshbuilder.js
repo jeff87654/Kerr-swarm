@@ -5,6 +5,8 @@ import { rgb8, clamp } from '../core/util.js';
 import { MAT_INFO } from '../render/texgen.js';
 import { FLAG } from '../render/worldmat.js';
 
+function _drop() { this.array = null; }
+
 export class MeshBuf {
   constructor(vcap = 256, icap = 512) {
     this.pos = new Float32Array(vcap * 3); this.nrm = new Int8Array(vcap * 4); this.uv = new Float32Array(vcap * 2);
@@ -25,11 +27,11 @@ export class MeshBuf {
   clear() { this.nv = 0; this.ni = 0; }
   // append another buffer's triangles [i0, i1) (index range), offsetting positions by (dx,dy,dz); only the vertices used are copied
   appendRange(src, i0, i1, dx, dy, dz, remap) {
-    const n = i1 - i0; this._growI(n);
+    const n = i1 - i0; this._growI(n); this._growV(Math.min(n, src.nv));
     for (let k = i0; k < i1; k++) {
       const sv = src.idx[k]; let dv = remap[sv];
       if (dv === -1) {
-        this._growV(1); dv = this.nv++; remap[sv] = dv;
+        dv = this.nv++; remap[sv] = dv;
         this.pos[dv * 3] = src.pos[sv * 3] + dx; this.pos[dv * 3 + 1] = src.pos[sv * 3 + 1] + dy; this.pos[dv * 3 + 2] = src.pos[sv * 3 + 2] + dz;
         const a = dv * 4, b = sv * 4;
         this.nrm[a] = src.nrm[b]; this.nrm[a + 1] = src.nrm[b + 1]; this.nrm[a + 2] = src.nrm[b + 2];
@@ -40,7 +42,9 @@ export class MeshBuf {
       this.idx[this.ni++] = dv;
     }
   }
-  toGeometry() {
+  // release: once the graphics card has the data, drop our copy (for geometry nobody edits afterwards: a city block
+  // comes and goes many times, and holding a second copy of every block in memory adds up)
+  toGeometry(release) {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(this.pos.slice(0, this.nv * 3), 3));
     g.setAttribute('normal', new THREE.BufferAttribute(this.nrm.slice(0, this.nv * 4), 4, true));
@@ -48,6 +52,7 @@ export class MeshBuf {
     g.setAttribute('aColor', new THREE.BufferAttribute(this.col.slice(0, this.nv * 4), 4, true));
     g.setAttribute('aMat', new THREE.BufferAttribute(this.mat.slice(0, this.nv * 4), 4, false));
     g.setIndex(new THREE.BufferAttribute(this.nv > 65535 ? this.idx.slice(0, this.ni) : new Uint16Array(this.idx.subarray(0, this.ni)), 1));
+    if (release) { for (const k in g.attributes) g.attributes[k].onUpload(_drop); g.index.onUpload(_drop); }
     return g;
   }
   bounds() {
@@ -78,6 +83,9 @@ export class Geo {
     this.stack = []; this.M = new THREE.Matrix4(); this.ident = true;
     this._col = [204, 204, 204, 255]; this._mat = [matLayer('plain'), 0, 0, 128]; this._tile = 1; this._atlas = false;
     this.aoBottom = 1; this.aoTop = 1;
+    // Where this Geo's zero is, in the frame's flat metres. A scope far round the drum (a city block at x = 9,000 m) sets
+    // this to its own middle, so the 32-bit vertex store keeps sub-millimetre precision. Callers still draw in frame coordinates.
+    this.ox = 0; this.oz = 0;
   }
   // --- transform stack (flat space). Calls nest: push(); move(); rotY(); ...; pop();
   push() { this.stack.push(this.M.clone()); return this; }
@@ -110,6 +118,7 @@ export class Geo {
     this._col[0] = this._col[1] = this._col[2] = 255; this._col[3] = 255;
     let flags = FLAG.ATLAS, em = 0; if (o) { if (o.emissive) em = emisCode(o.emissive); if (o.lamp) flags |= FLAG.LAMP; if (o.night) flags |= FLAG.NIGHT; }
     this._mat[0] = page; this._mat[1] = em; this._mat[2] = flags; this._mat[3] = o && o.rough !== undefined ? clamp(Math.round(o.rough * 255), 0, 255) : 150; this._tile = 1; this._atlas = true;
+    this.usedAtlas = true;          // what this Geo holds points into the sign atlas (see props.js)
     return this;
   }
   tint(t) { const c = rgb8(t); this._col[0] = c[0]; this._col[1] = c[1]; this._col[2] = c[2]; return this; }
@@ -124,7 +133,7 @@ export class Geo {
       const NX = e[0] * nx + e[4] * ny + e[8] * nz, NY = e[1] * nx + e[5] * ny + e[9] * nz, NZ = e[2] * nx + e[6] * ny + e[10] * nz;
       const l = Math.hypot(NX, NY, NZ) || 1; x = X; y = Y; z = Z; nx = NX / l; ny = NY / l; nz = NZ / l;
     }
-    b.pos[i * 3] = x; b.pos[i * 3 + 1] = y; b.pos[i * 3 + 2] = z;
+    b.pos[i * 3] = x - this.ox; b.pos[i * 3 + 1] = y; b.pos[i * 3 + 2] = z - this.oz;
     const a = i * 4;
     b.nrm[a] = Math.round(nx * 127); b.nrm[a + 1] = Math.round(ny * 127); b.nrm[a + 2] = Math.round(nz * 127);
     if (rawUV || this._atlas) { b.uv[i * 2] = u; b.uv[i * 2 + 1] = w; } else { b.uv[i * 2] = u / this._tile; b.uv[i * 2 + 1] = w / this._tile; }
@@ -402,7 +411,7 @@ export class Geo {
     const b = this.buf; b._growV(src.nv); b._growI(src.ni); const base = b.nv; const e = this.M.elements;
     for (let i = 0; i < src.nv; i++) {
       const x = src.pos[i * 3], y = src.pos[i * 3 + 1], z = src.pos[i * 3 + 2]; const o = (base + i);
-      b.pos[o * 3] = e[0] * x + e[4] * y + e[8] * z + e[12]; b.pos[o * 3 + 1] = e[1] * x + e[5] * y + e[9] * z + e[13]; b.pos[o * 3 + 2] = e[2] * x + e[6] * y + e[10] * z + e[14];
+      b.pos[o * 3] = e[0] * x + e[4] * y + e[8] * z + e[12] - this.ox; b.pos[o * 3 + 1] = e[1] * x + e[5] * y + e[9] * z + e[13]; b.pos[o * 3 + 2] = e[2] * x + e[6] * y + e[10] * z + e[14] - this.oz;
       const nx = src.nrm[i * 4], ny = src.nrm[i * 4 + 1], nz = src.nrm[i * 4 + 2];
       let NX = e[0] * nx + e[4] * ny + e[8] * nz, NY = e[1] * nx + e[5] * ny + e[9] * nz, NZ = e[2] * nx + e[6] * ny + e[10] * nz; const l = Math.hypot(NX, NY, NZ) || 1;
       b.nrm[o * 4] = Math.round(NX / l * 127); b.nrm[o * 4 + 1] = Math.round(NY / l * 127); b.nrm[o * 4 + 2] = Math.round(NZ / l * 127);

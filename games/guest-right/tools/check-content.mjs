@@ -22,7 +22,7 @@ const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
 
 const placeIds = new Set(Object.keys(PLACES));
 const castIds = new Set(Object.keys(CAST));
-const AREAS = ['station', 'candlewick', 'hollow', 'terraces', 'spindle'];
+const AREAS = ['station', 'candlewick', 'hollow', 'terraces', 'spindle', 'city', 'keel', 'lines', 'axles', 'walls'];
 const DAYS = ['day1', 'day2', 'day3'];
 const TIMES = ['morning', 'midday', 'evening', 'night'];
 const OTHER_TAGS = ['kids', 'elders', 'any'];

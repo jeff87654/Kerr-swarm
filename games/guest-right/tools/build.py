@@ -23,7 +23,7 @@ DIST = os.path.join(ROOT, "dist")
 BANNED = ["testament to", "tapestry", "bustling", "nestled", "whispers of", "symphony of", "vibrant",
           "hum of life", "in a world where", "delve", "realm", "beacon", "labyrinthine", "a dance of"]
 # folders whose strings a player reads
-PROSE_DIRS = ("content", "places", "ui", "game")
+PROSE_DIRS = ("content", "places", "ui", "game", "city")
 
 IMPORT_RE = re.compile(r"^import\s+(?P<what>[\s\S]*?)\s+from\s+['\"](?P<path>[^'\"]+)['\"]\s*;?[ \t]*$", re.M)
 IMPORT_BARE_RE = re.compile(r"^import\s+['\"]([^'\"]+)['\"]\s*;?[ \t]*$", re.M)
@@ -39,6 +39,48 @@ def read(path):
 
 def rel(path):
     return os.path.relpath(path, ROOT).replace("\\", "/")
+
+
+def more_declarators(src, i):
+    """The names declared after the first in `const a = ..., b = ..., c = ...;` (i is just past the first name).
+    A plain scan: brackets and quotes are followed, a comma at depth nought starts the next name, and the statement ends
+    at a semicolon at depth nought or at a line that begins at column 0. It reads declarations, not JavaScript: anything
+    cleverer than a list of initialisers wants an export statement of its own."""
+    names, depth, n = [], 0, len(src)
+    while i < n:
+        c = src[i]
+        if c in "\"'`":
+            q = c
+            i += 1
+            while i < n and src[i] != q:
+                i += 2 if src[i] == "\\" else 1
+            i += 1
+            continue
+        if c == "/" and i + 1 < n and src[i + 1] == "/":
+            while i < n and src[i] != "\n":
+                i += 1
+            continue
+        if c == "/" and i + 1 < n and src[i + 1] == "*":
+            j = src.find("*/", i + 2)
+            i = n if j < 0 else j + 2
+            continue
+        if c in "([{":
+            depth += 1
+        elif c in ")]}":
+            depth -= 1
+            if depth < 0:
+                break
+        elif depth == 0:
+            if c == ";":
+                break
+            if c == "\n" and i + 1 < n and src[i + 1] not in " \t\r\n,":
+                break
+            if c == ",":
+                mo = re.match(r"\s*([A-Za-z_$][\w$]*)\s*=(?!=)", src[i + 1:])
+                if mo:
+                    names.append(mo.group(1))
+        i += 1
+    return names
 
 
 class Bundle:
@@ -60,7 +102,7 @@ class Bundle:
             self.warn(f"missing file: {rel(path)} (imported by {rel(stack[-1]) if stack else 'the entry'})")
             return
         src = read(path)
-        m = {"src": src, "deps": [], "exports": [], "path": path}
+        m = {"src": src, "deps": [], "exports": [], "imports": [], "path": path}
         self.mods[path] = m
         # imports
         def do_import(mo):
@@ -87,8 +129,10 @@ class Bundle:
                 if " as " in part:
                     a, b = [x.strip() for x in part.split(" as ")]
                     names.append(f"{a}: {b}")
+                    m["imports"].append((dep, a))
                 else:
                     names.append(part)
+                    m["imports"].append((dep, part))
             return "const { " + ", ".join(names) + " } = __req(" + json.dumps(rel(dep)) + ");"
         body = IMPORT_RE.sub(do_import, src)
         if IMPORT_BARE_RE.search(body):
@@ -102,6 +146,9 @@ class Bundle:
                 self.warn(f"{rel(path)}: unsupported export: `{line.strip()[:70]}` (use export function / class / const at column 0)")
         def do_export(mo):
             m["exports"].append(mo.group("name"))
+            if mo.group("kind") == "const":
+                for extra in more_declarators(body, mo.end()):
+                    m["exports"].append(extra)
             return mo.group("kind") + " " + mo.group("name")
         body = EXPORT_DECL_RE.sub(do_export, body)
         if re.search(r"^\s*await\s", "\n".join(l for l in body.split("\n") if not l.startswith((" ", "\t"))), re.M):
@@ -110,6 +157,15 @@ class Bundle:
         for dep in m["deps"]:
             self.load(dep, stack + (path,))
         self.order.append(path)
+
+    def check_imports(self):
+        """Every name a module imports must be one the other module exports: in the bundle a name that is not there is
+        simply undefined, and nothing says so until the code that uses it runs."""
+        for path, m in self.mods.items():
+            for dep, name in m["imports"]:
+                d = self.mods.get(dep)
+                if d is not None and name not in d["exports"]:
+                    self.warn(f"{rel(path)}: imports `{name}` from {rel(dep)}, which does not export it")
 
     def js(self):
         out = ["const __mods = {};", "const __req = (id) => { const m = __mods[id]; if (!m) throw new Error('module not loaded: ' + id); return m; };"]
@@ -199,12 +255,36 @@ SKELETON = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n')
 
 
+def syntax_errors(b):
+    """Modules that node cannot parse, as messages. Empty if node is not installed."""
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        return []
+    out = []
+    paths = [m["path"] for m in b.mods.values() if os.path.exists(m["path"])]
+    # all at once first (quick); one by one only if something is wrong
+    procs = []
+    for i in range(0, len(paths), 40):
+        chunk = paths[i:i + 40]
+        script = "const fs=require('fs');const vm=require('vm');let bad=0;for(const p of process.argv.slice(1)){try{new vm.SourceTextModule(fs.readFileSync(p,'utf8'),{identifier:p});}catch(e){bad++;console.log(p+'\t'+String(e.message).split('\n')[0]);}}process.exit(bad?1:0);"
+        procs.append(subprocess.run([node, "--experimental-vm-modules", "--no-warnings", "-e", script] + chunk, capture_output=True, text=True))
+    for pr in procs:
+        for line in pr.stdout.splitlines():
+            if "	" in line:
+                path, msg = line.split("	", 1)
+                out.append(f"{rel(path)}: does not parse: {msg}")
+        if pr.returncode not in (0, 1) and pr.stderr.strip():
+            out.append("syntax check could not run: " + pr.stderr.strip().splitlines()[-1])
+    return out
+
+
 def main():
     args = sys.argv[1:]
     check_only = "--check" in args
     places = [p for p in json.loads(read(os.path.join(SRC, "places.json"))) if os.path.exists(os.path.join(SRC, p))]
     missing = [p for p in json.loads(read(os.path.join(SRC, "places.json"))) if not os.path.exists(os.path.join(SRC, p))]
-    entry_path = os.path.join(SRC, "__entry.js")
+    entry_path = os.path.join(SRC, "__entry_%d.js" % os.getpid())      # one per process: several builds may run at once
     b = Bundle()
     src = entry_source(places)
     with open(entry_path, "w", encoding="utf-8", newline="\n") as f:
@@ -213,6 +293,7 @@ def main():
         b.load(entry_path)
     finally:
         os.remove(entry_path)
+    b.check_imports()
     check_prose(b)
     for p in missing:
         print(f"note: {p} is listed in places.json but not written yet")
@@ -223,6 +304,12 @@ def main():
             print("warning: " + p)
             seen.add(p)
     hard = [p for p in seen if not re.search(r"dash in|exclamation mark in|banned phrase", p)]
+    # the bundler reads imports and exports, not JavaScript: let node say whether every module parses
+    bad = syntax_errors(b)
+    for e in bad:
+        print("warning: " + e)
+    hard += bad
+    seen |= set(bad)
     print(f"{len(b.order)} modules, {sum(len(m['src']) for m in b.mods.values()) // 1024} kB of source, {len(seen)} warnings ({len(hard)} that break the build)")
     if check_only:
         sys.exit(1 if hard else 0)

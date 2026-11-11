@@ -143,4 +143,99 @@ export const THREADS = [
     text: 'One card home from every row, sent by light and postmarked with the delay. Spelt is 23.7 seconds away.',
     steps: ['Write your card home to Pell'],
   },
+
+  // ---------------------------------------------------------------- the whole drum (src/places/story_drum.js)
+  // These open after your first night in Chervil, or as soon as you leave Candlewick, and every step is "later":
+  // they never take the line under the compass from the three days' own threads.
+  {
+    id: 'other-tables', title: 'A seat at every table',
+    text: "Guest-right is a seat at any hall in Chervil, and every block keeps one long table, with a cook whose name is on the door. Walk out of Candlewick along any avenue or street, or take a cab, and ask at the pass.",
+    steps: [
+      'Eat at the hall of a block that is not Candlewick: ask at the pass',
+      'Eat at five halls',
+      'Eat at a hall on the Low decks, 16 to 113',
+      'Eat at a hall on the Middle decks, 114 to 301: a cab from any lift core will take you',
+      'Eat at a hall on the High decks, 302 to 375, among the elders',
+    ],
+    later: [0, 1, 2, 3, 4],
+  },
+  {
+    id: 'three-weights', title: 'Three weights',
+    text: "Chervil's homes run from deck 16, at almost a full g, to deck 375, at half a g. The Low decks have the children and the schools, the Middle decks the workshops, the High decks the old.",
+    steps: [
+      'Walk into a block on the Low decks that is not Candlewick',
+      'Set foot on the Middle decks, 114 to 301: take a cab from any lift core',
+      'Set foot on the High decks, 302 to 375',
+    ],
+    later: [0, 1, 2],
+  },
+  {
+    id: 'nine-rings', title: 'Front to back',
+    text: "Nine Rings run along the axis, each about 417 metres, named for the station ring beneath. Ring One is at the front cap, where the power comes in; Ring Nine at the back, where the heat goes out. Streets run along the axis, so a street will take you from one to the next.",
+    steps: [
+      'Set foot in a block in Ring One, against the front cap',
+      'Set foot in a block in Ring Two',
+      'Set foot in a block in Ring Three',
+      'Set foot in a block in Ring Four',
+      'Set foot in a block in Ring Five, the middle of the drum',
+      'Set foot in a block in Ring Six',
+      'Set foot in a block in Ring Seven',
+      'Set foot in a block in Ring Eight',
+      'Set foot in a block in Ring Nine, against the back cap',
+    ],
+    later: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  },
+  {
+    id: 'the-works', title: 'What feeds the drum',
+    text: "Nobody lives in the Keel, and everyone eats from it. Some of the works are open to visitors, and a cab from any lift core will take you down: look under The Keel and The line decks on the cab's list.",
+    steps: [
+      'Take a cab down to the Flour Hall in the Keel: deck 9, Ring Five',
+      'Visit another of the works: the Garden, the Loop Hall, the strain library or the line works',
+      'And one more of them',
+    ],
+    later: [0, 1, 2],
+  },
+  {
+    id: 'top-of-wall', title: 'The top of the wall',
+    text: "The end walls climb toward the axis in thirty tiers, about fifty metres apart and lighter on every one. Above the Third, tier ten, are the Quarter at tier fifteen, the Tenth at tier twenty-four and the Twentieth at tier twenty-seven, where a child can jump the height of a house.",
+    steps: [
+      'Go up to the Quarter, tier fifteen of the back wall: the cab list has it under The end walls',
+      'Go up to the Tenth, tier twenty-four',
+      'Go up to the Twentieth, tier twenty-seven, the top garden',
+      "Jump up to the highest ledge in the Twentieth's garden",
+    ],
+    later: [0, 1, 2, 3],
+  },
+  {
+    id: 'the-river', title: 'The River',
+    text: "Chervil's children see the stars once, at about eight, through a Window behind the back axle, with one adult of their choosing. What fills the Window is what the back crews call the River.",
+    steps: [
+      'Take a cab to the back axle: the cab list has it under The axles',
+      'Stand in the heat hall at the back axle and hear the heat leave',
+      'Go on through the still side to the Window, and sit at it',
+    ],
+    later: [0, 1, 2],
+  },
+  {
+    id: 'heavy-light', title: 'Heavier and lighter',
+    text: "A cab going spinward round a loop goes round faster than the drum, and you weigh more; going anti, you weigh less. Loop signs post two limits, and some people choose their route for the feeling.",
+    steps: [
+      'Take a cab to the Press and the Soufflé, on line deck 63 in Ring Six',
+      'Ride the Press: spinward, and heavy',
+      'Ride the Soufflé: anti, and light',
+    ],
+    later: [0, 1, 2],
+  },
+  {
+    id: 'day-out', title: 'A day out',
+    text: "Some of what Chervil builds is for nothing but the fun of it, and the best of that is built round the one thing a drum has and a planet has not: which way you are going changes what you weigh and where you land.",
+    steps: [
+      'Ride a slide at the Spouts: the cab list has the Spice Rack and the Spouts under The Low decks',
+      'Run the Measure, either way: it is under The Low decks too',
+      'Run a lap of the track at the Breadboard, under The Hollow',
+      'Take the rope ferry to Lid Island and dive off the high board',
+      'Ride the Glide to Sorrel and back: it is under The stations',
+    ],
+    later: [0, 1, 2, 3, 4],
+  },
 ];

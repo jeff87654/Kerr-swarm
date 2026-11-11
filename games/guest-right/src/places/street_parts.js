@@ -13,12 +13,13 @@ import { Rng, hashStr, shadeHex, mixHex } from '../core/util.js';
 // ---------------------------------------------------------------------------------------------------------------
 // street and side descriptors
 // ---------------------------------------------------------------------------------------------------------------
-export function street(axis, hw, H) {
+// c0: where the street's centre line lies across the frame (z for a street along x, x for one along z). Default 0.
+export function street(axis, hw, H, c0 = 0) {
   const X = axis === 'x';
-  const st = { axis, X, hw, H };
-  st.xz = (a, v) => (X ? [a, v] : [v, a]);
-  st.pt = (a, y, v) => (X ? [a, y, v] : [v, y, a]);
-  st.bx = (a0, v0, a1, v1, y0, y1) => (X ? [Math.min(a0, a1), y0, Math.min(v0, v1), Math.max(a0, a1), y1, Math.max(v0, v1)] : [Math.min(v0, v1), y0, Math.min(a0, a1), Math.max(v0, v1), y1, Math.max(a0, a1)]);
+  const st = { axis, X, hw, H, c0 };
+  st.xz = (a, v) => (X ? [a, v + c0] : [v + c0, a]);
+  st.pt = (a, y, v) => (X ? [a, y, v + c0] : [v + c0, y, a]);
+  st.bx = (a0, v0, a1, v1, y0, y1) => (X ? [Math.min(a0, a1), y0, Math.min(v0, v1) + c0, Math.max(a0, a1), y1, Math.max(v0, v1) + c0] : [Math.min(v0, v1) + c0, y0, Math.min(a0, a1), Math.max(v0, v1) + c0, y1, Math.max(a0, a1)]);
   const MAP = X ? { a: 'x', A: 'X', v: 'z', V: 'Z' } : { a: 'z', A: 'Z', v: 'x', V: 'X' };
   st.F = (f) => f.replace(/[aAvV]/g, (c) => MAP[c]);
   st.box = (g, a0, v0, a1, v1, y0, y1, o) => { const b = st.bx(a0, v0, a1, v1, y0, y1); if (o && o.faces) o = Object.assign({}, o, { faces: st.F(o.faces) }); g.box(b[0], b[1], b[2], b[3], b[4], b[5], o); };
@@ -848,7 +849,7 @@ export function sweeperNiche(s, sd, a0, a1, fin, o = {}) {
   const c = sd.pt((n0 + n1) / 2, 0.04, D / 2);
   prop(s, 'streets.sweeper', c[0], c[1], c[2], sd.yaw, {});
   lamp(s, 'spot', ...sd.pt((n0 + n1) / 2, nh, D / 2 - 0.1), { power: 0.35, K: 3400, clip: sd.st.bx(n0 - 0.05, sd.v(-0.3), n1 + 0.05, sd.v(D + 0.1), -0.1, nh + 0.1), cone: [60, 30] });
-  sign(s, { kind: 'plate', text: 'SWEEPER · DECK 16', lines: ['charging · please do not sit on it'] }, ...sd.pt(n1 + 0.4, 1.45, -0.006), { face: sd.face, w: 0.34, h: 0.15 });
+  sign(s, { kind: 'plate', text: 'SWEEPER · DECK ' + (o.deck || 16), lines: ['charging · please do not sit on it'] }, ...sd.pt(n1 + 0.4, 1.45, -0.006), { face: sd.face, w: 0.34, h: 0.15 });
   const ip = sd.pt((n0 + n1) / 2, 0.8, -0.3);
   s.interact({ x: ip[0], y: ip[1], z: ip[2], radius: 1.5, prompt: 'Look at the sweeper',
     onUse(game) { note(game, o.text || 'A street sweeper, docked and charging. It goes out at two in the morning and comes back with other people\'s buttons in its bin.'); } });
@@ -881,11 +882,12 @@ export function stitch(s, st, aRange, band, maxD) {
   let k = 0;
   for (const n of nav.nodes) {
     if (n.owner === s || n.links.length > 1 || Math.abs(n.y) > 0.6) continue;
-    const a = st.X ? n.x : n.z, v = st.X ? n.z : n.x;
+    const c0 = st.c0 || 0;
+    const a = st.X ? n.x : n.z, v = (st.X ? n.z : n.x) - c0;
     if (a < aRange[0] - 0.5 || a > aRange[1] + 0.5 || Math.abs(v) < band[0] || Math.abs(v) > band[1]) continue;
     if (n.links.some((l) => l.to.owner === s)) continue;
     let best = null, bd = 1e9;
-    for (const m of mine) { const mv = st.X ? m.z : m.x; if (Math.abs(mv) > 0.5 && Math.sign(mv) !== Math.sign(v)) continue; const d = Math.hypot(m.x - n.x, m.z - n.z); if (d < bd) { bd = d; best = m; } }
+    for (const m of mine) { const mv = (st.X ? m.z : m.x) - c0; if (Math.abs(mv) > 0.5 && Math.sign(mv) !== Math.sign(v)) continue; const d = Math.hypot(m.x - n.x, m.z - n.z); if (d < bd) { bd = d; best = m; } }
     if (best && bd < (maxD || 4)) { nav.link(n, best, 1.4); k++; }
   }
   return k;

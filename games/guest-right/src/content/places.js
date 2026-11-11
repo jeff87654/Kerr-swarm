@@ -1,5 +1,5 @@
 // places.js: every place the game builds. Ids are fixed (other parts look them up).
-// area: 'station' | 'candlewick' | 'hollow' | 'terraces' | 'spindle'.
+// area: 'station' | 'candlewick' | 'hollow' | 'terraces' | 'spindle' | 'city' | 'keel' | 'lines' | 'walls' | 'axles'.
 // keeper is a cast id where the place has one.
 // PLACES.neighbours (non-enumerable, so Object.keys(PLACES) lists places only)
 // holds the blocks round Candlewick, for signs that point out of it.
@@ -269,7 +269,7 @@ export const PLACES = {
   'back-foot': {
     name: 'the foot of the back wall', sign: '', area: 'hollow', kind: 'wall foot',
     sub: 'The Hollow · Ring Nine · the back wall',
-    blurb: "Where the floor meets the back end wall in the dimmer light of the Dim End, and twenty-seven tiers of terraces begin to climb toward the axis.",
+    blurb: "Where the floor meets the back end wall in the dimmer light of the Dim End, and thirty tiers of terraces begin to climb toward the axis.",
   },
   'dawn-terrace': {
     name: 'the back terraces', sign: 'THE DAWN STAND', area: 'terraces', kind: 'terrace',
@@ -308,6 +308,212 @@ export const PLACES = {
     name: 'the open Spindle', sign: '', area: 'spindle', kind: 'axis',
     sub: 'The axis · end to end',
     blurb: "The whole axis, 3.75 kilometres of it, opened in the dark on the night of the Long Flight, with the unlit sunline a cable down the middle.",
+  },
+
+  // The rest of Chervil: the kinds of place every block has (the blocks themselves are named in src/city/city.js).
+  'city-avenue': {
+    name: 'an avenue', sign: '', area: 'city', kind: 'avenue',
+    sub: 'Chervil · runs spinward',
+    blurb: "A block's avenue. Every one runs spinward, so every one curves up ahead of you and behind you.",
+  },
+  'city-street': {
+    name: 'a street', sign: '', area: 'city', kind: 'street',
+    sub: 'Chervil · runs along the axis',
+    blurb: "A block's street, running along the axis, where the floor stays level as far as you can see.",
+  },
+  'city-court': {
+    name: 'a block court', sign: '', area: 'city', kind: 'atrium',
+    sub: 'Chervil',
+    blurb: "The atrium where a block's avenue and street cross, open through its decks under a ceiling the block lights for itself.",
+  },
+  'city-hall': {
+    name: 'a hall', sign: '', area: 'city', kind: 'hall',
+    sub: 'Chervil · the long table',
+    blurb: "A block's hall: one long table, one cook whose name is on the door, and a seat for any guest who has slept somewhere.",
+  },
+  'city-shop': {
+    name: 'a shop', sign: '', area: 'city', kind: 'shop',
+    sub: 'Chervil',
+    blurb: "One of a block's shops, kept by somebody who lives within a hundred metres of it.",
+  },
+  'city-room': {
+    name: 'a block room', sign: '', area: 'city', kind: 'room',
+    sub: 'Chervil',
+    blurb: "One of the rooms a block keeps for itself: a clinic, a choir room, an office, a laundry.",
+  },
+  'city-lobby': {
+    name: 'a lift core', sign: 'CABS', area: 'city', kind: 'lobby',
+    sub: 'Chervil · cabs and stairs',
+    blurb: "A lift core's lobby. There is one every hundred metres, and a cab from any of them will take you to any other.",
+  },
+  'city-special': {
+    name: 'a block place', sign: '', area: 'city', kind: 'room',
+    sub: 'Chervil',
+    blurb: "The large room a block is known for: a school, a bath house, a dim wood, a bright square.",
+  },
+
+  // The landmarks: places built by hand, once each, somewhere in the drum. The ids are the regions' ids
+  // (src/game/regions.js), so a landmark's zones can use them as their place and its talk is found by them.
+  // The Keel: decks 1 to 15, a full g. Nobody lives there; everyone eats from it.
+  'keel-vats': {
+    name: 'the Flour Hall', sign: 'FLOUR HALL', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 9 · Ring Five',
+    blurb: "Thermophilic vats running at sixty to seventy degrees, growing the drum's protein flour, dairy, egg and mycelium steak and warming its bath water as they do, with the Pass, the Trimmings, Curd Row and the Kettle off the main floor.",
+  },
+  'keel-garden': {
+    name: "the Garden", sign: 'GARDEN RACKS', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 6 · Ring Four',
+    blurb: "One hall of the Garden: six double rows of racks 320 metres long and five decks tall, behind glass and under pink lamps, with a tomato house, tea rows and mushroom rooms off the walk. The drum keeps about a square metre of rack for every person in it, which is why a tomato is half a kay.",
+  },
+  'keel-heat': {
+    name: "the Loop Hall", sign: 'THE LOOP', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 3 · Ring Seven',
+    blurb: "Where the vats' waste heat is handed to the 65 degree loop that warms every bath and kitchen tap in Chervil for nothing, between two ranks of plate exchangers the size of houses. The Gin Kitchen and the Salt Pans run off the same heat.",
+  },
+  'keel-library': {
+    name: 'the strain library', sign: 'STRAIN LIBRARY', area: 'keel', kind: 'library',
+    sub: 'the Keel · deck 11 · Ring Three',
+    blurb: "Every vat culture and registered household starter in the drum, kept frozen in a vial and written down as a genome, so a line lost to a blight can be grown again.",
+  },
+  // Two more of the nine station rings.
+  'ring-five': {
+    name: 'Station Ring 5', sign: 'STATION RING 5', area: 'station', kind: 'platform',
+    sub: 'the Keel · deck 1 · Ring Five',
+    blurb: "The ring at the waist of the drum, four decks deep and nineteen kilometres round, where the tube level takes travellers on to the cyclers and anywhere further.",
+  },
+  'ring-nine': {
+    name: 'Station Ring 9', sign: 'STATION RING 9', area: 'station', kind: 'platform',
+    sub: 'the Keel · deck 1 · Ring Nine',
+    blurb: "The last ring, nearest the back cap and the heat end: the late station, with a Ledger of its own, a ring counter like every other, and a noodle counter that never shuts.",
+  },
+  glide: {
+    name: 'the Glide', sign: 'THE GLIDE', area: 'station', kind: 'platform',
+    sub: 'the rim · the quay · Ring Two',
+    blurb: "A boarding hall on the quay, where armoured cars are let go at 174 metres a second to coast for 140 seconds to Sorrel, and the one window in each looks aft between the drums.",
+  },
+  // The line decks: fifteen of them, two decks deep, one in the middle of each band of twenty-five. Nobody lives on them.
+  'line-works': {
+    name: "the line works", sign: 'DEPOT', area: 'lines', kind: 'works',
+    sub: 'line deck 38 · Ring Two · 0.95 g',
+    blurb: "Cab berths, workshops and the freight sorting floor between the tubes of a line deck, where the cabs are mended and the night's parcels are packed by lobby.",
+  },
+  'line-rides': {
+    name: "the Press and the Soufflé", sign: 'LOOP 63', area: 'lines', kind: 'ride',
+    sub: 'line deck 63 · Ring Six · 0.92 g',
+    blurb: "Two rides on a line deck's loop: the Press goes spinward at 1.2 g and the Soufflé goes anti at 0.3. Loop signs post two limits because the two ways weigh differently, and some people ride for the feeling alone.",
+  },
+  // In the decks of the city.
+  chimney: {
+    name: "the Spice Rack and the Spouts", sign: 'CLIMBING HALL', area: 'city', kind: 'sport',
+    sub: 'the Low decks · deck 40 · Ring Six',
+    blurb: "A climbing shaft cut up through eight decks, where every fall lands a little anti and the mat is laid to match; and beside it the Spouts, three slides that run at different speeds because they head three different ways.",
+  },
+  'felt-organ': {
+    name: "the Bellows", sign: 'ORGAN HALL', area: 'city', kind: 'hall',
+    sub: 'the Middle decks · deck 150 · Ring Four',
+    blurb: "A stone court five decks tall round an organ whose bottom pipe is 17.4 metres long, because in heliox the old notes need pipes nearly twice the length. Beside it are the Quilt, a concert hall hung three layers deep in felt, and the Sound Larder, where every block's choir is kept.",
+  },
+  'lot-hall': {
+    name: 'the lot hall', sign: 'THE LOT HALL', area: 'city', kind: 'civic',
+    sub: 'the Middle decks · deck 200 · Ring Five',
+    blurb: "Where the assembly sits: about a thousand residents drawn by lot each year to set the commons, in chairs that belonged to the years before them.",
+  },
+  'mile-hall': {
+    name: 'the Measure', sign: 'THE MEASURE', area: 'city', kind: 'sport',
+    sub: 'the Low decks · deck 52 · Ring Seven',
+    blurb: "A mile of sprung lanes laid spinward along one deck, with a clock at each end and a record for each way, and beside it the Tin, where spinball is practised against three walls.",
+  },
+  'up-decks': {
+    name: "the Simmer", sign: '', area: 'city', kind: 'arcade',
+    sub: 'the High decks · deck 340 · Ring Three · 0.55 g',
+    blurb: "The slow-water pool on deck 340, at a little over half a g, where a swell takes thirteen seconds to cross fifty metres. Round it are the elders' tea room, the Up Table where flats on the High decks are given out, and a lane of doors with garden light under them.",
+  },
+  // The far Hollow.
+  'hollow-island': {
+    name: "Lid Island and the Cold Rows", sign: '', area: 'hollow', kind: 'island',
+    sub: 'the Hollow · the lake',
+    blurb: "A small island in the lake, reached by a rope ferry, with a long bench for anyone a hundred or over and a high board over the deepest water. On the shore are the Cold Rows, where apple trees are given six weeks at four degrees under quilted tents.",
+  },
+  'lid-island': {
+    name: 'Lid Island', sign: '', area: 'hollow', kind: 'island',
+    sub: 'the Hollow · the lake · by the rope ferry',
+    blurb: "The island in Chervil's lake: twelve old apple trees, the Settle, a tea hut called the Kettle, a ring of lanterns open on the lake side, and a high board over the deepest water.",
+  },
+  'cold-rows': {
+    name: 'the Cold Rows', sign: '', area: 'hollow', kind: 'orchard',
+    sub: 'the Hollow · the lake shore · winter tents',
+    blurb: "Four quilted tents on the lake shore where two rows of apple trees at a time are kept at four degrees for six weeks, and beside them the rows just out of winter, in blossom and being brushed by hand.",
+  },
+  'hollow-grounds': {
+    name: "the Breadboard", sign: '', area: 'hollow', kind: 'grounds',
+    sub: 'the Hollow · Ring Six',
+    blurb: "The Hollow's playing grounds: a 400 metre track with a heavy bend and a light one, and four pitches for field spinball, where a throw breaks about twice as hard as on the decks.",
+  },
+  'hollow-front': {
+    name: 'the front wood', sign: '', area: 'hollow', kind: 'wood',
+    sub: 'the Hollow · Ring One · the Dim End',
+    blurb: "Birch woods in the dim end of the Hollow by the front wall, where the sunline's light falls to little more than a third of mid-floor. Through them runs the Long Lamps, the one walk in the Hollow kept lit all through the lamp-night.",
+  },
+  // The end walls and the axles.
+  'front-wall': {
+    name: "the front wall", sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the front end wall · tier one to the Third, tier ten',
+    blurb: "The quieter wall, at the power end of the drum. Chervil watches its dusks from tier one, the Warming Shelf, and marries on tier ten, the front Third, at a third of a g.",
+  },
+  'back-upper': {
+    name: 'the high tiers', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the back end wall · tiers fifteen to twenty-seven',
+    blurb: "The upper tiers of the back wall: the Quarter, the Tenth and the Twentieth, tiers fifteen, twenty-four and twenty-seven, 750, 300 and 150 metres from the axis, where a step becomes a small jump.",
+  },
+  'back-quarter': {
+    name: 'the Quarter', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the back end wall · tier fifteen · a quarter of a g',
+    blurb: "Tier fifteen of the back wall, 750 metres from the axis: the Tea Steps, a slow fountain, and tea poured from a metre up so that you can watch it land a little anti.",
+  },
+  'back-tenth': {
+    name: 'the Tenth', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the back end wall · tier twenty-four · a tenth of a g',
+    blurb: "Tier twenty-four, 300 metres from the axis: the practice floor, where a standing jump goes nearly seven metres and nobody goes higher up the wall until they can stop on the line three times running.",
+  },
+  'back-twentieth': {
+    name: 'the Twentieth', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the back end wall · tier twenty-seven · a twentieth of a g',
+    blurb: "Tier twenty-seven, 150 metres from the axis: the top garden, with beds hung one above another to sixteen metres, where a child can jump the height of a house.",
+  },
+  'axle-back': {
+    name: "the back axle", sign: 'BACK AXLE', area: 'axles', kind: 'works',
+    sub: 'the axis · the back cap · 0.02 g',
+    blurb: "The loudest room in the drum, where all its heat leaves as two-phase ammonia in pipes as wide as rooms. Beyond it, the still side and the Window.",
+  },
+  'axle-ring': {
+    name: 'the slow ring', sign: '', area: 'axles', kind: 'works',
+    sub: 'the back axle · once round in 377 metres',
+    blurb: "The ring round the back axle where the drum's turning is handed over: cars leave from here for the still side, which does not turn at all.",
+  },
+  'still-dock': {
+    name: 'the still side', sign: '', area: 'axles', kind: 'works',
+    sub: 'behind the back cap · twelve car ports',
+    blurb: "The dock on the side of the joint that does not turn, where the back crews keep their lockers and the cars from the slow ring come in.",
+  },
+  'window-lobby': {
+    name: "the Window's lobby", sign: '', area: 'axles', kind: 'room',
+    sub: 'the still side · slippers and robes',
+    blurb: "Where visitors to the Window leave their shoes for grip slippers and read the rules: five rounds a day, children of eight with one adult each, and guests in whatever seats are spare.",
+  },
+  'window-passage': {
+    name: 'the red passage', sign: '', area: 'axles', kind: 'room',
+    sub: 'the still side · red light',
+    blurb: "A passage in red light behind a curtain, where eyes are given twenty minutes to wake up to the dark before the shutter is raised.",
+  },
+  'window-gallery': {
+    name: 'the Window', sign: '', area: 'axles', kind: 'room',
+    sub: 'the still side · behind the radiators',
+    blurb: "A gallery behind the radiators, glazed with about a metre and a half of water, where Chervil's children see the stars once, at about eight. What fills the glass is what the back crews call the River.",
+  },
+  'axle-front': {
+    name: "the front axle", sign: 'FRONT AXLE', area: 'axles', kind: 'works',
+    sub: 'the axis · the front cap · 0.02 g',
+    blurb: "Where all the drum's power comes in through one rotary joint at the front cap, about 160 gigawatts, and you would never know it by ear. The Lap goes once round the axis in 377 metres, at a fiftieth of a g.",
   },
 };
 

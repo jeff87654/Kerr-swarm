@@ -85,22 +85,29 @@ const PERFORM_TAGS = ['flute', 'sing', 'drum'];
 // Indexing the world: per frame, its spots (with floor, seat and table heights, zone, nearest walkway node,
 // neighbours), its walkways (with portals: the ends where people come and go) and its places.
 // ---------------------------------------------------------------------------------------------------------------
+// A scope that manages itself (a city block) is left out until it says it is ready.
+const waiting = (sc) => !!(sc && sc.managed && !sc.live);
+const newFrameInfo = (f) => ({ id: f.id, frame: f, spots: [], byCat: {}, people: [], places: new Map(), crowd: new Map(), nodes: [], portals: [], pathLen: 0, managed: 0 });
 export function indexWorld(game) {
   const W = game.world, frames = new Map();
-  const fiFor = (f) => { let fi = frames.get(f.id); if (!fi) frames.set(f.id, fi = { id: f.id, frame: f, spots: [], byCat: {}, people: [], places: new Map(), crowd: new Map(), nodes: [], portals: [], pathLen: 0 }); return fi; };
-  for (const s of W.spots) if (s.frame && s.type && isFinite(s.x) && isFinite(s.y) && isFinite(s.z)) fiFor(s.frame).spots.push(s);
+  const fiFor = (f) => { let fi = frames.get(f.id); if (!fi) frames.set(f.id, fi = newFrameInfo(f)); return fi; };
+  const live = new Set();
+  for (const s of W.spots) if (s.frame && s.type && isFinite(s.x) && isFinite(s.y) && isFinite(s.z) && !waiting(s.scope)) { const fi = fiFor(s.frame); fi.spots.push(s); if (s.scope && s.scope.managed && !live.has(s.scope)) { live.add(s.scope); fi.managed++; } }
   for (const [id, nav] of W.navs) if (nav.nodes.length && W.frames.get(id)) fiFor(W.frames.get(id));
-  for (const zn of W.zones) if (zn.frame) { const fi = frames.get(zn.frame.id); if (!fi) continue; for (const key of [zn.place, zn.id]) { if (!key) continue; let a = fi.places.get(key); if (!a) fi.places.set(key, a = []); if (a.indexOf(zn) < 0) a.push(zn); } }
+  for (const zn of W.zones) if (zn.frame && !waiting(zn.scope)) { const fi = frames.get(zn.frame.id); if (!fi) continue; for (const key of [zn.place, zn.id]) { if (!key) continue; let a = fi.places.get(key); if (!a) fi.places.set(key, a = []); if (a.indexOf(zn) < 0) a.push(zn); } }
   for (const fi of frames.values()) finishFrame(game, fi);
   return frames;
 }
 function areaOf(place, frameId) { const P = place && PLACES[place]; return P ? P.area : frameId; }
-function finishFrame(game, fi) {
-  const W = game.world, f = fi.frame, col = W.colliders(f), nav = W.nav(f);
-  fi.nav = nav; fi.nodes = nav.nodes; fi.col = col;
+// The walkways of a frame: every node's zone, the total length, and the ends where people come and go.
+// fresh: only nodes that have not been looked at yet get their zone worked out.
+function navInfo(game, fi, fresh) {
+  const W = game.world, f = fi.frame, nav = W.nav(f);
+  fi.nav = nav; fi.nodes = nav.nodes; fi.col = W.colliders(f);
   let len = 0;
   for (const n of nav.nodes) {
     for (const l of n.links) len += l.d * 0.5;
+    if (fresh && n._zone !== undefined && !(n._zone && n._zone.scope && !n._zone.scope.active)) continue;
     const zn = W.zoneAt(f, n.x, n.y + 0.6, n.z); n._zone = zn; n._place = zn ? (zn.place || zn.id) : null;
   }
   fi.pathLen = len;
@@ -108,8 +115,65 @@ function finishFrame(game, fi) {
   const ends = nav.nodes.filter((n) => n.links.length === 1);
   const streety = ends.filter((n) => { const P = n._place && PLACES[n._place]; return !P || P.kind === 'avenue' || P.kind === 'street' || P.kind === 'platform' || P.kind === 'atrium' || P.kind === 'lobby'; });
   fi.portals = streety.length ? streety : ends.length ? ends : nav.nodes.slice();
-  // spots
+  fi.astar = null;
+}
+function finishFrame(game, fi) {
+  navInfo(game, fi, false);
+  spotInfo(game, fi, fi.spots);
+  spotNeighbours(fi.spots);
+}
+
+// One scope at a time (city blocks, which come and go while people are about).
+// indexScope: add a scope's spots, zones and walkways to its frame's index. Returns { fi, spots, nodes }.
+export function indexScope(game, frames, scope) {
+  const W = game.world, f = scope.frame; let fi = frames.get(f.id);
+  if (!fi) { fi = newFrameInfo(f); frames.set(f.id, fi); }
+  // a region that was taken down and built again has a new frame under the old name
+  if (fi.frame !== f) { fi.frame = f; for (const p of fi.people) p.frame = f; fi.spots = []; fi.byCat = {}; fi.places = new Map(); fi.crowd = new Map(); fi.managed = 0; }
+  fi.managed++;
+  for (const zn of W.zones) if (zn.scope === scope) for (const key of [zn.place, zn.id]) { if (!key) continue; let a = fi.places.get(key); if (!a) fi.places.set(key, a = []); if (a.indexOf(zn) < 0) a.push(zn); fi.crowd.delete(key); }
+  navInfo(game, fi, true);
+  const added = [];
+  for (const s of W.spots) if (s.scope === scope && s.type && isFinite(s.x) && isFinite(s.y) && isFinite(s.z)) added.push(s);
+  const nodes = fi.nav.nodes.filter((n) => n.owner === scope);
+  return { fi, spots: [], todo: added, nodes };
+}
+// ...its spots are then read in a few at a time: indexSpots(game, job, n) returns true when the last has been done.
+export function indexSpots(game, job, n) {
+  const part = job.todo.splice(0, n), fi = job.fi;
+  for (const s of part) fi.spots.push(s);
+  spotInfo(game, fi, part, job.nodes);
+  for (const s of part) job.spots.push(s);
+  if (job.todo.length) return false;
+  spotNeighbours(job.spots);
+  return true;
+}
+// unindexScope: forget a scope's spots and zones (call before the scope is disposed, then refreshFrame once it has gone).
+export function unindexScope(game, frames, scope) {
+  const fi = frames.get(scope.frame.id); if (!fi) return null;
+  fi.managed = Math.max(0, fi.managed - 1);
+  fi.spots = fi.spots.filter((s) => s.scope !== scope);
+  for (const k in fi.byCat) fi.byCat[k] = fi.byCat[k].filter((s) => s.scope !== scope);
+  for (const [key, a] of [...fi.places]) { const b = a.filter((zn) => zn.scope !== scope); if (b.length !== a.length) { fi.crowd.delete(key); if (b.length) fi.places.set(key, b); else fi.places.delete(key); } }
   for (const s of fi.spots) {
+    const pp = s.pp, lk = pp.link;
+    if (lk && (lk.a.owner === scope || lk.b.owner === scope)) { pp.link = null; pp.relink = true; }
+    if (pp.zone && pp.zone.scope === scope) { pp.zone = null; pp.place = null; pp.zoneId = null; }
+  }
+  return fi;
+}
+// refreshFrame: after scopes have gone, read the frame's walkways again and re-seat what leaned on them.
+export function refreshFrame(game, fi) {
+  navInfo(game, fi, true);
+  for (const s of fi.spots) if (s.pp.relink) { s.pp.relink = false; const lk = nearestLink(fi, s.x, s.pp.floor, s.z, 14); if (lk) { s.pp.link = lk; s.pp.nodeD = lk.d; } else s.pp.nodeD = 1e9; }
+}
+
+// What people need to know about a spot: its kind, the floor under it, seat and table heights, its zone and nearest walkway.
+// nodes: look for each spot's walkway among these only (a scope's own), not the whole frame's.
+function spotInfo(game, fi, list, nodes) {
+  const W = game.world, f = fi.frame, col = fi.col, src = nodes ? { nav: { nodes } } : fi;
+  {
+  for (const s of list) {
     const pp = s.pp = { cat: catOf(s), floor: s.y, seatH: 0, tableH: 0, workH: 0.9, node: null, nodeD: 1e9, nbr: [], place: null, area: null, zone: null, face: s.yaw || 0, tag: null };
     const seat = s.type === 'sit' || s.type === 'bath' || s.type === 'bed';
     if (seat) {
@@ -127,14 +191,17 @@ function finishFrame(game, fi) {
     }
     const zn = W.zoneAt(f, s.x, pp.floor + 0.6, s.z); pp.zone = zn; pp.place = zn ? (zn.place || zn.id) : null; pp.area = areaOf(zn && zn.place, f.id);
     pp.zoneId = zn ? zn.id : null;
-    const lk = nearestLink(fi, s.x, pp.floor, s.z, 14); if (lk) { pp.link = lk; pp.nodeD = lk.d; }
+    const lk = nearestLink(src, s.x, pp.floor, s.z, 14); if (lk) { pp.link = lk; pp.nodeD = lk.d; }
     if (s.tags) { for (const t of s.tags) if (WORK_TAGS.indexOf(t) >= 0 || PLAY_TAGS.indexOf(t) >= 0 || PERFORM_TAGS.indexOf(t) >= 0 || t === 'dance' || t === 'rail') { pp.tag = t; break; } }
     (fi.byCat[pp.cat] || (fi.byCat[pp.cat] = [])).push(s);
   }
-  // neighbours (tables, benches, groups) and chat groups facing their middle
+  }
+}
+// neighbours (tables, benches, groups) and chat groups facing their middle, among the given spots
+function spotNeighbours(spots) {
   const grid = new Map(); const key = (x, z) => Math.floor(x / 3) * 7919 + Math.floor(z / 3);
-  for (const s of fi.spots) { const k = key(s.x, s.z); let a = grid.get(k); if (!a) grid.set(k, a = []); a.push(s); }
-  for (const s of fi.spots) {
+  for (const s of spots) { const k = key(s.x, s.z); let a = grid.get(k); if (!a) grid.set(k, a = []); a.push(s); }
+  for (const s of spots) {
     // spots too close to share
     for (let ix = -1; ix <= 1; ix++) for (let iz = -1; iz <= 1; iz++) { const a = grid.get(key(s.x + ix * 3, s.z + iz * 3)); if (a) for (const o of a) if (o !== s && Math.abs(o.y - s.y) < 1 && Math.abs(o.x - s.x) < 0.52 && Math.abs(o.z - s.z) < 0.52 && o.type !== 'bed') (s.pp.close || (s.pp.close = [])).push(o); }
     if (s.type !== 'sit' && s.type !== 'chat' && s.type !== 'stand' && s.type !== 'bath') continue;
@@ -144,12 +211,10 @@ function finishFrame(game, fi) {
       for (const o of a) if (o !== s && Math.abs(o.y - s.y) < 1 && Math.hypot(o.x - s.x, o.z - s.z) < r && (o.type === s.type || (s.type === 'chat' && o.type === 'stand'))) s.pp.nbr.push(o);
     }
   }
-  for (const s of fi.spots) if (s.type === 'chat' && s.pp.nbr.length) {
+  for (const s of spots) if (s.type === 'chat' && s.pp.nbr.length) {
     let cx = s.x, cz = s.z, n = 1; for (const o of s.pp.nbr) if (o.type === 'chat') { cx += o.x; cz += o.z; n++; }
     cx /= n; cz /= n; if (Math.hypot(cx - s.x, cz - s.z) > 0.2) s.pp.face = Math.atan2(cx - s.x, cz - s.z);
   }
-  // A* scratch
-  fi.astar = null;
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -202,7 +267,8 @@ export function wantsFor(p, hour, day, fi, magnet) {
   W.read = (q ? 0.5 : 0.3) * (child ? 0.4 : 1) * (night ? 0.1 : 1);
   W.play = child && hour >= 7.5 && hour < 20.5 ? 3.2 : 0;
   W.work = !child && L.age < 86 && hour >= 7.2 && hour < 19 ? (q ? 0.5 : 1.0) : 0;
-  W.perform = !child && L.age < 88 && hour >= 17.5 && hour < 23 ? 2.2 : 0.02;
+  // players play in the evening; a few in the afternoon too (a tea dance on the High decks starts at two)
+  W.perform = !child && L.age < 88 ? (hour >= 17.5 && hour < 23 ? 2.2 : hour >= 14 && hour < 17.5 ? 0.45 : 0.02) : 0.02;
   W.bath = night ? 0 : hour >= 7 && hour < 22 ? 0.45 : 0.05;
   W.bed = night ? 1.5 : 0;
   W.wander = night ? 0.25 : early ? 1.6 : 0.9;
@@ -218,7 +284,7 @@ const WANT = {};
 export function pickKey(rng, W) { let sum = 0; for (const k in W) sum += W[k]; let u = rng.next() * sum; for (const k in W) { u -= W[k]; if (u <= 0) return k; } return 'wander'; }
 
 export function activeMagnet(fi, day, hour, list) {
-  for (const m of list) if (m.day === day && hour >= m.from && hour < m.to && fi.places.has(m.place)) return m;
+  for (const m of list) if ((!m.day || m.day === day) && hour >= m.from && hour < m.to && fi.places.has(m.place)) return m;      // day 0: every day
   return null;
 }
 

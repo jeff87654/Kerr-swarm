@@ -708,7 +708,8 @@ def build(out, fragment_index=False):
     if (GUEST / "tools" / "build.py").is_file():
         extra_links.append('<li><a class="card" href="guest-right/"><span class="card-title">Guest-Right</span>'
                            '<span class="card-blurb">A first-person game: three nights in Chervil on guest-right. Walk its streets, eat at the long table, '
-                           'stand in the Hollow under the far bank, and fly the Spindle on Booking night</span>'
+                           'stand in the Hollow under the far bank, fly the Spindle on Booking night, '
+                           'then take a cab to any of the drum\'s 65,807 blocks and its great places</span>'
                            '<span class="card-meta">play</span></a></li>')
     if extra_links:
         group_html.append(f'<section class="topic"><h2 id="more">More</h2><ul class="cards">{"".join(extra_links)}</ul></section>')

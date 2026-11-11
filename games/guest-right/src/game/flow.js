@@ -17,6 +17,7 @@ const CHAPTERS = [
   ['feast', 'The feast', 'Booking Day, one o’clock', 'hall', 3, 12.9],
   ['flight', 'The Long Flight', 'Booking night, ten o’clock', 'flying-hall', 3, 21.9],
   ['hollow', 'The Hollow at noon', 'free to wander', 'hollow', 1, 11.5],
+  ['drum', 'The rest of the drum', 'Thursday afternoon, at the cabs: free to wander', 'lobby-a', 1, 14.5],
 ];
 
 export function setupFlow(game) {
@@ -50,18 +51,42 @@ export function setupFlow(game) {
   });
 
   // ---- the map
+  // In a layer of the city (Candlewick's included) a frame holds every loaded block, up to 600 m across: the plan shows
+  // only what is within NEAR metres of the player (the block you are in and the mouths of the next ones), clipped to that
+  // square, and takes the block's name for its title. Elsewhere (the station, the Hollow, a landmark) it shows the frame.
+  const NEAR = 170;
   game.mapData = () => {
     const f = player.frame; const rho = f.rho(player.pos.y);
-    const lines = [], labels = [];
+    const lines = [], labels = [], markers = [];
+    const city = game.city, L = city && city.layerOf ? city.layerOf(f) : -1;
+    const px = player.pos.x, pz = player.pos.z;
+    const win = L >= 0 ? [px - NEAR, pz - NEAR, px + NEAR, pz + NEAR] : null;
     for (const z of world.zones) {
       if (z.frame !== f || z.allRound) continue;
       if (Math.abs((z.y0 + z.y1) / 2 - player.pos.y) > 4 && !(player.pos.y >= z.y0 - 0.5 && player.pos.y <= z.y1)) continue;
-      lines.push([z.x0, z.z0, z.x1, z.z0, 'wall'], [z.x1, z.z0, z.x1, z.z1, 'wall'], [z.x1, z.z1, z.x0, z.z1, 'wall'], [z.x0, z.z1, z.x0, z.z0, 'wall']);
-      if (z.name && (z.x1 - z.x0) * (z.z1 - z.z0) > 30) labels.push({ x: (z.x0 + z.x1) / 2, z: (z.z0 + z.z1) / 2, text: z.name });
+      let x0 = z.x0, z0 = z.z0, x1 = z.x1, z1 = z.z1;
+      if (win) {
+        if (x1 < win[0] || x0 > win[2] || z1 < win[1] || z0 > win[3]) continue;
+        x0 = Math.max(x0, win[0]); z0 = Math.max(z0, win[1]); x1 = Math.min(x1, win[2]); z1 = Math.min(z1, win[3]);
+      }
+      // an edge cut by the window is left open, so a street runs on off the plan instead of ending in a wall
+      if (z0 === z.z0) lines.push([x0, z0, x1, z0, 'wall']);
+      if (x1 === z.x1) lines.push([x1, z0, x1, z1, 'wall']);
+      if (z1 === z.z1) lines.push([x1, z1, x0, z1, 'wall']);
+      if (x0 === z.x0) lines.push([x0, z1, x0, z0, 'wall']);
+      const big = /^city-(avenue|street|court)$/.test(z.place || '');
+      if (z.name && (x1 - x0) * (z1 - z0) > 30) labels.push({ x: (x0 + x1) / 2, z: (z0 + z1) / 2, text: z.name, kind: big ? 'big' : undefined });
+      if (z.place === 'city-lobby' && x1 - x0 > 0) markers.push({ x: (x0 + x1) / 2, z: (z0 + z1) / 2, kind: 'place', label: 'Cabs' });
+    }
+    let title = game.zone ? game.zone.name : '', cell = null;
+    if (L >= 0) {
+      const c = city.cellOfPlayer ? city.cellOfPlayer() : null;
+      if (c) { const q = city.info(c); title = q.name; cell = { L: c.L, i: c.i, j: c.j, key: q.key }; }
     }
     return {
-      drum: { you: { deck: deckOf(rho), ring: ringOf(f.zd(player.pos.z)), thetaDeg: (f.theta(player.pos.x) * 180 / Math.PI), zM: f.zd(player.pos.z), rho } },
-      local: { title: game.zone ? game.zone.name : '', lines, labels, you: { x: player.pos.x, z: player.pos.z, yaw: player.yaw }, markers: [] },
+      drum: { you: { deck: deckOf(rho), ring: ringOf(f.zd(player.pos.z)), thetaDeg: (f.theta(player.pos.x) * 180 / Math.PI), zM: f.zd(player.pos.z), rho, layer: L, cell } },
+      // the plan draws +z (the back) upward and turns its arrow in degrees clockwise from up: yaw 0 faces the front, down the plan
+      local: { title, lines, labels, you: { x: px, z: pz, yaw: 180 - player.yaw * 180 / Math.PI }, markers },
     };
   };
 
@@ -198,7 +223,7 @@ export function setupFlow(game) {
         say(29, 'J opens your journal, M the map, P takes a picture for a card, Esc the menu.');
       }
     } else {
-      if (!game.loadGame()) go('start', 1, 9.667);
+      if (!(await game.loadGame())) go('start', 1, 9.667);
       if (ui) { ui.hud.wallet(game.wallet.kwh); ui.hud.show(true); await ui.fade(false, 1.0); ui.hud.thread(game.journal.current()); }
       game.events.emit('game:continue');
     }

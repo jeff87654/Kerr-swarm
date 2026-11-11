@@ -10,6 +10,7 @@ The release build is made by `tools/build.py`, a small bundler with no dependenc
 
 - Imports are static, at the top of the file, one statement each, and either `import * as THREE from 'three';` (the only way to import three) or `import { a, b } from './relative/path.js';` (named imports, relative path, with the `.js`). No default imports, no `import * as x` of local files, no bare specifiers other than `'three'`, no `import()`.
 - Exports are declarations at column 0: `export function f`, `export async function f`, `export class C`, `export const x =`. No `export default`, no `export let`, no `export { ... }` lists, no re-exports, no destructuring in an exported declaration.
+- `export const a = 1, b = 2;` exports both names, as long as the initialisers are plain (the bundler follows brackets and quotes, not JavaScript). Every name a module imports must be one the other module exports: the build checks this and stops if it is not so. In a bundle a name that is missing is simply `undefined`, and nothing says so until the code that uses it runs, which is why the things that matter are also played from the built page (`--page dist/index.html`), not only from `src/`.
 - No top-level `await`. No circular imports.
 - No external assets or network requests. Everything is generated in code. The only fonts are the four families in `assets/fonts` (`'Cormorant Garamond'`, `'Barlow'`, `'Barlow Condensed'`, `'Caveat'`), already loaded by the page.
 - Browser storage only through `game.save` (it wraps `localStorage` in try/catch and falls back to memory).
@@ -403,6 +404,91 @@ Everything else along the streets is the street modules' to fill with ordinary f
 | The Gate (`gate`) | x[44, 60] z[40, 60] | Quarantine, seen through glass from the lane. |
 
 **The Hollow** (frame `hollow`: `game.world.frame('hollow', 1500, 0, 0)`; z is the drum's own z; the lead builds the land, the lake, the trees and the sky). Places there are assigned later.
+
+## The whole drum
+
+Candlewick, the station, the festival Hollow and the back wall are built by hand when the game starts. Everything else in Chervil is either **generated** (the indoor city: every block of every deck) or a **landmark** built by hand the first time somebody goes there. `content/expansion-brief.md` is the brief for builders of both; this section is the map of the code.
+
+### The grid (`src/core/layout.js`)
+
+The residential decks between the fifteen line decks are cut into 58 **layers** of five or six decks (layer 0 is decks 16 to 21, Candlewick's). Each layer is cut into **cells**: one block each, about 210 m round the drum and 208.33 m along it. A cell is `(L, i, j)`: layer, index round the drum (0 at Candlewick's meridian, counting spinward, wrapping at `LAYERS[L].N`, 88 on layer 0 and 45 on layer 57), index along the axis (1 to 17; Candlewick is j = 3). 65,807 cells in all. Every layer has one frame (`candlewick` for layer 0, `layer<L>` for the rest) with the same origin, so in a layer's flat coordinates cell `(i, j)` is centred at `x = signedI * pitch`, `z = (j - 3) * 208.33`. On the far side of the drum a layer's x jumps by one circumference: the streamer moves the player across it unseen.
+
+### The city (`src/city/`)
+
+- `city.js`: `cellInfo(L, i, j)` gives everything about a block that follows from its address: name, avenue, street, hall, cook, dish, decks, weight, band, ring, style. `game.city` (made by `src/places/city.js`) adds `info`, `frame(L)`, `cellOfPlayer()`, `above(cell, dL)`, `visit`, `visited`, `arrive(cell)` (builds a block and returns its lift lobby), `stairs(cell, dir)`, `stop(cell)` (a cab stop for any block), `pick()` (the cab's address list, `picker.js`) and `go(cell, lot)` for tests.
+- `plan.js`: `planCell(L, i, j)`: the block's plan, pure and cheap. The avenue runs spinward through the cell's middle (8 m wide), the street along the axis (6 m); they cross in the court (40 to 56 m by 28 to 34 m, two to six decks tall). The hall lies along the court's front side. Every arm is lined with **lots** (shops, the block's rooms, the lift lobby, one or two special places) and ordinary house fronts. The whole layout is mirrored by the seed, so a lot's `front` may be any of n, s, e, w.
+- `streets.js`: the four arms, from the same parts as Ladle Row (`src/places/street_parts.js`). `court.js`: the atrium, its terraces (drawn lifted, on their own levels), its luminous ceiling and one of six middles.
+- `lots.js`: the registry (`registerLot(key, fn)`) and the plain builders. A richer module for a key lives in `src/places/lots_*.js` and simply takes the key over.
+- `streamer.js`: builds a block in slices of a few milliseconds a frame (`tick()`), in one managed scope with its own origin (so vertices keep sub-millimetre precision nine kilometres round) and its own page of the sign atlas, then shows it a few meshes a frame and tells the people (`game.people.addScope`). It keeps loaded the block the player is in and the blocks its streets lead into when the player could see down them; it lets go of the rest. An open street end whose next block is not built yet holds the player back for the moment it takes.
+
+Hand-built and generated blocks meet at arches: Candlewick's stand at x = -105 and 105 and z = 104, and the blocks beside it begin exactly there.
+
+- `pavilions.js`: the Hollow's lift pavilions. Where the Hollow's paths cross (every 170 m) a lift core comes up through the floor: a small pavilion with a cab berth and the head of the last stair, which goes down to the block of decks 371 to 375 underneath. The nine nearest the player are kept built. `game.city.toHollow(cell)` is the same stair climbed from below (the top layer's lift lobbies offer it); `game.city.hollowStop(cell)` is a cab stop at the pavilion over any block.
+- `picker.js`: the cab's list for "another block of Chervil": on the map (the UI's Round the drum view as a chooser), straight up or down, the Hollow over this block, by address (band, decks, ring, block), somewhere you have been, anywhere.
+
+### Scopes that come and go
+
+`world.scope(id, frame, { origin: [x, z], managed: true })`: `origin` moves the scope's vertex zero (callers still draw in frame coordinates); `managed` means the people are told when it is ready and before it goes, instead of re-reading the world. `scope.finish(max)` builds at most `max` batches and returns how many are left. `scope.onDispose(fn)`, `scope.every(fn)`, `scope.loop(name, x, y, z, o)` and `scope.court(x0, z0, x1, z1)` (an atrium seen through several decks) all end with the scope.
+
+### Landmarks (`src/game/regions.js`)
+
+A place module with `region: '<id>'` is not built at start-up. All the places of a region are built together when a cab is called to one of its `stops`, or (with `near`) when the player walks close, and disposed when the player has gone on. What a region made is found by comparing the world before and after: its scopes (made managed, so the people are told of each without anybody else being disturbed), frames, spawns, the listeners it added and the loops it started. Its signs come out of the atlas's pool (`atlas.begin(id)` ... `end()`, `release(id)`): the lent pages are shared by every region and block that is loaded, a freed slot going to the next sign of the same size.
+
+Three rules follow from signs being lent, and the engine keeps them so that place modules need not think about it:
+
+- **Regions are built one at a time.** `regions.load()` queues: two regions building in the same frames would draw into each other's sign group and claim each other's scopes. Scopes and frames that are not a region's own although they appear while it builds (a block of the city, `cell:...`; a lift pavilion, `pav:...`; the cab's cabin; a layer's frame) are left out of what it takes down.
+- **A prop with a sign on it is cached for the sign group it was drawn in** (`world/props.js`). The geometry of a cached prop points at a slot of the atlas; a slot lent to a region belongs to something else once that region has gone. A prop drawn among the permanent signs is good anywhere.
+- **Anything that outlives a region or a block draws its signs with no group** (`atlas.group = null` round the build, restored after): the cab's cabin and the Hollow's lift pavilions do. Code that sets the group in passing puts the previous one back (the streamer's slices do).
+
+A region with `near` and frames of its own (the front wall's tiers) is not counted as far away while the player stands in one of those frames, wherever the Hollow's floor is.
+
+**Keeping the frame rate while things come and go.** Four habits, all in the engine:
+
+- *Meshes are sent to the graphics card a few a frame.* A mesh with `userData.warm = 1` is drawn once wherever it is (any distance, any direction, any frame, and once into each shadow map in use), which uploads its buffers on a frame of our choosing. The streamer warms a block eight meshes a frame as it shows it; a block built in a hurry, and every region, is warmed the same way after it is built. Without this a whole court arrives at the card in the one frame in which it first comes into view.
+- *People make up their minds within a budget.* Choosing a spot and finding a way to it is the dear part of a person (a few milliseconds). `M.thinkBy` gives each frame about 3.5 ms for it (and never fewer than two decisions): idle people past their time and people due back from elsewhere wait a frame or two when a crowd is turned out together (a block let go, a meal ending). Named people are not held.
+- *One finished block is let go at a time,* and when a scope goes the people sim looks only at the people standing in that scope's own zones.
+- *Props drawn with the signs of a group that has gone are forgotten* (`forgetPropsOf`, called by the atlas on `release`), so the prop cache holds what is loaded and not every block the player has walked through.
+
+`?citylog` prints what each of these costs: a block's build by part and by lot, what letting go of it cost, and what the people sim did after. To judge smoothness run the browser with its frame-rate limit on: the test tools switch it off, which shows the worst case for the graphics card and now and then stalls on its own backlog.
+
+Sub-places inside a landmark (the Quarter, the Window's lobby) have their own records in `src/content/places.js` when their zones name them; `node tools/tour.mjs` lists any place id a zone uses that has no record.
+
+| Region | File | Frame | Where | Cab group |
+|---|---|---|---|---|
+| `keel-vats` | `lm_keel_vats.js` | `keel-vats`: deck 9, theta 0.9, z0 1875 | the Keel, Ring Five | The Keel |
+| `keel-garden` | `lm_keel_garden.js` | `keel-garden`: deck 6, theta 0.9, z0 1460 | the Keel, Ring Four | The Keel |
+| `keel-heat` | `lm_keel_heat.js` | `keel-heat`: deck 3, theta 2.4, z0 2710 | the Keel, Ring Seven | The Keel |
+| `keel-library` | `lm_keel_library.js` | `keel-library`: deck 11, theta -1.2, z0 1040 | the Keel, Ring Three | The Keel |
+| `ring-five` | `lm_ring_five.js` | `ring-five`: deck 1, theta 0, z0 1875 | Station Ring Five | The stations |
+| `ring-nine` | `lm_ring_nine.js` | `ring-nine`: deck 1, theta 0, z0 3540 | Station Ring Nine | The stations |
+| `line-works` | `lm_line_works.js` | `line38`: deck 38, theta 0.35, z0 625 | the first line deck above Candlewick | The line decks |
+| `line-rides` | `lm_line_rides.js` | `line63`: deck 63, theta -0.8, z0 2290 | a line deck, Ring Six | The line decks |
+| `chimney` | `lm_chimney.js` | `chimney`: deck 40 at y = 0, theta 1.5, z0 2290 | the Low decks, Ring Six | The Low decks |
+| `mile-hall` | `lm_mile_hall.js` | `mile-hall`: deck 52, theta -1.9, z0 2710 | the Low decks, Ring Seven | The Low decks |
+| `glide` | `lm_glide.js` | `glide-quay` (the rim, z0 625), `glide-car` (its own, radius 200 km, so the field of drums does not bend) | the quay under Ring Two | The stations |
+| `felt-organ` | `lm_felt_organ.js` | `felt-organ`: deck 150, theta 1.9, z0 1460 | the Middle decks, Ring Four | The Middle decks |
+| `lot-hall` | `lm_lot_hall.js` | `lot-hall`: deck 200, theta -2.2, z0 1875 | the Middle decks, Ring Five | The Middle decks |
+| `up-decks` | `lm_up_decks.js` | `up-decks`: deck 340, theta 0.3, z0 1040 | the High decks, Ring Three | The High decks |
+| `hollow-island` | `lm_hollow_island.js` | `hollow`, near (420, 1780) | the lake shore, the island and the rope ferry between | The Hollow |
+| `hollow-grounds` | `lm_hollow_grounds.js` | `hollow`, near (-900, 2300) | the playing grounds | The Hollow |
+| `hollow-front` | `lm_hollow_front.js` | `hollow`, near (200, 380) | the front wood | The Hollow |
+| `front-wall` | `lm_front_wall.js` | `fwall1` (rho 1450), `fwall10` (rho 1000), z0 0; also near (0, 0) in `hollow` | the front end wall | The end walls |
+| `back-upper` | `lm_back_upper.js` | `quarter` (rho 750), `tenth` (rho 300), `twentieth` (rho 150), z0 3750 | the back wall's high tiers | The end walls |
+| `axle-back` | `lm_axle_back.js`, `lm_window.js` | `axle-back` (rho 60, z0 3760), `still-side` | the back axle and the still side | The axles |
+| `axle-front` | `lm_axle_front.js` | `axle-front` (rho 60, z0 -10) | the front axle | The axles |
+
+### Tools for the whole drum
+
+- `?cell=L:i:j&lot=<key>` goes straight to a block (and to a lot of that kind, in the nearest block that has one). `?citylog` prints each block's build time by part and its share of the sign atlas. `?nocity` runs without the city.
+- `node tools/walk.mjs --q "at=ladle-east-end" --yaw 1.5708 --secs 60`: holds W (and Shift) and reports position, block, frame rate, the worst frame and any fall, every two seconds.
+- `node tools/prof.mjs --q "..." --run "<js>" --secs 6`: a CPU profile of the running game by function.
+- `node tools/play.mjs drum`: out of Candlewick on foot, a generated hall, a cab to the High decks, the stair, the last stair into the Hollow, a landmark, and a save and a reload in a generated block.
+- `node tools/play.mjs rides`: every set piece started from its own prompt (a slide at the Spouts, the Press and the Soufflé, the Glide out and back, the rope ferry and the high board, the wall lift, the Lake Stair, the heat hall and the Window, the Twentieth, the last strides of a Heavy Mile). Each must hand the player back unlocked, at their own weight, with its flag set.
+- `node tools/tour.mjs [--stops a,b]`: a cab to every landmark stop in turn, in one session. For each: build time, the zone and weight where you stand, people, things to use, a cab berth to leave by, triangles, lights, frames a second, the sign atlas, console errors, and any place id without a record. A picture of each arrival lands in `out/tour/`.
+- `node tools/lots.mjs [--keys special.school,hall] [--match shop]`: one of every kind of lot the plans produce, in a block that has one: a picture from the street and one from inside, the lot's build time and sign area from `?citylog`, and any error.
+
+A ride or other set piece that takes the player (a seat, `locked`, `gOverride`, `busy`) puts everything back in a `finally`, sets a flag in `game.flags` and emits an event when it is done: the journal (`src/places/story_drum.js`) reads the flags, so a landmark that is not built simply leaves its step waiting.
+- `python tools/build.py` also asks node whether every module parses, and may be run by several people at once.
 
 ## Music
 
