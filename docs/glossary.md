@@ -260,7 +260,7 @@ Matches: posted price, the keep
 
 ### The draw
 
-A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing, and the permit takes the couple's implants out again. Nearly every couple enters, and one in eight to seventeen ever wins. The same draw is the lot that places those born outside: everyone unplaced is entered from eighteen to sixty, and about one in seventeen is ever drawn. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
+A lottery for third children (proposal): each year a drum issues as many permits as it has room it hasn't given another way, and draws them among couples with two children and none born outside the allowance; a drawn third pays nothing, and the permit takes the couple's implants out again. Nearly every couple enters, and one in nine to eighteen ever wins. The same draw is the lot that places those born outside: everyone unplaced is entered from eighteen to sixty, and about one in seventeen is ever drawn. It is the way of giving leave under which every household has the same chance to lose, and the one most old drums use; pool drums run theirs from unspent rights. See families.md, people.md.
 
 Matches: Draw Day, third-child draw, draw for thirds, the lot
 
@@ -374,7 +374,7 @@ Matches: wild-born
 
 ### The fitting
 
-A contraceptive implant for everyone at fourteen, in most drums (Jeff's decision, 10 Nov 2026; the particulars are proposals). The clinic takes it out by right, for two children, once a couple has a place, and again on a permit for a third. So a child is conceived only where a place is waiting, and births outside the allowance fall to about one in 400. It is a Count's leftover: every old drum has counted, a Count puts an implant in every arm, and most drums gave back two by right and kept the implant. What separates a fitted drum from a counted one is that two are by right, and the clinicians' guild holds that rule across the Shade. See families.md, people.md.
+A contraceptive implant for everyone at fourteen, in most drums (Jeff's decision, 10 Nov 2026; the particulars are proposals). The clinic takes it out by right, for two children, once a couple has a place, and again on a permit for a third. So a child is conceived only where a place is waiting, and births outside the allowance fall to about one in 400. The clinic sets one embryo a pregnancy, so the only twins are identical ones, and a pair at a second birth is charged to the drum's room. It is a Count's leftover: every old drum has counted, a Count puts an implant in every arm, and most drums gave back two by right and kept the implant. What separates a fitted drum from a counted one is that two are by right, and the clinicians' guild holds that rule across the Shade. See families.md, people.md.
 
 Matches: the fitting, fitted drum, fitted drums
 

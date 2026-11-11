@@ -16,7 +16,7 @@
 |---|---|
 | Open | 98 |
 | Deliberately open (story space) | 22 |
-| Answered elsewhere, with a pointer left in the doc | 34 |
+| Answered elsewhere, with a pointer left in the doc | 35 |
 | Docs with questions still open | 24 |
 
 ## The questions by theme
@@ -119,7 +119,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [families.md](families.md#open-questions): Whether a fitted drum penalises a second cut, and what it does when a line hides its children from the clinic.
 - [families.md](families.md#open-questions): Whether open drums fit. This doc assumes they do, and that a block's leave is what takes the implants out for a third (open-drums.md).
 - [families.md](families.md#open-questions): How many drums don't fit everyone, and whether service drums exist at all: canon takes about four in a hundred.
-- [families.md](families.md#open-questions): Twins at a second birth: a third nobody licensed. Most drums would charge them to their room, about 3.5% of it; the figures here leave them out.
+- [families.md](families.md#open-questions): What a drum that conceives the old way does about twins once they have taken all its room.
 - [families.md](families.md#open-questions): What a survival load is in the hull. This doc takes ~0.40 kW a head, an estimate, and it puts the wall at twice par. Compute panels turned over to pumped hull heat might move it (not worked).
 - [families.md](families.md#open-questions): What keeps one couple in twenty childless in a Shade where selection has thinned everyone who wanted no children. If it is nearer one in fifty, one family in eighteen is given a third and the door has to be that much narrower.
 - [families.md](families.md#open-questions): How a marriage across the line is treated where leave is sold or given by gift.

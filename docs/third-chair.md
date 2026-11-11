@@ -13,7 +13,7 @@
 ## Tansy
 - **A drawn-holdings drum** (families.md § Kinds of drum). Places pass whole to one heir. A household has two children by right and a third by leave. The heirless name an heir for their place, and the rest of the drum's room is drawn by lot.
 - **Fitted,** like nearly every drum on the Row. Everyone has a contraceptive implant from fourteen. A couple with a place has theirs out for the asking, for two children, and again on a permit for a third.
-- **Draw Day** falls a week after Booking Day, when the year's room has been counted. About 47,000 permits are drawn at the nine station rings, some 5,200 at each, and every one is read out with the name of a household that ended without an heir. At five seconds a name it takes about seven hours. A couple with two children and none outside has about one chance in 420 each year, and one in seventeen over the twenty-five years it can enter.
+- **Draw Day** falls a week after Booking Day, when the year's room has been counted. About 43,600 permits are drawn at the nine station rings, some 4,850 at each, and every one is read out with the name of a household that ended without an heir. At five seconds a name it takes about seven hours. A couple with two children and none outside has about one chance in 450 each year, and one in eighteen over the twenty-five years it can enter.
 - **The placings** are read last. Everyone born outside and not yet placed is entered from eighteen to sixty, and Tansy draws about 250 a year, twenty-eight at each ring: one chance in about 680 a year, and one in seventeen over a life. It is the only door.
 - **The keepers of the draw** are seven people from other drums of the Row, sworn for seven years and lodged at the drum's cost. Tansy's own offices of trust are full of people with no heirs, and those people have nieces and nephews.
 - **Waiting wallets.** About six million of Tansy's shares are unheld on any day, each waiting in a family for its next child. Tansy lends the dividend of one to each of its people born outside, from eighteen, for life.
@@ -161,7 +161,7 @@ Emeka's mother came to see Nell the week after the reading. She was kind about i
 
 She was back in Library House before the year was out. Her seat had been kept for forty-eight years, and her room had had eleven keepers in it since. The House eats together, and the hall has a person cooking. She has a small lamp over a shelf of herbs, and more worlds than she has evenings.
 
-On Draw Day the House's two newest keepers take her down to the rail of Ring 5, because she asked, and because nobody at Library House has heard as many draws. A keeper from Borage reads this year. Five thousand two hundred permits, each in the name of a household that ended, and twenty-eight placings after them. She has worked out, over a hundred and four years of these, what it is that she won't leave. No permit will be read in her name, because she heads no household to end. No child will be named for her, because children are named for the dead whose shares they carry, and what she has carried for ninety-four years was never a share. When she dies it stops, and the share under it goes on waiting for its child.
+On Draw Day the House's two newest keepers take her down to the rail of Ring 5, because she asked, and because nobody at Library House has heard as many draws. A keeper from Borage reads this year. Four thousand eight hundred and fifty permits, each in the name of a household that ended, and twenty-eight placings after them. She has worked out, over a hundred and four years of these, what it is that she won't leave. No permit will be read in her name, because she heads no household to end. No child will be named for her, because children are named for the dead whose shares they carry, and what she has carried for ninety-four years was never a share. When she dies it stops, and the share under it goes on waiting for its child.
 
 In the sixth hour the keeper reads a permit in the name of a household on deck 301 that ended, drawn for the household of Petra and Mattis Brandt, Hartsease, deck fifty-five. Petra is fifty-five and has entered for twenty-one years. "She kept the chair," Nell says, out loud, to nobody, and the two young keepers look at each other.
 
@@ -176,7 +176,7 @@ Afterwards they take her along the Quaysides to Strain & Vintage and she lets th
 | At eighteen | A waiting wallet, 21.6 kWh a day for life, resting on a share that waits for a child; ~17 more for full-time work | A dividend, 21.6 kWh a day for life, on a share from the family's dead; ~17 more for full-time work |
 | The implant | In until the lot places her, at one chance in ~680 a year from eighteen to sixty; out at sixty, by choice | Out at twenty-nine, when she married into a place |
 | A home | A parent's place, then lodgings (~2 kWh a day for 20 m²), a house at 31, a husband's place from 64 to 111 | A parent's place; married into a place at 29 |
-| Children | None. One chance in seventeen of a placing, and two by right with it | Two by right, and a chance of a third by leave: about one in seventeen by the draw |
+| Children | None. One chance in seventeen of a placing, and two by right with it | Two by right, and a chance of a third by leave: about one in eighteen by the draw |
 | Old age | The wallet and a room in her house; no rents | The dividend, and rents from the rooms of her place |
 | At death | Frees no share and no place; her wallet stops and her room goes back to the house | Her share passes to a child, often named for her; her household's place to a great-grandchild |
 
@@ -214,6 +214,7 @@ All made, 10 Nov 2026:
 - **people.md:** the fitting in § Places and shares; the counted-drum ladder recast so that counting is licences below two; Rue as a fitted drum that voted a third by right; the wall corrected for hull heat.
 - **economy.md, open-drums.md, glossary.md, README.md:** waiting wallets as the default, the posted price as a free drum's, open drums fitted, and entries for the fitting, the lot and the three kinds.
 - **ashgrove.md, wander-year.md, models/ratchet.md:** one line each, so that the fitting is no longer the mark of a counted drum.
+- **Twins:** one embryo a pregnancy, and a pair at a second birth charged to the room (families.md § Twins), which takes the draw from ~47,000 permits to ~43,600.
 
 ## Method
 - **Sums:** `models/placeless_share.py`, output in `models/out/placeless_share.txt`.
@@ -221,7 +222,7 @@ All made, 10 Nov 2026:
 - **How many:** births outside the allowance are one in 400 of ~1.67 M a year, ~4,200; one in seventeen is placed, ~250 a year, 28 a ring. Carried, ~470,000: one person in 430, seven in a block of 3,000.
 - **The batch:** a ring clinic serving ~30 blocks sees ~360 second births a year, so ninety couples is a season's refitting. Two of the eleven children in one class of 31 is the cluster a batch makes; by chance alone a class has a third chair one time in thirteen.
 - **Wallets:** a family of four has 4 × 21.6 kWh; five people on four wallets have 17.3 kWh a head. Full time is 3.1 kWh × 2,000 h ÷ 365 ≈ 17 kWh a day (economy.md); with a wallet, 38.6.
-- **The draw:** room is 5.7% of ~1.67 M births, ~94,400 slots a year, half the households' to name and half the drum's. Less 250 placings, ~47,000 permits are drawn, ~5,200 a station ring; with the placings, ~7.3 hours at five seconds each. A household's chance by the draw alone is 6% (one in seventeen) over ~25 years, ~0.24% a year (one in 420).
+- **The draw:** room is 5.7% of ~1.67 M births, ~94,400 slots a year, half the households' to name and half the drum's. Less ~3,300 second twins, which Tansy charges to its room (families.md § Twins), and 250 placings, ~43,600 permits are drawn, ~4,850 a station ring; with the placings, ~6.8 hours at five seconds each. A household's chance by the draw alone is 5.5% (one in eighteen) over ~25 years, ~0.22% a year (one in 450).
 - **The lot:** 6% over 42 entries is 1 − 0.94^(1/42) ≈ one in 680 a year. With 31 entries left, 1 − (1 − 1 ÷ 680)³¹ ≈ 4.5%, one in twenty-two.
 - **The waiting wallet:** ~6 M unheld shares × 0.9 kW ≈ 5.4 GW; ~400,000 placeless-born adults take 0.36 GW. A share waits about as long for a child as a child waits for a share, ~6 years (people.md), so a wallet moves about every six years: eleven times by eighty-one.
 - **Mugwort:** families.md's free drum. Three births in a hundred outside, one in eight placed, 2.6% over par, about one person in forty born outside; a keep of half the child's commons, 0.55 kW = 13.2 kWh a day; a box paying ~3.9 kWh a day.

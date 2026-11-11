@@ -20,6 +20,9 @@ selection to have finished.
 5. The fitting. Everyone fitted at fourteen, two children by right with a place, a
    third by leave, and the door set as odds below what a household forfeits.
 6. A shareless life where a keep is charged: what it costs a household, and old age.
+7. Twins. With one embryo a pregnancy only identical twins are left, which no family
+   inherits. Where children are conceived the old way, fraternal twinning is heritable
+   through mothers, and a twin at a second birth is a third nobody licensed.
 
 Pure Python; about a minute. python3 placeless_share.py > out/placeless_share.txt
 """
@@ -49,6 +52,8 @@ S_ALL = 0.50     # the survival floor, kWe (people.md)
 HOUR = 3.1       # kWh an hour (economy.md, planning case)
 PPP = 2.22       # people a place
 HOME_M2, PLACE_M2 = 35.0, 78.0
+MZ = 1 / 250.0   # identical twins, of pregnancies (3-4 per 1,000 births; Hall and Lopez-Rangel 1996)
+TWINS = 0.5 * MZ # twins at a second birth, per replacement birth: a third the drum charges to its room
 
 # mortality as in stem_places.py, for age shares
 LAMBDA, GOMP_B, GOMP_MODE = 2.0e-4, 0.10, 127.0
@@ -265,11 +270,11 @@ def print_bound():
 def fitted(leak, door):
     carried = (1 - door) * leak
     placings = door * leak
-    thirds = ROOM - placings
+    thirds = ROOM - placings - TWINS       # thirds by leave: named or drawn
     return {
         "born": leak * DRUM_BIRTHS, "placed": placings * DRUM_BIRTHS, "carried": carried * SHARES,
-        "share": carried / (1 + carried), "over": carried, "thirds": thirds * KAPPA,
-        "gain": door - thirds * KAPPA,
+        "share": carried / (1 + carried), "over": carried, "thirds": (thirds + TWINS) * KAPPA,
+        "leave": thirds * KAPPA, "gain": door - thirds * KAPPA,
     }
 
 
@@ -311,8 +316,10 @@ def print_fitting():
     print("   A free drum placing 6,000 a year, all leave forfeit: births outside %.1f%%, one in %.1f placed, %.2f%% over par, one person in %.0f."
           % (100 * 6000 / LEAVE / DRUM_BIRTHS, 1 / LEAVE, 100 * (1 - LEAVE) * 6000 / LEAVE / DRUM_BIRTHS,
              1 / (((1 - LEAVE) * 6000 / LEAVE / DRUM_BIRTHS) / (1 + (1 - LEAVE) * 6000 / LEAVE / DRUM_BIRTHS))))
-    print("   Twins at a second birth (one pregnancy in 250, identical twins only where the clinic sets one embryo): %.0f a year, %.1f%% of the room."
-          % (DRUM_BIRTHS / 2 / 250, 100 * (0.5 / 250) / ROOM))
+    print("   Twins at a second birth (one pregnancy in 250, identical twins only, since the clinic sets one embryo): %.0f a year, %.1f%% of the room."
+          % (TWINS * DRUM_BIRTHS, 100 * TWINS / ROOM))
+    print("   So thirds by leave are %.0f a year and a household's chance of leave is %.1f%% (one in %.1f); of a third by any road, %.1f%%."
+          % ((ROOM - TWINS) * DRUM_BIRTHS - f["placed"], 100 * f["leave"], 1 / f["leave"], 100 * f["thirds"]))
     print("   The line outside in a fitted drum is a line of cutters: a placeless-born couple has a child only by taking out both implants,")
     print("   and is refitted at the birth. Births outside one in 400, door 6%, the willing mixed in with the rest:")
     print("   couples willing at the start   children   b      the line, of births outside   years until 1 couple in 4 is willing / the drum is 1% over par")
@@ -323,10 +330,12 @@ def print_fitting():
                   % (1 / phi0, k, b, 100 * rows[0][8] if rows[0][8] else 100 * rows[1][8],
                      big(first(rows, lambda r: r[7] >= 0.25)), big(first(rows, lambda r: r[6] >= 0.01))))
     print("   (run to 13 million years)")
-    drawn = ROOM * DRUM_BIRTHS / 2 - f["placed"]
-    print("   Draw Day: ~%.0f permits drawn (half the room less the placings), ~%.0f a station ring, %.1f hours at five seconds a name;"
+    drawn = (ROOM / 2 - TWINS) * DRUM_BIRTHS - f["placed"]
+    by_draw = drawn / DRUM_BIRTHS * KAPPA
+    print("   Draw Day: ~%.0f permits drawn (half the room less the twins and the placings), ~%.0f a station ring, %.1f hours at five seconds a name;"
           % (drawn, drawn / 9, (drawn + f["placed"]) / 9 * 5 / 3600))
-    print("   a household's chance by the draw alone is ~%.2f%% a year (one in %.0f) over ~25 years." % (100 * LEAVE / 2 / 25, 25 * 2 / LEAVE))
+    print("   a household's chance by the draw alone is %.1f%% (one in %.0f) over ~25 years, ~%.2f%% a year (one in %.0f)."
+          % (100 * by_draw, 1 / by_draw, 100 * by_draw / 25, 25 / by_draw))
     print()
 
 
@@ -377,9 +386,34 @@ def print_keep():
     print("   would free %.1f M householder slots, %.0f years of leave at once." % (2 * places / 1e6, 2 * places / thirds))
     print("   Houses holding 0 / 1%% / %.1f%% / 3%% of places: the drum sits %s against par."
           % (100 * places / 90e6, " / ".join("%+.1f%%" % (100 * ((1 - h) * (1 + over) - 1)) for h in (0, 0.01, places / 90e6, 0.03))))
-    hh = LEAVE / 2 / 25
+    hh = (ROOM / 2 - TWINS) * KAPPA / 25
     print("   A marriage across the line entered in the draw at a household's odds (one in %.0f a year): %.0f%% in ten years, %.0f%% in thirty."
           % (1 / hh, 100 * (1 - (1 - hh) ** 10), 100 * (1 - (1 - hh) ** 30)))
+    print()
+
+
+# ------------------------------------------------------------------ 7. twins
+def print_twins():
+    print("7. TWINS")
+    print("   One embryo a pregnancy: identical twins only, one pregnancy in 250, not heritable. At a second birth they are %.0f thirds a year," % (TWINS * DRUM_BIRTHS))
+    print("   %.1f%% of the room, and a drum can charge them to it for good." % (100 * TWINS / ROOM))
+    print("   Conceived the old way, fraternal twinning is a threshold trait expressed in mothers (liability heritability ~0.1-0.3; about 1% of")
+    print("   pregnancies at the start). If a twin at a second birth is a third the drum accepts, such mothers leave three children where others")
+    print("   leave two, and the liability's mean rises by (h2 / 2) x the selection differential each generation. Years until twins at second births are:")
+    print("   h2      2%       5%       12% (all the room)   25%      half")
+    for h2 in (0.10, 0.20, 0.30):
+        x, mu, g = inv(1 - 0.010), 0.0, 0
+        targets, out = [0.02, 0.05, 0.12, 0.25, 0.5], []
+        while targets and g < 5000:
+            p = 1 - Phi(x - mu)
+            while targets and p >= targets[0]:
+                targets.pop(0)
+                out.append(g * GEN)
+            gainers = p * (1 - p)            # a twin at the first birth is the household's two
+            S = pdf(x - mu) * (1 - p) * 0.5 / (1 + 0.5 * gainers)
+            mu += h2 * S / 2                 # shown by mothers only, carried by both sexes
+            g += 1
+        print("   %.2f   %6d   %6d   %6d               %6d   %6d" % ((h2,) + tuple(out)))
     print()
 
 
@@ -393,3 +427,4 @@ if __name__ == "__main__":
     print_bound()
     print_fitting()
     print_keep()
+    print_twins()

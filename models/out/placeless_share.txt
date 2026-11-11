@@ -101,7 +101,8 @@ Age shares of a steady population (stem_places.py's mortality): over 18 / 28 / 8
     2%         2.7%              18.2                          5.5%                           one in 36
     1%         1.7%              29.1                          3.4%                           one in 58
    A free drum placing 6,000 a year, all leave forfeit: births outside 3.0%, one in 8.3 placed, 2.64% over par, one person in 39.
-   Twins at a second birth (one pregnancy in 250, identical twins only where the clinic sets one embryo): 3333 a year, 3.5% of the room.
+   Twins at a second birth (one pregnancy in 250, identical twins only, since the clinic sets one embryo): 3333 a year, 3.5% of the room.
+   So thirds by leave are 90833 a year and a household's chance of leave is 11.6% (one in 8.7); of a third by any road, 12.0%.
    The line outside in a fitted drum is a line of cutters: a placeless-born couple has a child only by taking out both implants,
    and is refitted at the birth. Births outside one in 400, door 6%, the willing mixed in with the rest:
    couples willing at the start   children   b      the line, of births outside   years until 1 couple in 4 is willing / the drum is 1% over par
@@ -112,8 +113,8 @@ Age shares of a steady population (stem_places.py's mortality): over 18 / 28 / 8
    one in 25                      3          0.35   5.3%                          1.6 Myr / 1.7 Myr
    one in 25                      3          0.50   5.3%                          951984 / 997260
    (run to 13 million years)
-   Draw Day: ~46958 permits drawn (half the room less the placings), ~5218 a station ring, 7.3 hours at five seconds a name;
-   a household's chance by the draw alone is ~0.24% a year (one in 416) over ~25 years.
+   Draw Day: ~43625 permits drawn (half the room less the twins and the placings), ~4847 a station ring, 6.8 hours at five seconds a name;
+   a household's chance by the draw alone is 5.5% (one in 18) over ~25 years, ~0.22% a year (one in 451).
 
 6. WHERE A KEEP IS CHARGED AND THE PLACELESS-BORN HOLD NO WALLET (drums that chose otherwise)
    keep, kW   kWh a day   over 18 years, kWh   wallet-years   a household of five on four wallets, kWh a head a day
@@ -132,5 +133,16 @@ Age shares of a steady population (stem_places.py's mortality): over 18 / 28 / 8
    Housing those past 28 (4.0 M) takes 1.82 M places, one in 50; dissolving those houses
    would free 3.6 M householder slots, 41 years of leave at once.
    Houses holding 0 / 1% / 2.0% / 3% of places: the drum sits +2.6% / +1.6% / +0.6% / -0.4% against par.
-   A marriage across the line entered in the draw at a household's odds (one in 416 a year): 2% in ten years, 7% in thirty.
+   A marriage across the line entered in the draw at a household's odds (one in 448 a year): 2% in ten years, 6% in thirty.
+
+7. TWINS
+   One embryo a pregnancy: identical twins only, one pregnancy in 250, not heritable. At a second birth they are 3333 thirds a year,
+   3.5% of the room, and a drum can charge them to it for good.
+   Conceived the old way, fraternal twinning is a threshold trait expressed in mothers (liability heritability ~0.1-0.3; about 1% of
+   pregnancies at the start). If a twin at a second birth is a third the drum accepts, such mothers leave three children where others
+   leave two, and the liability's mean rises by (h2 / 2) x the selection differential each generation. Years until twins at second births are:
+   h2      2%       5%       12% (all the room)   25%      half
+   0.10    10329    18447    23298                26664    30954
+   0.20     5181     9240    11682                13365    15510
+   0.30     3465     6171     7788                 8910    10362
 
