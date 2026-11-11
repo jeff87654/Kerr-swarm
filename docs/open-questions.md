@@ -14,9 +14,9 @@
 
 | | Questions |
 |---|---|
-| Open | 95 |
-| Deliberately open (story space) | 21 |
-| Answered elsewhere, with a pointer left in the doc | 32 |
+| Open | 98 |
+| Deliberately open (story space) | 22 |
+| Answered elsewhere, with a pointer left in the doc | 34 |
 | Docs with questions still open | 24 |
 
 ## The questions by theme
@@ -91,7 +91,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [economy.md](economy.md#open-questions): Who pays for the catch ramp when rafts swap shares (people.md § Leaving has the swaps).
 - [economy.md](economy.md#open-questions): Which drums run a usury rule and which let interest run, and what the workarounds look like in each (Saving and interest).
 - [economy.md](economy.md#open-questions): What else the Shade sells the frontier besides beam, and the price of a kilogram of metal in kWh at the catch (The frontier).
-- [economy.md](economy.md#open-questions): What a household owes that can't pay the posted price for a child born outside its allowance: hours, Hollow time, or nothing (Children).
+- [economy.md](economy.md#open-questions): In free drums, what a household owes that can't pay the posted price for a child born outside its allowance: hours, Hollow time, or nothing (Children).
 - [economy.md](economy.md#open-questions): Who audits a house's box over the ninety years between a member's first payment and last draw, in a drum that forbids interest (Houses).
 - [governance.md](governance.md#open-questions): Glow-sail yields with real skin temperatures. If the interior spreads heat toward the belt, the belt runs warmer and is harder to starve.
 - [governance.md](governance.md#open-questions): How fast a sail field deploys, and whether that fits inside a raft's ~55-day reserve.
@@ -112,19 +112,22 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [people.md](people.md#open-questions): Whether frontier outposts take Shade children as genomes, and on what terms.
 - [people.md](people.md#open-questions): How the Shade's age at story time shapes things: 10,000 years, 1 Myr and 100 Myr look different among refusers. *(deliberately open)*
 - [people.md](people.md#open-questions): How drums choose an heir: birth order, the holders' choice, the ablest, or lot. Each gives a different politics. *(deliberately open)*
-- [people.md](people.md#open-questions): How drums settle mortmain, now that the sums are on the board: about one place in fifty houses every placeless-born adult, and dissolving the houses frees forty-two years of leave (families.md § Houses and par).
+- [people.md](people.md#open-questions): How free drums settle mortmain, now that the sums are on the board: about one place in fifty houses every placeless-born adult, and dissolving the houses frees forty-one years of leave (families.md § Free drums).
 - [families.md](families.md#open-questions): Which kinds of drum sit where on Merrow, and their names.
-- [families.md](families.md#open-questions): How many children are born outside the allowance and how many of them are placed: canon takes ~3% of births and one in ten.
-- [families.md](families.md#open-questions): How old the Shade must be for the leak to be that small. If the habit of keeping to a line was ever lost, it takes ~8,000–19,000 years of shut doors, or ~45,000–110,000 at one in ten placed, to bring births outside back to one household in twenty (people.md leaves the Shade's age open).
-- [families.md](families.md#open-questions): What keeps one couple in twenty childless in a Shade where selection has thinned everyone who wanted no children. If it is nearer one in fifty, one family in twenty is given a third and the door has to be that much narrower.
-- [families.md](families.md#open-questions): Whether steady drums fit their placeless-born, and how many do. It ends the line outside, and it is counting one group.
-- [families.md](families.md#open-questions): How a marriage across the line is treated where leave is sold or given by gift. Where it is drawn the couple enters the draw, and in open drums the block decides (What the placeless-born live on § Marriage across the line).
+- [families.md](families.md#open-questions): How many children are born outside the allowance in a fitted drum: canon takes one birth in 400, most of them after a cut.
+- [families.md](families.md#open-questions): Whether the door should be the lot alone. An heirless household that may not name the niece born outside who cared for it is the default's hardest case.
+- [families.md](families.md#open-questions): Whether a fitted drum penalises a second cut, and what it does when a line hides its children from the clinic.
+- [families.md](families.md#open-questions): Whether open drums fit. This doc assumes they do, and that a block's leave is what takes the implants out for a third (open-drums.md).
+- [families.md](families.md#open-questions): How many drums don't fit everyone, and whether service drums exist at all: canon takes about four in a hundred.
+- [families.md](families.md#open-questions): Twins at a second birth: a third nobody licensed. Most drums would charge them to their room, about 3.5% of it; the figures here leave them out.
+- [families.md](families.md#open-questions): What a survival load is in the hull. This doc takes ~0.40 kW a head, an estimate, and it puts the wall at twice par. Compute panels turned over to pumped hull heat might move it (not worked).
+- [families.md](families.md#open-questions): What keeps one couple in twenty childless in a Shade where selection has thinned everyone who wanted no children. If it is nearer one in fifty, one family in eighteen is given a third and the door has to be that much narrower.
+- [families.md](families.md#open-questions): How a marriage across the line is treated where leave is sold or given by gift.
 - [families.md](families.md#open-questions): Whether houses hold shares as well as places. A house with shares could pay its members a dividend, and would be mortmain twice over.
 - [families.md](families.md#open-questions): What a drum's rule owes a widow or widower from across the line, beyond a year's grace, when the place is held in trust for a child.
 - [families.md](families.md#open-questions): Whether a drum may refuse to write a certificate, and what a host drum asks for a lodger's room.
-- [families.md](families.md#open-questions): How the crews elect, and whether a crew that places its own becomes a line that keeps to itself.
+- [families.md](families.md#open-questions): In free drums: how the crews elect, whether a crew that places its own becomes a line that keeps to itself, and what a household owes that can't pay the keep.
 - [families.md](families.md#open-questions): How strongly habits pass from parents to children over thousands of years. The models take a regression of 0.2–0.5; a fast churn of fashions would lower it (Kolk et al. 2014), and a line outside would grow more slowly.
-- [families.md](families.md#open-questions): The keep in kWh, and what a household owes that can't pay it.
 - [families.md](families.md#open-questions): Whether any drum raises the drum's own children, and who raises them.
 - [open-drums.md](open-drums.md#open-questions): Whether orbit families or whole rafts ever become open in the same sense, with a Margin of shares held at raft scale.
 - [open-drums.md](open-drums.md#open-questions): How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. *(deliberately open)*
@@ -135,8 +138,9 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Hollow time by age** gives Sorrel's elders several times an equal share: economy.md's "allotted by age or service" column at work. How much do Low-deck families mind? *(deliberately open)*
 - [wander-year.md](wander-year.md#questions-it-raises): **Weeks without weight.** A wander year spends about half its nights weightless, in legs of two to three weeks. Is an hour's exercise a day enough, or do sleeper cars on slow lines spin? It's the same question for anyone who lives aboard cyclers.
 - [wander-year.md](wander-year.md#questions-it-raises): **How often rafts pass.** The Passing assumes a raft within ~2 AU about once in four years. If close passes are rarer or commoner, so is the festival, and so are the swaps people.md expects with passing rafts.
-- [third-chair.md](third-chair.md#questions-it-raises): **A promise unsigned.** Sidonie died with the naming unsigned and Nell was born outside. Whether a drum lets a family prove a promise after the death, and how many third chairs are promises that failed.
-- [third-chair.md](third-chair.md#questions-it-raises): **The other eight.** Nell is elected to a house, marries late and has a box. What the same life looks like for a third chair whom no house elects. *(deliberately open)*
+- [third-chair.md](third-chair.md#questions-it-raises): **The week to decide.** Dov and Marguerite could have ended the pregnancy and stayed in the draw. Whether a drum should ask that of a couple it failed, and whether any other rule keeps mercy from becoming the leak.
+- [third-chair.md](third-chair.md#questions-it-raises): **The other sixteen.** Nell is elected to a house, marries late and is never drawn. What the same life looks like for a third chair whose parents cut, in a block that knows it. *(deliberately open)*
+- [third-chair.md](third-chair.md#questions-it-raises): **The quarter by Ring 7.** What Mugwort does when its line outside is a tenth of its births. *(deliberately open)*
 - [sorrel.md](sorrel.md#open-questions): **A gentler catch** for the frail (ashgrove.md): still open.
 - [sorrel.md](sorrel.md#open-questions): **Night flying** has wardens with red lamps at the Spindle's 75 m edge, since a flyer who drifts off the axis falls for minutes and lands at ~85 m/s. Should the netting run the whole length?
 - [sorrel.md](sorrel.md#open-questions): **How the Hours began:** a founders' custom, but nobody in the atlas says why animals. *(deliberately open)*

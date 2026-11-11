@@ -1,0 +1,136 @@
+How many people a drum carries outside its places.
+
+Age shares of a steady population (stem_places.py's mortality): over 18 / 28 / 85 / 100: 85% / 77% / 30% / 18%
+
+1. FREE ENTRY: a fixed number placed a year, and no children born to the placeless-born
+   A household's chance of leave with no placings: 12.0%. Closed form: the door settles at the leave forfeited,
+   and births outside at placings / door; with all leave forfeit that is (share of room placed) / 2.12.
+   placed a year   forfeit      births outside   door    unplaced per placing   placeless, of the drum   years to settle
+        0          all leave       0.30%           0.0%      -                    0.30% ( 0.6 M)           235026
+     1000          all leave       0.50%          12.0%    7.3                    0.44% ( 0.9 M)           145068
+     2500          all leave       1.25%          12.0%    7.3                    1.09% ( 2.2 M)            33033
+     5000          all leave       2.50%          12.0%    7.3                    2.15% ( 4.4 M)             7161
+    10000          all leave       5.00%          12.0%    7.3                    4.21% ( 8.8 M)             8052
+        0          the draw only   0.31%           0.0%      -                    0.31% ( 0.6 M)           430419
+     1000          the draw only   0.99%           6.1%   15.5                    0.92% ( 1.9 M)            90849
+     2500          the draw only   2.43%           6.2%   15.2                    2.23% ( 4.6 M)            16071
+     5000          the draw only   4.74%           6.3%   14.8                    4.26% ( 8.9 M)            14619
+    10000          the draw only   9.03%           6.6%   14.1                    7.78% (16.9 M)            15576
+   (accidents 0.3% of births; the habit starts at 6% of households; b = 0.35)
+
+2. THE LINE OUTSIDE, with 5,000 placed a year and all leave forfeit
+   One placeless-born couple in 25 has children at the start, three each (placing.py's start).
+   b      the placed carry the trait back   years until 1 couple in 4 / half / the drum 10% over par
+   0.20   yes                                198759 /  224433 /  225786
+   0.20   no (placing.py)                     never /   never /   never
+   0.35   yes                                101343 /  111969 /  112497
+   0.35   no (placing.py)                     never /   never /   never
+   0.50   yes                                 62502 /   67782 /   68112
+   0.50   no (placing.py)                     never /   never /   never
+   Once most placeless-born couples are willing, years to 10% over par, by children a couple and the number placed:
+   willing at the start   children   door shut   1,000 placed   5,000 placed
+    95%                   1          holds at 0.58%   holds at 0.53%   holds at 2.26%
+    95%                   2               99        99        99
+    95%                   3               66        66        66
+    50%                   1          holds at 0.42%   holds at 0.52%   holds at 2.26%
+    50%                   2          holds at 0.86%    144672     33858
+    50%                   3              132       132       132
+   At one child a couple the line can't replace itself, and its children crowd households' out of a pool the door pins.
+
+3. THE WALL: no rule, and a commons per head
+   A drum of 200 M shares: beam 400 GW, hull radiators 160 GW (full at par), commons 220 GW with the dividend held at 0.9 kW.
+   Hull heat fits 200 M at the 2 kW life's 0.80 kW, 267 M at the lean life's 0.60 and 400 M at a survival load of 0.40;
+   the beam fits 417 M on the lean 0.96 kWe and 800 M on 0.5 kWe. Heat is the first wall.
+   placeless   of the drum   x par   commons, kW a head   the placed's private hull heat   the commons' hull load, kW a head
+       5 M       2.4%        1.02    1.07                  94% of par's 0.23 kW              0.57
+      20 M       9.1%        1.10    1.00                  75% of par's 0.23 kW              0.57
+      40 M      16.7%        1.20    0.92                  50% of par's 0.23 kW              0.57
+      81 M      28.8%        1.41    0.78                   0% of par's 0.23 kW              0.57
+     120 M      37.5%        1.60    0.69                   0% of par's 0.23 kW              0.50
+     200 M      50.0%        2.00    0.55                   0% of par's 0.23 kW              0.40
+     250 M      55.6%        2.25    0.49                   0% of par's 0.23 kW              0.36   below the survival load
+   Years from 4.4 M, once placeless-born couples have children as readily as anyone:
+   children a couple   growth a year   10% over par   private hull heat gone (81 M)   the wall (200 M)
+   3                   1.23%            123            237                             311
+   4                   2.10%             72            139                             182
+   6                   3.92%             39             74                              97
+   At the wall the 55-day air reserve is 28 days and the 90-day larder 45.
+
+4. BUDGET-BOUND: the shareless pay for the commons they use, from 18 to 120, and for a child's to 18
+   tier                 own life, kW-yr   plus 1.13 children's   wage to pay for one's own life / for replacement, kWh an hour at 2,000 h and at 3,000 h
+   the full commons      112.2             134.6                 7.3 / 8.8   and   4.9 / 5.9
+   the lean life          97.9             117.4                 6.4 / 7.7   and   4.3 / 5.1
+   the survival floor     51.0              61.2                 3.3 / 4.0   and   2.2 / 2.7
+   The hour is 3.1 kWh in the planning case and 6.2 in Chervil (economy.md, open-drums.md).
+   Children a couple can pay for at the survival floor: at 3.1 kWh and 2,000 h, -0.8; at 3,000 h, 4.5.
+   So the class grows 2.4% a year until its own hours bring the hour down to the replacement wage, ~2.7 kWh.
+   Where it settles: what the placed pass to them / 0.5 kW each (0.40 kW of it hull heat)
+     10% of wallets spent on time,  50% of it to the shareless:  18.0 M ( 8.3% of the drum),  16% of the placed's private hull heat
+     10% of wallets spent on time, 100% of it to the shareless:  36.0 M (15.3% of the drum),  31% of the placed's private hull heat
+     25% of wallets spent on time,  50% of it to the shareless:  45.0 M (18.4% of the drum),  39% of the placed's private hull heat
+     25% of wallets spent on time, 100% of it to the shareless:  90.0 M (31.0% of the drum),  78% of the placed's private hull heat
+     40% of wallets spent on time,  50% of it to the shareless:  72.0 M (26.5% of the drum),  63% of the placed's private hull heat
+     40% of wallets spent on time, 100% of it to the shareless: 144.0 M (41.9% of the drum), 125% of the placed's private hull heat
+   Hull heat caps it at 115 M (36.5% of the drum, 1.57x par), when the placed have given up all their private hull heat;
+   one wallet keeps 1.8 people at the survival floor.
+   placeless   of the drum   hours of service a placed adult buys a year (workers at 3,000 h)   private hull heat the placed keep
+      45 M      18.4%          439                                                                61%
+      90 M      31.0%          878                                                                22%
+     115 M      36.5%         1121                                                                 0%
+
+5. THE FITTING: everyone fitted at fourteen; two by right with a place, a third by leave; no child born to anyone without a licence
+   A household's chance of leave: 12.0% (one in 8.3). A household with a child outside forfeits all of it.
+   The door, set as odds at half that: 6.0% (one in 17) of those born outside are ever placed, by the same lot.
+     entered for 30 years (from 18): one chance in 485 a year
+     entered for 42 years (from 18): one chance in 679 a year
+     a couple across the line with 31 years of entries left: 4.5%
+   A child outside then gains its household -0.060 of a householder, whatever the leak, so the habit falls to its accidents.
+   Started at 6% of households by habit (b = 0.35), the habit takes ~11616 years to halve; the Shade is older.
+   births outside   a year    placed a year   carried     of the drum     over par   a third for one family in
+   one in 1000        1667      100            0.19 M     one in 1065    0.09%      8.3
+   one in 400         4167      250            0.47 M     one in 427     0.23%      8.3
+   one in 200         8333      500            0.94 M     one in 214     0.47%      8.4
+   one in 100        16667     1001            1.88 M     one in 107     0.94%      8.4
+   At one birth in 400: waiting wallets for the 0.40 M of them over 18 take 0.36 GW of the 5.4 GW of unheld dividends (7%).
+   Housing those past 28 (0.36 M) takes 0.16 M places, one in 557; 250 placings a year is 28 at each of nine station rings.
+   By how many couples are childless (the door at half a household's chance of leave, births outside one in 400):
+   childless   room, of births   a third for one family in   a household's chance of leave   the door
+    8%         8.6%               5.3                         18.9%                           one in 11
+    5%         5.7%               8.3                         12.0%                           one in 17
+    3%         3.7%              13.1                          7.6%                           one in 26
+    2%         2.7%              18.2                          5.5%                           one in 36
+    1%         1.7%              29.1                          3.4%                           one in 58
+   A free drum placing 6,000 a year, all leave forfeit: births outside 3.0%, one in 8.3 placed, 2.64% over par, one person in 39.
+   Twins at a second birth (one pregnancy in 250, identical twins only where the clinic sets one embryo): 3333 a year, 3.5% of the room.
+   The line outside in a fitted drum is a line of cutters: a placeless-born couple has a child only by taking out both implants,
+   and is refitted at the birth. Births outside one in 400, door 6%, the willing mixed in with the rest:
+   couples willing at the start   children   b      the line, of births outside   years until 1 couple in 4 is willing / the drum is 1% over par
+   one in 100                     2          0.35   0.9%                          10.6 Myr / 11.3 Myr
+   one in 100                     2          0.50   0.9%                          7.2 Myr / 7.6 Myr
+   one in 25                      2          0.35   3.6%                          2.9 Myr / 3.6 Myr
+   one in 25                      2          0.50   3.6%                          1.9 Myr / 2.3 Myr
+   one in 25                      3          0.35   5.3%                          1.6 Myr / 1.7 Myr
+   one in 25                      3          0.50   5.3%                          951984 / 997260
+   (run to 13 million years)
+   Draw Day: ~46958 permits drawn (half the room less the placings), ~5218 a station ring, 7.3 hours at five seconds a name;
+   a household's chance by the draw alone is ~0.24% a year (one in 416) over ~25 years.
+
+6. WHERE A KEEP IS CHARGED AND THE PLACELESS-BORN HOLD NO WALLET (drums that chose otherwise)
+   keep, kW   kWh a day   over 18 years, kWh   wallet-years   a household of five on four wallets, kWh a head a day
+   0.23         5.5          36291              4.6           16.2   (a family of four: 21.6)
+   0.55        13.2          86783             11.0           14.6   (a family of four: 21.6)
+   1.10        26.4         173567             22.0           12.0   (a family of four: 21.6)
+   Full-time pay with no share: 17.0 kWh a day, 79% of a wallet; a working sibling with a share has 38.6.
+   Old age alone, at no interest, to live on 10 kWh a day after work stops:
+     stopping at 75: bank 7.9 kWh a day from 18 (46% of pay)
+     stopping at 85: bank 5.2 kWh a day from 18 (31% of pay)
+     stopping at 95: bank 3.2 kWh a day from 18 (19% of pay)
+     at 3% interest, stopping at 85: bank 1.0 kWh a day (6% of pay)
+   A house's box: 15 parts in a hundred of pay from 31 to 85 pays 3.9 kWh a day from 85 to 120.
+   Canon's free drum (3% of births outside, one in 8.3 placed, 6005 placings a year), 5.3 M carried, 2.6% over par: the commons is 1.10 kW a head with them and 1.13 without, the unheld dividends (5.4 GW) in it;
+   a waiting wallet for each of the 1.57 M over 85 takes 26% of the waiting shares and 0.6% of the commons.
+   Housing those past 28 (4.0 M) takes 1.82 M places, one in 50; dissolving those houses
+   would free 3.6 M householder slots, 41 years of leave at once.
+   Houses holding 0 / 1% / 2.0% / 3% of places: the drum sits +2.6% / +1.6% / +0.6% / -0.4% against par.
+   A marriage across the line entered in the draw at a household's odds (one in 416 a year): 2% in ten years, 7% in thirty.
+
