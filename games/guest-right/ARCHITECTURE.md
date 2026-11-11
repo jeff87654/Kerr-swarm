@@ -10,6 +10,7 @@ The release build is made by `tools/build.py`, a small bundler with no dependenc
 
 - Imports are static, at the top of the file, one statement each, and either `import * as THREE from 'three';` (the only way to import three) or `import { a, b } from './relative/path.js';` (named imports, relative path, with the `.js`). No default imports, no `import * as x` of local files, no bare specifiers other than `'three'`, no `import()`.
 - Exports are declarations at column 0: `export function f`, `export async function f`, `export class C`, `export const x =`. No `export default`, no `export let`, no `export { ... }` lists, no re-exports, no destructuring in an exported declaration.
+- `export const a = 1, b = 2;` exports both names, as long as the initialisers are plain (the bundler follows brackets and quotes, not JavaScript). Every name a module imports must be one the other module exports: the build checks this and stops if it is not so. In a bundle a name that is missing is simply `undefined`, and nothing says so until the code that uses it runs, which is why the things that matter are also played from the built page (`--page dist/index.html`), not only from `src/`.
 - No top-level `await`. No circular imports.
 - No external assets or network requests. Everything is generated in code. The only fonts are the four families in `assets/fonts` (`'Cormorant Garamond'`, `'Barlow'`, `'Barlow Condensed'`, `'Caveat'`), already loaded by the page.
 - Browser storage only through `game.save` (it wraps `localStorage` in try/catch and falls back to memory).

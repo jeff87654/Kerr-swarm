@@ -41,6 +41,48 @@ def rel(path):
     return os.path.relpath(path, ROOT).replace("\\", "/")
 
 
+def more_declarators(src, i):
+    """The names declared after the first in `const a = ..., b = ..., c = ...;` (i is just past the first name).
+    A plain scan: brackets and quotes are followed, a comma at depth nought starts the next name, and the statement ends
+    at a semicolon at depth nought or at a line that begins at column 0. It reads declarations, not JavaScript: anything
+    cleverer than a list of initialisers wants an export statement of its own."""
+    names, depth, n = [], 0, len(src)
+    while i < n:
+        c = src[i]
+        if c in "\"'`":
+            q = c
+            i += 1
+            while i < n and src[i] != q:
+                i += 2 if src[i] == "\\" else 1
+            i += 1
+            continue
+        if c == "/" and i + 1 < n and src[i + 1] == "/":
+            while i < n and src[i] != "\n":
+                i += 1
+            continue
+        if c == "/" and i + 1 < n and src[i + 1] == "*":
+            j = src.find("*/", i + 2)
+            i = n if j < 0 else j + 2
+            continue
+        if c in "([{":
+            depth += 1
+        elif c in ")]}":
+            depth -= 1
+            if depth < 0:
+                break
+        elif depth == 0:
+            if c == ";":
+                break
+            if c == "\n" and i + 1 < n and src[i + 1] not in " \t\r\n,":
+                break
+            if c == ",":
+                mo = re.match(r"\s*([A-Za-z_$][\w$]*)\s*=(?!=)", src[i + 1:])
+                if mo:
+                    names.append(mo.group(1))
+        i += 1
+    return names
+
+
 class Bundle:
     def __init__(self):
         self.mods = {}      # abs path -> dict(src, deps, exports, body)
@@ -60,7 +102,7 @@ class Bundle:
             self.warn(f"missing file: {rel(path)} (imported by {rel(stack[-1]) if stack else 'the entry'})")
             return
         src = read(path)
-        m = {"src": src, "deps": [], "exports": [], "path": path}
+        m = {"src": src, "deps": [], "exports": [], "imports": [], "path": path}
         self.mods[path] = m
         # imports
         def do_import(mo):
@@ -87,8 +129,10 @@ class Bundle:
                 if " as " in part:
                     a, b = [x.strip() for x in part.split(" as ")]
                     names.append(f"{a}: {b}")
+                    m["imports"].append((dep, a))
                 else:
                     names.append(part)
+                    m["imports"].append((dep, part))
             return "const { " + ", ".join(names) + " } = __req(" + json.dumps(rel(dep)) + ");"
         body = IMPORT_RE.sub(do_import, src)
         if IMPORT_BARE_RE.search(body):
@@ -102,6 +146,9 @@ class Bundle:
                 self.warn(f"{rel(path)}: unsupported export: `{line.strip()[:70]}` (use export function / class / const at column 0)")
         def do_export(mo):
             m["exports"].append(mo.group("name"))
+            if mo.group("kind") == "const":
+                for extra in more_declarators(body, mo.end()):
+                    m["exports"].append(extra)
             return mo.group("kind") + " " + mo.group("name")
         body = EXPORT_DECL_RE.sub(do_export, body)
         if re.search(r"^\s*await\s", "\n".join(l for l in body.split("\n") if not l.startswith((" ", "\t"))), re.M):
@@ -110,6 +157,15 @@ class Bundle:
         for dep in m["deps"]:
             self.load(dep, stack + (path,))
         self.order.append(path)
+
+    def check_imports(self):
+        """Every name a module imports must be one the other module exports: in the bundle a name that is not there is
+        simply undefined, and nothing says so until the code that uses it runs."""
+        for path, m in self.mods.items():
+            for dep, name in m["imports"]:
+                d = self.mods.get(dep)
+                if d is not None and name not in d["exports"]:
+                    self.warn(f"{rel(path)}: imports `{name}` from {rel(dep)}, which does not export it")
 
     def js(self):
         out = ["const __mods = {};", "const __req = (id) => { const m = __mods[id]; if (!m) throw new Error('module not loaded: ' + id); return m; };"]
@@ -237,6 +293,7 @@ def main():
         b.load(entry_path)
     finally:
         os.remove(entry_path)
+    b.check_imports()
     check_prose(b)
     for p in missing:
         print(f"note: {p} is listed in places.json but not written yet")
