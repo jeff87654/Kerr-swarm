@@ -1,5 +1,5 @@
 // places.js: every place the game builds. Ids are fixed (other parts look them up).
-// area: 'station' | 'candlewick' | 'hollow' | 'terraces' | 'spindle'.
+// area: 'station' | 'candlewick' | 'hollow' | 'terraces' | 'spindle' | 'city' | 'keel' | 'lines' | 'walls' | 'axles'.
 // keeper is a cast id where the place has one.
 // PLACES.neighbours (non-enumerable, so Object.keys(PLACES) lists places only)
 // holds the blocks round Candlewick, for signs that point out of it.
@@ -269,7 +269,7 @@ export const PLACES = {
   'back-foot': {
     name: 'the foot of the back wall', sign: '', area: 'hollow', kind: 'wall foot',
     sub: 'The Hollow · Ring Nine · the back wall',
-    blurb: "Where the floor meets the back end wall in the dimmer light of the Dim End, and twenty-seven tiers of terraces begin to climb toward the axis.",
+    blurb: "Where the floor meets the back end wall in the dimmer light of the Dim End, and thirty tiers of terraces begin to climb toward the axis.",
   },
   'dawn-terrace': {
     name: 'the back terraces', sign: 'THE DAWN STAND', area: 'terraces', kind: 'terrace',
@@ -350,6 +350,110 @@ export const PLACES = {
     name: 'a block place', sign: '', area: 'city', kind: 'room',
     sub: 'Chervil',
     blurb: "The large room a block is known for: a school, a bath house, a dim wood, a bright square.",
+  },
+
+  // The landmarks: places built by hand, once each, somewhere in the drum. The ids are the regions' ids
+  // (src/game/regions.js), so a landmark's zones can use them as their place and its talk is found by them.
+  // The Keel: decks 1 to 15, a full g. Nobody lives there; everyone eats from it.
+  'keel-vats': {
+    name: 'the Flour Hall', sign: 'FLOUR HALL', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 9 · Ring Five',
+    blurb: "Thermophilic vats running at sixty to seventy degrees, growing the drum's protein flour, dairy, egg and mycelium steak and warming its bath water as they do, with the Pass, the Trimmings, Curd Row and the Kettle off the main floor.",
+  },
+  'keel-garden': {
+    name: 'the garden racks', sign: 'GARDEN RACKS', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 6 · Ring Four',
+    blurb: "Racks of greens, herbs, tomatoes and strawberries under lamps, about a square metre of rack for every person in the drum, which is why a tomato is half a kay.",
+  },
+  'keel-heat': {
+    name: 'the loop hall', sign: 'THE LOOP', area: 'keel', kind: 'works',
+    sub: 'the Keel · deck 3 · Ring Seven',
+    blurb: "Where the vats' waste heat is handed to the 65 degree loop that warms every bath and kitchen tap in Chervil for nothing.",
+  },
+  'keel-library': {
+    name: 'the strain library', sign: 'STRAIN LIBRARY', area: 'keel', kind: 'library',
+    sub: 'the Keel · deck 11 · Ring Three',
+    blurb: "Every vat culture and registered household starter in the drum, kept frozen in a vial and written down as a genome, so a line lost to a blight can be grown again.",
+  },
+  // Two more of the nine station rings.
+  'ring-five': {
+    name: 'Station Ring 5', sign: 'STATION RING 5', area: 'station', kind: 'platform',
+    sub: 'the Keel · deck 1 · Ring Five',
+    blurb: "The ring at the waist of the drum, four decks deep and nineteen kilometres round, where the tube level takes travellers on to the cyclers and anywhere further.",
+  },
+  'ring-nine': {
+    name: 'Station Ring 9', sign: 'STATION RING 9', area: 'station', kind: 'platform',
+    sub: 'the Keel · deck 1 · Ring Nine',
+    blurb: "The last ring, nearest the back cap and the heat end, with a Ledger of its own and a ring counter like every other.",
+  },
+  // The line decks: fifteen of them, two decks deep, one in the middle of each band of twenty-five. Nobody lives on them.
+  'line-works': {
+    name: 'the cab depot', sign: 'DEPOT', area: 'lines', kind: 'works',
+    sub: 'line deck 38 · Ring Two · 0.95 g',
+    blurb: "Cab berths, workshops and the freight sorting floor between the tubes of a line deck, where the cabs are mended and the night's parcels are packed by lobby.",
+  },
+  'line-rides': {
+    name: 'the loop rides', sign: 'LOOP 63', area: 'lines', kind: 'ride',
+    sub: 'line deck 63 · Ring Six · 0.92 g',
+    blurb: "A loop round the drum with two limits posted, one each way: spinward runs heavy and anti runs light, and some people ride it for the feeling alone.",
+  },
+  // In the decks of the city.
+  chimney: {
+    name: 'the climbing hall', sign: 'CLIMBING HALL', area: 'city', kind: 'sport',
+    sub: 'the Low decks · deck 40 · Ring Six',
+    blurb: "A shaft of climbing walls cut up through several decks, where every fall lands a little anti and the mats are laid to match.",
+  },
+  'felt-organ': {
+    name: 'the organ hall', sign: 'ORGAN HALL', area: 'city', kind: 'hall',
+    sub: 'the Middle decks · deck 150 · Ring Four',
+    blurb: "A concert hall hung deep in felt round an organ whose pipes are long enough to play the old notes in heliox.",
+  },
+  'lot-hall': {
+    name: 'the lot hall', sign: 'THE LOT HALL', area: 'city', kind: 'civic',
+    sub: 'the Middle decks · deck 200 · Ring Five',
+    blurb: "Where the assembly sits: about a thousand residents drawn by lot each year to set the commons, in chairs that belonged to the years before them.",
+  },
+  'up-decks': {
+    name: "the elders' arcade", sign: '', area: 'city', kind: 'arcade',
+    sub: 'the High decks · deck 340 · Ring Three · 0.55 g',
+    blurb: "A High deck arcade at a little over half a g, among the drum's elders, whose flats are the brightest in Chervil and whose doors all have a rail beside them.",
+  },
+  // The far Hollow.
+  'hollow-island': {
+    name: 'the lake island', sign: '', area: 'hollow', kind: 'island',
+    sub: 'the Hollow · the lake',
+    blurb: "An island rising out of the lake bed, with the water two metres deep around it and the far shore curving up until it stands on its side.",
+  },
+  'hollow-grounds': {
+    name: 'the playing grounds', sign: '', area: 'hollow', kind: 'grounds',
+    sub: 'the Hollow · Ring Six',
+    blurb: "Spinball pitches and a half-g track on the Hollow floor, where a throw breaks about twice as hard as on the decks and a sprinter on the heavy bend weighs a fifth more.",
+  },
+  'hollow-front': {
+    name: 'the front wood', sign: '', area: 'hollow', kind: 'wood',
+    sub: 'the Hollow · Ring One · the Dim End',
+    blurb: "Woods and ferns in the dim end of the Hollow by the front wall, where the sunline's light falls away to little more than a third of mid-floor.",
+  },
+  // The end walls and the axles.
+  'front-wall': {
+    name: 'the front terraces', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the front end wall · tier one to the Third, tier ten',
+    blurb: "The tiers of the quieter wall, at the power end of the drum, climbing from the floor toward the axis and lighter with every one.",
+  },
+  'back-upper': {
+    name: 'the high tiers', sign: '', area: 'walls', kind: 'terraces',
+    sub: 'the back end wall · tiers fifteen to twenty-seven',
+    blurb: "The upper tiers of the back wall: the Quarter, the Tenth and the Twentieth, tiers fifteen, twenty-four and twenty-seven, 750, 300 and 150 metres from the axis, where a step becomes a small jump.",
+  },
+  'axle-back': {
+    name: 'the back axle hall', sign: 'BACK AXLE', area: 'axles', kind: 'works',
+    sub: 'the axis · the back cap · 0.02 g',
+    blurb: "The loudest room in the drum, where all its heat leaves as two-phase ammonia in pipes as wide as rooms. Beyond it, the still side and the Window.",
+  },
+  'axle-front': {
+    name: 'the front axle hall', sign: 'FRONT AXLE', area: 'axles', kind: 'works',
+    sub: 'the axis · the front cap · 0.02 g',
+    blurb: "Where all the drum's power comes in through one rotary joint at the front cap, about 160 gigawatts, and you would never know it by ear.",
   },
 };
 

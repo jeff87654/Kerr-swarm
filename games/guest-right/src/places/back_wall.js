@@ -173,10 +173,10 @@ function buildDawn(game, W) {
   // a poster for the dawn and the tier plate at the rail
   sign(s, SIGNS['poster.dawn'], 34.1, 1.6, -0.27, { face: 'z' });
   sign(s, SIGNS['poster.flight'], 43.2, 1.6, -0.27, { face: 'z' });
-  const tierPlate = { kind: 'plate', text: 'TIER ONE · 0.48 g', sub: 'fifty metres above the floor · twenty-six to go' };
+  const tierPlate = { kind: 'plate', text: 'TIER ONE · 0.48 g', sub: 'fifty metres above the floor · twenty-nine to go' };
   sign(s, tierPlate, 0, 0.82, ZR + 0.005, { face: 'Z', w: 0.5, h: 0.2 });
   s.interact({ x: 0, y: 1.0, z: ZR + 0.5, radius: 1.3, prompt: 'Read the tier plate', onUse: async (gm) => {
-    await say(gm, 'Tier one', ['A brass plate on the parapet: tier one, 0.48 g, fifty metres above the floor, twenty-six to go.', 'Every tier up the wall is another fifty metres nearer the axis, and you weigh a little less on each. The Third is tier ten. The top garden, tier twenty-seven, is at a twentieth of a g.']);
+    await say(gm, 'Tier one', ['A brass plate on the parapet: tier one, 0.48 g, fifty metres above the floor, twenty-nine to go.', 'Every tier up the wall is another fifty metres nearer the axis, and you weigh a little less on each. The Third is tier ten. The Twentieth, tier twenty-seven, is at a twentieth of a g.']);
     find(gm, 'terraces-lighter');
   } });
 

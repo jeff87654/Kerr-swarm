@@ -62,6 +62,14 @@ const SCENES = [
   { name: 'journal-cards', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.journal('cards')"); await wait(700); } },
   { name: 'map-local', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('local')"); await wait(700); } },
   { name: 'map-drum', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('drum')"); await wait(700); } },
+  { name: 'map-round', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('round')"); await wait(800); } },
+  { name: 'map-round-keys', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('round')"); await wait(500); await press(p, 'ArrowRight', 5); await press(p, 'ArrowUp', 3); await wait(300); } },
+  { name: 'map-round-layer', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('round')"); await wait(500); await press(p, 'PageUp', 20, 80); await wait(500); } },
+  { name: 'map-round-top', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.map('round')"); await wait(500); await press(p, 'PageUp', 60, 30); await wait(500); } },
+  { name: 'map-pick', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.pick()"); await wait(500); await press(p, 'ArrowRight', 3); await press(p, 'ArrowUp', 2); await press(p, 'Enter'); await wait(400); } },
+  { name: 'map-nocity', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.nocity(true); dev.map('drum')"); await wait(700); } },
+  { name: 'journal-chervil', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.journal('chervil')"); await wait(600); } },
+  { name: 'journal-chervil-block', run: async (p) => { await act(p, "dev.spin(false); dev.hud(); dev.journal('chervil')"); await wait(400); await press(p, 'ArrowDown', 2); await wait(300); } },
   { name: 'photo', run: async (p) => { await act(p, 'dev.spin(false); dev.hud(); dev.photo()'); await wait(500); } },
   { name: 'photo-shot', run: async (p) => { await act(p, 'dev.spin(false); dev.hud(); dev.photo()'); await wait(400); await press(p, 'Enter'); await wait(1500); } },
   { name: 'card-front', run: async (p) => { await act(p, 'dev.spin(false); dev.cardHome()'); await wait(700); await press(p, 'ArrowRight'); await wait(300); } },
@@ -222,7 +230,12 @@ async function keyboardPass(browser) {
   await wait(300);
   await press(page, '=');
   await press(page, 'v');
-  check('v switches the map view', await ev(page, "!!document.querySelector('.gr-map-body.is-drum')"));
+  check('v switches the map view', await ev(page, "!!document.querySelector('.gr-map-body.is-round')"));
+  await press(page, 'ArrowRight', 2);
+  await press(page, 'PageUp');
+  check('arrows and Page Up move round the drum', await ev(page, "/Decks 22 to 27/.test(document.querySelector('.gr-rh-t').textContent)"));
+  await press(page, 'v');
+  check('v goes on to the section', await ev(page, "!!document.querySelector('.gr-map-body.is-drum')"));
   await press(page, 'm');
   await wait(350);
   check('m closes the map', !(await ev(page, 'ui.modal')));

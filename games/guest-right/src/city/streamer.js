@@ -20,6 +20,7 @@ export function createStreamer(game, city) {
   const W = game.world;
   const cells = new Map();                 // key -> { key, L, i, j, plan, scope, state: 'queued' | 'building' | 'ready', ready: Promise, fast, dead, used }
   let building = null;
+  const failed = new Map();                // key -> when a build of it last failed
   const stats = { built: 0, dropped: 0, lastMs: 0, lastSlices: 0 };
 
   // ------------------------------------------------------------------------------------------------ building one block
@@ -34,21 +35,25 @@ export function createStreamer(game, city) {
     // A slice is a few milliseconds of a frame: fewer when the frames are already long. A step that ran over is paid
     // back by sitting out the next frames, so the average stays at the budget.
     const budget = () => (c.fast ? SLICE_FAST : game.dtReal > 0.021 ? 2.5 : game.dtReal > 0.0135 ? 4 : SLICE);
-    let debt = 0;
+    let debt = 0, prevGroup = null;
+    // this block's signs go to its own group; a slice puts back whatever group was being drawn before it (a landmark may
+    // be building in the same frames)
+    const enter = () => { if (atlas) { prevGroup = atlas.group === gid ? null : atlas.group; atlas.begin(gid); } };
+    const leave = () => { if (atlas) atlas.group = prevGroup; };
     const tick = async () => {
       const el = performance.now() - t0, bud = budget();
       if (el < bud) return;
       work += el; if (el > worst) worst = el; mark();
-      if (atlas) atlas.end();
+      leave();
       debt += el - bud;
       await nextFrame();
       while (debt > 0 && !c.fast && !c.dead) { debt -= budget(); await nextFrame(); }
       debt = 0;
       if (c.dead) throw new Cancelled();
-      if (atlas) atlas.begin(gid);
+      enter();
       t0 = performance.now(); pt = t0; slices++;
     };
-    if (atlas) atlas.begin(gid);
+    enter();
     try {
       await buildStreets(s, plan, game, tick); mark('court');
       await buildCourt(s, plan, game, tick);
@@ -73,13 +78,13 @@ export function createStreamer(game, city) {
       mark('finish');
       while (s.finish(c.fast ? 60 : 14)) await tick();
     } catch (e) {
-      if (atlas) atlas.end();
+      leave();
       resetGeo(s);
       if (!(e instanceof Cancelled)) console.error('[city] block ' + c.key + ' failed to build: ' + (e && e.stack ? e.stack : e));
       s.dispose(); if (atlas) atlas.release(gid);
       throw e;
     }
-    if (atlas) atlas.end();
+    leave();
     stats.lastMs = performance.now() - tStart; stats.lastSlices = slices; stats.built++;
     // join its walkways to the neighbours that are there, show it, and people it
     mark('join');
@@ -140,6 +145,7 @@ export function createStreamer(game, city) {
     if (fast && building) building.fast = true;
     if (c) { if (fast) c.fast = true; c.dead = false; c.used = game.time; if (dist !== undefined) c.dist = dist; return c; }
     if (city.info(cell).built) return null;                       // Candlewick: built by hand, always there
+    if (!fast && failed.has(key) && game.time - failed.get(key) < 30) return null;       // it broke a moment ago: leave it a while
     c = { key, L: cell.L, i: wrapI(cell.L, cell.i), j: cell.j, plan: null, scope: null, state: 'queued', fast: !!fast, dead: false, used: game.time, dist: dist === undefined ? 0 : dist, ready: null, done: null, fail: null };
     c.ready = new Promise((res, rej) => { c.done = res; c.fail = rej; }); c.ready.catch(() => {});
     cells.set(key, c);
@@ -152,7 +158,7 @@ export function createStreamer(game, city) {
     for (const c of cells.values()) if (c.state === 'queued' && (!next || (c.fast && !next.fast) || (c.fast === next.fast && c.dist < next.dist))) next = c;
     if (!next) return;
     building = next; next.state = 'building';
-    build(next).then((c) => { building = null; c.done(c); pump(); }, (e) => { building = null; cells.delete(next.key); next.fail(e); pump(); });
+    build(next).then((c) => { building = null; c.done(c); pump(); }, (e) => { building = null; cells.delete(next.key); if (!(e instanceof Cancelled)) failed.set(next.key, game.time); next.fail(e); pump(); });
   }
   function drop(c) {
     if (c.state === 'ready') {

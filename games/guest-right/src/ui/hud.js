@@ -115,6 +115,8 @@ export function createHud(ctx) {
   let placeKey = '';
   let placeTimer = 0;
   function place(title, sub) {
+    // the city's zones write their line from the middle of a sentence ('decks 140 to 145 · Ring Five', 'the long table · ...')
+    if (sub) sub = String(sub).charAt(0).toUpperCase() + String(sub).slice(1);
     const key = (title || '') + '|' + (sub || '');
     if (key === placeKey) return;
     placeKey = key;

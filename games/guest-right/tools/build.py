@@ -199,12 +199,36 @@ SKELETON = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n')
 
 
+def syntax_errors(b):
+    """Modules that node cannot parse, as messages. Empty if node is not installed."""
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        return []
+    out = []
+    paths = [m["path"] for m in b.mods.values() if os.path.exists(m["path"])]
+    # all at once first (quick); one by one only if something is wrong
+    procs = []
+    for i in range(0, len(paths), 40):
+        chunk = paths[i:i + 40]
+        script = "const fs=require('fs');const vm=require('vm');let bad=0;for(const p of process.argv.slice(1)){try{new vm.SourceTextModule(fs.readFileSync(p,'utf8'),{identifier:p});}catch(e){bad++;console.log(p+'\t'+String(e.message).split('\n')[0]);}}process.exit(bad?1:0);"
+        procs.append(subprocess.run([node, "--experimental-vm-modules", "--no-warnings", "-e", script] + chunk, capture_output=True, text=True))
+    for pr in procs:
+        for line in pr.stdout.splitlines():
+            if "	" in line:
+                path, msg = line.split("	", 1)
+                out.append(f"{rel(path)}: does not parse: {msg}")
+        if pr.returncode not in (0, 1) and pr.stderr.strip():
+            out.append("syntax check could not run: " + pr.stderr.strip().splitlines()[-1])
+    return out
+
+
 def main():
     args = sys.argv[1:]
     check_only = "--check" in args
     places = [p for p in json.loads(read(os.path.join(SRC, "places.json"))) if os.path.exists(os.path.join(SRC, p))]
     missing = [p for p in json.loads(read(os.path.join(SRC, "places.json"))) if not os.path.exists(os.path.join(SRC, p))]
-    entry_path = os.path.join(SRC, "__entry.js")
+    entry_path = os.path.join(SRC, "__entry_%d.js" % os.getpid())      # one per process: several builds may run at once
     b = Bundle()
     src = entry_source(places)
     with open(entry_path, "w", encoding="utf-8", newline="\n") as f:
@@ -223,6 +247,12 @@ def main():
             print("warning: " + p)
             seen.add(p)
     hard = [p for p in seen if not re.search(r"dash in|exclamation mark in|banned phrase", p)]
+    # the bundler reads imports and exports, not JavaScript: let node say whether every module parses
+    bad = syntax_errors(b)
+    for e in bad:
+        print("warning: " + e)
+    hard += bad
+    seen |= set(bad)
     print(f"{len(b.order)} modules, {sum(len(m['src']) for m in b.mods.values()) // 1024} kB of source, {len(seen)} warnings ({len(hard)} that break the build)")
     if check_only:
         sys.exit(1 if hard else 0)

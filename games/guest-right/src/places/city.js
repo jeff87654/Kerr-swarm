@@ -104,6 +104,8 @@ export const place = {
     };
     if (game.params && game.params.cell) game.events.on('ready', () => { city.go(parseKey(game.params.cell), game.params.lot === true ? null : game.params.lot || null).catch((e) => console.error('[city] ' + (e && e.stack ? e.stack : e))); });
 
+    // a new game starts with nowhere visited
+    game.events.on('game:new', () => { city.reset(); });
     // walking into a block: its name comes up the first time, and the journal is told
     let last = null, acc = 0;
     game.events.on('cab:arrive', () => { const cur = city.cellOfPlayer(); if (!cur) return; last = cellKey(cur.L, cur.i, cur.j); const first = city.visit(cur); game.events.emit('city:enter', { info: city.info(cur), first }); });

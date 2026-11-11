@@ -34,7 +34,7 @@ export function createCab(game) {
       if (riding || !to) return; riding = true; game.busy++;
       const W = game.world, p = game.player, ui = game.ui;
       try {
-        if (!built) built = buildCabin(game);
+        if (!built) { const g0 = game.atlas ? game.atlas.group : null; if (game.atlas) game.atlas.group = null; try { built = buildCabin(game); } finally { if (game.atlas) game.atlas.group = g0; } }
         const f = built.frame;
         cab._back = { frame: p.frame, x: p.pos.x, y: p.pos.y, z: p.pos.z, yaw: p.yaw };
         // where the ride ends: known at once for a built place; a region or a city block is built while you ride

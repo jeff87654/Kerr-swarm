@@ -23,6 +23,7 @@ import { createMap } from './map.js';
 import { createPhoto } from './photo.js';
 import { createCardHome } from './card.js';
 import { createTouch } from './touch.js';
+import { createReached } from './chervil.js';
 
 const LAYERS = ['world', 'hud', 'touch', 'letter', 'note', 'fade', 'banner', 'talk', 'photo', 'screen', 'load'];
 
@@ -129,7 +130,9 @@ export function createUI(game) {
     openPause: () => screens.pause.open(),
     openJournal: () => journal.open(),
     openMap: () => map.open(),
+    openMapAt: (cell) => map.open('round', { cell }),
   };
+  ctx.reached = createReached(ctx);
 
   const hud = createHud(ctx);
   const talk = createTalk(ctx);
@@ -211,7 +214,9 @@ export function createUI(game) {
 
     pause: screens.pause,
     journal: { open: (tab) => journal.open(tab), close: () => journal.close(), get isOpen() { return journal.isOpen; } },
-    map: { open: (view) => map.open(view), close: () => map.close(), get isOpen() { return map.isOpen; } },
+    map: { open: (view, o) => map.open(view, o), close: () => map.close(), get isOpen() { return map.isOpen; } },
+    // the cab's block chooser on the map: Round the drum -> Promise of { L, i, j } or null
+    pickBlock: (o) => map.pick(o),
     photo: { enter: () => photo.enter(), exit: () => photo.exit(), take: () => photo.take(), get active() { return photo.active; } },
     cardHome: (o) => cardHome(o),
     credits: (lines) => screens.credits(lines),

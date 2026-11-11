@@ -24,6 +24,8 @@
 <div id="dev"></div>
 <script type="module">
 import { createUI } from '../src/ui/ui.js';
+import { cellInfo } from '../src/city/city.js';
+import { LAYERS, HOME, cellCount, cellAbove } from '../src/core/layout.js';
 
 // ---------------- backdrop ----------------
 const bg = document.getElementById('bg');
@@ -137,17 +139,61 @@ const game = {
     cards: () => cards,
   },
   mapData: () => ({
-    drum: { you: { deck: 16, ring: 2, thetaDeg: 212, zM: -1250, rho: 2940 } },
+    drum: { you: { deck: 16, ring: 2, thetaDeg: 4, zM: 640, rho: 2940 } },
     local: localPlan(),
   }),
   photo: {
     set: (o) => note('photo.set ' + JSON.stringify(o)),
     take: () => { const s = snapshot(Math.floor(Math.random() * 4)); cards.push({ id: 'c' + cards.length, src: s, place: 'Wick Court', day: 'Thursday', hour: 14 }); return s; },
   },
-  clock: { label: () => '13:05' },
+  clock: { label: () => '13:05', day: 1 },
   wallet: { kwh: 21.6 },
   input: {},
+  started: true,
+  flags: { 'hall:0:1:3': true, 'hall:20:5:9': true, 'hall:3:40:7': true, halls_eaten: 3 },
+  cab: { stops: [] },
+  regions: { list: () => [] },
+  player: { frame: { id: 'candlewick' } },
 };
+// a small fake city for the map's Round the drum and the journal's Chervil page: the real grid and block names
+// (src/core/layout.js and src/city/city.js are pure), a few blocks walked into, a few halls eaten at
+const fakeVisited = ['0:0:3', '0:1:3', '0:87:3', '0:0:4', '0:0:2', '0:2:3', '0:1:4', '0:3:3', '1:0:3', '1:1:3', '0:5:6', '0:6:6', '0:6:7', '20:5:9', '20:6:9', '20:6:10', '3:40:7', '3:41:7', '12:30:12'];
+function fakeCity() {
+  return {
+    LAYERS, HOME, count: cellCount(), visited: new Set(fakeVisited),
+    info: (c) => cellInfo(c.L, c.i, c.j),
+    cellOfPlayer: () => ({ L: 0, i: 1, j: 3 }),
+    above: (c, d) => cellAbove(c.L, c.i, c.j, d),
+  };
+}
+game.city = fakeCity();
+// cab stops as the landmark builders give them (no frame: deck and zd), and the hand-built ones (a frame)
+const fakeFrame = (id, rho, z0) => ({ id, rho: () => rho, zd: (z) => z0 + z });
+game.cab.stops = [
+  { id: 'station', name: 'Station Ring 2', sub: 'the glide platform, the Ledger', frame: fakeFrame('station', 3000, 639), x: 0, y: 0, z: 0 },
+  { id: 'lobby-a', name: 'Candlewick', sub: 'lift lobby on Ladle Row', frame: fakeFrame('candlewick', 2940, 612), x: 0, y: 0, z: 0 },
+  { id: 'lake-pavilion', name: 'The Hollow', sub: 'the lake pavilion', frame: fakeFrame('hollow', 1500, 1700), x: 0, y: 0, z: 0 },
+  { id: 'dawn-terrace', name: 'The back terraces', sub: 'tier one: the Dawn Stand', frame: fakeFrame('terrace1', 1450, 3745), x: 0, y: 0, z: 0 },
+  { id: 'third-terrace', name: 'The Third', sub: 'a third of a g', frame: fakeFrame('terrace10', 1000, 3745), x: 0, y: 0, z: 0 },
+  { id: 'flying-hall', name: 'The Spindle', sub: 'the back flying hall', frame: fakeFrame('hub', 72, 3748), x: 0, y: 0, z: 0 },
+  { id: 'keel-vats', region: 'keel-vats', name: 'The Flour Hall', group: 'The Keel', deck: 9, zd: 1875 },
+  { id: 'keel-vats-kettle', region: 'keel-vats', name: 'The Kettle', group: 'The Keel', deck: 9, zd: 1875 },
+  { id: 'keel-garden', region: 'keel-garden', name: 'The Lamp Garden', group: 'The Keel', deck: 6, zd: 1460 },
+  { id: 'keel-heat', region: 'keel-heat', name: 'The Heat Hall', group: 'The Keel', deck: 3, zd: 2710 },
+  { id: 'keel-library', region: 'keel-library', name: 'The Seed Library', group: 'The Keel', deck: 11, zd: 1040 },
+  { id: 'ring-five', region: 'ring-five', name: 'Station Ring Five', group: 'The stations', deck: 1, zd: 1875 },
+  { id: 'ring-nine', region: 'ring-nine', name: 'Station Ring Nine', group: 'The stations', deck: 1, zd: 3540 },
+  { id: 'line-works', region: 'line-works', name: 'The Line Works', group: 'The line decks', deck: 38, zd: 625 },
+  { id: 'line-rides', region: 'line-rides', name: 'The Long Rides', group: 'The line decks', deck: 63, zd: 2290 },
+  { id: 'chimney', region: 'chimney', name: 'The Chimney', group: 'The Low decks', deck: 40, zd: 2290 },
+  { id: 'felt-organ', region: 'felt-organ', name: 'The Felt Organ', group: 'The Middle decks', deck: 150, zd: 1460 },
+  { id: 'lot-hall', region: 'lot-hall', name: 'The Lot Hall', group: 'The Middle decks', deck: 200, zd: 1875 },
+  { id: 'up-decks', region: 'up-decks', name: 'The Up Decks', group: 'The High decks', deck: 340, zd: 1040 },
+  { id: 'back-quarter', region: 'back-upper', name: 'The Quarter', group: 'The end walls', deck: 376, zd: 3750 },
+  { id: 'axle-back', region: 'axle-back', name: 'The Back Axle', group: 'The axles', deck: 376, zd: 3760 },
+];
+const saveStore = { 'ui-landmarks': [{ id: 'f:station', name: 'Station Ring 2', sub: '', group: '', day: 1, t: 1 }, { id: 'f:hollow', name: 'The Hollow', sub: '', group: '', day: 1, t: 2 }, { id: 'r:keel-vats', name: 'The Flour Hall', sub: 'the vat halls · deck 9 · Ring Five', group: 'The Keel', day: 2, t: 3 }] };
+game.save = { get: (k, d) => (k in saveStore ? saveStore[k] : d), set: (k, v) => { saveStore[k] = v; } };
 function localPlan() {
   const L = [];
   const rect = (x0, z0, x1, z1, k) => { L.push([x0, z0, x1, z0, k], [x1, z0, x1, z1, k], [x1, z1, x0, z1, k], [x0, z1, x0, z0, k]); };
@@ -286,6 +332,8 @@ const dev = {
   pause() { return ui.pause.open({ chapters: CHAPTERS }).then((v) => { dev.results.push(['pause', v]); note('pause -> ' + JSON.stringify(v)); return v; }); },
   journal(tab) { ui.journal.open(tab || 'threads'); },
   map(view) { ui.map.open(view); },
+  async pick() { const v = await ui.pickBlock({ from: { L: 0, i: 1, j: 3 } }); dev.results.push(['pick', v]); note('pickBlock -> ' + JSON.stringify(v)); return v; },
+  nocity(off) { game.city = off === false ? fakeCity() : undefined; note(game.city ? 'city on' : 'no city'); },
   photo() { ui.photo.enter(); },
   photoExit() { ui.photo.exit(); },
   async cardHome(none) {
@@ -333,7 +381,7 @@ const groups = [
   ['Scene', [['Bright / dark backdrop', () => dev.backdrop()], ['Spin compass', () => dev.spin(!anim)], ['Reset UI', () => dev.reset()]]],
   ['HUD', [['Full HUD', () => dev.hud()], ['HUD off', () => ui.hud.show(false)], ['Reticle: talk', () => dev.talk()], ['Reticle: dot, no prompt', () => { ui.reticle('dot'); ui.prompt(null); }], ['Reticle: aim', () => ui.reticle('aim')], ['Spend 1.77', () => dev.spend()], ['Gain 0.50', () => dev.gain()], ['Toasts', () => dev.toasts()], ['Discovery card', () => dev.discovery()], ['Arrival banner', () => dev.arrival()], ['Subtitles', () => dev.subs()], ['Bubble', () => dev.bubble()], ['Ride on / off', () => (document.querySelector('.gr-ride.is-on') ? dev.rideOff() : dev.ride())], ['Fade and banner', () => dev.fade()], ['Letterbox on / off', () => ui.letterbox(!document.querySelector('.gr-l-letter.is-on'))]]],
   ['Talk', [['Marit: say then choose', () => dev.marit()], ['Hall menu (3.84 kWh)', () => dev.menu()], ['Hall menu (21.60 kWh)', () => dev.menu(21.6)], ['Sit a while', () => dev.hour()]]],
-  ['Screens', [['Title', () => dev.title()], ['Pause', () => dev.pause()], ['Journal', () => dev.journal()], ['Journal: found', () => dev.journal('found')], ['Journal: cards', () => dev.journal('cards')], ['Map: here', () => dev.map('local')], ['Map: drum', () => dev.map('drum')], ['Photo mode', () => dev.photo()], ['Card home', () => dev.cardHome()], ['Card home, no photos', () => dev.cardHome(true)], ['Credits', () => dev.credits()], ['Loading', () => dev.loadingRun()]]],
+  ['Screens', [['Title', () => dev.title()], ['Pause', () => dev.pause()], ['Journal', () => dev.journal()], ['Journal: found', () => dev.journal('found')], ['Journal: cards', () => dev.journal('cards')], ['Journal: Chervil', () => dev.journal('chervil')], ['Map: here', () => dev.map('local')], ['Map: round the drum', () => dev.map('round')], ['Map: drum', () => dev.map('drum')], ['Cab: pick a block', () => dev.pick()], ['City on / off', () => dev.nocity(!!game.city)], ['Photo mode', () => dev.photo()], ['Card home', () => dev.cardHome()], ['Card home, no photos', () => dev.cardHome(true)], ['Credits', () => dev.credits()], ['Loading', () => dev.loadingRun()]]],
   ['Touch', [['Touch on', () => dev.touch(true)], ['Touch off', () => dev.touch(false)]]],
 ];
 const strip = document.getElementById('dev');

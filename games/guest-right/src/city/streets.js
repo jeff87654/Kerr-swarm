@@ -10,7 +10,7 @@ import {
   street, side, shell, streetGlow, unit, pilaster, pier, thresholdArch, bench, drinkingTap, noticePillar, publicClock, chalk,
   sweeperNiche, streetPlanter, rowPath, stations, signBoard, letterFlaps, FIN, read,
 } from '../places/street_parts.js';
-import { FAMILY, NOTICES } from '../content/city.js';
+import { FAMILY, NOTICES, STAIR_LINES as STAIR_NOTES } from '../content/city.js';
 import { LOT_H } from './plan.js';
 
 const P = (text, sub) => ({ kind: 'street', text, sub });
@@ -98,7 +98,7 @@ export async function buildStreets(s, plan, game, tick) {
           const num = info.d0 + ' · ' + Math.abs(Math.round(a - (axisX ? info.x : info.z)));
           if (niche && w > 3 && w < 4.4) { sweeperNiche(s, sd, a, a + w, FIN[k % FIN.length], { deck: info.d0 }); niche = false; }
           else if (k % 7 === 3 && w < 4.3) {
-            const out = unit(s, sd, a, a + w, { kind: 'stair', fin: 4, name: 'STAIR', num: 'decks ' + (info.d0 + 1) + ' to ' + info.d1, clip, prompt: 'Try the stair door', knock: STAIR_LINES[k % STAIR_LINES.length] });
+            const out = unit(s, sd, a, a + w, { kind: 'stair', fin: 4, name: 'STAIR', num: 'decks ' + (info.d0 + 1) + ' to ' + info.d1, clip, prompt: 'Try the stair door', knock: (k % 2 ? STAIR_LINES[k % STAIR_LINES.length] : "The residents' stair, locked from this side. Pinned to it: " + STAIR_NOTES[(k + info.seed) % STAIR_NOTES.length]) });
             for (const d of out.doors) keep.push(d);
           } else {
             const name = fam();
