@@ -231,7 +231,7 @@ function farEnd(ctx) {
 // ---------------------------------------------------------------------------------------------------------------
 // the clock, the runs and the day's times
 // ---------------------------------------------------------------------------------------------------------------
-const NAMES = ['Ilse Marten', 'Kofi Brandt', 'Noor Halloran', 'Pim Achebe', 'Saoirse Lund', 'Tamsin Oyelaran', 'Ruben Kask', 'Femi Arden', 'Wren Takahashi', 'Ottilie Moss', 'Haruto Bell', 'Esme Dahl', 'Jonah Ikeda', 'Marta Quist', 'Selim Varga', 'Ada Pell-Ngata', 'Lukas Obi', 'Mei Sorrell'];
+const NAMES = ['Ilse Marten', 'Kofi Brandt', 'Noor Hallam', 'Pim Achebe', 'Saoirse Lund', 'Tamsin Oyelaran', 'Ruben Kask', 'Femi Arden', 'Wren Takahashi', 'Ottilie Moss', 'Haruto Bell', 'Esme Dahl', 'Jonah Ikeda', 'Marta Quirke', 'Selim Varga', 'Ada Pell-Ngata', 'Lukas Obi', 'Mei Sorrell'];
 
 function runState(game) {
   const day = game.clock ? game.clock.day : 1, r = new Rng(5200 + day * 31);

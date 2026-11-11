@@ -89,7 +89,7 @@ export function buildTeaRoom(game, s, f) {
     lid.show(false); pour.lidAt = 0; pour.t = 0; sfx(gm, 'pour', f, PX, 1.3, PZ - 0.4);
     if (!gm.flags.slow_pour) {
       gm.flags.slow_pour = true;
-      setTimeout(() => { if (gm.ui) say(gm, KEEP, ['Watch it. Half a metre takes two seconds up here, and it lands a finger\'s width anti of where you aimed, so you aim spinward.', 'Nothing boils this close to the axis, so the tea is brewed on deck 375 and comes up hot in that can. Clip the lid on before you walk anywhere.']); }, 5600);
+      setTimeout(() => { if (gm.ui) say(gm, KEEP, ['Watch it. Half a metre takes two seconds up here, and it lands a finger\'s width anti of where you aimed, so you aim spinward.', 'Nothing boils this close to the axis, so the tea is brewed on deck 375 and comes up hot in that flask. Clip the lid on before you walk anywhere.']); }, 5600);
     } else setTimeout(() => toast(gm, 'The stream takes its time and lands a finger\'s width anti. You clip the lid on. 0.15.', 'spend'), 5600);
   } });
   sign(s, { kind: 'chalk', title: 'The Slow Pour', lines: ['Tea, long-poured 0.15', 'A bulb to take round 0.15', 'Steamed cake, lidded 0.30', 'Aim spinward', 'Clip your lid', 'Strap your lap'] }, X1 - 0.17, 2.55, 4.6, { face: 'x', w: 0.62, h: 0.9 });

@@ -78,7 +78,7 @@ export const COLUMNS = [
   { f: 'a drum a million kilometres down the row', age: 'three and a third seconds', t: 'A youth orchestra asks for a heliox flute part for a piece written for air. They will retune it ten semitones and send it back.', k: 1 },
   { f: 'Gloaming, Weather Row', age: 'two seconds', t: 'Gloaming’s painted dusk this week is booked out. The painter thanks the terrace and returns the rents, as Gloaming does.', k: 1 },
   { f: 'a cycler, six days out on the slow line', age: 'three seconds', t: 'Wanderers on the slow line send their cards home. Two are this block’s. Their aunts have been told.', k: 1 },
-  { f: 'the far edge of Merrow', age: 'forty seconds', t: 'Merrow’s yards report the year’s new drums at the raft’s edge: about four hundred, each named by its first assembly.', k: 2 },
+  { f: 'the far edge of Merrow', age: 'thirty-seven seconds', t: 'Merrow’s yards report the year’s new drums at the raft’s edge: about four hundred, each named by its first assembly.', k: 2 },
   { f: 'Merrow’s beam office', age: 'thirty seconds', t: 'The beam is flat again, as it nearly always is. The office thanks everyone who asked.', k: 2 },
   { f: 'Selkie, the raft that passed', age: 'twenty-two minutes', t: 'Selkie’s choirs send back the song Herb Row gave them at the Passing, with a new verse. They got the words a little wrong, and kept them.', k: 3 },
   { f: 'a raft four hours away', age: 'four hours and ten minutes', t: 'A recipe for a cheese that needs eleven weeks in a cool cellar. The block’s larder shop has pinned a copy over its counter.', k: 3 },

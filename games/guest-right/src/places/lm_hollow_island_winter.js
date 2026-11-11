@@ -93,7 +93,7 @@ export function buildWinter(game, f, zones) {
     const x = 232.7, z = 1536.6, y = gy(x, z);
     prop(s, 'hollow.basket', x, y, z, 0.4, { col: '#c9a46e' });
     s.detail(() => { for (let k = 0; k < 6; k++) { const a = k * 1.05, bx = x + Math.cos(a) * 0.1, bz = z + Math.sin(a) * 0.07; g.mat('wood', '#d9b25c'); g.tube([[bx, y + 0.18, bz], [bx + Math.cos(a) * 0.05, y + 0.44, bz]], 0.011, { segs: 4 }); g.mat('felt', pick(['#f1e2c0', '#e8d8b8', '#f5e8cc'], k)); g.ball(bx + Math.cos(a) * 0.06, y + 0.49, bz, 0.035, 0.05, 0.035, { segs: 6, rings: 4 }); } });
-    sign(s, { kind: 'chalk', title: 'Rows 9 · 10', lines: ['Out of winter: day 4', 'Open: about half', 'Brushed today: 11 trees', 'Odile, Kwame, Pip'] }, 232.7, y + 1.15, 1537.4, { face: 'Z', w: 0.5, h: 0.5 });
+    sign(s, { kind: 'chalk', title: 'Rows 9 · 10', lines: ['Out of winter: day 4', 'Open: about half', 'Brushed today: 11 trees', 'Odile, Kofi, Tibo'] }, 232.7, y + 1.15, 1537.4, { face: 'Z', w: 0.5, h: 0.5 });
     s.furniture(() => { g.mat('wood', '#4a3a2c'); g.box(232.66, y - 0.2, 1537.32, 232.74, y + 1.42, 1537.38); });
   }
   s.interact({ x: 232.6, y: gy(232.6, 1531) + 1.3, z: 1532.4, radius: 2.2, kind: 'talk', prompt: 'Ask the brush crew about the blossom', onUse: async (gm) => {

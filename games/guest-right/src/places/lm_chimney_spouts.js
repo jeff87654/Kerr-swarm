@@ -287,7 +287,7 @@ function pits(game, s) {
 export const RECORDS = {
   sink: { who: 'Tobiah Marsh, aged 11', k: 0.45, mu: 0.94 },
   true: { who: 'Wen Okoro, aged 12', k: 0.42, mu: 0.93 },
-  float: { who: 'Ines Halloran, aged 9', k: 0.4, mu: 0.92 },
+  float: { who: 'Tilde Haldane, aged 9', k: 0.4, mu: 0.92 },
 };
 function timingBoard(game, s, st) {
   if (!game.atlas) return null;

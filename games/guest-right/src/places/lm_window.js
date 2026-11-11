@@ -142,7 +142,7 @@ function buildDock(game, s, f) {
   // ---- the dose board and the old bet board, side by side on the anti wall
   const doseSpec = { kind: 'board', title: 'DOSE BOARD', lines: ['A visit, eighty minutes · 12 µSv', 'Back crew, one shift · 60 to 120 µSv', 'Back crew, a year · 14 to 29 mSv', 'A crew career · capped at 1 Sv', 'Outside, no shield · 2.5 to 10 Gy an hour'], palette: ['#101614', '#f3e6c8', '#3fe0d0'] };
   sign(s, doseSpec, X0 + 0.17, 1.75, 2.9, { face: 'X', w: 1.7, h: 1.05, glow: 1.3 });
-  const betSpec = { kind: 'chalk', title: 'Old bet board', lines: ['Big one over the red star · Wenna · 44 min', 'Speck by the Shelf knot · Dov · 12 min', 'Two stars in one round · Aurel · paid', 'Three in one round · nobody yet', 'Stakes: an hour at the hall stove'] };
+  const betSpec = { kind: 'chalk', title: 'Old bet board', lines: ['Big one over the red star · Wenna · 44 min', 'Speck by the Shelf knot · Dov · 12 min', 'Two stars in one round · Anselm · paid', 'Three in one round · nobody yet', 'Stakes: an hour at the hall stove'] };
   sign(s, betSpec, X0 + 0.17, 1.7, 6.3, { face: 'X', w: 1.6, h: 1.15 });
   s.interact({ x: X0 + 0.7, y: 1.6, z: 2.9, radius: 1.3, prompt: 'Read the dose board', onUse: async (gm) => {
     await say(gm, 'The dose board', ['A lit board of what the dark between the rafts costs you. A visit to the Window, eighty minutes with the car: about twelve microsieverts, because the glass is a metre and a half of water.', 'A back crew shift in a closed sled: sixty to a hundred and twenty. A crew career is capped at one sievert, and the crews keep count to the last decimal.', 'At the bottom, smaller: outside, unshielded, two and a half to ten grays an hour. Nobody works out there in a suit.']);
@@ -302,7 +302,7 @@ function buildLobby(game, s, f, r) {
       slippers(gm, false);
     } else {
       const k = (gm.flags['window.talk'] = (gm.flags['window.talk'] || 0) + 1);
-      const L = [['Twenty minutes in the red light, then the hour. Nobody hurries the shutter, not for councillors from Rue, not for anyone.'], ['Some adults are chosen ten times by ten different children. Some are never chosen at all, and paint the River from memory instead.'], ['The children come out not saying anything. That is how you know it went well.'], ['Five rounds a day, a hundred and fifty to a round. Every eight-year-old in the drum, and the adult they chose when they were four or five.']];
+      const L = [['Twenty minutes in the red light, then the hour. Nobody hurries the shutter, not for councillors from Rue, not for anyone.'], ['Some adults are chosen ten times by ten different children. Some are never chosen at all, and paint the River from memory instead.'], ['The children come out not saying anything. That is how you know it went well.'], ['Five rounds a day, a hundred and fifty to a round, in each of the twelve galleries round the cap. Between them, every eight-year-old in the drum, and the adult they chose when they were four or five.']];
       await say(gm, ATTENDANT, L[k % L.length]);
     }
   } });
