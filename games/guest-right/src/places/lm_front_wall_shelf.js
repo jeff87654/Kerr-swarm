@@ -204,7 +204,7 @@ export function buildShelf(game) {
   s.loop('murmur', -4, 1.2, 8, { vol: 0.22, radius: 22, param: 0.25 });
   s.loop('steam', CX - 0.45, 1.4, CZ - 0.12, { vol: 0.12, radius: 4 });
   s.trigger({ box: [X0, -1, 0, X1, 4, ZR], onEnter(gm) { if (gm.flags['fw.shelfseen']) return; gm.flags['fw.shelfseen'] = true; toast(gm, 'Quieter than the back wall. You can hear a lid lifted forty metres away.'); } });
-  magnets(game, s, [1, 2, 3, 4].map((d) => ({ day: d, from: d === 3 ? 17.2 : 16.8, to: d === 3 ? 21.4 : 21.6, place: 'front-wall', k: 0.7 })));
+  magnets(game, s, [1, 2, 3, 4, 0].map((d) => ({ day: d, from: d === 3 ? 17.2 : 16.8, to: d === 3 ? 21.4 : 21.6, place: 'front-wall', k: 0.7 })));
   tide(game, s, f, 'front-wall', duskShare);
   s.finish();
   game.spawns['front-shelf'] = { frame: f, x: 39.4, y: 0, z: 5.6, yaw: -2.4 };

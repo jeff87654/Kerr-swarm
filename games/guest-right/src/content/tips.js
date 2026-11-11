@@ -6,6 +6,7 @@ export const TIPS = [
   'E to use things and talk to people. They will ask where you have slept, then whether you have eaten.',
   'J opens your journal: people, places, customs and the things you have found.',
   'M opens the map. Avenues run spinward; streets run along the axis.',
+  'In the map, V changes the view: the block you are in, your decks all the way round the drum, and the whole drum in section.',
   'P takes a photo. The best card home has a picture on the front.',
   'Esc opens the menu.',
   'Out is down. The middle is up.',
