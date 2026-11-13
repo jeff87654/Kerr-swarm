@@ -1,14 +1,18 @@
 // Kittiwake, Gull Row: crosswise lessons in the front flying hall, by day (docs/wander-year.md, Day 60, and Method,
-// "Crosswise flight"; raft-habitat.md, "The sunline and the Spindle"; ashgrove.md, Day two, "The Spindle").
+// "Crosswise flight"; raft-habitat.md, "The sunline and the Spindle"; ashgrove.md, Day two, "The Spindle"; the
+// Kittiwake entry in games/three-nights/src/15-canon.js: broth in bulbs at the gate, nine-year-old teachers, "big aunt").
 // Inside the netted sock at the front end of the Spindle: within 75 m of the axis, from the end wall out to 300 m,
 // netted off 150 m short of where the lit line begins. You weigh nothing. Flying along the axis is straight; across it,
-// the drum turns under you. Every crosswise flyer here, and the camera itself, flies a straight line in the frame the
-// drum turns in (no forces), drawn as the drum sees it: a curve that bends about 23 m in 10 s at 4 m/s.
+// the drum turns under you. Every crosswise flyer here, and the camera itself, flies a straight line in the frame that
+// does not turn (no forces), drawn as the turning drum sees it: a curve that bends about 23 m in 10 s at 4 m/s.
+// The camera keeps its heading as the hall turns round it, and comes out at the hoop it aimed wide of.
 //
-// Not canon (the docs are silent): the gate's counter, sleeve racks and shoe shelves on the top terrace by the front hub;
-// the rings of padded hoops hung across the hall on lines to the net, and their colours; the line of pupils following
-// their teacher on a crossing; the stiff ribs that hold the sock open; the Hollow's plan (falling lawns marked with
-// rings, kite walks, long greens where sleeve cloth is laid out, workshop sheds, the lake's shape).
+// Not canon (the docs are silent): the gate's counter, sleeve board, canopy and shoe shelves on the top terrace by the
+// front hub (shoes as the deposit is Sorrel's custom in sorrel.md, borrowed here); the padding and paint on the hub, the
+// spar and the hub face; the stiff ribs that hold the sock open; the rings of padded hoops hung on lines to the net, and
+// their colours; a class in matching sleeves following its teacher across, and another waiting at a low hoop; the
+// Hollow's plan (falling lawns marked with rings, kite walks, greens where sleeve cloth is laid out, workshop sheds,
+// hedged gardens, the lake's shape).
 import {
   Scene, BufferGeometry, InstancedBufferGeometry, InstancedBufferAttribute, Float32BufferAttribute, Mesh, ShaderMaterial,
   DoubleSide, Matrix4, Vector3, Sphere,
@@ -16,7 +20,7 @@ import {
 import { Plan, C, L } from '../kit/plan.js';
 import { buildHollow } from '../kit/hollow.js';
 import { makePath } from '../core/path.js';
-import { G, CLIP_PARS, CLIP_FRAG, glowPoints, litMaterial } from '../kit/mats.js';
+import { G, CLIP_PARS, CLIP_FRAG, glowPoints, litMaterial, hollowRig } from '../kit/mats.js';
 import { Geo, rgb } from '../kit/geo.js';
 import { crowd, CLOTH, SKIN } from '../kit/folk.js';
 import { DRUM } from '../kit/drum.js';
@@ -45,14 +49,18 @@ function freeAt(p, V, tau, out = [0, 0, 0]) {
 // ---------------------------------------------------------------- the Hollow's plan
 // Shapes of one kind are gathered into one path and painted once: the canvas work is most of a Hollow's build.
 const LX = 0.58 * C, LZ = 2050;
+const LIGHT = { sun: '#f4f7ff', sunPower: 1.0, amb: '#b7c4d4', ambPower: 0.34, bounce: '#a9b49a', air: '#dde6ef', airDensity: 0.00006 };
 export function* paintKittiwake(plan) {
   const rng = makeRng('kittiwake-plan');
   const many = (list, fn) => { const p = new Path2D(); for (const it of list) p.addPath(fn(it)); return p; };
   plan.fill(plan.band(0, L), { color: '#98ac8c', life: 0.3 });
-  plan.mottle(['#a2b496', '#8ea284', '#a9b89f', '#93a891', '#b0bca3'], 360, 170, { alpha: 0.42, seed: 'kittiwake-lawn' });
+  // patches of paler and darker lawn, a colour at a time (blurred patches cost a great deal of canvas time)
+  const patchCols = ['#a7b89a', '#8ea284', '#b3bfa6', '#93a891', '#bcc4ae', '#9fae8c'], patches = patchCols.map(() => []);
+  for (let i = 0; i < 300; i++) { const r = rng.f(90, 320); patches[i % 6].push(plan.blob(rng.f(0, C), rng.f(500, L - 500), r, r * rng.f(0.5, 1.1), { wobble: 0.3, lobes: 4, seed: i + 50, n: 16 })); }
+  patches.forEach((list, k) => plan.fill(many(list, (b) => b), { color: patchCols[k], alpha: 0.32 }));
   // the Dim Ends
-  plan.fill(plan.band(0, 690), { color: '#58725a', wood: 0.9, clear: ['life'], feather: 30 });
-  plan.fill(plan.band(L - 690, L), { color: '#54705a', wood: 0.9, clear: ['life'], feather: 30 });
+  plan.fill(plan.band(0, 690), { color: '#58725a', wood: 0.9, clear: ['life'] });
+  plan.fill(plan.band(L - 690, L), { color: '#54705a', wood: 0.9, clear: ['life'] });
   yield;
   // the lake: long, lying along the axis
   const lake = plan.blob(LX, LZ, 330, 760, { wobble: 0.18, lobes: 6, seed: 21 });
@@ -72,31 +80,48 @@ export function* paintKittiwake(plan) {
   const tracks = [];
   for (const [x0, z0] of kites) for (let k = 0; k < 7; k++) tracks.push([[x0 - 250, z0 - 110 + k * 37], [x0 + 250, z0 - 110 + k * 37]]);
   plan.stroke(many(tracks, (t) => plan.line(t)), 3, { color: '#dfe2d8', paved: 0.4, life: 1 });
-  // the greens where sleeve cloth is laid out: long strips in rows
+  // the greens where sleeve cloth is laid out: long strips in rows, the drum's colours from three kilometres off
   const cloth = ['#e8563a', '#f2c14e', '#3fa7a0', '#4d7fc4', '#fbfdff', '#a34b86', '#e98a3c', '#7fc4d9'];
-  const greens = [[0.27 * C, 900], [0.75 * C, 2250], [0.9 * C, 1000], [0.52 * C, 1250], [0.05 * C, 3000]];
-  plan.fill(many(greens, ([x0, z0]) => plan.rect(x0 - 12, z0 - 12, x0 + 252, z0 + 352, 8)), { color: '#a9b99b', life: 0.3, clear: ['wood'] });
+  const greens = [];
+  for (let i = 0; i < 14; i++) greens.push([((i * 0.0731 + 0.03 + (i % 3) * 0.21) % 1) * C, 820 + ((i * 523) % 2150), rng.f(160, 300), rng.chance(0.5)]);
+  plan.fill(many(greens, ([x0, z0, w]) => plan.rect(x0 - 12, z0 - 12, x0 + w + 12, z0 + 362, 8)), { color: '#b4c2a6', life: 0.4, clear: ['wood'] });
   const strips = cloth.map(() => []);
-  greens.forEach(([x0, z0], g) => { for (let i = 0; i < 28; i++) strips[(i * 3 + g) % cloth.length].push([x0, z0 + i * 12.5]); });
-  strips.forEach((list, k) => plan.fill(many(list, ([x, z]) => plan.rect(x, z, x + 240, z + 6.5)), { color: cloth[k] }));
+  greens.forEach(([x0, z0, w, across], g) => {
+    if (across) for (let i = 0; i < Math.floor(w / 11); i++) strips[(i * 3 + g) % cloth.length].push([x0 + i * 11, z0, x0 + i * 11 + 6, z0 + 350]);
+    else for (let i = 0; i < 28; i++) strips[(i * 3 + g) % cloth.length].push([x0, z0 + i * 12.5, x0 + w, z0 + i * 12.5 + 6.5]);
+  });
+  strips.forEach((list, k) => plan.fill(many(list, ([a, b, c, d]) => plan.rect(a, b, c, d)), { color: cloth[k] }));
   yield;
-  // workshop sheds: long pale roofs in yards
-  const yards = [[0.31 * C, 2950], [0.66 * C, 800], [0.04 * C, 2250], [0.88 * C, 1850], [0.18 * C, 1000]];
+  // workshop sheds: long pale roofs in yards, and small hedged gardens beside them
+  const yards = [[0.31 * C, 2950], [0.66 * C, 800], [0.04 * C, 2250], [0.88 * C, 1850], [0.18 * C, 1000], [0.53 * C, 3010], [0.74 * C, 1500]];
   plan.fill(many(yards, ([x0, z0]) => plan.rect(x0 - 20, z0 - 20, x0 + 280, z0 + 210, 10)), { color: '#c9d0d6', paved: 0.9, life: 0.6, clear: ['wood'] });
   const roofs = [], ridges = [];
   for (const [x0, z0] of yards) for (let i = 0; i < 6; i++) { const zz = z0 + i * 31; roofs.push([x0, zz]); ridges.push([[x0, zz + 9], [x0 + 260, zz + 9]]); }
   plan.fill(many(roofs, ([x, z]) => plan.rect(x, z, x + 260, z + 19, 2)), { color: '#f6f8fb', clear: ['life'] });
   plan.stroke(many(ridges, (t) => plan.line(t)), 1.4, { color: '#8e9aa6' });
+  for (const [x0, z0] of yards) plan.garden(x0 + 300, z0, x0 + 420, z0 + 120, ['#e7a7b8', '#f2d27a', '#c7d98f', '#b9a8dc', '#f4f6f8']);
   yield;
-  plan.clumps(520, 12, 40, { seed: 'kittiwake-clumps', z0: 720, z1: L - 720, colors: ['#5f7f55', '#58784f', '#6a8a5c', '#71905f'], keep: (x, z) => Math.abs(x - LX) > 420 || Math.abs(z - LZ) > 820 });
+  // woods in clumps, painted a colour at a time
+  const clumpCols = ['#7a9670', '#738f68', '#82a077', '#8aa57e'], clumps = clumpCols.map(() => []);
+  for (let i = 0; i < 420; i++) {
+    const x = rng.f(0, C), z = rng.f(720, L - 720), r = rng.f(12, 46);
+    if (Math.abs(x - LX) < 430 && Math.abs(z - LZ) < 830) continue;
+    clumps[i % 4].push(plan.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 1, n: 20 }));
+  }
+  clumps.forEach((list, k) => plan.fill(many(list, (p) => p), { color: clumpCols[k], wood: 0.85, clear: ['life', 'rows'] }));
   yield;
-  // walks
+  // walks, and avenues along the long ones
   const ring = (z, wob) => { const a = []; for (let i = 0; i <= 120; i++) a.push([(i / 120) * C, z + Math.sin(i * 0.29 + z) * wob]); return a; };
-  const walks = [];
+  const walks = [], longs = [];
   for (let k = 0; k < 9; k++) walks.push(ring(760 + k * 280, 30));
-  for (let i = 0; i < 16; i++) { const x = (i / 16) * C; walks.push([[x, 720], [x + 70, 1500], [x - 50, 2300], [x, L - 720]]); }
+  for (let i = 0; i < 16; i++) { const x = (i / 16) * C, w = [[x, 720], [x + 70, 1500], [x - 50, 2300], [x, L - 720]]; walks.push(w); longs.push(w); }
   plan.stroke(many(walks, (w) => plan.curve(w)), 6, { color: '#d3d9df', paved: 0.8, life: 0.8, clear: ['wood'] });
-  for (const w of walks) plan.lamps(w, 28);
+  const trees = [];
+  for (const w of longs.filter((_, i) => i % 2 === 0)) for (let i = 0; i < w.length - 1; i++) {
+    const [a, b] = [w[i], w[i + 1]], len = Math.hypot(b[0] - a[0], b[1] - a[1]), nx = -(b[1] - a[1]) / len * 9, nz = (b[0] - a[0]) / len * 9;
+    for (let d = 0; d < len; d += 19) { const t = d / len, x = a[0] + (b[0] - a[0]) * t, z = a[1] + (b[1] - a[1]) * t; trees.push([x + nx, z + nz], [x - nx, z - nz]); }
+  }
+  plan.dots(trees, 4.2, { color: '#5f8257', wood: 1 });
 }
 
 // ---------------------------------------------------------------- a flyer in wing-sleeves: lying along +z, back up (+y)
@@ -317,20 +342,23 @@ export const kittiwakeCrosswise = {
   *build(ctx) {
     const plan = new Plan(ctx.q.plan);
     yield* paintKittiwake(plan);
-    yield;
+    yield 'kittiwake: hall';
     const houses = ['#e9edf2', '#c3ccd6', '#aab6c3', '#e6e1d8', '#b8c4cc', '#d4dbe3'];
     const wall = { lit: 0.05, crowd: 0.35, stone: '#dfe4ea', stone2: '#c9d1da', houses, houseMix: 0.55, glass: '#5e6b78', gardenColor: '#87a07c', awning: '#5e6b78', pave: '#d6dde6', tiers: { 27: { crowd: 0.8 }, 29: { crowd: 0.9 } } };
     const hollow = yield* buildHollow(ctx, {
       seed: 'kittiwake', plan,
-      light: { sun: '#f4f7ff', sunPower: 1.0, amb: '#b7c4d4', ambPower: 0.34, bounce: '#a9b49a', air: '#dde6ef', airDensity: 0.00006 },
+      light: LIGHT,
       sunline: { power: 60 },
-      ground: { canopy: '#6f8f62', people: 0.6, lamp: 0, sunRod: 60, stripes: 0.05 },
+      ground: { canopy: '#6f8f62', people: 0.6, lamp: 0, sunRod: 26, water: '#a9c4cc', stripes: 0.05 },
       front: wall, back: { ...wall, crowd: 0.25 },
     });
-    yield;
+    yield 'kittiwake: hall';
     const scene = new Scene();
     scene.add(hollow.group);
-    const rig = hollow.rig, rng = makeRng('kittiwake-hall');
+    const rng = makeRng('kittiwake-hall');
+    // in the hall the whole lit land shines in from every side: things here get more of the Hollow's glow than things on the floor
+    const rig = hollowRig({ ...LIGHT, amb: '#c9d2d6', ambPower: 0.85 });
+    const hallLit = litMaterial(rig, {});
 
     // ---- the camera: along the top terrace past the gate, out along the hall, then a free crossing to a hoop
     const tc0 = 28, cA = 34, cR = 46, cZ = 156;
@@ -342,7 +370,7 @@ export const kittiwakeCrosswise = {
     const Vc = freeV(P0, u0);
     // how long until it is back out at about 52 m from the axis
     let Tc = 0; { const q = [0, 0, 0]; let near = false; for (let t = 0.5; t < 30; t += 0.05) { freeAt(P0, Vc, t, q); const r = Math.hypot(q[0], q[1]); if (r < 25) near = true; if (near && r > 52) { Tc = t; break; } } }
-    const aim0 = new Vector3(u0[0], u0[1], u0[2] + 1.6).normalize();
+    const aim0 = new Vector3(u0[0], u0[1], u0[2] + 2.6).normalize();
     const up0 = new Vector3(0, 0, 1).addScaledVector(aim0, -aim0.z).normalize();
     const rotZ = (v, a) => new Vector3(v.x * Math.cos(a) - v.y * Math.sin(a), v.x * Math.sin(a) + v.y * Math.cos(a), v.z);
     const E = freeAt(P0, Vc, Tc);
@@ -357,48 +385,49 @@ export const kittiwakeCrosswise = {
       return { t: tc0 + tau, p, look: [p[0] + d.x * 60, p[1] + d.y * 60, p[2] + d.z * 60], up: [u.x, u.y, u.z] };
     };
     const keys = [
-      { t: 0, p: cyl(-14, 68, 6.0), up: inward(-14) },
-      { t: 6, p: cyl(3, 66, 11), look: cyl(14, 50, 60), up: inward(3) },
-      { t: 12, p: cyl(13, 58, 40), look: cyl(22, 30, 260), up: inward(13) },
-      { t: 18, p: cyl(21, 52, 82), look: cyl(28, 20, 300), up: inward(21) },
-      { t: 23, p: cyl(27, 49, 118), look: cyl(32, 30, 320), up: inward(27) },
+      { t: 0, p: cyl(-30, 67, 10), up: inward(-30) },
+      { t: 5, p: cyl(-13, 65.5, 8.5), look: cyl(2, 62, 14), up: inward(-13) },
+      { t: 10, p: cyl(-2, 60, 26), look: cyl(8, 25, 260), up: inward(-2) },
+      { t: 16, p: cyl(10, 52, 66), look: cyl(4, 1150, 270), up: inward(10) },
+      { t: 22, p: cyl(22, 48, 112), look: cyl(205, 1500, 2300), up: inward(22) },
+      { t: 25, p: cyl(29, 47, 136), look: cyl(40, 20, 330), up: inward(29) },
     ];
     for (let tau = 0; tau < Tc - 1.2; tau += 2.5) keys.push(crossKey(tau));
     keys.push(crossKey(Tc - 1.0)); keys.push(crossKey(Tc));
     const endV = (() => { const a = freeAt(P0, Vc, Tc - 0.05), b = freeAt(P0, Vc, Tc + 0.05); return Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]) / 0.1; })();
     const exitR = endV / 1.15;
     const path = makePath(keys, { entryRadius: 2.4, exitRadius: exitR });
-    console.log('[kittiwake] crossing ' + Tc.toFixed(1) + ' s, end speed ' + endV.toFixed(2) + ', exit radius ' + exitR.toFixed(2) + ', duration ' + path.duration.toFixed(1));
     const track = path.points(0.5, true);
     const nearTrack = (x, y, z, d) => { for (const q of track) { const dx = q.x - x, dy = q.y - y, dz = q.z - z; if (dx * dx + dy * dy + dz * dz < d * d) return true; } return false; };
-    yield;
+    yield 'kittiwake: hall';
 
     // ---- the net
-    scene.add(netMesh(rig));
+    scene.add(netMesh(hollow.rig));
     // stiff ribs that hold the sock open
     const ribs = new Geo();
-    for (let z = NET_Z0 + 24; z <= NET_Z1; z += 36) { ribs.at(0, 0, Math.min(z, NET_Z1)); torus(ribs, NET_R + 0.3, z >= NET_Z1 - 1 ? 0.45 : 0.28, 160, 5, () => '#c3ccd6'); ribs.pop(); }
-    scene.add(ribs.mesh(hollow.plain));
+    for (let z = NET_Z0 + 24; z <= NET_Z1; z += 36) { ribs.at(0, 0, Math.min(z, NET_Z1)); torus(ribs, NET_R + 0.3, z >= NET_Z1 - 1 ? 0.45 : 0.28, 96, 4, () => '#c3ccd6'); ribs.pop(); }
+    scene.add(ribs.mesh(hallLit));
     // the hub and the spar, padded and painted where flyers meet them
     const dbl = litMaterial(rig, { side: 'double' });
     const pad = new Geo();
     pad.rot('x', Math.PI / 2);
     const prof = [[47.6, 0.3], [41.6, 26], [23.6, 60], [10.6, 120], [5.6, 150], [2.4, 156]];
-    pad.lathe(0, 0, 0, prof, 48, (k) => ['#d6dde6', '#c3ccd6', '#e9edf2', '#d6dde6', '#e8563a'][k]);
+    pad.lathe(0, 0, 0, prof, 48, (k) => ['#aab5c0', '#9da9b5', '#b9c3cc', '#a6b1bc', '#e8563a'][k]);
     pad.pop();
+    for (const [z, c] of [[5, '#e8563a'], [14, '#fbfdff'], [23, '#f2c14e'], [38, '#e8563a'], [52, '#fbfdff'], [80, '#3fa7a0'], [104, '#f2c14e'], [134, '#e8563a']]) { pad.at(0, 0, z); torus(pad, hubR(z) + 2.0, 0.7, 48, 5, () => c); pad.pop(); }
     for (let z = 156, k = 0; z < NET_Z1; z += 6, k++) { pad.at(0, 0, z); pad.rot('x', Math.PI / 2); pad.cyl(0, 0, 0, 2.0, 2.0, 5.6, 10, k % 2 ? '#fbfdff' : '#e8563a', { cap: false }); pad.pop(); pad.pop(); }
     scene.add(pad.mesh(dbl));
     // a lining on the hub face, round the gate
     const lining = new Geo();
     for (let i = 0; i < 96; i++) {
-      const a0 = (i / 96) * Math.PI * 2, a1 = ((i + 1) / 96) * Math.PI * 2, c = i % 2 ? '#d6dde6' : '#c9d1da';
-      lining.quad([47.6 * Math.cos(a0), 47.6 * Math.sin(a0), 0.15], [74.9 * Math.cos(a0), 74.9 * Math.sin(a0), 0.15], [74.9 * Math.cos(a1), 74.9 * Math.sin(a1), 0.15], [47.6 * Math.cos(a1), 47.6 * Math.sin(a1), 0.15], c);
+      const a0 = (i / 96) * Math.PI * 2, a1 = ((i + 1) / 96) * Math.PI * 2, c = i % 2 ? '#8b97a4' : '#7f8b98';
+      lining.quad([47.6 * Math.cos(a0), 47.6 * Math.sin(a0), 0.15], [74.9 * Math.cos(a0), 74.9 * Math.sin(a0), 0.15], [74.9 * Math.cos(a1), 74.9 * Math.sin(a1), 0.15], [47.6 * Math.cos(a1), 47.6 * Math.sin(a1), 0.15], c, 0.06);
     }
     scene.add(lining.mesh(dbl));
     const hubLamps = [];
     for (const [r, z] of [[47.8, 1], [41.8, 26], [23.8, 60], [10.8, 120], [62, 0.4]]) for (let i = 0; i < 48; i++) { const a = (i / 48) * Math.PI * 2; hubLamps.push({ p: [r * Math.cos(a), r * Math.sin(a), z], color: '#fff1d6', power: 5, size: 0.35 }); }
     scene.add(glowPoints(hubLamps, { minPx: 1.2, maxPx: 30, soft: 1.8 }));
-    yield;
+    yield 'kittiwake: hall';
 
     // ---- hoops, in rings hung across the hall
     const hoops = new Geo(), hoopLamps = [], hoopSpots = [];
@@ -419,18 +448,18 @@ export const kittiwakeCrosswise = {
         hoopSpots.push({ c, n, R, a });
         if (rng.chance(0.5)) for (let i = 0; i < 8; i++) { const q = new Vector3(Math.cos(i / 8 * 6.283) * R, Math.sin(i / 8 * 6.283) * R, 0).applyMatrix4(m); hoopLamps.push({ p: [q.x, q.y, q.z], color: '#fff1d6', power: 4, size: 0.25 }); }
       }
-      yield;
+      yield 'kittiwake: hall';
     }
-    scene.add(hoops.mesh(hollow.plain));
+    scene.add(hoops.mesh(hallLit));
 
     // ---- the exit: the hoop the camera aimed for
     const ex = path.exit, exM = new Matrix4().compose(ex.pos, ex.quat, new Vector3(1, 1, 1));
     const exG = new Geo();
     addHoop(exG, exM, exitR * 1.04, 0.42, ['#e8563a', '#fbfdff', '#e8563a', '#fbfdff', '#f2c14e', '#fbfdff'], 24, 4);
-    scene.add(exG.mesh(hollow.plain));
+    scene.add(exG.mesh(hallLit));
     for (let i = 0; i < 24; i++) { const a = (i / 24) * Math.PI * 2, q = new Vector3(Math.cos(a) * (exitR * 1.04 + 0.45), Math.sin(a) * (exitR * 1.04 + 0.45), 0.2).applyMatrix4(exM); hoopLamps.push({ p: [q.x, q.y, q.z], color: i % 2 ? '#ffe2b0' : '#fff6e8', power: 7, size: 0.32, twinkle: 0.1 }); }
     scene.add(glowPoints(hoopLamps, { minPx: 1.2, maxPx: 40, soft: 1.8 }));
-    yield;
+    yield 'kittiwake: hall';
 
     // ---- flyers
     const sleeves = ['#e8563a', '#f2c14e', '#3fa7a0', '#4d7fc4', '#fbfdff', '#e98a3c', '#a34b86', '#d6dde6', '#7fc4d9', '#f08aa0'];
@@ -452,7 +481,7 @@ export const kittiwakeCrosswise = {
       items.push({ p, v, loop: [T, rng(), 0, pr.scale], hit: [1e5, rng.f(2.2, 4.5), rng(), 0], ...pr });
       i++;
     }
-    yield;
+    yield 'kittiwake: hall';
     // across: free flight, aimed wide; grown-ups mostly end in the net
     const nCross = Math.round(520 * ctx.density);
     for (let i = 0, tries = 0; i < nCross && tries < nCross * 6; tries++) {
@@ -475,7 +504,7 @@ export const kittiwakeCrosswise = {
       else items.push({ p, v: V, loop: [tEnd || tHit - 0.5, rng(), 1, pr.scale], hit: [1e5, rng.f(2.5, 5), rng(), 0], ...pr });
       i++;
     }
-    yield;
+    yield 'kittiwake: hall';
     // waiting by the hoops: small teachers and their pupils, hovering
     for (const h of hoopSpots) {
       if (!rng.chance(0.7)) continue;
@@ -487,36 +516,99 @@ export const kittiwakeCrosswise = {
         items.push({ p, v: [-h.n[0] * side, -h.n[1] * side, rng.f(-0.3, 0.3)], loop: [-1, 0, 0, pr.scale], hit: [0, rng.f(1, 2.5), rng(), 0], ...pr });
       }
     }
+    // a lesson beside the way out: a class waiting in a line at a low hoop, their teacher at its rim
+    {
+      const st = { pos: new Vector3(), quat: path.entry.quat.clone(), fov: 58, vel: new Vector3() };
+      path.sample(19, st);
+      const R1 = new Vector3(1, 0, 0).applyQuaternion(st.quat), U1 = new Vector3(0, 1, 0).applyQuaternion(st.quat), F1 = new Vector3(0, 0, -1).applyQuaternion(st.quat);
+      const hc = st.pos.clone().addScaledVector(R1, -7.5).addScaledVector(U1, -2.5).addScaledVector(F1, 13);
+      const hn = R1.clone().multiplyScalar(-0.55).addScaledVector(F1, 0.85).normalize();
+      const sg = new Geo();
+      addHoop(sg, basisAt([hc.x, hc.y, hc.z], [hn.x, hn.y, hn.z], [U1.x, U1.y, U1.z]), 2.2, 0.26, ['#f2c14e', '#fbfdff'], 12, 3);
+      scene.add(sg.mesh(hallLit));
+      const into = hn.clone().negate();
+      for (let k = 0; k < 8; k++) {
+        const p = hc.clone().addScaledVector(hn, 3 + k * 1.7).addScaledVector(U1, rng.f(-0.5, 0.5)).addScaledVector(F1, rng.f(-0.8, 0.8));
+        const tch = k === 0;
+        items.push({ p: [p.x, p.y, p.z], v: [into.x, into.y, into.z], loop: [-1, 0, 0, tch ? 0.74 : rng.f(0.5, 0.6)], hit: [0, rng.f(1.2, 2.4), rng(), 0], cloth: tch ? '#e8563a' : rng.pick(CLOTH), sleeve: tch ? '#fbfdff' : '#7fc4d9', skin: rng.pick(SKIN) });
+      }
+    }
+    // just off the terrace by the gate: people in new sleeves, finding their feet in the air
+    for (let i = 0, n = 0; i < 200 && n < 34; i++) {
+      const a = rng.f(-24, 4), r = rng.f(58, 72), z = rng.f(13, 26), p = cyl(a, r, z);
+      if (nearTrack(p[0], p[1], p[2], 3.5)) continue;
+      const pr = person(rng.chance(0.5)), h = rng.f(0, Math.PI * 2);
+      items.push({ p, v: [Math.cos(h), Math.sin(h), rng.f(-0.6, 0.9)], loop: [-1, 0, 0, pr.scale], hit: [0, rng.f(1.5, 4), rng(), rng.chance(0.25) ? rng.f(-0.5, 0.5) : 0], ...pr });
+      n++;
+    }
     // grown-ups in the net
     for (let i = 0; i < 30; i++) {
       const a = rng.f(0, 360), z = rng.f(30, 290), p = cyl(a, 73.8, z);
       const pr = person(false);
       items.push({ p, v: [-Math.sin(a * DEG) * rng.f(-1, 1), Math.cos(a * DEG) * rng.f(-1, 1), rng.f(-1, 1)], loop: [-1, 0, 0, pr.scale], hit: [0, rng.f(0.5, 1.5), rng(), 0], ...pr });
     }
-    // the teacher and her pupils, overtaken by the camera halfway across
-    const tm = tc0 + Tc * 0.42;
-    const pm = new Vector3(), vm = new Vector3();
-    { const pose = { pos: new Vector3(), quat: path.entry.quat.clone(), fov: 58, vel: new Vector3() }; path.sample(tm, pose); pm.copy(pose.pos); vm.copy(pose.vel); }
-    const lat = new Vector3().crossVectors(vm, new Vector3(0, 0, 1)).normalize();
-    const lead = pm.clone().addScaledVector(lat, 4.5).addScaledVector(vm.clone().normalize(), 2.0);
-    const ug = vm.clone().multiplyScalar(0.55);
+    // the teacher and her pupils on the same crossing, slower: the camera overtakes them a third of the way over.
+    // Each follows the one ahead along the same bent line, a beat behind, as the drum sees it.
+    const tm = tc0 + Tc * 0.36;
+    const pose = { pos: new Vector3(), quat: path.entry.quat.clone(), fov: 58, vel: new Vector3() };
+    path.sample(tm, pose);
+    const pm = pose.pos.clone(), vm = pose.vel.clone();
+    const camR = new Vector3(1, 0, 0).applyQuaternion(pose.quat), camU = new Vector3(0, 1, 0).applyQuaternion(pose.quat);
+    const lead = pm.clone().addScaledVector(camR, 2.4).addScaledVector(camU, -1.0).addScaledVector(vm.clone().normalize(), 1.5);
+    const ug = vm.clone().multiplyScalar(0.5);
     const Vg = freeV([lead.x, lead.y, lead.z], [ug.x, ug.y, ug.z]);
+    // how long the line stays clear of the spar, the hub and the net either side of the meeting
+    let w0 = -16, w1 = 16;
+    for (let t = 0; t > -16; t -= 0.25) { freeAt([lead.x, lead.y, lead.z], Vg, t, q); const rr = Math.hypot(q[0], q[1]); if (rr > 70 || rr < 3.5 || q[2] < 14) { w0 = t + 1.5; break; } }
+    for (let t = 0; t < 16; t += 0.25) { freeAt([lead.x, lead.y, lead.z], Vg, t, q); const rr = Math.hypot(q[0], q[1]); if (rr > 70 || rr < 3.5 || q[2] > 296) { w1 = t - 1.5; break; } }
     const crew = [{ s: 0.74, cloth: '#e8563a', sleeve: '#fbfdff' }];
-    for (let k = 0; k < 5; k++) crew.push({ s: rng.f(0.52, 0.62), cloth: rng.pick(CLOTH), sleeve: rng.pick(sleeves) });
-    crew.splice(3, 0, { s: 1.02, cloth: '#3f8a7a', sleeve: '#f2c14e', aunt: true });
+    for (let k = 0; k < 6; k++) crew.push({ s: rng.f(0.5, 0.6), cloth: rng.pick(CLOTH), sleeve: '#f2c14e' });     // the class, in matching sleeves
+    crew.splice(4, 0, { s: 1.02, cloth: '#3f8a7a', sleeve: '#d6dde6', aunt: true });
     crew.forEach((c, k) => {
-      const delay = k * 1.25, o = new Vector3(rng.f(-0.6, 0.6), rng.f(-0.6, 0.6), rng.f(-0.6, 0.6));
-      items.push({ p: [lead.x + o.x, lead.y + o.y, lead.z + o.z], v: Vg, loop: [0, tm + delay, 1, c.s], hit: [-14, 14, rng(), c.aunt ? 0.9 : 0], cloth: c.cloth, sleeve: c.sleeve, skin: rng.pick(SKIN) });
+      const delay = k * 1.15, o = k ? new Vector3(rng.f(-0.7, 0.7), rng.f(-0.7, 0.7), rng.f(-0.7, 0.7)) : new Vector3();
+      items.push({ p: [lead.x + o.x, lead.y + o.y, lead.z + o.z], v: Vg, loop: [0, tm + delay, 1, c.s], hit: [w0, w1, rng(), c.aunt ? 0.8 : 0], cloth: c.cloth, sleeve: c.sleeve, skin: rng.pick(SKIN) });
     });
+    // traffic kept near the camera on the flight's own clock: lengthwise flyers it goes out among, then crossers that
+    // cut over its line, each on its own bent path
+    const okLine = (p, v, mode, t0, t1) => { for (let t = t0; t <= t1; t += 0.5) { if (mode) freeAt(p, v, t, q); else { q[0] = p[0] + v[0] * t; q[1] = p[1] + v[1] * t; q[2] = p[2] + v[2] * t; } const rr = Math.hypot(q[0], q[1]); if (rr > 72 || rr < 3 || q[2] < 12 || q[2] > 297 || (q[2] < 156 && rr < hubR(q[2]) + 2.5)) return false; } return true; };
+    for (let k = 0, tries = 0; k < 70 && tries < 600; tries++) {
+      const tk = rng.f(4, tc0 - 1);
+      path.sample(tk, pose);
+      const R1 = new Vector3(1, 0, 0).applyQuaternion(pose.quat), U1 = new Vector3(0, 1, 0).applyQuaternion(pose.quat), F1 = new Vector3(0, 0, -1).applyQuaternion(pose.quat);
+      const side = rng.f(3, 16) * rng.sign(), up = rng.f(-8, 8), ahead = rng.f(4, 30);
+      const p = pose.pos.clone().addScaledVector(R1, side).addScaledVector(U1, up).addScaledVector(F1, ahead);
+      const v = [rng.f(-0.4, 0.4), rng.f(-0.4, 0.4), Math.max(2.5, pose.vel.z * rng.f(0.6, 1.25))];
+      if (!okLine([p.x, p.y, p.z], v, 0, -9, 9)) continue;
+      const pr = person(rng.chance(0.6));
+      items.push({ p: [p.x, p.y, p.z], v, loop: [0, tk, 0, pr.scale], hit: [-9, 9, rng(), 0], ...pr });
+      k++;
+    }
+    for (let k = 0, tries = 0; k < 40 && tries < 600; tries++) {
+      const tk = rng.f(tc0 + 1, tc0 + Tc - 3);
+      path.sample(tk, pose);
+      const F1 = new Vector3(0, 0, -1).applyQuaternion(pose.quat), R1 = new Vector3(1, 0, 0).applyQuaternion(pose.quat), U1 = new Vector3(0, 1, 0).applyQuaternion(pose.quat);
+      const p = pose.pos.clone().addScaledVector(F1, rng.f(4, 22)).addScaledVector(R1, rng.f(-4, 4)).addScaledVector(U1, rng.f(-3, 3));
+      const a = rng.f(0, Math.PI * 2), sp = rng.f(3, 6);
+      const u = [Math.cos(a) * sp, Math.sin(a) * sp, rng.f(-1, 1)], V = freeV([p.x, p.y, p.z], u);
+      if (!okLine([p.x, p.y, p.z], V, 1, -7, 7)) continue;
+      const pr = person(rng.chance(0.65));
+      items.push({ p: [p.x, p.y, p.z], v: V, loop: [0, tk, 1, pr.scale], hit: [-7, 7, rng(), rng.chance(0.2) ? rng.f(-0.7, 0.7) : 0], ...pr });
+      k++;
+    }
     const flyU = { uClip: G.uClip, uTime: G.uTime, uFlight: { value: 0 }, uOmega: { value: W } };
     scene.add(flyerMesh(rig, items, flyU));
-    yield;
+    yield 'kittiwake: hall';
 
     // ---- the gate on the top terrace, by the hub face
     const t29 = hollow.terrace(0, 29, -6);
     const gate = new Geo({ maxSeg: 1.5 });
     gate.box(-26, 0, -10.6, 26, 1.1, -8.6, '#d6dde6', { top: '#fbfdff' });                 // the counter
-    gate.box(-26, 0, -11, 26, 5.2, -10.6, '#5e6b78');                                     // the board behind it
+    gate.box(-26, 0, -11, 26, 5.2, -10.6, '#e9edf2', { emit: 0.35 });                     // the board behind it, lit
+    for (let i = 0; i < 18; i++) gate.box(-27 + i * 3, 5.2, -11, -24 + i * 3, 5.4, -9.4, i % 2 ? '#fbfdff' : '#e8563a');   // a striped canopy
+    for (let i = 0; i <= 12; i++) gate.box(-26 + i * 4.333 - 0.06, 0, -7.4, -26 + i * 4.333 + 0.06, 5.2, -7.28, '#c3ccd6');
+    const gateLamps = [];
+    for (let i = 0; i < 26; i++) gateLamps.push({ p: [-25 + i * 2, 4.9, -8.0], color: '#ffe7c4', power: 5, size: 0.3 });
+    t29.glow(gateLamps, { minPx: 1.2, maxPx: 30, soft: 1.8 });
     for (let i = 0; i < 26; i++) for (let j = 0; j < 3; j++) {
       const x = -25 + i * 1.95, y = 1.6 + j * 1.2, c = sleeves[(i * 3 + j * 5) % sleeves.length];
       gate.tri([x, y + 1.0, -10.55], [x + 0.2, y, -10.55], [x + 1.7, y + 0.9, -10.55], c);   // sleeves pinned up to choose from
@@ -531,7 +623,7 @@ export const kittiwakeCrosswise = {
     const spots = [];
     for (let i = 0; i < 70; i++) spots.push({ p: [rng.f(-30, 40), 0, rng.f(-8, -1)], walk: rng.chance(0.4) ? rng.f(0.5, 2) : 0, child: rng.chance(0.55), yaw: Math.PI });
     for (const m of crowd(spots, t29.walk, { frame: t29.frame, bob: 0.35, speed: 0.6 })) t29.add(m);
-    yield;
+    yield 'kittiwake: hall';
 
     return {
       scene, path, hollow, near: 0.3, far: 9000,

@@ -90,7 +90,7 @@ What `build` returns:
 | `near`, `far` | the camera's clip distances in this world's metres. Keep far/near under about 30,000 |
 | `look` | `{ exposure, bloom, threshold, spread, vignette, grain, saturation, contrast, lift:[r,g,b], gain:[r,g,b] }`, any subset. Keep hold of the object: `update()` may change its numbers as the light changes. Defaults: 1, 0.15 (use 0.1 to 0.35), 1, 1, 0.45, 0.03, 1.05, 1.03 |
 | `update(t, dt, camera, engine)` | called each frame with the seconds into the flight. Also called while this world is only seen through the last world's opening, with t = 0. Keep it cheap |
-| `portal` | options for the opening at the end: `{ shape: 'rect', width, height }` for a doorway instead of a disc; `rim: false` to leave off the glowing ring; `rimPower`; `mist` (colour) |
+| `portal` | options for the opening at the end: `{ shape: 'rect', width, height }` for a doorway instead of a disc; `rim: false` to leave off the glowing ring; `rimPower`; `mist` (colour); `openFor` (seconds before the crossing that the next world is drawn through it, default 16: until then it holds mist) |
 | `dispose()` | free anything the engine cannot find by walking the scene (it disposes geometries, materials and their textures itself) |
 
 Yield after every big step, and inside long loops by the clock: `if (performance.now() - t0 > 4) { yield 'trees'; t0 = performance.now(); }`. A `yield` may carry a few words saying what was just done; with `?debug` the engine logs any single step over 40 ms by that name (shot.mjs prints it as "steps over 40 ms"), and one long step is a visible stall in the world on screen. Kit builders that are generators are called with `yield*`.

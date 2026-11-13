@@ -134,11 +134,15 @@ export class Geo {
   tube(points, radius, sides, color, opts = {}) {
     const e = opts.emit || 0, n = points.length, P = points.map(toV);
     const rings = [];
-    let up = new Vector3(0, 1, 0);
+    let bx = null;
     for (let i = 0; i < n; i++) {
-      const tan = new Vector3().subVectors(P[Math.min(i + 1, n - 1)], P[Math.max(i - 1, 0)]).normalize();
-      if (Math.abs(tan.dot(up)) > 0.95) up = new Vector3(1, 0, 0);
-      const bx = new Vector3().crossVectors(tan, up).normalize(), by = new Vector3().crossVectors(bx, tan).normalize();
+      const tan = new Vector3().subVectors(P[Math.min(i + 1, n - 1)], P[Math.max(i - 1, 0)]);
+      if (tan.lengthSq() < 1e-12) tan.set(0, 0, 1);
+      tan.normalize();
+      // the frame is carried from ring to ring (so loops and knots do not flip or collapse)
+      if (!bx) { const up = Math.abs(tan.y) > 0.9 ? new Vector3(1, 0, 0) : new Vector3(0, 1, 0); bx = new Vector3().crossVectors(tan, up).normalize(); }
+      else { bx = bx.clone().addScaledVector(tan, -bx.dot(tan)); if (bx.lengthSq() < 1e-10) bx.crossVectors(tan, new Vector3(0.3, 0.9, 0.1)); bx.normalize(); }
+      const by = new Vector3().crossVectors(bx, tan).normalize();
       const rad = typeof radius === 'function' ? radius(i / (n - 1)) : radius;
       const ring = [];
       for (let j = 0; j < sides; j++) { const a = (j / sides) * 6.283185307, c = Math.cos(a), s = Math.sin(a); ring.push({ p: P[i].clone().addScaledVector(bx, c * rad).addScaledVector(by, s * rad), n: bx.clone().multiplyScalar(c).addScaledVector(by, s) }); }

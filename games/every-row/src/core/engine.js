@@ -327,7 +327,9 @@ export class Engine {
       _sph.set(cur.exit.pos, cur.exit.radius);
       const dist = P.pos.distanceTo(cur.exit.pos);
       const pxR = cur.exit.radius * G.uPx.value / Math.max(dist, 0.01);
-      const inView = sDist < 0 && pxR > 1.5 && _v2.copy(cur.exit.pos).sub(P.pos).normalize().dot(_v.set(0, 0, -1).applyQuaternion(P.quat)) > 0.2;
+      // only for the last stretch of the flight (portal.openFor seconds, default 16): before that the opening holds mist
+      const inView = sDist < 0 && pxR > 1.5 && cur.t > cur.tCross - (cur.portalOpts.openFor || 16)
+        && _v2.copy(cur.exit.pos).sub(P.pos).normalize().dot(_v.set(0, 0, -1).applyQuaternion(P.quat)) > 0.2;
       if (inView) {
         live = 1;
         const k = nx.entry.radius / cur.exit.radius;
