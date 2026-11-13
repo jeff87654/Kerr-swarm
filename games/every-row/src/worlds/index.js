@@ -4,6 +4,7 @@ import { lovageNoon } from './lovage_noon.js';
 import { chervilDawn } from './chervil_dawn.js';
 import { sloeWood } from './sloe_wood.js';
 import { kittiwakeCrosswise } from './kittiwake_crosswise.js';
+import { squallSwell } from './squall_swell.js';
 import { gloamingDusk } from './gloaming_dusk.js';
 import { chervilFlight } from './chervil_flight.js';
 
@@ -13,6 +14,7 @@ export const WORLDS = [
   chervilDawn,
   sloeWood,
   kittiwakeCrosswise,
+  squallSwell,
   gloamingDusk,
   chervilFlight,
 ];
