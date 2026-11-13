@@ -23,7 +23,8 @@
 //     first, after a lift of a few centimetres; the depot speed of 10 m/s
 //   - the night keepers who walk the aisles with hand lamps, masked as the docs' tube crews are (whether the depot
 //     holds the tubes' helium is not said), and how they are dressed
-//   - the lamps over the walks, low at night; the painted edges of the walks
+//   - the work lamps over the walks and guideways, low at night, that come on aisle by aisle behind the waking;
+//     the painted edges of the walks; the night light in each sleeping cab
 //   - the wording of the signs: "Aisle 12", the notice by the walk, the plate over the tube mouths
 import {
   Scene, Mesh, InstancedMesh, InstancedBufferGeometry, InstancedBufferAttribute, Float32BufferAttribute, ShaderMaterial,
@@ -58,9 +59,11 @@ const SLIDE_T = 1.2, ACC = 2.5, VMAX = 10, TACC = VMAX / ACC, XGONE = 525;
 const aisleZ = (m) => Z0 + m * AW;
 const berthX = (i) => BX0 + i * BP;
 
-// The flight's run beside a cab: from T_RUN it holds VMAX along the lane, X_RUN at T_RUN, and the cab it keeps pace
-// with is FOLLOW metres ahead (the last of its platoon, on the upper tier of rack A, Aisle 12).
-const T_RUN = 34, X_RUN = 295, FOLLOW = 3, FOLLOW_I = 60;
+// Two cabs the flight keeps company with, each the last of its platoon on the upper tier of rack A: in Aisle 12 one it
+// runs beside (at x at second t), and in Aisle 9 (MF) one it follows into its tube, after which the rest of that tier
+// waits for a gap.
+const MF = MC - 3, FOLLOW_I = 60, T_RUN = 34, X_RUN = 295;
+const FOLLOWS = [{ m: MC, t: T_RUN, x: X_RUN + 3, hold: false }, { m: MF, t: 49.5, x: 445, hold: true }];
 
 /**
  * Every berth: where it is, which way its lane lies, and when its cab wakes, slides out and runs. A rack's tier leaves
@@ -72,7 +75,7 @@ function schedule(rng) {
   for (let m = 0; m < NA; m++) for (let r = 0; r < 2; r++) {
     const z = aisleZ(m) + RACK[r], side = r === 0 ? 1 : -1, jr = rng.f(-0.45, 0.45);
     for (let k = 0; k < 2; k++) {
-      const follow = m === MC && r === 0 && k === 1;
+      const f = r === 0 && k === 1 ? FOLLOWS.find((q) => q.m === m) : null, follow = !!f, hold = follow && f.hold;
       const row = [];
       for (let i = 0; i < NB; i++) {
         const empty = !follow && rng() < 0.0119;
@@ -83,14 +86,14 @@ function schedule(rng) {
       while (i >= 0) {
         let n = 5 + Math.floor(rng() * 12);
         if (follow && i >= FOLLOW_I && i - n + 1 < FOLLOW_I) n = i - FOLLOW_I + 1;        // a platoon whose last cab is the one the flight keeps pace with
-        if (follow && i < FOLLOW_I) n = i + 1;                                              // and the rest of that tier waits for a gap
+        if (hold && i < FOLLOW_I) n = i + 1;                                                // and the rest of that tier waits for a gap
         const grp = row.slice(Math.max(0, i - n + 1), i + 1).reverse();
         let tg = Math.max(...grp.map((c) => c.wake)) + rng.f(1.0, 3.6);
         if (follow && grp[grp.length - 1].i === FOLLOW_I) {
           const d = 0.06 * (grp.length - 1);
-          tg = (berthX(FOLLOW_I) + 0.5 * ACC * TACC * TACC - X_RUN - FOLLOW) / VMAX + T_RUN - SLIDE_T - TACC - d;
+          tg = (berthX(FOLLOW_I) + 0.5 * ACC * TACC * TACC - f.x) / VMAX + f.t - SLIDE_T - TACC - d;
         }
-        if (follow && i < FOLLOW_I) tg = 1e4;
+        if (hold && i < FOLLOW_I) tg = 1e4;
         tg = Math.max(tg, lastG + 0.3);
         lastG = tg;
         grp.forEach((c, j) => { c.when = [c.wake, tg, 0.06 * j]; });
@@ -187,7 +190,7 @@ void main() {
 }`;
 const cabFrag = (rig) => /* glsl */`
 ${CLIP_PARS}
-uniform vec3 uCabin, uStandby, uReady;
+uniform vec3 uCabin, uStandby, uReady, uNight;
 varying vec3 vW; varying vec3 vN; varying vec3 vF; varying vec3 vFN; varying vec3 vCol; varying vec3 vLoc; varying float vRole; varying float vLit;
 ${rig.glsl}
 void main() {
@@ -195,13 +198,14 @@ void main() {
   vec3 N = normalize(vN), FN = normalize(vFN);
   if (!gl_FrontFacing) { N = -N; FN = -FN; }
   vec3 L = kLight(vW, N, vF, FN);
-  vec3 c = vCol * L;
+  float awake = clamp(vLit, 0.0, 1.0);
+  vec3 c = vCol * (L + uNight * 0.3 * (1.0 - awake));
   if (vRole > 0.5 && vRole < 1.5) {
     // dark glass; then a lit room, with the backs of its six seats against the light and a lamp along its ceiling
     float u = fract((vLoc.x + 1.05) / 0.7) - 0.5;
     float seat = step(abs(u), 0.33) * step(vLoc.y, 1.17 - 0.5 * max(abs(u) - 0.25, 0.0));
     float lamp = 0.75 + 0.6 * smoothstep(1.5, 1.66, vLoc.y);
-    c = vCol * L * 2.0 + uCabin * vLit * lamp * mix(1.0, 0.16, seat);
+    c = vCol * L * 2.0 + (uCabin * vLit * lamp + uNight * (1.0 - awake) * (0.6 + 0.6 * smoothstep(1.45, 1.66, vLoc.y))) * mix(1.0, 0.16, seat);
   } else if (vRole > 2.5) {
     c = mix(uStandby, uReady, clamp(vLit, 0.0, 1.0));
   }
@@ -254,7 +258,7 @@ function cabMeshes(cabs, rig, frame, isNear) {
   const T = { value: 0 };
   const bend = { value: new Vector3(frame.a0, frame.z0, frame.floorR) };
   const mat = new ShaderMaterial({
-    uniforms: { ...rig.uniforms, uClip: G.uClip, uBend: bend, uT: T, uCabin: { value: vec3col('#ffcf94', 1.25) }, uStandby: { value: vec3col('#7fe8d6', 3.2) }, uReady: { value: vec3col('#cdf3c4', 1.1) } },
+    uniforms: { ...rig.uniforms, uClip: G.uClip, uBend: bend, uT: T, uCabin: { value: vec3col('#ffcf94', 1.25) }, uStandby: { value: vec3col('#7fe8d6', 3.2) }, uReady: { value: vec3col('#cdf3c4', 1.1) }, uNight: { value: vec3col('#5fd0c0', 0.14) } },
     vertexShader: CAB_VERT, fragmentShader: cabFrag(rig), side: FrontSide,
   });
   const rng = makeRng('sleepers paint');
@@ -305,6 +309,56 @@ function cabMeshes(cabs, rig, frame, isNear) {
 // a plain square: all a light needs
 const base4 = () => new Float32BufferAttribute([-0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0], 3);
 
+// The work lamps under the ceiling: one over each walk and each guideway every 16 m, kept low (the walks) or dark (the
+// guideways) at night, and switched on aisle by aisle a moment behind the waking, so that once it has passed the hall
+// is lit from end to end. They keep the flight's clock.
+const LAMP_VERT = /* glsl */`
+attribute vec3 aPos; attribute vec4 aLamp;      // aLamp: the second it comes on, its strength at night and after, its size
+${BEND_PARS}
+uniform float uT, uPx, uMinPx, uMaxPx; uniform vec2 uRes; uniform vec3 uColor;
+varying vec3 vW; varying vec3 vC; varying vec2 vQ;
+void main() {
+  vec3 p = aPos, n = vec3(0.0, 1.0, 0.0);
+  kBend(p, n);
+  vW = p;
+  vec4 mv = viewMatrix * vec4(p, 1.0);
+  float d = uT - aLamp.x, on = smoothstep(0.0, 0.2, d);
+  float k = mix(aLamp.y, aLamp.z, on) + (d > 0.0 ? aLamp.z * 1.4 * exp(-d * 3.0) : 0.0);
+  float dist = max(-mv.z, 0.01), px = aLamp.w * uPx / dist, shown = clamp(px, uMinPx, uMaxPx);
+  vC = uColor * k * min((px * px) / (shown * shown), 1.0);
+  vQ = position.xy;
+  vec4 clip = projectionMatrix * mv;
+  clip.xy += position.xy * shown / uRes * clip.w * 2.0;
+  gl_Position = clip;
+}`;
+function ceilingLamps(deck, frame) {
+  const rng = makeRng('sleepers lamps'), pts = [];
+  for (let m = 0; m < NA; m++) {
+    const jm = rng.f(0, 0.6);
+    for (let j = 0; j < 28; j++) {
+      const x = 26 + j * 16, on = wakeAt(x) + 0.9 + jm + rng.f(0, 0.2);
+      for (const [dz, night, day, size] of [[WALK, 0.3, 1.25, 0.75], [LANE[0], 0, 0.95, 0.6], [LANE[1], 0, 0.95, 0.6]]) {
+        const z = aisleZ(m) + dz;
+        if (deck.clear(x, H - 0.3, z, 1.8)) pts.push(x, H - 0.3, z, on, night, day, size);
+      }
+    }
+  }
+  const n = pts.length / 7, g = new InstancedBufferGeometry(), P = new Float32Array(n * 3), A = new Float32Array(n * 4);
+  for (let i = 0; i < n; i++) { P.set(pts.slice(i * 7, i * 7 + 3), i * 3); A.set(pts.slice(i * 7 + 3, i * 7 + 7), i * 4); }
+  g.setAttribute('position', base4());
+  g.setIndex([0, 1, 2, 0, 2, 3]);
+  g.setAttribute('aPos', new InstancedBufferAttribute(P, 3));
+  g.setAttribute('aLamp', new InstancedBufferAttribute(A, 4));
+  g.instanceCount = n;
+  const T = { value: 0 };
+  const mat = new ShaderMaterial({
+    uniforms: { uClip: G.uClip, uPx: G.uPx, uRes: G.uRes, uBend: { value: new Vector3(frame.a0, frame.z0, frame.floorR) }, uT: T, uMinPx: { value: 1.3 }, uMaxPx: { value: 70 }, uColor: { value: vec3col('#ffbf78', 1) } },
+    vertexShader: LAMP_VERT, fragmentShader: LIGHT_FRAG, transparent: true, depthWrite: false, blending: AdditiveBlending,
+  });
+  const mesh = new Mesh(g, mat); mesh.frustumCulled = false; mesh.renderOrder = 10;
+  return { mesh, T };
+}
+
 // ---------------------------------------------------------------- racks, guideways, the hall
 const STEEL = '#4b4d4f', STEEL2 = '#5d5c58', RAIL = '#7d7a72', YEL = '#a88a3e';
 // One bay of rack: 8 m of it, two berths on each tier, its post at x = -4. The rack's middle is z = 0 and its lane lies
@@ -341,7 +395,7 @@ function protos(deck) {
   deck.proto('bayFar', (g) => bayGeo(g, false));
   deck.proto('column', (g) => { g.box(-0.26, 0, -0.26, 0.26, H, 0.26, '#55534e', { skip: 'tb' }); g.box(-0.34, 0, -0.34, 0.34, 0.5, 0.34, YEL, { skip: 'b' }); });
   // a lamp under the ceiling over a walk: a housing and a panel, kept low at night
-  deck.proto('ceilLamp', (g) => { g.box(-0.7, -0.16, -0.2, 0.7, 0, 0.2, '#3f3d3a', { skip: 't' }); g.floor(-0.62, -0.14, 0.62, 0.14, -0.165, '#ffd9a8', { down: true, emit: 1.3 }); });
+  deck.proto('ceilLamp', (g) => { g.box(-0.7, -0.16, -0.2, 0.7, 0, 0.2, '#3f3d3a', { skip: 't' }); g.floor(-0.62, -0.14, 0.62, 0.14, -0.165, '#ffd9a8', { down: true, emit: 0.15 }); });
 }
 
 /** the racks: near ones (by the flight's aisle) in full, the rest plainly */
@@ -378,12 +432,9 @@ function* hall(deck, exitMouth) {
     const x = 18 + j * 16;
     for (let m = 0; m < NA; m++) {
       const z0 = aisleZ(m), b = deck.bucket(x, z0 + 7);
-      b.g.box(x - 0.3, H - 0.62, z0, x + 0.3, H, z0 + AW, '#6a645a', { skip: 'tns' });
+      b.g.box(x - 0.3, H - 0.4, z0, x + 0.3, H, z0 + AW, '#6a645a', { skip: 'tns' });
       if (m > 0) deck.put('column', { p: [x, 0, z0], yaw: 0 });
-      if (deck.clear(x + 8, H - 0.3, z0 + WALK, 2.6)) {
-        deck.put('ceilLamp', { p: [x + 8, H - 0.05, z0 + WALK], yaw: 0 });
-        deck.glow([{ p: [x + 8, H - 0.3, z0 + WALK], color: '#ffc98a', power: 1.3, size: 0.55 }]);
-      }
+      for (const c of [WALK, LANE[0], LANE[1]]) if (deck.clear(x + 8, H - 0.3, z0 + c, 1.8)) deck.put('ceilLamp', { p: [x + 8, H - 0.02, z0 + c], yaw: 0 });
       for (const s of [-1, 1]) deck.glow([{ p: [x, 0.04, z0 + WALK + s * 0.94], color: '#ff9a40', power: 0.7, size: 0.11 }]);
     }
     if (clk.due()) { yield 'sleepers: beams'; clk.go(); }
@@ -413,8 +464,8 @@ function* hall(deck, exitMouth) {
         b.c.box(X, y0, a, X + len, y1, c, '#2a2a2d', { skip: 'w' });
         g.box(X, y0, (a + c) / 2 - 0.3, X + len, y0 + (y0 > 1 ? 0.15 : 0.3), (a + c) / 2 + 0.3, '#3d3c3a', { skip: 'bwe' });
         // its frame of lamps
-        for (let k = 0; k <= 10; k++) deck.glow([{ p: [X - 0.08, y1 + 0.1, a + (c - a) * k / 10], color: '#ffd9a0', power: 0.7, size: 0.16 }]);
-        for (const zz of [a - 0.1, c + 0.1]) for (let k = 0; k <= 4; k++) deck.glow([{ p: [X - 0.08, y0 + (y1 - y0) * k / 4, zz], color: '#ffd9a0', power: 0.7, size: 0.16 }]);
+        for (let k = 0; k <= 10; k++) deck.glow([{ p: [X - 0.08, y1 + 0.1, a + (c - a) * k / 10], color: '#ffd9a0', power: 1.5, size: 0.22 }]);
+        for (const zz of [a - 0.1, c + 0.1]) for (let k = 0; k <= 4; k++) deck.glow([{ p: [X - 0.08, y0 + (y1 - y0) * k / 4, zz], color: '#ffd9a0', power: 1.5, size: 0.22 }]);
         if (mine) for (let x = X + 6; x < X + len; x += 7) deck.glow([{ p: [x, y1 - 0.12, (a + c) / 2], color: '#cfe0ff', power: 1.1, size: 0.5 }]);
       }
     }
@@ -442,7 +493,7 @@ function keeperGeo() {
 }
 const KEEPERS = [
   { m: MC, dz: 0.95, x0: 244, v: -0.7 },
-  { m: MC - 3, dz: -0.2, x0: 284, v: 0.9 },
+  { m: MF, dz: 0.25, x0: 437, v: 0, face: -1 },
   { m: MC + 4, dz: 0.3, x0: 338, v: -0.85 },
 ];
 
@@ -454,25 +505,27 @@ export const sorrelSleepers = {
   sound: { root: 40, scale: 'aeolian', pad: 0.3, air: 0.35, hum: 0.9, bells: 0.06, bright: 0.3 },
   *build(ctx) {
     const frame = makeFrame(190 * DEG, 3500, deckRadius(138));       // Ring Nine, the Hour of the Otter, line deck 138
-    const ZL = aisleZ(MC) + LANE[0];                                   // the lane the flight leaves by
+    const ZL = aisleZ(MF) + LANE[0];                                   // the lane the flight leaves by
     const path = makePath([
       { t: 0, p: [228, 1.6, -0.5] },
       { t: 4, p: [233.4, 1.66, -0.5], look: [262, 1.6, 0.4] },
-      { t: 8.5, p: [239, 2.7, -0.55], look: [275, 2.9, -0.3] },
-      { t: 13, p: [244, 5.6, 0], look: [320, 4.6, -18] },
-      { t: 17.5, p: [247.5, 6.6, 0], look: [320, 4.4, -52], fov: 64 },
-      { t: 22, p: [250.5, 6.6, 0], look: [325, 4.2, 26], fov: 64 },
-      { t: 26.5, p: [254, 6.2, 0], look: [272, 3.4, -3.5] },
-      { t: 30, p: [266, 4.6, 0], look: [298, 3.9, -1.8] },
+      { t: 8.5, p: [239, 2.7, -0.55], look: [275, 2.6, -0.3] },
+      { t: 13, p: [243.5, 6.2, 0], look: [300, -0.5, -14] },
+      { t: 17.5, p: [247, 7.05, 0], look: [305, -2.5, -38], fov: 66 },
+      { t: 22, p: [250.5, 7.05, 0], look: [312, -2.5, 24], fov: 66 },
+      { t: 26.5, p: [254, 6.5, 0], look: [272, 2.8, -3.5] },
+      { t: 30, p: [266, 4.6, 0], look: [298, 3.8, -1.8] },
       { t: T_RUN, p: [X_RUN, 4.0, 0], look: [X_RUN + 30, 3.9, -1.6] },
-      { t: 37.5, p: [X_RUN + 35, 4.25, 0], look: [X_RUN + 65, 4.2, -1.4] },
-      { t: 41, p: [X_RUN + 70, 6.45, 0], look: [460, 4.2, 0], fov: 64 },
-      { t: 44.5, p: [X_RUN + 104, 6.2, 0], look: [470, 4.0, -1] },
-      { t: 48, p: [427, 4.3, -0.4], look: [470, 4.05, -2.2] },
-      { t: 51, p: [447, 4.03, -1.7] },
-      { t: 53.5, p: [457.5, 4.04, -2.45] },
-      { t: 56, p: [463.5, 4.05, ZL] },
-    ], { frame, entryRadius: 1.1, exitRadius: 1.25 });
+      { t: 35.5, p: [X_RUN + 15, 4.1, 0], look: [X_RUN + 45, 3.9, -1.6] },
+      { t: 37, p: [X_RUN + 31, 4.9, -0.3], look: [X_RUN + 70, 2.5, -12] },
+      { t: 39, p: [346, 6.3, -7.2], look: [400, -1.5, -40], fov: 64 },
+      { t: 41.2, p: [365, 6.85, -21], look: [420, -1.5, -50], fov: 66 },
+      { t: 44, p: [388, 6.85, -40.8], look: [455, 1.0, -41], fov: 62 },
+      { t: 47, p: [414, 4.4, -40.8], look: [450, 1.8, -41.5] },
+      { t: 49.5, p: [436, 4.02, -42.2] },
+      { t: 51, p: [450, 4.04, -43.2] },
+      { t: 53, p: [470, 4.05, ZL] },
+    ], { frame, entryRadius: 1.1, exitRadius: 4.5 });
     const deck = makeDeck(ctx, {
       frame, near: path.points(0.5), seed: 'sleepers', palette: PALETTES.dim, clock: 'flight', detail: 30,
       light: { level: 0.6, ambUp: '#3b3833', ambDown: '#2b2926', ambPower: 0.4, haze: '#0a0908', hazeDensity: 0.0015 },
@@ -528,6 +581,8 @@ export const sorrelSleepers = {
     for (let i = 0; i < KEEPERS.length; i++) lampPts.push({ p: [0, 0, 0], color: '#fff0d0', power: 3.2, size: 0.22 }, { p: [0, 0, 0], color: '#ffd9a0', power: 0.5, size: 1.6 });
     const lamps = glowPoints(lampPts, { bend: frame, minPx: 1.4, maxPx: 160, soft: 1.9 });
     scene.add(lamps);
+    const work = ceilingLamps(deck, frame);
+    scene.add(work.mesh);
     const m4 = new Matrix4(), qu = new Quaternion(), one = new Vector3(1, 1, 1), pv = new Vector3(), yAxis = new Vector3(0, 1, 0);
     const look = { exposure: 1.9, bloom: 0.3, threshold: 0.9, spread: 1, vignette: 0.55, grain: 0.035, saturation: 1.05, contrast: 1.05 };
     const zoneW = { min: [0, -1, aisleZ(0) - 2], max: [540, 9.5, aisleZ(NA) + 2], soft: 16, color: '#ffcf98', power: 0, side: 0.75, under: 0.9 };
@@ -535,7 +590,7 @@ export const sorrelSleepers = {
     function place(t) {
       const ap = lamps.geometry.getAttribute('aPos');
       KEEPERS.forEach((k, i) => {
-        const x = k.x0 + k.v * t, z = aisleZ(k.m) + WALK + k.dz, fw = Math.sign(k.v), bob = 0.025 * Math.abs(Math.sin(t * 5.2 + i));
+        const x = k.x0 + k.v * t, z = aisleZ(k.m) + WALK + k.dz, fw = k.v ? Math.sign(k.v) : k.face, bob = k.v ? 0.025 * Math.abs(Math.sin(t * 5.2 + i)) : 0;
         qu.setFromAxisAngle(yAxis, fw > 0 ? -Math.PI / 2 : Math.PI / 2);
         m4.compose(pv.set(x, bob, z), qu, one);
         kmesh.setMatrixAt(i, m4);
@@ -551,16 +606,16 @@ export const sorrelSleepers = {
 
     return {
       scene, path, deck, near: 0.1, far: 900, look,
-      portal: { shape: 'rect', width: 4.0, height: 2.1, rim: false, mist: '#ffd9a0' },
+      portal: { shape: 'rect', width: 4.0, height: 2.2, rim: false, mist: '#ffd9a0' },
       update(t) {
         deck.tick(t);
-        cm.T.value = t;
+        cm.T.value = t; work.T.value = t;
         place(t);
         // the light of the woken cabs follows the front down the hall
         const xf = X_FAR - V_W * (t - T_W);
-        zoneW.min[0] = xf - 6; zoneW.power = 0.2 * smoothstep(T_W - 1, T_W + 3, t);
+        zoneW.min[0] = xf - 6; zoneW.power = 0.36 * smoothstep(T_W - 1, T_W + 3, t);
         deck.rig.setZone(waveZone, zoneW);
-        look.exposure = 2.05 - 0.6 * smoothstep(T_W + 7, T_W + 16, t);
+        look.exposure = 2.3 - 0.85 * smoothstep(T_W + 7, T_W + 16, t);
       },
     };
   },
