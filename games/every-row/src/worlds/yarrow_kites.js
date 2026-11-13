@@ -182,13 +182,53 @@ function* makeRigs(path, density) {
   const occ = new Map(), key = (x, z) => Math.floor(x / 8) + ',' + Math.floor(z / 8);
   const crowded = (pts, lim) => pts.some(([x, z]) => (occ.get(key(x, z)) || 0) >= lim);
   const mark = (pts) => { for (const [x, z] of pts) { const k = key(x, z); occ.set(k, (occ.get(k) || 0) + 1); } };
-  const okGround = (pts) => pts.every(([x, z]) => z > LAWN0 + 6 && z < LAWN1 - 6 && !inLane(x, z) && !inRing(x, z));
+  const okGround = (pts) => pts.every(([x, z]) => z > LAWN0 + 6 && z < LAWN1 - 6 && !inLane(x, z) && !inRing(x, z) && !blocked(x, z));
   let t0 = performance.now(), work = 0;
+  // companions: every couple of seconds from the take-off to the turn, a rig placed so that its kite is in front of
+  // the camera then, near but clear: a train crossing below, a great delta going by, a tail streaming past. Each walks
+  // an ordinary lane; only where and when it was set going is chosen.
+  let comp = 0;
+  const order = ['train', 'team', 'diamond', 'dragon', 'rokko', 'team', 'train', 'delta', 'box', 'dragon', 'diamond', 'team', 'train'];
+  for (let tk = 12, n = 0; tk <= 42; tk += 2.5, n++) {
+    const i0 = Math.round(tk / 0.5), c = cam[i0], c2 = cam[Math.min(i0 + 1, cam.length - 1)];
+    let fx = c2.x - c.x, fz = c2.z - c.z; const fl = Math.hypot(fx, fz) || 1; fx /= fl; fz /= fl;
+    for (let k = 0; k < 240; k++) {
+      const wide = k >= 160 ? 1.6 : 1;     // a second, wider try for a slot that will not fill
+      if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: companions'; t0 = performance.now(); }
+      const kind = order[(n + Math.floor(k / 40)) % order.length];
+      const rg = makeRig(rng, kind, 0, 0, false);
+      rg.stop = [0, 0, 0, 0]; rg.v = Math.abs(rg.v);
+      if (kind !== 'train' && kind !== 'team' && kind !== 'dragon') rg.scale *= 1.9;
+      const big = kind === 'team' ? rg.scale * 1.25 : 2;
+      // trains cross below; the rest go the flight's way beside it, so they stay in the picture
+      const cross = kind === 'train';
+      const D = (kind === 'team' ? rng.f(30, 55) : cross ? rng.f(10, 24) : rng.f(14, 34)) * wide;
+      const o = (kind === 'team' ? rng.f(18, 30) : cross ? rng.f(-4, 4) : rng.f(8, 14)) * (cross ? 1 : rng.sign());
+      const dy = kind === 'team' ? rng.f(-4, 12) : cross ? -rng.f(8, 12) : rng.f(-6, 3);
+      const px = c.x + fx * D - fz * o, pz = c.z + fz * D + fx * o, h = c.y + dy;
+      if (h < 6) continue;
+      rg.eMax = rng.f(0.6, 1.0);
+      rg.len = (h - 1.4) / Math.sin(rg.eMax);
+      if (rg.len < 10 || rg.len > 130) continue;
+      const d = rg.len * Math.cos(rg.eMax);
+      rg.th = Math.atan2(fz, fx) + (cross ? Math.PI / 2 : 0) + (rng.chance(0.5) ? 0 : Math.PI) * (cross ? 1 : 0) + rng.f(-0.25, 0.25); rg.r = 5; rg.a = Math.max(rng.f(80, 140), d + 30);
+      // the kite early on a straight, its flyer a line's length further on, the lane running on ahead of them
+      const u = rng.f(10, Math.max(12, Math.min(60, 2 * rg.a - d - 15))), lx = -rg.a + u, ct = Math.cos(rg.th), st = Math.sin(rg.th);
+      rg.cx = px - (ct * lx + st * rg.r); rg.cz = pz - (st * lx - ct * rg.r);
+      rg.s0 = u + d - rg.v * tk;
+      const pts = trackPoints(rg);
+      if (!okGround(pts) || crowded(pts, 3) || !clearOf(rg, cam)) continue;
+      mark(pts); near.push(rg); comp++;
+      break;
+    }
+    if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: companions'; t0 = performance.now(); }
+  }
   // near the flight: a crowded test day, each rig kept out of the camera's way
   const NX0 = X0 - 430, NX1 = X0 + 600, NZ1 = ZP + 820;
-  const want = Math.round(900 * Math.min(density, 1.2));
+  const want = Math.round(700 * Math.min(density, 1.2));
   let tries = 0;
-  for (; near.length < want && tries < want * 8; tries++) {
+  for (; near.length < want && tries < want * 4; tries++) {
+    if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: who flies'; t0 = performance.now(); }
     const kind = pickKind(rng);
     // most of them about the flight, thinning out to the edge of the near field
     const c = cam[Math.floor(rng.f(14, cam.length - 4))], ra = 270 * Math.sqrt(rng()), an = rng.f(0, 6.283);
@@ -203,12 +243,12 @@ function* makeRigs(path, density) {
     if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: who flies'; t0 = performance.now(); }
   }
   // everywhere else round the floor: the kites of the other schools, which the far bank flies back at you
-  const nFar = Math.round(5500 * density);
+  const nFar = Math.round(4400 * density);
   for (let tries = 0; far.length < nFar && tries < nFar * 3; tries++) {
     const cx = rng.f(0, C), cz = rng.f(LAWN0 + 30, LAWN1 - 30);
     let dx = ((cx - X0 - 60) % C + C * 1.5) % C - C / 2;
     if (Math.abs(dx) < 520 && cz < NZ1 + 40) continue;
-    if (onWalk(cx, cz)) continue;
+    if (onWalk(cx, cz) || blocked(cx, cz)) continue;
     const kind = pickKind(rng, [['diamond', 20], ['rokko', 12], ['box', 8], ['delta', 16], ['dragon', 3], ['team', 4], ['train', 3]]);
     const rg = makeRig(rng, kind, cx, cz, true);
     if (rg.kind === 'team') rg.scale *= 1.15;
@@ -216,10 +256,10 @@ function* makeRigs(path, density) {
     if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: far'; t0 = performance.now(); }
   }
   // the lawns overhead, where the flight looks up: a busier stretch of the far bank, flying back at you
-  const nOver = Math.round(2600 * density);
+  const nOver = Math.round(2200 * density);
   for (let i = 0, tries = 0; i < nOver && tries < nOver * 3; tries++) {
     const cx = X0 + 200 + C / 2 + rng.f(-1700, 1700), cz = rng.f(LAWN0 + 30, ZP + 1800);
-    if (onWalk(cx, cz)) continue;
+    if (onWalk(cx, cz) || blocked(cx, cz)) continue;
     const kind = pickKind(rng, [['diamond', 14], ['rokko', 10], ['box', 6], ['delta', 14], ['dragon', 4], ['team', 7], ['train', 3]]);
     const rg = makeRig(rng, kind, ((cx % C) + C) % C, cz, true);
     rg.scale *= kind === 'team' ? 1.2 : 1.5;
@@ -227,6 +267,144 @@ function* makeRigs(path, density) {
     if (performance.now() - t0 > 4) { work += performance.now() - t0; yield 'kites: far'; t0 = performance.now(); }
   }
   return { near, far };
+}
+
+// ---------------------------------------------------------------- the lawns' furniture
+// Worked out once, read by the plan painter (everywhere), the near geometry (about the flight) and the flyers (who keep
+// off it): hedges between flying fields, each field mown its own way, makers' sheds with coloured roofs along the walks,
+// very large kites laid out on the grass for mending with people on rugs round them, a pond, and a canal right round.
+const POND = { x: X0 - 175, z: ZP + 245, rx: 72, rz: 46 };
+const CANAL = { z: 1875, w: 8 };
+let LAYOUT = null;
+function layout() {
+  if (LAYOUT) return LAYOUT;
+  const rng = makeRng('yarrow-layout');
+  const fields = [], hedges = [], sheds = [], mends = [], rugs = [];
+  const zs = [LAWN0 + 20, CROSS[0] - 10, CROSS[0] + 10, CROSS[1] - 10, CROSS[1] + 10, LAWN1 - 20];
+  for (let i = 0; i < WALK_N; i++) {
+    const x0 = i * WALK_SP + WALK_SP / 2 + 10, x1 = x0 + WALK_SP - 20;
+    for (let k = 0; k < 3; k++) {
+      const z0 = zs[k * 2], z1 = zs[k * 2 + 1];
+      let zm = (z0 + z1) / 2 + rng.f(-60, 60);
+      if (zm > z0 + 1 && Math.abs(zm - RING.z) < RING.walkR + 30 && x0 < RING.x + 60 && x1 > RING.x - 60) zm = RING.z + RING.walkR + 32;
+      if (CANAL.z > z0 && CANAL.z < z1) zm = CANAL.z;
+      hedges.push({ x0: x0 + 6, x1: x1 - 6, z: zm, gap: x0 + rng.f(90, x1 - x0 - 90), canal: zm === CANAL.z });
+      for (const [a, b] of [[z0, zm - 6], [zm + 6, z1]]) fields.push({ x0, x1, z0: a, z1: b, dir: rng.pick(['x', 'z', 'x', 'z', 'ring']) });
+    }
+  }
+  for (const f of fields) {
+    // kites too big to fly today, laid out face down for mending
+    const n = rng.chance(0.55) ? (rng.chance(0.3) ? 2 : 1) : 0;
+    for (let j = 0; j < n; j++) {
+      const s = rng.f(12, 28), x = rng.f(f.x0 + s + 25, f.x1 - s - 25), z = rng.f(f.z0 + s + 20, f.z1 - s - 20);
+      if (!(f.z1 - f.z0 > 2 * s + 50)) continue;
+      const sc = rng.pick(SCHOOLS);
+      mends.push({ x, z, s, rot: rng.f(0, 6.283), kind: rng.chance(0.5) ? 'delta' : 'diamond', c1: sc[0], c2: sc[1] });
+      for (let r = 0; r < rng.i(3, 6); r++) { const a = rng.f(0, 6.283), d = s * rng.f(0.75, 1.0) + 3; rugs.push({ x: x + Math.cos(a) * d, z: z + Math.sin(a) * d, w: rng.f(2.2, 3.4), h: rng.f(1.6, 2.4), rot: rng.f(0, 3.14), c: rng.pick(RUGS) }); }
+    }
+  }
+  // the makers' sheds along the long walks, each with a rug or two before it
+  for (let i = 0; i < WALK_N; i++) {
+    const wx = i * WALK_SP + WALK_SP / 2;
+    for (const side of [-1, 1]) for (let z = LAWN0 + 70 + rng.f(0, 60); z < LAWN1 - 60; z += rng.f(110, 180)) {
+      if (CROSS.some((c) => Math.abs(z - c) < 34) || Math.abs(z - CANAL.z) < 30 || hedges.some((h) => Math.abs(z - h.z) < 16)) continue;
+      const sc = rng.pick(SCHOOLS), roof = sc[0] === WHITE || sc[0] === INK ? sc[1] : sc[0];
+      sheds.push({ x: wx + side * 27, z, side, w: rng.f(7, 10), d: rng.f(4.5, 6), roof });
+      rugs.push({ x: wx + side * 27 + side * rng.f(-2, 2), z: z + rng.f(7, 10) * (rng.chance(0.5) ? 1 : -1), w: 3, h: 2, rot: rng.f(-0.3, 0.3), c: rng.pick(RUGS) });
+    }
+  }
+  // a grid of 50 m cells listing what stands in each, for the flyers' quick look
+  const grid = new Map(), put = (x, z, o) => { const k = Math.floor(x / 50) + ',' + Math.floor(z / 50); let a = grid.get(k); if (!a) grid.set(k, a = []); if (!a.includes(o)) a.push(o); };
+  for (const h of hedges) for (let x = h.x0; x <= h.x1 + 50; x += 25) for (const dz of [-5, 5]) put(Math.min(x, h.x1), h.z + dz, { h });
+  for (const sh of sheds) for (const dx of [-13, 13]) for (const dz of [-11, 11]) put(sh.x + dx, sh.z + dz, { sh });
+  for (const m of mends) for (let dx = -m.s - 7; dx <= m.s + 7; dx += 20) for (let dz = -m.s - 7; dz <= m.s + 7; dz += 20) put(m.x + dx, m.z + dz, { m });
+  for (const m of mends) for (const dx of [-m.s - 7, m.s + 7]) for (const dz of [-m.s - 7, m.s + 7]) put(m.x + dx, m.z + dz, { m });
+  return (LAYOUT = { fields, hedges, sheds, mends, rugs, grid });
+}
+const RUGS = ['#c9563c', '#3a6ea5', '#e2c14a', '#6f9a3e', '#a34b86', '#e7e1d3', '#d98c2b', '#3f8a7a', '#f6efe0', '#b5553f'];
+// is a spot of lawn taken by something a flyer would walk round?
+function blocked(x, z) {
+  const L0 = layout();
+  if (Math.abs(z - CANAL.z) < CANAL.w + 6) return true;
+  if (((x - POND.x) / (POND.rx + 10)) ** 2 + ((z - POND.z) / (POND.rz + 10)) ** 2 < 1) return true;
+  const xx = ((x % C) + C) % C, list = L0.grid.get(Math.floor(xx / 50) + ',' + Math.floor(z / 50));
+  if (!list) return false;
+  for (const o of list) {
+    if (o.h && Math.abs(z - o.h.z) < 4 && xx > o.h.x0 && xx < o.h.x1) return true;
+    if (o.sh && Math.abs(xx - o.sh.x) < 12 && Math.abs(z - o.sh.z) < 10) return true;
+    if (o.m && (xx - o.m.x) ** 2 + (z - o.m.z) ** 2 < (o.m.s + 6) ** 2) return true;
+  }
+  return false;
+}
+// the corners of a kite laid flat: nose, right, tail, left (a delta's tail is its trailing middle)
+function mendShape(m) {
+  const c = Math.cos(m.rot), s = Math.sin(m.rot), P = (u, v) => [m.x + c * u - s * v, m.z + s * u + c * v];
+  return m.kind === 'delta' ? [P(0, m.s * 0.55), P(m.s, -m.s * 0.35), P(0, -m.s * 0.18), P(-m.s, -m.s * 0.35)] : [P(0, m.s * 0.42), P(m.s * 0.36, m.s * 0.06), P(0, -m.s * 0.58), P(-m.s * 0.36, m.s * 0.06)];
+}
+
+function paintLawns(plan, rigs) {
+  const L0 = layout();
+  // drawn once each (not three times for the seam): a shape that crosses the seam is added again a turn over
+  const add = (path, x0, x1, make) => { path.addPath(make(0)); if (x1 > C) path.addPath(make(-C)); if (x0 < 0) path.addPath(make(C)); };
+  const fillOnce = (path, color, alpha = 1, life = 0) => {
+    plan.once('alb', (cx) => { cx.globalAlpha = alpha; cx.fillStyle = color; cx.fill(path); });
+    if (life) plan.once('kind', (cx) => { cx.globalCompositeOperation = 'lighter'; cx.fillStyle = `rgb(0,0,${Math.round(life * 255)})`; cx.fill(path); });
+  };
+  const strokeOnce = (path, width, color, alpha = 1, cap = 'round') => plan.once('alb', (cx) => { cx.globalAlpha = alpha; cx.strokeStyle = color; cx.lineWidth = width; cx.lineCap = cap; cx.stroke(path); });
+  // each flying field mown its own way: bands across, bands along, or rings round a launch circle
+  const across = new Path2D(), along = new Path2D(), rings = new Path2D();
+  for (const f of L0.fields) {
+    if (f.dir !== 'ring') add(f.dir === 'x' ? across : along, f.x0, f.x1, (dx) => plan.rect(f.x0 + dx, f.z0, f.x1 + dx, f.z1));
+    else { const cx = (f.x0 + f.x1) / 2, cz = (f.z0 + f.z1) / 2, R = Math.min(f.x1 - f.x0, f.z1 - f.z0) / 2; for (let r = 14; r < R; r += 26) add(rings, cx - r, cx + r, (dx) => plan.ellipse(cx + dx, cz, r, r)); }
+  }
+  // the bands are a pattern 26 m across, filled into each field at once
+  plan.once('alb', (cx) => {
+    for (const [path, alongZ] of [[across, false], [along, true]]) {
+      const pc = document.createElement('canvas'); pc.width = 26; pc.height = 26;
+      const px = pc.getContext('2d'); px.fillStyle = '#c3d2a4';
+      if (alongZ) px.fillRect(0, 0, 13, 26); else px.fillRect(0, 0, 26, 13);
+      cx.globalAlpha = 0.42; cx.fillStyle = cx.createPattern(pc, 'repeat'); cx.fill(path);
+    }
+  });
+  strokeOnce(rings, 12, '#c3d2a4', 0.42);
+  // hedges between the fields, with a gate in each
+  const hedge = new Path2D();
+  for (const h of L0.hedges) { if (h.canal) continue; add(hedge, h.x0, h.x1, (dx) => { const p = plan.line([[h.x0 + dx, h.z], [h.gap - 6 + dx, h.z]]); p.addPath(plan.line([[h.gap + 6 + dx, h.z], [h.x1 + dx, h.z]])); return p; }); }
+  strokeOnce(hedge, 3.6, '#4b6c45', 1, 'butt');
+  // the canal right round, with paved banks, and the pond by the flight
+  plan.fill(plan.band(CANAL.z - CANAL.w - 3, CANAL.z + CANAL.w + 3), { color: '#d6dcd8', paved: 1, life: 0.7 });
+  plan.fill(plan.band(CANAL.z - CANAL.w, CANAL.z + CANAL.w), { color: '#5f98a4', water: 1, clear: ['paved', 'life'] });
+  const pond = plan.blob(POND.x, POND.z, POND.rx, POND.rz, { wobble: 0.15, lobes: 5, seed: 7 });
+  plan.stroke(pond, 9, { color: '#d2d9d2', paved: 0.6, life: 0.8 });
+  plan.fill(pond, { color: '#5f98a4', water: 1, clear: ['paved', 'life'] });
+  plan.fill(plan.blob(POND.x, POND.z, POND.rx * 0.7, POND.rz * 0.6, { wobble: 0.2, lobes: 4, seed: 8 }), { color: '#3f7f90' });
+  // makers' sheds: a trodden yard and a coloured roof
+  const yards = new Path2D(), roofs = gather();
+  for (const s of L0.sheds) { add(yards, s.x - 9, s.x + 9, (dx) => plan.rect(s.x - 9 + dx, s.z - 8, s.x + 9 + dx, s.z + 8)); const p = new Path2D(); add(p, s.x - 5, s.x + 5, (dx) => plan.rect(s.x - s.w / 2 + dx, s.z - s.d / 2, s.x + s.w / 2 + dx, s.z + s.d / 2)); roofs.put(s.roof, p); }
+  fillOnce(yards, '#c9cfbf', 1, 0.8);
+  for (const [c, p] of roofs) fillOnce(p, c);
+  // great kites laid out for mending, in their schools' colours
+  const halves = gather(), sparsP = new Path2D();
+  for (const m of L0.mends) {
+    const [N, R, T, Lf] = mendShape(m), M = [(N[0] + T[0]) / 2, (N[1] + T[1]) / 2];
+    halves.put(m.c1, plan.poly([N, R, M])); halves.put(m.c1, plan.poly([N, M, Lf])); halves.put(m.c2, plan.poly([M, R, T])); halves.put(m.c2, plan.poly([M, T, Lf]));
+    sparsP.addPath(plan.line([N, T])); sparsP.addPath(plan.line([Lf, R]));
+  }
+  for (const [c, p] of halves) fillOnce(p, c);
+  strokeOnce(sparsP, 0.5, '#3b3631');
+  // rugs, and people on them
+  const rugP = gather();
+  for (const r of L0.rugs) { const c = Math.cos(r.rot), s = Math.sin(r.rot), P = (u, v) => [r.x + c * u - s * v, r.z + s * u + c * v]; rugP.put(r.c, plan.poly([P(-r.w / 2, -r.h / 2), P(r.w / 2, -r.h / 2), P(r.w / 2, r.h / 2), P(-r.w / 2, r.h / 2)])); }
+  for (const [c, p] of rugP) fillOnce(p, c, 1, 1);
+  // chalk launch circles and worn turns at the ends of the lanes near the flight
+  const circles = new Path2D(), turns = new Path2D();
+  for (const rg of rigs.near) {
+    if (rg.a < 30) continue;
+    const c = Math.cos(rg.th), s = Math.sin(rg.th);
+    for (const e of [-1, 1]) { const x = rg.cx + c * e * rg.a, z = rg.cz + s * e * rg.a; turns.addPath(plan.ellipse(x + c * e * rg.r * 0.4, z + s * e * rg.r * 0.4, rg.r + 3, rg.r + 3)); circles.addPath(plan.ellipse(x - c * e * 6, z - s * e * 6, 4.5, 4.5)); }
+  }
+  fillOnce(turns, '#c8c6a8', 0.6);
+  strokeOnce(circles, 0.7, '#f6f8f2');
 }
 
 // ---------------------------------------------------------------- the plan
@@ -291,6 +469,8 @@ function* paintYarrow(plan, rigs) {
     for (let k = 0; k < 3; k++) lawns.put(tones[(i * 3 + k * 5) % tones.length], plan.rect(x0, zs[k * 2], x1, zs[k * 2 + 1], 14));
   }
   for (const [c, p] of lawns) plan.fill(p, { color: c });
+  paintLawns(plan, rigs);
+  yield;
   const walks = new Path2D(), longW = [];
   for (let i = 0; i < WALK_N; i++) { const x = i * WALK_SP + WALK_SP / 2, w = [[x, ZP + 12], [x, ZB - 12]]; walks.addPath(plan.line(w)); longW.push(w); }
   for (const z of CROSS) walks.addPath(plan.line([[-C, z], [2 * C, z]]));
@@ -934,7 +1114,7 @@ function* buildWorkshops(hollow, inRig, rigs) {
   const og = new Geo({ maxSeg: 8 }), ig = new Geo({ maxSeg: 8 }), ag = new Geo({ maxSeg: 8 });
   const inside = [], outside = [], glows = [];
   let t0 = performance.now();
-  for (let k = -11; k <= 11; k++) {
+  for (let k = -8; k <= 8; k++) {
     const x = X0 + k * PAV_SP;
     pavilionShell(og, ig, x, ZP);
     glows.push({ p: [x, 2.25, ZP - 5.8], color: '#ffe9c8', power: 5, size: 0.4 });
@@ -1047,6 +1227,65 @@ function* standPoplars(hollow, low) {
   }
   hollow.add(instances(treeGeo('poplar'), hollow.lit, items, { frame: hollow.frame, cell: 300 }));
   hollow.setTreeNear(220);
+}
+
+// The lawns' furniture about the flight, standing on the plan's own shapes: hedges, makers' sheds with a rack of kites
+// and a trestle, the great kites laid out for mending with their menders round them, rugs with people watching.
+function* dressLawns(hollow, low) {
+  const L0 = layout(), frame = hollow.frame, rng = makeRng('yarrow-dress');
+  const near = (x, z, r) => nearPath(low, x, z, C) < r;
+  const g = new Geo({ maxSeg: 12 }), spots = [];
+  let t0 = performance.now();
+  for (const h of L0.hedges) {
+    if (h.canal || Math.abs(h.z - ZP - 300) > 900) continue;
+    for (const [a, b] of [[h.x0, h.gap - 6], [h.gap + 6, h.x1]]) {
+      // only the stretches within sight of the flight
+      let x0 = null;
+      for (let x = a; x <= b; x += 20) {
+        const ok = near(x, h.z, 700);
+        if (ok && x0 === null) x0 = x;
+        if ((!ok || x + 20 > b) && x0 !== null) { const x1 = ok ? b : x; if (x1 > x0) g.box(x0, 0, h.z - 1.7, x1, 1.7, h.z + 1.7, '#4b6c45', { top: '#5b7f50', skip: 'b' }); x0 = null; }
+      }
+    }
+  }
+  for (const s of L0.sheds) {
+    if (!near(s.x, s.z, 650)) continue;
+    const w = s.w / 2, dd = s.d / 2;
+    g.box(s.x - w, 0, s.z - dd, s.x + w, 2.6, s.z + dd, '#eef3f6', { skip: 'b' });
+    g.quad([s.x - w - 0.3, 2.6, s.z + dd + 0.4], [s.x + w + 0.3, 2.6, s.z + dd + 0.4], [s.x + w + 0.3, 3.7, s.z], [s.x - w - 0.3, 3.7, s.z], s.roof);
+    g.quad([s.x + w + 0.3, 2.6, s.z - dd - 0.4], [s.x - w - 0.3, 2.6, s.z - dd - 0.4], [s.x - w - 0.3, 3.7, s.z], [s.x + w + 0.3, 3.7, s.z], s.roof);
+    g.tri([s.x - w, 2.6, s.z - dd], [s.x - w, 2.6, s.z + dd], [s.x - w, 3.7, s.z], '#e3e9ec'); g.tri([s.x + w, 2.6, s.z + dd], [s.x + w, 2.6, s.z - dd], [s.x + w, 3.7, s.z], '#e3e9ec');
+    const fz = s.z + (s.side > 0 ? -dd : dd) * 1.002;
+    g.box(s.x - 1.1, 0, fz - 0.05, s.x + 1.1, 2.1, fz + 0.05, SLATE);
+    // a rack of kites beside it, and a trestle
+    const rx = s.x + w + 2.5;
+    g.box(rx, 0, s.z - 3, rx + 0.08, 2.4, s.z - 2.92, '#9aa8b0'); g.box(rx, 0, s.z + 2.92, rx + 0.08, 2.4, s.z + 3, '#9aa8b0'); g.box(rx, 2.32, s.z - 3, rx + 0.08, 2.4, s.z + 3, '#9aa8b0');
+    for (let i = 0; i < 4; i++) { const sc = SCHOOLS[(i * 5 + Math.round(s.z)) % 12]; kiteFlat(g, rx + 0.1, 1.5, s.z - 2.2 + i * 1.45, 1.4, sc[0], sc[1], Math.PI / 2, 0.05); }
+    const tz = s.z + (s.side > 0 ? -dd - 3 : dd + 3);
+    g.box(s.x - 1.5, 0.75, tz - 0.4, s.x + 1.5, 0.82, tz + 0.4, '#d8cdb2'); for (const lx of [-1.3, 1.3]) g.box(s.x + lx - 0.04, 0, tz - 0.35, s.x + lx + 0.04, 0.75, tz + 0.35, '#8d7152');
+    spots.push({ p: [s.x + rng.f(-2, 2), 0, tz + rng.f(-1.2, 1.2) * (s.side > 0 ? -1 : 1)], walk: rng.chance(0.5) ? 0.8 : 0 });
+    if (performance.now() - t0 > 4) { yield 'lawns'; t0 = performance.now(); }
+  }
+  // the great kites laid out for mending: cloth, spars, a patch going on, and the menders round it
+  for (const m of L0.mends) {
+    if (!near(m.x, m.z, 700)) continue;
+    const [N, R, T, Lf] = mendShape(m), M = [(N[0] + T[0]) / 2, (N[1] + T[1]) / 2], y = 0.06, P = (q) => [q[0], y, q[1]];
+    g.tri(P(N), P(M), P(R), m.c1); g.tri(P(N), P(Lf), P(M), m.c1); g.tri(P(M), P(T), P(R), m.c2); g.tri(P(M), P(Lf), P(T), m.c2);
+    g.tube([[N[0], 0.1, N[1]], [T[0], 0.1, T[1]]], 0.06 + m.s * 0.004, 4, SPAR, { smooth: false }); g.tube([[Lf[0], 0.1, Lf[1]], [R[0], 0.1, R[1]]], 0.06 + m.s * 0.004, 4, SPAR, { smooth: false });
+    const px = (M[0] + R[0]) / 2, pz = (M[1] + R[1]) / 2;
+    g.quad([px - 1.2, 0.08, pz + 0.9], [px + 1.4, 0.08, pz + 0.8], [px + 1.2, 0.08, pz - 1.0], [px - 1.0, 0.08, pz - 0.9], '#f6efe0');
+    for (let i = 0; i < Math.round(m.s / 3); i++) { const a = rng.f(0, 6.283), d = m.s * rng.f(0.3, 0.95); spots.push({ p: [m.x + Math.cos(a) * d * 0.5, 0.06, m.z + Math.sin(a) * d * 0.5], sit: rng.chance(0.7), child: rng.chance(0.2) }); }
+  }
+  // rugs on the grass, and people on them; a trestle with flasks by the bigger groups
+  for (const r of L0.rugs) {
+    if (!near(r.x, r.z, 600)) continue;
+    const c = Math.cos(r.rot), s = Math.sin(r.rot), Q = (u, v) => [r.x + c * u - s * v, 0.04, r.z + s * u + c * v];
+    g.quad(Q(-r.w / 2, r.h / 2), Q(r.w / 2, r.h / 2), Q(r.w / 2, -r.h / 2), Q(-r.w / 2, -r.h / 2), r.c);
+    for (let i = 0; i < rng.i(1, 4); i++) { const q = Q(rng.f(-r.w / 2.5, r.w / 2.5), rng.f(-r.h / 3, r.h / 3)); spots.push({ p: [q[0], 0.04, q[2]], sit: rng.chance(0.75), child: rng.chance(0.3) }); }
+  }
+  hollow.add(g.mesh(hollow.litDouble, frame));
+  hollow.add(crowd(spots, hollow.walk, { frame, seed: 'yarrow-lawns', bob: 0.1, cell: 700 }));
+  yield 'lawns: dressed';
 }
 
 // ---------------------------------------------------------------- the kite from the bench, and the child who bought it
@@ -1288,10 +1527,13 @@ function makeRing(scene, hollow, path) {
 }
 
 // ---------------------------------------------------------------- the world
-const LIGHT = { sun: '#eef5ff', sunPower: 0.78, sunFar: '#dfe8f4', sunFarPower: 0.55, amb: '#b6c6d2', ambPower: 0.3, bounce: '#a9b8a0', bouncePower: 0.22, air: '#dbe6ee', airDensity: 0.00006 };
+const LIGHT = { sun: '#fbf6ec', sunPower: 0.8, sunFar: '#e6ecf4', sunFarPower: 0.55, amb: '#b6c6d2', ambPower: 0.3, bounce: '#a9b8a0', bouncePower: 0.22, air: '#dbe6ee', airDensity: 0.00006 };
 const WALL = {
-  lit: 0.12, crowd: 0.3, stone: '#e8eef1', stone2: '#cdd8de', houses: ['#f6fbff', '#c9d6dc', '#dfe7ea', '#e9eef0', '#b9c6cc', '#d4dde1'], houseMix: 0.5,
-  glass: '#55636b', awning: '#55636b', gardenColor: '#8aa284', pave: '#dfe6e9', winA: '#ffe2b8', winB: '#fff4e0',
+  // workshop white, with the schools' colours painted on a house here and there, gardens over every riser
+  lit: 0.2, winPower: 1.7, crowd: 0.35, garden: 0.95, stone: '#eef3f6', stone2: '#c9d6dc',
+  houses: ['#f6fbff', '#e79a88', '#f0d28a', '#8fb0de', '#8cc7ad', '#b4dcea'], houseMix: 0.34,
+  glass: '#3d4a52', awning: '#e8402a', gardenColor: '#6f9a5c', pave: '#dfe6e9', winA: '#ffd9a6', winB: '#fff1d6',
+  tiers: { 9: { crowd: 0.7, lit: 0.15 }, 14: { crowd: 0.5 }, 24: { crowd: 0.5, lit: 0.2 } },
 };
 
 function flightKeys() {
@@ -1341,7 +1583,7 @@ function* buildYarrow(ctx) {
     const hollow = yield* timed('hollow', buildHollow(ctx, {
       seed: 'yarrow', plan, light: LIGHT, pavilions: false,
       sunline: { power: 34, halo: 280, haloPower: 0.035 },
-      ground: { rows: [7, 6], canopy: '#86a172', blossom: '#f4eef0', blossomShare: 0.35, fruitShare: 0.1, people: 0.8, lamp: 0.25, lampColor: '#ffdcae', sunRod: 34, stripes: 0.07, grain: 0.18 },
+      ground: { rows: [7, 6], canopy: '#86a172', blossom: '#f4eef0', blossomShare: 0.35, fruitShare: 0.1, people: 0.8, lamp: 0.25, lampColor: '#ffdcae', sunRod: 34, stripes: 0.2, grain: 0.22, water: '#9cc4cc' },
       front: WALL, back: { ...WALL, crowd: 0.35 },
     }), TM);
     const scene = new Scene();
@@ -1350,6 +1592,7 @@ function* buildYarrow(ctx) {
     const pts = path.points(0.5);
     const low = pts.filter((q) => q.y < 120);
     yield* timed('poplars', standPoplars(hollow, low), TM);
+    yield* timed('lawns', dressLawns(hollow, low), TM);
     const U = { clock: { value: 0 } };
     yield* timed('kites', buildKites(scene, hollow.rig, rigs, U), TM);
     // inside the workshops: the light through the roof's glazing, and the bench lamps
@@ -1359,7 +1602,7 @@ function* buildYarrow(ctx) {
     yield 'yarrow: the kite from the bench';
     let tr = performance.now(); const ring = makeRing(scene, hollow, path); TM.push('ring ' + Math.round(performance.now() - tr));
     yield 'yarrow: the Ring';
-    const look = { exposure: 1.12, bloom: 0.2, threshold: 0.9, saturation: 1.1, contrast: 1.1, vignette: 0.38, lift: [0.0, 0.003, 0.008], gain: [0.98, 1.0, 1.03] };
+    const look = { exposure: 1.08, bloom: 0.2, threshold: 0.9, saturation: 1.2, contrast: 1.17, vignette: 0.4, lift: [0.0, 0.002, 0.007], gain: [1.0, 1.0, 1.02] };
     return {
       scene, path, hollow, near: 0.25, far: 9000, look,
       portal: { mist: '#e9f0f4', rim: false },
