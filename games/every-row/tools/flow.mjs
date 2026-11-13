@@ -56,7 +56,9 @@ try {
       const fps = await page.evaluate(() => new Promise((res) => { let n = 0; const t = performance.now(); const f = () => { n++; if (performance.now() - t < 700) requestAnimationFrame(f); else res(Math.round(n / 0.7)); }; requestAnimationFrame(f); }));
       if (shots) await page.screenshot({ path: `${shots}-${String(i + 1).padStart(2, '0')}-${now.id}.png` });
       const after = await info();
-      console.log(`${String(i + 1).padStart(2)}. ${seen.id} -> ${now.id}   ${((Date.now() - t0) / 1000).toFixed(1)} s to cross · ${fps} fps · calls ${after.calls} · tris ${after.tris} · build ${after.build.toFixed(0)} ms, longest step ${after.step.toFixed(0)} ms`);
+      // what the page still holds after the crossing: these should level off, not climb, over a whole journey
+      const mem = await page.evaluate(() => { const r = window.app.engine.renderer, m = r && r.info ? r.info.memory : null; return { geo: m ? m.geometries : -1, tex: m ? m.textures : -1, heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : -1 }; });
+      console.log(`${String(i + 1).padStart(2)}. ${seen.id} -> ${now.id}   ${((Date.now() - t0) / 1000).toFixed(1)} s to cross · ${fps} fps · calls ${after.calls} · tris ${after.tris} · build ${after.build.toFixed(0)} ms, longest step ${after.step.toFixed(0)} ms · holds ${mem.geo} geometries, ${mem.tex} textures, ${mem.heap} MB`);
       seen = now;
     }
   }
