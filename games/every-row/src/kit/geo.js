@@ -110,6 +110,9 @@ export class Geo {
     return this;
   }
   /** a faceted blob (a squashed, slightly lumpy ball): centre, radii [rx, ry, rz], detail 0..2. opts: emit, lump (0..0.4), seed, shadeBottom */
+  // (A known quirk, kept because every world was tuned with it: a blob's faces wind inward, so with a one-sided
+  // material you see the inside of its far half. Crowns and heads read the same either way; something modelled inside
+  // one shows through its front. Draw the blob under a mirror, scale -1 on one axis, where that matters.)
   blob(x, y, z, r, detail, color, opts = {}) {
     const rr = typeof r === 'number' ? [r, r, r] : r, lump = opts.lump || 0, seed = opts.seed || 1, e = opts.emit || 0;
     const base = rgb(color), dark = opts.shadeBottom === undefined ? 0.62 : opts.shadeBottom;
