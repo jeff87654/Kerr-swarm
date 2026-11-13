@@ -243,8 +243,8 @@ function glassRows(plan, p, x0, x1, segs, pitch) {
 }
 
 // lift pavilions with gilded domes, where cabs come up through the floor
-function paintPavilions(plan) {
-  const rng = makeRng('lovage-pav'), early = plan.sampler(1024, 512), pav = [];
+function paintPavilions(plan, early) {
+  const rng = makeRng('lovage-pav'), pav = [];
   for (let z = 434; z < 3336; z += 170) for (let x = 0; x < C - 80; x += C / 55) {
     const px = x + rng.f(-28, 28), pz = z + rng.f(-28, 28), s = early(px, pz);
     if (s.water > 0.15) continue;
@@ -612,8 +612,8 @@ export const lovageNoon = {
   *build(ctx) {
     const plan = new Plan(ctx.q.plan);
     paintLovage(plan);
-    yield* plan.settle();
-    const pav = paintPavilions(plan);
+    const early = yield* plan.reader(1024, 512);       // (read a layer a step: reading all three at once is one long step)
+    const pav = paintPavilions(plan, early);
     yield;
     const hollow = yield* buildHollow(ctx, {
       seed: 'lovage', plan, pavilions: false,
