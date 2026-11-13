@@ -4,6 +4,7 @@
     python tools/build.py                    # dist/every-row.html (the artifact page) and dist/index.html (standalone)
     python tools/build.py --standalone DIR   # also DIR/index.html, for the world-bible site
     python tools/build.py --check            # validate only: module rules, missing files, and the writing rules
+    python tools/build.py --file src/worlds/x.js   # validate one file and what it imports
 
 The page is plain ES modules (src/), three.js (vendor/) and a few fonts (assets/fonts). Development needs no build:
 python tools/serve.py and open the page. This script is the release bundler. It understands a strict subset of
@@ -274,7 +275,11 @@ def main():
     args = sys.argv[1:]
     check_only = "--check" in args
     b = Bundle()
-    b.load(os.path.join(SRC, "main.js"))
+    if "--file" in args:      # check one file (and what it imports) that is not listed in worlds/index.js yet
+        check_only = True
+        b.load(os.path.abspath(args[args.index("--file") + 1]))
+    else:
+        b.load(os.path.join(SRC, "main.js"))
     b.check_imports()
     check_prose(b)
     problems = b.problems

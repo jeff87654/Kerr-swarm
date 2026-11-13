@@ -42,6 +42,10 @@ export function paintChervil(plan) {
 
 export const chervilFlight = {
   id: 'chervil-flight',
+  title: 'The Long Flight', drum: 'Chervil', row: 'Herb Row', kind: 'an open hall drum', light: 0.0,
+  line: 'Booking night. The sunline stays dark and everyone goes up with their block. Almost four kilometres of small lights, like a slow river.',
+  tone: '#ffcf8a', source: 'open-drums.md (The calendar; Booking Day in Chervil)',
+  sound: { root: 45, scale: 'dorian', pad: 0.45, air: 0.3, choir: 0.9, bells: 0.15, bright: 0.35, hum: 0.2 },
   *build(ctx) {
     const plan = new Plan(ctx.q.plan);
     paintChervil(plan);

@@ -576,6 +576,43 @@ export function* buildHollow(ctx, spec) {
     /** the ground stops drawing crowns nearer the eye than this, because real trees stand there (scatterTrees sets it) */
     setTreeNear(d) { ground.material.uniforms.uTreeNear.value = d; },
     add(obj) { if (Array.isArray(obj)) for (const o of obj) group.add(o); else group.add(obj); return obj; },
+    /**
+     * A terrace of an end wall as a place to build on. side: 0 front wall, 1 back wall; tier: 0 (lowest) .. 29, see TIERS;
+     * deg: the angle round the wall that the terrace's own x = 0 sits at.
+     * Returns { frame, lit, litDouble, walk, glow(points), y, depth, floorR, g, toWall }.
+     * In its frame x runs round the terrace in true metres, y is height above the terrace floor, and z = 0 is the rail:
+     * the houses behind are at z = toWall * depth (toWall is -1 on the front wall, +1 on the back), the Hollow at the other side.
+     */
+    terrace(side, tier, deg = 0) {
+      const tp = tierPlace(side === 0 ? wf.userData.depths : wb.userData.depths, tier);
+      const floorR = DRUM.RH - tp.y, fr = makeFrame((deg * Math.PI) / 180, side === 0 ? tp.zRail : L - tp.zRail, floorR);
+      return {
+        frame: fr, side, tier, y: tp.y, depth: tp.depth, floorR, g: floorR / DRUM.R, toWall: side === 0 ? -1 : 1,
+        lit: litMaterial(rig, { bend: fr }), litDouble: litMaterial(rig, { bend: fr, side: 'double' }), walk: litMaterial(rig, { bend: fr, walk: true }),
+        glow(points, opts = {}) { const m = glowPoints(points, { ...opts, bend: fr }); group.add(m); return m; },
+        add(obj) { if (Array.isArray(obj)) for (const o of obj) group.add(o); else group.add(obj); return obj; },
+      };
+    },
+    /**
+     * Stand lamp posts where the plan has lamps (plan.lamps) within `radius` of the flight. power > 0 lights them.
+     * opts: near (flat flight points), radius (default 160), power (default 0), color, height (default 4.5)
+     */
+    lampPosts(opts = {}) {
+      const near = opts.near || [], R = opts.radius || 160, h = opts.height || 4.5, items = [], glows = [];
+      for (const f of plan.features) {
+        if (f.type !== 'lamp') continue;
+        let best = 1e9; for (let i = 0; i < near.length; i += 2) { let dx = near[i].x - f.x; dx = ((dx % C) + C * 1.5) % C - C / 2; const dz = near[i].z - f.z, d = dx * dx + dz * dz; if (d < best) best = d; }
+        if (best > R * R) continue;
+        items.push({ p: [f.x, 0, f.z] });
+        if (opts.power) glows.push({ p: [f.x, h, f.z], color: opts.color || f.color || '#ffc27a', power: opts.power, size: 0.9 });
+      }
+      if (!items.length) return [];
+      const g = new Geo(); g.cyl(0, 0, 0, 0.09, 0.06, h - 0.3, 5, '#4a4b50'); g.cyl(0, h - 0.3, 0, 0.26, 0.2, 0.5, 6, '#fff0c8', { emit: opts.power ? 3 : 0.15 });
+      const out = instances(g.build(), lit, items, { frame, cell: 500 });
+      for (const m of out) group.add(m);
+      if (glows.length) out.push(H.glow(glows, { maxPx: 60 }));
+      return out;
+    },
     /** small lights standing in the Hollow (flat coordinates) */
     glow(points, opts = {}) { const m = glowPoints(points, { ...opts, bend: frame }); group.add(m); return m; },
     dispose() { tex.alb.dispose(); tex.mask.dispose(); tex.kind.dispose(); },

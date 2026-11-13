@@ -59,6 +59,10 @@ export function paintSorrel(plan) {
 
 export const sorrelLake = {
   id: 'sorrel-lake',
+  title: 'Lamp-dawn on the lake', drum: 'Sorrel', row: 'Herb Row', kind: 'a steady drum', light: 0.0,
+  line: 'The old have the lake until nine. You come up through the ground among apple trees, and then you look up and keep looking.',
+  tone: '#e8c99a', source: 'ashgrove.md (Day two), sorrel.md (The Hollow\'s plan)',
+  sound: { root: 50, scale: 'lydian', pad: 0.5, air: 0.25, water: 0.35, bells: 0.3, bright: 0.55 },
   *build(ctx) {
     const plan = new Plan(ctx.q.plan);
     paintSorrel(plan);

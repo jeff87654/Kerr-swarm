@@ -1,9 +1,10 @@
 // Pictures and smoke tests in headless Chrome on the real GPU. The dev server must be running (python tools/serve.py).
 //
-//   node tools/shot.mjs --w sorrel-lake --t 0,8,16,24,32,40 --out out/me/lake
+//   node tools/shot.mjs --file sorrel_lake --t 0,8,16,24,32,40 --out out/me/lake
 //   node tools/shot.mjs --w sorrel-lake --t 12 --out out/me/a --eval "app.engine.cur.t = 30"
 //
-// --w      world id                 --t     seconds into its flight, one or several (comma separated): one picture each
+// --file   a file in src/worlds (without .js): loads only that world, through dev.html. Use this while building one.
+// --w      world id (worlds already listed in src/worlds/index.js)      --t     seconds into its flight, one or several (comma separated): one picture each
 // --out    path prefix: writes <out>-<t>.png            --size  1280x720 (default)
 // --tier   0..3 (default 2)         --port  5210 (default)         --page  index.html (default) or dist/index.html
 // --eval   JavaScript to run in the page before each picture      --settle seconds to wait after moving (default 0.6)
@@ -46,7 +47,8 @@ try {
   const live = has('--live');
   const withUi = has('--ui');      // keep the interface: pictures of the opening screen, then of the first card after Begin
   const q = `${withUi ? '' : 'ui=0&'}debug&tier=${tier}${world ? '&only=' + world + '&w=' + world : ''}${live || withUi ? '' : '&freeze&steady'}${get('--q', '') ? '&' + get('--q', '') : ''}`;
-  const url = `http://127.0.0.1:${port}/${pageName}?${q}`;
+  const file = get('--file', '');      // one world file through dev.html, without registering it in worlds/index.js
+  const url = file ? `http://127.0.0.1:${port}/dev.html?file=${file}&${q}` : `http://127.0.0.1:${port}/${pageName}?${q}`;
   const t0 = Date.now();
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   const ok = await page.waitForFunction(() => window.app && window.app.ready, { timeout: +get('--timeout', '60000') }).then(() => true).catch(() => false);
