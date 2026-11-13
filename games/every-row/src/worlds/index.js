@@ -7,6 +7,7 @@ import { kittiwakeCrosswise } from './kittiwake_crosswise.js';
 import { squallSwell } from './squall_swell.js';
 import { gloamingDusk } from './gloaming_dusk.js';
 import { chervilFlight } from './chervil_flight.js';
+import { madderGardens } from './madder_gardens.js';
 
 export const WORLDS = [
   sorrelLake,
@@ -16,5 +17,6 @@ export const WORLDS = [
   kittiwakeCrosswise,
   squallSwell,
   gloamingDusk,
+  madderGardens,
   chervilFlight,
 ];

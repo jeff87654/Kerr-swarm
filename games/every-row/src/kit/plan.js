@@ -55,11 +55,13 @@ export class Plan {
   /** Do the painting asked for so far, a few milliseconds at a time: `yield* plan.settle()`. */
   *settle() {
     // draw a batch, make the canvases really do it, see how long that took, and size the next batch to suit
-    let n = this._batch || 6;
+    // (the first things painted are the big ones, whole-floor fills: start one at a time; many small shapes soon go 64 to a step)
+    let n = this._batch || 1;
     while (this.queue.length) {
+      const f0 = performance.now();
       for (let i = 0; i < n && this.queue.length; i++) { const [name, fn] = this.queue.shift(); this._draw(name, fn); }
-      const f0 = performance.now(); this._flush(); const fd = performance.now() - f0;
-      if (fd < 3) n = Math.min(48, n * 2); else if (fd > 7) n = Math.max(1, n >> 1);
+      this._flush(); const fd = performance.now() - f0;
+      if (fd < 4) n = Math.min(64, n * 2); else if (fd > 9) n = Math.max(1, n >> 1);
       yield 'plan: painting';
     }
     this._batch = n;
