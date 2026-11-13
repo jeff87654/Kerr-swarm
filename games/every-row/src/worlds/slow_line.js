@@ -190,6 +190,7 @@ void main() {
   vec3 N = normalize(vN);
   if (!gl_FrontFacing) N = -N;
   vec3 t = texture2D(tAtlas, vUv).rgb;
+  t = mix(t / 12.92, pow((t + 0.055) / 1.055, vec3(2.4)), step(0.04045, t));      // kept as painted in a plain texture (a canvas sent into an sRGB one is slow); made into light here
   gl_FragColor = vec4(kAir(t * kLight(vW, N, vW, N), vW), 1.0);
 }`;
 
@@ -305,7 +306,7 @@ function makeLabels(rig) {
       const cx = cv.getContext('2d');
       yield 'lettering: canvas';
       const tex = new CanvasTexture(cv);
-      tex.colorSpace = SRGBColorSpace; tex.flipY = false; tex.wrapS = tex.wrapT = ClampToEdgeWrapping;
+      tex.flipY = false; tex.wrapS = tex.wrapT = ClampToEdgeWrapping;
       tex.minFilter = LinearMipmapLinearFilter; tex.magFilter = LinearFilter; tex.generateMipmaps = true; tex.anisotropy = 4;
       yield 'lettering: canvas';
       // lettered a few milliseconds at a time, here and again later if the type was late

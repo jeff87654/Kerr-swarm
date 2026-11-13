@@ -44,7 +44,7 @@
 // on a court's terraces; nothing burns (no candles, no smoke); no animals; plants root in tubs and troughs, not soil;
 // things are old, mended and inherited, and the best chair in a room is the oldest.
 import {
-  Group, Mesh, ShaderMaterial, BufferGeometry, Float32BufferAttribute, CanvasTexture, SRGBColorSpace, LinearMipmapLinearFilter,
+  Group, Mesh, ShaderMaterial, BufferGeometry, Float32BufferAttribute, CanvasTexture, LinearMipmapLinearFilter,
   LinearFilter, ClampToEdgeWrapping, Vector2, Vector3, Vector4, FrontSide,
 } from 'three';
 import { DRUM, deckRadius, makeFrame } from './drum.js';
@@ -244,7 +244,9 @@ void main() {
   ${CLIP_FRAG}
   vec3 N = normalize(vN), FN = normalize(vFN);
   if (!gl_FrontFacing) { N = -N; FN = -FN; }
+  // the lettering is kept as painted (sRGB numbers in a plain texture: a canvas sent into an sRGB texture is slow) and turned into light here
   vec3 t = texture2D(tAtlas, vUv).rgb;
+  t = mix(t / 12.92, pow((t + 0.055) / 1.055, vec3(2.4)), step(0.04045, t));
   gl_FragColor = vec4(kAir(t * (kLight(vW, N, vF, FN) + vGlow), vW), 1.0);
 }`;
 
@@ -645,7 +647,7 @@ function* buildSigns(D) {
   const cx = cv.getContext('2d', { willReadFrequently: true });
   const fams = [...new Set(all.flatMap((e) => [e.font, e.font2 || e.font]))];
   const tex = new CanvasTexture(cv);
-  tex.colorSpace = SRGBColorSpace; tex.flipY = false; tex.wrapS = tex.wrapT = ClampToEdgeWrapping;
+  tex.flipY = false; tex.wrapS = tex.wrapT = ClampToEdgeWrapping;
   tex.minFilter = LinearMipmapLinearFilter; tex.magFilter = LinearFilter; tex.generateMipmaps = true;
   tex.anisotropy = cap ? Math.min(8, cap.getMaxAnisotropy()) : 4;
   function* paint() {
