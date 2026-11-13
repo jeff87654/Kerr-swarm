@@ -299,7 +299,7 @@ python tools/build.py --check                           # the same for everythin
 
 `shot.mjs` prints frames a second, draw calls, triangles and the milliseconds of work your build took, then any console errors (shader errors are printed in full). Look at your pictures: read the PNGs.
 
-**Budget** at the default quality (density 1), measured by shot.mjs at 1280 x 720 on this machine: at least 100 frames a second through the whole flight, under 1.2 million triangles and 600 draw calls in any picture, and under 1.5 seconds of build work. Two worlds are drawn at once at every crossing, so a world at the limit makes its neighbours stutter.
+**Budget** at the default quality (density 1), measured by shot.mjs at 1280 x 720 on this machine: at least 100 frames a second through the whole flight, under 1.2 million triangles and 600 draw calls in any picture, and under 1.5 seconds of build work. Two worlds are drawn at once at every crossing, so a world at the limit makes its neighbours stutter: aim for under 700,000 triangles and 350 draw calls for a world alone. (The counts `shot.mjs` prints include the next world once it shows through the opening, in the last seconds of a flight.)
 
 ## Writing
 
