@@ -9,6 +9,11 @@ import { Sound } from './core/audio.js';
 export function boot(WORLDS) {
   const qs = new URLSearchParams(location.search);
   const canvas = document.getElementById('view');
+  // the page's type is also lettered onto signs inside the worlds: ask for every face now, so that no world has to
+  // letter its signs twice (once in a stand-in, again when the face arrives, in one long step)
+  if (document.fonts && document.fonts.load) {
+    for (const f of ["400 20px 'Cormorant Garamond'", "italic 400 20px 'Cormorant Garamond'", "italic 600 20px 'Cormorant Garamond'", "400 20px 'Barlow'", "500 20px 'Barlow'", "500 20px 'Barlow Condensed'", "500 20px 'Caveat'"]) document.fonts.load(f).catch(() => {});
+  }
   const bare = qs.get('ui') === '0';
   let ui = null;
   const sound = new Sound();
