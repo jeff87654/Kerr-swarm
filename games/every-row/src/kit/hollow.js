@@ -10,7 +10,7 @@ import {
 import { DRUM, makeFrame } from './drum.js';
 import { G, BEND_PARS, CLIP_PARS, CLIP_FRAG, NOISE_GLSL, CELL_GLSL, hollowRig, litMaterial, vec3col, glowPoints } from './mats.js';
 import { Geo, instances } from './geo.js';
-import { C, L } from './plan.js';
+import { C, L, LAND_GLSL } from './plan.js';
 import { makeRng } from '../core/rng.js';
 
 export const NT = 30;                                       // tiers on an end wall
@@ -32,6 +32,7 @@ void main() {
 const groundFrag = (rig) => /* glsl */`
 ${CLIP_PARS}
 uniform sampler2D tAlb, tMask, tKind;
+${LAND_GLSL}
 uniform vec2 uSize, uRows, uSection;
 uniform vec3 uWater, uLampCol, uWallTint, uCanopy, uBlossom, uFruit;
 uniform float uLamp, uLampAuto, uTime, uSunRod, uSunWidth, uPeople, uWave, uGrain, uSwell, uTreeNear, uBlossomShare, uFruitShare, uWoodH, uStripes;
@@ -73,7 +74,7 @@ void main() {
   float nearK = smoothstep(3.0, 0.5, px);
   vec2 wob = (vec2(kNoise(m * 0.13), kNoise(m * 0.13 + 31.7)) - 0.5) * 3.0 * nearK;
   vec2 uv2 = (m + wob) / uSize;
-  vec3 alb = texture2D(tAlb, uv2).rgb;
+  vec3 alb = kLand(texture2D(tAlb, uv2).rgb);
   vec3 mask = texture2D(tMask, uv2).rgb;
   vec3 kind = texture2D(tKind, uv2).rgb;
 
@@ -144,7 +145,7 @@ void main() {
     if (mk.g > 0.05) {
       float ch; vec4 tr = kWoodTree(mw, ch);
       float d = length(tr.xy) / tr.z;
-      vec3 base = texture2D(tAlb, mw / uSize).rgb;
+      vec3 base = kLand(texture2D(tAlb, mw / uSize).rgb);
       vec3 cc = base * (1.02 + 0.5 * tr.w) * mix(vec3(1.08, 1.02, 0.86), vec3(0.9, 1.0, 1.06), fract(tr.w * 7.3));
       float dome = sqrt(max(1.0 - d * d, 0.0));
       float a = clamp((1.0 - d) * tr.z / max(px, 0.05), 0.0, 1.0) * step(ch, mk.g + 0.02) * crownShow;
@@ -184,8 +185,8 @@ void main() {
     float inside = tt > 0.0 ? smoothstep(-40.0, 110.0, min(H.z, uSize.y - H.z)) : 0.0;
     if (inside > 0.0) {
       vec2 huv = vec2(fract(atan(H.y, H.x) / 6.2831853 - uBend.x / 6.2831853), clamp(H.z / uSize.y, 0.0, 1.0));
-      vec3 ha = textureLod(tAlb, huv, 5.0).rgb;
-      ha = mix(ha, textureLod(tAlb, huv, 9.0).rgb, smoothstep(0.0, 0.5, textureLod(tMask, huv, 6.0).r) * 0.95);
+      vec3 ha = kLand(textureLod(tAlb, huv, 5.0).rgb);
+      ha = mix(ha, kLand(textureLod(tAlb, huv, 9.0).rgb), smoothstep(0.0, 0.5, textureLod(tMask, huv, 6.0).r) * 0.95);
       vec3 nH = vec3(-normalize(H.xy), 0.0);
       refl = mix(refl, ha * kLight(H, nH, H, nH), inside);      // lit as the land itself is, dim ends and lamp glow included
     }

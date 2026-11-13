@@ -2,7 +2,7 @@
 // the opening at the end of this one, so a crossing has no cut: for a moment two worlds are being drawn at once.
 import {
   WebGLRenderer, PerspectiveCamera, Vector3, Vector4, Quaternion, Matrix4, Mesh, CircleGeometry, PlaneGeometry, RingGeometry,
-  ShaderMaterial, DoubleSide, AdditiveBlending, Color, WebGLRenderTarget, Sphere, Scene, Group,
+  ShaderMaterial, DoubleSide, AdditiveBlending, Color, WebGLRenderTarget, Sphere, Scene, Group, HalfFloatType, RGBAFormat,
 } from 'three';
 import { Post, DEFAULT_LOOK, mixLook } from './post.js';
 import { G, CLIP_PARS, CLIP_FRAG, NOISE_GLSL } from '../kit/mats.js';
@@ -117,9 +117,12 @@ export class Engine {
           const r = job.gen.next();
           const sd = performance.now() - s0;
           job.steps = (job.steps || 0) + 1;
+          job.at = typeof r.value === 'string' ? r.value : 'step ' + job.steps;       // what was last done: the tools read it
           if (sd > (job.longest || 0)) { job.longest = sd; job.longestAt = (typeof r.value === 'string' ? r.value : r.done ? 'the end' : 'step ' + job.steps); }
           if (this.opts.debug && sd > 40) (job.slow = job.slow || []).push(`${typeof r.value === 'string' ? r.value : r.done ? 'the end' : 'step ' + job.steps} ${sd.toFixed(0)}`);
           if (r.done) { job.inst = this.finish(job.def, r.value); job.stage = 'compile'; break; }
+          if (this.oneStep) break;
+          if (typeof r.value === 'string' && r.value[0] === '~') break;       // "that is enough for this frame" (work the graphics card does later, which the clock here cannot see)
         }
       } catch (e) {
         console.error('[every-row] world "' + job.def.id + '" failed to build:', e);
@@ -134,14 +137,21 @@ export class Engine {
       const done = () => { if (this.job === job) job.stage = 'prime'; };
       const keep = G.uClip.value.clone();
       G.uClip.value.copy(NOCLIP);
+      // Shaders are made ready for the kind of target they will be drawn to. Compiled while the screen is the target,
+      // they would be made for the screen's colour space, and every one would be compiled a second time, in the middle
+      // of a frame, the first time its mesh was drawn into a picture: seconds of stutter after every crossing.
       let p = null;
+      const prevT = this.renderer.getRenderTarget();
+      this.renderer.setRenderTarget(this.post.rtNext);
       try { p = this.renderer.compileAsync(inst.scene, this.vcam); } catch (e) { p = null; }
+      this.renderer.setRenderTarget(prevT);
       G.uClip.value.copy(keep);
       if (p && p.then) p.then(done, done); else done();
     } else if (job.stage === 'prime') {
       // draw each mesh once into a tiny target so its buffers and textures are on the card before it is seen
+      // (a target of the same kind as the real one, samples and all: the card readies a shader for the kind of target it draws to)
       const inst = job.inst;
-      if (!job.prime) { job.prime = []; inst.scene.traverse((o) => { if (o.isMesh || o.isPoints || o.isLine) job.prime.push(o); }); job.tiny = job.tiny || new WebGLRenderTarget(8, 8); }
+      if (!job.prime) { job.prime = []; inst.scene.traverse((o) => { if (o.isMesh || o.isPoints || o.isLine) job.prime.push(o); }); job.tiny = job.tiny || new WebGLRenderTarget(8, 8, { type: HalfFloatType, format: RGBAFormat, depthBuffer: true, stencilBuffer: false, samples: this.post.msaa || 0 }); }
       const r = this.renderer;
       this.placeVcam(inst, inst.entryM);
       const prevTarget = r.getRenderTarget();
@@ -268,8 +278,9 @@ export class Engine {
     if (!this.paused) this.time += realDt;
     G.uTime.value = this.time;
 
-    // keep a world on the way
-    if (!this.job && !this.next) { const d = this.pick(); if (d) this.begin(d); }
+    // keep a world on the way (but not in the first moments after a crossing: building costs a dropped frame here and
+    // there, and those are the seconds when the eye is following the flight through the opening)
+    if (!this.job && !this.next && (!this.crossedAt || now - this.crossedAt > 2600 || (this.cur && this.cur.t > this.cur.tCross - 22))) { const d = this.pick(); if (d) this.begin(d); }
     this.work(this.cur ? (this.paused ? 12 : 5) : 14);
 
     const cur = this.cur;
@@ -382,6 +393,7 @@ export class Engine {
     this.off.t = 0;
     this.old.push(cur);
     this.cur = nx; this.next = null;
+    this.crossedAt = performance.now();
     this.enter(nx, cur);
     nx.t = 0;
   }

@@ -52,29 +52,24 @@ export class Plan {
       cx.restore();
     }
   }
-  // make the canvases actually draw what they have been told to (they put it off until someone reads them)
-  _flush(names = ['alb', 'mask', 'kind']) { for (const k of names) this.cx[k].getImageData(0, 0, 1, 1); }
-  /** Do the painting asked for so far, a few milliseconds at a time: `yield* plan.settle()`. */
+  // Make the canvases actually draw what they have been told to (they put it off until asked for the picture), without
+  // reading them: each is drawn into a small scratch canvas, which sets the graphics card to work and does not wait
+  // for it. A canvas that is read back (getImageData) more than once or twice is moved off the graphics card by the
+  // browser for good, and then sending its picture to the card as a texture costs a fifth of a second in one frame.
+  _flush(names = ['alb', 'mask', 'kind']) {
+    if (!this._scratch) { this._scratch = canvas(320, 320); this._scx = this._scratch.getContext('2d'); }
+    for (const k of names) this._scx.drawImage(this.cv[k], 0, 0, 320, 320);
+  }
+  /** Do the painting asked for so far, a little each frame: `yield* plan.settle()`. */
   *settle() {
-    // draw a batch, make the canvases really do it, see how long that took, and size the next batch to suit
-    // (the first things painted are the big ones, whole-floor fills: start one at a time; many small shapes soon go 64 to a step)
-    if (!this.queue.length) return;
-    // what asking costs when there is nothing to paint (a round trip to the graphics process, long on a busy machine):
-    // taken off every reading below, or a slow round trip is mistaken for slow painting and the batches never grow
-    // (one layer's worth: only the layers a batch drew on are asked, since each asking is a round trip of its own)
-    const b0 = performance.now(); this._flush(['alb']); let base = performance.now() - b0;
     // A batch is so much weight, not so many items: a soft-edged fill or a path of a thousand dots weighs more than a
-    // plain one (see fill, dots, mottle), so one heavy thing does not arrive hidden in a batch sized for light ones.
-    let n = 1;
+    // plain one (see fill, dots, mottle). One batch a frame: the label's first character tells the engine so.
     const used = new Set();
     while (this.queue.length) {
-      const f0 = performance.now();
       used.clear();
-      for (let w = 0; w < n && this.queue.length;) { const [name, fn, span, weight] = this.queue.shift(); w += weight; used.add(name); this._draw(name, fn, span); }
-      this._flush([...used]); const fd = performance.now() - f0, work = fd - base * used.size;
-      if (fd / used.size < base) base = fd / used.size;
-      if (work < 2.5) n = Math.min(8, n + 1); else if (work > 6) n = Math.max(1, n >> 1);
-      yield 'plan: painting';
+      for (let w = 0; w < 4 && this.queue.length;) { const [name, fn, span, weight] = this.queue.shift(); w += weight; used.add(name); this._draw(name, fn, span); }
+      this._flush([...used]);
+      yield '~plan: painting';
     }
   }
   /** The same all at once (used if a plan is read before it has been settled). */
@@ -317,7 +312,10 @@ export class Plan {
       t.needsUpdate = true;
       return t;
     };
-    return { alb: mk(this.cv.alb, true), mask: mk(this.cv.mask, false), kind: mk(this.cv.kind, false) };
+    // The colour layer is sent as painted (sRGB numbers in a plain texture) and whoever reads it calls LAND_GLSL's
+    // kLand() on what they read. A texture the card knows to be sRGB would do that by itself, but sending a canvas into
+    // one takes this browser a sixth of a second in one frame; into a plain one, a two-hundredth.
+    return { alb: mk(this.cv.alb, false), mask: mk(this.cv.mask, false), kind: mk(this.cv.kind, false) };
   }
 
   /**
@@ -354,6 +352,10 @@ export class Plan {
   }
 }
 
+/** For a shader that reads a plan's colour layer (tex.alb): `kLand(texture2D(tAlb, uv).rgb)` is the land's colour as light. */
+export const LAND_GLSL = /* glsl */`
+vec3 kLand(vec3 c) { return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c)); }      // the land's colour is kept as painted: see Plan.textures()
+`;
 // how far round the floor a list of points reaches: [least x, greatest x]
 function reach(points) {
   let a = Infinity, b = -Infinity;

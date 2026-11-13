@@ -104,6 +104,7 @@ const NWAKE = 20;
 const waterFrag = (rig) => /* glsl */`
 ${CLIP_PARS}
 uniform sampler2D tAlb;
+vec3 kLand(vec3 c) { return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c)); }      // the land's colour is kept as painted: see Plan.textures()
 uniform vec2 uSize;
 uniform vec3 uBend, uDeep, uShallow, uFoam, uWallTint;
 uniform float uTime, uW, uSunRod, uSunWidth, uWave;
@@ -149,7 +150,7 @@ void main() {
   float inside = tt > 0.0 ? smoothstep(-60.0, 160.0, min(Hh.z, uSize.y - Hh.z)) : 0.0;
   if (inside > 0.0) {
     vec2 huv = vec2(fract(atan(Hh.y, Hh.x) / 6.2831853 - uBend.x / 6.2831853), clamp(Hh.z / uSize.y, 0.0, 1.0));
-    vec3 ha = textureLod(tAlb, huv, 5.6).rgb;
+    vec3 ha = kLand(textureLod(tAlb, huv, 5.6).rgb);
     refl = mix(refl, ha * (kSunColor(Hh.xy) * kSunE(Hh, vec3(-normalize(Hh.xy), 0.0)) + uAmb), inside);
   }
   refl = mix(refl, uShallow * (uAmb * 2.0 + kSunColor(vW.xy) * 0.5), 0.4);     // the Hollow's own glow softens what the water holds

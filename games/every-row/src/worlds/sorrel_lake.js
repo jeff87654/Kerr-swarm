@@ -395,6 +395,7 @@ void main() {
 const waterFrag = (rig) => /* glsl */`
 ${CLIP_PARS}
 uniform sampler2D tAlb, tMask;
+vec3 kLand(vec3 c) { return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c)); }      // the land's colour is kept as painted: see Plan.textures()
 uniform vec2 uSize;
 uniform vec3 uBend, uLampCol, uWinA, uWinB, uStone, uDeep, uShallow;
 uniform float uTime, uSunRod, uSunWidth, uWave, uLamp, uLit, uWinPow;
@@ -433,8 +434,8 @@ void main() {
   vec3 landR = vec3(0.0);
   if (wallK > 0.0) {
     vec2 huv = vec2(fract(atan(Hh.y, Hh.x) / 6.2831853 - uBend.x / 6.2831853), Hh.z / uSize.y);
-    vec3 ha = textureLod(tAlb, huv, 4.5).rgb;
-    ha = mix(ha, textureLod(tAlb, huv, 8.0).rgb, smoothstep(0.0, 0.5, textureLod(tMask, huv, 6.0).r) * 0.9);
+    vec3 ha = kLand(textureLod(tAlb, huv, 4.5).rgb);
+    ha = mix(ha, kLand(textureLod(tAlb, huv, 8.0).rgb), smoothstep(0.0, 0.5, textureLod(tMask, huv, 6.0).r) * 0.9);
     vec3 nH = vec3(-normalize(Hh.xy), 0.0);
     landR = ha * kLight(Hh, nH, Hh, nH) + uLampCol * uLamp * (textureLod(tMask, huv, 2.0).b * 5.0 + textureLod(tMask, huv, 4.0).b * 3.0);
   }

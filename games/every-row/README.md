@@ -60,6 +60,7 @@ python tools/build.py            # dist/every-row.html (the artifact page) and d
 python tools/build.py --check    # the module rules, a syntax check and the writing rules, without building
 node tools/shot.mjs --w sorrel-lake --t 0,10,20,30 --out out/x/s     # pictures, frame rates and errors, in headless Chrome
 python tools/sheet.py out/x/s- out/x/sheet.png                         # a contact sheet
+node tools/flow.mjs                                                    # the whole journey, skipping ahead: every crossing, build times, errors
 ```
 
 The page needs no install. The picture tools need `npm install` here once (puppeteer-core) and Chrome or Edge.
@@ -67,6 +68,8 @@ The page needs no install. The picture tools need `npm install` here once (puppe
 ## How it is made
 
 `ARCHITECTURE.md` is the contract: worlds are modelled flat and bent onto the drum when drawn; each is a generator that builds itself a few milliseconds at a time while the world before it is still on screen; the engine maps one world's exit onto the next world's entry and scales between them, so a doorway can open onto a Hollow. `content/brief.md` is the brief the worlds were built to.
+
+Each world was written to that brief by its own Claude agent, one file apiece against the shared kit, then looked at second by second and sent back where it was plain.
 
 - `src/core/` the engine, camera paths, the picture pipeline, sound
 - `src/kit/` the drum's geometry, a geometry builder, light rigs and materials, the Hollow, the indoor city, the outside of the raft, trees and people

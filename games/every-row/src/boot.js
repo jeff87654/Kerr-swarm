@@ -44,6 +44,7 @@ export function boot(WORLDS) {
   // a phone starts a step lower; the frame-rate governor takes it from there either way
   if (!qs.has('tier') && window.matchMedia && window.matchMedia('(pointer: coarse)').matches && Math.min(window.innerWidth, window.innerHeight) < 820) engine.setTier(1);
   if (qs.has('pace')) engine.pace = parseFloat(qs.get('pace'));
+  if (qs.has('one')) engine.oneStep = true;       // for the tools: one build step a frame, so a slow frame can be laid at one step's door
 
   if (bare) {
     if (qs.has('freeze')) engine.freeze = true;
