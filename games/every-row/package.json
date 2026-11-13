@@ -1,0 +1,9 @@
+{
+  "name": "every-row-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only tools for A Card from Every Row (pictures and smoke tests). The page itself needs no install.",
+  "devDependencies": {
+    "puppeteer-core": "^23.10.0"
+  }
+}
