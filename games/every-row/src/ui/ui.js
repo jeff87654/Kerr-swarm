@@ -30,7 +30,7 @@ export function mountUI(root, engine, worlds, hooks = {}) {
     <div class="er-open-in">
       <div class="er-kicker">Merrow &middot; three hundred billion drums</div>
       <h1>A Card from Every Row</h1>
-      <p class="er-sub">An endless flight through the drums of the Shade. Each is a nation of two hundred million turning round its own small sun, and no two keep house the same way. Nothing to steer: the camera flies itself, and every drum ends in a way through to the next.</p>
+      <p class="er-sub">An endless flight through the drums of Merrow, in the order of one wander year. Each drum is a nation of two hundred million turning round its own small sun, and no two keep house the same way. Nothing to steer: the camera flies itself, and every place ends in a way through to the next.</p>
       <button class="er-begin" type="button">Begin</button>
       <div class="er-hint">Space pauses &middot; &rarr; skips ahead &middot; S for sound &middot; G for the drums</div>
     </div>`;
@@ -60,7 +60,7 @@ export function mountUI(root, engine, worlds, hooks = {}) {
   // ---- the list of worlds
   const gal = el('div', 'er-gallery');
   const galIn = el('div', 'er-gallery-in');
-  const head = el('div', 'er-gallery-head', `<h2>The drums</h2><p>Every place here is from the Kerr swarm world bible. Pick one to go there now; the flight carries on from it.</p>`);
+  const head = el('div', 'er-gallery-head', `<h2>The drums</h2><p>Every place here is from the Kerr swarm world bible, in the order Marit Vell saw them on her wander year. Pick one to go there now; the flight carries on from it.</p>`);
   const x = el('button', 'er-btn er-x', ICON.close); x.type = 'button'; x.title = 'Close'; x.addEventListener('click', () => toggleGallery(false));
   head.appendChild(x);
   galIn.appendChild(head);
