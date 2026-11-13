@@ -15,6 +15,7 @@ import { speltLoaf } from './spelt_loaf.js';
 import { yarrowKites } from './yarrow_kites.js';
 import { chervilHall } from './chervil_hall.js';
 import { sorrelOrgan } from './sorrel_organ.js';
+import { sorrelSleepers } from './sorrel_sleepers.js';
 import { sorrelAshgrove } from './sorrel_ashgrove.js';
 
 export const WORLDS = [
@@ -31,6 +32,7 @@ export const WORLDS = [
   madderGardens,
   dulseNoodle,
   borageFountains,
+  sorrelSleepers,
   carillonChoirs,
   speltLoaf,
   chervilFlight,
