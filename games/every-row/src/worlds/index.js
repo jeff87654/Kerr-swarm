@@ -16,6 +16,8 @@ import { yarrowKites } from './yarrow_kites.js';
 import { chervilHall } from './chervil_hall.js';
 import { sorrelOrgan } from './sorrel_organ.js';
 import { sorrelSleepers } from './sorrel_sleepers.js';
+import { theGlide } from './the_glide.js';
+import { ochreBackcrew } from './ochre_backcrew.js';
 import { sorrelAshgrove } from './sorrel_ashgrove.js';
 
 export const WORLDS = [
@@ -30,9 +32,11 @@ export const WORLDS = [
   squallSwell,
   gloamingDusk,
   madderGardens,
+  ochreBackcrew,
   dulseNoodle,
   borageFountains,
   sorrelSleepers,
+  theGlide,
   carillonChoirs,
   speltLoaf,
   chervilFlight,

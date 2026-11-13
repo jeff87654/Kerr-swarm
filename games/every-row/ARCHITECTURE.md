@@ -24,6 +24,7 @@ src/kit/plan.js       painting a Hollow's floor plan
 src/kit/hollow.js     the Hollow: land, end walls, sunline; terraces to build on
 src/kit/flora.js      trees and scattering them
 src/kit/deck.js       decks: streets, arcades, courts, halls, lobbies; signs with real lettering
+src/kit/outside.js    outside: the hall between the layers, a drum from outside, quays and trains; the sky behind the raft
 src/kit/folk.js       people and crowds
 src/worlds/*.js       one file per world; index.js lists them in the journey's order
 src/ui/               the interface and its stylesheet
@@ -233,6 +234,56 @@ Words: an avenue (axis `'x'`, spinward, curving up ahead) has a `front` side (-z
 ---
 
 Two lines elsewhere in ARCHITECTURE.md want changing to match what this work did to `kit/mats.js`.
+
+### Outside: the raft and the sky behind it
+
+`kit/outside.js` builds the two places that are not inside a drum: the mid-raft a glide car falls through, and the back of the raft under the sky. Nothing in it is bent. It is open space in plain world coordinates, in metres:
+
+- **x** runs along a row of drums, **z** along a column, and **y** is aft: 0 at the rectenna layer, `RAFT.DEPTH` = 3,750 at the radiator layer, more than that behind the raft. A camera's up is `[0, 1, 0]` in both places: pass `up: [0, 1, 0]` to `makePath` and give no frame.
+- Drum (i, j) stands on the line x = i × `RAFT.CELL`, z = j × `RAFT.CELL` (24,500 m). Every drum turns the same way, +`RAFT.OMEGA` about +y: a drum's +z side moves toward +x.
+- So the lane on the +z side of a row runs toward +x and the one on its -z side toward -x; the lane on the +x side of a column runs toward -z and the one on its -x side toward +z. Lanes pass `RAFT.LANE` = 3,058 m from the axes.
+- `LEVELS[0..8]` are the heights of the nine quays, Ring One at the front to Ring Nine at the back. Rows glide on Rings One, Three, Seven and Nine (`ROW_LEVELS`), columns on Two, Four, Six and Eight (`COL_LEVELS`), and Ring Five is the tube (`TUBE_LEVEL`), as in sorrel.md.
+- Trains are 100 m long, a `RAFT.SLOT` (350 m, two seconds) apart, at `RAFT.SPEED` = 174.4 m/s. A hop is 70 slots and takes `HOP` = 140.5 s.
+
+**Far planes.** From a quay the hall is drawn out to about 1,000 km, so a world on this kit returns `far: RAFT.FAR` (1.3e6) with `near` of 1.5 to 2.5. That breaks the rule of thumb above (far/near under 30,000) on purpose. Depth resolution at a distance d is about d × d ÷ (near × 2^24) whatever far is (10 m at 20 km with near = 2.5), so what matters is that near stays above a metre or two; and every small light in the kit is drawn a little nearer the eye than it stands, so none of them fights the surface it is mounted on. Keep the camera 1.5 × near away from anything solid. For lamps more than a few hundred metres off use `farLights()`, not `glowPoints()`: `glowPoints` has no such offset, and its lamps flicker against a wall 20 km away.
+
+**Look points.** `makePath` draws one curve through a flight's `look` points. If one of them is twenty kilometres off and its neighbours are a hundred metres off, that curve swings back on itself and the camera looks behind it for a second or two. Out here, where the things looked at are from ten metres to ninety kilometres away, keep every look point about the same distance from its own key (a few hundred metres to 3 km), along the line to the thing. Both worlds below do, and both were caught by not doing it.
+
+```js
+import { RAFT, QUAY_TINTS, buildHall, nearDrum, quayPiece } from '../kit/outside.js';
+
+const hall = yield* buildHall(ctx, { focus: [0.5, 0], skip: [[0, 0], [1, 0]], tints: { '0,0': 0, '1,0': 6 }, trainsNear: [500, 1300] });
+scene.add(hall.group);
+const sorrel = yield* nearDrum({ at: [0, 0], tint: QUAY_TINTS[0], dark: [{ level: 6, from: 0, to: 0.25 }] });
+const quay = yield* quayPiece({ drum: sorrel, level: 6, angle: 0, from: -440, to: 740, cradles: [0, 350], trains: [350], tunnel: { x: -170, dir: -1 } });
+scene.add(sorrel.group);
+```
+
+The mid-raft:
+
+- `buildHall(ctx, opts)` (a generator): both layers as sheets to the horizon, each drum's collar of quay light on them, some 5,100 drums out to forty cells from the camera's (dark columns to 14 cells, about 650 of them, and lights only beyond), nine rings of quay lamps on each, the trains on every lane, truss lights in a lattice and on masts, the Yards' and data halls' lights, and the glow where it all meets on the horizon line. `focus` is the cell the camera stays near; `skip` lists drums the world builds itself; `tints` gives a drum one of `QUAY_TINTS`. As measured in `the_glide`: 7 draw calls, 197,000 points, 71,000 triangles.
+- The lanes are ribbons with the trains painted along them: dashes near the eye, beads farther off, a thread at the horizon. Slot n of lane L holds a train when `cellRand(n mod 70, L)[0] < fill`, in the shader and in `trainSlots(L)` alike. `nearTrains(lanes)` stands real trains (`trainGeo()`) on the painted dashes within about 1.6 km of the eye: call its `update(eye)` each frame with the eye's place in the hall's own coordinates, and pass `trainsNear: [from, to]` to `buildHall` so the painted ones fade out there. `laneRibbon(opts)` draws one lane on a clock of its own, for a world that must let a train go on the second.
+- `nearDrum(opts)` (a generator) is one drum in full: flank, nine quay ledges, a lamp every 40 m on each (4,320). `quayPiece(opts)` (a generator) is a stretch of one quay close to: band, rails, lamp posts, cradles with trains hanging in them, and a tunnel through the jacket with a real hole in the flank. It is modelled flat like a deck (x round the quay, y in from its face, z aft) and bent by a kit frame; `piece.local(x, y, z)` gives a flat point's place in the drum's own coordinates, `piece.tunnelPoint(s)` a point s metres up the tunnel from its mouth, and `piece.hangTrain(x)` one more train as its own mesh.
+- **A quay turns.** The kit never turns a `nearDrum`. A world that only looks at one sets `group.rotation.y = RAFT.OMEGA * t`. A world that stands on a quay keeps that drum still and turns everything else: put `hall.group` in a group of your own and give it `rotation.y = -RAFT.OMEGA * t`, as `worlds/the_glide.js` does. Its world coordinates turn with the drums, so that the quay it leaves and the quay it arrives at can each be still in its turn, and their origin slides from one drum's axis to the other's during the fall; the flight is written in the frame each part is simple in and turned into half-second keys.
+
+Behind the raft:
+
+```js
+import { RAFT, buildSky, buildBack, backRig, skyDir } from '../kit/outside.js';
+
+const sky = yield* buildSky(ctx, { apex: [0, 24], red: { at: [-6, 22.2], power: 9 } });
+const rig = backRig({ riverDir: skyDir(0, 24), lamps: [{ p: [x, RAFT.DEPTH + 4.6, z], color: '#ffe2b8', power: 1.8, reach: 16 }] });
+const back = yield* buildBack(ctx, { sky, rig, focus: [0, 0] });
+scene.add(sky.group, back.group);
+```
+
+- `buildSky(ctx, opts)` (a generator): the River (a glow in the sky's own shader, 150,000 stars as points, dust that dims and reddens both), the Shelf, the brown-violet the crews call bruise where the dust lies over the glow, and other rafts as black shapes drawn over the stars: thin near the horizon, since a raft is a flat sheet lying parallel to this one. `apex` is the bearing and elevation, in degrees, of the River's highest point; `skyDir(bearing, elevation)` turns the same angles into a direction. `sky.raft(at, widthDegrees)` adds one more shape as its own mesh: turn it a few thousandths of a radian with `mesh.rotation.y` and it creeps. As measured: 5 draw calls, 161,000 points, 26,000 triangles.
+- The docs say about a sixth of that sky is rafts. The kit draws 3.5% of it as shapes (`sky.shown`) and takes the rest of the sixth off the brightness of the glow and of every star. A sixth drawn as shapes a degree across and less is so many that the River reads as dirty, not as holed.
+- `buildBack(ctx, opts)` (a generator): the radiator plain at y = `RAFT.DEPTH` to a flat horizon (rows of panels 46 m wide along x with a service track on every line z = 54 n, rings of panels within 3,050 m of each back axle, trunk pipes), the lights of a dock at every drum out to forty cells, and far sleds' lamps: 2 draw calls, 14,000 points. Panels give off nothing an eye can see: they show the River, held dully, and the pool of a lamp. It needs the `sky`, for that reflection.
+- `backRig(opts)` is the light for anything standing there: up to eight work lamps as points of light with a reach (the plain and `back.lit` both use them; `rig.lamp(i, {...})` moves one), and the River as one faint light.
+- `sledGeo()`, `galleryGeo()` and `dockGeo()` (a generator) are a back crew's closed sled, a Window, and the still side's dock with its twelve berths. Stand them with `instances(geo.build(), back.lit, items)`.
+
+**By canon** nobody is seen out there. The hall is flooded with X-rays and the back takes the glow of other rafts: people are inside trains, sleds, galleries and docks, and a world shows their lamps and windows. There are no stars in the hall (the layers hide the sky), and nothing behind the raft glows of its own heat.
 
 ## Tools
 
