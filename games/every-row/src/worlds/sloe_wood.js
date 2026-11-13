@@ -525,7 +525,7 @@ export const sloeWood = {
     if (/debug/.test(location.search)) console.log(`[sloe] trees ${trees}, mirrored ${wood.mirror.yew.length + wood.mirror.birch.length}, folk ${folk}`);
     return {
       scene, path, hollow, near: 0.3, far: 9000,
-      look: { exposure: 2.7, bloom: 0.14, threshold: 0.85, saturation: 0.8, contrast: 1.0, vignette: 0.5 },
+      look: { exposure: 3.4, bloom: 0.14, threshold: 0.85, saturation: 0.84, contrast: 1.0, vignette: 0.5 },
       portal: { rim: false, mist: '#46524b' },
       update(t) { placeWarden(t); },
     };
