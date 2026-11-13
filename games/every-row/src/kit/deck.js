@@ -655,10 +655,22 @@ function* buildSigns(D) {
   }
   yield* paint();
   yield 'deck: lettering';
-  // the page's own type may not have arrived yet: letter the signs again when it has
-  if (document.fonts && document.fonts.load) {
-    const missing = fams.filter((f) => { try { return !document.fonts.check(FONTS[f](40)); } catch (err) { return false; } });
-    if (missing.length) Promise.all(missing.map((f) => document.fonts.load(FONTS[f](40)))).then(() => { if (!tex.userData.gone) { for (const step of paint()) { /* all at once: it is quick */ } } }, () => { /* keep the stand-in lettering */ });
+  // The page's own type may not have arrived yet: letter the signs again when it has, a few milliseconds a frame.
+  // (Whether a face has arrived is read from the faces themselves. document.fonts.check() is not used: given these
+  // long lists of stand-in families it can hold the page for a second or two while the system's fonts are looked up.)
+  if (document.fonts && document.fonts.forEach) {
+    const want = new Set(fams.map((f) => (/'([^']+)'/.exec(FONTS[f](40)) || [])[1]).filter(Boolean));
+    const waiting = [];
+    document.fonts.forEach((face) => { if (want.has(String(face.family).replace(/['"]/g, '')) && face.status !== 'loaded') waiting.push(face.status === 'unloaded' ? face.load() : face.loaded); });
+    if (waiting.length) {
+      const again = () => {
+        if (tex.userData.gone) return;
+        const it = paint();
+        const slice = () => { if (tex.userData.gone) return; D.clk.go(); if (!it.next().done) requestAnimationFrame(slice); };
+        slice();
+      };
+      Promise.all(waiting).then(again, () => { /* keep the stand-in lettering */ });
+    }
   }
   tex.addEventListener('dispose', () => { tex.userData.gone = true; });
   D.signMat.uniforms.tAtlas.value = tex;

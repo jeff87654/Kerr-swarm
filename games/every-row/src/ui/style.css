@@ -8,7 +8,7 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 .er-open { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; pointer-events: auto;
   background: radial-gradient(ellipse at 50% 55%, rgba(8, 6, 4, 0.35), rgba(5, 4, 3, 0.86)); transition: opacity 1.6s ease, visibility 0s linear 1.6s; }
 .er-open.gone { opacity: 0; visibility: hidden; pointer-events: none; }
-.er-open-in { max-width: 34rem; padding: 0 1.25rem; }
+.er-open-in { max-width: 34rem; padding: 0 max(1.25rem, env(safe-area-inset-right, 0px)) 0 max(1.25rem, env(safe-area-inset-left, 0px)); }
 .er-kicker { font-family: 'Barlow Condensed', 'Barlow', sans-serif; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.82rem; color: #e2c48f; }
 .er-open h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(2.5rem, 7vw, 4.4rem); line-height: 1.02; margin: 0.6rem 0 1rem; letter-spacing: 0.01em; text-wrap: balance; }
 .er-sub { font-size: 1.04rem; line-height: 1.55; color: #e6dccb; margin: 0 auto 1.7rem; text-wrap: pretty; }
@@ -18,7 +18,7 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 .er-hint { margin-top: 1.5rem; font-size: 0.8rem; color: #b8ab95; letter-spacing: 0.03em; }
 
 /* a world's card */
-.er-card { position: absolute; left: clamp(1rem, 4vw, 3.2rem); bottom: clamp(1.2rem, 6vh, 3.4rem); max-width: min(30rem, 78vw); opacity: 0; transform: translateY(10px);
+.er-card { position: absolute; left: max(clamp(1rem, 4vw, 3.2rem), env(safe-area-inset-left, 0px)); bottom: calc(clamp(1.2rem, 6vh, 3.4rem) + env(safe-area-inset-bottom, 0px)); max-width: min(30rem, 78vw); opacity: 0; transform: translateY(10px);
   transition: opacity 1.8s ease, transform 1.8s ease; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.75), 0 0 2px rgba(0, 0, 0, 0.6); }
 .er-card.on { opacity: 1; transform: none; }
 .er-card-where { font-family: 'Barlow Condensed', 'Barlow', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.8rem; color: var(--tone, #e2c48f); }
@@ -28,11 +28,11 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 .er-card-mark { margin-top: 0.6rem; font-family: 'Barlow Condensed', 'Barlow', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; color: #cfc3ad; display: flex; align-items: center; gap: 0.55rem; }
 .er-stamp { width: 0.95rem; height: 0.95rem; border-radius: 50%; border: 1.5px solid var(--tone, #e2c48f); box-shadow: inset 0 0 0 2.5px rgba(0, 0, 0, 0), inset 0 0 0 4px var(--tone, #e2c48f); opacity: 0.85; }
 
-.er-wait { position: absolute; left: 50%; bottom: 1.3rem; transform: translateX(-50%); font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #e8dcc6; opacity: 0; transition: opacity 0.8s ease; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8); }
+.er-wait { position: absolute; left: 50%; bottom: calc(1.3rem + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #e8dcc6; opacity: 0; transition: opacity 0.8s ease; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8); }
 .er-wait.on { opacity: 0.9; }
 
 /* controls */
-.er-bar { position: absolute; right: clamp(0.6rem, 2.4vw, 1.6rem); bottom: clamp(0.8rem, 3vh, 1.5rem); display: flex; align-items: center; gap: 0.3rem; opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+.er-bar { position: absolute; right: calc(clamp(0.6rem, 2.4vw, 1.6rem) + env(safe-area-inset-right, 0px)); bottom: calc(clamp(0.8rem, 3vh, 1.5rem) + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 0.3rem; opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
   background: rgba(14, 11, 8, 0.5); border-radius: 999px; padding: 0.3rem 0.5rem; backdrop-filter: blur(6px); }
 #ui.awake .er-bar, #ui.paused .er-bar { opacity: 1; pointer-events: auto; }
 .er-btn { width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: transparent; display: grid; place-items: center; transition: background 0.15s ease; }
@@ -43,7 +43,7 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 /* the list of drums */
 .er-gallery { position: absolute; inset: 0; background: rgba(8, 6, 5, 0.965); opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s; overflow-y: auto; pointer-events: none; }
 .er-gallery.on { opacity: 1; visibility: visible; transition: opacity 0.35s ease; pointer-events: auto; }
-.er-gallery-in { max-width: 68rem; margin: 0 auto; padding: clamp(1.2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) 3rem; }
+.er-gallery-in { max-width: 68rem; margin: 0 auto; padding: calc(clamp(1.2rem, 4vw, 3rem) + env(safe-area-inset-top, 0px)) max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-right, 0px)) calc(3rem + env(safe-area-inset-bottom, 0px)) max(clamp(1rem, 3vw, 2rem), env(safe-area-inset-left, 0px)); }
 .er-gallery-head { position: relative; padding-right: 3rem; }
 .er-gallery-head h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 400; font-size: 2.3rem; margin: 0 0 0.3rem; }
 .er-gallery-head p { margin: 0 0 1.4rem; color: #cfc3ad; max-width: 40rem; line-height: 1.5; }
@@ -56,5 +56,5 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 .er-tile-kind { font-size: 0.8rem; color: #b8ab95; }
 .er-about { margin: 1.8rem 0 0; color: #a99d88; font-size: 0.86rem; line-height: 1.55; max-width: 46rem; }
 
-@media (max-width: 560px) { .er-card { max-width: 86vw; } .er-bar { bottom: 0.5rem; right: 0.5rem; } .er-card { bottom: 4.2rem; } }
+@media (max-width: 560px) { .er-card { max-width: 86vw; bottom: calc(4.2rem + env(safe-area-inset-bottom, 0px)); } .er-bar { bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px)); right: calc(0.5rem + env(safe-area-inset-right, 0px)); } }
 @media (prefers-reduced-motion: reduce) { .er-card, .er-open, .er-gallery { transition-duration: 0.01s; } }

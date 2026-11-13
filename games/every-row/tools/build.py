@@ -303,7 +303,7 @@ def main():
         sys.exit(1)
     js = three_iife() + b.js()
     style = read(os.path.join(SRC, "ui", "style.css"))
-    fragment = ('<title>Every Row</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<style>\n:root { color-scheme: dark; }\n' + style + "\n" + fonts_css() + "\n</style>\n"
+    fragment = ('<title>A Card from Every Row</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<style>\n:root { color-scheme: dark; }\n' + style + "\n" + fonts_css() + "\n</style>\n"
                 '<canvas id="view" tabindex="0"></canvas>\n<div id="ui"></div>\n<script>\n(function () {\n"use strict";\n' + js + "\n})();\n</script>\n")
     os.makedirs(DIST, exist_ok=True)
     with open(os.path.join(DIST, "every-row.html"), "w", encoding="utf-8", newline="\n") as f:
