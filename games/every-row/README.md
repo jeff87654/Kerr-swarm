@@ -14,7 +14,10 @@ Links: `?w=<id>` starts at a world; `?only=<id>` flies one world over and over.
 
 ## The worlds
 
-WORLD_LIST
+In the journey's order, each with the line on its card. The cards are the ones Marit Vell sends home from her wander year (`docs/wander-year.md`), with a few more from Herb Row, where she lives.
+
+<!-- worlds -->
+<!-- /worlds -->
 
 ## What is canon and what is not
 
