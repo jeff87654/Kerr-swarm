@@ -15,7 +15,9 @@ export function boot(WORLDS) {
     for (const f of ["400 20px 'Cormorant Garamond'", "italic 400 20px 'Cormorant Garamond'", "italic 600 20px 'Cormorant Garamond'", "400 20px 'Barlow'", "500 20px 'Barlow'", "500 20px 'Barlow Condensed'", "500 20px 'Caveat'"]) document.fonts.load(f).catch(() => {});
   }
   const bare = qs.get('ui') === '0';
-  let ui = null;
+  // a link may name a place after the #: the flight starts there
+  const hashWorld = WORLDS.some((d) => d.id === location.hash.slice(1)) ? location.hash.slice(1) : '';
+  let ui = null, moved = false;
   const sound = new Sound();
 
   const engine = new Engine(canvas, WORLDS, {
@@ -24,6 +26,9 @@ export function boot(WORLDS) {
     debug: qs.has('debug'),
     onWorld: (def, inst, crossed) => {
       app.world = def.id; app.crossings += crossed ? 1 : 0;
+      // the address keeps the place, so a copied link opens where you were (a plain link stays plain until the first change)
+      if (moved || hashWorld) { try { history.replaceState(null, '', '#' + def.id); } catch (e) { /* not allowed here */ } }
+      moved = true;
       if (ui) ui.showCard(def);
       sound.setWorld(def.sound || null, def, crossed ? 3.5 : 1.5);
     },
@@ -33,6 +38,7 @@ export function boot(WORLDS) {
   const app = window.app = { engine, WORLDS, TIERS, sound, world: null, crossings: 0, ready: false };
 
   if (qs.get('w')) engine.enqueue([qs.get('w')]);
+  else if (hashWorld) engine.enqueue([hashWorld]);
   if (qs.has('t')) engine.startT = parseFloat(qs.get('t'));
   if (qs.has('steady') || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) engine.steady = true;
   // a phone starts a step lower; the frame-rate governor takes it from there either way

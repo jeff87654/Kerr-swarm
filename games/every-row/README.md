@@ -10,7 +10,7 @@ Made after Ethan Mollick's [Portals](https://github.com/emollick/ai-portals), fo
 
 Space pauses. The right arrow skips ahead to the way through. S turns the sound on. G lists the drums: pick one to go there. Q changes the picture quality (it adjusts itself otherwise). F is full screen. Moving the mouse shows the same as buttons.
 
-Links: `?w=<id>` starts at a world; `?only=<id>` flies one world over and over.
+Links: the address follows the flight, so a copied link opens at the place you were watching (`#sloe-wood`); `?only=<id>` flies one world over and over.
 
 ## The worlds
 

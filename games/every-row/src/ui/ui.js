@@ -94,7 +94,7 @@ export function mountUI(root, engine, worlds, hooks = {}) {
   function togglePause(v) { engine.paused = v === undefined ? !engine.paused : v; bPause.innerHTML = engine.paused ? ICON.play : ICON.pause; root.classList.toggle('paused', engine.paused); wake(); }
   function toggleSound(v) { soundOn = v === undefined ? !soundOn : v; bSound.innerHTML = soundOn ? ICON.sound : ICON.mute; if (hooks.sound) hooks.sound(soundOn); store.set('sound', soundOn); }
   function toggleGallery(v) { const on = v === undefined ? !gal.classList.contains('on') : v; gal.classList.toggle('on', on); }
-  function toggleFull() { try { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); } catch (e) { /* not allowed here */ } }
+  function toggleFull() { try { const p = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(() => { /* not allowed here */ }); } catch (e) { /* not allowed here */ } }
   function showTier() { tierNote.textContent = (engine.autoTier ? 'Auto' : TIERS[engine.tierIndex].name); }
   function cycleTier() {
     // Auto -> Low -> Medium -> High -> Ultra -> Auto
