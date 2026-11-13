@@ -24,6 +24,7 @@ import { kittiwakeCrosswise } from './kittiwake_crosswise.js';
 import { gloamingDusk } from './gloaming_dusk.js';
 import { squallSwell } from './squall_swell.js';
 import { carillonChoirs } from './carillon_choirs.js';
+import { carillonWindow } from './carillon_window.js';
 import { dulseNoodle } from './dulse_noodle.js';
 import { madderGardens } from './madder_gardens.js';
 import { ochreChart } from './ochre_chart.js';
@@ -53,6 +54,7 @@ export const WORLDS = [
   gloamingDusk,
   squallSwell,
   carillonChoirs,
+  carillonWindow,         // the same week: Selkie from the Window
   // Kelp Row, the far side; then Pigment Row and Grain Row on the way back
   dulseNoodle,
   madderGardens,

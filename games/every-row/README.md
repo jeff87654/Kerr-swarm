@@ -17,6 +17,33 @@ Links: the address follows the flight, so a copied link opens at the place you w
 In the journey's order, each with the line on its card. The cards are the ones Marit Vell sends home from her wander year (`docs/wander-year.md`), with a few more from Herb Row, where she lives.
 
 <!-- worlds -->
+1. **Oona's River dawn** (Chervil, Herb Row; `chervil-dawn`). "It started the brown-violet the back crews call bruise. For twenty minutes the far bank was gold and we were still in the dark. Oona says it was too slow in the middle."
+2. **The Court at Ashgrove** (Sorrel, Herb Row; `sorrel-ashgrove`). "The arcade is no higher than a room. Then the ceiling goes up six decks, and on the bright wall are three pear trees older than anyone, with the youngest class dabbing the blossom with brushes."
+3. **Lamp-dawn on the lake** (Sorrel, Herb Row; `sorrel-lake`). "The old have the lake until nine. You come up through the ground among apple trees, and then you look up and keep looking."
+4. **The Sleepers at half past four** (Sorrel, Herb Row; `sorrel-sleepers`). "Ten thousand cabs asleep in one dark room, a little green light on each. At half past four they wake from the far end, and every one is a lit room going off to fetch somebody."
+5. **Under the Count** (Rue, Herb Row; `rue-count`). "Rue hangs its Count over every platform, the same board as far up the curve as I could see, and while I stood reading it the last figure went down by one. Then I queued for mock apple pie, 0.30, which tastes of an apple I have never eaten."
+6. **The glide to Lovage** (Sorrel to Lovage, Herb Row; `the-glide`). "Two minutes and twenty seconds with no weight. Every drum wears rings of quay lights, and they go back rank behind rank until they are one line."
+7. **Noon at six** (Lovage, Herb Row; `lovage-noon`). "Six in the evening and the sunline still at full noon. They cut an apple crosswise and held up the star, and the young ones danced a reel round the terrace a hand's width at a time."
+8. **Forty hens behind glass** (Tansy, Herb Row; `tansy-hens`). "Tansy has a vat hall most of a kilometre long, and the queue is upstairs, for forty hens behind a glass wall. The slate said seven eggs left and there were twenty of us."
+9. **Test day on the lawns** (Yarrow, Herb Row; `yarrow-kites`). "There is no wind in a drum, so kites are flown by walking. The apprentice signed the underside of mine before I ran it out of the door, and when I stopped it came down slowly."
+10. **The Moth Organ** (Sorrel, Herb Row; `sorrel-organ`). "You hear it three streets away, and people stop walking. The biggest pipe is nearly eighteen metres, because in our air a note needs nearly twice the pipe."
+11. **Fountains that fall spinward** (Borage, Herb Row; `borage-fountains`). "In Borage the water goes up slowly, hangs, and comes down a few paces spinward of where it rose, so every jet in the drum leans the same way. The big one is up for eleven seconds."
+12. **The Wanderers' Galley** (The slow line, leg 1, Herb Row to Hedge Row; `slow-line-1`). "Nobody told me the slow line has no weight. Soup comes in bulbs, bread comes in a net, and you sleep in a bag clipped to the wall like a coat."
+13. **The silent wood** (Sloe, Hedge Row; `sloe-wood`). "Nobody talks in the wood. A woodwarden who has kept the same yews for sixty years wrote LISTEN on her slate and walked off. So I did."
+14. **Crosswise in the flying hall** (Kittiwake, Gull Row; `kittiwake-crosswise`). "My teacher is nine. Across the axis the drum turns under you, so you aim wide, and on my fourth try I came out at the hoop I'd aimed for."
+15. **Hesk ends on green** (Gloaming, Weather Row; `gloaming-dusk`). "Hesk ended on green. Forty minutes of it, the sunline going out through a cold sea-green, and the terraces silent until it was gone. Then they roared."
+16. **Swell hour** (Squall, Weather Row; `squall-swell`). "I stood up on the eleventh try. Then I fell off, very slowly, which at half a g leaves you time to wave."
+17. **Singing to Selkie** (Carillon, Bell Row; `carillon-choirs`). "Every evening the choirs send Selkie a piece and then hold up their lamps for the gap. Thirty-three minutes before the answer starts, and nobody in the bowl says a word."
+18. **Selkie, two fingers wide** (Carillon, Bell Row; `carillon-window`). "Every child who comes back from the Window this week holds two fingers up at arm's length, to show you how wide Selkie is. Ask them about the River and they can't say."
+19. **Hers don't break** (Dulse, Kelp Row; `dulse-noodle`). "Abelone pulls one noodle per bowl. One. It goes round the bowl about forty times. My strands break at about four metres. Hers don't break."
+20. **The week of the Ledger** (Madder, Pigment Row; `madder-gardens`). "They lifted the old Count board off the wall at Ring 4 and put up a Ledger. I didn't expect to cry at a board. Everyone did."
+21. **The chart wall** (Ochre, Pigment Row; `ochre-chart`). "Every house on Ochre's front wall is one colour off a chart, dark at the foot and pale at the top. The grinder matched your bruise in about ten minutes, which annoyed me, so I'm bringing you a jar."
+22. **The River, from a sled** (Ochre, Pigment Row; `ochre-backcrew`). "Eight hours in a closed sled behind the radiators, holding a pump while Tilde swore at it. The River is brown-violet at the edges. The crews call that colour bruise."
+23. **A baker's dawn** (Spelt, Grain Row; `spelt-loaf`). "Grain trial plots right round the sky, and a queue at the bakehouse with a spoon each. This year's mother has two hundred and twelve drums in it, and now ours."
+24. **They don't hang, they swim** (The slow line, leg 11, Kite Row to Quill Row; `slow-line-11`). "Do not pull noodles at zero g. The galley is full of loose noodle, the riders are catching it with chopsticks, and they've voted it the best night of the line."
+25. **An apple cut crosswise** (Chervil, Herb Row; `chervil-home`). "My block came down to Ring 2 before lamp-dawn with a hand lamp each, and Jory held up the star in front of all of them. He knows what it means, and so did they."
+26. **Four hundred at one table** (Chervil, Herb Row; `chervil-hall`). "My first Thursday at the Ring 2 hall: four hundred at one long table, climbing away from the pass until the far end is up among the lamps. Nine of my eleven volunteers are over seventy, and every one of them tasted the broth before I did."
+27. **The Long Flight** (Chervil, Herb Row; `chervil-flight`). "Booking night. The sunline stays dark and everyone goes up with their block. Almost four kilometres of small lights, like a slow river, and somewhere in it a choir."
 <!-- /worlds -->
 
 ## What is canon and what is not

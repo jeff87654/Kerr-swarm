@@ -73,7 +73,7 @@ export class Plan {
       for (let w = 0; w < n && this.queue.length;) { const [name, fn, span, weight] = this.queue.shift(); w += weight; used.add(name); this._draw(name, fn, span); }
       this._flush([...used]); const fd = performance.now() - f0, work = fd - base * used.size;
       if (fd / used.size < base) base = fd / used.size;
-      if (work < 3) n = Math.min(24, Math.ceil(n * 1.5)); else if (work > 8) n = Math.max(1, n >> 1);
+      if (work < 2.5) n = Math.min(8, n + 1); else if (work > 6) n = Math.max(1, n >> 1);
       yield 'plan: painting';
     }
   }
@@ -85,6 +85,7 @@ export class Plan {
     const p = new Path2D();
     if (r > 0 && p.roundRect) p.roundRect(x0, z0, x1 - x0, z1 - z0, r); else p.rect(x0, z0, x1 - x0, z1 - z0);
     p._x = [Math.min(x0, x1), Math.max(x0, x1)];
+    if (!(r > 0)) p._z = [Math.min(z0, z1), Math.max(z0, z1)];
     return p;
   }
   band(z0, z1) { return this.rect(-this.C, z0, 2 * this.C, z1); }
@@ -129,28 +130,40 @@ export class Plan {
    *   feather             metres of soft edge
    */
   fill(shape, opts = {}) {
-    const f = opts.feather || 0;
-    const span = shape._x ? [shape._x[0] - f - 2, shape._x[1] + f + 2] : undefined;
+    const f = opts.feather || 0, C = this.C, n = 6;
+    // A band reaches a whole turn beyond the floor each way, so all three copies of it lie over the whole picture and
+    // it has always had three coats. One that covers the whole floor is painted once, with what three coats come to
+    // (the same to a level or two). A narrower band keeps its three coats: along its two edges, where a pixel is only
+    // part covered, three thin coats and one thick one are not the same.
+    const band = !!shape._x && shape._x[0] <= -C + 1 && shape._x[1] >= 2 * C - 1 && !!shape._z && shape._z[0] <= 0 && shape._z[1] >= this.L
+      && (!opts.color || /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(opts.color));
+    const span = band ? [C * 0.25, C * 0.75] : shape._x ? [shape._x[0] - f - 2, shape._x[1] + f + 2] : undefined;
     const weight = 1 + (shape._n || 0) / 250;
-    const run = (name, style, op) => {
+    // style: what the shape is filled with; edge, edgeAlpha: what its soft edge is stroked with, and how strongly each time
+    const run = (name, op, style, edge, edgeAlpha) => {
       this.layer(name, (cx) => {
-        cx.globalCompositeOperation = op || 'source-over';
+        cx.globalCompositeOperation = op;
         cx.fillStyle = style;
         cx.fill(shape, opts.rule || 'nonzero');
       }, span, weight);
       // a soft edge: the outline stroked several times, wider and fainter each time (no blur filter: that is very slow
       // here). Each stroke is queued on its own, so a big soft-edged shape is painted over several steps, not in one.
-      const n = 6;
       if (f > 0 && op !== 'multiply') for (let i = n; i >= 1; i--) this.layer(name, (cx) => {
-        cx.globalCompositeOperation = op || 'source-over';
-        cx.strokeStyle = style; cx.lineJoin = 'round';
-        cx.globalAlpha = cx.globalAlpha / n; cx.lineWidth = 2 * f * (i / n); cx.stroke(shape);
+        cx.globalCompositeOperation = op;
+        cx.strokeStyle = edge; cx.lineJoin = 'round';
+        cx.globalAlpha = edgeAlpha; cx.lineWidth = 2 * f * (i / n); cx.stroke(shape);
       }, span, weight);
     };
-    this._clear(opts, (name, style) => run(name, style, 'multiply'));
-    if (opts.color) run('alb', withAlpha(opts.color, opts.alpha));
-    const m = chan(opts.water, opts.wood, opts.lamp); if (m) run('mask', m, 'lighter');
-    const k = chan(opts.paved, opts.rows, opts.life); if (k) run('kind', k, 'lighter');
+    this._clear(opts, (name, style) => run(name, 'multiply', style));
+    const a = opts.alpha === undefined ? 1 : Math.min(1, opts.alpha), t3 = (v) => Math.min(1, 3 * (v || 0));
+    if (opts.color) {
+      if (band) run('alb', 'source-over', withAlpha(opts.color, 1 - (1 - a) ** 3), opts.color, 1 - (1 - a / n) ** 3);
+      else { const st = withAlpha(opts.color, opts.alpha); run('alb', 'source-over', st, st, 1 / n); }
+    }
+    const m = chan(opts.water, opts.wood, opts.lamp);
+    if (m) run('mask', 'lighter', band ? chan(t3(opts.water), t3(opts.wood), t3(opts.lamp)) : m, m, band ? 3 / n : 1 / n);
+    const k = chan(opts.paved, opts.rows, opts.life);
+    if (k) run('kind', 'lighter', band ? chan(t3(opts.paved), t3(opts.rows), t3(opts.life)) : k, k, band ? 3 / n : 1 / n);
     return this;
   }
   /** Stroke a line or curve (a Path2D from line()/curve(), or a list of points). width in metres. opts as fill(), plus cap, dash:[on, off] */
@@ -180,6 +193,24 @@ export class Plan {
   }
   /** Many small discs at once: points [[x, z], ...], radius in metres. opts as fill(). */
   dots(points, radius, opts = {}) {
+    // Thousands of discs in one path are one long step for the canvas, so a long list is painted in parts. The parts
+    // are slices of the floor from side to side, cut where no disc of one can overlap a disc of the next (discs that
+    // overlap must share a path, or their edges would add up): the picture is the same.
+    if (points.length > 1800 && opts.rule !== 'evenodd') {
+      const pts = points.slice().sort((a, b) => a[0] - b[0]), gap = 2 * (radius + (opts.feather || 0)) + 3;
+      let i0 = 0;
+      while (pts.length - i0 > 1800) {
+        let i = i0 + 1200;
+        while (i < pts.length && i - i0 < 2600 && pts[i][0] - pts[i - 1][0] < gap) i++;
+        while (i < pts.length && pts[i][0] === pts[i - 1][0]) i++;        // two discs at one place are never parted
+        this._dots(pts.slice(i0, i), radius, opts); i0 = i;
+      }
+      if (i0 < pts.length) this._dots(pts.slice(i0), radius, opts);
+      return this;
+    }
+    return this._dots(points, radius, opts);
+  }
+  _dots(points, radius, opts) {
     const p = new Path2D();
     for (const q of points) { p.moveTo(q[0] + radius, q[1]); p.arc(q[0], q[1], radius, 0, Math.PI * 2); }
     if (points.length) { const r = reach(points); p._x = [r[0] - radius, r[1] + radius]; }
