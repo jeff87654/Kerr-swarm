@@ -7,10 +7,13 @@
 // The flight starts on the bowl's lawns behind the backs of the highest rank, goes over the singers' heads and down
 // across the ranks to the conductor as the piece ends and every singer raises a small light in a wave from the middle
 // outward, lifts out over the far rim, runs down the reach where small choirs face each other across the water
-// practising rounds, and climbs in a long turn over the lake to see the bowl as one ring of colour and light in the
-// bronze land. Everyone in it is waiting.
+// practising rounds, climbs over the lake toward a smaller bowl whose choir is lifting its own lamps, and turns to see the
+// great bowl as one ring of colour and light in the evening land. Everyone in it is waiting. The evening is a cool one,
+// the line pale and rosy over green and teal land, so that the bronze of the bowl and the lamps are what is warm.
 //
 // Not canon (the docs give the Hollow only the one line):
+//   - the second, smaller bowl across the lake with another block's choir in it, and the people round the lake shore
+//     with hand lamps; the colours of this evening's light
 //   - the bowl: its size and shape (a round floor, thirty stepped ranks, four lawn terraces, a rim walk and a grass bank
 //     outside), sixteen choirs standing in it in wedges by voice, each in its own two colours, two of them children's
 //   - the conductor's stand in the middle, the banners with a small bronze bell on each pole, the lamps down the aisles
@@ -18,8 +21,9 @@
 //     lamp floats let go on the reach and the lake
 //   - the reach: a curved water from the bowl to a lake, stepped stone terraces down both banks to the water, and the
 //     small choirs on them facing each other across it
-//   - the plan of the rest of the floor: lawns with small round choir lawns all over (one for each block's choir), walks,
-//     groves, gardens, lakes, and woods in the Dim Ends
+//   - the plan of the rest of the floor: lawns with small round choir lawns and stepped choir bowls ringed with lamps all
+//     over (one for each block's choir), lit walks, woods and clumps, terraced gardens, other lakes and wandering reaches
+//     of water with lit banks, and woods in the Dim Ends
 import {
   Scene, Color, ShaderMaterial, InstancedBufferGeometry, InstancedBufferAttribute, Float32BufferAttribute, Mesh, Vector3, AdditiveBlending,
 } from 'three';
@@ -94,37 +98,67 @@ const bank = (q, side, off) => [q.x - q.tz * side * off, q.z + q.tx * side * off
 
 // ---------------------------------------------------------------- the plan
 const gather = () => { const m = new Map(); m.put = (key, shape) => { let p = m.get(key); if (!p) m.set(key, p = new Path2D()); p.addPath(shape); return m; }; return m; };
-const nearBowl = (x, z, pad) => Math.hypot(x - BX, z - BZ) < RB + pad;
+// a second, smaller bowl across the lake, where another block's choir is waiting
+const B2 = { x: BX - 190, z: BZ + 720, r0: 8, n: 14, rd: 1.3, rise: 0.32, lawn: 2, ld: 5, rb: 64 };
+const nearBowl = (x, z, pad) => Math.hypot(x - BX, z - BZ) < RB + pad || Math.hypot(x - B2.x, z - B2.z) < B2.rb + pad;
 const nearLake = (x, z, pad) => ((x - LAKE.x) / (LAKE.rx + pad)) ** 2 + ((z - LAKE.z) / (LAKE.rz + pad)) ** 2 < 1;
 function nearReach(x, z, pad) { for (let i = 0; i < REACH.length; i += 2) if (Math.hypot(REACH[i].x - x, REACH[i].z - z) < RW + pad) return true; return false; }
 const busy = (x, z, pad) => nearBowl(x, z, pad) || nearLake(x, z, pad) || nearReach(x, z, pad + 30);
 
 const WATERS = [[BX + C * 0.33, 2000, 360, 220, 21], [BX + C * 0.58, 1500, 300, 260, 22], [BX + C * 0.8, 2300, 420, 200, 23], [BX - 1300, 2500, 260, 180, 24]];
 const inWater = (x, z) => WATERS.some(([ox, oz, rx, rz]) => { let dx = (((x - ox) % C) + C * 1.5) % C - C / 2; return (dx / (rx * 1.25 + 30)) ** 2 + ((z - oz) / (rz * 1.25 + 30)) ** 2 < 1; });
+// the land in the cool of the evening: lawns and woods go green and teal in the shade, the warm things are the lamps
+const LAWN = '#7e9668', WOODS = ['#66906c', '#5e8a74', '#6e9268', '#5c8670'], WALKC = '#cdc4ac', WATERC = '#4a7a8c', DEEPC = '#2c5a72';
+const FLOWERS = ['#d9a0b4', '#e6c46a', '#b7a3d6', '#e8906a', '#c9d98a', '#9ab0d8', '#f0d8b0'];
+// lamps every `spacing` metres along a line, gathered and painted in one go at the end (and remembered for lamp posts)
+function lampsAlong(out, pts, spacing) {
+  let carry = 0;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i], b = pts[i + 1], len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    let d = carry;
+    while (d < len) { const t = d / len; out.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]); d += spacing; }
+    carry = d - len;
+  }
+}
 function* paintCarillon(plan) {
-  const rng = makeRng('carillon-plan');
-  plan.fill(plan.band(0, L), { color: '#929e70', life: 0.45 });
-  plan.mottle(['#a6a87c', '#949e70', '#b0ac80', '#9aa474', '#b6b088', '#8e9a6c'], 110, 320, { alpha: 0.45, seed: 'carillon-lawn' });
-  // the Dim Ends: woods under the walls, with lamplit walks through them
-  plan.fill(plan.band(0, 700), { color: '#76805a', wood: 0.9, clear: ['life'] });
-  plan.fill(plan.band(L - 700, L), { color: '#727c56', wood: 0.9, clear: ['life'] });
+  const rng = makeRng('carillon-plan'), lamps = [];
+  plan.fill(plan.band(0, L), { color: LAWN, life: 0.45 });
+  plan.mottle(['#86a070', '#74906a', '#8aa278', '#6e8a66', '#93a87c', '#6a8a6e'], 45, 300, { alpha: 0.5, seed: 'carillon-lawn' });
+  // the Dim Ends: woods under the walls, with glades in them
+  plan.fill(plan.band(0, 700), { color: '#4e6c56', wood: 0.9, clear: ['life'] });
+  plan.fill(plan.band(L - 700, L), { color: '#4a6852', wood: 0.9, clear: ['life'] });
   const glades = gather();
-  for (let i = 0; i < 40; i++) glades.put(rng.pick(['#8c9264', '#97986a', '#83895e']), plan.blob(rng.f(0, C), rng.chance(0.5) ? rng.f(380, 680) : rng.f(L - 680, L - 380), rng.f(40, 100), rng.f(30, 60), { seed: i + 3, n: 32 }));
+  for (let i = 0; i < 40; i++) glades.put(rng.pick(['#6e8a66', '#789270', '#668262']), plan.blob(rng.f(0, C), rng.chance(0.5) ? rng.f(380, 680) : rng.f(L - 680, L - 380), rng.f(40, 100), rng.f(30, 60), { seed: i + 3, n: 32 }));
   for (const [c, p] of glades) plan.fill(p, { color: c, clear: ['wood'], life: 0.4 });
-
   yield 'plan: ground';
-  // walks: rings round the floor and lanes along it, lit
-  const walks = gather(), lampLines = [];
+
+  // other reaches of water, wandering across the floor with lit banks
+  const streams = [], bankP = new Path2D(), waterP = new Path2D(), deepP = new Path2D();
+  for (let i = 0; i < 9 && streams.length < 5; i++) {
+    let x = rng.f(0, C), z = rng.f(1000, L - 1000), a = rng.f(0, 6.28); const pts = [];
+    for (let k = 0; k < 34; k++) { pts.push([x, z]); a += rng.f(-0.22, 0.22) + (z < 900 ? 0.3 : z > L - 900 ? -0.3 : 0); x += Math.cos(a) * 40; z += Math.sin(a) * 40 * 0.6; }
+    if (pts.some((q) => busy(q[0], q[1], 160) || inWater(q[0], q[1]) || q[1] < 820 || q[1] > L - 820)) continue;
+    streams.push(pts);
+    const c = plan.curve(pts); bankP.addPath(c); waterP.addPath(c); deepP.addPath(c);
+    for (const s of [-1, 1]) lampsAlong(lamps, pts.map((q, j) => { const b = pts[Math.min(j + 1, pts.length - 1)], f = pts[Math.max(j - 1, 0)], dx = b[0] - f[0], dz = b[1] - f[1], l = Math.hypot(dx, dz) || 1; return [q[0] - dz / l * 25 * s, q[1] + dx / l * 25 * s]; }), 24);
+  }
+  plan.stroke(bankP, 60, { color: WALKC, paved: 0.7, life: 0.9, clear: ['wood', 'rows'] });
+  plan.stroke(waterP, 36, { color: WATERC, water: 1, clear: ['life', 'paved', 'wood', 'rows'] });
+  plan.stroke(deepP, 16, { color: DEEPC });
+  const nearStream = (x, z, pad) => streams.some((pts) => pts.some((q) => Math.hypot(q[0] - x, q[1] - z) < 30 + pad));
+  const free = (x, z, pad) => !busy(x, z, pad) && !inWater(x, z) && !nearStream(x, z, pad);
+
+  // walks: rings round the floor and lanes along it, all lit
+  const walks = gather();
   const ring = (z, wob) => { const a = []; for (let i = 0; i <= 128; i++) a.push([(i / 128) * C, z + Math.sin(i * 0.41 + z) * wob]); return a; };
-  for (const z of [700, 1000, 1700, 2150, 2600, 3050]) { const r = ring(z, 24); walks.put(6, plan.line(r)); lampLines.push(r); }
-  walks.put(9, plan.line(ring(L - 700, 0))); lampLines.push(ring(L - 700, 0));
+  for (const z of [700, 1000, 1700, 2150, 2600, 3050]) { const r = ring(z, 24); walks.put(6, plan.line(r)); lampsAlong(lamps, r, 28); }
+  walks.put(9, plan.line(ring(L - 700, 0))); lampsAlong(lamps, ring(L - 700, 0), 22);
   for (let i = 0; i < 32; i++) {
     const x = (i / 32) * C + 40, pts = [];
     for (let k = 0; k <= 24; k++) pts.push([x + Math.sin(k * 0.6 + i) * 28, 380 + (k / 24) * (L - 760)]);
     if (pts.some((q) => busy(q[0], q[1], 20))) continue;
-    walks.put(5, plan.line(pts)); if (i % 2 === 0) lampLines.push(pts);
+    walks.put(5, plan.line(pts)); lampsAlong(lamps, pts, 30);
   }
-  // wandering paths
   for (let i = 0; i < 60; i++) {
     let x = rng.f(0, C), z = rng.f(760, L - 760), a = rng.f(0, 6.28); const pts = [];
     for (let k = 0; k < 10; k++) { pts.push([x, z]); a += rng.f(-0.5, 0.5); x += Math.cos(a) * 36; z += Math.sin(a) * 36; }
@@ -133,88 +167,124 @@ function* paintCarillon(plan) {
   }
   // the bowl's own walks: a ring round the foot of its bank, and avenues out from it
   const bring = []; for (let i = 0; i <= 96; i++) { const a = (i / 96) * Math.PI * 2; bring.push([BX + Math.cos(a) * (RB + 14), BZ + Math.sin(a) * (RB + 14)]); }
-  walks.put(10, plan.line(bring)); lampLines.push(bring);
-  const spokes = [];
+  walks.put(10, plan.line(bring)); lampsAlong(lamps, bring, 14);
+  const aves = [];
   for (let i = 0; i < 8; i++) {
     const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
     const pts = [[BX + Math.cos(a) * (RB + 14), BZ + Math.sin(a) * (RB + 14)], [BX + Math.cos(a) * 520, BZ + Math.sin(a) * 520]];
     if ([0.25, 0.5, 0.75, 1].some((u) => { const x = BX + Math.cos(a) * (RB + 14 + u * 370), z = BZ + Math.sin(a) * (RB + 14 + u * 370); return nearLake(x, z, 40) || nearReach(x, z, 60); })) continue;
-    walks.put(8, plan.line(pts)); lampLines.push(pts); spokes.push(pts);
+    walks.put(8, plan.line(pts)); lampsAlong(lamps, pts, 14); aves.push(pts);
   }
-  for (const [w, p] of walks) plan.stroke(p, w, { color: '#d2c09a', paved: 0.8, life: 0.8, clear: ['wood', 'rows'] });
-  for (const pts of lampLines) plan.lamps(pts, 28);
-  for (const pts of spokes) plan.avenue(pts, 9, 12, { color: '#7e8a52' });
-  plan.avenue(bring, 12, 13, { color: '#808a54' });
-
+  for (const [w, p] of walks) plan.stroke(p, w, { color: WALKC, paved: 0.8, life: 0.8, clear: ['wood', 'rows'] });
+  for (const pts of aves) plan.avenue(pts, 9, 12, { color: WOODS[0] });
+  plan.avenue(bring, 12, 13, { color: WOODS[1] });
   yield 'plan: walks';
-  // clumps and groves, gardens
-  const clumps = gather();
-  for (let i = 0; i < 620; i++) {
+
+  // woods and clumps
+  const woods = gather();
+  for (let i = 0; i < 90; i++) {
+    const x = rng.f(0, C), z = rng.f(800, L - 800), r = rng.f(50, 150);
+    if (!free(x, z, r + 40)) continue;
+    woods.put(rng.pick(WOODS), plan.blob(x, z, r, r * rng.f(0.5, 0.9), { wobble: 0.35, lobes: 6, seed: 300 + i, n: 48 }));
+  }
+  for (let i = 0; i < 520; i++) {
     const x = rng.f(0, C), z = rng.f(760, L - 760), r = rng.f(9, 34);
-    if (busy(x, z, r + 30)) continue;
-    clumps.put(rng.pick(['#86905a', '#909860', '#7c8854']), plan.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 1, n: 24 }));
+    if (!free(x, z, r + 30)) continue;
+    woods.put(rng.pick(WOODS), plan.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 1, n: 24 }));
   }
-  for (const [c, p] of clumps) plan.fill(p, { color: c, wood: 1, clear: ['life', 'rows'] });
-  for (let i = 0; i < 22; i++) {
+  for (const [c, p] of woods) plan.fill(p, { color: c, wood: 1, clear: ['life', 'rows'] });
+  // terraced gardens: curved beds stepping down a slope of the lawn, each in its own colour, hedges between
+  const beds = gather(), hedges = new Path2D();
+  for (let i = 0; i < 34; i++) {
+    const x = rng.f(0, C), z = rng.f(900, L - 900), w = rng.f(90, 170), bend = rng.f(-14, 14);
+    if (!free(x, z, w)) continue;
+    for (let k = 0; k < 7; k++) {
+      const pts = []; for (let u = 0; u <= 8; u++) { const s = u / 8 - 0.5; pts.push([x + s * w, z + k * 8 + bend * (1 - 4 * s * s)]); }
+      beds.put(rng.pick(FLOWERS), plan.line(pts));
+      hedges.addPath(plan.line(pts.map((q) => [q[0], q[1] + 4])));
+    }
+    lampsAlong(lamps, [[x - w / 2 - 4, z - 6], [x + w / 2 + 4, z - 6]], 12);
+  }
+  for (const [c, p] of beds) plan.stroke(p, 5.5, { color: c, life: 0.3, clear: ['wood'] });
+  plan.stroke(hedges, 1.6, { color: '#3f5f48' });
+  for (let i = 0; i < 16; i++) {
     const x = rng.f(0, C), z = rng.f(850, L - 850), w = rng.f(80, 140), h = rng.f(60, 100);
-    if (busy(x, z, 120)) continue;
-    plan.garden(x - w / 2, z - h / 2, x + w / 2, z + h / 2, ['#d9a07a', '#e6c46a', '#c99aa0', '#b9b47a', '#e8b08a'], { seed: 'cg' + i, hedge: '#556240', gravel: '#d8c6a0' });
+    if (!free(x, z, 120)) continue;
+    plan.garden(x - w / 2, z - h / 2, x + w / 2, z + h / 2, FLOWERS, { seed: 'cg' + i, hedge: '#3f5f48', gravel: WALKC });
   }
-  yield 'plan: clumps';
-  // other waters round the floor
+  yield 'plan: woods';
+  // other lakes round the floor
   for (const [ox, oz, rx, rz, s] of WATERS) {
     const b = plan.blob(ox, oz, rx, rz, { wobble: 0.2, lobes: 6, seed: s });
-    plan.stroke(b, 26, { color: '#d8c6a0', paved: 0.7, life: 0.9, clear: ['wood'] });
-    plan.fill(b, { color: '#6f9a92', water: 1, clear: ['life', 'paved', 'wood', 'rows'] });
-    plan.fill(plan.blob(ox, oz, rx * 0.8, rz * 0.75, { wobble: 0.2, lobes: 5, seed: s + 9 }), { color: '#3f7a80' });
+    plan.stroke(b, 26, { color: WALKC, paved: 0.7, life: 0.9, clear: ['wood'] });
+    plan.fill(b, { color: WATERC, water: 1, clear: ['life', 'paved', 'wood', 'rows'] });
+    plan.fill(plan.blob(ox, oz, rx * 0.75, rz * 0.7, { wobble: 0.2, lobes: 5, seed: s + 9 }), { color: DEEPC, alpha: 0.7 });
+    const sh = []; for (let k = 0; k <= 64; k++) { const a = (k / 64) * Math.PI * 2; sh.push([ox + Math.cos(a) * (rx + 18), oz + Math.sin(a) * (rz + 16)]); }
+    lampsAlong(lamps, sh, 22);
   }
-  paintChoirLawns(plan, rng);
-  yield 'plan: choir lawns';
-  paintBowlAndReach(plan);
+  paintChoirBowls(plan, rng, free, lamps);
+  yield 'plan: choir bowls';
+  paintBowlAndReach(plan, lamps);
+  // every lamp at once
+  plan.dots(lamps, 2.2, { lamp: 1 });
+  for (const q of lamps) plan.features.push({ type: 'lamp', x: ((q[0] % C) + C) % C, z: q[1], h: 4.5 });
 }
 
-// every block has a choir: small round lawns all over the floor, each with its choir standing in a ring
-function paintChoirLawns(plan, rng) {
-  const lawn = new Path2D(), path = new Path2D(), rings = gather(), lamps = [];
-  for (let i = 0; i < 150; i++) {
-    const x = rng.f(0, C), z = rng.f(780, L - 780), r = rng.f(14, 26);
-    if (busy(x, z, r + 40)) continue;
+// every block has a choir: small round lawns all over the floor, the larger ones stepped like little bowls, each with
+// its choir standing round it in its colours and a ring of lamps
+function paintChoirBowls(plan, rng, free, lamps) {
+  const lawn = new Path2D(), path = new Path2D(), steps = new Path2D(), floor = new Path2D(), rings = gather();
+  let n = 0;
+  for (let i = 0; i < 260 && n < 150; i++) {
+    const big = i % 3 === 0, x = rng.f(0, C), z = rng.f(800, L - 800), r = big ? rng.f(34, 62) : rng.f(14, 26);
+    if (!free(x, z, r + 40)) continue;
+    n++;
     lawn.addPath(plan.ellipse(x, z, r, r));
-    path.addPath(plan.ellipse(x, z, r + 2, r + 2));
-    rings.put(rng.pick(CHOIRS)[0], plan.ellipse(x, z, r * 0.45, r * 0.45));
-    for (let k = 0; k < 8; k++) { const a = (k / 8) * Math.PI * 2; lamps.push([x + Math.cos(a) * (r + 2), z + Math.sin(a) * (r + 2)]); }
+    path.addPath(plan.ellipse(x, z, r + 3, r + 3));
+    const cc = rng.pick(CHOIRS);
+    if (big) {
+      for (let k = r * 0.32; k < r * 0.95; k += 5) steps.addPath(plan.ellipse(x, z, k, k));
+      floor.addPath(plan.ellipse(x, z, r * 0.24, r * 0.24));
+      rings.put(cc[0], plan.ellipse(x, z, r * 0.45, r * 0.45)); rings.put(cc[1], plan.ellipse(x, z, r * 0.58, r * 0.58)); rings.put(cc[0], plan.ellipse(x, z, r * 0.71, r * 0.71));
+    } else rings.put(cc[0], plan.ellipse(x, z, r * 0.45, r * 0.45));
+    const nl = Math.max(8, Math.round((Math.PI * 2 * (r + 3)) / 9));
+    for (let k = 0; k < nl; k++) { const a = (k / nl) * Math.PI * 2; lamps.push([x + Math.cos(a) * (r + 3), z + Math.sin(a) * (r + 3)]); }
     plan.features.push({ type: 'choir', x, z, r });
   }
-  plan.stroke(path, 3, { color: '#d8c6a0', paved: 0.8, life: 0.9, clear: ['wood'] });
-  plan.fill(lawn, { color: '#b2ac7c', life: 0.5, clear: ['wood', 'rows'] });
-  for (const [c, p] of rings) plan.stroke(p, 3.2, { color: c, life: 1 });
-  plan.dots(lamps, 1.8, { lamp: 0.9 });
+  plan.stroke(path, 3.5, { color: WALKC, paved: 0.8, life: 0.9, clear: ['wood'] });
+  plan.fill(lawn, { color: '#8fa87c', life: 0.5, clear: ['wood', 'rows'] });
+  plan.stroke(steps, 1.4, { color: '#c8bfa4' });
+  plan.fill(floor, { color: '#d6ccb0', paved: 1 });
+  for (const [c, p] of rings) plan.stroke(p, 4.2, { color: c, life: 1 });
 }
 
 // the bowl's footprint (kept clear: the bowl is built), the reach with its terraces, and the lake it runs into
-function paintBowlAndReach(plan) {
+function paintBowlAndReach(plan, lamps) {
   const left = (off) => REACH.map((q) => bank(q, 1, off)), right = (off) => REACH.map((q) => bank(q, -1, off));
   const band = (o0, o1, side) => plan.poly([...(side > 0 ? left(o0) : right(o0)), ...(side > 0 ? left(o1) : right(o1)).reverse()]);
   const TW = NSTEP * SD + PROM;
   for (const side of [1, -1]) {
-    plan.fill(band(RW - 2, RW + TW + 6, side), { color: '#8f9660', clear: ['life', 'wood', 'rows', 'lamp', 'water'] });
+    plan.fill(band(RW - 2, RW + TW + 6, side), { color: LAWN, clear: ['life', 'wood', 'rows', 'lamp', 'water'] });
     plan.fill(band(RW - 2, RW + TW, side), { color: '#cdb48c', paved: 1 });
-    plan.avenue(side > 0 ? left(RW + TW + 14) : right(RW + TW + 14), 0.1, 12, { color: '#7e8650' });
-    plan.stroke(plan.line(side > 0 ? left(RW + TW + 24) : right(RW + TW + 24)), 6, { color: '#d2c09a', paved: 0.8, life: 0.9, clear: ['wood'] });
+    plan.avenue(side > 0 ? left(RW + TW + 14) : right(RW + TW + 14), 0.1, 12, { color: WOODS[0] });
+    plan.stroke(plan.line(side > 0 ? left(RW + TW + 24) : right(RW + TW + 24)), 6, { color: WALKC, paved: 0.8, life: 0.9, clear: ['wood'] });
   }
   // the lake: a shore walk, lamps, and the water
   const lake = plan.blob(LAKE.x, LAKE.z, LAKE.rx, LAKE.rz, { wobble: 0.14, lobes: 6, seed: 41 });
-  plan.stroke(lake, 40, { color: '#d6c29a', paved: 0.8, life: 1, clear: ['wood', 'rows'] });
+  plan.stroke(lake, 40, { color: WALKC, paved: 0.8, life: 1, clear: ['wood', 'rows'] });
   const shore = []; for (let i = 0; i <= 90; i++) { const a = (i / 90) * Math.PI * 2; shore.push([LAKE.x + Math.cos(a) * (LAKE.rx + 26), LAKE.z + Math.sin(a) * (LAKE.rz + 22)]); }
-  plan.lamps(shore, 26);
-  plan.avenue(shore.filter((_, i) => i % 2 === 0), 14, 15, { color: '#7e8650' });
-  plan.fill(lake, { color: '#6a948e', water: 1, clear: ['life', 'paved', 'wood', 'rows', 'lamp'] });
-  for (const [k, a] of [[0.86, 0.35], [0.7, 0.35], [0.52, 0.35]]) plan.fill(plan.blob(LAKE.x, LAKE.z, LAKE.rx * k, LAKE.rz * k, { wobble: 0.16, lobes: 5, seed: 42 }), { color: '#3a6c72', alpha: a });
+  lampsAlong(lamps, shore, 18);
+  plan.avenue(shore.filter((_, i) => i % 2 === 0), 14, 15, { color: WOODS[1] });
+  plan.fill(lake, { color: WATERC, water: 1, clear: ['life', 'paved', 'wood', 'rows', 'lamp'] });
+  for (const [k, a] of [[0.86, 0.35], [0.7, 0.35], [0.52, 0.35]]) plan.fill(plan.blob(LAKE.x, LAKE.z, LAKE.rx * k, LAKE.rz * k, { wobble: 0.16, lobes: 5, seed: 42 }), { color: DEEPC, alpha: a });
   // the reach's water, darker down the middle
-  plan.fill(plan.poly([...left(RW), ...right(RW).reverse()]), { color: '#5f8c88', water: 1, clear: ['life', 'paved', 'wood', 'rows', 'lamp'] });
-  plan.stroke(plan.line(REACH.map((q) => [q.x, q.z])), RW * 1.1, { color: '#3d6f72', alpha: 0.7 });
+  plan.fill(plan.poly([...left(RW), ...right(RW).reverse()]), { color: WATERC, water: 1, clear: ['life', 'paved', 'wood', 'rows', 'lamp'] });
+  plan.stroke(plan.line(REACH.map((q) => [q.x, q.z])), RW * 1.1, { color: DEEPC, alpha: 0.7 });
   // the bowl's footprint: not quite water, which keeps the ground's own trees, people and pavilions off it
-  plan.fill(plan.ellipse(BX, BZ, RB + 3, RB + 3), { color: '#8f9660', water: 0.28, clear: ['life', 'wood', 'rows', 'lamp', 'paved', 'water'] });
+  plan.fill(plan.ellipse(BX, BZ, RB + 3, RB + 3), { color: LAWN, water: 0.28, clear: ['life', 'wood', 'rows', 'lamp', 'paved', 'water'] });
+  plan.fill(plan.ellipse(B2.x, B2.z, B2.rb + 3, B2.rb + 3), { color: LAWN, water: 0.28, clear: ['life', 'wood', 'rows', 'lamp', 'paved', 'water'] });
+  const b2 = []; for (let i = 0; i <= 64; i++) { const a = (i / 64) * Math.PI * 2; b2.push([B2.x + Math.cos(a) * (B2.rb + 10), B2.z + Math.sin(a) * (B2.rb + 10)]); }
+  plan.stroke(plan.line(b2), 7, { color: WALKC, paved: 0.8, life: 0.9, clear: ['wood'] }); lampsAlong(lamps, b2, 12);
   plan.features.push({ type: 'bowl', x: BX, z: BZ });
 }
 
@@ -227,7 +297,7 @@ function paintPavilions(plan) {
     if (inWater(px, pz) || busy(px, pz, 30)) continue;
     pav.push([px, pz]);
   }
-  plan.dots(pav, 9, { color: '#cbbb98', alpha: 0.9, paved: 1, clear: ['wood', 'rows'] });
+  plan.dots(pav, 9, { color: '#c8c0a8', alpha: 0.9, paved: 1, clear: ['wood', 'rows'] });
   plan.dots(pav, 2.2, { lamp: 0.9 });
   return pav;
 }
@@ -356,7 +426,7 @@ function* buildBowl(hollow, lights, lod, statics) {
   let t0 = performance.now();
   const seg = (i) => (i / NSEG) * Math.PI * 2;
   const choirTint = CHOIRS.map((c) => lin(c[0]));
-  const stone = lin('#c9ae86'), stone2 = lin('#b89c74'), riserC = lin('#6e5034'), lawnC = lin('#8c955a'), lawn2 = lin('#99a064');
+  const stone = lin('#c9ae86'), stone2 = lin('#b89c74'), riserC = lin('#6e5034'), lawnC = lin('#6f8c62'), lawn2 = lin('#7a9668');
   // the round floor: paving in rings, a bronze ring let into it
   const rings = [[0, 3.2, '#d6c6a4'], [3.2, 7.8, '#cbb690'], [7.8, 8.2, BRONZE2], [8.2, 13.5, '#d2c09c'], [13.5, 13.9, BRONZE2], [13.9, R0, '#c6b08a']];
   for (const [r0, r1, col] of rings) for (let i = 0; i < NSEG; i += 2) {
@@ -513,6 +583,57 @@ function* bowlPeople(hollow, lights, lod, rng) {
   yield 'bowl: people';
 }
 
+// ---------------------------------------------------------------- the second bowl, and the people round the lake
+function* buildSecondBowl(hollow, lights, lod, statics) {
+  const g = new Geo({ maxSeg: 16 }), rng = makeRng('carillon-bowl2'), N = 96, { x: cx, z: cz } = B2;
+  const Q = (r, a, y) => [cx + Math.cos(a) * r, y, cz + Math.sin(a) * r], seg = (i) => (i / N) * Math.PI * 2;
+  const rS = B2.r0 + B2.n * B2.rd, yS = B2.n * B2.rise, rL = rS + B2.lawn * B2.ld, yL = yS + B2.lawn * 0.6, rR = rL + 4;
+  for (let i = 0; i < N; i++) {
+    const a0 = seg(i), a1 = seg(i + 1), am = (a0 + a1) / 2, inw = [-Math.cos(am), 0, -Math.sin(am)], j = 0.94 + 0.1 * hash2(i, 3, 9);
+    face(g, Q(0.01, a0, 0.06), Q(0.01, a1, 0.06), Q(B2.r0, a1, 0.06), Q(B2.r0, a0, 0.06), '#d2c4a4', UP);
+    for (let k = 0; k < B2.n; k++) {
+      const r0 = B2.r0 + k * B2.rd, r1 = r0 + B2.rd, y0 = k ? k * B2.rise : 0.06, y1 = (k + 1) * B2.rise;
+      face(g, Q(r0, a0, y1), Q(r0, a1, y1), Q(r1, a1, y1), Q(r1, a0, y1), scale3(lin((k + i) % 2 ? '#c9ae86' : '#b89c74'), j), UP);
+      face(g, Q(r0, a0, y0), Q(r0, a1, y0), Q(r0, a1, y1), Q(r0, a0, y1), scale3(lin('#6e5034'), j), inw);
+    }
+    for (let k = 0; k < B2.lawn; k++) {
+      const r0 = rS + k * B2.ld, y0 = yS + k * 0.6, y1 = y0 + 0.6;
+      face(g, Q(r0, a0, y1), Q(r0, a1, y1), Q(r0 + B2.ld, a1, y1), Q(r0 + B2.ld, a0, y1), scale3(lin('#6f8c62'), j), UP);
+      face(g, Q(r0, a0, y0), Q(r0, a1, y0), Q(r0, a1, y1), Q(r0, a0, y1), scale3(lin('#b89c74'), j), inw);
+    }
+    face(g, Q(rL, a0, yL), Q(rL, a1, yL), Q(rR, a1, yL), Q(rR, a0, yL), lin('#d8c6a0'), UP);
+    face(g, Q(rR, a0, yL), Q(rR, a1, yL), Q(B2.rb, a1, 0.03), Q(B2.rb, a0, 0.03), scale3(lin('#7a9668'), j), [Math.cos(am), 1, Math.sin(am)]);
+  }
+  conductor(g, cx, 0.06, cz, Math.PI, '#3a2c24');
+  statics.push(hollow.add(g.mesh(hollow.lit, hollow.frame)));
+  yield 'bowl 2';
+  // its choirs, in eight wedges, lifting their lamps a little after the big bowl's, as the camera comes over the lake
+  const bySkin = new Map(), FS = [SKIN[0], SKIN[2], SKIN[4]];
+  for (let k = 0; k < B2.n; k++) {
+    const r = B2.r0 + k * B2.rd + B2.rd * 0.42, y = (k + 1) * B2.rise, n = Math.floor((Math.PI * 2 * r) / 0.62);
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2, w = Math.floor(a / (Math.PI / 4)), wa = a - (w + 0.5) * (Math.PI / 4);
+      if (Math.abs(wa) * r > (Math.PI / 4) * r / 2 - 0.9 || rng() < 0.04) continue;
+      const cc = CHOIRS[(w * 3 + 2) % NCH], ca = Math.cos(a), sa = Math.sin(a), x = cx + ca * r, z = cz + sa * r, skin = rng.pick(FS);
+      let list = bySkin.get(skin); if (!list) bySkin.set(skin, list = []);
+      list.push({ p: [x, y, z], yaw: Math.atan2(-ca, -sa), color: scale3(lin(cc[VOICE(Math.round(k * 2.1))]), rng.f(0.85, 1.05)) });
+      if (rng() < 0.9) lights.raise.push({ p: [x - ca * 0.3, y + 1.0, z - sa * 0.3], color: rng.pick(['#ffd08a', '#ffc070', '#ffe0b0']), power: rng.f(7, 10), size: 0.32, when: 41 + (r - B2.r0) / 3 + rng.f(0, 0.8), phase: rng(), lift: 1.0 });
+    }
+  }
+  for (const [skin, list] of bySkin) for (const m of instances(farSinger(skin), hollow.lit, list, { frame: hollow.frame, cell: 150 })) lod.push([hollow.add(m), 2500]);
+  // people standing round the lake at the water's edge, waiting, with lamps of their own
+  const shore = [], CL = ['#c9563c', '#d98c2b', '#e2c14a', '#6f9a3e', '#3f8a7a', '#3a6ea5', '#a34b86', '#e7e1d3', '#8c8577', '#7a4a2e', '#c7a36a', '#efe6d2'];
+  for (let i = 0; i < 1100; i++) {
+    const a = rng() * Math.PI * 2, e = rng.f(4, 15), x = LAKE.x + Math.cos(a) * (LAKE.rx + e), z = LAKE.z + Math.sin(a) * (LAKE.rz + e * 0.85);
+    if (nearReach(x, z, 30)) continue;
+    const skin = rng.pick(FS); let list = shore[skin]; if (!list) shore[skin] = list = [];
+    list.push({ p: [x, 0, z], yaw: Math.atan2(-Math.cos(a), -Math.sin(a) * 1.7) + rng.f(-0.5, 0.5), color: rng.pick(CL), scale: rng.chance(0.15) ? 0.7 : rng.f(0.92, 1.06) });
+    if (rng() < 0.6) lights.raise.push({ p: [x - Math.cos(a) * 0.3, 1.0, z - Math.sin(a) * 0.3], color: rng.pick(['#ffd08a', '#ffc070', '#ffe0b0']), power: rng.f(6, 9), size: 0.3, when: SEND + 14 + rng.f(0, 10), phase: rng(), lift: rng.f(0.9, 1.2) });
+  }
+  for (const skin of FS) if (shore[skin]) for (const m of instances(farSinger(skin), hollow.lit, shore[skin], { frame: hollow.frame, cell: 150 })) lod.push([hollow.add(m), 900]);
+  yield 'lake folk';
+}
+
 // ---------------------------------------------------------------- the reach
 // a point on the reach's middle line at s metres from its start
 function atS(s) {
@@ -526,7 +647,7 @@ const terraced = (q, side) => { const [x, z] = bank(q, side, RW); return q.s > 3
 
 function* buildReach(hollow, lights, lod, statics) {
   const g = new Geo({ maxSeg: 16 }), rng = makeRng('carillon-reach');
-  const stoneA = lin('#cfb68e'), stoneB = lin('#c2a780'), riser = lin('#8a6a48'), grass = lin('#8c955a');
+  const stoneA = lin('#cfb68e'), stoneB = lin('#c2a780'), riser = lin('#8a6a48'), grass = lin('#6f8c62');
   const B = (q, side, off, y) => { const [x, z] = bank(q, side, off); return [x, y, z]; };
   const singers = [], folk = [], posts = [];
   for (const side of [1, -1]) {
@@ -625,9 +746,9 @@ function* floorPeople(hollow, near, R, density, max, lod) {
 
 // ---------------------------------------------------------------- the evening: [t, sun, its power, far side, its power, glow, its power, rod, lamps, windows]
 const EVE = [
-  [0, '#f6b86e', 0.56, '#9a6440', 0.2, '#6c6478', 0.26, 22, 0.4, 0.16],
-  [30, '#f2aa62', 0.5, '#8a5638', 0.16, '#625a72', 0.25, 19, 0.6, 0.3],
-  [64, '#e8904e', 0.42, '#6e4430', 0.1, '#4c4866', 0.24, 14, 0.95, 0.5],
+  [0, '#f8cdb0', 0.5, '#7a6890', 0.14, '#4e6a90', 0.34, 22, 0.45, 0.18],
+  [30, '#f0b8a8', 0.44, '#5e5486', 0.1, '#46608a', 0.33, 18, 0.7, 0.32],
+  [64, '#e2a0a4', 0.36, '#3e3a6e', 0.05, '#3a4878', 0.31, 13, 1.0, 0.52],
 ];
 const EVEC = EVE.map((k) => [new Color(k[1]), new Color(k[3]), new Color(k[5])]);
 const WALL = {
@@ -650,9 +771,9 @@ export const carillonChoirs = {
     const tiers = {}; for (let i = 0; i < NT; i++) tiers[i] = { crowd: i === 9 ? 0.8 : 0.4, garden: 0.55 };
     const hollow = yield* buildHollow(ctx, {
       seed: 'carillon', plan, pavilions: false,
-      light: { sun: EVE[0][1], sunPower: EVE[0][2], sunFar: EVE[0][3], sunFarPower: EVE[0][4], sunAngle: BX / 1500 + 0.2, sunSharp: 3, amb: EVE[0][5], ambPower: EVE[0][6], bounce: '#b08a50', bouncePower: 0.25, ground: '#ffb468', groundPower: 0.12, air: '#d2c4b0', airDensity: 0.00003 },
+      light: { sun: EVE[0][1], sunPower: EVE[0][2], sunFar: EVE[0][3], sunFarPower: EVE[0][4], sunAngle: BX / 1500 + 0.2, sunSharp: 3, amb: EVE[0][5], ambPower: EVE[0][6], bounce: '#7a9a80', bouncePower: 0.2, ground: '#ffb468', groundPower: 0.12, air: '#a8b8d0', airDensity: 0.00004 },
       sunline: { power: EVE[0][7], halo: 240, haloPower: 0.04 },
-      ground: { canopy: '#7f8a50', lamp: EVE[0][8], lampColor: '#ffc078', people: 0.9, sunRod: EVE[0][7], wave: 0.012, stripes: 0.05, grain: 0.2 },
+      ground: { canopy: '#5f8058', lamp: EVE[0][8], lampColor: '#ffc078', people: 0.9, sunRod: EVE[0][7], wave: 0.012, stripes: 0.05, grain: 0.2 },
       front: { ...WALL, tiers }, back: { ...WALL, tiers },
     });
     yield 'hollow';
@@ -670,7 +791,7 @@ export const carillonChoirs = {
       { t: 30, p: [BX + 125, 20, BZ + 1], look: [BX + 300, 3, BZ + 24] },
       { t: 35, p: [BX + 250, 10, BZ - 6], look: [BX + 340, 3, BZ + 40] },
       { t: 40, p: [BX + 390, 8, BZ + 62], look: [BX + 460, 3, BZ + 200] },
-      { t: 46, p: [BX + 420, 90, BZ + 290], look: [BX + 250, 0, BZ + 500] },
+      { t: 46, p: [BX + 420, 90, BZ + 290], look: [BX - 140, 0, BZ + 690] },
       { t: 52, p: [BX + 300, 190, BZ + 560], look: [BX + 20, 0, BZ + 40] },
       { t: 58, p: [BX + 98, 218, BZ + 505], look: [BX, 0, BZ] },
       { t: 64, p: [BX + 50, 207, BZ + 392] },
@@ -678,6 +799,7 @@ export const carillonChoirs = {
     const pts = path.points(0.5), low = pts.filter((q) => q.y < 90);
     yield* buildBowl(hollow, lights, lod, statics);
     yield* buildReach(hollow, lights, lod, statics);
+    yield* buildSecondBowl(hollow, lights, lod, statics);
     hollow.at(0, 0);
     yield 'plan read';
     const trees = yield* scatterTrees(hollow, { near: low, radius: 120, max: 5000 * ctx.density, wood: [{ kind: 'round', weight: 3 }, { kind: 'poplar', weight: 1 }, { kind: 'birch', weight: 1, tint: [1.2, 1.15, 0.9] }] });
@@ -693,9 +815,9 @@ export const carillonChoirs = {
     hollow.add(raise);
     // lamp floats let go on the water after each sending, drifting slowly down the reach and out over the lake
     const frng = makeRng('carillon-floats'), floats = [];
-    for (let i = 0; i < 420; i++) {
+    for (let i = 0; i < 1000; i++) {
       let x, z;
-      if (i % 3) { x = LAKE.x + frng.f(-1, 1) * LAKE.rx; z = LAKE.z + frng.f(-1, 1) * LAKE.rz; if (!nearLake(x, z, -30)) continue; }
+      if (i % 4) { x = LAKE.x + frng.f(-1, 1) * LAKE.rx; z = LAKE.z + frng.f(-1, 1) * LAKE.rz; if (!nearLake(x, z, -30)) continue; }
       else { const q = atS(frng.f(20, REACH[REACH.length - 1].s)); [x, z] = bank(q, frng.sign(), frng.f(0, RW - 8)); }
       const a = frng.f(0, 6.28), v = frng.f(0.08, 0.2);
       floats.push({ p: [x, 0.25, z], color: frng.pick(['#ffc878', '#ffd89a', '#ffb860']), power: frng.f(4, 7), size: 0.55, move: [Math.cos(a) * v, 0, Math.sin(a) * v], loop: frng.f(120, 260), twinkle: 0.1 });
@@ -706,7 +828,7 @@ export const carillonChoirs = {
     // the evening going on: the line dimming and reddening, lamps coming up, windows lighting tier by tier
     const rig = hollow.rig, sun = new Color(), farC = new Color(), amb = new Color();
     const winT = [0, 1].map((s) => { const a = []; for (let i = 0; i < NT; i++) a.push([4 + i * 0.9 + 18 * hash2(i, s, 3), 0.12 + 0.2 * hash2(i, s, 7)]); return a; });
-    const look = { exposure: 1.55, bloom: 0.26, threshold: 0.72, saturation: 1.08, contrast: 1.12, vignette: 0.48, lift: [0.006, 0.004, 0.006], gain: [1.02, 1.0, 0.96] };
+    const look = { exposure: 1.6, bloom: 0.28, threshold: 0.72, saturation: 1.1, contrast: 1.1, vignette: 0.48, lift: [0.0, 0.004, 0.012], gain: [0.98, 1.0, 1.03] };
     function evening(t) {
       let i = 0; while (i < EVE.length - 2 && EVE[i + 1][0] <= t) i++;
       const a = EVE[i], b = EVE[i + 1], u = smoothstep(a[0], b[0], t), ca = EVEC[i], cb = EVEC[i + 1], m = (j) => a[j] + (b[j] - a[j]) * u;
@@ -717,12 +839,12 @@ export const carillonChoirs = {
       for (let s = 0; s < 2; s++) for (let k = 0; k < NT; k++) { const w = winT[s][k]; hollow.setWindows(s, k, w[1] * smoothstep(w[0], w[0] + 10, t)); }
       lampGlow.material.uniforms.uPower.value = 0.55 + 0.45 * smoothstep(0, 40, t);
       raise.material.uniforms.uT.value = t;
-      look.exposure = 1.55 + 0.25 * smoothstep(20, 60, t);
+      look.exposure = 1.6 + 0.3 * smoothstep(20, 60, t);
     }
     evening(0);
     return {
       scene, path, hollow, near: 0.3, far: 9000, look,
-      portal: { mist: '#e0ac6c' },
+      portal: { mist: '#c8a890' },
       update(t, dt, camera) {
         evening(t);
         const cp = camera.position;
