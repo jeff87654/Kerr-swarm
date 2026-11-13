@@ -6,12 +6,13 @@
 // Coriolis push outweighs what's left of the spin's pull, so the cabin swings until 'down' points sideways", and in the
 // last ~50 m "'down' swings toward the axis, then fades to nothing" (docs/drum-transport.md, The Hollow and the Spindle).
 //
-// The flight begins in a grinders' yard at the foot of the front wall at an ochre dawn, among cones and trays of pure
-// pigment, slabs and mullers and lamps still lit; follows a wanderer with a jar to the lift station; rises beside a cab
-// up the yellow-ochre spoke of the wall, terrace after terrace, the shades going from umber through ochre to cream as
-// the land drops away and wraps up overhead; leans as "down" swings sideways near the top and then toward the axis;
-// comes up through the gate into the netted front flying hall, where people fly in sleeves, looks out along the drum,
-// turns to look back at the chart, now a whole wheel round the painted hub, and leaves through a hoop of lamps there.
+// The flight begins a kilometre and more out over the grinders' works at an ochre dawn, the whole front wall ahead as
+// a colour wheel three kilometres across, deep shades at the rim, tints at the hub, windows lit; comes down over the
+// Dim End wood into a grinders' yard at the wall's foot, among cones and trays of pure pigment, slabs and mullers and
+// lamps still lit, past a wanderer taking a jar; rises beside a cab up the vermilion spoke, the terraces a patchwork of
+// chips going by, the works below a paintbox of pans and rinse channels; leans as "down" swings sideways near the top
+// and then toward the axis; passes through the netted front flying hall; and draws back from the wall, a little off
+// the axis, until it is a whole wheel again, and leaves through an opening there.
 //
 // Not canon (the docs give Ochre its grinders, its dawn and a Hollow of pigment gardens and pavilions by a lake, not
 // its wall):
@@ -23,9 +24,10 @@
 //     mullers, an edge-runner mill, cones of pigment on trays, the racks of jars, stained aprons;
 //   - the Spindle lift as an open girder guideway leaning up the wall over the rails of the terraces, with cabs going up
 //     one side and down the other, and how its station and its cabs look;
-//   - the plan of the Hollow: the woods of the Dim Ends, the pigment gardens in bands of colour, the lake, the walks;
+//   - the plan of the Hollow: the woods of the Dim Ends; the grinders' works (settling pans, drying floors of pure
+//     pigment, rinse channels running coloured to a rinse lake below the lift); the lakes' shapes, the walks;
 //   - what people do on the terraces passed (tea, trays of pigment drying, shelves of jars, a reel on the Third,
-//     children on the Quarter), the wanderer's jar handed over in the yard, and the hoop of lamps in the hall;
+//     children on the Quarter), the wanderer's jar handed over in the yard;
 //   - the dawn pressed into one minute.
 import {
   Scene, Color, Vector3, Matrix4, Quaternion, Mesh, InstancedMesh, BufferGeometry, Float32BufferAttribute, Uint8BufferAttribute, ShaderMaterial, DoubleSide, Sphere,
@@ -47,6 +49,7 @@ const PIGMENTS = ['#d4a034', '#c27a2e', '#a24a2a', '#b8362c', '#9a2642', '#6c3a6
 const DEPTHS = tierDepths();
 const WALL_FOOT = DEPTHS.reduce((a, b) => a + b, 0);            // the front wall meets the floor here (z)
 const X_L = 0;                                                 // the lift's spoke, flat x on the floor
+const HUE0 = 3;                                                // the chart's hue at x = 0: vermilion, the spoke the lift climbs
 const ZR = (t) => tierPlace(DEPTHS, t).zRail;                  // the rail of tier t (its riser's face)
 const YT = (t) => (t + 1) * TIER_H;                            // the floor of tier t's terrace
 
@@ -55,6 +58,7 @@ const merge = (list) => { const p = new Path2D(); for (const q of list) p.addPat
 const lines = (list) => { const p = new Path2D(); for (const pts of list) pts.forEach((q, i) => (i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]))); return p; };
 const ring = (z, n = 120, wob = 0, ph = 0) => { const a = []; for (let i = 0; i <= n; i++) a.push([(i / n) * C, z + Math.sin(i * 0.41 + ph) * wob]); return a; };
 const LAKE = { x: C * 0.42, z: 1900, rx: 520, rz: 300 };
+const LAKE2 = { x: 760, z: 1260, rx: 360, rz: 150 };            // the rinse lake below the lift's spoke
 
 // a band right round the floor, painted once per layer (plan.band is drawn three times over, the seam's copies included)
 function bandOnce(plan, z0, z1, color, wood, life) {
@@ -97,23 +101,55 @@ function* paintOchre(plan) {
   paintAlb(plan, heaps);
   yield 'plan: yards';
   // the lake, and the pigment gardens round it in bands of colour
-  const lake = plan.blob(LAKE.x, LAKE.z, LAKE.rx, LAKE.rz, { wobble: 0.16, lobes: 6, seed: 4 });
+  const lake = merge([plan.blob(LAKE.x, LAKE.z, LAKE.rx, LAKE.rz, { wobble: 0.16, lobes: 6, seed: 4 }), plan.blob(LAKE2.x, LAKE2.z, LAKE2.rx, LAKE2.rz, { wobble: 0.2, lobes: 5, seed: 7 })]);
   plan.stroke(lake, 36, { color: '#d2c09a', paved: 0.4, life: 1, clear: ['wood'] });
-  // the pigment gardens: quarters of long beds stepping through the colours, like cards from the chart laid on the land
-  const beds = PIGMENTS.map(() => []), quarters = [];
-  for (let q = 0; q < 44; q++) {
-    const x = rng.f(0, C), z = rng.f(860, L - 900), w = rng.f(140, 320), d = rng.f(90, 200);
-    let dx = x + w / 2 - LAKE.x; dx = ((dx % C) + C * 1.5) % C - C / 2;
-    if ((dx / (LAKE.rx + w / 2 + 40)) ** 2 + ((z + d / 2 - LAKE.z) / (LAKE.rz + d / 2 + 40)) ** 2 < 1) continue;
-    quarters.push(plan.rect(x - 4, z - 4, x + w + 4, z + d + 4, 4));
-    const h0 = rng.i(0, 11), step = rng.chance(0.5) ? 1 : -1, bw = rng.f(5, 8);
-    for (let k = 0, zz = z; zz + bw <= z + d; zz += bw + 2, k++) beds[(h0 + step * Math.floor(k / 2) + 120) % 12].push(plan.rect(x, zz, x + w, zz + bw));
-  }
-  plan.fill(merge(quarters), { color: '#c8b896', paved: 0.3, life: 0.4, clear: ['wood'] });
-  paintAlb(plan, PIGMENTS.map((c, i) => { const q = rgb(c), k = 0.62; const mix = new Color(q[0] * k + 0.5 * (1 - k), q[1] * k + 0.47 * (1 - k), q[2] * k + 0.36 * (1 - k)); return [merge(beds[i]), '#' + mix.getHexString()]; }));
-  plan.fill(lake, { color: '#4f6a62', water: 1, clear: ['life', 'paved', 'wood'] });
+  plan.fill(lake, { color: '#5e6458', water: 1, clear: ['life', 'paved', 'wood'] });
   plan.fill(plan.blob(LAKE.x, LAKE.z, LAKE.rx * 0.75, LAKE.rz * 0.65, { wobble: 0.2, lobes: 5, seed: 5 }), { color: '#3a5650', feather: 50 });
   yield 'plan: gardens';
+  // the grinders' works: settling pans of coloured water and drying floors of pure pigment among the lawns, each works
+  // with a rinse channel running its colour down to a lake. Thick near the lift's spoke, where the flight looks down.
+  // All of it in a handful of paint calls: one per layer, every shape inside.
+  const POW = ['#c99030', '#c23a24', '#2e3c96', '#1f7a6a', '#d6a83c', '#a8482a', '#7a2a5a', '#3a6eb0', '#8a9a34', '#e0c050'];
+  const lakes = [LAKE, LAKE2];
+  const offLakes = (x, z, m) => lakes.every((k) => { let dx = x - k.x; dx = ((dx % C) + C * 1.5) % C - C / 2; return (dx / (k.rx + m)) ** 2 + ((z - k.z) / (k.rz + m)) ** 2 > 1; });
+  const wet = new Path2D(), dry = new Path2D(), all = new Path2D(), apronP = new Path2D(), chans = new Path2D(), draws = [], strokes = [];
+  for (let i = 0; i < 230; i++) {
+    const near = i < 110;
+    const x = near ? rng.f(-1300, 1500) : rng.f(0, C), z = near ? rng.f(820, 1640) : rng.f(820, L - 820);
+    if (!offLakes(x, z, 90)) continue;
+    const main = rng.pick(POW), w0 = rng.f(90, 220), d0 = rng.f(55, 130);
+    const ap = plan.rect(x - 6, z - 6, x + w0 + 6, z + d0 + 6, 6);
+    apronP.addPath(ap); all.addPath(ap);
+    const n = rng.i(3, 7);
+    for (let k = 0; k < n; k++) {
+      const c = k < 2 ? main : rng.pick(POW), round = rng.chance(0.35), isWet = rng.chance(0.45);
+      let sh;
+      if (round) { const r = rng.f(10, 28); sh = plan.ellipse(x + rng.f(r, w0 - r), z + rng.f(r, d0 - r), r, r); }
+      else { const w = rng.f(24, Math.min(90, w0 * 0.6)), d = rng.f(14, Math.min(50, d0 * 0.7)), px = x + rng.f(0, w0 - w), pz = z + rng.f(0, d0 - d); sh = plan.rect(px, pz, px + w, pz + d, 2); }
+      (isWet ? wet : dry).addPath(sh);
+      draws.push([sh, c]);
+    }
+    // the rinse channel, wandering to the nearer lake
+    const lk = lakes.reduce((b, k) => { let dx = k.x - x; dx = ((dx % C) + C * 1.5) % C - C / 2; const d = Math.hypot(dx, k.z - z); return d < b.d ? { k, dx, d } : b; }, { d: 1e9 });
+    if (lk.d < 700) {
+      const sx = x + w0 / 2, sz = z + d0 / 2, ux = lk.dx / lk.d, uz = (lk.k.z - sz) / lk.d, rr = lk.k.rx * lk.k.rz / Math.hypot(lk.k.rz * ux, lk.k.rx * uz);
+      const pts = [], ex = sx + ux * (lk.d - rr * 0.92), ez = sz + uz * (lk.d - rr * 0.92), m = 12;
+      for (let j = 0; j <= m; j++) { const u = j / m; pts.push([sx + (ex - sx) * u + Math.sin(u * 7 + i) * 18 * Math.sin(Math.PI * u), sz + (ez - sz) * u + Math.cos(u * 5 + i) * 12 * Math.sin(Math.PI * u)]); }
+      const line = plan.line(pts);
+      chans.addPath(line); strokes.push([line, main]);
+    }
+  }
+  plan.layer('mask', (cx) => { cx.globalCompositeOperation = 'multiply'; cx.fillStyle = 'rgb(255,0,255)'; cx.fill(all); cx.lineWidth = 12; cx.strokeStyle = 'rgb(255,0,255)'; cx.stroke(chans); });
+  plan.layer('mask', (cx) => { cx.globalCompositeOperation = 'lighter'; cx.fillStyle = 'rgb(255,0,0)'; cx.fill(wet); cx.lineWidth = 5; cx.lineCap = 'round'; cx.strokeStyle = 'rgb(255,0,0)'; cx.stroke(chans); });
+  plan.layer('kind', (cx) => { cx.globalCompositeOperation = 'multiply'; cx.fillStyle = 'rgb(255,255,0)'; cx.fill(all); cx.globalCompositeOperation = 'lighter'; cx.fillStyle = 'rgb(200,0,90)'; cx.fill(apronP); });
+  plan.layer('alb', (cx) => {
+    cx.fillStyle = '#cdbb94'; cx.fill(apronP);
+    cx.lineCap = 'round'; cx.lineJoin = 'round';
+    cx.lineWidth = 12; cx.strokeStyle = '#c8b894'; cx.stroke(chans);
+    for (const [ln, c] of strokes) { cx.lineWidth = 5; cx.strokeStyle = c; cx.stroke(ln); }
+  });
+  for (let i0 = 0; i0 < draws.length; i0 += 300) plan.layer('alb', (cx) => { for (const [sh, c] of draws.slice(i0, i0 + 300)) { cx.fillStyle = c; cx.fill(sh); } });
+  yield 'plan: works';
   // groves
   const groves = [[], [], []];
   for (let i = 0; i < 150; i++) {
@@ -183,8 +219,9 @@ vec3 kPig(float hue) {
 vec3 kChip(float hue, float v) {
   vec3 c = kPig(hue);
   c = max(mix(vec3(dot(c, vec3(0.3, 0.55, 0.15))), c, 1.25), 0.0);
-  c = mix(uDeep, c * mix(0.5, 1.0, smoothstep(0.0, 0.36, v)), mix(0.62, 1.0, smoothstep(-0.05, 0.22, v)));
-  return mix(c * (1.0 + 0.14 * smoothstep(0.4, 1.0, v)), uPale, smoothstep(0.42, 1.02, v) * 0.36);
+  c = mix(uDeep, c * mix(0.55, 1.0, smoothstep(0.0, 0.3, v)), mix(0.66, 1.0, smoothstep(-0.05, 0.2, v)));
+  float top = smoothstep(0.64, 1.02, v);
+  return mix(c * (1.0 + 0.1 * top), uPale, top * 0.42);
 }
 void main() {
   ${CLIP_FRAG}
@@ -216,9 +253,9 @@ void main() {
     vec2 hid = vec2(house, ti * 7.0 + uSide * 3.0);
     float hk = kHash(hid), hk2 = kHash(hid + 13.1), hk3 = kHash(hid + 27.7);
     float v = ti / ${(NT - 1).toFixed(1)};
-    float hue = fract((house + 0.5) * 13.2 / circ) * 12.0;
+    float hue = fract((house + 0.5) * 13.2 / circ) * 12.0 + ${HUE0.toFixed(1)};
     // near to, each house is a chip a step off the wheel: hue, value and how strong the colour is
-    float off = (hk - 0.5) * 1.5 * uChroma;
+    float off = (hk - 0.5) * 5.0 * uChroma;                                // two or three pigment steps either way
     float dv = (hk2 - 0.5) * 0.14 * uChroma;
     vec3 chip = kChip(hue + off, clamp(v + dv, 0.0, 1.0));
     chip = mix(chip, vec3(dot(chip, vec3(0.3, 0.55, 0.15))), (1.0 - step(0.85, hk3)) * hk3 * 0.25 * uChroma);
@@ -315,7 +352,7 @@ function paintHub(hollow) {
     for (let i = 0; i < P.count; i += 3) {
       const cx = (P.getX(i) + P.getX(i + 1) + P.getX(i + 2)) / 3, cy = (P.getY(i) + P.getY(i + 1) + P.getY(i + 2)) / 3, cz = (P.getZ(i) + P.getZ(i + 1) + P.getZ(i + 2)) / 3;
       if (cz > L / 2) continue;
-      const hue = (((Math.atan2(cy, cx) / TAU) * 12) + 12) % 12, r = Math.hypot(cx, cy);
+      const hue = (((Math.atan2(cy, cx) / TAU) * 12) + 12) % 12 + HUE0, r = Math.hypot(cx, cy);
       const c = chipJS(Math.floor(hue) + 0.5, 0.45 + 0.45 * clamp(1 - r / 46, 0, 1));
       for (let k = 0; k < 3; k++) Cc.setXYZW(i + k, c[0], c[1], c[2], Cc.getW(i + k));
     }
@@ -474,7 +511,7 @@ function chipJS(hue, v) {
   const h0 = Math.floor(hue), h1 = (h0 + 1) % 12, f = hue - h0, s = f * f * (3 - 2 * f);
   const a = rgb(PIGMENTS[h0]), b = rgb(PIGMENTS[h1]), dp = rgb(DEEP), pl = rgb(PALE);
   let c = [a[0] + (b[0] - a[0]) * s, a[1] + (b[1] - a[1]) * s, a[2] + (b[2] - a[2]) * s];
-  const k0 = 0.5 + 0.5 * smoothstep(0, 0.36, v), k1 = 0.62 + 0.38 * smoothstep(-0.05, 0.22, v), k2 = smoothstep(0.42, 1.02, v) * 0.36, kl = 1 + 0.14 * smoothstep(0.4, 1, v);
+  const k0 = 0.55 + 0.45 * smoothstep(0, 0.3, v), k1 = 0.66 + 0.34 * smoothstep(-0.05, 0.2, v), top = smoothstep(0.64, 1.02, v), k2 = top * 0.42, kl = 1 + 0.1 * top;
   c = c.map((x, i) => dp[i] + (x * k0 - dp[i]) * k1);
   return c.map((x, i) => x * kl + (pl[i] - x * kl) * k2);
 }
@@ -505,6 +542,7 @@ function sitterGeo() {
 const W_DRESS = 42;              // metres either side of the lift dressed in full
 function* dressTerraces(hollow, glows, ctx) {
   let bent = new Bent();
+  const chunks = [];
   const rng = makeRng('ochre-terraces');
   const tiers = [];
   let t0 = performance.now();
@@ -552,7 +590,7 @@ function* dressTerraces(hollow, glows, ctx) {
     // trays of pigment set out to dry along the houses, in this tier's own colours, and jars on shelves
     for (let x = -W + 3; x < W - 3; x += rng.f(3.5, 7)) {
       if (!rng.chance(0.55)) continue;
-      const z = -d + rng.f(1.0, 2.2), hue = (x / (TAU * T.floorR)) * 12 + rng.f(-0.9, 0.9), c = chipJS(hue, clamp(v + rng.f(-0.12, 0.12), 0, 1));
+      const z = -d + rng.f(1.0, 2.2), hue = HUE0 + (x / (TAU * T.floorR)) * 12 + rng.f(-2.5, 2.5), c = chipJS(hue, clamp(v + rng.f(-0.12, 0.12), 0, 1));
       g.box(x - 0.7, 0.35, z - 0.45, x + 0.7, 0.45, z + 0.45, '#8a6a4a', { top: c });
       g.box(x - 0.6, 0, z - 0.35, x - 0.52, 0.35, z - 0.27, '#6a5040'); g.box(x + 0.52, 0, z + 0.27, x + 0.6, 0.35, z + 0.35, '#6a5040');
     }
@@ -560,7 +598,7 @@ function* dressTerraces(hollow, glows, ctx) {
       const z = -d + 0.5;
       g.box(x - 1.2, 0, z - 0.25, x + 1.2, 1.9, z + 0.25, '#7a6048', { skip: 'b' });
       for (let s = 0; s < 2; s++) for (let k = 0; k < 6; k++) {
-        const hue = (x / (TAU * T.floorR)) * 12 + rng.f(-3, 3);
+        const hue = HUE0 + (x / (TAU * T.floorR)) * 12 + rng.f(-3, 3);
         g.box(x - 1.05 + k * 0.38, 0.5 + s * 0.7, z + 0.2, x - 0.85 + k * 0.38, 0.78 + s * 0.7, z + 0.4, chipJS(hue, rng.f(0.2, 0.6)), { top: '#d8cfc0', skip: 'b' });
       }
     }
@@ -578,13 +616,14 @@ function* dressTerraces(hollow, glows, ctx) {
     }
     if (t === 14) for (let k = 0; k < 16; k++) stand.push({ p: [-30 + rng.f(-8, 8), 0.03 + rng.f(0, 2.4), -rng.f(5, 18)], yaw: rng.f(0, 6.28), color: rng.pick(CLOTH), walk: [0, 0, 0, 0], scale: 0.66 });
     bent.add(g, T.frame);
-    if (t % 5 === 4) { yield 'terraces ' + t; hollow.add(bent.mesh(hollow.plain)); bent = new Bent(); t0 = performance.now(); }
+    if (t % 5 === 4) { yield 'terraces ' + t; const cm = bent.mesh(hollow.plain); cm.userData.centre = T.frame.point(0, 0, -d / 2); chunks.push(cm); hollow.add(cm); bent = new Bent(); t0 = performance.now(); }
     const folk = [...instances(personGeo(), T.walk, stand, { frame: T.frame, cell: 4000, walk: true })];
     if (sit.length) folk.push(...instances(sitterGeo(), T.lit, sit, { frame: T.frame, cell: 4000 }));
     for (const m of folk) hollow.add(m);
     tiers.push({ T, folk, centre: T.frame.point(0, 2, -d / 2) });
     if (performance.now() - t0 > 4) { yield 'terraces ' + t; t0 = performance.now(); }
   }
+  tiers.chunks = chunks;
   return tiers;
 }
 
@@ -766,19 +805,6 @@ function netMesh(rig) {
   mesh.renderOrder = 4;
   return mesh;
 }
-// a ring in its own xy plane
-function torus(g, R, r, segs, sides, colAt, emit = 0) {
-  const P = (a, b) => [(R + r * Math.cos(b)) * Math.cos(a), (R + r * Math.cos(b)) * Math.sin(a), r * Math.sin(b)];
-  const N = (a, b) => [Math.cos(b) * Math.cos(a), Math.cos(b) * Math.sin(a), Math.sin(b)];
-  for (let i = 0; i < segs; i++) {
-    const a0 = (i / segs) * TAU, a1 = ((i + 1) / segs) * TAU, col = colAt(i);
-    for (let j = 0; j < sides; j++) {
-      const b0 = (j / sides) * TAU, b1 = ((j + 1) / sides) * TAU;
-      g.tri(P(a0, b0), P(a1, b0), P(a1, b1), col, emit, N(a0, b0), N(a1, b0), N(a1, b1));
-      g.tri(P(a0, b0), P(a1, b1), P(a0, b1), col, emit, N(a0, b0), N(a1, b1), N(a0, b1));
-    }
-  }
-}
 // flyers in sleeves drifting along the hall, each with a hand lamp; the hoop the flight leaves through kept clear
 function hallFlyers(hollow, exitPos, rng) {
   const items = [], lamps = [];
@@ -802,10 +828,10 @@ function hallFlyers(hollow, exitPos, rng) {
 // ---------------------------------------------------------------- an ochre dawn, pressed into one minute
 // [t, sun, power, far side, power, glow, power, rod, lamps, windows lit]
 const SEQ = [
-  [0, '#ffcc90', 0.55, '#f4c088', 0.45, '#a49c8c', 0.36, 16, 1.0, 0.2],
-  [22, '#ffd8a8', 0.68, '#f8cc9c', 0.56, '#aca596', 0.38, 22, 0.8, 0.17],
-  [44, '#ffe6c4', 0.8, '#fcdcb8', 0.68, '#b4aea0', 0.4, 28, 0.6, 0.14],
-  [66, '#fff0d8', 0.9, '#ffe8cc', 0.78, '#b8b4a8', 0.42, 32, 0.5, 0.12],
+  [0, '#ffcc90', 0.55, '#f4c088', 0.45, '#a49c8c', 0.36, 9, 1.0, 0.2],
+  [22, '#ffd8a8', 0.68, '#f8cc9c', 0.56, '#aca596', 0.38, 11, 0.8, 0.17],
+  [44, '#ffe6c4', 0.8, '#fcdcb8', 0.68, '#b4aea0', 0.4, 12, 0.6, 0.14],
+  [66, '#fff0d8', 0.9, '#ffe8cc', 0.78, '#b8b4a8', 0.42, 12, 0.5, 0.12],
 ];
 const SEQC = SEQ.map((k) => [new Color(k[1]), new Color(k[3]), new Color(k[5])]);
 
@@ -830,7 +856,7 @@ export const ochreChart = {
     const hollow = yield* buildHollow(ctx, {
       seed: 'ochre', plan, pavilions: false,
       light: { sun: s0[1], sunPower: s0[2], sunFar: s0[3], sunFarPower: s0[4], sunAngle: 0, sunSharp: 1.2, amb: s0[5], ambPower: s0[6], bounce: '#c8a470', bouncePower: 0.24, air: '#e4d8c4', airDensity: 0.000035, ground: '#ffb468', groundPower: 0.22 },
-      sunline: { power: s0[7], halo: 300, haloPower: 0.04 },
+      sunline: { power: s0[7], halo: 110, haloPower: 0.03 },
       ground: { lamp: s0[8], lampColor: '#ffbe78', people: 1, sunRod: s0[7], canopy: '#7a7a4a', stripes: 0.03 },
       front: wall, back,
     });
@@ -868,7 +894,7 @@ export const ochreChart = {
       cabM.premultiply(station);
       cabs.setMatrixAt(i, cabM);
     };
-    const T_GO = 9.5;                                                  // the flight's cab leaves the station
+    const T_GO = 19.5;                                                 // the flight's cab leaves the station
     const heroS = (t) => (t < T_GO ? 0 : t < T_GO + 8 ? 0.75 * (t - T_GO) ** 2 : 48 + 12 * (t - T_GO - 8));
     const placeCabs = (t) => {
       placeCab(0, heroS(t), TRACK_U[0], false);
@@ -891,44 +917,49 @@ export const ochreChart = {
     const gz = (y) => gw.zOf(y);
     const camF = (u, y, z) => [X_L + (u * RH) / (RH - y), y, z];
     const up0 = [0, 1, 0], upR = (deg) => [-Math.sin((deg * Math.PI) / 180), Math.cos((deg * Math.PI) / 180), 0];
+    // a cab's height a moment after it leaves, for looking at it
+    const cabY = (t) => gw.at(heroS(t)).y;
     const path = makePath([
-      { t: 0, p: [8, 2.2, WALL_FOOT + 104], up: up0 },
-      { t: 5, p: [1.6, 2.7, MARIT.z + 6], look: [MARIT.x - 1.3, 1.25, MARIT.z - 0.6], up: up0 },
-      { t: 9, p: [7, 4.4, GW_Z0 + 17], look: [2.3, 1.6, GW_Z0], up: up0 },
-      { t: 12.5, p: camF(13, 12, gz(12) + 10), look: camF(2.3, 11, gz(11) + 1), up: up0 },
-      { t: 16, p: camF(10, 34, gz(34) + 9), look: camF(1, 90, gz(90)), up: up0 },
-      { t: 21, p: camF(24, 190, gz(190) + 34), look: camF(-40, 300, gz(300) - 30), up: up0 },
-      { t: 26, p: camF(60, 420, gz(420) + 120), look: [1500, 200, 600], up: up0, fov: 64 },
-      { t: 31, p: camF(56, 650, gz(650) + 110), look: [520, 260, 820], up: up0, fov: 68 },
-      { t: 36, p: camF(26, 900, gz(900) + 50), look: camF(-12, 1000, gz(1000) - 20), up: up0 },
-      { t: 41, p: camF(16, 1150, gz(1150) + 26), look: camF(-6, 1260, gz(1260) - 10), up: upR(30) },
-      { t: 45.5, p: camF(11, 1320, gz(1320) + 16), look: camF(-30, 1350, gz(1350) - 12), up: upR(75) },
-      { t: 49, p: camF(7, 1400, gz(1400) + 12), look: camF(-10, 1380, gz(1380) - 6), up: upR(140) },
-      { t: 53, p: [0, 1445, 85], look: [0, 1450, 300], up: upR(180), fov: 66 },
-      { t: 57, p: [0, 1440, 205], look: [0, 1150, 40], up: upR(180), fov: 68 },
-      { t: 60.5, p: [0, 1458, 236], look: [0, 1500, 0], up: upR(180), fov: 74 },
-      { t: 65, p: [0, 1460, 172], up: upR(180) },
-    ], { frame: hollow.frame, entryRadius: 1.6, exitRadius: 11 });
+      // the wheel: the whole wall ahead, a kilometre and more off, rising toward it over the works
+      { t: 0, p: [40, 60, 1650], up: up0, fov: 76 },
+      { t: 4, p: [32, 160, 1490], look: [0, 1360, 60], up: up0, fov: 76 },
+      { t: 7.5, p: [24, 215, 1320], look: [0, 1120, 110], up: up0, fov: 72 },
+      // down into the yard
+      { t: 11, p: [14, 62, 830], look: [6, 3, 470], up: up0, fov: 62 },
+      { t: 13, p: [10, 28, 545], look: [5, 2, 440], up: up0, fov: 60 },
+      { t: 14.8, p: [8, 3.8, WALL_FOOT + 104], up: up0 },
+      { t: 16.5, p: [1.6, 2.7, MARIT.z + 6], look: [MARIT.x - 1.3, 1.25, MARIT.z - 0.6], up: up0 },
+      { t: 19, p: [7, 4.4, GW_Z0 + 17], look: [2.3, 1.6, GW_Z0], up: up0 },
+      // up beside the cab, then the climb
+      { t: 21.5, p: camF(15, 8, gz(8) + 16), look: camF(1, cabY(21.5) + 14, gz(cabY(21.5) + 14)), up: up0 },
+      { t: 24, p: camF(10, 40, gz(40) + 9), look: camF(1, 140, gz(140)), up: up0 },
+      { t: 28, p: camF(30, 280, gz(280) + 50), look: camF(-40, 400, gz(400) - 30), up: up0 },
+      { t: 32, p: camF(60, 560, gz(560) + 120), look: [600, 0, 1000], up: up0, fov: 68 },
+      { t: 35.5, p: camF(24, 880, gz(880) + 50), look: camF(-12, 980, gz(980) - 20), up: up0 },
+      // the lean: down swings sideways, then toward the axis
+      { t: 38.5, p: camF(15, 1150, gz(1150) + 26), look: camF(-6, 1260, gz(1260) - 10), up: upR(30) },
+      { t: 41.5, p: camF(10, 1320, gz(1320) + 16), look: camF(-30, 1350, gz(1350) - 12), up: upR(75) },
+      { t: 44, p: camF(7, 1400, gz(1400) + 12), look: camF(-10, 1380, gz(1380) - 6), up: upR(140) },
+      // through the hall, then back and back from the wall until it is a whole wheel again
+      { t: 46.5, p: [0, 1445, 90], look: [700, 1300, 260], up: upR(180), fov: 66 },
+      { t: 50, p: [0, 1360, 480], look: [0, 1500, 0], up: upR(230), fov: 72 },
+      { t: 54.5, p: [0, 1250, 1350], look: [0, 1500, 0], up: upR(270), fov: 86 },
+      { t: 58.5, p: [0, 830, 1880], look: [0, 1450, 0], up: upR(270), fov: 94 },
+      { t: 65, p: [0, 870, 1740], up: upR(270), fov: 94 },
+    ], { frame: hollow.frame, entryRadius: 16, exitRadius: 18 });
     yield 'path';
     const pts = path.points(0.5);
-    yield* scatterTrees(hollow, { near: pts.filter((q) => q.y < 40), radius: 120, max: 1400, wood: [{ kind: 'round', weight: 3, tint: [0.9, 0.85, 0.7] }, { kind: 'birch', weight: 1 }] });
-    hollow.lampPosts({ near: pts.filter((q) => q.y < 40), radius: 180, power: 5, color: '#ffbe78' });
+    yield* scatterTrees(hollow, { near: pts.filter((q) => q.y < 12), radius: 120, max: 1400, wood: [{ kind: 'round', weight: 3, tint: [0.9, 0.85, 0.7] }, { kind: 'birch', weight: 1 }] });
+    hollow.lampPosts({ near: pts.filter((q) => q.y < 12), radius: 180, power: 5, color: '#ffbe78' });
     yield 'trees';
 
     // ---- the hall: net, flyers, the hoop out
     scene.add(netMesh(hollow.rig));
-    hallFlyers(hollow, path.exit.pos, makeRng('ochre-flyers'));
-    const hg = new Geo(), R = path.exit.radius + 0.6;
-    torus(hg, R, 0.35, 96, 7, (i) => chipJS(i / 8, 0.55));
-    const hoop = hg.mesh(hollow.plain);
-    hoop.position.copy(path.exit.pos); hoop.quaternion.copy(path.exit.quat); hoop.updateMatrixWorld(true);
-    hollow.add(hoop);
-    const hoopLamps = [];
-    for (let i = 0; i < 36; i++) { const a = (i / 36) * TAU, v = new Vector3(Math.cos(a) * (R + 0.6), Math.sin(a) * (R + 0.6), 0).applyMatrix4(hoop.matrixWorld); hoopLamps.push({ p: v.toArray(), color: '#ffdca0', power: 6, size: 0.6, twinkle: 0.08, phase: i / 36 }); }
+    hallFlyers(hollow, new Vector3(0, 0, -1e4), makeRng('ochre-flyers'));
     yield 'hall';
 
     // ---- small lights: lift, terraces, yard (bent), colour in the air, the hoop
-    const lightsW = glowPoints([...liftGlows, ...tglows, ...hoopLamps], { maxPx: 60 });
+    const lightsW = glowPoints([...liftGlows, ...tglows], { maxPx: 60 });
     hollow.add(lightsW);
     const yardLamps = hollow.glow(glows, { maxPx: 70 });
     hollow.glow(motes, { minPx: 1, maxPx: 6, soft: 2 });
@@ -950,7 +981,7 @@ export const ochreChart = {
     const millAt = hollow.frame.stand(yard.mill[0], yard.mill[1]);
     const look = { exposure: 1.55, bloom: 0.24, threshold: 0.75, saturation: 1.06, contrast: 1.04, vignette: 0.45, lift: [0.008, 0.005, 0.0], gain: [1.02, 1.0, 0.95] };
     return {
-      scene, path, hollow, near: 0.2, far: 9000, look, portal: { rim: false, mist: '#d9a65a' },
+      scene, path, hollow, near: 0.2, far: 9000, look, portal: { mist: '#d9a65a' },
       update(t, dt, camera) {
         light(t);
         placeCabs(t);
@@ -961,6 +992,7 @@ export const ochreChart = {
         yard.wheel.matrix.copy(mill);
         // people on terraces far from the camera are too small to see
         for (const k of tiers2) { const vis = camera.position.distanceTo(k.centre) < 700; for (const mm of k.folk) mm.visible = vis; }
+        for (const m of tiers2.chunks) m.visible = camera.position.distanceTo(m.userData.centre) < 1100;
       },
     };
   },
