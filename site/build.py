@@ -121,6 +121,20 @@ def build_guest(out):
     return True
 
 
+# ---------------------------------------------------------------- a card from every row
+ROWS = ROOT / "games" / "every-row"
+
+
+def build_rows(out):
+    """Build A Card from Every Row into out/every-row/. Returns True if built."""
+    script = ROWS / "tools" / "build.py"
+    if not script.is_file():
+        return False
+    subprocess.run([sys.executable, str(script), "--standalone", str(out / "every-row")],
+                   check=True, stdout=subprocess.DEVNULL)
+    return True
+
+
 # ---------------------------------------------------------------- README
 def parse_readme():
     """Intro, canon decisions, and the doc groups from the README."""
@@ -421,8 +435,13 @@ def nav_html(groups, current):
             cur = ' aria-current="page" class="is-current"' if current == "diagrams" else ""
             out.append(f'<li><a href="diagrams.html"{cur}>Diagrams</a></li>')
         out.append("</ul></div>")
+    explore = []
     if (ATLAS / "tools" / "build.py").is_file():
-        out.append('<div class="nav-group"><p class="nav-label">Explore</p><ul><li><a href="sorrel-atlas/">The Sorrel Atlas</a></li></ul></div>')
+        explore.append('<li><a href="sorrel-atlas/">The Sorrel Atlas</a></li>')
+    if (ROWS / "tools" / "build.py").is_file():
+        explore.append('<li><a href="every-row/">A Card from Every Row</a></li>')
+    if explore:
+        out.append(f'<div class="nav-group"><p class="nav-label">Explore</p><ul>{"".join(explore)}</ul></div>')
     play = []
     if (GAME / "tools" / "build.py").is_file():
         play.append('<li><a href="three-nights/">Three Nights Anywhere</a></li>')
@@ -562,6 +581,7 @@ def build(out, fragment_index=False):
     atlas = build_atlas(out)
     clock = build_clock(out)
     guest = build_guest(out)
+    rows = build_rows(out)
 
     # backlinks
     cites = {s: set() for s in docs}
@@ -697,6 +717,11 @@ def build(out, fragment_index=False):
         extra_links.append('<li><a class="card" href="sorrel-atlas/"><span class="card-title">The Sorrel Atlas</span>'
                            '<span class="card-blurb">A cutaway of one drum of 200 million, where every point opens a place: landmarks from the quay to the axle, and all 69,426 neighbourhoods</span>'
                            '<span class="card-meta">explore</span></a></li>')
+    if rows:
+        extra_links.append('<li><a class="card" href="every-row/"><span class="card-title">A Card from Every Row</span>'
+                           '<span class="card-blurb">An endless flight through the drums of Merrow, drawn as it flies: Hollows by dawn, noon, dusk and lamp-night, '
+                           'courts and long tables, the glide between drums and the River behind the raft. Nothing to steer</span>'
+                           '<span class="card-meta">watch</span></a></li>')
     if game:
         extra_links.append('<li><a class="card" href="three-nights/"><span class="card-title">Three Nights Anywhere</span>'
                            '<span class="card-blurb">A game: wander Merrow for a year on guest-right, three nights a drum, and send cards home</span>'
