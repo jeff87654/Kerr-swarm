@@ -10,6 +10,7 @@ import { sorrelLake } from './sorrel_lake.js';
 import { sorrelOrgan } from './sorrel_organ.js';
 import { yarrowKites } from './yarrow_kites.js';
 import { borageFountains } from './borage_fountains.js';
+import { tansyHens } from './tansy_hens.js';
 import { sorrelSleepers } from './sorrel_sleepers.js';
 import { theGlide } from './the_glide.js';
 import { lovageNoon } from './lovage_noon.js';
@@ -34,6 +35,7 @@ export const WORLDS = [
   sorrelOrgan,
   yarrowKites,
   borageFountains,
+  tansyHens,
   sorrelSleepers,
   theGlide,               // Sorrel to Lovage
   lovageNoon,
