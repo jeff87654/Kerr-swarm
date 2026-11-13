@@ -181,6 +181,7 @@ void main() {
     if (tt > 0.0 && H.z > 0.0 && H.z < uSize.y) {
       vec2 huv = vec2(fract(atan(H.y, H.x) / 6.2831853 - uBend.x / 6.2831853), H.z / uSize.y);
       vec3 ha = textureLod(tAlb, huv, 3.0).rgb;
+      ha = mix(ha, textureLod(tAlb, huv, 9.0).rgb, textureLod(tMask, huv, 3.0).r * 0.85);
       refl = ha * (kSunColor(H.xy) * kSunE(H, vec3(-normalize(H.xy), 0.0)) + uAmb);
     } else refl = uWallTint * (uAmb * 2.2 + kSunColor(vW.xy) * 0.25);
     vec3 Mid = vW + R * (tt * 0.5);

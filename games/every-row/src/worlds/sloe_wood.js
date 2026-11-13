@@ -4,13 +4,15 @@
 // reaches white (three-nights 15-canon.js, Sloe).
 //
 // Not canon (this page's own, kept small):
-//   - the layout: six straight rides along the axis and two round it, lined with birches, a glade with a lift
-//     pavilion where they cross, winding bark paths everywhere else, and one long lake at the end of a ride,
-//     with a yew island in it
+//   - the layout: six straight rides (long clearings) along the axis and three right round the drum, lined with
+//     birches, a glade with a lift pavilion where they cross, stands of birch in the yews, winding bark paths
+//     everywhere else, and one long lake lying across the middle ride, with a yew island in it
 //   - the ring of lashed birch poles standing in the lake, which this page leaves through
-//   - the woodwarden's coat and her slate's wooden frame
+//   - the woodwarden's coat, her white hair and her slate's wooden frame (the docs give only her age, her sixty
+//     years with the yews, and LISTEN)
+//   - the light: the line at about a third of full sun, the hour not named
 import {
-  Scene, Group, Mesh, BufferGeometry, Float32BufferAttribute, ShaderMaterial, Vector2, Vector3, Matrix4,
+  Scene, Group, Mesh, BufferGeometry, Float32BufferAttribute, ShaderMaterial, Vector3, Matrix4,
   CanvasTexture, SRGBColorSpace, DoubleSide, Sphere,
 } from 'three';
 import { Plan, C, L } from '../kit/plan.js';
@@ -23,35 +25,65 @@ import { DRUM } from '../kit/drum.js';
 import { makeRng, hash2, cellRand, smoothstep, TAU } from '../core/rng.js';
 
 const X0 = 2000, ZM = 1875;              // the long ride runs right round the drum at ZM; the flight starts near X0
-const XL = X0 + 900, ZL = ZM, LRX = 400, LRZ = 235;     // the lake, lying across the ride
+const XL = X0 + 1000, ZL = ZM, LRX = 380, LRZ = 150;     // the lake, lying across the ride
 const RINGS = [1050, ZM, 2700];          // rides round the drum
-const AXIAL = X0 - 520;                  // the first of six rides along the axis
+const AXIAL = X0 - 300;                  // the first of six rides along the axis
 const ZW = ZM + 70, WX = X0 + 11.6, WZ = ZW - 0.5;      // the bark path in the yews, and where the woodwarden stands on it
-const BARK = '#5f5044', MOSS = ['#55624c', '#5d6a52', '#515e48'], BIRCHLAND = ['#5a6952', '#617059', '#55634e'];
+const BARK = '#5f5044', MOSS = ['#55624c', '#5d6a52', '#515e48'], BIRCHLAND = ['#4d564b', '#535b4f', '#495146'];
+const GLADE = ['#4a5744', '#505d48', '#46523f'];
+
+// Crowns seen from a kilometre or more: clumps and single trees as a grain of lighter and darker over the land,
+// laid straight onto the colour layer with two repeating tiles of different sizes.
+function* canopyGrain(plan) {
+  const rng = makeRng('sloe-grain');
+  for (const [size, cell, amp] of [[256, 4, 65], [512, 16, 55]]) {
+    const cv = document.createElement('canvas'); cv.width = cv.height = size;
+    const tx = cv.getContext('2d'), img = tx.createImageData(size, size), d = img.data, n = size / cell, grid = [];
+    for (let i = 0; i < n * n; i++) grid.push(rng());
+    const at = (i, j) => grid[((j % n) + n) % n * n + ((i % n) + n) % n];
+    for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+      const gx = x / cell, gy = y / cell, i = Math.floor(gx), j = Math.floor(gy), fx = gx - i, fy = gy - j;
+      const sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+      const v = (at(i, j) * (1 - sx) + at(i + 1, j) * sx) * (1 - sy) + (at(i, j + 1) * (1 - sx) + at(i + 1, j + 1) * sx) * sy;
+      const g = Math.max(0, Math.min(255, 128 + ((0.65 * v + 0.35 * rng()) - 0.5) * 2 * amp)), k = (y * size + x) * 4;
+      d[k] = d[k + 1] = d[k + 2] = g; d[k + 3] = 255;
+      if (x === size - 1 && (y & 127) === 127) yield;
+    }
+    tx.putImageData(img, 0, 0);
+    // queued with the rest of the painting (the kit draws a layer three times, a turn apart: this needs doing once)
+    plan.layer('alb', (c, k) => {
+      if (k !== 0) return;
+      c.setTransform(1, 0, 0, 1, 0, 0); c.globalCompositeOperation = 'overlay';
+      c.fillStyle = c.createPattern(cv, 'repeat'); c.fillRect(0, 0, plan.w, plan.h);
+    });
+  }
+}
 
 function* paintSloe(plan) {
   const rng = makeRng('sloe-plan');
   // the whole floor is wood: yew, dark, its crowns seen from far off as a fine grain of darker and lighter
   plan.fill(plan.band(0, L), { color: '#3a4a3e', wood: 1 });
-  plan.mottle(['#33433a', '#425146', '#2f3d36', '#47554a', '#3b4a3a'], 700, 140, { alpha: 0.5, seed: 'sloe-yew' });
-  yield;
-  plan.mottle(['#2b382f', '#3e4c3f', '#4a584b', '#323f36', '#4f5c4a', '#283229'], 2600, 38, { alpha: 0.5, seed: 'sloe-crowns' });
-  yield;
-  // stands of birch, a little paler and greyer
+  for (let k = 0; k < 2; k++) { plan.mottle(['#33433a', '#425146', '#2f3d36', '#47554a', '#3b4a3a'], 350, 140, { alpha: 0.5, seed: 'sloe-yew' + k }); yield; }
+  for (let k = 0; k < 5; k++) { plan.mottle(['#2b382f', '#3e4c3f', '#4a584b', '#323f36', '#4f5c4a', '#283229'], 520, 38, { alpha: 0.5, seed: 'sloe-crowns' + k }); yield; }
+  // stands of birch, greyer
+  const stands = [];
   for (let i = 0; i < 140; i++) {
-    const x = rng.f(0, C), z = rng.f(380, L - 380), r = rng.f(30, 150);
-    plan.fill(plan.blob(x, z, r, r * rng.f(0.5, 1.1), { wobble: 0.45, lobes: 6, seed: i + 5, n: 40 }), { color: rng.pick(BIRCHLAND), alpha: 0.85, feather: 30 });
+    const x = rng.f(0, C), z = rng.f(380, L - 380), r = rng.f(30, 150), rz = r * rng.f(0.5, 1.1);
+    plan.fill(plan.blob(x, z, r, rz, { wobble: 0.45, lobes: 6, seed: i + 5, n: 40 }), { color: rng.pick(BIRCHLAND), alpha: 0.8, feather: 30 });
+    stands.push([x, z, r * 0.9, rz * 0.9]);
   }
+  yield;
+  yield* canopyGrain(plan);
   yield;
   // the Dim Ends, under the walls, where the line's light falls away
   plan.fill(plan.band(-200, 470), { color: '#25302b', alpha: 0.55, feather: 90 });
   plan.fill(plan.band(L - 470, L + 200), { color: '#25302b', alpha: 0.55, feather: 90 });
   // glades
-  for (let i = 0; i < 220; i++) {
-    const x = rng.f(0, C), z = rng.f(420, L - 420), r = rng.f(10, 48);
+  for (let i = 0; i < 100; i++) {
+    const x = rng.f(0, C), z = rng.f(420, L - 420), r = rng.f(8, 30);
     if (Math.abs(z - ZW) < 70 && x > X0 - 120 && x < X0 + 160) continue;
-    plan.fill(plan.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 200, n: 24 }), { color: rng.pick(MOSS), clear: ['wood'] });
-    if (i % 60 === 59) yield;
+    plan.fill(plan.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.35, lobes: 4, seed: i + 200, n: 24 }), { color: rng.pick(GLADE), clear: ['wood'] });
+    if (i % 50 === 49) yield;
   }
   // winding bark paths through it all
   const bark = (pts, w) => { plan.stroke(pts, w + 5, { clear: ['wood'] }); plan.stroke(pts, w, { color: BARK }); };
@@ -66,7 +98,7 @@ function* paintSloe(plan) {
   const ride = (a, b, w) => {
     plan.stroke(plan.line([a, b]), w, { color: MOSS[0], clear: ['wood'] });
     const dx = b[0] - a[0], dz = b[1] - a[1], len = Math.hypot(dx, dz), nx = -dz / len, nz = dx / len, e = w / 2 + 6;
-    for (const s of [-1, 1]) plan.stroke(plan.line([[a[0] + nx * e * s, a[1] + nz * e * s], [b[0] + nx * e * s, b[1] + nz * e * s]]), 12, { color: BIRCHLAND[1] });
+    for (const s of [-1, 1]) plan.stroke(plan.line([[a[0] + nx * e * s, a[1] + nz * e * s], [b[0] + nx * e * s, b[1] + nz * e * s]]), 12, { color: '#4f5a4b' });
     plan.stroke(plan.line([a, b]), 4, { color: BARK });
   };
   for (let k = 0; k < 6; k++) { const x = AXIAL + (k * C) / 6; ride([x, 520], [x, L - 520], 32); }
@@ -75,6 +107,8 @@ function* paintSloe(plan) {
   const pav = [];
   for (let k = 0; k < 6; k++) for (const z of RINGS) {
     const x = AXIAL + (k * C) / 6;
+    if (Math.hypot((x - XL) / (LRX + 80), (z - ZL) / (LRZ + 80)) < 1) continue;
+    if (z === ZM && Math.abs(((x - XL - C / 2) % C + C * 1.5) % C - C / 2) < 600) continue;     // keep it out of the lake's mirror
     plan.fill(plan.blob(x, z, 52, 48, { wobble: 0.15, seed: k * 7 + z, n: 32 }), { color: MOSS[1], clear: ['wood'] });
     plan.stroke(plan.line([[x - 60, z], [x + 60, z]]), 4, { color: BARK }); plan.stroke(plan.line([[x, z - 60], [x, z + 60]]), 4, { color: BARK });
     pav.push([x + 22, z + 22]);
@@ -93,11 +127,18 @@ function* paintSloe(plan) {
   plan.stroke(start, 9, { clear: ['wood'] }); plan.stroke(start, 3.2, { color: BARK });
   // the lake, its shore walk (for residents), and an island of yews
   const lake = plan.blob(XL, ZL, LRX, LRZ, { wobble: 0.12, lobes: 6, seed: 23 });
-  plan.stroke(lake, 18, { color: '#62553f', clear: ['wood'] });
-  plan.fill(lake, { color: '#2e3a36', water: 1, clear: ['wood'] });
-  plan.fill(plan.blob(XL, ZL, LRX * 0.75, LRZ * 0.8, { wobble: 0.15, seed: 24 }), { color: '#25302d', feather: 60 });
-  plan.fill(plan.blob(XL - 170, ZL - 95, 28, 20, { seed: 31, n: 24 }), { color: '#36463a', clear: ['water'], wood: 1 });
-  return pav;
+  plan.stroke(lake, 12, { color: '#4f5646', clear: ['wood'] });
+  plan.fill(lake, { color: '#33413c', water: 1, clear: ['wood'] });
+  plan.fill(plan.blob(XL - 95, ZL - 48, 24, 16, { seed: 31, n: 24 }), { color: '#36463a', clear: ['water'], wood: 1 });
+  return { pav, stands };
+}
+
+// Is a tree here a birch? In the stands, and in the rows along every ride's edge; elsewhere now and then.
+function birchChance(stands, x, z) {
+  for (const zr of RINGS) { const d = Math.abs(z - zr), h = zr === ZM ? 22 : 16; if (d > h && d < h + 13) return 0.9; }
+  for (let k = 0; k < 6; k++) { let d = Math.abs(x - (AXIAL + (k * C) / 6)); d = Math.min(d, C - d); if (d > 16 && d < 29) return 0.9; }
+  for (const s of stands) { const u = (x - s[0]) / s[2], v = (z - s[1]) / s[3]; if (u * u + v * v < 1) return 0.85; }
+  return 0.06;
 }
 
 // ---------------------------------------------------------------- trees
@@ -129,23 +170,25 @@ function birchGeo() {
 function regionSampler(plan, x0, z0, x1, z1) {
   const sx = plan.w / C, sz = plan.h / L;
   const px0 = Math.floor(x0 * sx), pz0 = Math.floor(z0 * sz), w = Math.ceil((x1 - x0) * sx), h = Math.ceil((z1 - z0) * sz);
-  const grab = (cv) => { const c = document.createElement('canvas'); c.width = w; c.height = h; const cx = c.getContext('2d', { willReadFrequently: true }); cx.drawImage(cv, -px0, -pz0); return cx.getImageData(0, 0, w, h).data; };
-  const A = grab(plan.cv.alb), M = grab(plan.cv.mask), out = { water: 0, wood: 0, r: 0, g: 0, b: 0 };
+  const M = plan.cx.mask.getImageData(px0, pz0, w, h).data, out = { water: 0, wood: 0 };
   return (x, z) => {
     let ix = Math.floor(x * sx) - px0, iz = Math.floor(z * sz) - pz0;
     ix = ix < 0 ? 0 : ix >= w ? w - 1 : ix; iz = iz < 0 ? 0 : iz >= h ? h - 1 : iz;
     const i = (iz * w + ix) * 4;
-    out.water = M[i] / 255; out.wood = M[i + 1] / 255; out.r = A[i] / 255; out.g = A[i + 1] / 255; out.b = A[i + 2] / 255;
+    out.water = M[i] / 255; out.wood = M[i + 1] / 255;
     return out;
   };
 }
 
 // Stand real trees where the ground draws crowns, near the flight (each point carries its own radius) and all round
 // the lake shore, keeping the air the camera flies through clear.
-function* plantWood(hollow, plan, near, box) {
+function* plantWood(hollow, plan, near, box, stands) {
+  const t0 = performance.now();
   const at = regionSampler(plan, box[0], box[1], box[2], box[3]);
+  if (/debug/.test(location.search)) console.log(`[sloe] sampler ${(performance.now() - t0).toFixed(0)} ms`);
+  yield;
   const S = WOOD_CELL, lists = { yew: [], birch: [] }, mirror = { yew: [], birch: [] };
-  const yewC = rgb('#41543f'), birchC = rgb('#8a9672');
+  const yewC = rgb('#41543f'), birchC = rgb('#5d684c');
   let n = 0;
   for (let gz = Math.floor(box[1] / S); gz * S < box[3]; gz++) {
     for (let gx = Math.floor(box[0] / S); gx * S < box[2]; gx++) {
@@ -154,25 +197,24 @@ function* plantWood(hollow, plan, near, box) {
       const s = at(x, z);
       if (r[2] >= s.wood + 0.02 || s.water > 0.2) continue;
       // near the lake? (the whole shore stands, and is mirrored)
-      const el = Math.hypot((x - XL) / (LRX + 70), (z - ZL) / (LRZ + 70));
+      const el = Math.hypot((x - XL) / (LRX + 50), (z - ZL) / (LRZ + 50));
       const shore = el < 1;
       let keep = shore, clear = false;
       for (let i = 0; i < near.length; i++) {
         const q = near[i], dx = q.x - x, dz = q.z - z, d2 = dx * dx + dz * dz;
-        if (q.y < 32 && d2 < (q.y < 3 ? 30 : 64)) { clear = true; break; }
+        if (q.y < 32 && d2 < (q.y < 3 ? 42 : 64)) { clear = true; break; }
         if (!keep) { const R = q.r; if (d2 < R * R) keep = true; else if (d2 < 2.25 * R * R && hash2(gx, gz, 37) < 1 - (Math.sqrt(d2) - R) / (0.5 * R)) keep = true; }
       }
       if (clear || !keep) continue;
-      const lum = 0.3 * s.r + 0.6 * s.g + 0.1 * s.b;
-      const birch = hash2(gx, gz, 41) < 0.07 + 0.8 * smoothstep(0.34, 0.40, lum);
+      const birch = hash2(gx, gz, 41) < birchChance(stands, x, z);
       const rad = S * (0.36 + 0.2 * r[3]), sc = (rad / 3.6) * 1.12;
       const k = 0.8 + 0.4 * r[3], base = birch ? birchC : yewC;
       const col = [base[0] * k, base[1] * k, base[2] * k * (0.92 + 0.16 * hash2(gx, gz, 5))];
       const item = { p: [x, 0, z], yaw: hash2(gx, gz, 71) * 6.28, scale: [sc, sc * (birch ? 1.0 + 0.3 * hash2(gx, gz, 83) : 0.9 + 0.3 * hash2(gx, gz, 83)), sc], color: col };
       (birch ? lists.birch : lists.yew).push(item);
-      if (shore && el > 0.72) (birch ? mirror.birch : mirror.yew).push(item);
+      if (shore && el > 0.8) (birch ? mirror.birch : mirror.yew).push(item);
     }
-    if ((++n & 15) === 0) yield;
+    if ((++n & 7) === 0) yield;
   }
   return { lists, mirror, at };
 }
@@ -288,9 +330,8 @@ function slateFace() {
   cx.textAlign = 'center'; cx.textBaseline = 'middle';
   for (let k = 0; k < 7; k++) { cx.fillStyle = `rgba(238,241,232,${k === 0 ? 0.8 : 0.22})`; cx.fillText('LISTEN', 256 + rng.f(-2.5, 2.5), 188 + rng.f(-2.5, 2.5)); }
   // the chalk is grainy
-  const img = cx.getImageData(0, 0, 512, 360), d = img.data;
-  for (let i = 0; i < d.length; i += 4) { const f = 0.82 + 0.3 * rng(); d[i] *= f; d[i + 1] *= f; d[i + 2] *= f; }
-  cx.putImageData(img, 0, 0);
+  cx.fillStyle = 'rgba(42,47,46,0.45)';
+  for (let i = 0; i < 2200; i++) { const s = rng.f(1, 3); cx.fillRect(rng.f(60, 452), rng.f(110, 270), s, s); }
   const t = new CanvasTexture(cv); t.colorSpace = SRGBColorSpace; t.anisotropy = 8;
   // the quad, in the warden's own frame turned to flat metres (she faces -x, back along the path)
   const lp = (lx, ly) => [WX - (0.375 - 0.08 * ((ly - 1.22) / 0.14)), ly, WZ + lx];
@@ -356,15 +397,15 @@ export const sloeWood = {
   sound: { root: 41, scale: 'aeolian', pad: 0.1, air: 0.5, hum: 0.55, water: 0.05, crowd: 0, choir: 0, bells: 0, bright: 0.12 },
   *build(ctx) {
     const plan = new Plan(ctx.q.plan);
-    const pav = yield* paintSloe(plan);
+    const { pav, stands } = yield* paintSloe(plan);
     yield;
     const hollow = yield* buildHollow(ctx, {
       seed: 'sloe', plan, pavilions: false,
       light: { sun: '#e4ead9', sunPower: 0.34, amb: '#8a9a84', ambPower: 0.2, bounce: '#5f6e58', bouncePower: 0.14, air: '#8a9a84', airDensity: 0.00009 },
       sunline: { power: 12, haloPower: 0.02 },
-      ground: { people: 0, sunRod: 12, wave: 0.003, grain: 0.32, stripes: 0, woodHeight: 9, water: '#ffffff' },
-      front: { lit: 0.1, crowd: 0.04, houseMix: 0.4, winPower: 1.6, winA: '#ffc98a', winB: '#f1e4c6', stone: '#b9bdae', stone2: '#a5ab9c', glass: '#2f3d36', gardenColor: '#4f6a4a', awning: '#6a5a48', houses: ['#b9bfae', '#a8b2a0', '#c9c8b8', '#8f9c8c', '#d2d0c2', '#9fa89a'], garden: 0.95 },
-      back: { lit: 0.13, crowd: 0.04, houseMix: 0.4, winPower: 1.6, winA: '#ffc98a', winB: '#f1e4c6', stone: '#b9bdae', stone2: '#a5ab9c', glass: '#2f3d36', gardenColor: '#4f6a4a', awning: '#6a5a48', houses: ['#b9bfae', '#a8b2a0', '#c9c8b8', '#8f9c8c', '#d2d0c2', '#9fa89a'], garden: 0.95 },
+      ground: { people: 0, sunRod: 8, wave: 0.003, grain: 0.32, stripes: 0, woodHeight: 9, water: '#ffffff' },
+      front: { lit: 0.1, crowd: 0.04, houseMix: 0.4, winPower: 1.6, winA: '#ffc98a', winB: '#f1e4c6', stone: '#8f978a', stone2: '#80897c', glass: '#2f3d36', gardenColor: '#4f6a4a', awning: '#6a5a48', houses: ['#b9bfae', '#a8b2a0', '#c9c8b8', '#8f9c8c', '#d2d0c2', '#9fa89a'], garden: 0.95 },
+      back: { lit: 0.13, crowd: 0.04, houseMix: 0.4, winPower: 1.6, winA: '#ffc98a', winB: '#f1e4c6', stone: '#8f978a', stone2: '#80897c', glass: '#2f3d36', gardenColor: '#4f6a4a', awning: '#6a5a48', houses: ['#b9bfae', '#a8b2a0', '#c9c8b8', '#8f9c8c', '#d2d0c2', '#9fa89a'], garden: 0.95 },
     });
     yield;
     const scene = new Scene();
@@ -376,33 +417,37 @@ export const sloeWood = {
       { t: 4, p: [X0 + 8.0, 1.72, ZW], look: [X0 + 34, 0.4, WZ - 0.3], fov: 46 },
       { t: 9, p: [X0 + 9.3, 1.7, ZW], look: [X0 + 34, 0.5, WZ - 0.3], fov: 44 },
       { t: 14, p: [X0 + 11, 2.6, ZW - 0.3], look: [X0 + 40, 9, ZW - 6], fov: 56 },
-      { t: 19, p: [X0 + 21, 12, ZW - 8], look: [X0 + 120, 90, ZM + 10] },
-      { t: 26, p: [X0 + 55, 38, ZM + 34], look: [X0 + 500, 420, ZM], fov: 64 },
-      { t: 34, p: [X0 + 235, 30, ZM + 6], look: [X0 + 800, 220, ZM], fov: 62 },
-      { t: 41, p: [X0 + 425, 16, ZM], look: [X0 + 800, 40, ZM + 8] },
-      { t: 48, p: [X0 + 620, 7, ZM + 8], look: [X0 + 860, 12, ZM + 18] },
-      { t: 55, p: [X0 + 790, 8.5, ZM + 15] },
-      { t: 60, p: [X0 + 870, 13, ZM + 20] },
+      { t: 20, p: [X0 + 24, 14, ZW - 12], look: [X0 + 120, 90, ZM + 40] },
+      { t: 27, p: [X0 + 70, 40, ZM + 30], look: [X0 + 330, 820, ZM + 26], fov: 66 },
+      { t: 34, p: [X0 + 255, 20, ZM + 4], look: [X0 + 700, 40, ZM], fov: 60 },
+      { t: 41, p: [X0 + 430, 10, ZM], look: [X0 + 800, 16, ZM + 4] },
+      { t: 48, p: [X0 + 610, 7, ZM + 3], look: [X0 + 900, 9, ZM - 20] },
+      { t: 55, p: [X0 + 790, 4, ZM + 8], look: [X0 + 1000, 11, ZM + 14] },
+      { t: 61, p: [X0 + 885, 11, ZM + 14] },
     ], { frame, entryRadius: 1.6, exitRadius: 10 });
     const pts = path.points(0.5);
     for (const q of pts) q.r = q.y < 6 ? 85 : q.y < 22 ? 100 : 75;
     yield;
 
     // ---- the wood
-    const box = [X0 - 200, ZM - 330, XL + LRX + 80, ZM + 330];
-    const wood = yield* plantWood(hollow, plan, pts, box);
+    const box = [X0 - 200, ZM - LRZ - 70, XL + LRX + 70, ZM + 240];
+    const wood = yield* plantWood(hollow, plan, pts, box, stands);
     const geos = { yew: yewGeo(), birch: birchGeo() };
-    let trees = 0;
-    for (const kind of ['yew', 'birch']) { trees += wood.lists[kind].length; for (const m of instances(geos[kind], hollow.lit, wood.lists[kind], { frame, cell: 300 })) hollow.group.add(m); yield; }
+    let trees = 0, tq = performance.now();
+    const dbg = /debug/.test(location.search), lap = (k) => { if (dbg) console.log(`[sloe] ${k} ${(performance.now() - tq).toFixed(0)} ms`); tq = performance.now(); };
+    lap('tree models');
+    for (const kind of ['yew', 'birch']) { trees += wood.lists[kind].length; for (const m of instances(geos[kind], hollow.lit, wood.lists[kind], { frame, cell: 300 })) hollow.group.add(m); lap('trees ' + kind); yield; tq = performance.now(); }
     hollow.setTreeNear(100);
     const mm = mirrorMaterial(rig, hollow.tex, frame, 0.9);
     const lakeBall = new Sphere(frame.point(XL, 0, ZL), LRX + 140);
     for (const kind of ['yew', 'birch']) for (const m of instances(geos[kind], mm, wood.mirror[kind], { frame, cell: 2000 })) { m.boundingSphere = lakeBall; m.renderOrder = -4; hollow.group.add(m); }
-    yield;
+    lap('mirror');
+    yield; tq = performance.now();
 
     // ---- lift pavilions where the rides cross, and in glades
     const items = pav.map((q) => ({ p: [q[0], 0, q[1]], yaw: (q[0] * 0.37) % 6.28 }));
     for (const m of instances(pavilionGeo(), hollow.lit, items, { frame, cell: 1200 })) hollow.group.add(m);
+    lap('pavilions');
 
     // ---- people: very few, very quiet, each with a slate
     const rng = makeRng('sloe-folk');
@@ -411,7 +456,7 @@ export const sloeWood = {
     const put = (mat, pose, item) => { const skin = rng.pick(SKIN), k = skin + pose + (mat === driftMat ? 'd' : mat === hollow.walk ? 'w' : 's'); let a = groups.get(k); if (!a) groups.set(k, a = { mat, geo: folkGeo(skin, pose), items: [] }); a.items.push(item); };
     // walkers on the long ride, alone or in twos, going slowly one way or the other
     for (let i = 0; i < 18; i++) {
-      const fwd = rng.chance(0.5), v = rng.f(0.6, 0.95), x0 = fwd ? X0 + 150 : X0 + 520, loop = 360 / v, ph = rng();
+      const fwd = rng.chance(0.5), v = rng.f(0.6, 0.95), x0 = fwd ? X0 + 260 : X0 + 600, loop = 330 / v, ph = rng();
       const z = ZM + rng.pick([-1.2, 1.2, rng.f(-16, 16)]), two = rng.chance(0.35), color = rng.pick(CLOTHES);
       put(driftMat, 'walk', { p: [x0, 0, z], yaw: fwd ? Math.PI / 2 : -Math.PI / 2, color, drift: [fwd ? v : -v, 0, 0, loop], phase: ph });
       if (two) put(driftMat, 'walk', { p: [x0 + rng.f(-0.4, 0.4), 0, z + 0.9], yaw: fwd ? Math.PI / 2 : -Math.PI / 2, color: rng.pick(CLOTHES), drift: [fwd ? v : -v, 0, 0, loop], phase: ph });
@@ -434,7 +479,8 @@ export const sloeWood = {
     }
     let folk = 0;
     for (const gr of groups.values()) { folk += gr.items.length; for (const m of instances(gr.geo, gr.mat, gr.items, { frame, cell: 400, walk: gr.mat === hollow.walk, drift: gr.mat === driftMat })) hollow.group.add(m); }
-    yield;
+    lap('folk');
+    yield; tq = performance.now();
 
     // ---- the woodwarden, who holds up LISTEN, turns, and walks off down the path
     const warden = new Group();
@@ -462,6 +508,7 @@ export const sloeWood = {
       warden.matrixWorldNeedsUpdate = true;
     };
     placeWarden(0);
+    lap('warden');
 
     // ---- the ring of lashed birch poles, standing in the lake, that the flight leaves through
     const drop = path.exit.flat.y;
@@ -472,13 +519,14 @@ export const sloeWood = {
     const ringM = new Mesh(ring.geometry, mirrorMaterial(rig, hollow.tex, null, 0.9));
     ringM.position.copy(path.exit.pos); ringM.quaternion.copy(path.exit.quat); ringM.frustumCulled = false; ringM.renderOrder = -4;
     scene.add(ringM);
-    yield;
+    lap('ring');
+    yield; tq = performance.now();
 
     if (/debug/.test(location.search)) console.log(`[sloe] trees ${trees}, mirrored ${wood.mirror.yew.length + wood.mirror.birch.length}, folk ${folk}`);
     return {
       scene, path, hollow, near: 0.3, far: 9000,
-      look: { exposure: 2.7, bloom: 0.12, threshold: 0.9, saturation: 0.92, vignette: 0.5 },
-      portal: { rim: false, mist: '#8a9a84' },
+      look: { exposure: 2.7, bloom: 0.14, threshold: 0.85, saturation: 0.8, contrast: 1.0, vignette: 0.5 },
+      portal: { rim: false, mist: '#46524b' },
       update(t) { placeWarden(t); },
     };
   },

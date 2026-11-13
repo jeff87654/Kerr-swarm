@@ -38,6 +38,8 @@ export class Plan {
    * Nothing is drawn yet: the call is kept, in order, and done by settle() (buildHollow does that, a little each frame).
    */
   layer(name, fn) { this.queue.push([name, fn]); }
+  /** The same, but fn(ctx) is called once only, unshifted: for drawing of your own that already handles the seam (or does not reach it). */
+  once(name, fn) { this.queue.push([name, (cx, k) => { if (k === 0) fn(cx); }]); }
   _draw(name, fn) {
     const cx = this.cx[name], cv = this.cv[name];
     const sx = cv.width / this.C, sz = cv.height / this.L;

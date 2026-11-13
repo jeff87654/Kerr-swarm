@@ -183,8 +183,9 @@ export class Engine {
     // the opening at the end of this world
     const po = inst.portalOpts, R = inst.exit.radius;
     const mist = new Color(po.mist || def.tone || '#c9b28a');
+    const mistK = (po.mistPower === undefined ? 1.2 : po.mistPower) / Math.max(inst.look.exposure || 1, 0.05);
     const pm = new ShaderMaterial({
-      uniforms: { uClip: G.uClip, uTime: G.uTime, uRes: G.uRes, tNext: { value: null }, uLive: { value: 0 }, uGain: { value: 1 }, uMist: { value: new Vector3(mist.r, mist.g, mist.b).multiplyScalar(po.mistPower === undefined ? 1.2 : po.mistPower) } },
+      uniforms: { uClip: G.uClip, uTime: G.uTime, uRes: G.uRes, tNext: { value: null }, uLive: { value: 0 }, uGain: { value: 1 }, uMist: { value: new Vector3(mist.r, mist.g, mist.b).multiplyScalar(mistK) } },
       vertexShader: PORTAL_VERT, fragmentShader: PORTAL_FRAG, side: DoubleSide,
     });
     const geo = po.shape === 'rect' ? new PlaneGeometry(po.width || R * 2, po.height || R * 2) : new CircleGeometry(R, 72);
@@ -194,7 +195,7 @@ export class Engine {
     inst.scene.add(portal); inst.portal = portal;
     if (po.rim !== false && po.shape !== 'rect') {
       const rim = new Mesh(new PlaneGeometry(R * 2.5, R * 2.5), new ShaderMaterial({
-        uniforms: { uClip: G.uClip, uColor: { value: new Vector3(mist.r, mist.g, mist.b) }, uPower: { value: po.rimPower === undefined ? 3 : po.rimPower } },
+        uniforms: { uClip: G.uClip, uColor: { value: new Vector3(mist.r, mist.g, mist.b) }, uPower: { value: (po.rimPower === undefined ? 3 : po.rimPower) / Math.max(inst.look.exposure || 1, 0.05) } },
         vertexShader: PORTAL_VERT, fragmentShader: RIM_FRAG, side: DoubleSide, transparent: true, depthWrite: false, blending: AdditiveBlending,
       }));
       rim.position.copy(inst.exit.pos); rim.quaternion.copy(inst.exit.quat);

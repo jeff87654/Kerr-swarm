@@ -73,11 +73,11 @@ void main() {
   c = aces(c * 1.05);
   float l = dot(c, vec3(0.2126, 0.7152, 0.0722));
   c = mix(vec3(l), c, uSaturation);
-  c = (c - 0.5) * uContrast + 0.5;
   c = c * uGain + uLift * (1.0 - c);
   vec2 q = vUv - 0.5; q.x *= uRes.x / uRes.y * 0.82;
   c *= mix(1.0, smoothstep(0.95, 0.25, length(q)), uVignette);
   c = pow(max(c, 0.0), vec3(1.0 / 2.2));
+  c = (c - 0.42) * uContrast + 0.42;
   float g = hash(gl_FragCoord.xy + fract(uTime) * 91.7) - 0.5;
   c += g * uGrain + g / 255.0;
   gl_FragColor = vec4(c * uFade, 1.0);

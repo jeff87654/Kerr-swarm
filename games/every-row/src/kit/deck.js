@@ -940,6 +940,7 @@ const FRONTS = {
  *                that lies along x, z otherwise), or along the run itself with local: true
  *   fill         what stands in between: { mix: { shop: 2, home: 2, wall: 0.4, stall: 0.3, flat: 0 }, bay: [4.6, 6.4] (widths, m),
  *                trades: [[name, goods], ...], lit: 0.8, awnings: 0.4, blades: 0.4, numbers: 100 (first door number) } or false
+ *   paint        { wall, dado, trim }: one paint for the whole row, where a front does not give its own
  *   part         a name: keeps this row's geometry in meshes of its own
  * A front: { kind: 'shop' | 'stall' | 'home' | 'flat' | 'wall' | 'hall' | 'stair' | 'gap' | 'custom', id, and any of
  *   name (on its board), sub (a card by the door), goods ('bread', 'greens', 'cloth', 'pots', 'books', 'lamps', 'toys', 'shoes',
@@ -979,9 +980,10 @@ export function* frontage(D, run, spec) {
     const sg = pick(rng, pal.signs), mid = (b.u0 + b.u1) / 2, p = run.pt(mid, 1.5, 0);
     b.rng = rng.fork(bays.indexOf(b)); b.rnd = [rng(), rng(), rng(), rng()];
     b.fine = D.fine(p[0], p[1], p[2], b.kind === 'flat' || b.kind === 'home' ? 0.8 : 1);
-    if (b.wall === undefined) b.wall = wall;
-    if (b.dado === undefined) b.dado = dado;
-    if (b.trim === undefined) b.trim = vary(pick(rng, pal.trim), rng, 0.08);
+    const pt = spec.paint || {};
+    if (b.wall === undefined) b.wall = pt.wall || wall;
+    if (b.dado === undefined) b.dado = pt.dado || dado;
+    if (b.trim === undefined) b.trim = pt.trim || vary(pick(rng, pal.trim), rng, 0.08);
     if (b.door === undefined) b.door = vary(pick(rng, pal.doors), rng, 0.08);
     if (b.ground === undefined) { b.ground = sg[0]; if (b.ink === undefined) b.ink = sg[1]; } else if (b.ink === undefined) b.ink = '#efe6cf';
     if (b.font === undefined) b.font = pick(rng, ['serif', 'serif', 'serif', 'italic', 'cond', 'sans']);
@@ -1021,7 +1023,9 @@ export function* frontage(D, run, spec) {
  *   y (0), width (8), height (3)
  *   fronts     an avenue's { front: [...], back: [...] }, a street's { anti: [...], spin: [...] }: see frontage()
  *   fill       what stands between the fronts given (see frontage()); false for bare walls; or one for each side by name
- *   lamps      { every: 6, rows: 1, kind: 'panel' | 'globe', power: 1, color, reach: 4.2 }, or false
+ *   lamps      { every: 6, rows: 1, kind: 'panel' | 'globe', power: 1, color, reach: 4.2 }, or false. Also grid (lamps stand
+ *              at grid + k x every: give two stretches of one street the same) and lattice (false: no light of its own,
+ *              another stretch's covers it; { from, to }: its light covers that much of the grid)
  *   ribs       { every: 6, spring: 2.3 }: flat arches across, or false for a plain ceiling
  *   trolley    { every: 70 (metres between cars), speed: 1.5, dir: 1 or -1, color }: a slow trolley down the middle
  *   folk       people to each 100 m: { stand: 5, stroll: 4, walk: 5, kids: 0 (children running, anti on an avenue) }
@@ -1040,12 +1044,12 @@ export function* street(D, spec) {
   const fl = spec.floor || {}, floorCol = fl.color || pal.floor, stripCol = fl.strip || pal.strip, shine = fl.shine === undefined ? 0.8 : fl.shine;
   const lampO = spec.lamps === false ? null : { every: 6, rows: 1, kind: 'panel', power: 1, reach: 4.2, ...(spec.lamps || {}) };
   const ribO = spec.ribs === false ? null : { every: lampO ? lampO.every : 6, spring: Math.min(2.3, H - 0.7), ...(spec.ribs || {}) };
-  const tr = spec.trolley ? { every: 70, speed: 1.5, dir: 1, ...spec.trolley } : null;
+  const tr = spec.trolley ? { ...spec.trolley } : null, railed = !!tr || !!spec.rails;
   // floor, ceiling and ribs, a stretch at a time
   for (let u0 = a; u0 < z - 0.01; u0 += 8) {
-    const u1 = Math.min(z, u0 + 8), P = D.pen(run, (u0 + u1) / 2, part), band = tr ? 0.85 : 0;
+    const u1 = Math.min(z, u0 + 8), P = D.pen(run, (u0 + u1) / 2, part), band = railed ? 0.85 : 0;
     P.f.tint(1);
-    if (tr) {
+    if (railed) {
       P.f.floor(u0, -w / 2 - 0.3, u1, -band, 0, floorCol, { emit: shine }); P.f.floor(u0, band, u1, w / 2 + 0.3, 0, floorCol, { emit: shine });
       P.f.tint(0.5).floor(u0, -band, u1, band, 0, stripCol, { emit: shine * 0.7 }).tint(1);
       for (const v of [-0.5, 0.5]) P.g.box(u0, 0, v - 0.03, u1, 0.012, v + 0.03, pal.metal, { skip: 'b' });
@@ -1075,7 +1079,11 @@ export function* street(D, spec) {
   // lamps: a row or two down the ceiling, and the light they give
   const lamps = [];
   if (lampO) {
-    const n = Math.max(1, Math.floor(len / lampO.every)), u0 = a + (len - (n - 1) * lampO.every) / 2, rows = lampO.rows || 1, col = lampO.color || pal.lamp;
+    // lamps stand evenly along the street; or, given lamps.grid, at grid + k x every, so that two stretches of one
+    // street (either side of a court) keep one rhythm and can share one lattice of light
+    const ev = lampO.every, rows = lampO.rows || 1, col = lampO.color || pal.lamp;
+    let n = Math.max(1, Math.floor(len / ev)), u0 = a + (len - (n - 1) * ev) / 2;
+    if (lampO.grid !== undefined) { u0 = lampO.grid + Math.ceil((a + 0.8 - lampO.grid) / ev) * ev; n = Math.max(0, Math.floor((z - 0.8 - u0) / ev) + 1); }
     const vs = rows === 1 ? [0] : [-w / 4, w / 4], ly = H - (lampO.kind === 'globe' ? 0.62 : 0.1);
     for (let i = 0; i < n; i++) for (const v of vs) {
       const u = u0 + i * lampO.every, p = run.pt(u, ly, v);
@@ -1084,9 +1092,14 @@ export function* street(D, spec) {
       if (lampO.kind === 'globe') D.put('pendant', { p: run.pt(u, H, v), yaw: 0 });
       else { const P = D.pen(run, u, part); P.g.floor(u - 0.55, v - 0.19, u + 0.55, v + 0.19, H - 0.02, '#fff3dc', { down: true, emit: 4.2 * D.glowK }); P.g.box(u - 0.62, H - 0.05, v - 0.26, u + 0.62, H, v + 0.26, pal.metal, { skip: 't' }); P.done(); }
     }
-    const first = run.pt(u0, ly, vs[vs.length - 1]), cross = rows === 1 ? 40 : w / 2;
-    const o = X ? [Math.min(first[0], run.pt(u0, ly, vs[0])[0]), ly + y, at + vs[0]] : [at - vs[vs.length - 1], ly + y, u0];
-    D.lattice({ origin: o, spacing: X ? [lampO.every, cross] : [cross, lampO.every], count: X ? [n, rows] : [rows, n], color: col, power: lampO.power, reach: lampO.reach, drop: (H - 0.1) / 0.75 + 0.05 });
+    // their light: one lattice. lamps.lattice: false leaves it out (another stretch's covers this one); { from, to }
+    // stretches it over more of the same grid than this street's own length
+    if (lampO.lattice !== false && n > 0) {
+      let l0 = u0, ln = n;
+      if (lampO.lattice && lampO.lattice.from !== undefined) { l0 = u0 + Math.ceil((lampO.lattice.from - u0) / ev) * ev; ln = Math.floor((lampO.lattice.to - l0) / ev) + 1; }
+      const cross = rows === 1 ? 40 : w / 2, o = X ? [l0, ly + y, at + vs[0]] : [at - vs[vs.length - 1], ly + y, l0];
+      D.lattice({ origin: o, spacing: X ? [ev, cross] : [cross, ev], count: X ? [ln, rows] : [rows, ln], color: col, power: lampO.power, reach: lampO.reach, drop: (H - 0.1) / 0.75 + 0.05 });
+    }
     yield 'deck: lamps';
   }
   // the two rows of fronts
@@ -1108,21 +1121,9 @@ export function* street(D, spec) {
     for (const sd of [1, -1]) D.sign(lines, { run, side: sd, at: run.pt(u + sd * 0.037, H - 0.15 - hh / 2, 0), w: ww, h: hh, style: 'plate', font: 'cond', font2: 'serif', head: true });
   }
   // the trolley and the people aboard
-  if (tr) {
-    const n = Math.max(1, Math.round(len / tr.every)), loop = len / tr.speed, d = tr.dir < 0 ? -1 : 1, dir = run.dir(d, 0), yaw = run.yaw + (d < 0 ? Math.PI : 0);
-    const start = run.pt(d > 0 ? a : z, 0, 0), ph0 = tr.phase === undefined ? rng() : tr.phase, cy = Math.cos(yaw), sy = Math.sin(yaw);
-    for (let i = 0; i < n; i++) {
-      const phase = (ph0 + i / n) % 1, drift = [dir[0] * tr.speed, 0, dir[1] * tr.speed, loop];
-      D.put('trolley', { p: start, yaw, color: tr.color || pal.doors[2], drift, phase });
-      for (const sx of [-1.0, -0.5, 0, 0.5, 1.0]) for (const sz of [-0.31, 0.31]) {
-        if (rng() > (tr.riders === undefined ? 0.55 : tr.riders)) continue;
-        D.riders.push({ p: [start[0] + sx * cy + sz * sy, start[1] + 0.76, start[2] - sx * sy + sz * cy], yaw: yaw + (sz > 0 ? 0 : Math.PI), drift, phase, pose: 'sit', skin: pick(rng, SKIN), color: pick(rng, CLOTH), scale: rng.f(0.92, 1.05) });
-      }
-      for (const sx of [-1.8, 1.8]) D.glows.push({ p: [start[0] + sx * cy, start[1] + 0.72, start[2] - sx * sy], color: '#ffe6b8', power: 2.2, size: 0.5, move: [drift[0], 0, drift[2]], loop, phase });
-    }
-  }
+  if (tr) trolley(D, { ...tr, axis: spec.axis, from: a, to: z, at, y, rng });
   // people: knots of them standing, some strolling, some walking the length of it, children running
-  const fk = { stand: 5, stroll: 4, walk: 5, kids: 0, ...(spec.folk || {}) }, dens = D.density, lane0 = tr ? 1.25 : 0.4, lane1 = w / 2 - 1.5;
+  const fk = { stand: 5, stroll: 4, walk: 5, kids: 0, ...(spec.folk || {}) }, dens = D.density, lane0 = railed ? 1.25 : 0.4, lane1 = w / 2 - 1.5;
   const seen = (u, v) => { const p = run.pt(u, 1.2, v); return D.dist(p[0], p[1], p[2]) < 150; };
   if (lane1 > lane0) {
     for (let i = 0, n = Math.round(fk.stand * len / 100 * dens / 2.4); i < n; i++) { const u = rng.f(a + 1, z - 1), v = rng.sign() * rng.f(lane0 + 0.3, lane1 + 0.4); if (!seen(u, v)) continue; const p = run.pt(u, 0, v); D.knot(p[0], p[1], p[2], 2 + Math.floor(rng() * 2.4), rng); }
@@ -1152,6 +1153,29 @@ export function* street(D, spec) {
   return { run, sides, lamps, len, pt: (along, yy = 0, across = 0) => run.pt(along, yy, across) };
 }
 
+/**
+ * Slow trolleys along a line, with people aboard: { axis, from, to, at, y, every (70 m between cars), speed (1.5 m/s),
+ * dir (1 or -1), color, riders (0.55: the share of seats taken), phase }. street() calls this for its own trolley; call
+ * it yourself for a line that runs on across a court's bridge. A car fades in at one end and out at the other, so
+ * put the ends out of sight.
+ */
+export function trolley(D, spec) {
+  const X = spec.axis !== 'z', a = Math.min(spec.from, spec.to), z = Math.max(spec.from, spec.to), len = z - a, rng = spec.rng || D.rng;
+  const run = X ? new Run(0, spec.y || 0, spec.at || 0, 0) : new Run(spec.at || 0, spec.y || 0, 0, 3), speed = spec.speed || 1.5;
+  const n = Math.max(1, Math.round(len / (spec.every || 70))), loop = len / speed, d = spec.dir < 0 ? -1 : 1, dir = run.dir(d, 0), yaw = run.yaw + (d < 0 ? Math.PI : 0);
+  const start = run.pt(d > 0 ? a : z, 0, 0), ph0 = spec.phase === undefined ? rng() : spec.phase, cy = Math.cos(yaw), sy = Math.sin(yaw);
+  for (let i = 0; i < n; i++) {
+    const phase = (ph0 + i / n) % 1, drift = [dir[0] * speed, 0, dir[1] * speed, loop];
+    D.put('trolley', { p: start, yaw, color: spec.color || D.pal.doors[2], drift, phase });
+    for (const sx of [-1.0, -0.5, 0, 0.5, 1.0]) for (const sz of [-0.31, 0.31]) {
+      if (rng() > (spec.riders === undefined ? 0.55 : spec.riders)) continue;
+      D.riders.push({ p: [start[0] + sx * cy + sz * sy, start[1] + 0.76, start[2] - sx * sy + sz * cy], yaw: yaw + (sz > 0 ? 0 : Math.PI), drift, phase, pose: 'sit', skin: pick(rng, SKIN), color: pick(rng, CLOTH), scale: rng.f(0.92, 1.05) });
+    }
+    for (const sx of [-1.8, 1.8]) D.glows.push({ p: [start[0] + sx * cy, start[1] + 0.72, start[2] - sx * sy], color: '#ffe6b8', power: 2.2, size: 0.5, move: [drift[0], 0, drift[2]], loop, phase });
+  }
+  return { run, loop, n };
+}
+
 // ---------------------------------------------------------------- courts
 const SIDES = ['anti', 'spin', 'front', 'back'];
 /**
@@ -1163,7 +1187,8 @@ const SIDES = ['anti', 'spin', 'front', 'back'];
  *   step, depth      each ring's rail stands `step` (2 m) behind the one below; a terrace is `depth` (6 m) from rail to doors
  *   sides            { anti, spin, front, back }, each { wall: n (a sheer wall n storeys tall before its terraces begin), color,
  *                    fronts: { storey: [fronts] } (see frontage(); storey 0 is the court's own floor), fill }
- *   mouths           where streets come out: [{ side, storey, at (along the side: z for anti and spin, x for front and back), width, bridge }]
+ *   mouths           where streets come out: [{ side, storey, at (along the side: z for anti and spin, x for front and back), width,
+ *                    bridge (the width of a bridge that lands there: the rail is left open for it) }]
  *   light            { power: 2.2 (the floor: an overcast day), color, terraces: 0.5, terraceColor, soft: 2.5 }
  *   ceiling          { panel: 5 (metres), emit: 5, color }
  *   floor            { color, shine: 0.6 }
@@ -1231,10 +1256,11 @@ export function* atrium(D, spec) {
       if (!last) for (let u = si[0] + 0.4, nn = Math.max(1, Math.round((si[1] - si[0] - 0.8) / 6)), i = 0; i <= nn; i++, u = lerp(si[0] + 0.4, si[1] - 0.4, i / nn)) g.box(u - 0.1, 0, r + step + 0.08, u + 0.1, ROOM, r + step + 0.28, shade(fascia, 0.94), { skip: 'tb' });
       else wallN(g, sf[0], sf[1], ROOM, DECK_RISE, r + depth, fascia);
       // the rail: a trough of plants for most of its length, a glass rail for the rest, nothing where a bridge lands
-      const gaps = mouths.filter((m) => m.side === s && m.storey === k && m.bridge).map((m) => { const c = sr.u(m.at); return [c - m.width / 2 - 0.1, c + m.width / 2 + 0.1]; });
+      const gaps = mouths.filter((m) => m.side === s && m.storey === k && m.bridge).map((m) => { const c = sr.u(m.at), gw = m.bridge === true ? m.width : m.bridge; return [c - gw / 2 - 0.1, c + gw / 2 + 0.1]; });
       for (let u = si[0]; u < si[1] - 0.2;) {
         const u1 = Math.min(si[1], u + 2.4 + 1.6 * rng());
-        if (gaps.some((q) => u1 > q[0] && u < q[1])) { const q = gaps.find((q2) => u1 > q2[0] && u < q2[1]); if (u < q[0] - 0.3) planter(u, q[0]); u = Math.max(u1, q[1]); continue; }
+        const q = gaps.find((q2) => u1 > q2[0] && u < q2[1]);
+        if (q) { if (u < q[0] - 0.3) planter(u, q[0]); u = q[1]; continue; }
         if (rng() < 0.74) planter(u, u1); else glassRail(u, u1);
         u = u1;
       }
@@ -1280,10 +1306,11 @@ export function* atrium(D, spec) {
     for (let i = 0; i <= nx; i += 2) g.box(VX0 + i * px - 0.16, -0.6, VZ0, VX0 + i * px + 0.16, 0, VZ1, shade(pal.ceiling, 0.7), { skip: 't' });
     P.done();
   }
-  // light: the court's own (it widens as the terraces step back), a grey share of it for the terraces, and soft lamps under every slab
-  const pw = lt.power === undefined ? 2.2 : lt.power, sf = lt.soft || 2.5;
-  D.zone({ min: [x0 - sf, y0 - 0.5, z0 - sf], max: [x1 + sf, top + 1, z1 + sf], soft: sf, flare: step / DECK_RISE, color: lt.color || '#f6f2e8', power: pw, side: 0.36, under: 0.5 });
-  D.zone({ min: [x0 - depth - step * n, y0 + 2.5, z0 - depth - step * n], max: [x1 + depth + step * n, top + 1, z1 + depth + step * n], soft: 2, color: lt.terraceColor || '#dfe5e8', power: pw * (lt.terraces === undefined ? 0.25 : lt.terraces), side: 0.6, under: 0.45 });
+  // light: the court's floor has the most of it; the terraces a grey share, where they stand open to the ceiling
+  // (the box of that light widens as they step back); and there are soft lamps under every slab
+  const pw = lt.power === undefined ? 2.2 : lt.power, sf = lt.soft || 1.5, tq = lt.terraces === undefined ? 0.27 : lt.terraces;
+  D.zone({ min: [x0 - sf, y0 - 0.5, z0 - sf], max: [x1 + sf, top + 1, z1 + sf], soft: sf, color: lt.color || '#f6f2e8', power: pw * (1 - tq), side: 0.36, under: 0.5 });
+  D.zone({ min: [x0 - 3, y0 - 0.5, z0 - 3], max: [x1 + 3, top + 1, z1 + 3], soft: 3, flare: step / DECK_RISE, color: lt.terraceColor || '#e3e8ea', power: pw * tq, side: 0.55, under: 0.5 });
   D.lattice({ origin: [TX0 + 1.5, y0 + DECK_RISE + ROOM - 0.1, TZ0 + 1.5], spacing: [3, 3], count: [Math.ceil((TX1 - TX0) / 3), Math.ceil((TZ1 - TZ0) / 3)], storeys: n - 1, rise: DECK_RISE, power: lt.walks === undefined ? 0.13 : lt.walks, reach: 3.2 });
   D.sky({ x0: VX0, z0: VZ0, x1: VX1, z1: VZ1, y: top, floor: y0, color: cc, power: lt.gloss === undefined ? 1.6 : lt.gloss });
   // people on the court's floor
@@ -1304,9 +1331,10 @@ export function* atrium(D, spec) {
 }
 
 /**
- * A way across a court, hung from its ceiling on rods. spec: { axis, from, to, at, y, width (5), hang (the ceiling's height
- * in the deck's frame), lamps (true), rails (true: for a trolley), floor (colour), shine }. Lay a street's lamps and trolley
- * straight across it by running the street's own from and to over the court.
+ * A way across a court, hung from its ceiling on rods. A generator. spec: { axis, from, to, at, y, width (5), hang (the
+ * ceiling's height in the deck's frame), lamps (true), rails (true: for a trolley), bare ([[from, to], ...]: stretches
+ * with no rods, where another bridge crosses overhead), floor (colour), shine }. For a trolley that runs on across it,
+ * call trolley() over the street's whole length.
  */
 export function* bridge(D, spec) {
   const X = spec.axis !== 'z', y = spec.y || 0, w = spec.width || 5, at = spec.at || 0, pal = D.pal, part = spec.part || 'bridge';
@@ -1324,9 +1352,11 @@ export function* bridge(D, spec) {
       P.gl.quad([u1, 0.14, v - sd * 0.08], [u0, 0.14, v - sd * 0.08], [u0, 1.02, v - sd * 0.08], [u1, 1.02, v - sd * 0.08], pal.glass);
       g.box(u0 - 0.03, 0.14, v - sd * 0.08 - 0.03, u0 + 0.03, 1.02, v - sd * 0.08 + 0.03, steel, { skip: 'tb' });
       g.box(u0, -0.75, sd * w / 3 - 0.1, u1, -0.32, sd * w / 3 + 0.1, steel, { skip: 't' });
-      // a rod up to the ceiling, and a lamp on it
-      if (i % 2 === 0) {
-        const um = (u0 + u1) / 2;
+      // a rod up to the ceiling, and a lamp on it (not where the flight passes)
+      const um = (u0 + u1) / 2;
+      let free = !(spec.bare || []).some((q) => um > q[0] && um < q[1]);
+      for (let yy = 0.6; yy < hang - y && free; yy += 0.9) { const q = run.pt(um, yy, v - sd * 0.08); free = D.clear(q[0], q[1], q[2], 1.1); }
+      if (i % 2 === 0 && free) {
         g.box(um - 0.035, 1.02, v - sd * 0.08 - 0.035, um + 0.035, hang - y, v - sd * 0.08 + 0.035, steel, { skip: 'tb' });
         if (spec.lamps !== false) { g.blob(um, 2.7, v - sd * 0.08, [0.15, 0.16, 0.15], 1, '#fff0d0', { emit: 3.2 * D.glowK, shadeBottom: 1 }); D.glows.push({ p: run.pt(um, 2.7, v - sd * 0.08), color: pal.lamp, power: 2 * D.glowK, size: 0.6 }); }
       }
@@ -1339,4 +1369,177 @@ export function* bridge(D, spec) {
   return { run, from: a, to: z, width: w };
 }
 
-// ---------------------------------------------------------------- //KIT-NEXT
+// ---------------------------------------------------------------- rooms
+// the run that looks out of a wall facing one of the four ways, with its middle at (x, z)
+const faceRun = (x, y, z, face) => new Run(x, y, z, face === 'front' ? 0 : face === 'back' ? 2 : face === 'anti' ? 1 : 3);
+
+/**
+ * One long room: a Mill Hall, a cooked hall with a single table, baths. A generator: `const h = yield* hall(deck, spec)`.
+ *   x0, x1, z0, z1, y, height (3)
+ *   open      { front | back | anti | spin: [[from, to], ...] }: stretches of each wall left out (places along the deck),
+ *             where a street's 'hall' front stands, or a court's terrace; true for the whole side under a beam; 'none'
+ *             for no wall there at all (a lobby's doors stand in its place)
+ *   wall, dado, floor (colours), shine (0.7)
+ *   lamps     { spacing: [sx, sz] (4, 5), kind: 'globe' | 'panel', power: 0.9, color, reach: 3.4 }
+ *   tables    { axis: 'x' | 'z', rows: 3, from, to (along that axis), taken: 0.6 (the share of seats with someone in them), dishes: true }
+ *             long tables with benches, dishes under lids down the middle, a bowl at each place taken
+ *   pool      { x0, x1, z0, z1, color, steam: true, bathers: 8 }: warm water let into the floor
+ * returns { tables: [{ from: [x, z], to: [x, z] }], lamps: [[x, y, z], ...] }
+ */
+export function* hall(D, spec) {
+  const { x0, x1, z0, z1 } = spec, y = spec.y || 0, H = spec.height || ROOM, pal = D.pal, part = spec.part || 'hall';
+  const rng = makeRng(D.seed + 'hall' + x0 + '_' + z0), wall = spec.wall || pal.walls[0], dado = spec.dado || pal.dado[0], open = spec.open || {};
+  const fc = spec.floor || pal.floor, shine = spec.shine === undefined ? 0.7 : spec.shine, top = Math.min(2.55, H - 0.4);
+  // floor (round the pool, if there is one) and ceiling
+  const P = D.pen(new Run(0, y, 0, 0), (x0 + x1) / 2, part), pool = spec.pool;
+  P.f.tint(0.5);
+  if (pool) { P.f.floor(x0, z0, x1, pool.z0, 0, fc, { emit: shine }).floor(x0, pool.z1, x1, z1, 0, fc, { emit: shine }).floor(x0, pool.z0, pool.x0, pool.z1, 0, fc, { emit: shine }).floor(pool.x1, pool.z0, x1, pool.z1, 0, fc, { emit: shine }); }
+  else P.f.floor(x0, z0, x1, z1, 0, fc, { emit: shine });
+  P.f.tint(0);
+  P.g.floor(x0, z0, x1, z1, H, shade(pal.ceiling, 0.95), { down: true });
+  for (let x = x0 + 4; x < x1 - 1; x += 4) P.g.box(x - 0.12, H - 0.24, z0, x + 0.12, H, z1, pal.rib, { skip: 't' });
+  if (pool) {
+    const wc = pool.color || '#4f9a9a', tile = shade(wc, 1.5), d = 0.14;
+    P.f.floor(pool.x0, pool.z0, pool.x1, pool.z1, -d, wc, { emit: 1 });
+    wallN(P.g, pool.x0, pool.x1, -d - 0.02, 0, pool.z1, tile); P.g.quad([pool.x0, -d - 0.02, pool.z0], [pool.x1, -d - 0.02, pool.z0], [pool.x1, 0, pool.z0], [pool.x0, 0, pool.z0], tile);
+    P.g.quad([pool.x0, -d - 0.02, pool.z1], [pool.x0, -d - 0.02, pool.z0], [pool.x0, 0, pool.z0], [pool.x0, 0, pool.z1], tile); P.g.quad([pool.x1, -d - 0.02, pool.z0], [pool.x1, -d - 0.02, pool.z1], [pool.x1, 0, pool.z1], [pool.x1, 0, pool.z0], tile);
+    for (let i = 0, n = Math.round((pool.bathers === undefined ? 8 : pool.bathers) * D.density); i < n; i++) D.spots.push({ p: [rng.f(pool.x0 + 0.5, pool.x1 - 0.5), y - 0.86, rng.f(pool.z0 + 0.5, pool.z1 - 0.5)], sit: true, color: '#d9d2c4' });
+    // steam: slow soft lights going up
+    if (pool.steam !== false) for (let i = 0, n = Math.round((pool.x1 - pool.x0) * (pool.z1 - pool.z0) * 0.9); i < n; i++) D.glows.push({ p: [rng.f(pool.x0, pool.x1), y + rng.f(-0.1, 0.5), rng.f(pool.z0, pool.z1)], color: '#fff1e0', power: rng.f(0.05, 0.11), size: rng.f(1.0, 2.0), move: [rng.f(-0.03, 0.03), rng.f(0.12, 0.24), rng.f(-0.03, 0.03)], loop: rng.f(8, 14), phase: rng() });
+  }
+  P.done();
+  yield 'deck: hall';
+  // walls: plain inside, with a dado, left out where the room stands open; a beam over each opening
+  for (const s of SIDES) {
+    if (open[s] === 'none') continue;          // no wall at all on this side: something else stands there (a lobby's doors)
+    const r = s === 'back' ? new Run(0, y, z1, 0) : s === 'front' ? new Run(0, y, z0, 2) : s === 'spin' ? new Run(x1, y, 0, 1) : new Run(x0, y, 0, 3);
+    const lo = s === 'back' || s === 'front' ? [x0, x1] : [z0, z1], gaps = open[s] === true ? [lo] : (open[s] || []);
+    yield* frontage(D, r, { from: r.u(lo[0]), to: r.u(lo[1]), height: H, fill: false, paint: { wall, dado, trim: pal.trim[0] }, fronts: gaps.map((q) => ({ from: q[0], to: q[1], kind: 'gap' })), part });
+    const Q = D.pen(r, (r.u(lo[0]) + r.u(lo[1])) / 2, part);
+    for (const q of gaps) wallN(Q.g, Math.min(r.u(q[0]), r.u(q[1])), Math.max(r.u(q[0]), r.u(q[1])), top, H, 0, wall);
+    Q.done();
+  }
+  // lamps
+  const lamps = [], lo = spec.lamps === false ? null : { spacing: [4, 5], kind: 'globe', power: 0.9, reach: 3.4, ...(spec.lamps || {}) };
+  if (lo) {
+    const nx = Math.max(1, Math.round((x1 - x0) / lo.spacing[0])), nz = Math.max(1, Math.round((z1 - z0) / lo.spacing[1])), sx = (x1 - x0) / nx, sz = (z1 - z0) / nz;
+    const ly = y + H - (lo.kind === 'globe' ? 0.62 : 0.1), col = lo.color || pal.lamp;
+    for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++) {
+      const p = [x0 + (i + 0.5) * sx, ly, z0 + (j + 0.5) * sz];
+      lamps.push(p); D.glows.push({ p: [p[0], p[1] - 0.04, p[2]], color: col, power: 2.1 * D.glowK, size: 0.7 });
+      if (lo.kind === 'globe') D.put('pendant', { p: [p[0], y + H, p[2]], yaw: 0 });
+      else { const Q = D.pen(new Run(0, y, 0, 0), p[0], part); Q.g.floor(p[0] - 0.5, p[2] - 0.18, p[0] + 0.5, p[2] + 0.18, H - 0.02, '#fff3dc', { down: true, emit: 4.2 * D.glowK }); Q.done(); }
+    }
+    D.lattice({ origin: [x0 + sx / 2, ly, z0 + sz / 2], spacing: [sx, sz], count: [nx, nz], color: col, power: lo.power, reach: lo.reach, drop: (H - 0.1) / 0.75 + 0.05 });
+  }
+  // long tables
+  const tables = [], tb = spec.tables;
+  if (tb) {
+    const TX = tb.axis !== 'z', rows = tb.rows || 3, a = tb.from === undefined ? (TX ? x0 : z0) + 2.5 : tb.from, b = tb.to === undefined ? (TX ? x1 : z1) - 2.5 : tb.to;
+    const c0 = TX ? z0 : x0, c1 = TX ? z1 : x1, nseg = Math.max(1, Math.round((b - a) / 2.4)), seg = (b - a) / nseg, taken = tb.taken === undefined ? 0.6 : tb.taken;
+    const at = (al, ac, yy) => (TX ? [al, y + yy, ac] : [ac, y + yy, al]), yaw = TX ? 0 : Math.PI / 2;
+    for (let r = 0; r < rows; r++) {
+      const c = c0 + (c1 - c0) * (r + 0.5) / rows + (tb.shift || 0);
+      tables.push({ from: at(a, c, 0), to: at(b, c, 0) });
+      for (let i = 0; i < nseg; i++) {
+        const al = a + (i + 0.5) * seg, sc = [seg / 2.4, 1, 1];
+        D.put('tableLong', { p: at(al, c, 0), yaw, scale: sc, color: vary('#d9c6a4', rng, 0.12) });
+        for (const sd of [-1, 1]) D.put('benchLong', { p: at(al, c + sd * 0.72, 0), yaw, scale: sc, color: vary('#c9b08a', rng, 0.12) });
+      }
+      for (let al = a + 0.6; al < b - 0.3; al += 1.2) if (tb.dishes !== false) D.put(rng() < 0.75 ? 'dish' : 'pan', { p: at(al + rng.f(-0.15, 0.15), c + rng.f(-0.08, 0.08), 0.75), yaw: rng() * TAU, scale: rng() < 0.75 ? rng.f(0.9, 1.25) : rng.f(0.5, 0.62), color: vary('#c9c8c2', rng, 0.2) });
+      for (let al = a + 0.35; al < b - 0.25; al += 0.62) for (const sd of [-1, 1]) {
+        if (rng() > taken) continue;
+        const p = at(al + rng.f(-0.08, 0.08), c + sd * 0.72, 0.45), dirc = TX ? [0, -sd] : [-sd, 0];
+        D.spots.push({ p, sit: true, yaw: Math.atan2(dirc[0], dirc[1]), child: false });
+        D.put('bowl', { p: at(al, c + sd * 0.27, 0.75), yaw: 0, color: vary('#e6dfd0', rng, 0.1) });
+      }
+      if (D.clk.due()) { yield 'deck: tables'; D.clk.go(); }
+    }
+  }
+  yield 'deck: hall';
+  return { tables, lamps };
+}
+
+/**
+ * A lift lobby's wall of cab doors (drum-transport.md: a core every 100 m, four berths to a lobby, a cab waiting in most).
+ * spec: { at: [x, z] (the middle of the wall, on the floor), y, face ('front' | 'back' | 'anti' | 'spin': the way the doors look
+ *   out), doors: 4, pitch: 2.6 (m from door to door), doorW: 1.5, doorH: 2.2, height: 3, width, name ('Cabs'), lines (an address
+ *   to go under it), open: [i, ...] (doors standing open on a lit cab), hole: i (a door left as a bare opening: a world's way out),
+ *   wall, door (colours) }
+ * returns { doors: [{ p: [x, y, z] (the middle of the opening), w, h, n: [nx, nz] (the way it looks) }], run }
+ */
+export function lobby(D, spec) {
+  const y = spec.y || 0, H = spec.height || ROOM, n = spec.doors || 4, pitch = spec.pitch || 2.6, dw = spec.doorW || 1.5, dh = spec.doorH || 2.2, pal = D.pal;
+  const run = faceRun(spec.at[0], y, spec.at[1], spec.face || 'front'), W = spec.width || n * pitch + 1.2, rng = makeRng(D.seed + 'lobby' + spec.at[0] + '_' + spec.at[1]);
+  const P = D.pen(run, 0, spec.part || 'lobby'), g = P.g, wall = spec.wall || pal.walls[0], steel = shade(pal.metal, 1.25), doors = [], out = run.dir(0, -1);
+  const us = []; for (let i = 0; i < n; i++) us.push((i - (n - 1) / 2) * pitch);
+  let x = -W / 2;
+  for (const u of us) { wallN(g, x, u - dw / 2, 0, H, 0, wall); wallN(g, u - dw / 2, u + dw / 2, dh, H, 0, wall); x = u + dw / 2; }
+  wallN(g, x, W / 2, 0, H, 0, wall);
+  g.box(-W / 2, 0, -0.022, W / 2, 0.14, 0, shade(pal.metal, 0.8), { skip: 'bs' });
+  us.forEach((u, i) => {
+    const a = u - dw / 2, b = u + dw / 2, isOpen = (spec.open || []).includes(i), isHole = spec.hole === i, col = spec.door || pal.doors[(i * 3 + 1) % pal.doors.length];
+    g.box(a - 0.1, 0, -0.05, a, dh + 0.1, 0.26, steel, { skip: 'b' }).box(b, 0, -0.05, b + 0.1, dh + 0.1, 0.26, steel, { skip: 'b' }).box(a, dh, -0.05, b, dh + 0.1, 0.26, steel);
+    // the light over the door, and its number
+    g.box(u - 0.2, dh + 0.18, -0.04, u + 0.2, dh + 0.3, 0, '#2f2f30', { skip: 's' }).box(u - 0.16, dh + 0.2, -0.05, u + 0.16, dh + 0.28, -0.04, isOpen || isHole ? '#b9f0c0' : '#ffcf8a', { emit: 3 * D.glowK, skip: 's' });
+    D.glows.push({ p: run.pt(u, dh + 0.24, -0.08), color: isOpen || isHole ? '#b9f0c0' : '#ffcf8a', power: 1.3 * D.glowK, size: 0.45 });
+    g.box(b + 0.22, 1.0, -0.03, b + 0.36, 1.3, 0, '#3a3b3c', { skip: 's' }).box(b + 0.26, 1.12, -0.04, b + 0.32, 1.18, -0.03, '#ffe0a0', { emit: 3, skip: 's' });
+    if (!isOpen && !isHole) {
+      for (const sd of [-1, 1]) { const p0 = sd < 0 ? a : u + 0.008, p1 = sd < 0 ? u - 0.008 : b; g.box(p0, 0.02, 0.18, p1, dh, 0.23, col, { skip: 'b' }).box(p0 + 0.12, 0.3, 0.165, p1 - 0.12, dh - 0.25, 0.18, shade(col, 1.12), { skip: 's' }); }
+      g.box(a, 0.02, 0.17, b, 0.24, 0.18, steel, { skip: 's' });
+    } else if (isOpen) {
+      // the cab: a small lit room with a seat round it
+      const cw = 2.0, cd = 1.9, ch = dh - 0.05, felt = mixc(pal.shop, col, 0.35), e = 0.9 * D.glowK;
+      wallN(g, u - cw / 2, u + cw / 2, 0, ch, 0.3 + cd, felt, e);
+      g.quad([u - cw / 2, 0, 0.3 + cd], [u - cw / 2, 0, 0.3], [u - cw / 2, ch, 0.3], [u - cw / 2, ch, 0.3 + cd], felt, e).quad([u + cw / 2, 0, 0.3], [u + cw / 2, 0, 0.3 + cd], [u + cw / 2, ch, 0.3 + cd], [u + cw / 2, ch, 0.3], felt, e);
+      g.floor(u - cw / 2, 0.26, u + cw / 2, 0.3 + cd, 0.01, shade(felt, 0.6)).floor(u - cw / 2, 0.26, u + cw / 2, 0.3 + cd, ch, '#fff3dc', { down: true, emit: 2.2 * D.glowK });
+      g.box(u - cw / 2, 0, 0.3 + cd - 0.45, u + cw / 2, 0.45, 0.3 + cd, shade(col, 0.9), { skip: 'b' });
+      g.box(a - 0.02, 0.02, 0.18, a + 0.1, dh, 0.23, col, { skip: 'b' }).box(b - 0.1, 0.02, 0.18, b + 0.02, dh, 0.23, col, { skip: 'b' });
+      D.glows.push({ p: run.pt(u, 1.5, 1.0), color: pal.shop, power: 1.6 * D.glowK, size: 1.6 });
+    }
+    doors.push({ p: run.pt(u, dh / 2, 0.2), w: dw, h: dh, n: out, u });
+  });
+  P.done();
+  const name = spec.name === undefined ? 'Cabs' : spec.name;
+  if (name) D.sign(spec.lines ? [name, ...spec.lines] : name, { run, at: run.pt(0, H - 0.3, -0.014), h: spec.lines ? 0.42 : 0.3, w: Math.min(W - 1, 3.4), style: 'plate', font: 'cond', font2: 'serif', head: true, track: 0.16 });
+  // someone waiting at about every other door
+  for (const u of us) if (rng() < 0.5 && D.clear(...run.pt(u, 1.2, -1.4), 1.5)) D.spots.push({ p: run.pt(u + rng.f(-0.4, 0.4), 0, -1.2 - rng()), yaw: run.yaw + rng.f(-0.4, 0.4) });
+  // the doors of the way out are two meshes of their own, so that they can part: slide(0) shut, slide(1) open
+  let slide = () => { };
+  if (spec.hole !== undefined && us[spec.hole] !== undefined) {
+    const u = us[spec.hole], col = spec.door || pal.doors[(spec.hole * 3 + 1) % pal.doors.length], leaves = [];
+    for (const sd of [-1, 1]) {
+      const lg = new Geo({ maxSeg: 8 }), p0 = sd < 0 ? u - dw / 2 : u + 0.006, p1 = sd < 0 ? u - 0.006 : u + dw / 2;
+      lg.at(run.ox, run.oy, run.oz, run.yaw);
+      lg.box(p0, 0.02, 0.18, p1, dh, 0.23, col, { skip: 'b' }).box(p0 + 0.12, 0.3, 0.165, p1 - 0.12, dh - 0.25, 0.18, shade(col, 1.12), { skip: 's' }).box(p0, 0.02, 0.17, p1, 0.24, 0.18, steel, { skip: 's' });
+      lg.pop();
+      const m = lg.mesh(D.lit, D.frame); D.group.add(m); leaves.push([m, sd]);
+    }
+    slide = (k) => { for (const [m, sd] of leaves) { const d = run.dir(sd * Math.max(0, Math.min(1, k)) * (dw / 2 + 0.04), 0); m.rotation.z = d[0] / D.frame.floorR; m.position.z = d[1]; } };
+  }
+  return { doors, run, width: W, slide };
+}
+
+/** A stair on its own, in a wall: { at: [x, z] (the middle of its opening), y, face, width (3.4), height, name, sub, wall }. A generator. */
+export function* stairs(D, spec) {
+  const w = spec.width || 3.4, run = faceRun(spec.at[0], spec.y || 0, spec.at[1], spec.face || 'front');
+  return yield* frontage(D, run, { from: -w / 2, to: w / 2, height: spec.height || ROOM, fill: false, part: spec.part || 'stair', fronts: [{ local: true, from: -w / 2, to: w / 2, kind: 'stair', name: spec.name, sub: spec.sub, wall: spec.wall }] });
+}
+
+/**
+ * A direction rose inlaid in a floor: its four long points are spinward, anti, front and back (sorrel.md has one in the
+ * Sixty-Two Lobby). spec: { at: [x, z], y, r (3), colors: [dark, light], words: ['Spinward', 'Anti', 'Front', 'Back'] or false, ground, ink }
+ */
+export function rose(D, spec) {
+  const [cx, cz] = spec.at, y = (spec.y || 0) + 0.014, r = spec.r || 3, cols = spec.colors || [shade(D.pal.strip, 0.8), D.pal.brass];
+  const g = D.bucket(cx, cz, 'rose').g;
+  const up = (a, b, c, col) => { const s = (b[2] - a[2]) * (c[0] - a[0]) - (b[0] - a[0]) * (c[2] - a[2]); if (s > 0) g.tri(a, b, c, col); else g.tri(a, c, b, col); };
+  const pt = (ang, rad) => [cx + Math.cos(ang) * rad, y, cz + Math.sin(ang) * rad];
+  for (let i = 0; i < 8; i++) {
+    const a = i * Math.PI / 4, R = i % 2 ? r * 0.56 : r, tip = pt(a, R), c = [cx, y, cz];
+    up(c, pt(a - Math.PI / 8, r * 0.24), tip, cols[0]); up(c, tip, pt(a + Math.PI / 8, r * 0.24), cols[1]);
+  }
+  for (let i = 0; i < 24; i++) { const a0 = i * TAU / 24, a1 = (i + 1) * TAU / 24; up(pt(a0, r * 1.06), pt(a1, r * 1.06), pt(a1, r * 1.12), cols[0]); up(pt(a0, r * 1.06), pt(a1, r * 1.12), pt(a0, r * 1.12), cols[0]); }
+  const words = spec.words === undefined ? ['Spinward', 'Anti', 'Front', 'Back'] : spec.words;
+  if (words) [[1, 0, Math.PI / 2], [-1, 0, -Math.PI / 2], [0, -1, Math.PI], [0, 1, 0]].forEach((q, i) => D.sign(words[i], { at: [cx + q[0] * r * 1.36, y + 0.004, cz + q[1] * r * 1.36], up: q[2], h: r * 0.13, style: 'plate', font: 'cond', ground: spec.ground || '#8d7c69', ink: spec.ink || '#efe2c0', track: 0.2 }));
+}
