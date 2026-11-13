@@ -22,7 +22,7 @@ export class Plan {
     this.w = size[0]; this.h = size[1];
     this.C = opts.C || C; this.L = opts.L || L;
     this.cv = { alb: canvas(this.w, this.h), mask: canvas(this.w, this.h), kind: canvas(this.w >> 1, this.h >> 1) };
-    this.cx = {};
+    this.cx = {}; this.cpu = !!opts.cpu;
     for (const k of ['alb', 'mask', 'kind']) {
       const cx = this.cv[k].getContext('2d', { willReadFrequently: !!opts.cpu });
       cx.fillStyle = k === 'alb' ? '#5d8a3c' : '#000000';
@@ -287,7 +287,8 @@ export class Plan {
     const K = this._grab(this.cv.kind, w, h); yield 'plan: reading';
     return this._reader(A, M, K, w, h);
   }
-  _grab(cv, w, h) { const c = canvas(w, h), cx = c.getContext('2d', { willReadFrequently: true }); cx.drawImage(cv, 0, 0, w, h); return cx.getImageData(0, 0, w, h).data; }
+  // (shrunk on the graphics card first, into a canvas of the same kind, so only the small picture is read back)
+  _grab(cv, w, h) { const c = canvas(w, h), cx = c.getContext('2d', this.cpu ? { willReadFrequently: true } : undefined); cx.drawImage(cv, 0, 0, w, h); return cx.getImageData(0, 0, w, h).data; }
   _reader(A, M, K, w, h) {
     const Cc = this.C, Ll = this.L, out = { water: 0, wood: 0, lamp: 0, paved: 0, rows: 0, life: 0, r: 0, g: 0, b: 0 };
     const at = (x, z) => {
