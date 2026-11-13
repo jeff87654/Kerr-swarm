@@ -56,7 +56,7 @@ export function boot(WORLDS) {
       onBegin: () => { engine.freeze = qs.has('freeze'); },
       sound: (on) => sound.enable(on),
     });
-    setInterval(() => ui.setWaiting(engine.stats.waiting && !!engine.cur), 400);
+    setInterval(() => ui.setWaiting(engine.stats.waiting), 400);       // (also while the first drum is still being made, if Begin came first)
   }
 
   window.addEventListener('resize', () => engine.resize());
