@@ -193,7 +193,8 @@ export class Plan {
   }
   /**
    * Clumps of trees scattered over a rectangle of the floor: count of them, each r0..r1 metres across.
-   * opts: x0, x1, z0, z1 (default the whole floor), color or colors, seed, keep(x, z) -> false to skip a spot
+   * opts: x0, x1, z0, z1 (default the whole floor), color or colors, seed, keep(x, z) -> false to skip a spot,
+   *       keepLife (people stay under the trees: at night a clump with nobody in it reads as a hole in the lawn's speckle)
    */
   clumps(count, r0, r1, opts = {}) {
     const rng = makeRng(opts.seed || 'clumps');
@@ -201,7 +202,7 @@ export class Plan {
     for (let i = 0; i < count; i++) {
       const x = rng.f(opts.x0 || 0, opts.x1 || this.C), z = rng.f(opts.z0 || 0, opts.z1 || this.L), r = rng.f(r0, r1);
       if (opts.keep && !opts.keep(x, z)) continue;
-      this.fill(this.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 1, n: 24 }), { color: rng.pick(cols), wood: 1, clear: ['life', 'rows'] });
+      this.fill(this.blob(x, z, r, r * rng.f(0.6, 1.1), { wobble: 0.3, lobes: 4, seed: i + 1, n: 24 }), { color: rng.pick(cols), wood: 1, clear: opts.keepLife ? ['rows'] : ['life', 'rows'] });
     }
     return this;
   }

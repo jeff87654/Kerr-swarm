@@ -168,11 +168,12 @@ export class Engine {
     const path = w.path;
     const inst = {
       def, scene: w.scene, path, duration: path.duration, tCross: path.tCross, update: w.update || null, dispose: w.dispose || null,
-      look: { ...DEFAULT_LOOK, ...(w.look || {}) }, near: w.near || 0.5, far: w.far || 20000, t: 0, age: 0, ready: false,
+      look: w.look || {}, near: w.near || 0.5, far: w.far || 20000, t: 0, age: 0, ready: false,
       entry: path.entry, exit: w.portal && w.portal.pos ? { ...path.exit, ...w.portal } : path.exit, portalOpts: w.portal || {},
       sound: w.sound || null, userData: w,
     };
-    inst.look.lift = (w.look && w.look.lift) || [0, 0, 0]; inst.look.gain = (w.look && w.look.gain) || [1, 1, 1];
+    // the world's own look object, with the defaults filled in: a world may change its numbers in update()
+    for (const k in DEFAULT_LOOK) if (inst.look[k] === undefined) inst.look[k] = Array.isArray(DEFAULT_LOOK[k]) ? [...DEFAULT_LOOK[k]] : DEFAULT_LOOK[k];
     inst.entryM = new Matrix4().compose(inst.entry.pos, inst.entry.quat, _s);
     inst.exitM = new Matrix4().compose(inst.exit.pos, inst.exit.quat, _s);
     inst.exitInv = inst.exitM.clone().invert();

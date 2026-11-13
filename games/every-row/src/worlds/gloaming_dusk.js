@@ -33,12 +33,14 @@ export function paintGloaming(plan) {
   // under the walls: lawns where the people without seats lie and watch, and groves between them
   plan.fill(plan.band(0, 700), { color: '#93a07a', life: 0.9, feather: 40 });
   plan.fill(plan.band(L - 700, L), { color: '#93a07a', life: 0.9, feather: 40 });
-  for (const [z0, z1, s] of [[400, 690, 'a'], [L - 690, L - 400, 'b']]) plan.clumps(110, 18, 60, { seed: 'gloaming-ends-' + s, z0, z1, colors: ['#5d7a54', '#647f58', '#56744f'] });
+  for (const [z0, z1] of [[400, 690], [L - 690, L - 400]]) {
+    for (let i = 0; i < 36; i++) { const r = rng.f(40, 110); plan.fill(plan.blob(rng.f(0, C), rng.f(z0, z1), r, r * rng.f(0.5, 0.9), { wobble: 0.35, lobes: 5, seed: 90 + i }), { color: rng.pick(['#7b9270', '#83976f', '#76906c']), wood: 0.85 }); }
+  }
   // groves out on the lawns
   for (let i = 0; i < 80; i++) {
     const x = rng.f(0, C), z = rng.f(760, L - 760), r = rng.f(40, 150);
     if (Math.abs(x - WATER_X) < 230 + r) continue;
-    plan.fill(plan.blob(x, z, r, r * rng.f(0.45, 0.9), { wobble: 0.35, lobes: 6, seed: i + 20 }), { color: rng.pick(['#62805a', '#6b8a60', '#5a7a56', '#71906a']), wood: 0.85, clear: ['life'] });
+    plan.fill(plan.blob(x, z, r, r * rng.f(0.45, 0.9), { wobble: 0.35, lobes: 6, seed: i + 20 }), { color: rng.pick(['#7b9270', '#84996f', '#73906c', '#8a9c74']), wood: 0.85 });
   }
   // walks: lanes the length of the floor between the strips, and five across, all lit
   const lit = (pts, w, sp, pw) => { plan.stroke(pts, w, { color: '#cfc5a8', paved: 0.8, life: 0.8, clear: ['wood'] }); if (sp) plan.lamps(pts, sp, { power: pw || 0.7 }); };
@@ -139,7 +141,7 @@ export const gloamingDusk = {
     const rowZ = (k) => -(Z0 + k * RUN);          // front edge of row k (the rail is z = 0, the houses at z = -depth)
     const rowH = (k) => (k + 1) * RISE;
     const inAisle = (x) => Math.abs(x - Math.round(x / AISLE) * AISLE) < AW;
-    const g = new Geo({ maxSeg: 8 });
+    const g = new Geo({ maxSeg: 16 });
     for (let k = 0; k < NR; k++) {
       const z0 = rowZ(k), z1 = rowZ(k + 1), y = rowH(k), yb = k ? rowH(k - 1) : 0;
       g.floor(-XS, z1, XS, z0, y, k % 2 ? '#d2c8b6' : '#dad0bd');
@@ -151,6 +153,7 @@ export const gloamingDusk = {
         g.box(xa, y + 0.36, z0 - 0.62, xb, y + 0.44, z0 - 0.16, '#8a6a50', { skip: 'b' });
         g.box(xa, y, z0 - 0.5, xb, y + 0.36, z0 - 0.42, '#6e5440', { skip: 'bt' });
       }
+      if (k % 3 === 2) yield;
     }
     g.quad([XS, 0, rowZ(NR)], [-XS, 0, rowZ(NR)], [-XS, rowH(NR - 1), rowZ(NR)], [XS, rowH(NR - 1), rowZ(NR)], '#b8ad98');
     g.floor(-XS, rowZ(0), XS, 0.34, 0.03, '#d8cfbc');                                          // the walk along the rail
@@ -182,6 +185,24 @@ export const gloamingDusk = {
     }
     people.push(...crowd(spots, T.walk, { frame: T.frame, seed: 'gloaming-rail', bob: 0.25 }));
     T.add(people);
+    // the tiers below are packed too: rows of seated people, thinning out round the wall where nobody will see them close
+    const blockGeo = (() => { const b = new Geo(); b.tint(1).box(-0.21, 0, -0.2, 0.21, 0.9, 0.2, '#ffffff', { skip: 'bt' }); b.tint(0).floor(-0.21, -0.2, 0.21, 0.2, 0.9, '#b48a66'); return b.build(); })();
+    const lowCrowd = [];
+    for (let tier = 4; tier < TIERS.third; tier++) {
+      const Tk = hollow.terrace(0, tier, SEAT_DEG), items = [];
+      for (let z = -1.6; z > -Tk.depth + 1.2; z -= 0.85) {
+        for (let x = -230; x < 230; x += 0.6 + rng.f(-0.05, 0.08)) {
+          const ax = Math.abs(x);
+          if (ax > 120 && rng() < (ax - 120) / 110) continue;
+          if (inAisle(x) || rng.chance(0.05)) continue;
+          items.push({ p: [x, 0, z + rng.f(-0.08, 0.08)], yaw: rng.f(-0.3, 0.3), color: rng.pick(CLOTH), scale: [rng.f(0.85, 1.15), rng.f(0.9, 1.1), 1] });
+        }
+      }
+      const ms = instances(blockGeo, Tk.lit, items, { frame: Tk.frame, cell: 120 });
+      Tk.add(ms); lowCrowd.push(...ms);
+      yield;
+    }
+    people.push(...lowCrowd);
     yield;
 
     // ---- the flight: from a seat on the aisle out over the rail and down past the lower terraces, along the long
@@ -191,7 +212,7 @@ export const gloamingDusk = {
     const path = makePath([
       { t: 0, p: tf(0, rowH(7) + 1.95, rowZ(7) - 0.5) },
       { t: 8, p: tf(0, 4.2, -0.2), look: [X0, 380, 3300] },
-      { t: 14, p: tf(0, -40, 80), look: [X0 + 700, 260, 330] },
+      { t: 14, p: tf(0, 4, 38), look: [X0 + 260, 120, 390] },
       { t: 22, p: [X0 + 40, 330, 860], look: [X0 + 60, 650, 2900] },
       { t: 30, p: [X0 + 90, 300, 1480], look: [X0 + 150, 1000, 2700] },
       { t: 37, p: [X0 + 170, 330, 1980], look: [X0 + 330, 2500, 2900] },
@@ -208,11 +229,12 @@ export const gloamingDusk = {
     const winT = [0, 1].map((s) => { const a = []; for (let i = 0; i < NT; i++) a.push([19 + i * 0.35 + 12 * hash2(i, s, 3), 0.1 + 0.14 * hash2(i, s, 7) + (i < 10 ? 0.05 : 0)]); return a; });
     // after the line is out people walk home over the lawns with hand lamps: thousands of small lights, slowly moving
     const hand = [], hrng = makeRng('gloaming-lamps');
-    for (let i = 0; i < Math.round(26000 * ctx.density); i++) {
+    for (let i = 0; i < Math.round(32000 * ctx.density); i++) {
+      if ((i & 4095) === 4095) yield;
       const x = hrng.f(0, C), z = hrng.f(420, L - 420), s = hollow.at(x, z);
       if (s.water > 0.2 || s.wood > 0.5 || s.life < 0.3) continue;
       const a = hrng.f(0, 6.28), v = hrng.f(0.8, 1.5);
-      hand.push({ p: [x, 1.1, z], color: hrng.pick(['#ffc070', '#ffd49a', '#ffb060', '#ffe2b8', '#9fe0c8']), power: hrng.f(5, 9), size: 1.4, move: [Math.cos(a) * v, 0, Math.sin(a) * v], loop: hrng.f(80, 200), twinkle: 0.15, phase: hrng() });
+      hand.push({ p: [x, 1.1, z], color: hrng.pick(['#ffc070', '#ffd49a', '#ffb060', '#ffe2b8', '#9fe0c8']), power: hrng.f(8, 14), size: 1.4, move: [Math.cos(a) * v, 0, Math.sin(a) * v], loop: hrng.f(80, 200), twinkle: 0.15, phase: hrng() });
     }
     const handMesh = hollow.glow(hand, { minPx: 1.4, maxPx: 30, soft: 2.0 });
     const handU = handMesh.material.uniforms;

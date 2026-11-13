@@ -88,7 +88,7 @@ What `build` returns:
 | `scene` | a three.js Scene holding the whole world |
 | `path` | from `makePath()`: the flight, its entry and its exit |
 | `near`, `far` | the camera's clip distances in this world's metres. Keep far/near under about 30,000 |
-| `look` | `{ exposure, bloom, threshold, spread, vignette, grain, saturation, contrast, lift:[r,g,b], gain:[r,g,b] }`, any subset. Defaults: 1, 0.15 (use 0.1 to 0.35), 1, 1, 0.45, 0.03, 1.05, 1.03 |
+| `look` | `{ exposure, bloom, threshold, spread, vignette, grain, saturation, contrast, lift:[r,g,b], gain:[r,g,b] }`, any subset. Keep hold of the object: `update()` may change its numbers as the light changes. Defaults: 1, 0.15 (use 0.1 to 0.35), 1, 1, 0.45, 0.03, 1.05, 1.03 |
 | `update(t, dt, camera, engine)` | called each frame with the seconds into the flight. Also called while this world is only seen through the last world's opening, with t = 0. Keep it cheap |
 | `portal` | options for the opening at the end: `{ shape: 'rect', width, height }` for a doorway instead of a disc; `rim: false` to leave off the glowing ring; `rimPower`; `mist` (colour) |
 | `dispose()` | free anything the engine cannot find by walking the scene (it disposes geometries, materials and their textures itself) |
@@ -180,7 +180,7 @@ The plan has three layers painted together. `fill` and `stroke` take: `color` (w
 - `ground`: `canopy`, `blossom`, `fruit`, `rows:[sx,sz]`, `lamp` (0..1), `lampColor`, `people`, `wave`, `swell`, `sunRod` (the line's brightness in water: match `sunline.power`), `stripes`.
 - `front`, `back` (the end walls): `lit` (share of windows lit), `crowd`, `garden`, `stone`, `stone2`, `houses` (six colours), `houseMix`, `winA`, `winB`, `winPower`, `tiers: { 9: { crowd, garden, lit } }`, `depths`.
 
-The Hollow it returns: `group`, `frame`, `rig`, `plan`, `lit` / `litDouble` / `walk` (materials bent to the floor), `plain` (unbent), `at(x, z)` (read the plan), `glow(points)`, `add(mesh)`, `setNight(lamp, lit)`, `setRod(power)`, `lampPosts({ near, power })`, and `terrace(side, tier, deg)`.
+The Hollow it returns: `group`, `frame`, `rig`, `plan`, `lit` / `litDouble` / `walk` (materials bent to the floor), `plain` (unbent), `at(x, z)` (read the plan), `glow(points)`, `add(mesh)`, `lampPosts({ near, power })`, `terrace(side, tier, deg)`, and for light that changes as you fly: `rig.set({ sun, sunPower, sunFar, sunFarPower, sunAngle, sunSharp, amb, ambPower, ground, groundPower, air, airDensity })`, `setRod(power)`, `setLine(z1, z2)` (shorten the lit line), `setNight(lamp, lit)` (walk lamps; share of windows lit), `setWindows(side, tier, share)`.
 
 **End walls.** Thirty tiers of 47.5 m each climb from the floor to the flying hall 75 m from the axis. Each riser is an arcade, nine floors of flats with balconies, and a garden hanging over its top; each terrace is a rail, a walk and beds. `TIERS` names the docs' four: `third` (tier 9, a third of a g), `quarter` (14), `tenth` (24), `twentieth` (27). `hollow.terrace(side, tier, deg)` gives a frame and materials for building on one: x in true metres round it, y above its floor, z = 0 at the rail, the houses at `z = toWall * depth`.
 

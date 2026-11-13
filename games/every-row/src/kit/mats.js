@@ -116,71 +116,116 @@ vec3 kLight(vec3 P, vec3 N, vec3 F, vec3 FN) {
       if (p.sunAngle !== undefined) uniforms.uSunDir.value.set(Math.cos(p.sunAngle), Math.sin(p.sunAngle));
       if (p.amb !== undefined) uniforms.uAmb.value.copy(vec3col(p.amb, p.ambPower === undefined ? 0.2 : p.ambPower));
       if (p.ground !== undefined) uniforms.uGroundGlow.value.copy(vec3col(p.ground, p.groundPower || 0));
+      if (p.sunSharp !== undefined) uniforms.uSunSharp.value = p.sunSharp;
+      if (p.bounce !== undefined) uniforms.uBounce.value.copy(vec3col(p.bounce, p.bouncePower === undefined ? 0.22 : p.bouncePower));
+      if (p.air !== undefined) { const c = vec3col(p.air); uniforms.uAir.value.set(c.x, c.y, c.z, p.airDensity === undefined ? uniforms.uAir.value.w : p.airDensity); }
+      else if (p.airDensity !== undefined) uniforms.uAir.value.w = p.airDensity;
+      if (p.z1 !== undefined) uniforms.uSunZ.value.x = p.z1;
+      if (p.z2 !== undefined) uniforms.uSunZ.value.y = p.z2;
     },
   };
 }
 
 // Indoors: rows of ceiling lamps, pools of brighter light, and the light that bounces between floor and ceiling.
 //   ambUp / ambDown: light on surfaces facing up / facing down
-//   lattices: up to 4 of { origin:[x,y,z], spacing:[sx,sz], count:[nx,nz], color, power, reach }  (flat coordinates)
-//   zones:    up to 4 of { min:[x,y,z], max:[x,y,z], color, power, soft }  light from above inside a box
+//   lattices: up to 4 (8 with maxLattices) of { origin:[x,y,z], spacing:[sx,sz], count:[nx,nz], color, power, reach }  (flat coordinates):
+//             a regular grid of lamps at one height. Their light falls off with distance, beyond the grid's edge too.
+//             Optional: drop (how far below the lamps the light reaches, metres; given a drop, nothing more than `above`,
+//             default 0.6 m, over the lamps is lit either, so a deck's lamps do not shine through its ceiling) and
+//             storeys with rise (the same grid on several decks, `rise` metres apart, default 4: a surface takes the
+//             lamps of its own storey).
+//   zones:    up to 4 (8 with maxZones) of { min:[x,y,z], max:[x,y,z], color, power, soft }  light from above inside a box
+//             Optional: flare (the box widens by this many metres for each metre above min y: a court whose terraces
+//             step back), side (the share upright faces get, default 0.3), under (what faces looking down get, as a
+//             share of side, default 1)
 //   haze:     colour things fade toward with distance, and how fast (per metre)
+//   maxLattices, maxZones: room for more, to be given later with rig.setLattice(i, lattice) and rig.setZone(i, zone)
+// rig.set({ ambUp, ambDown, ambPower, haze, hazeDensity }) changes the rest while flying.
 export function lampRig(o = {}) {
-  const NL = 4, NZ = 4;
-  const latA = [], latB = [], latC = [], zA = [], zB = [], zC = [];
-  for (let i = 0; i < NL; i++) {
-    const l = (o.lattices || [])[i];
-    if (l) {
-      latA.push(new Vector4(l.origin[0], l.origin[1], l.origin[2], l.reach || 4));
-      latB.push(new Vector4(l.spacing[0], l.spacing[1], l.count[0], l.count[1]));
-      const c = vec3col(l.color || '#ffd9a8', l.power === undefined ? 1 : l.power); latC.push(new Vector4(c.x, c.y, c.z, 1));
-    } else { latA.push(new Vector4()); latB.push(new Vector4(1, 1, 0, 0)); latC.push(new Vector4()); }
-  }
-  for (let i = 0; i < NZ; i++) {
-    const z = (o.zones || [])[i];
-    if (z) {
-      zA.push(new Vector4(z.min[0], z.min[2], z.max[0], z.max[2]));
-      zB.push(new Vector4(z.min[1], z.max[1], z.soft || 4, 1));
-      const c = vec3col(z.color || '#ffffff', z.power === undefined ? 1 : z.power); zC.push(new Vector4(c.x, c.y, c.z, 1));
-    } else { zA.push(new Vector4()); zB.push(new Vector4(0, 0, 1, 0)); zC.push(new Vector4()); }
-  }
+  const NL = Math.min(8, Math.max(4, o.maxLattices || 0, (o.lattices || []).length));
+  const NZ = Math.min(8, Math.max(4, o.maxZones || 0, (o.zones || []).length));
+  const latA = [], latB = [], latC = [], latD = [], zA = [], zB = [], zC = [], zD = [];
+  for (let i = 0; i < NL; i++) { latA.push(new Vector4()); latB.push(new Vector4(1, 1, 0, 0)); latC.push(new Vector4(0, 0, 0, 0)); latD.push(new Vector4(0, 0, 0, 0)); }
+  for (let i = 0; i < NZ; i++) { zA.push(new Vector4()); zB.push(new Vector4(0, 0, 1, 0)); zC.push(new Vector4(0, 0, 0, 0)); zD.push(new Vector4(0.3, 1, 0, 0)); }
+  // lattice i (null clears it)
+  const setLattice = (i, l) => {
+    if (i < 0 || i >= NL) return false;
+    if (!l) { latB[i].set(1, 1, 0, 0); latC[i].set(0, 0, 0, 0); latD[i].set(0, 0, 0, 0); return true; }
+    const rise = l.rise || DRUM.DECK, storeys = l.storeys || 1;
+    latA[i].set(l.origin[0], l.origin[1], l.origin[2], l.reach || 4);
+    latB[i].set(l.spacing[0], l.spacing[1], l.count[0], l.count[1]);
+    const c = vec3col(l.color || '#ffd9a8', l.power === undefined ? 1 : l.power); latC[i].set(c.x, c.y, c.z, 1);
+    latD[i].set(l.drop || (storeys > 1 ? rise - 0.1 : 0), rise, storeys, l.above === undefined ? 0.6 : l.above);
+    return true;
+  };
+  // zone i (null clears it)
+  const setZone = (i, z) => {
+    if (i < 0 || i >= NZ) return false;
+    if (!z) { zB[i].set(0, 0, 1, 0); zC[i].set(0, 0, 0, 0); zD[i].set(0.3, 1, 0, 0); return true; }
+    zA[i].set(z.min[0], z.min[2], z.max[0], z.max[2]);
+    zB[i].set(z.min[1], z.max[1], z.soft || 4, 1);
+    const c = vec3col(z.color || '#ffffff', z.power === undefined ? 1 : z.power); zC[i].set(c.x, c.y, c.z, z.flare || 0);
+    zD[i].set(z.side === undefined ? 0.3 : z.side, z.under === undefined ? 1 : z.under, 0, 0);
+    return true;
+  };
+  (o.lattices || []).slice(0, NL).forEach((l, i) => setLattice(i, l));
+  (o.zones || []).slice(0, NZ).forEach((z, i) => setZone(i, z));
   const uniforms = {
     uAmbUp: { value: vec3col(o.ambUp || '#57493d', o.ambPower === undefined ? 1 : o.ambPower) },
     uAmbDown: { value: vec3col(o.ambDown || '#3d342c', o.ambPower === undefined ? 1 : o.ambPower) },
-    uLatA: { value: latA }, uLatB: { value: latB }, uLatC: { value: latC },
-    uZoneA: { value: zA }, uZoneB: { value: zB }, uZoneC: { value: zC },
+    uLatA: { value: latA }, uLatB: { value: latB }, uLatC: { value: latC }, uLatD: { value: latD },
+    uZoneA: { value: zA }, uZoneB: { value: zB }, uZoneC: { value: zC }, uZoneD: { value: zD },
     uHaze: { value: new Vector4(...vec3col(o.haze || '#000000').toArray(), o.hazeDensity || 0) },
   };
   const glsl = /* glsl */`
-uniform vec3 uAmbUp, uAmbDown; uniform vec4 uHaze; uniform vec4 uLatA[${NL}], uLatB[${NL}], uLatC[${NL}], uZoneA[${NZ}], uZoneB[${NZ}], uZoneC[${NZ}];
+uniform vec3 uAmbUp, uAmbDown; uniform vec4 uHaze; uniform vec4 uLatA[${NL}], uLatB[${NL}], uLatC[${NL}], uLatD[${NL}], uZoneA[${NZ}], uZoneB[${NZ}], uZoneC[${NZ}], uZoneD[${NZ}];
 vec3 kUp(vec3 P) { return vec3(-normalize(P.xy + vec2(1e-5)), 0.0); }
 vec3 kAir(vec3 c, vec3 P) { return mix(c, uHaze.rgb, 1.0 - exp(-uHaze.w * length(P - cameraPosition))); }
-vec3 kLat(vec3 P, vec3 N, vec4 A, vec4 B, vec4 C) {
+// for a surface at height y under lattice (A, D): x = the height of the lamps that light it, y = how much of their light reaches it
+vec2 kLatBand(float y, vec4 A, vec4 D) {
+  if (D.x <= 0.0) return vec2(A.y, 1.0);
+  float k = D.z > 1.5 ? clamp(ceil((y - A.y - D.w) / D.y), 0.0, D.z - 1.0) : 0.0;
+  float ly = A.y + k * D.y;
+  return vec2(ly, smoothstep(ly - D.x, ly - D.x * 0.75, y) * step(y, ly + D.w));
+}
+vec3 kLat(vec3 P, vec3 N, vec4 A, vec4 B, vec4 C, vec4 D) {
   if (C.w < 0.5) return vec3(0.0);
-  vec2 g = (P.xz - A.xz) / B.xy; vec2 g0 = floor(g);
+  vec2 lb = kLatBand(P.y, A, D);
+  if (lb.y <= 0.0) return vec3(0.0);
+  // the four lamps round the point, or the nearest of the grid's edge when the point is outside it
+  vec2 g0 = clamp(floor((P.xz - A.xz) / B.xy), vec2(0.0), max(B.zw - 2.0, vec2(0.0)));
   float sum = 0.0;
   for (int i = 0; i <= 1; i++) for (int j = 0; j <= 1; j++) {
     vec2 c = g0 + vec2(float(i), float(j));
-    if (c.x < 0.0 || c.y < 0.0 || c.x > B.z - 0.5 || c.y > B.w - 0.5) continue;
-    vec3 d = vec3(A.x + c.x * B.x, A.y, A.z + c.y * B.y) - P; float d2 = dot(d, d) + 0.02;
+    if (c.x > B.z - 0.5 || c.y > B.w - 0.5) continue;
+    vec3 d = vec3(A.x + c.x * B.x, lb.x, A.z + c.y * B.y) - P; float d2 = dot(d, d) + 0.02;
     float ndl = dot(N, d) * inversesqrt(d2);
     sum += max(ndl * 0.85 + 0.15, 0.0) / (1.0 + d2 / (A.w * A.w));
   }
-  return C.rgb * sum;
+  return C.rgb * (sum * lb.y);
 }
 vec3 kLight(vec3 P, vec3 N, vec3 F, vec3 FN) {
   vec3 L = mix(uAmbDown, uAmbUp, 0.5 + 0.5 * FN.y);
-  for (int i = 0; i < ${NL}; i++) L += kLat(F, FN, uLatA[i], uLatB[i], uLatC[i]);
+  for (int i = 0; i < ${NL}; i++) L += kLat(F, FN, uLatA[i], uLatB[i], uLatC[i], uLatD[i]);
   for (int i = 0; i < ${NZ}; i++) {
     if (uZoneB[i].w < 0.5) continue;
-    vec4 A = uZoneA[i]; float s = uZoneB[i].z;
-    float m = smoothstep(A.x - s, A.x + s, F.x) * smoothstep(A.z + s, A.z - s, F.x) * smoothstep(A.y - s, A.y + s, F.z) * smoothstep(A.w + s, A.w - s, F.z)
+    vec4 A = uZoneA[i]; float s = uZoneB[i].z, w = uZoneC[i].w * max(F.y - uZoneB[i].x, 0.0);
+    float m = smoothstep(A.x - w - s, A.x - w + s, F.x) * smoothstep(A.z + w + s, A.z + w - s, F.x) * smoothstep(A.y - w - s, A.y - w + s, F.z) * smoothstep(A.w + w + s, A.w + w - s, F.z)
             * smoothstep(uZoneB[i].x - s, uZoneB[i].x, F.y) * smoothstep(uZoneB[i].y + s, uZoneB[i].y, F.y);
-    L += uZoneC[i].rgb * m * (0.3 + 0.7 * max(FN.y, 0.0));
+    L += uZoneC[i].rgb * m * mix(uZoneD[i].x, 1.0, max(FN.y, 0.0)) * mix(1.0, uZoneD[i].y, max(-FN.y, 0.0));
   }
   return L;
 }`;
-  return { uniforms, glsl, kind: 'lamps' };
+  return {
+    uniforms, glsl, kind: 'lamps', lattices: NL, zones: NZ, setLattice, setZone,
+    set(p) {
+      const k = p.ambPower === undefined ? 1 : p.ambPower;
+      if (p.ambUp !== undefined) uniforms.uAmbUp.value.copy(vec3col(p.ambUp, k));
+      if (p.ambDown !== undefined) uniforms.uAmbDown.value.copy(vec3col(p.ambDown, k));
+      if (p.haze !== undefined) { const h = vec3col(p.haze); uniforms.uHaze.value.set(h.x, h.y, h.z, uniforms.uHaze.value.w); }
+      if (p.hazeDensity !== undefined) uniforms.uHaze.value.w = p.hazeDensity;
+    },
+  };
 }
 
 // Outside, or anywhere simple: one light from a direction, ambient, and optional distance fade.
@@ -305,7 +350,7 @@ attribute vec4 aColSize;  // rgb x strength, size in metres
 attribute vec4 aMove;     // velocity xyz (m/s), loop seconds (0 = still)
 attribute vec2 aTwinkle;  // phase, depth (0 = steady)
 ${BEND_PARS}
-uniform float uTime, uPx, uMinPx, uMaxPx, uSize; uniform vec2 uRes;
+uniform float uTime, uPx, uMinPx, uMaxPx, uSize, uPower; uniform vec2 uRes;
 varying vec3 vW; varying vec3 vC; varying vec2 vQ;
 void main() {
   vec3 p = aPos; float fade = 1.0;
@@ -320,7 +365,7 @@ void main() {
   float shown = clamp(px, uMinPx, uMaxPx);
   float k = (px * px) / (shown * shown);                  // a light too far to fill a pixel dims instead of shrinking
   float tw = 1.0 + aTwinkle.y * sin(uTime * (1.3 + 2.1 * fract(aTwinkle.x * 7.31)) + aTwinkle.x * 40.0);
-  vC = aColSize.rgb * min(k, 1.0) * fade * tw;
+  vC = aColSize.rgb * min(k, 1.0) * fade * tw * uPower;
   vQ = position.xy;
   vec4 clip = projectionMatrix * mv;
   clip.xy += position.xy * shown / uRes * clip.w * 2.0;
@@ -341,7 +386,8 @@ void main() {
 /**
  * A cloud of small lights drawn as soft discs that always face the camera. One draw call for any number.
  * points: array of { p:[x,y,z], color, power, size (metres), move:[vx,vy,vz], loop (seconds), twinkle (0..1) }
- * opts: bend (frame), minPx (default 1.2), maxPx (default 220), soft (edge falloff power, default 1.6), depthTest (default true)
+ * opts: bend (frame), minPx (default 1.2), maxPx (default 220), soft (edge falloff power, default 1.6), depthTest (default true),
+ *       power (multiplies every light; change it later with mesh.material.uniforms.uPower.value to fade them all)
  */
 export function glowPoints(points, opts = {}) {
   const n = points.length;
@@ -367,7 +413,7 @@ export function glowPoints(points, opts = {}) {
     uniforms: {
       uClip: G.uClip, uTime: G.uTime, uPx: G.uPx, uRes: G.uRes,
       uBend: { value: opts.bend ? new Vector3(opts.bend.a0, opts.bend.z0, opts.bend.floorR) : new Vector3(0, 0, 0) },
-      uMinPx: { value: opts.minPx === undefined ? 1.2 : opts.minPx }, uMaxPx: { value: opts.maxPx || 220 }, uSoft: { value: opts.soft || 1.6 }, uSize: { value: 1 },
+      uMinPx: { value: opts.minPx === undefined ? 1.2 : opts.minPx }, uMaxPx: { value: opts.maxPx || 220 }, uSoft: { value: opts.soft || 1.6 }, uSize: { value: 1 }, uPower: { value: opts.power === undefined ? 1 : opts.power },
     },
     vertexShader: GLOW_VERT, fragmentShader: GLOW_FRAG, transparent: true, depthWrite: false, depthTest: opts.depthTest !== false, blending: AdditiveBlending,
   });

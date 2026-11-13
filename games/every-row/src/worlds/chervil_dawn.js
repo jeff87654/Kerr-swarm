@@ -39,23 +39,10 @@ const LIGHT = [
 ].map((k) => ({ ...k, far: hue(k.far), near: hue(k.near), amb: new Color(k.amb) }));
 
 // The ground's night lamps go out where the dawn has reached: a painter's lamps follow the light across the land.
-function lampsFollowDawn(hollow) {
-  const m = hollow.ground.material, before = m.fragmentShader;
-  m.fragmentShader = before
-    .replace('vec3 lit = c * (Lgt + uLampCol * halo * uLamp * 9.0);', 'float lampK = uLamp * (1.0 - smoothstep(0.06, 0.4, dot(kSunColor(vW.xy), vec3(0.3, 0.55, 0.15))));\n  vec3 lit = c * (Lgt + uLampCol * halo * lampK * 9.0);')
-    .replace('lit += uLampCol * mask.b * uLamp * 3.0;', 'lit += uLampCol * mask.b * lampK * 3.0;');
-  if (!m.fragmentShader.includes('lampK * 3.0')) throw new Error('chervil-dawn: the ground shader changed; lampsFollowDawn() needs updating');
-}
+function lampsFollowDawn(hollow) { hollow.ground.material.uniforms.uLampAuto.value = 1; }
 
 // make a cloud of glow points dimmable: one uniform scales them all (the kit's glows are fixed at build)
-function dimmable(mesh) {
-  const m = mesh.material;
-  m.uniforms.uDim = { value: 1 };
-  const before = m.fragmentShader;
-  m.fragmentShader = before.replace('uniform float uSoft;', 'uniform float uSoft; uniform float uDim;').replace('vec4(vC * a, 1.0)', 'vec4(vC * a * uDim, 1.0)');
-  if (m.fragmentShader === before) throw new Error('chervil-dawn: the glow shader changed; dimmable() needs updating');
-  return m.uniforms.uDim;
-}
+function dimmable(mesh) { return mesh.material.uniforms.uPower; }
 
 // The Dawn Stand: a coffee cart, long side along z, serving across its counter toward -x. Origin on the floor at its centre.
 function cartGeo() {
@@ -145,7 +132,7 @@ export const chervilDawn = {
       const pv = (k) => (k + 0.05 * (rng() - 0.5));
       floor.floor(x, 0.3, x + 2, 3.4, FY, [pv(0.5), pv(0.45), pv(0.36)]);
       for (let z = 3.4; z < 25.4; z += 2) {
-        const g = 0.9 + 0.2 * rng(), q = rng() < 0.25 ? bed : lawn;
+        const g = 0.95 + 0.1 * rng(), q = rng() < 0.12 ? bed : lawn;
         floor.floor(x, z, x + 2, Math.min(z + 2, 25.4), FY, [q.r * g, q.g * g, q.b * g]);
         if (rng() < 0.18) { const fx = x + rng.f(0.2, 1.4), fz = z + rng.f(0.2, 1.4), s = rng.f(0.25, 0.5); floor.floor(fx, fz, fx + s, fz + s, FY + 0.01, rng.pick(['#c98a9a', '#d9b25a', '#b9a3d6', '#e0d0b0', '#e3925f'])); }
       }
@@ -254,13 +241,13 @@ export const chervilDawn = {
       { t: 33, p: F(X0, tp.y - 10, Z0 - 430), look: F(X0 + 700, 820, L), fov: 64 },
       { t: 41, p: F(X0 + 50, 430, Z0 - 780), look: F(X0 + 1300, 1300, Z0 - 1050), fov: 64, roll: 0.3 },
       { t: 49, p: F(X0 + 160, 320, Z0 - 1180), look: F(X0 + 450, 650, 500), fov: 60, roll: 0.05 },
-      { t: 56, p: F(X0 + 290, 190, Z0 - 1540) },
-      { t: 62, p: F(X0 + 420, 120, Z0 - 1830) },
+      { t: 56, p: F(X0 + 300, 160, Z0 - 1540), look: F(X0 + 640, 50, Z0 - 2370) },
+      { t: 62, p: F(X0 + 420, 120, Z0 - 1830), look: F(X0 + 660, 40, Z0 - 2410) },
     ], { frame: hollow.frame, entryRadius: 2, exitRadius: 30 });
     yield;
     const low = path.points(0.5).filter((q) => q.y < 200);
     if (low.length) {
-      yield* scatterTrees(hollow, { near: low, radius: 150, max: 5000 * ctx.density });
+      yield* scatterTrees(hollow, { near: low, radius: 130, max: 3000 * ctx.density });
       yield* scatterPeople(hollow, { near: low, radius: 200, density: 1.0 * ctx.density, max: 4000 });
     }
 

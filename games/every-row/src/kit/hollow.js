@@ -34,7 +34,7 @@ ${CLIP_PARS}
 uniform sampler2D tAlb, tMask, tKind;
 uniform vec2 uSize, uRows, uSection;
 uniform vec3 uWater, uLampCol, uWallTint, uCanopy, uBlossom, uFruit;
-uniform float uLamp, uTime, uSunRod, uSunWidth, uPeople, uWave, uGrain, uSwell, uTreeNear, uBlossomShare, uFruitShare, uWoodH, uStripes;
+uniform float uLamp, uLampAuto, uTime, uSunRod, uSunWidth, uPeople, uWave, uGrain, uSwell, uTreeNear, uBlossomShare, uFruitShare, uWoodH, uStripes;
 uniform vec3 uBend;
 varying vec3 vW; varying vec3 vF;
 ${rig.glsl}
@@ -156,8 +156,10 @@ void main() {
   // ---- light
   vec3 Lgt = kLight(vW, up, vF, vec3(0.0, 1.0, 0.0));
   float halo = textureLod(tMask, uv, 2.2).b * 0.5 + textureLod(tMask, uv, 3.4).b + textureLod(tMask, uv, 5.0).b * 0.7;
-  vec3 lit = c * (Lgt + uLampCol * halo * uLamp * 9.0);
-  lit += uLampCol * mask.b * uLamp * 3.0;
+  // lamps may follow the light: out where the line already shines on this side of the drum, lit where it does not yet
+  float lampK = uLamp * mix(1.0, 1.0 - smoothstep(0.06, 0.4, dot(kSunColor(vW.xy), vec3(0.3, 0.55, 0.15))), uLampAuto);
+  vec3 lit = c * (Lgt + uLampCol * halo * lampK * 9.0);
+  lit += uLampCol * mask.b * lampK * 3.0;
 
   // ---- water: the lake holds the far bank and the sunline upside down
   float wat = mask.r;
@@ -217,7 +219,7 @@ function groundMesh(rig, tex, frame, o) {
     uSize: { value: new Vector2(C, L) }, uRows: { value: new Vector2(o.rows ? o.rows[0] : 7, o.rows ? o.rows[1] : 6) },
     uSection: { value: new Vector2(o.section ? o.section[0] : 392, o.section ? o.section[1] : 347) },
     uWater: { value: vec3col(o.water || '#ffffff') }, uSwell: { value: o.swell || 0 },
-    uLampCol: { value: vec3col(o.lampColor || '#ffc27a') }, uLamp: { value: o.lamp || 0 },
+    uLampCol: { value: vec3col(o.lampColor || '#ffc27a') }, uLamp: { value: o.lamp || 0 }, uLampAuto: { value: o.lampFollowsSun ? 1 : 0 },
     uWallTint: { value: vec3col(o.wallTint || '#b9b3a6') }, uCanopy: { value: vec3col(o.canopy || '#5c8a40') },
     uBlossom: { value: vec3col(o.blossom || '#f6e3e6') }, uFruit: { value: vec3col(o.fruit || '#c8402c') },
     uBlossomShare: { value: o.blossomShare === undefined ? 0.22 : o.blossomShare }, uFruitShare: { value: o.fruitShare === undefined ? 0.3 : o.fruitShare },
@@ -487,6 +489,7 @@ function rodStrip(rig, z1, z2, radius, power, core) {
  *   light      options for hollowRig: sun, sunPower, sunFar, sunFarPower, sunAngle, sunSharp, amb, ambPower, bounce, ground, groundPower, air, airDensity
  *   sunline    { power: brightness of the rod itself (0 = a dark cable), halo: width in metres of its glow, haloPower }
  *   ground     { canopy, blossom, fruit, blossomShare, fruitShare, rows:[sx, sz], section:[sx, sz], lamp (0..1 night lamps), lampColor,
+ *                lampFollowsSun (lamps go out wherever the line already shines: for a painted dawn that lights one bank first),
  *                people, wave, swell, grain, stripes, sunRod, sunWidth, woodHeight }
  *   front, back   end walls: { depths, lit (share of windows lit), crowd, garden, stone, stone2, houses: [six colours], houseMix (share of
  *                houses painted one of them), glass, gardenColor, awning, lifts,
@@ -576,6 +579,13 @@ export function* buildHollow(ctx, spec) {
     point(x, y, z, out) { return frame.point(x, y, z, out); },
     /** night lamp strength and the share of windows lit: for worlds that change light as they go */
     setNight(lamp, lit01) { ground.material.uniforms.uLamp.value = lamp; wf.material.uniforms.uLit.value = lit01; wb.material.uniforms.uLit.value = lit01; },
+    /** the share of windows lit on one tier of one wall (side 0 front, 1 back), on top of setNight's share for the whole wall */
+    setWindows(side, tier, share) { (side === 0 ? wf : wb).material.uniforms.uTier.value[tier].z = share; },
+    /** shorten or move the lit part of the sunline: the light on the land, the rod and its glow all follow */
+    setLine(z1, z2) {
+      rig.uniforms.uSunZ.value.set(z1, z2);
+      if (rod) { rod.material.uniforms.uZ.value.set(z1, z2); halo.material.uniforms.uZ.value.set(z1 - 60, z2 + 60); }
+    },
     /** brightness of the rod itself and of its reflection in water */
     setRod(p) { if (rod) { rod.material.uniforms.uPower.value = p; halo.material.uniforms.uPower.value = p * haloK; } ground.material.uniforms.uSunRod.value = p; },
     /** the ground stops drawing crowns nearer the eye than this, because real trees stand there (scatterTrees sets it) */
@@ -584,16 +594,22 @@ export function* buildHollow(ctx, spec) {
     /**
      * A terrace of an end wall as a place to build on. side: 0 front wall, 1 back wall; tier: 0 (lowest) .. 29, see TIERS;
      * deg: the angle round the wall that the terrace's own x = 0 sits at.
-     * Returns { frame, lit, litDouble, walk, glow(points), y, depth, floorR, g, toWall }.
+     * Returns { frame, rig, lit, litDouble, walk, glow(points), setGlow(color, power), y, depth, floorR, g, toWall }.
+     * The wall's own terrace floor is drawn in 384 flat pieces and stands up to 3.4 cm proud of the true curve: set things
+     * that lie on the floor (rugs, paving, shadows) 5 cm up or they flicker.
      * In its frame x runs round the terrace in true metres, y is height above the terrace floor, and z = 0 is the rail:
      * the houses behind are at z = toWall * depth (toWall is -1 on the front wall, +1 on the back), the Hollow at the other side.
      */
     terrace(side, tier, deg = 0) {
       const tp = tierPlace(side === 0 ? wf.userData.depths : wb.userData.depths, tier);
       const floorR = DRUM.RH - tp.y, fr = makeFrame((deg * Math.PI) / 180, side === 0 ? tp.zRail : L - tp.zRail, floorR);
+      // the Hollow's light, but with the warm glow of lamps sitting at this terrace's floor (rig.uniforms.uGroundGlow is its own here)
+      const trig = { glsl: rig.glsl, kind: rig.kind, uniforms: { ...rig.uniforms, uFloorR: { value: floorR }, uGroundGlow: { value: rig.uniforms.uGroundGlow.value.clone() } } };
       return {
-        frame: fr, side, tier, y: tp.y, depth: tp.depth, floorR, g: floorR / DRUM.R, toWall: side === 0 ? -1 : 1,
-        lit: litMaterial(rig, { bend: fr }), litDouble: litMaterial(rig, { bend: fr, side: 'double' }), walk: litMaterial(rig, { bend: fr, walk: true }),
+        frame: fr, side, tier, y: tp.y, depth: tp.depth, floorR, g: floorR / DRUM.R, toWall: side === 0 ? -1 : 1, rig: trig,
+        /** warm light near the terrace floor, from its own lamps: colour and strength */
+        setGlow(color, power) { trig.uniforms.uGroundGlow.value.copy(vec3col(color, power)); },
+        lit: litMaterial(trig, { bend: fr }), litDouble: litMaterial(trig, { bend: fr, side: 'double' }), walk: litMaterial(trig, { bend: fr, walk: true }),
         glow(points, opts = {}) { const m = glowPoints(points, { ...opts, bend: fr }); group.add(m); return m; },
         add(obj) { if (Array.isArray(obj)) for (const o of obj) group.add(o); else group.add(obj); return obj; },
       };
