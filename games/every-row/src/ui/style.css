@@ -41,7 +41,7 @@ canvas#view { position: fixed; inset: 0; width: 100%; height: 100%; display: blo
 .er-tier { font-family: 'Barlow Condensed', 'Barlow', sans-serif; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: #cfc3ad; padding: 0 0.5rem 0 0.1rem; min-width: 2.6rem; }
 
 /* the list of drums */
-.er-gallery { position: absolute; inset: 0; background: rgba(8, 6, 5, 0.9); opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s; overflow-y: auto; pointer-events: none; }
+.er-gallery { position: absolute; inset: 0; background: rgba(8, 6, 5, 0.965); opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s; overflow-y: auto; pointer-events: none; }
 .er-gallery.on { opacity: 1; visibility: visible; transition: opacity 0.35s ease; pointer-events: auto; }
 .er-gallery-in { max-width: 68rem; margin: 0 auto; padding: clamp(1.2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) 3rem; }
 .er-gallery-head { position: relative; padding-right: 3rem; }
