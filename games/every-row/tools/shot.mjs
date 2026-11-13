@@ -60,7 +60,7 @@ try {
     const snap = async (name) => {
       const fps = await page.evaluate(() => new Promise((res) => { let n = 0; const t = performance.now(); const f = () => { n++; if (performance.now() - t < 700) requestAnimationFrame(f); else res(Math.round(n / 0.7)); }; requestAnimationFrame(f); }));
       await page.screenshot({ path: name });
-      const info = await page.evaluate(() => { const e = window.app.engine, s = e.stats, c = e.cur; return `world=${c ? c.def.id : '-'} t=${c ? c.t.toFixed(1) : '-'}/${c ? c.duration.toFixed(0) : '-'} calls=${s.calls} tris=${s.tris} build=${s.build.toFixed(0)}ms next=${e.next ? e.next.def.id : e.job ? 'building ' + e.job.def.id : '-'} scale=${e.scale.toFixed(2)} tier=${e.tierIndex}`; });
+      const info = await page.evaluate(() => { const e = window.app.engine, s = e.stats, c = e.cur; return `world=${c ? c.def.id : '-'} t=${c ? c.t.toFixed(1) : '-'}/${c ? c.duration.toFixed(0) : '-'} calls=${s.calls} tris=${s.tris} build=${s.build.toFixed(0)}ms longest-step=${(s.step || 0).toFixed(0)}ms next=${e.next ? e.next.def.id : e.job ? 'building ' + e.job.def.id : '-'} scale=${e.scale.toFixed(2)} tier=${e.tierIndex}`; });
       console.log(`${name}: ${fps} fps · ${info}`);
     };
     if (withUi) {

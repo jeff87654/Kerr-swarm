@@ -172,7 +172,7 @@ export class Post {
   dispose() { for (const t of [this.rtMain, this.rtNext, ...this.down, ...this.up]) if (t) t.dispose(); }
 }
 
-export const DEFAULT_LOOK = { exposure: 1.0, bloom: 0.5, threshold: 1.0, spread: 1.0, vignette: 0.45, grain: 0.03, saturation: 1.05, contrast: 1.03, lift: [0, 0, 0], gain: [1, 1, 1] };
+export const DEFAULT_LOOK = { exposure: 1.0, bloom: 0.15, threshold: 1.0, spread: 1.0, vignette: 0.45, grain: 0.03, saturation: 1.05, contrast: 1.03, lift: [0, 0, 0], gain: [1, 1, 1] };
 
 export function mixLook(out, a, b, t) {
   for (const k of ['exposure', 'bloom', 'threshold', 'spread', 'vignette', 'grain', 'saturation', 'contrast']) out[k] = a[k] + (b[k] - a[k]) * t;

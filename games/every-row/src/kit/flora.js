@@ -15,39 +15,40 @@ const cache = new Map();
 export function treeGeo(kind = 'round') {
   if (cache.has(kind)) return cache.get(kind);
   const g = new Geo();
+  g.tint(0.3);                    // trunks and stems
   const leaf = '#ffffff';
   if (kind === 'round') {
     g.cyl(0, 0, 0, 0.42, 0.26, 4.2, 5, '#8a735c');
-    g.tint(1).blob(0, 7.2, 0, [3.6, 3.2, 3.6], 1, leaf, { lump: 0.22, seed: 3, shadeBottom: 0.78 }).blob(1.8, 5.6, 0.9, [2.3, 1.9, 2.3], 0, leaf, { lump: 0.2, seed: 5, shadeBottom: 0.78 }).blob(-1.6, 5.9, -1.2, [2.2, 1.8, 2.2], 0, leaf, { lump: 0.2, seed: 8, shadeBottom: 0.78 }).tint(0);
+    g.tint(1).blob(0, 7.2, 0, [3.6, 3.2, 3.6], 1, leaf, { lump: 0.22, seed: 3, shadeBottom: 0.78 }).blob(1.8, 5.6, 0.9, [2.3, 1.9, 2.3], 0, leaf, { lump: 0.2, seed: 5, shadeBottom: 0.78 }).blob(-1.6, 5.9, -1.2, [2.2, 1.8, 2.2], 0, leaf, { lump: 0.2, seed: 8, shadeBottom: 0.78 }).tint(0.3);
   } else if (kind === 'apple') {
     g.cyl(0, 0, 0, 0.26, 0.2, 1.7, 5, '#8a735c');
-    g.tint(1).blob(0, 3.1, 0, [2.5, 1.8, 2.5], 1, leaf, { lump: 0.2, seed: 2, shadeBottom: 0.8 }).tint(0);
+    g.tint(1).blob(0, 3.1, 0, [2.5, 1.8, 2.5], 1, leaf, { lump: 0.2, seed: 2, shadeBottom: 0.8 }).tint(0.3);
   } else if (kind === 'pear') {
     g.cyl(0, 0, 0, 0.2, 0.15, 1.4, 5, '#5e4a38');
-    g.tint(1).blob(0, 3.4, 0, [1.5, 2.3, 1.5], 1, leaf, { lump: 0.18, seed: 4 }).tint(0);
+    g.tint(1).blob(0, 3.4, 0, [1.5, 2.3, 1.5], 1, leaf, { lump: 0.18, seed: 4 }).tint(0.3);
   } else if (kind === 'yew') {
     g.cyl(0, 0, 0, 0.5, 0.35, 2.2, 5, '#4a382c');
     g.tint(1);
     g.cyl(0, 1.6, 0, 3.9, 2.4, 3.0, 7, leaf, { smooth: false, top: leaf });
     g.cyl(0, 4.2, 0, 3.0, 1.5, 3.0, 7, leaf, { smooth: false });
     g.cyl(0, 6.8, 0, 2.0, 0.2, 3.4, 6, leaf, { smooth: false });
-    g.tint(0);
+    g.tint(0.3);
   } else if (kind === 'pine') {
     g.cyl(0, 0, 0, 0.35, 0.2, 9.5, 5, '#6b4c38');
     g.tint(1);
     g.cyl(0, 5.2, 0, 3.4, 0.5, 1.6, 6, leaf, { smooth: false });
     g.cyl(0, 7.2, 0, 2.6, 0.4, 1.6, 6, leaf, { smooth: false });
     g.cyl(0, 9.0, 0, 1.7, 0.1, 1.9, 6, leaf, { smooth: false });
-    g.tint(0);
+    g.tint(0.3);
   } else if (kind === 'birch') {
     g.cyl(0, 0, 0, 0.2, 0.12, 7.4, 5, '#e2dfd4');
     g.cyl(0, 2.1, 0, 0.21, 0.2, 0.3, 5, '#3c3a36'); g.cyl(0, 4.4, 0, 0.18, 0.17, 0.25, 5, '#3c3a36');
-    g.tint(1).blob(0, 8.0, 0, [2.0, 2.6, 2.0], 1, leaf, { lump: 0.28, seed: 6 }).blob(0.9, 6.2, 0.4, [1.3, 1.4, 1.3], 0, leaf, { lump: 0.25, seed: 9 }).tint(0);
+    g.tint(1).blob(0, 8.0, 0, [2.0, 2.6, 2.0], 1, leaf, { lump: 0.28, seed: 6 }).blob(0.9, 6.2, 0.4, [1.3, 1.4, 1.3], 0, leaf, { lump: 0.25, seed: 9 }).tint(0.3);
   } else if (kind === 'poplar') {
     g.cyl(0, 0, 0, 0.3, 0.2, 3.0, 5, '#5b4735');
-    g.tint(1).blob(0, 8.5, 0, [1.7, 6.4, 1.7], 1, leaf, { lump: 0.14, seed: 7 }).tint(0);
+    g.tint(1).blob(0, 8.5, 0, [1.7, 6.4, 1.7], 1, leaf, { lump: 0.14, seed: 7 }).tint(0.3);
   } else if (kind === 'bush') {
-    g.tint(1).blob(0, 0.9, 0, [1.4, 1.0, 1.4], 0, leaf, { lump: 0.25, seed: 1 }).tint(0);
+    g.tint(1).blob(0, 0.9, 0, [1.4, 1.0, 1.4], 0, leaf, { lump: 0.25, seed: 1 }).tint(0.3);
   } else throw new Error('no such tree: ' + kind);
   const geo = g.build();
   cache.set(kind, geo);
@@ -88,7 +89,7 @@ export function* scatterTrees(hollow, opts = {}) {
   const totalW = woodMix.reduce((a, b) => a + (b.weight || 1), 0);
   const wrapI = (i, n) => ((i % n) + n) % n;
   const nxW = Math.round(C / S);                 // the shader's cells do not wrap, so neither do these: x stays in 0 .. C
-  let count = 0, n = 0;
+  let count = 0, t0 = performance.now();
   for (let gz = Math.floor(z0 / S); gz * S < z1 && count < max; gz++) {
     for (let gxi = Math.floor(x0 / S); gxi * S < x1; gxi++) {
       const gx = wrapI(gxi, nxW);
@@ -107,7 +108,7 @@ export function* scatterTrees(hollow, opts = {}) {
       put(sel.kind, { p: [x, 0, z], yaw: hash2(gx, gz, 71) * 6.28, scale: [sc, sc * (0.9 + 0.35 * hash2(gx, gz, 83)), sc], color: col });
       count++;
     }
-    if ((++n & 31) === 0) yield;
+    if (performance.now() - t0 > 4) { yield 'trees: woods'; t0 = performance.now(); }
   }
   const sx = rows[0], sz = rows[1];
   for (let gz = Math.floor(z0 / sz); gz * sz < z1 && count < max; gz++) {
@@ -126,10 +127,10 @@ export function* scatterTrees(hollow, opts = {}) {
       put(orch.kind, { p: [x, 0, z], yaw: hash2(gx, gz, 71) * 6.28, scale: (orch.scale || 1) * (0.92 + 0.16 * r[2]), color: col });
       count++;
     }
-    if ((++n & 31) === 0) yield;
+    if (performance.now() - t0 > 4) { yield 'trees: orchards'; t0 = performance.now(); }
   }
   const out = [];
-  for (const [kind, items] of lists) { for (const m of instances(treeGeo(kind), hollow.lit, items, { frame: hollow.frame, cell: 400 })) { hollow.group.add(m); out.push(m); } yield; }
+  for (const [kind, items] of lists) { for (const m of instances(treeGeo(kind), hollow.lit, items, { frame: hollow.frame, cell: 400 })) { hollow.group.add(m); out.push(m); } yield 'trees: ' + kind; }
   hollow.setTreeNear(R * 0.8);
   out.count = count;
   return out;

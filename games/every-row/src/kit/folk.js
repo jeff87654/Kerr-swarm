@@ -63,7 +63,8 @@ export function crowd(spots, material, opts = {}) {
 
 /**
  * People on a Hollow floor near the flight, where the plan says there is life (blue of the kind layer).
- * opts: near (flat flight points), radius (default 220), density (people per 100 m2 at life = 1, default 1.2), max
+ * opts: near (flat flight points), radius (default 220), density (people per 100 m2 at life = 1, default 1.2), max,
+ *       clear (metres kept empty either side of the flight where it is under 6 m up, default 3.5: nobody stands in the lens)
  */
 export function* scatterPeople(hollow, opts = {}) {
   const near = opts.near.filter((_, i) => i % 3 === 0), R = opts.radius || 220, cell = 4;
@@ -72,7 +73,8 @@ export function* scatterPeople(hollow, opts = {}) {
   for (const p of near) { x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); z0 = Math.min(z0, p.z); z1 = Math.max(z1, p.z); }
   x0 -= R; x1 += R; z0 = Math.max(0, z0 - R); z1 = Math.min(hollow.plan.L, z1 + R);
   const spots = [];
-  let n = 0;
+  const low = opts.near.filter((p) => p.y < 6), clearR = opts.clear === undefined ? 3.5 : opts.clear;
+  let t0 = performance.now();
   for (let gz = Math.floor(z0 / cell); gz * cell < z1 && spots.length < max; gz++) {
     for (let gx = Math.floor(x0 / cell); gx * cell < x1; gx++) {
       const x = (gx + hash2(gx, gz, 5)) * cell, z = (gz + hash2(gx, gz, 9)) * cell;
@@ -81,13 +83,27 @@ export function* scatterPeople(hollow, opts = {}) {
       const d = nearPath(near, x, z, C);
       if (d > R) continue;
       if (hash2(gx, gz, 13) > dens * s.life * (1 - (d / R) * (d / R))) continue;
+      if (d < 40 && low.length && nearPath(low, x, z, C) < clearR + 9) { if (nearSeg(low, x, z) < clearR) continue; }
       const r = hash2(gx, gz, 17);
       spots.push({ p: [((x % C) + C) % C, 0, z], walk: r < 0.45 ? 0 : 1.5 + 9 * hash2(gx, gz, 19), sit: r < 0.22, child: r > 0.86 });
     }
-    if ((++n & 63) === 0) yield;
+    if (performance.now() - t0 > 4) { yield 'people'; t0 = performance.now(); }
   }
   const meshes = crowd(spots, hollow.walk, { frame: hollow.frame, bob: opts.bob === undefined ? 0.16 : opts.bob, speed: 0.95, seed: opts.seed || 'hollowfolk' });
   for (const m of meshes) hollow.group.add(m);
   meshes.count = spots.length;
   return meshes;
+}
+
+// distance from (x, z) to the nearest stretch of a flight (flat points), ignoring height
+function nearSeg(points, x, z) {
+  let best = 1e18;
+  for (let i = 0; i < points.length - 1; i++) {
+    const a = points[i], b = points[i + 1], dx = b.x - a.x, dz = b.z - a.z, l2 = dx * dx + dz * dz;
+    if (l2 > 400) continue;                      // not neighbours along the flight
+    let t = l2 > 0 ? ((x - a.x) * dx + (z - a.z) * dz) / l2 : 0; t = t < 0 ? 0 : t > 1 ? 1 : t;
+    const ex = a.x + dx * t - x, ez = a.z + dz * t - z, d = ex * ex + ez * ez;
+    if (d < best) best = d;
+  }
+  return Math.sqrt(best);
 }

@@ -6,10 +6,13 @@ import { Plan, C, L } from '../kit/plan.js';
 import { buildHollow } from '../kit/hollow.js';
 import { makePath } from '../core/path.js';
 import { scatterTrees } from '../kit/flora.js';
-import { scatterPeople } from '../kit/folk.js';
+import { scatterPeople, crowd } from '../kit/folk.js';
+import { Geo, instances } from '../kit/geo.js';
 import { makeRng } from '../core/rng.js';
 
 const H = C / 12, RING = L / 9;       // an Hour is a 30 degree wedge, a Ring a 417 m slice
+// sections of orchard under their six weeks of winter: [x, z] of each tent's corner, 230 m by 150 m
+const TENTS = [[1 * H + 350, 2 * RING + 300], [1 * H + 1150, 2 * RING + 1540], [1 * H + 1550, 2 * RING + 280], [2800, 4.5 * RING + 24]];
 
 export function paintSorrel(plan) {
   const rng = makeRng('sorrel-plan');
@@ -25,7 +28,7 @@ export function paintSorrel(plan) {
   for (let i = 1; i < 6; i++) plan.stroke([[ox0, oz0 + (oz1 - oz0) * i / 6], [ox1, oz0 + (oz1 - oz0) * i / 6]], 9, { color: '#b7ab8c', clear: ['rows'], paved: 0.6, life: 0.4 });
   for (let i = 1; i < 5; i++) plan.stroke([[ox0 + (ox1 - ox0) * i / 5, oz0], [ox0 + (ox1 - ox0) * i / 5, oz1]], 9, { color: '#b7ab8c', clear: ['rows'], paved: 0.6, life: 0.4 });
   // winter tents: sections of orchard chilled in turn, white under the sunline
-  for (const [tx, tz] of [[ox0 + 300, oz0 + 260], [ox0 + 1100, oz0 + 1500], [ox0 + 1500, oz0 + 240]]) {
+  for (const [tx, tz] of TENTS) {
     plan.fill(plan.rect(tx, tz, tx + 230, tz + 150, 12), { color: '#e9ecec', clear: ['rows'] });
     for (let k = 1; k < 5; k++) plan.stroke([[tx + 46 * k, tz + 4], [tx + 46 * k, tz + 146]], 2.5, { color: '#c9d2d6' });
   }
@@ -55,7 +58,16 @@ export function paintSorrel(plan) {
   for (let k = 1; k < 9; k++) if (k !== 4 && k !== 5) walk(ring(k * RING), 5);
   const shore = []; for (let i = 0; i <= 80; i++) { const a = (i / 80) * Math.PI * 2; shore.push([lx + Math.cos(a) * 1215, lz + Math.sin(a) * 655]); }
   plan.lamps(shore, 30);
+  const inLake = (x, z) => ((x - lx) / 1300) ** 2 + ((z - lz) / 740) ** 2 < 1;
+  const inOrchard = (x, z) => x > ox0 - 30 && x < ox1 + 30 && z > oz0 - 30 && z < oz1 + 30;
+  plan.clumps(520, 8, 30, { seed: 'sorrel-clumps', z0: 760, z1: L - 760, colors: ['#5f8a48', '#6b9450', '#557f44'], keep: (x, z) => !inLake(x, z) && !inOrchard(x, z) });
+  for (let i = 0; i < 12; i += 2) plan.avenue([[i * H, 760], [i * H + 30, 1500], [i * H - 20, 2300], [i * H, L - 760]], 8, 13);
+  plan.avenue(shore.filter((_, i) => i % 2 === 0), 26, 16, { color: '#6b9450' });
+  for (const [gx, gz] of [[lx - 700, lz + 760], [lx + 420, lz + 800], [lx - 250, lz - 820], [lx + 900, lz - 760]]) plan.garden(gx, gz, gx + 150, gz + 100, ['#d9a0b4', '#e6cf7a', '#c9d98a', '#b7a3d6', '#e8b06a']);
+  // the Robe House on the Stag shore, where swimmers are handed a warm robe and a lidded cup of broth
+  plan.fill(plan.ellipse(ROBE[0], ROBE[1], 30, 22), { color: '#cdbf9a', paved: 1, life: 1, clear: ['wood'] });
 }
+const ROBE = [6 * H + 40, 4.5 * RING + 640];
 
 export const sorrelLake = {
   id: 'sorrel-lake',
@@ -93,6 +105,63 @@ export const sorrelLake = {
     const pts = path.points(0.5);
     yield* scatterTrees(hollow, { near: pts, radius: 180, max: 30000 * ctx.density });
     yield* scatterPeople(hollow, { near: pts, radius: 240, density: 1.3 * ctx.density, max: 8000 });
+    yield* dress(hollow, pts, ctx);
     return { scene, path, hollow, near: 0.6, far: 9000, look: { exposure: 1.9, bloom: 0.2, saturation: 1.05, threshold: 0.75 } };
   },
 };
+
+// What the flight passes: the winter tents, a brush-and-ladder crew in the orchard, the jetty and the elders' bench on
+// Bench Island, the Robe House, and lamps still lit along the walks.
+function* dress(hollow, pts, ctx) {
+  const lz = 4.5 * RING, ix = 5.5 * H, iz = lz - 20;
+  const g = new Geo({ maxSeg: 16 });
+  // winter tents: five ridged bays of white cloth over a section of orchard, chilled to four degrees
+  for (const [tx, tz] of TENTS) {
+    for (let k = 0; k < 5; k++) {
+      const x0 = tx + 46 * k, x1 = x0 + 46, xm = x0 + 23, z0 = tz, z1 = tz + 150;
+      g.quad([x0, 4, z1], [xm, 8.5, z1], [xm, 8.5, z0], [x0, 4, z0], '#f1f3f1');
+      g.quad([xm, 8.5, z1], [x1, 4, z1], [x1, 4, z0], [xm, 8.5, z0], '#dfe6e8');
+      g.tri([x0, 4, z0], [xm, 8.5, z0], [x1, 4, z0], '#e6eaea'); g.tri([x1, 4, z1], [xm, 8.5, z1], [x0, 4, z1], '#e6eaea');
+      g.quad([x1, 0, z0], [x0, 0, z0], [x0, 4, z0], [x1, 4, z0], '#e9edec'); g.quad([x0, 0, z1], [x1, 0, z1], [x1, 4, z1], [x0, 4, z1], '#e9edec');
+    }
+    g.quad([tx, 0, tz], [tx, 0, tz + 150], [tx, 4, tz + 150], [tx, 4, tz], '#e3e8e8'); g.quad([tx + 230, 0, tz + 150], [tx + 230, 0, tz], [tx + 230, 4, tz], [tx + 230, 4, tz + 150], '#e3e8e8');
+  }
+  yield 'tents';
+  // the jetty off Bench Island, and the elders' bench
+  g.box(ix + 28, 0.35, iz - 2.6, ix + 150, 0.6, iz + 2.6, '#9a8468', { top: '#b09a7c' });
+  for (let x = ix + 34; x < ix + 150; x += 9) for (const dz of [-2.4, 2.4]) g.cyl(x, -1.2, iz + dz, 0.16, 0.16, 2.6, 5, '#6f5e4a');
+  g.box(ix - 9, 0.42, iz + 10.5, ix + 9, 0.5, iz + 11.2, '#8a6f52'); g.box(ix - 9, 0.5, iz + 11.1, ix + 9, 0.95, iz + 11.25, '#8a6f52');
+  for (let x = ix - 8.5; x <= ix + 8.6; x += 4.25) g.box(x - 0.06, 0, iz + 10.6, x + 0.06, 0.45, iz + 11.2, '#5c4a38');
+  // the Robe House: a low open pavilion with a rail of robes
+  const [rx, rz] = ROBE;
+  g.box(rx - 13, 0, rz - 7, rx + 13, 0.3, rz + 7, '#d2c8b4');
+  for (const dx of [-12, -4, 4, 12]) for (const dz of [-6, 6]) g.cyl(rx + dx, 0.3, rz + dz, 0.22, 0.2, 3.1, 6, '#efe8da');
+  g.box(rx - 13.6, 3.4, rz - 7.6, rx + 13.6, 3.75, rz + 7.6, '#efe9dc', { top: '#e2dac8' });
+  g.box(rx - 9, 0.3, rz - 1.2, rx + 9, 1.2, rz + 1.2, '#b79f82');
+  const robes = ['#e9e2d2', '#d8c9b0', '#c7d2cc', '#e2cfc0', '#cdbfae'];
+  for (let i = 0; i < 26; i++) g.box(rx - 11 + i * 0.85, 1.25, rz + 5.2, rx - 10.4 + i * 0.85, 2.7, rz + 5.5, robes[i % robes.length]);
+  hollow.add(g.mesh(hollow.lit, hollow.frame));
+  yield 'jetty and robe house';
+  const spots = [];
+  const rng = makeRng('sorrel-elders');
+  // the same people on the bench most mornings; others in the water or drying off on the jetty
+  for (let i = 0; i < 9; i++) spots.push({ p: [ix - 8 + i * 2, 0.5, iz + 10.9], sit: true, yaw: Math.PI, color: ['#b9a58a', '#8c9aa0', '#a9b59a', '#c9b7a0', '#9a8fa6'][i % 5] });
+  for (let i = 0; i < 16; i++) spots.push({ p: [ix + rng.f(30, 148), 0.6, iz + rng.f(-2, 2)], walk: 0, sit: rng.chance(0.4), color: robes[i % robes.length] });
+  for (let i = 0; i < 22; i++) spots.push({ p: [rx + rng.f(-12, 12), 0.3, rz + rng.f(-6, 4)], walk: rng.chance(0.4) ? 2 : 0, color: robes[i % robes.length] });
+  // swimmers: only their heads and shoulders show
+  for (let i = 0; i < 40; i++) { const a = rng.f(0, 6.28), d = rng.f(55, 260); spots.push({ p: [ix + Math.cos(a) * d, -1.25, iz + Math.sin(a) * d * 0.7], walk: rng.f(2, 9), color: '#d9cdbc' }); }
+  // hand pollinators in the orchard by the lane: a step-ladder, a soft brush
+  const lad = new Geo(); lad.box(-0.35, 0, -0.03, -0.29, 2.3, 0.03, '#b9a27c'); lad.box(0.29, 0, -0.03, 0.35, 2.3, 0.03, '#b9a27c');
+  for (let y = 0.35; y < 2.2; y += 0.4) lad.box(-0.3, y, -0.03, 0.3, y + 0.05, 0.03, '#b9a27c');
+  lad.box(-0.3, 0, 0.75, -0.26, 2.2, 0.8, '#a8926e'); lad.box(0.26, 0, 0.75, 0.3, 2.2, 0.8, '#a8926e');
+  const ladders = [];
+  for (let i = 0; i < 14; i++) {
+    const x = (Math.floor(rng.f(2702, 3070) / 7) + 0.5) * 7 + 1.9, z = (Math.floor((lz + rng.sign() * rng.f(8, 40)) / 6) + 0.5) * 6;
+    ladders.push({ p: [x, 0, z], yaw: Math.PI / 2 });
+    spots.push({ p: [x - 0.55, 1.15, z], walk: 0, yaw: Math.PI / 2, color: ['#c9563c', '#3a6ea5', '#d98c2b', '#6f9a3e'][i % 4] });
+  }
+  hollow.add(instances(lad.build(), hollow.lit, ladders, { frame: hollow.frame }));
+  hollow.add(crowd(spots, hollow.walk, { frame: hollow.frame, bob: 0.05, seed: 'sorrel-elders' }));
+  yield 'elders';
+  hollow.lampPosts({ near: pts, radius: 170, power: 5 });
+}

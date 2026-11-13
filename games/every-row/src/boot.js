@@ -29,7 +29,9 @@ export function boot(WORLDS) {
 
   if (qs.get('w')) engine.enqueue([qs.get('w')]);
   if (qs.has('t')) engine.startT = parseFloat(qs.get('t'));
-  if (qs.has('steady')) engine.steady = true;
+  if (qs.has('steady') || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) engine.steady = true;
+  // a phone starts a step lower; the frame-rate governor takes it from there either way
+  if (!qs.has('tier') && window.matchMedia && window.matchMedia('(pointer: coarse)').matches && Math.min(window.innerWidth, window.innerHeight) < 820) engine.setTier(1);
   if (qs.has('pace')) engine.pace = parseFloat(qs.get('pace'));
 
   if (bare) {

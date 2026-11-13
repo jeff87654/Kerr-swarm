@@ -191,8 +191,8 @@ void main() {
     streak += smoothstep(0.28, 0.6, gl) * exp(-dm * dm / (wdt * wdt * 40.0)) * 0.8 * smoothstep(6.0, 0.5, px);
     vec3 toLine = normalize(vec3(0.0, 0.0, clamp(Mid.z, uSunZ.x, uSunZ.y)) - vW);
     float miss = acos(clamp(dot(R, toLine), -1.0, 1.0));
-    float spark = smoothstep(0.5, 0.78, kNoise(m * 2.7 + vec2(t * 3.1, -t * 2.3)) * 0.5 + kNoise(m * 1.1 - vec2(t * 1.3, t * 1.7) + 3.0) * 0.5 + 0.12 * gl);
-    vec3 sunRefl = kSunColor(vW.xy) * uSunRod * (streak * inLine + spark * exp(-miss * miss / 0.09) * 0.22 * smoothstep(4.0, 0.4, px) / max(fres, 0.08));
+    float spark = smoothstep(0.66, 0.84, kNoise(m * 6.3 + vec2(t * 4.1, -t * 3.3)) * 0.55 + kNoise(m * 2.3 - vec2(t * 1.9, t * 2.3) + 3.0) * 0.45) * (0.5 + gl);
+    vec3 sunRefl = kSunColor(vW.xy) * uSunRod * (streak * inLine + spark * exp(-miss * miss / 0.09) * 0.16 * smoothstep(3.0, 0.3, px) / max(fres, 0.08));
     vec3 body = alb * uWater * (Lgt * 0.9 + 0.02);
     vec3 wcol = body * (1.0 - fres) + (refl + sunRefl) * fres;
     lit = mix(lit, wcol, smoothstep(0.3, 0.55, wat));
@@ -279,17 +279,18 @@ void main() {
   if (vTier.y < 0.5) {
     // ---- a riser: an arcade at its foot, nine floors of flats with balconies, a garden spilling over its top
     float hy = vF.y - ti * uTierH;
-    float px = max(length(dFdx(vec2(arc, hy))), length(dFdy(vec2(arc, hy))));
+    float arcR = vF.x * (uFloorR - ti * uTierH) / uFloorR;     // metres round the wall at this tier's foot: the same up the whole riser, so columns stand upright
+    float px = max(length(dFdx(vec2(arcR, hy))), length(dFdy(vec2(arcR, hy))));
     float flH = uTierH / 11.0;
     float fl = floor(hy / flH), fy = fract(hy / flH);
-    float colx = arc / 4.4; float ci = floor(colx), cx = fract(colx) - 0.5;
-    float house = floor(arc / 26.4);
+    float colx = arcR / 4.4; float ci = floor(colx), cx = fract(colx) - 0.5;
+    float house = floor(arcR / 26.4);
     float hh = kHash(vec2(house, ti * 7.0 + uSide * 3.0));
     float hk = kHash(vec2(house, ti * 5.0 + 31.0 + uSide * 9.0));
     vec3 stone = mix(uStone, uStone2, hh);
     stone = mix(stone, uHouse[int(hk * 5.999)], step(1.0 - uHouseMix, kHash(vec2(house + 77.0, ti * 3.0 + uSide))));
-    stone *= (0.9 + 0.2 * kHash(vec2(house, ti + 11.0))) * (0.97 + 0.06 * kNoise(vec2(arc, hy) * 0.7));
-    float party = smoothstep(0.47, 0.5, abs(fract(arc / 26.4) - 0.5));               // the line between two houses
+    stone *= (0.9 + 0.2 * kHash(vec2(house, ti + 11.0))) * (0.97 + 0.06 * kNoise(vec2(arcR, hy) * 0.7));
+    float party = smoothstep(0.47, 0.5, abs(fract(arcR / 26.4) - 0.5));               // the line between two houses
     vec2 wid = vec2(ci, fl + ti * 13.0 + uSide * 50.0);
     float wh = kHash(wid), wh2 = kHash(wid + 5.5);
     vec3 day = stone;
@@ -306,7 +307,7 @@ void main() {
       float win = step(abs(cx), 0.3) * step(0.24, fy) * step(fy, 0.82);
       float slab = step(fy, 0.07);                                                   // balcony slab
       float rail = step(0.07, fy) * step(fy, 0.24) * step(abs(cx), 0.42) * step(0.35, wh2);
-      float plant = step(0.03, fy) * step(fy, 0.3) * step(abs(cx), 0.46) * step(0.42, kHash(wid + 3.3)) * step(kNoise(vec2(arc * 1.7, hy * 1.5)), 0.6);
+      float plant = step(0.03, fy) * step(fy, 0.3) * step(abs(cx), 0.46) * step(0.42, kHash(wid + 3.3)) * step(kNoise(vec2(arcR * 1.7, hy * 1.5)), 0.6);
       float awn = step(abs(cx), 0.36) * step(0.82, fy) * step(fy, 0.93) * step(0.8, wh2);
       day = mix(day, uGlass, win);
       day = mix(day, stone * 1.12, slab);
@@ -319,9 +320,9 @@ void main() {
       day = stone * (fy > 0.45 ? 1.1 : 0.94);
     }
     day = mix(day, stone * 0.72, party * 0.5);
-    float hn = kNoise(vec2(arc / 9.0, ti * 7.0)) * 0.65 + kNoise(vec2(arc / 2.3, ti * 3.0 + 9.0)) * 0.35;
+    float hn = kNoise(vec2(arcR / 9.0, ti * 7.0)) * 0.65 + kNoise(vec2(arcR / 2.3, ti * 3.0 + 9.0)) * 0.35;
     float hang = smoothstep(0.0, 1.2, hy - (uTierH - (2.0 + 15.0 * hn * tp.y)));
-    vec3 green = uGarden * (0.7 + 0.55 * kNoise(vec2(arc * 0.5, hy * 0.5))) * mix(vec3(1.0), vec3(1.25, 1.1, 0.7), step(0.8, kNoise(vec2(arc * 0.7, hy * 0.7) + 20.0)) * 0.5);
+    vec3 green = uGarden * (0.7 + 0.55 * kNoise(vec2(arcR * 0.5, hy * 0.5))) * mix(vec3(1.0), vec3(1.25, 1.1, 0.7), step(0.8, kNoise(vec2(arcR * 0.7, hy * 0.7) + 20.0)) * 0.5);
     float fade = smoothstep(2.4, 0.6, px);
     // from far off: bands of floors, the arcade's shadow, a scatter of planted balconies
     vec3 avg = mix(stone, uGlass, 0.15) * (0.93 + 0.1 * step(0.5, fract(hy / flH * 0.5)));
@@ -334,7 +335,7 @@ void main() {
     // far off, single windows run together into a scatter of lights whose grain follows the distance, so it never shimmers
     float share = clamp(uLit + tp.z, 0.0, 1.0);
     float lv = log2(max(px * 1.7, 4.4) / 4.4), l0 = floor(lv);
-    vec2 sq = vec2(arc, hy + ti * 211.0 + uSide * 977.0) / (4.4 * exp2(l0));
+    vec2 sq = vec2(arcR, hy + ti * 211.0 + uSide * 977.0) / (4.4 * exp2(l0));
     vec3 farGlow = mix(kStars(sq, share), kStars(sq * 0.5 + 31.0, share), lv - l0) * step(0.5, fl) * step(fl, 9.5);
     glow = uWinPower * mix(farGlow, winCol * lit01, fade) * (1.0 - hang);
     col = mix(col, uTrack * Lgt, onTrack * 0.85);
@@ -426,7 +427,7 @@ function wallMesh(rig, frame, side, o) {
     uPave: { value: vec3col(o.pave || '#d2c8b2') }, uWinA: { value: vec3col(o.winA || '#ffc070') }, uWinB: { value: vec3col(o.winB || '#ffe6bc') }, uTrack: { value: vec3col(o.track || '#f1ece0') },
     uAwning: { value: vec3col(o.awning || '#c9603c') },
     uHouse: { value: (o.houses || ['#e8c39a', '#d9a58c', '#c9d2c0', '#e9d9a8', '#b9c8d2', '#e3b9a0']).map((h) => vec3col(h)) }, uHouseMix: { value: o.houseMix === undefined ? 0.45 : o.houseMix },
-    uLit: { value: o.lit || 0 }, uTierH: { value: TIER_H }, uSide: { value: side }, uLifts: { value: o.lifts === undefined ? 8 : o.lifts }, uWinPower: { value: o.winPower === undefined ? 2.4 : o.winPower },
+    uLit: { value: o.lit || 0 }, uTierH: { value: TIER_H }, uSide: { value: side }, uLifts: { value: o.lifts === undefined ? 8 : o.lifts }, uWinPower: { value: o.winPower === undefined ? 1.3 : o.winPower },
     uTier: { value: tiers },
   };
   const m = new ShaderMaterial({ uniforms, vertexShader: WALL_VERT, fragmentShader: wallFrag(rig), side: FrontSide });
@@ -505,6 +506,7 @@ export function* buildHollow(ctx, spec) {
   const pav = [];
   const sum = (w) => (w && w.depths ? w.depths : tierDepths()).reduce((a, b) => a + b, 0);
   const frontD = sum(spec.front), backD = sum(spec.back);
+  yield* plan.settle();
   if (spec.pavilions !== false) {
     const rng = makeRng((spec.seed || 'hollow') + 'pav');
     const early = plan.sampler(512, 256);
@@ -517,15 +519,18 @@ export function* buildHollow(ctx, spec) {
     plan.dots(pav, 2.0, { lamp: 0.9 });
     for (const q of pav) plan.features.push({ type: 'pavilion', x: q[0], z: q[1] });
   }
-  yield;
+  yield* plan.settle();
+  yield 'hollow: pavilions';
   const tex = plan.textures(ctx.renderer);
-  yield;
+  // send the three big pictures to the graphics card one at a time, a frame apart
+  if (ctx.renderer && ctx.renderer.initTexture) for (const k of ['alb', 'mask', 'kind']) { yield 'hollow: plan painted'; ctx.renderer.initTexture(tex[k]); }
+  yield 'hollow: plan painted 2';
   const ground = groundMesh(rig, tex, frame, { ...go, wallTint: (spec.front && spec.front.stone) || '#cfc6b4' });
   group.add(ground);
-  yield;
+  yield 'hollow: texture';
   const wf = wallMesh(rig, frame, 0, spec.front || {}), wb = wallMesh(rig, frame, 1, spec.back || {});
   group.add(wf, wb);
-  yield;
+  yield 'hollow: textures';
 
   // the spar from axle to axle, the lit line on it, and its glow
   const lit = litMaterial(rig, { bend: frame });
@@ -551,14 +556,14 @@ export function* buildHollow(ctx, spec) {
     hub.pop().pop();
   }
   group.add(hub.mesh(plain));
-  yield;
+  yield 'hollow: ground';
 
   if (pav.length) {
     const pg = pavilionGeo(), items = [];
     for (const q of pav) items.push({ p: [q[0], 0, q[1]], yaw: (q[0] * 0.37) % 6.28 });
     for (const m of instances(pg, lit, items, { frame, cell: 1200 })) group.add(m);
   }
-  yield;
+  yield 'hollow: walls';
 
   let sampler = null;
   const H = {

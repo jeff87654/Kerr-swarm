@@ -77,19 +77,23 @@ export const chervilFlight = {
     // the river of hand lamps: everyone within 75 m of the axis, most heading for the back wall
     const lamps = [], n = Math.round(70000 * ctx.density);
     const tones = ['#ffc070', '#ffd08a', '#ffb060', '#ffd9a0', '#ffc878', '#ff9a58', '#ffb878', '#ffe0b0', '#ff8f50', '#ffcf90', '#ffc070', '#9fd0ff'];
+    let t0 = performance.now();
     for (let i = 0; i < n; i++) {
+      if ((i & 255) === 0 && performance.now() - t0 > 4) { yield 'lamps'; t0 = performance.now(); }
       const r = DRUM.SPINDLE * Math.pow(rng(), 0.85) * 0.98 + 1.5, a = rng() * Math.PI * 2, z = rng.f(120, L - 120);
       const x = a * R, y = R - r;
       if (!clear(x, y, z, 3.5)) continue;
       const back = rng.chance(0.82), v = (back ? 1 : -1) * rng.f(1.2, 3.4), loop = rng.f(60, 140);
       lamps.push({ p: [x, y, z], color: rng.pick(tones), power: rng.f(5, 14), size: rng.f(0.4, 0.6), move: [0, 0, v], loop, twinkle: 0.25, phase: rng() });
     }
+    yield 'lamps';
     hollow.glow(lamps, { minPx: 1.3, maxPx: 90, soft: 2.2 });
-    yield;
+    yield 'lamp river';
     // flyers near the way, in wing-sleeves
     const flyMat = litMaterial(hollow.rig, { bend: hollow.frame, drift: true, side: 'double', soft: 0.5 });
     const flyers = new Map(), carried = [];
     for (let i = 0; i < Math.round(2600 * ctx.density); i++) {
+      if ((i & 127) === 0 && performance.now() - t0 > 4) { yield 'flyers'; t0 = performance.now(); }
       const q = track[Math.floor(rng() * track.length)];
       const r = Math.min(74, Math.max(2, (R - q.y) + rng.gauss() * 16)), a = q.x / R + rng.gauss() * 0.9, z = q.z + rng.f(-150, 150);
       const x = a * R, y = R - r;

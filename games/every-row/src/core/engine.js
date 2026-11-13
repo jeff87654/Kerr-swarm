@@ -74,7 +74,7 @@ export class Engine {
     this.pose = { pos: new Vector3(), quat: new Quaternion(), fov: 58, vel: new Vector3() };
     this.frameMs = 16; this.slow = 0; this.fast = 0; this.frames = 0;
     this.seen = []; this.queue = [];
-    this.stats = { calls: 0, tris: 0, build: 0, waiting: false };
+    this.stats = { calls: 0, tris: 0, build: 0, step: 0, waiting: false };
     this.rng = makeRng(Date.now() & 0xffffff);
     this.freeze = false;            // dev: hold the flight where it is
     this.last = 0; this.raf = 0;
@@ -113,7 +113,12 @@ export class Engine {
     if (job.stage === 'build') {
       try {
         while (performance.now() - t0 < budget) {
+          const s0 = performance.now();
           const r = job.gen.next();
+          const sd = performance.now() - s0;
+          job.steps = (job.steps || 0) + 1;
+          if (sd > (job.longest || 0)) { job.longest = sd; job.longestAt = (typeof r.value === 'string' ? r.value : r.done ? 'the end' : 'step ' + job.steps); }
+          if (this.opts.debug && sd > 40) (job.slow = job.slow || []).push(`${typeof r.value === 'string' ? r.value : r.done ? 'the end' : 'step ' + job.steps} ${sd.toFixed(0)}`);
           if (r.done) { job.inst = this.finish(job.def, r.value); job.stage = 'compile'; break; }
         }
       } catch (e) {
@@ -150,8 +155,8 @@ export class Engine {
       r.setRenderTarget(prevTarget);
       if (!job.prime.length) {
         job.tiny.dispose();
-        inst.ready = true; this.stats.build = job.spent;
-        if (this.opts.debug) console.log(`[every-row] ${job.def.id} built in ${job.spent.toFixed(0)} ms of work over ${((performance.now() - job.t0) / 1000).toFixed(1)} s`);
+        inst.ready = true; this.stats.build = job.spent; this.stats.step = job.longest || 0;
+        if (this.opts.debug) console.log(`[every-row] ${job.def.id} built in ${job.spent.toFixed(0)} ms of work over ${((performance.now() - job.t0) / 1000).toFixed(1)} s; its longest single step took ${(job.longest || 0).toFixed(0)} ms (${job.longestAt || '-'})${job.slow ? '; steps over 40 ms: ' + job.slow.join(', ') : ''}`);
         if (!this.cur) { this.cur = inst; this.enter(inst, null); } else this.next = inst;
         this.job = null;
       }

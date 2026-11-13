@@ -24,17 +24,21 @@ export class Plan {
     this.cv = { alb: canvas(this.w, this.h), mask: canvas(this.w, this.h), kind: canvas(this.w >> 1, this.h >> 1) };
     this.cx = {};
     for (const k of ['alb', 'mask', 'kind']) {
-      const cx = this.cv[k].getContext('2d', { willReadFrequently: false });
+      const cx = this.cv[k].getContext('2d', { willReadFrequently: !!opts.cpu });
       cx.fillStyle = k === 'alb' ? '#5d8a3c' : '#000000';
       cx.fillRect(0, 0, this.cv[k].width, this.cv[k].height);
       this.cx[k] = cx;
     }
-    this.canFilter = typeof this.cx.alb.filter === 'string';
     this.features = [];     // things worlds and the kit may want to find again: { type, x, z, ... }
+    this.queue = [];        // painting waits here until settle(): drawing a plan this size takes a few hundred milliseconds
   }
 
-  /** Draw on one layer in metres. fn(ctx) is called three times, shifted by one turn each way, so shapes may cross the seam. */
-  layer(name, fn) {
+  /**
+   * Draw on one layer in metres. fn(ctx) is called three times, shifted by one turn each way, so shapes may cross the seam.
+   * Nothing is drawn yet: the call is kept, in order, and done by settle() (buildHollow does that, a little each frame).
+   */
+  layer(name, fn) { this.queue.push([name, fn]); }
+  _draw(name, fn) {
     const cx = this.cx[name], cv = this.cv[name];
     const sx = cv.width / this.C, sz = cv.height / this.L;
     for (const k of [-1, 0, 1]) {
@@ -44,6 +48,22 @@ export class Plan {
       cx.restore();
     }
   }
+  // make the canvases actually draw what they have been told to (they put it off until someone reads them)
+  _flush() { for (const k of ['alb', 'mask', 'kind']) this.cx[k].getImageData(0, 0, 1, 1); }
+  /** Do the painting asked for so far, a few milliseconds at a time: `yield* plan.settle()`. */
+  *settle() {
+    // draw a batch, make the canvases really do it, see how long that took, and size the next batch to suit
+    let n = this._batch || 6;
+    while (this.queue.length) {
+      for (let i = 0; i < n && this.queue.length; i++) { const [name, fn] = this.queue.shift(); this._draw(name, fn); }
+      const f0 = performance.now(); this._flush(); const fd = performance.now() - f0;
+      if (fd < 3) n = Math.min(48, n * 2); else if (fd > 7) n = Math.max(1, n >> 1);
+      yield 'plan: painting';
+    }
+    this._batch = n;
+  }
+  /** The same all at once (used if a plan is read before it has been settled). */
+  settleNow() { while (this.queue.length) { const [name, fn] = this.queue.shift(); this._draw(name, fn); } }
 
   // ---- shapes (Path2D in metres)
   rect(x0, z0, x1, z1, r = 0) {
@@ -94,9 +114,15 @@ export class Plan {
     const f = opts.feather || 0;
     const run = (name, style, op) => this.layer(name, (cx) => {
       cx.globalCompositeOperation = op || 'source-over';
-      if (f > 0 && this.canFilter) cx.filter = `blur(${(f * this.cv[name].width / this.C).toFixed(2)}px)`;
       cx.fillStyle = style;
       cx.fill(shape, opts.rule || 'nonzero');
+      if (f > 0) {
+        // a soft edge: the outline stroked several times, wider and fainter each time (no blur filter: that is very slow here)
+        cx.strokeStyle = style; cx.lineJoin = 'round';
+        const n = 6, a0 = cx.globalAlpha;
+        if (op !== 'multiply') for (let i = n; i >= 1; i--) { cx.globalAlpha = a0 / n; cx.lineWidth = 2 * f * (i / n); cx.stroke(shape); }
+        cx.globalAlpha = a0;
+      }
     });
     this._clear(opts, (name, style) => run(name, style, 'multiply'));
     if (opts.color) run('alb', withAlpha(opts.color, opts.alpha));
@@ -203,16 +229,26 @@ export class Plan {
       const s = size * rng.f(0.5, 1.5);
       list.push({ x: rng.f(opts.x0 || 0, opts.x1 || this.C), z: rng.f(opts.z0 || 0, opts.z1 || this.L), rx: s, rz: s * rng.f(0.5, 1.2), rot: rng.f(0, 3.14), a: (opts.alpha || 0.35) * rng.f(0.4, 1), c: rng.pick(colors) });
     }
-    this.layer('alb', (cx) => {
+    for (let i0 = 0; i0 < list.length; i0 += 20) this.layer('alb', (cx, k) => {
       if (opts.clip) cx.clip(opts.clip);
-      if (this.canFilter) cx.filter = `blur(${(size * 0.35 * this.w / this.C).toFixed(2)}px)`;
-      for (const q of list) { cx.globalAlpha = q.a; cx.fillStyle = q.c; cx.beginPath(); cx.ellipse(q.x, q.z, q.rx, q.rz, q.rot, 0, Math.PI * 2); cx.fill(); }
+      for (const q of list.slice(i0, i0 + 20)) {
+        if (q.x + k * this.C < -q.rx * 1.3 || q.x + k * this.C > this.C + q.rx * 1.3) continue;        // this copy of it is off the floor
+        // a patch that fades out from its middle (a gradient, not a blur)
+        cx.save();
+        cx.translate(q.x, q.z); cx.rotate(q.rot); cx.scale(1, q.rz / q.rx);
+        const g = cx.createRadialGradient(0, 0, 0, 0, 0, q.rx * 1.25);
+        g.addColorStop(0, withAlpha(q.c, q.a)); g.addColorStop(0.45, withAlpha(q.c, q.a * 0.7)); g.addColorStop(1, withAlpha(q.c, 0));
+        cx.fillStyle = g;
+        cx.beginPath(); cx.arc(0, 0, q.rx * 1.25, 0, Math.PI * 2); cx.fill();
+        cx.restore();
+      }
     });
     return this;
   }
 
   /** The three textures the ground shader reads. */
   textures(renderer) {
+    this.settleNow();
     const aniso = renderer ? Math.min(16, renderer.capabilities.getMaxAnisotropy()) : 8;
     const mk = (cv, srgb) => {
       const t = new CanvasTexture(cv);
@@ -231,6 +267,7 @@ export class Plan {
    * Reads the layers at reduced size once.
    */
   sampler(w = 1024, h = 512) {
+    this.settleNow();
     const grab = (cv) => { const c = canvas(w, h), cx = c.getContext('2d', { willReadFrequently: true }); cx.drawImage(cv, 0, 0, w, h); return cx.getImageData(0, 0, w, h).data; };
     const A = grab(this.cv.alb), M = grab(this.cv.mask), K = grab(this.cv.kind);
     const Cc = this.C, Ll = this.L, out = { water: 0, wood: 0, lamp: 0, paved: 0, rows: 0, life: 0, r: 0, g: 0, b: 0 };
@@ -253,6 +290,7 @@ function chan(r, g, b) {
 }
 function withAlpha(color, alpha) {
   if (alpha === undefined || alpha >= 1) return color;
+  if (color[0] === '#' && color.length === 4) color = '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3];
   if (color[0] === '#' && color.length === 7) { const n = parseInt(color.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${alpha})`; }
   return color;
 }
