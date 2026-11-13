@@ -53,7 +53,8 @@ const rate = (f, t) => { const a = f(t - 0.01), b = f(t + 0.01); return [0, 1, 2
 
 export const theGlide = {
   id: 'the-glide',
-  title: 'The glide to Lovage', drum: 'Sorrel to Lovage', row: 'Herb Row', kind: 'a glide between drums', light: 0.0,
+  // (the card does not say where the glide began: in the journey it follows a train out of Rue's station through its lock)
+  title: 'The glide to Lovage', drum: 'The Glide', row: 'Herb Row', kind: 'between drums', light: 0.0,
   line: 'Two minutes and twenty seconds with no weight. Every drum wears rings of quay lights, and they go back rank behind rank until they are one line.',
   tone: '#ffb870', source: 'ashgrove.md (Day three), raft-transport.md (The Glide)',
   sound: { root: 43, scale: 'dorian', pad: 0.5, air: 0.1, hum: 0.5, bells: 0.1, bright: 0.3 },
