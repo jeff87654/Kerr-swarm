@@ -530,8 +530,12 @@ export function* buildHollow(ctx, spec) {
       if (s.water > 0.2) continue;
       pav.push([px, pz]);
     }
-    plan.dots(pav, 9, { color: '#b9b29c', alpha: 0.8, paved: 1, clear: ['wood', 'rows'] });
-    plan.dots(pav, 2.0, { lamp: 0.9 });
+    // (a hundred at a time: one path of a thousand circles is a long step for the canvas)
+    for (let i = 0; i < pav.length; i += 100) {
+      const part = pav.slice(i, i + 100);
+      plan.dots(part, 9, { color: '#b9b29c', alpha: 0.8, paved: 1, clear: ['wood', 'rows'] });
+      plan.dots(part, 2.0, { lamp: 0.9 });
+    }
     for (const q of pav) plan.features.push({ type: 'pavilion', x: q[0], z: q[1] });
     // the pavilions are painted after the reading: mark their paving in it by hand (no trees or rows where one stands)
     const d = sampler.data, sx = C / d.w, sz = L / d.h;

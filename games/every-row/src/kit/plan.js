@@ -56,15 +56,19 @@ export class Plan {
   *settle() {
     // draw a batch, make the canvases really do it, see how long that took, and size the next batch to suit
     // (the first things painted are the big ones, whole-floor fills: start one at a time; many small shapes soon go 64 to a step)
-    let n = this._batch || 1;
+    if (!this.queue.length) return;
+    // what asking costs when there is nothing to paint (a round trip to the graphics process, long on a busy machine):
+    // taken off every reading below, or a slow round trip is mistaken for slow painting and the batches never grow
+    const b0 = performance.now(); this._flush(); let base = performance.now() - b0;
+    let n = 1;
     while (this.queue.length) {
       const f0 = performance.now();
       for (let i = 0; i < n && this.queue.length; i++) { const [name, fn] = this.queue.shift(); this._draw(name, fn); }
-      this._flush(); const fd = performance.now() - f0;
-      if (fd < 4) n = Math.min(64, n * 2); else if (fd > 9) n = Math.max(1, n >> 1);
+      this._flush(); const fd = performance.now() - f0, work = fd - base;
+      if (fd < base) base = fd;
+      if (work < 4) n = Math.min(128, n * 2); else if (work > 10) n = Math.max(1, n >> 1);
       yield 'plan: painting';
     }
-    this._batch = n;
   }
   /** The same all at once (used if a plan is read before it has been settled). */
   settleNow() { while (this.queue.length) { const [name, fn] = this.queue.shift(); this._draw(name, fn); } }
