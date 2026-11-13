@@ -11,9 +11,12 @@ import { madderGardens } from './madder_gardens.js';
 import { dulseNoodle } from './dulse_noodle.js';
 import { borageFountains } from './borage_fountains.js';
 import { carillonChoirs } from './carillon_choirs.js';
+import { speltLoaf } from './spelt_loaf.js';
+import { sorrelAshgrove } from './sorrel_ashgrove.js';
 
 export const WORLDS = [
   sorrelLake,
+  sorrelAshgrove,
   lovageNoon,
   chervilDawn,
   sloeWood,
@@ -24,5 +27,6 @@ export const WORLDS = [
   dulseNoodle,
   borageFountains,
   carillonChoirs,
+  speltLoaf,
   chervilFlight,
 ];

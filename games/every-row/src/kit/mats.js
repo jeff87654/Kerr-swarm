@@ -257,6 +257,7 @@ attribute vec4 aWalk;     // radius of stroll (m), speed (m/s), phase, bob heigh
 #ifdef USE_DRIFT
 attribute vec4 aDrift;    // velocity (m/s) and the seconds before it starts over
 attribute float aPhase;   // where in that loop it begins, 0..1
+uniform float uStride;    // how high a walker bobs at each step, metres (USE_STRIDE)
 #endif
 varying vec3 vW; varying vec3 vN; varying vec3 vF; varying vec3 vFN; varying vec3 vCol; varying float vEmit; varying float vSoft;
 void main() {
@@ -282,6 +283,10 @@ void main() {
       float du = fract(uTime / aDrift.w + aPhase);
       float ds = smoothstep(0.0, 0.05, du) * smoothstep(1.0, 0.95, du);
       p = instanceMatrix[3].xyz + (p - instanceMatrix[3].xyz) * ds + aDrift.xyz * (du * aDrift.w);
+      #ifdef USE_STRIDE
+        // people walking a line: a small bob in step, each out of time with the next
+        p.y += uStride * ds * abs(sin(uTime * 5.6 + aPhase * 57.0));
+      #endif
     #endif
   #endif
   n = normalize(n);
@@ -321,6 +326,7 @@ void main() {
  *   emit   multiplies every aEmit in the mesh (default 1)
  *   walk   true for instanced figures carrying aWalk (see folk.js)
  *   drift  true for instances that travel in a line and loop: give each item drift:[vx,vy,vz,seconds] and phase in instances()
+ *   stride with drift: metres of bob at each step, for people walking a line (about 0.035; default none)
  *   soft   how far tinted surfaces (leaves, clothes) are lit as if they faced up: 0 = hard facets, default 0.7
  *   opacity, transparent, additive, depthWrite, tint
  */
@@ -334,6 +340,7 @@ export function litMaterial(rig, opts = {}) {
   const defines = {};
   if (opts.walk) defines.USE_WALK = 1;
   if (opts.drift) defines.USE_DRIFT = 1;
+  if (opts.drift && opts.stride) { defines.USE_STRIDE = 1; uniforms.uStride = { value: opts.stride }; }
   const m = new ShaderMaterial({
     uniforms, defines, vertexShader: LIT_VERT, fragmentShader: litFrag(rig),
     side: opts.side === 'double' ? DoubleSide : opts.side === 'back' ? BackSide : FrontSide,

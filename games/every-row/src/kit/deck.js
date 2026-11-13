@@ -9,28 +9,36 @@
 // of the same block are simply other heights: the deck above is y = 4, the one below y = -4.
 //
 //   const frame = makeFrame(a0, z0, deckRadius(75));
-//   const path = makePath([...], { frame, ... });
+//   const path = makePath([...], { frame, ... });                  // the flight first: the deck is built round it
 //   const deck = makeDeck(ctx, { frame, near: path.points(0.5), palette: PALETTES.warm, light: { level: 0.85 } });
-//   const arcade = yield* street(deck, { axis: 'x', from: -200, to: -55, at: 0, name: 'The Long Arcade',
-//     fronts: { back: [{ from: -88, to: -78, kind: 'shop', name: "Dace's", goods: 'cloth' }] }, trolley: { every: 70 } });
+//   const arcade = yield* street(deck, { axis: 'x', from: -200, to: -55, at: 0, trolley: { every: 70 },
+//     fronts: { back: [{ from: -88, to: -78, kind: 'shop', name: "Dace's", goods: 'cloth' }] } });
 //   const court = yield* atrium(deck, { x0: -45, x1: 45, z0: -30, z1: 30, y: -8, storeys: 6 });
 //   yield* finish(deck);
 //   scene.add(deck.group);
 //
-// What there is:
+// What there is (each is documented where it is defined):
 //   makeDeck(ctx, spec)        the place: frame, light rig, materials, and put / sign / people / glow / lattice / zone
 //   street(deck, spec)         an avenue or a street of any length: floor, ceiling, ribs, lamps, shopfronts both sides, a trolley, people
 //   frontage(deck, run, spec)  one row of fronts on its own (streets, courts and halls all use it)
 //   atrium(deck, spec)         a court cut up through several decks: rings of planted terraces, flats' windows, a lit ceiling
 //   bridge(deck, spec)         a way across a court
+//   trolley(deck, spec)        slow cars with people aboard, along a line
 //   hall(deck, spec)           one long room: a Mill Hall, a cooked hall with one table, baths
-//   lobby(deck, spec)          a lift lobby: cab doors in a wall, a direction rose in the floor
+//   lobby(deck, spec)          a lift lobby's wall of cab doors; one of them can be a world's way out, and its leaves part
 //   stairs(deck, spec)         a stair up and down
 //   rose(deck, spec)           a direction rose inlaid in a floor
 //   finish(deck)               turn everything drawn into a few meshes (one per material and chunk) and add them to deck.group
+//   PALETTES, TRADES, Run      three paints; trades for fronts nobody names; a line of frontage in its own co-ordinates
 //
 // Words: an avenue's two sides are 'front' (the -z side, toward the front wall) and 'back'; a street's are 'anti' (-x)
-// and 'spin' (+x). A court's four sides take the same four names.
+// and 'spin' (+x). A court's four sides take the same four names. Places along a street or a side are given as the
+// deck's own x or z.
+//
+// How it is drawn: solid geometry is gathered into one Geo per material for each 240 m square of deck (and each
+// builder's `part`), furnishings are instanced by kind, people by skin and pose, every small light is in one
+// glowPoints mesh and every sign in one mesh with a canvas atlas. Light is a lampRig: a lattice of lamps for each
+// street and hall, a zone for a court. Floors have a shader of their own (slabs, wear, the shine of lamps).
 //
 // Canon limits a builder should keep in mind (drum-digest.md, sections 2 and 11): homes have no windows, except flats
 // on a court's terraces; nothing burns (no candles, no smoke); no animals; plants root in tubs and troughs, not soil;
@@ -41,7 +49,7 @@ import {
 } from 'three';
 import { DRUM, deckRadius, makeFrame } from './drum.js';
 import { G, BEND_PARS, CLIP_PARS, CLIP_FRAG, NOISE_GLSL, lampRig, litMaterial, glowPoints, vec3col } from './mats.js';
-import { Geo, instances, rgb, mixc, shade, fitBounds } from './geo.js';
+import { Geo, instances, mixc, shade, fitBounds } from './geo.js';
 import { crowd, figureGeo, SKIN, CLOTH } from './folk.js';
 import { makeRng } from '../core/rng.js';
 
@@ -60,7 +68,7 @@ export const PALETTES = {
     doors: ['#5d7a62', '#3f6f73', '#7e3f33', '#b98a3a', '#51627a', '#2f6f9a', '#6a5a7a', '#8a5a3a'],
     awnings: [['#b5553f', '#e3d6bd'], ['#3f6f73', '#e3d6bd'], ['#b98a3a', '#e8dcc2'], ['#51627a', '#d9cfba'], ['#6f8a5a', '#e6dcc4']],
     signs: [['#2f3b34', '#ead9b0'], ['#4a2f26', '#f0dcb4'], ['#27394a', '#e6dcc6'], ['#e7dcc0', '#3a2c22'], ['#3b3530', '#e9c877'], ['#5a3a2a', '#f1e3c4']],
-    floor: '#8f8c7e', strip: '#6c675c', court: '#b9b09c', ceiling: '#8c7a64', rib: '#d6c6a6',
+    floor: '#8f8c7e', strip: '#6c675c', court: '#b9b09c', ceiling: '#a8967a', rib: '#d6c6a6',
     rooms: ['#c9a36a', '#a9b08a', '#b98a6a', '#9aa6a0', '#d0b890', '#b7a088', '#c4b26e'],
     metal: '#6d6c68', brass: '#b08d4a', glass: '#b9d0d4',
     leaf: ['#7f9b63', '#6f8f5c', '#8aa466', '#94a875', '#5f7f55', '#86a06a'],
@@ -118,7 +126,6 @@ export const TRADES = [
 const TAU = Math.PI * 2;
 const COS = [1, 0, -1, 0], SIN = [0, 1, 0, -1];
 const lerp = (a, b, t) => a + (b - a) * t;
-const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
 const pick = (rng, a) => a[Math.floor(rng() * a.length)];
 // a colour a little lighter or darker, as old paint is
 const vary = (c, rng, k = 0.08) => shade(c, 1 + (rng() * 2 - 1) * k);
@@ -141,6 +148,8 @@ export class Run {
   pt(u, y, v) { return [this.ox + u * this.c + v * this.s, this.oy + y, this.oz - u * this.s + v * this.c]; }
   /** a direction of the run (du, dv) in the deck's x and z */
   dir(du, dv) { return [du * this.c + dv * this.s, -du * this.s + dv * this.c]; }
+  /** a point of the deck (x, z) in the run's own u and v */
+  inv(x, z) { const dx = x - this.ox, dz = z - this.oz; return [dx * this.c - dz * this.s, dx * this.s + dz * this.c]; }
   /** where a place along the deck (an x for a run that lies along x, a z otherwise) falls along the run */
   u(along) { return this.turn === 0 ? along - this.ox : this.turn === 2 ? this.ox - along : this.turn === 3 ? along - this.oz : this.oz - along; }
   /** and back again */
@@ -422,6 +431,9 @@ const LEAFY = new Set(['tub', 'tubTree', 'pot', 'planter', 'bush', 'trail', 'flo
  *   floor       { slab: [sx, sz] metres (default 0.6), wear 0..1, shine 0..1, rough }
  *   seed        a word: the same seed builds the same place
  *   chunk       metres: geometry is gathered into meshes by squares of this size, so what is out of sight is not drawn (default 240)
+ *   clock       'flight': trolleys and other travelling things keep the deck's own clock, set by deck.tick(t) from the
+ *               world's update(t), so the camera meets them where the world chooses (see trolley()). Default: the page's clock
+ *   detail      metres from the flight within which fronts are modelled in full (default 48)
  * Returns the deck: { frame, rig, group, pal, level, lit, litDouble, prop, walk, drift, plain, ... } and the calls
  * documented on each below.
  */
@@ -429,8 +441,9 @@ export function makeDeck(ctx, spec = {}) {
   const frame = spec.frame || makeFrame(spec.a0 || 0, spec.z0 === undefined ? DRUM.L / 2 : spec.z0, deckRadius(spec.deck || 201));
   const pal = { ...PALETTES.warm, ...(spec.palette || {}) };
   const lt = spec.light || {}, level = lt.level === undefined ? 1 : lt.level, fl = spec.floor || {};
+  if (lt.lamp) pal.lamp = lt.lamp;
   const rig = lampRig({
-    ambUp: lt.ambUp || '#5b4e42', ambDown: lt.ambDown || '#40372f', ambPower: (lt.ambPower === undefined ? 0.55 : lt.ambPower) * level,
+    ambUp: lt.ambUp || '#5b4e42', ambDown: lt.ambDown || '#40372f', ambPower: (lt.ambPower === undefined ? 0.75 : lt.ambPower) * level,
     haze: lt.haze || '#14110e', hazeDensity: lt.hazeDensity || 0, maxLattices: 8, maxZones: 6,
   });
   const bendU = () => ({ value: new Vector3(frame.a0, frame.z0, frame.floorR) });
@@ -440,7 +453,7 @@ export function makeDeck(ctx, spec = {}) {
     uniforms: {
       ...rig.uniforms, uClip: G.uClip, uBend: bendU(), uSlab: { value: new Vector2(fl.slab ? fl.slab[0] : 0.6, fl.slab ? fl.slab[1] : 0.6) },
       uWear: { value: fl.wear === undefined ? 0.8 : fl.wear }, uShine: { value: fl.shine === undefined ? 1 : fl.shine }, uRough: { value: fl.rough === undefined ? 0.035 : fl.rough },
-      uLampGlow: { value: (fl.lampGlow === undefined ? 1.5 : fl.lampGlow) }, uSkyA: { value: sky.A }, uSkyB: { value: sky.B }, uSkyC: { value: sky.C },
+      uLampGlow: { value: (fl.lampGlow === undefined ? 2.2 : fl.lampGlow) }, uSkyA: { value: sky.A }, uSkyB: { value: sky.B }, uSkyC: { value: sky.C },
     },
     defines: { LATTICES: rig.lattices }, vertexShader: FLOOR_VERT, fragmentShader: floorFrag(rig), side: FrontSide,
   });
@@ -452,6 +465,13 @@ export function makeDeck(ctx, spec = {}) {
   if (src.length) dense.push(src[src.length - 1].clone());
   const CH = spec.chunk || 240;
   let nLat = 0, nZone = 0, nSky = 0;
+  // things that travel (trolleys, their riders and lamps, robots) keep the page's own clock, so where they are when the
+  // camera comes by is chance. With clock: 'flight' they keep a clock of the deck's own, which stands at 0 until the
+  // world sets it with deck.tick(t) from its update(): then a trolley is where the flight wants it at each second
+  const clock = spec.clock === 'flight' ? { value: 0 } : G.uTime;
+  const timed = (m) => { m.uniforms.uTime = clock; return m; };
+  // ask for the page's type now, so that it has arrived by the time the signs are lettered
+  if (typeof document !== 'undefined' && document.fonts && document.fonts.load) for (const f in FONTS) { try { document.fonts.load(FONTS[f](40)).catch(() => { }); } catch (err) { /* lettering falls back to the system's type */ } }
 
   const D = {
     ctx, frame, rig, group: new Group(), pal, level, glowK: 0.45 + 0.55 * level, rng: makeRng(spec.seed || 'deck'), seed: spec.seed || 'deck',
@@ -459,10 +479,13 @@ export function makeDeck(ctx, spec = {}) {
     /** the kit's materials, bent to this deck: lit (soft on leaves), litDouble (cloth), prop (furniture), walk (people), drift (things that travel), glassMat, plain (unbent) */
     lit: litMaterial(rig, { bend: frame }), litDouble: litMaterial(rig, { bend: frame, side: 'double', soft: 0.35 }),
     prop: litMaterial(rig, { bend: frame, soft: 0.15 }), walk: litMaterial(rig, { bend: frame, walk: true, soft: 0.5 }),
-    drift: litMaterial(rig, { bend: frame, drift: true, soft: 0.5, stride: 0.035 }), driftProp: litMaterial(rig, { bend: frame, drift: true, soft: 0.15 }),
+    drift: litMaterial(rig, { bend: frame, drift: true, soft: 0.5, stride: 0.035 }), driftProp: timed(litMaterial(rig, { bend: frame, drift: true, soft: 0.15 })),
+    ride: timed(litMaterial(rig, { bend: frame, drift: true, soft: 0.5 })), pace: timed(litMaterial(rig, { bend: frame, drift: true, soft: 0.5, stride: 0.04 })), clock,
+    /** with clock: 'flight', set the deck's clock to the flight's seconds: call it from the world's update(t) */
+    tick(t) { if (clock !== G.uTime) clock.value = t; },
     glassMat: litMaterial(rig, { bend: frame, transparent: true, opacity: 0.16, side: 'double' }), plain: litMaterial(rig, {}),
     floorMat, signMat,
-    chunks: new Map(), items: new Map(), protos: new Map(), spots: [], walkers: [], riders: [], glows: [], signs: [], named: {},
+    chunks: new Map(), items: new Map(), protos: new Map(), spots: [], walkers: [], pacers: [], riders: [], glows: [], rideGlows: [], signs: [],
     clk: { t: performance.now(), due() { return performance.now() - this.t > 4; }, go() { this.t = performance.now(); } },
 
     /** the geometry being gathered for the square of deck round (x, z): { g: solid, c: cloth (seen from both sides), f: floors, gl: glass }, each a Geo */
@@ -483,6 +506,8 @@ export function makeDeck(ctx, spec = {}) {
     fine(x, y, z, k = 1) { return D.dist(x, y, z) < D.detail * k; },
     /** true if nothing of the flight passes within r metres of the point: ask before standing anything where the camera might go */
     clear(x, y, z, r = 1.3) { const r2 = r * r; for (const p of dense) { const dx = p.x - x, dy = p.y - y, dz = p.z - z; if (dx * dx + dy * dy + dz * dz < r2) return false; } return true; },
+    /** the same for a whole line along a run: true if the flight keeps r metres clear of the line v across it, at head height, between u0 and u1 */
+    clearLane(run, u0, u1, v, r = 1.15) { for (const p of dense) { const q = run.inv(p.x, p.z), dy = p.y - run.oy - 1.2; if (q[0] > u0 - r && q[0] < u1 + r && Math.abs(q[1] - v) < r && Math.abs(dy) < r + 0.6) return false; } return true; },
 
     /** stand a furnishing: kind is one of the PROTOS (chair, table, bench, tub, stall, crate, banner, ...) or one given to proto(). item: { p:[x,y,z], yaw, scale, color } */
     put(kind, item) { let a = D.items.get(kind); if (!a) D.items.set(kind, a = []); a.push(item); return item; },
@@ -521,12 +546,15 @@ export function makeDeck(ctx, spec = {}) {
     /**
      * People walking a straight line and coming round again: { from:[x,y,z], to:[x,y,z], speed (m/s, default 1.3), n, spread (metres to either side),
      * child (share who are children, default 0.1), phase }. Their ends should be out of sight: they fade in and out there.
+     * On a deck with clock: 'flight', start (metres along the line from `from`) puts them there as the flight begins, a
+     * few steps apart, and they keep the deck's clock: children who run past the camera at a second of the world's choosing.
      */
     walkersAlong(o) {
       const rng = o.rng || D.rng, a = o.from, b = o.to, len = Math.hypot(b[0] - a[0], b[2] - a[2]), ux = (b[0] - a[0]) / len, uz = (b[2] - a[2]) / len;
       for (let i = 0; i < (o.n || 4); i++) {
-        const sp = (o.speed || 1.3) * rng.f(0.85, 1.15), off = rng.f(-1, 1) * (o.spread || 0);
-        D.walkers.push({ p: [a[0] - uz * off, a[1], a[2] + ux * off], yaw: Math.atan2(ux, uz), drift: [ux * sp, 0, uz * sp, len / sp], phase: o.phase === undefined ? rng() : (o.phase + i * 0.013) % 1, color: pick(rng, CLOTH), child: rng() < (o.child === undefined ? 0.1 : o.child), skin: pick(rng, SKIN), scale: rng.f(0.93, 1.07) });
+        const timed = o.start !== undefined, sp = (o.speed || 1.3) * (timed ? rng.f(0.94, 1.06) : rng.f(0.85, 1.15)), off = rng.f(-1, 1) * (o.spread || 0);
+        const phase = timed ? (((o.start + rng.f(-1.6, 1.6)) / len) % 1 + 1) % 1 : o.phase === undefined ? rng() : (o.phase + i * 0.013) % 1;
+        (timed ? D.pacers : D.walkers).push({ p: [a[0] - uz * off, a[1], a[2] + ux * off], yaw: Math.atan2(ux, uz), drift: [ux * sp, 0, uz * sp, len / sp], phase, color: pick(rng, CLOTH), child: rng() < (o.child === undefined ? 0.1 : o.child), skin: pick(rng, SKIN), scale: rng.f(0.93, 1.07) });
       }
     },
     /** small lights (kit/mats.js glowPoints): [{ p, color, power, size, move, loop, twinkle }] */
@@ -570,11 +598,14 @@ export function* finish(D) {
   // people: those who stand, sit and stroll; those who walk a line; those who ride
   if (D.spots.length) for (const m of crowd(D.spots, D.walk, { frame, bob: 0.045, speed: 0.75, cell: 300, seed: D.seed + 'folk' })) group.add(m);
   yield 'deck: people';
-  const lines = new Map();
-  for (const w of D.walkers.concat(D.riders)) { const k = w.skin + '|' + (w.pose || (w.child ? 'child' : 'stand')); let a = lines.get(k); if (!a) lines.set(k, a = { skin: w.skin, pose: w.pose || (w.child ? 'child' : 'stand'), items: [] }); a.items.push(w); }
-  for (const l of lines.values()) for (const m of instances(figureGeo(l.skin, l.pose), D.drift, l.items, { frame, cell: 4000, drift: true })) group.add(m);
+  for (const [list, mat] of [[D.walkers, D.drift], [D.pacers, D.pace], [D.riders, D.ride]]) {
+    const lines = new Map();
+    for (const w of list) { const k = w.skin + '|' + (w.pose || (w.child ? 'child' : 'stand')); let a = lines.get(k); if (!a) lines.set(k, a = { skin: w.skin, pose: w.pose || (w.child ? 'child' : 'stand'), items: [] }); a.items.push(w); }
+    for (const l of lines.values()) for (const m of instances(figureGeo(l.skin, l.pose), mat, l.items, { frame, cell: 4000, drift: true })) group.add(m);
+  }
   yield 'deck: walkers';
   if (D.glows.length) group.add(glowPoints(D.glows, { bend: frame, minPx: 1.4, maxPx: 150, soft: 1.9 }));
+  if (D.rideGlows.length) { const m = glowPoints(D.rideGlows, { bend: frame, minPx: 1.4, maxPx: 150, soft: 1.9 }); m.material.uniforms.uTime = D.clock; group.add(m); }
   yield 'deck: lights';
   yield* buildSigns(D);
   return D;
@@ -598,13 +629,15 @@ function* buildSigns(D) {
     s.e = e;
   }
   const all = [...entries.values()].sort((a, b) => b.ph - a.ph);
-  let scale = 1, used = 0;
-  for (let tries = 0; tries < 8; tries++) {
+  // shelves, tallest first. The canvas is 2048 square if the lettering fits at seven-tenths of its size or better, else twice as tall
+  let scale = 1, used = 0, limit = Math.min(maxTex, 2048);
+  for (let tries = 0; tries < 10; tries++) {
     let x = 2, y = 2, row = 0;
     for (const e of all) { const w = Math.max(8, Math.round(e.pw * scale)), h = Math.max(8, Math.round(e.ph * scale)); if (x + w + 2 > W) { x = 2; y += row + 3; row = 0; } e.x = x; e.y = y; e.w = w; e.h = h; x += w + 3; row = Math.max(row, h); }
     used = y + row + 2;
-    if (used <= maxTex) break;
-    scale *= Math.sqrt(maxTex / used) * 0.96;
+    if (used <= limit) break;
+    const next = scale * Math.sqrt(limit / used) * 0.97;
+    if (next < 0.7 && limit < maxTex) { limit = maxTex; scale = 1; } else scale = next;
   }
   const H = Math.min(maxTex, Math.pow(2, Math.ceil(Math.log2(Math.max(64, used)))));
   const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
@@ -707,7 +740,7 @@ const GOODS = {
   },
   flutes(D, P, run, ua, ub, y, va, vb, rng) {
     const g = P.g; g.box(ua + 0.1, y + 1.12, vb - 0.16, ub - 0.1, y + 1.16, vb - 0.1, '#5f4630');
-    for (let x = ua + 0.25; x < ub - 0.2; x += 0.24) g.tube([[x, y, vb - 0.42], [x + 0.02, y + 1.2, vb - 0.14]], 0.013, 4, pick(rng, ['#c9c6ba', '#b9a070', '#8f8e88', '#d9cfa8']));
+    for (let x = ua + 0.25; x < ub - 0.2; x += 0.2) g.tube([[x, y, vb - 0.42], [x + 0.02, y + 1.2, vb - 0.14]], 0.02, 5, pick(rng, ['#d9d6ca', '#c9aa6a', '#a9a8a0', '#e3d9b0']), { emit: 0.25 });
   },
   jars(D, P, run, ua, ub, y, va, vb, rng, s) {
     const g = P.g; g.box(ua, y, va + 0.3, ub, y + 0.17, vb, '#cdbb98', { skip: 'b' });
@@ -798,7 +831,7 @@ const FRONTS = {
         for (let x = u0 + 0.4; x < u1 - 0.55; x += 0.34 + 0.2 * rng()) { if (rng() < 0.15) continue; const w = 0.2 + 0.12 * rng(); g.box(x, y + 0.035, dep - 0.27, x + w, y + 0.16 + 0.2 * rng(), dep - 0.05, hue(rng(), 0.55 * pal.goods, 0.3 + 0.25 * rng()), { skip: 'bs', emit: 0.3 }); }
       }
       const cu = ds ? w0 + 0.3 : w1 - 1.7; g.box(cu, 0, dep - 1.5, cu + 1.4, 0.92, dep - 0.95, b.dado, { skip: 'b', top: shade(b.trim, 1.5) });
-      if (b.goods && b.goods !== 'none' && b.goods !== 'drawings') { const sc = shade(b.door, 0.85); g.box(w0, 0.2, 0.9, w1, sill + 0.5, 0.94, sc, { skip: 'b', emit: 0.12 }); g.floor(w0, 0.1, w1, 0.9, sill + 0.058, shade(b.trim, 1.7)); }
+      if (b.goods && b.goods !== 'none' && b.goods !== 'drawings') { const sc = mixc(b.door, '#e6d8bc', 0.42); g.box(w0, 0.2, 0.9, w1, sill + 0.5, 0.94, sc, { skip: 'b', emit: 0.2 }); g.floor(w0, 0.1, w1, 0.9, sill + 0.058, shade(b.trim, 1.7)); }
       (GOODS[b.goods] || GOODS.none)(D, P, run, w0 + 0.08, w1 - 0.08, sill + 0.06, 0.1, 0.85, rng, pal.goods);
     }
     // a small lamp on each pier
@@ -814,7 +847,7 @@ const FRONTS = {
       if (word) for (const sd of [1, -1]) D.sign(word, { run, side: sd, at: run.pt(bu + sd * 0.027, (fas0 - 0.36 + fas1 - 0.14) / 2, -0.6), w: 0.66, h: fas1 - fas0 + 0.18, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
     }
     if (b.sub) D.sign(b.sub, { run, at: run.pt(ds ? w1 - 0.5 : w0 + 0.5, head - 0.3, 0.04), h: Array.isArray(b.sub) ? 0.4 : 0.24, w: 0.82, style: 'card', font: 'cond' });
-    if (b.lit > 0.3) D.glows.push({ p: run.pt(mid, head - 0.25, 0.5), color: pal.shop, power: 1.3 * b.lit * D.glowK, size: 1.5 });
+    if (b.lit > 0.3) D.glows.push({ p: run.pt(mid, head - 0.2, 0.9), color: pal.shop, power: 0.4 * b.lit * D.glowK, size: 1.3 });
   },
   // a stall: an open counter under a cloth, the goods set out on it
   stall(D, P, run, b, H) {
@@ -835,7 +868,8 @@ const FRONTS = {
     const mid = (u0 + u1) / 2;
     if (b.name) D.sign(b.name, { run, at: run.pt(mid, (head + fas1) / 2, -0.046), maxW: u1 - u0 - 2 * pier - 0.08, h: fas1 - head - 0.08, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
     if (b.awning && D.clear(...run.pt(mid, 2.1, -0.7), 1.25)) awning(P, u0 + pier - 0.1, u1 - pier + 0.1, head - 0.02, head - 0.3, 1.1, b.awning, rng, pal.goods < 0.9);
-    D.glows.push({ p: run.pt(mid, head - 0.2, 0.3), color: pal.shop, power: 1.4 * b.lit * D.glowK, size: 1.4 });
+    D.glows.push({ p: run.pt(mid, head - 0.2, 0.9), color: pal.shop, power: 0.4 * b.lit * D.glowK, size: 1.3 });
+    for (const pu of [u0 + pier / 2, u1 - pier / 2]) { g.box(pu - 0.045, 2.02, -0.16, pu + 0.045, 2.16, -0.07, '#ffe9c0', { emit: 3 * D.glowK, skip: 's' }).box(pu - 0.06, 2.16, -0.17, pu + 0.06, 2.19, -0.07, '#3f3f40'); D.glows.push({ p: run.pt(pu, 2.09, -0.18), color: pal.lamp, power: 1.1 * D.glowK, size: 0.42 }); }
     if (rng() < 0.7) D.spots.push({ p: run.pt(mid + rng.f(-0.6, 0.6), 0, 1.0), yaw: run.yaw + Math.PI });
   },
   // a home's door in a wall: no window (nothing in a drum has one, away from the courts and the Hollow)
@@ -861,6 +895,10 @@ const FRONTS = {
     x = u0;
     for (const c of cuts) { if (c[2] > 0.5) continue; if (c[0] > x) g.box(x, 0, -0.022, c[0], 1.0, 0, b.dado, { skip: 'bs' }); x = c[1]; }
     if (x < u1) g.box(x, 0, -0.022, u1, 1.0, 0, b.dado, { skip: 'bs' });
+    // a skirting, a strip where one house's paint meets the next, and (on a home with no window) a grille for its air
+    const dark = shade(b.trim, 0.85);
+    g.box(u0, 0, -0.036, d0 - 0.1, 0.1, 0, dark, { skip: 'bs' }).box(d1 + 0.1, 0, -0.036, u1, 0.1, 0, dark, { skip: 'bs' }).box(u0 - 0.06, 0, -0.045, u0 + 0.06, H, 0, shade(b.wall, 0.86), { skip: 'tbs' });
+    if (!nw && w > 3.4 && b.rnd[2] < 0.6) { const gu = b.doorSide ? u0 + 0.9 : u1 - 0.9; wallN(g, gu - 0.3, gu + 0.3, 2.28, 2.6, -0.006, '#2f2a26'); for (let k = 0; k < 4; k++) g.box(gu - 0.3, 2.29 + k * 0.08, -0.03, gu + 0.3, 2.33 + k * 0.08, -0.004, b.trim, { skip: 's' }); }
     g.box(d0 - 0.1, 0, -0.04, d0, dt + 0.1, 0.14, b.trim, { skip: 'b' }).box(d1, 0, -0.04, d1 + 0.1, dt + 0.1, 0.14, b.trim, { skip: 'b' }).box(d0, dt, -0.04, d1, dt + 0.1, 0.14, b.trim);
     doorLeaf(g, d0, d1, dt, 0.09, b.door, { brass: pal.brass });
     if (b.rnd[0] < 0.4) wallN(g, d0 + 0.05, d1 - 0.05, 0.0, 0.03, 0.085, '#ffe2b0', 4 * D.glowK);          // light under the door
@@ -877,6 +915,7 @@ const FRONTS = {
       const cc = shade(pick(rng, pal.awnings)[0], 0.9);
       wallN(g, q[0], q[0] + 0.22, 0.95, 2.15, 0.08, cc, on(i) ? 0.35 : 0.05); wallN(g, q[1] - 0.22, q[1], 0.95, 2.15, 0.08, cc, on(i) ? 0.35 : 0.05);
       if (b.rnd[(i + 2) % 4] < 0.45) { g.box(q[0], 0.72, -0.24, q[1], 0.9, -0.04, pal.tub[(i + 1) % pal.tub.length], { top: '#4f4338' }); for (let k = 0; k < 3; k++) D.put('bush', { p: run.pt(lerp(q[0] + 0.25, q[1] - 0.25, k / 2), 0.84, -0.14), yaw: rng() * TAU, scale: rng.f(0.5, 0.75), color: vary(pick(rng, pal.leaf), rng, 0.15) }); }
+      if (b.rnd[(i + 3) % 4] > 0.72) awning(P, q[0] - 0.12, q[1] + 0.12, 2.3, 2.02, 0.66, pick(rng, pal.awnings), rng, false);
     });
     // what people keep by their doors
     const pu = b.doorSide ? d0 - 0.9 : d1 + 0.9, r = b.rnd[3];
@@ -893,8 +932,11 @@ const FRONTS = {
     wallN(g, u0, u1, 0, H, 0, b.wall);
     if (!b.fine) return;
     g.box(u0, 0, -0.022, u1, 1.0, 0, b.dado, { skip: 'bs' }).box(u0, 1.0, -0.035, u1, 1.05, 0, b.trim, { skip: 's' });
+    g.box(u0 - 0.06, 0, -0.045, u0 + 0.06, H, 0, shade(b.wall, 0.86), { skip: 'tbs' });
     if (b.notice) { g.box(mid - 0.62, 1.2, -0.03, mid + 0.62, 2.15, 0, b.trim, { skip: 's' }); D.sign(b.notice, { run, at: run.pt(mid, 1.675, -0.036), w: 1.1, h: 0.85, style: b.noticeStyle || 'paper' }); }
-    if (b.bench && D.clear(...run.pt(mid, 1, -0.5), 1.3)) D.put('bench', { p: run.pt(mid + (b.notice ? 1.6 : 0), 0, -0.34), yaw: run.yaw, color: vary(pick(b.rng, D.pal.doors), b.rng, 0.1) });
+    const bench = b.bench === undefined ? (u1 - u0 > 2.6 && b.rnd[1] < 0.6) : b.bench;
+    if (bench && D.clear(...run.pt(mid, 1, -0.5), 1.3)) { D.put('bench', { p: run.pt(mid + (b.notice ? 1.6 : 0), 0, -0.34), yaw: run.yaw, color: vary(pick(b.rng, D.pal.doors), b.rng, 0.1) }); if (b.rnd[2] < 0.6) D.spots.push({ p: run.pt(mid + (b.notice ? 1.6 : 0) + (b.rnd[3] - 0.5), 0.45, -0.3), sit: true, yaw: run.yaw + Math.PI }); }
+    else if (u1 - u0 > 2 && b.rnd[1] > 0.75 && D.clear(...run.pt(mid, 1, -0.5), 1.3)) D.put('tub', { p: run.pt(mid, 0, -0.42), yaw: b.rnd[0] * TAU, scale: 0.9 + 0.4 * b.rnd[3], color: vary(pick(b.rng, D.pal.leaf), b.rng, 0.15) });
   },
   // the open side of a hall: piers and a beam over, the room beyond for hall() to make. bays: how many openings; glazed
   hall(D, P, run, b, H) {
@@ -907,7 +949,7 @@ const FRONTS = {
       P.gl.quad([c, 0.5, 0.1], [a, 0.5, 0.1], [a, top, 0.1], [c, top, 0.1], D.pal.glass);
       g.box(a, 0, 0.04, c, 0.5, 0.16, b.dado, { skip: 'b' }).box((a + c) / 2 - 0.025, 0.5, 0.07, (a + c) / 2 + 0.025, top, 0.13, b.trim, { skip: 'tb' }).box(a, 1.5, 0.07, c, 1.55, 0.13, b.trim);
     }
-    if (b.name) D.sign(b.name, { run, at: run.pt((u0 + u1) / 2, (top + H) / 2 + 0.02, -0.066), w: Math.min(u1 - u0 - 1, 5.2), h: Math.min(0.36, H - top - 0.08), style: 'board', font: b.font, ground: b.ground, ink: b.ink, track: 0.12 });
+    if (b.name) D.sign(b.name, { run, at: run.pt((u0 + u1) / 2, (top + H) / 2 + 0.02, -0.066), maxW: u1 - u0 - 1, h: Math.min(0.37, H - top - 0.07), style: 'board', font: b.font, ground: b.ground, ink: b.ink, track: 0.12 });
   },
   // a stair: an opening in the wall, a flight up on one hand and a flight down on the other
   stair(D, P, run, b, H) {
@@ -1002,9 +1044,8 @@ export function* frontage(D, run, spec) {
     if (b.blade === undefined) b.blade = !b.awning && rng() < (fill && fill.blades !== undefined ? fill.blades : 0.5) && b.name && b.name.length <= 11;
     if ((b.kind === 'home' || b.kind === 'flat') && b.number === undefined && number) { b.number = number; number += 1 + Math.floor(rng() * 2); }
     b.at = (t, y = 0, v = 0) => run.pt(lerp(b.u0, b.u1, t), y, v);
-    const draw = FRONTS[b.kind], tt0 = performance.now();
+    const draw = FRONTS[b.kind];
     if (draw) { const P = D.pen(run, mid, spec.part || ''); draw(D, P, run, b, H); P.done(); }
-    if (performance.now() - tt0 > 12) console.log('[deck-time] front ' + b.kind + ' ' + (b.name || '') + ' w=' + (b.u1 - b.u0).toFixed(1) + ' fine=' + b.fine + ' ' + (performance.now() - tt0).toFixed(0) + ' ms');
     // something stood outside, and someone looking in
     if (b.fine && (b.kind === 'shop' || b.kind === 'stall') && b.props !== false) {
       const q = b.rnd[2], pu = lerp(b.u0 + 0.5, b.u1 - 0.5, b.rnd[1]), pp = run.pt(pu, 0, -0.5);
@@ -1062,7 +1103,7 @@ export function* street(D, spec) {
       for (const v of [-0.5, 0.5]) P.g.box(u0, 0, v - 0.03, u1, 0.012, v + 0.03, pal.metal, { skip: 'b' });
     } else P.f.floor(u0, -w / 2 - 0.3, u1, w / 2 + 0.3, 0, floorCol, { emit: shine });
     P.f.tint(0);
-    P.g.floor(u0, -w / 2, u1, w / 2, H, pal.ceiling, { down: true });
+    P.g.floor(u0, -w / 2, u1, w / 2, H, pal.ceiling, { down: true, emit: 0.26 * D.glowK });     // a ceiling takes a little light back off the floor
     // two pipes along the ceiling, as every street has: one of them the warm loop
     if (spec.pipes !== false && w > 5) { P.g.box(u0, H - 0.2, -w / 2 + 0.42, u1, H - 0.07, -w / 2 + 0.55, '#a8553a', { skip: 't' }).box(u0, H - 0.17, -w / 2 + 0.66, u1, H - 0.08, -w / 2 + 0.75, pal.metal, { skip: 't' }).box(u0, H - 0.18, w / 2 - 0.58, u1, H - 0.07, w / 2 - 0.47, shade(pal.rib, 0.8), { skip: 't' }); }
     P.done();
@@ -1142,7 +1183,7 @@ export function* street(D, spec) {
       D.spots.push({ p, walk: rad, child: rng() < 0.12 });
     }
     const lanes = [];
-    for (let k = 0; k < 6; k++) { const v = (k % 2 ? -1 : 1) * lerp(lane0 + 0.15, lane1, ((k >> 1) + 0.5) / 3); let ok = true; for (let u = a; u <= z && ok; u += 1.5) { const p = run.pt(u, 1.2, v); ok = D.clear(p[0], p[1], p[2], 1.15); } if (ok) lanes.push(v); }
+    for (let k = 0; k < 6; k++) { const v = (k % 2 ? -1 : 1) * lerp(lane0 + 0.15, lane1, ((k >> 1) + 0.5) / 3); if (D.clearLane(run, a, z, v)) lanes.push(v); }
     if (lanes.length) {
       for (let i = 0, n = Math.round(fk.walk * len / 100 * dens); i < n; i++) { const v = pick(rng, lanes), fwd = rng() < 0.5; D.walkersAlong({ from: run.pt(fwd ? a : z, 0, v), to: run.pt(fwd ? z : a, 0, v), n: 1, spread: 0.12, rng, speed: 1.25 }); }
       // children race anti: running that way they weigh a little less (ashgrove.md, Weight is a map)
@@ -1164,23 +1205,26 @@ export function* street(D, spec) {
 
 /**
  * Slow trolleys along a line, with people aboard: { axis, from, to, at, y, every (70 m between cars), speed (1.5 m/s),
- * dir (1 or -1), color, riders (0.55: the share of seats taken), phase }. street() calls this for its own trolley; call
- * it yourself for a line that runs on across a court's bridge. A car fades in at one end and out at the other, so
- * put the ends out of sight.
+ * dir (1 or -1), color, riders (0.55: the share of seats taken), phase, cars }. street() calls this for its own trolley;
+ * call it yourself for a line that runs on across a court's bridge. A car fades in at one end and out at the other, so
+ * put the ends out of sight. On a deck made with clock: 'flight', cars: [places along the line] says where each car is
+ * as the flight begins, and deck.tick(t) in the world's update() moves them: the camera then meets them where you choose.
  */
 export function trolley(D, spec) {
   const X = spec.axis !== 'z', a = Math.min(spec.from, spec.to), z = Math.max(spec.from, spec.to), len = z - a, rng = spec.rng || D.rng;
   const run = X ? new Run(0, spec.y || 0, spec.at || 0, 0) : new Run(spec.at || 0, spec.y || 0, 0, 3), speed = spec.speed || 1.5;
-  const n = Math.max(1, Math.round(len / (spec.every || 70))), loop = len / speed, d = spec.dir < 0 ? -1 : 1, dir = run.dir(d, 0), yaw = run.yaw + (d < 0 ? Math.PI : 0);
+  const loop = len / speed, d = spec.dir < 0 ? -1 : 1, dir = run.dir(d, 0), yaw = run.yaw + (d < 0 ? Math.PI : 0);
   const start = run.pt(d > 0 ? a : z, 0, 0), ph0 = spec.phase === undefined ? rng() : spec.phase, cy = Math.cos(yaw), sy = Math.sin(yaw);
+  // one car every `every` metres; or, given cars, a car at each of those places along the line when the clock reads 0
+  const n = spec.cars ? spec.cars.length : Math.max(1, Math.round(len / (spec.every || 70)));
   for (let i = 0; i < n; i++) {
-    const phase = (ph0 + i / n) % 1, drift = [dir[0] * speed, 0, dir[1] * speed, loop];
+    const phase = spec.cars ? ((((d > 0 ? spec.cars[i] - a : z - spec.cars[i]) / len) % 1) + 1) % 1 : (ph0 + i / n) % 1, drift = [dir[0] * speed, 0, dir[1] * speed, loop];
     D.put('trolley', { p: start, yaw, color: spec.color || D.pal.doors[2], drift, phase });
     for (const sx of [-1.0, -0.5, 0, 0.5, 1.0]) for (const sz of [-0.31, 0.31]) {
       if (rng() > (spec.riders === undefined ? 0.55 : spec.riders)) continue;
       D.riders.push({ p: [start[0] + sx * cy + sz * sy, start[1] + 0.76, start[2] - sx * sy + sz * cy], yaw: yaw + (sz > 0 ? 0 : Math.PI), drift, phase, pose: 'sit', skin: pick(rng, SKIN), color: pick(rng, CLOTH), scale: rng.f(0.92, 1.05) });
     }
-    for (const sx of [-1.8, 1.8]) D.glows.push({ p: [start[0] + sx * cy, start[1] + 0.72, start[2] - sx * sy], color: '#ffe6b8', power: 2.2, size: 0.5, move: [drift[0], 0, drift[2]], loop, phase });
+    for (const sx of [-1.8, 1.8]) D.rideGlows.push({ p: [start[0] + sx * cy, start[1] + 0.72, start[2] - sx * sy], color: '#ffe6b8', power: 2.2, size: 0.5, move: [drift[0], 0, drift[2]], loop, phase });
   }
   return { run, loop, n };
 }
@@ -1198,13 +1242,18 @@ const SIDES = ['anti', 'spin', 'front', 'back'];
  *                    fronts: { storey: [fronts] } (see frontage(); storey 0 is the court's own floor), fill }
  *   mouths           where streets come out: [{ side, storey, at (along the side: z for anti and spin, x for front and back), width,
  *                    bridge (the width of a bridge that lands there: the rail is left open for it) }]
- *   light            { power: 2.2 (the floor: an overcast day), color, terraces: 0.5, terraceColor, soft: 2.5 }
- *   ceiling          { panel: 5 (metres), emit: 5, color }
- *   floor            { color, shine: 0.6 }
- *   fill             the terraces' fronts (default flats, a few with a stall); ground: the same for the court's own floor
+ *   light            { power: 1.2 (on the floor: an overcast day beside a street's lamps), color, terraces: 0.3 (their share of
+ *                    it), terraceColor, walks: 0.13 (the soft lamps under each slab), gloss: 0.5 (the ceiling held in the floor), soft: 1.5 }
+ *   ceiling          { panel: 5 (metres), emit: 2.6, color }
+ *   floor            { color, shine: 0.6, bands (metres: darker bands of paving that far apart), bandWidth: 1.1 }
+ *   fill             the terraces' fronts (default: flats); ground: the same for the court's own floor (default: flats, shops, stalls)
  *   planting         0..1 how much grows along the rails (default 1)
  *   folk             { rail: 3, stroll: 2 } people to each 100 m of terrace; floor: people to each 100 m2 of the court's floor (0.8)
- * returns { y(storey), rail(side, storey), wall(side, storey) (where its rail and its doors stand: an x or a z), top, floor: [x0, z0, x1, z1], rows }
+ *   keep             (x, z) => false where nobody is to be stood on the court's floor (a flower bed, a class at a wall)
+ * returns { y(storey), rail(side, storey), wall(side, storey) (where its rail and its doors stand: an x or a z), sideRun(side,
+ * storey, out) (a Run along that side, v metres out from the floor's edge), top, floor: [x0, z0, x1, z1], void, rows }
+ * The light it sets: one zone straight up from the floor, one that widens with the terraces for their open edges,
+ * and one lattice of small lamps under every slab. Add a zone of your own for a wall that should be brightest.
  */
 export function* atrium(D, spec) {
   const { x0, x1, z0, z1 } = spec, y0 = spec.y || 0, n = spec.storeys || 6, step = spec.step === undefined ? 2 : spec.step, depth = spec.depth || 6, pal = D.pal;
@@ -1226,8 +1275,11 @@ export function* atrium(D, spec) {
   {
     const P = D.pen(new Run(0, y0, 0, 0), (x0 + x1) / 2, part), fc = (spec.floor && spec.floor.color) || stone, e = 2.2;
     const X0 = x0 - outer('anti', 0), X1 = x1 + outer('spin', 0), Z0 = z0 - outer('front', 0), Z1 = z1 + outer('back', 0);
-    P.f.tint(0.5).floor(x0 + e, z0 + e, x1 - e, z1 - e, 0, fc, { emit: shine });
-    const bc = shade(fc, 0.86);
+    const bc = shade(fc, 0.86), pitch = spec.floor && spec.floor.bands, bw = (spec.floor && spec.floor.bandWidth) || 1.1;
+    // the paving: large slabs, crossed (if asked) by darker bands every `bands` metres
+    const cuts = (a, b) => { const out = []; if (!pitch) return [[a, b, 0]]; const n = Math.max(1, Math.round((b - a) / pitch)), s = (b - a) / n; let at = a; for (let i = 1; i < n; i++) { const c = a + i * s; out.push([at, c - bw / 2, 0], [c - bw / 2, c + bw / 2, 1]); at = c + bw / 2; } out.push([at, b, 0]); return out; };
+    for (const cx of cuts(x0 + e, x1 - e)) for (const cz of cuts(z0 + e, z1 - e)) { const band = cx[2] || cz[2]; P.f.tint(band ? 1 : 0.5).floor(cx[0], cz[0], cx[1], cz[1], 0, band ? shade(fc, 0.8) : fc, { emit: shine }); }
+    P.f.tint(0.5);
     P.f.floor(X0, Z0, X1, z0 + e, 0, bc, { emit: shine }).floor(X0, z1 - e, X1, Z1, 0, bc, { emit: shine }).floor(X0, z0 + e, x0 + e, z1 - e, 0, bc, { emit: shine }).floor(x1 - e, z0 + e, X1, z1 - e, 0, bc, { emit: shine }).tint(0);
     P.done();
     yield 'deck: court floor';
@@ -1239,7 +1291,7 @@ export function* atrium(D, spec) {
       const given = ((o.fronts && o.fronts[k]) || []).concat(mouths.filter((m) => m.side === s && m.storey === k).map((m) => ({ from: m.at - m.width / 2, to: m.at + m.width / 2, kind: 'gap' })));
       if (r === null && k > 0 || (k === 0 && nw(s))) {
         // a sheer wall
-        const sr = sideRun(s, k), sp = span(s, k, false), P = D.pen(sr, (sp[0] + sp[1]) / 2, part);
+        const sr = sideRun(s, k), sp = span(s, k, false), P = D.pen(sr, (sp[0] + sp[1]) / 2, part + k);
         wallN(P.g, sp[0], sp[1], 0, DECK_RISE, 0, o.color || pal.walls[0]);
         P.done();
         continue;
@@ -1247,19 +1299,20 @@ export function* atrium(D, spec) {
       if (k === 0) {
         // the court's own floor: piers under the first terrace's edge, and fronts behind them
         const fr = sideRun(s, 0, depth), sp = span(s, 0, false);
-        rows[s + 0] = yield* frontage(D, fr, { from: sp[0], to: sp[1], fronts: given, fill: o.ground || spec.ground || { mix: { flat: 2, shop: 1, stall: 0.6 }, lit: 0.6, blades: 0, awnings: 0.7 }, part });
-        const sr = sideRun(s, 0), si = span(s, 1, true), P = D.pen(sr, (si[0] + si[1]) / 2, part), np = Math.max(1, Math.round((si[1] - si[0]) / 6));
-        for (let i = 0; i <= np; i++) { const u = lerp(si[0] + 0.3, si[1] - 0.3, i / np); P.g.box(u - 0.26, 0, step + 0.06, u + 0.26, ROOM, step + 0.58, fascia, { skip: 'tb' }); }
+        rows[s + 0] = yield* frontage(D, fr, { from: sp[0], to: sp[1], fronts: given, fill: o.ground || spec.ground || { mix: { flat: 2, shop: 1, stall: 0.6 }, lit: 0.6, blades: 0, awnings: 0.7 }, part: part + 0 });
+        const sr = sideRun(s, 0), si = span(s, 1, true), P = D.pen(sr, (si[0] + si[1]) / 2, part + 0), np = Math.max(1, Math.round((si[1] - si[0]) / 6));
+        const ways0 = mouths.filter((m) => m.side === s && m.storey === 0).map((m) => { const c = sr.u(m.at); return [c - m.width / 2 - 0.5, c + m.width / 2 + 0.5]; });
+        for (let i = 0; i <= np; i++) { const u = lerp(si[0] + 0.3, si[1] - 0.3, i / np); if (!ways0.some((q) => u > q[0] && u < q[1])) P.g.box(u - 0.26, 0, step + 0.06, u + 0.26, ROOM, step + 0.58, fascia, { skip: 'tb' }); }
         P.done();
         continue;
       }
       const sr = sideRun(s, k), X = s === 'front' || s === 'back', sf = span(s, k, !X ? false : true), si = span(s, k, true), mid = (si[0] + si[1]) / 2;
-      const P = D.pen(sr, mid, part), g = P.g, last = k === n - 1;
+      const P = D.pen(sr, mid, part + k), g = P.g, last = k === n - 1;
       // the terrace: its floor, the edge of its slab, the ceiling it makes for the walk below
       P.f.tint(1).floor(sf[0], r, sf[1], r + depth, 0, shade(stone, 0.96), { emit: shine * 0.5 }).tint(0);
       wallN(g, si[0], si[1], -1.0, 0.0, r, fascia);
       const rb = rail(s, k - 1), below = rb === null ? (k - 1 === 0 && !nw(s) ? depth : null) : rb + depth;
-      if (below !== null && below > r) g.floor(sf[0], r, sf[1], below, -1.0, soffit, { down: true });
+      if (below !== null && below > r) g.floor(sf[0], r, sf[1], below, -1.0, soffit, { down: true, emit: 0.16 });
       // a lamp under the slab every few metres, where the walk below is under cover
       if (below !== null && below > r + 1) for (let u = si[0] + 3; u < si[1] - 2; u += 6) { const v = (r + below) / 2 + 0.6; g.floor(u - 0.45, v - 0.15, u + 0.45, v + 0.15, -1.02, '#fff0d6', { down: true, emit: 3.2 * D.glowK }); D.glows.push({ p: sr.pt(u, -1.08, v), color: pal.lamp, power: 1.6 * D.glowK, size: 0.6 }); }
       const ways = mouths.filter((m) => m.side === s && m.storey === k).map((m) => { const c = sr.u(m.at); return [c - m.width / 2 - 0.4, c + m.width / 2 + 0.4]; });
@@ -1288,11 +1341,13 @@ export function* atrium(D, spec) {
         g.box(ua, 0, r, ub, 0.12, r + 0.14, fascia, { skip: 'b' }).box(ua, 1.0, r + 0.03, ub, 1.05, r + 0.11, pal.metal);
         for (const x of [ua + 0.03, ub - 0.03]) g.box(x - 0.025, 0.12, r + 0.045, x + 0.025, 1.0, r + 0.095, pal.metal, { skip: 'tb' });
         P.gl.quad([ub, 0.12, r + 0.07], [ua, 0.12, r + 0.07], [ua, 1.0, r + 0.07], [ub, 1.0, r + 0.07], pal.glass);
+        // now and then a cloth put over the rail to air
+        if (rng() < 0.3) D.put('sheet', { p: sr.pt((ua + ub) / 2, 1.07, r + 0.07), yaw: sr.yaw, scale: [Math.min(1.25, (ub - ua) / 1.6), rng.f(0.7, 1), 1], color: vary(pick(rng, pal.awnings)[0], rng, 0.15) });
       }
       P.done();
       // the flats behind, their windows on the court
       const fr = sideRun(s, k, r + depth), sp = span(s, k, false);
-      rows[s + k] = yield* frontage(D, fr, { from: sp[0], to: sp[1], fronts: given, fill: o.fill || spec.fill || { mix: { flat: 1 }, bay: [5.2, 6.6], lit: 0.5, numbers: 100 * (k + 1) + 1 }, part });
+      rows[s + k] = yield* frontage(D, fr, { from: sp[0], to: sp[1], fronts: given, fill: o.fill || spec.fill || { mix: { flat: 1 }, bay: [5.2, 6.6], lit: 0.5, numbers: 100 * (k + 1) + 1 }, part: part + k });
       // people: at the rail looking down, and walking the terrace
       const L = si[1] - si[0];
       for (let i = 0, m = Math.round(fk.rail * L / 100 * D.density); i < m; i++) { const u = rng.f(si[0] + 0.5, si[1] - 0.5), p = sr.pt(u, 0, r + 0.86); if (!gaps.some((q) => u > q[0] - 0.6 && u < q[1] + 0.6) && D.clear(p[0], p[1] + 1.3, p[2], 1.3)) D.spots.push({ p, yaw: sr.yaw + Math.PI + rng.f(-0.3, 0.3), child: rng() < 0.1 }); }
@@ -1306,7 +1361,7 @@ export function* atrium(D, spec) {
   const VX0 = x0 - (rail('anti', kt) || 0) - step, VX1 = x1 + (rail('spin', kt) || 0) + step, VZ0 = z0 - (rail('front', kt) || 0) - step, VZ1 = z1 + (rail('back', kt) || 0) + step;
   {
     const P = D.pen(new Run(0, top, 0, 0), (x0 + x1) / 2, part + 'top'), g = P.g;
-    g.floor(TX0, TZ0, TX1, TZ1, 0, shade(pal.ceiling, 0.55), { down: true });
+    g.floor(TX0, TZ0, TX1, TZ1, 0, shade(pal.ceiling, 0.6), { down: true, emit: 0.25 });
     const nx = Math.max(1, Math.round((VX1 - VX0) / pan)), nz = Math.max(1, Math.round((VZ1 - VZ0) / pan)), px = (VX1 - VX0) / nx, pz = (VZ1 - VZ0) / nz;
     for (let i = 0; i < nx; i++) {
       for (let j = 0; j < nz; j++) g.floor(VX0 + i * px + 0.22, VZ0 + j * pz + 0.22, VX0 + (i + 1) * px - 0.22, VZ0 + (j + 1) * pz - 0.22, -0.06, mixc(cc, pal.lamp, rng() < 0.12 ? 0.5 : 0.06 * rng()), { down: true, emit: emit * (rng() < 0.05 ? 0.55 : rng.f(0.92, 1.0)) });
@@ -1365,7 +1420,7 @@ export function* bridge(D, spec) {
       // a rod up to the ceiling, and a lamp on it (not where the flight passes)
       const um = (u0 + u1) / 2;
       let free = !(spec.bare || []).some((q) => um > q[0] && um < q[1]);
-      for (let yy = 0.6; yy < hang - y && free; yy += 0.9) { const q = run.pt(um, yy, v - sd * 0.08); free = D.clear(q[0], q[1], q[2], 1.1); }
+      for (let yy = 0.6; yy < hang - y && free; yy += 0.9) { const q = run.pt(um, yy, v - sd * 0.08); free = D.clear(q[0], q[1], q[2], 2.2); }
       if (i % 2 === 0 && free) {
         g.box(um - 0.035, 1.02, v - sd * 0.08 - 0.035, um + 0.035, hang - y, v - sd * 0.08 + 0.035, steel, { skip: 'tb' });
         if (spec.lamps !== false) { g.blob(um, 2.7, v - sd * 0.08, [0.15, 0.16, 0.15], 1, '#fff0d0', { emit: 3.2 * D.glowK, shadeBottom: 1 }); D.glows.push({ p: run.pt(um, 2.7, v - sd * 0.08), color: pal.lamp, power: 2 * D.glowK, size: 0.6 }); }
@@ -1380,6 +1435,8 @@ export function* bridge(D, spec) {
 }
 
 // ---------------------------------------------------------------- rooms
+// how far behind a lobby wall's face the middle of a cab doorway is: where a world's opening stands (see lobby())
+export const DOOR_IN = 0.34;
 // the run that looks out of a wall facing one of the four ways, with its middle at (x, z)
 const faceRun = (x, y, z, face) => new Run(x, y, z, face === 'front' ? 0 : face === 'back' ? 2 : face === 'anti' ? 1 : 3);
 
@@ -1406,8 +1463,10 @@ export function* hall(D, spec) {
   if (pool) { P.f.floor(x0, z0, x1, pool.z0, 0, fc, { emit: shine }).floor(x0, pool.z1, x1, z1, 0, fc, { emit: shine }).floor(x0, pool.z0, pool.x0, pool.z1, 0, fc, { emit: shine }).floor(pool.x1, pool.z0, x1, pool.z1, 0, fc, { emit: shine }); }
   else P.f.floor(x0, z0, x1, z1, 0, fc, { emit: shine });
   P.f.tint(0);
-  P.g.floor(x0, z0, x1, z1, H, shade(pal.ceiling, 0.95), { down: true });
-  for (let x = x0 + 4; x < x1 - 1; x += 4) P.g.box(x - 0.12, H - 0.24, z0, x + 0.12, H, z1, pal.rib, { skip: 't' });
+  P.g.floor(x0, z0, x1, z1, H, shade(pal.ceiling, 0.95), { down: true, emit: 0.26 * D.glowK });
+  // beams across the shorter way
+  if (x1 - x0 >= z1 - z0) for (let x = x0 + 4; x < x1 - 1; x += 4) P.g.box(x - 0.12, H - 0.24, z0, x + 0.12, H, z1, pal.rib, { skip: 't' });
+  else for (let z = z0 + 4; z < z1 - 1; z += 4) P.g.box(x0, H - 0.24, z - 0.12, x1, H, z + 0.12, pal.rib, { skip: 't' });
   if (pool) {
     const wc = pool.color || '#4f9a9a', tile = shade(wc, 1.5), d = 0.14;
     P.f.floor(pool.x0, pool.z0, pool.x1, pool.z1, -d, wc, { emit: 1 });
@@ -1426,7 +1485,7 @@ export function* hall(D, spec) {
     const lo = s === 'back' || s === 'front' ? [x0, x1] : [z0, z1], gaps = open[s] === true ? [lo] : (open[s] || []);
     yield* frontage(D, r, { from: r.u(lo[0]), to: r.u(lo[1]), height: H, fill: false, paint: { wall, dado, trim: pal.trim[0] }, fronts: gaps.map((q) => ({ from: q[0], to: q[1], kind: 'gap' })), part });
     const Q = D.pen(r, (r.u(lo[0]) + r.u(lo[1])) / 2, part);
-    for (const q of gaps) wallN(Q.g, Math.min(r.u(q[0]), r.u(q[1])), Math.max(r.u(q[0]), r.u(q[1])), top, H, 0, wall);
+    for (const q of gaps) wallN(Q.g, Math.min(r.u(q[0]), r.u(q[1])), Math.max(r.u(q[0]), r.u(q[1])), top, H, -0.02, wall);      // just inside the room: a street's front may stand on the wall's own line
     Q.done();
   }
   // lamps
@@ -1476,7 +1535,9 @@ export function* hall(D, spec) {
  *   out), doors: 4, pitch: 2.6 (m from door to door), doorW: 1.5, doorH: 2.2, height: 3, width, name ('Cabs'), lines (an address
  *   to go under it), open: [i, ...] (doors standing open on a lit cab), hole: i (a door left as a bare opening: a world's way out),
  *   wall, door (colours) }
- * returns { doors: [{ p: [x, y, z] (the middle of the opening), w, h, n: [nx, nz] (the way it looks) }], run }
+ * returns { doors: [{ p: [x, y, z] (the middle of the opening), w, h, n: [nx, nz] (the way it looks) }], run, slide(k) }
+ * A world leaving by door `hole` ends its path square through that door, and stands the wall so that the path's
+ * opening (path.exit.flat) is DOOR_IN metres behind the wall's face, just behind the door's leaves.
  */
 export function lobby(D, spec) {
   const y = spec.y || 0, H = spec.height || ROOM, n = spec.doors || 4, pitch = spec.pitch || 2.6, dw = spec.doorW || 1.5, dh = spec.doorH || 2.2, pal = D.pal;
@@ -1499,7 +1560,7 @@ export function lobby(D, spec) {
       g.box(a, 0.02, 0.17, b, 0.24, 0.18, steel, { skip: 's' });
     } else if (isOpen) {
       // the cab: a small lit room with a seat round it
-      const cw = 2.0, cd = 1.9, ch = dh - 0.05, felt = mixc(pal.shop, col, 0.35), e = 0.9 * D.glowK;
+      const cw = 2.0, cd = 1.9, ch = dh - 0.05, felt = mixc(pal.rooms[i % pal.rooms.length], col, 0.3), e = 0.4 * D.glowK;
       wallN(g, u - cw / 2, u + cw / 2, 0, ch, 0.3 + cd, felt, e);
       g.quad([u - cw / 2, 0, 0.3 + cd], [u - cw / 2, 0, 0.3], [u - cw / 2, ch, 0.3], [u - cw / 2, ch, 0.3 + cd], felt, e).quad([u + cw / 2, 0, 0.3], [u + cw / 2, 0, 0.3 + cd], [u + cw / 2, ch, 0.3 + cd], [u + cw / 2, ch, 0.3], felt, e);
       g.floor(u - cw / 2, 0.26, u + cw / 2, 0.3 + cd, 0.01, shade(felt, 0.6)).floor(u - cw / 2, 0.26, u + cw / 2, 0.3 + cd, ch, '#fff3dc', { down: true, emit: 2.2 * D.glowK });
@@ -1507,11 +1568,11 @@ export function lobby(D, spec) {
       g.box(a - 0.02, 0.02, 0.18, a + 0.1, dh, 0.23, col, { skip: 'b' }).box(b - 0.1, 0.02, 0.18, b + 0.02, dh, 0.23, col, { skip: 'b' });
       D.glows.push({ p: run.pt(u, 1.5, 1.0), color: pal.shop, power: 1.6 * D.glowK, size: 1.6 });
     }
-    doors.push({ p: run.pt(u, dh / 2, 0.2), w: dw, h: dh, n: out, u });
+    doors.push({ p: run.pt(u, dh / 2, DOOR_IN), w: dw, h: dh, n: out, u });
   });
   P.done();
   const name = spec.name === undefined ? 'Cabs' : spec.name;
-  if (name) D.sign(spec.lines ? [name, ...spec.lines] : name, { run, at: run.pt(0, H - 0.3, -0.014), h: spec.lines ? 0.42 : 0.3, w: Math.min(W - 1, 3.4), style: 'plate', font: 'cond', font2: 'serif', head: true, track: 0.16 });
+  if (name) D.sign(spec.lines ? [name, ...spec.lines] : name, { run, at: run.pt(0, H - 0.37, -0.014), h: spec.lines ? 0.6 : 0.36, w: spec.lines ? 2.5 : undefined, style: 'plate', font: 'cond', font2: 'serif', head: true, track: 0.16 });
   // someone waiting at about every other door
   for (const u of us) if (rng() < 0.5 && D.clear(...run.pt(u, 1.2, -1.4), 1.5)) D.spots.push({ p: run.pt(u + rng.f(-0.4, 0.4), 0, -1.2 - rng()), yaw: run.yaw + rng.f(-0.4, 0.4) });
   // the doors of the way out are two meshes of their own, so that they can part: slide(0) shut, slide(1) open

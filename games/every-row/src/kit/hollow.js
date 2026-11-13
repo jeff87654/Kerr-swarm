@@ -249,7 +249,7 @@ void main() {
 
 const wallFrag = (rig) => /* glsl */`
 ${CLIP_PARS}
-uniform vec3 uStone, uStone2, uGlass, uGarden, uPave, uWinA, uWinB, uTrack, uAwning; uniform vec3 uHouse[6]; uniform float uHouseMix;
+uniform vec3 uStone, uStone2, uGlass, uGarden, uPave, uWinA, uWinB, uTrack, uAwning; uniform vec3 uHouse[6]; uniform float uHouseMix; uniform vec3 uChartCol[12]; uniform float uChart;
 uniform float uLit, uTime, uTierH, uSide, uLifts, uWinPower;
 uniform vec4 uTier[${NT}];       // per tier: crowd 0..1, garden 0..1, extra share of lit windows, depth in metres
 varying vec3 vW; varying vec3 vF; varying vec3 vN; varying vec3 vTier;
@@ -292,6 +292,15 @@ void main() {
     float hk = kHash(vec2(house, ti * 5.0 + 31.0 + uSide * 9.0));
     vec3 stone = mix(uStone, uStone2, hh);
     stone = mix(stone, uHouse[int(hk * 5.999)], step(1.0 - uHouseMix, kHash(vec2(house + 77.0, ti * 3.0 + uSide))));
+    if (uChart > 0.0) {
+      // a colour chart: the hue goes once round the wall through twelve pigments, each house one swatch of it
+      float hue = fract((house + 0.5) * 26.4 / (${C.toFixed(2)} * (uFloorR - ti * uTierH) / uFloorR) + (hk - 0.5) * 0.012) * 12.0;
+      int h0 = int(floor(hue)); int h1 = h0 == 11 ? 0 : h0 + 1;
+      vec3 sw = mix(uChartCol[h0], uChartCol[h1], smoothstep(0.0, 1.0, fract(hue)));
+      float up = ti / ${(NT - 1).toFixed(1)};
+      sw = mix(sw * mix(0.5, 1.0, smoothstep(0.0, 0.4, up)), vec3(0.96, 0.94, 0.9), smoothstep(0.45, 1.0, up) * 0.62);    // shades at the foot, tints toward the axis
+      stone = mix(stone, sw, uChart);
+    }
     stone *= (0.9 + 0.2 * kHash(vec2(house, ti + 11.0))) * (0.97 + 0.06 * kNoise(vec2(arcR, hy) * 0.7));
     float party = smoothstep(0.47, 0.5, abs(fract(arcR / 26.4) - 0.5));               // the line between two houses
     vec2 wid = vec2(ci, fl + ti * 13.0 + uSide * 50.0);
@@ -430,6 +439,8 @@ function wallMesh(rig, frame, side, o) {
     uPave: { value: vec3col(o.pave || '#d2c8b2') }, uWinA: { value: vec3col(o.winA || '#ffc070') }, uWinB: { value: vec3col(o.winB || '#ffe6bc') }, uTrack: { value: vec3col(o.track || '#f1ece0') },
     uAwning: { value: vec3col(o.awning || '#c9603c') },
     uHouse: { value: (o.houses || ['#e8c39a', '#d9a58c', '#c9d2c0', '#e9d9a8', '#b9c8d2', '#e3b9a0']).map((h) => vec3col(h)) }, uHouseMix: { value: o.houseMix === undefined ? 0.45 : o.houseMix },
+    uChart: { value: o.chart || 0 },
+    uChartCol: { value: (o.chartColors || ['#c9952c', '#b5722a', '#9a4a2a', '#c8442c', '#a82a3a', '#7a4670', '#3a4a9a', '#3f7fb5', '#3f9a98', '#3a7a5c', '#6f8a4a', '#c4b04a']).map((h) => vec3col(h)) },
     uLit: { value: o.lit || 0 }, uTierH: { value: TIER_H }, uSide: { value: side }, uLifts: { value: o.lifts === undefined ? 8 : o.lifts }, uWinPower: { value: o.winPower === undefined ? 1.3 : o.winPower },
     uTier: { value: tiers },
   };

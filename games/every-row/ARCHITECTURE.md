@@ -23,6 +23,7 @@ src/kit/mats.js       light rigs, the lit material, glowPoints, shared shader te
 src/kit/plan.js       painting a Hollow's floor plan
 src/kit/hollow.js     the Hollow: land, end walls, sunline; terraces to build on
 src/kit/flora.js      trees and scattering them
+src/kit/deck.js       decks: streets, arcades, courts, halls, lobbies; signs with real lettering
 src/kit/folk.js       people and crowds
 src/worlds/*.js       one file per world; index.js lists them in the journey's order
 src/ui/               the interface and its stylesheet
@@ -131,12 +132,12 @@ Pictures are drawn in linear light and tone-mapped at the end. A surface colour 
 
 **Use only the kit's materials** (or shaders built from the kit's shader text). three's own materials are not bent and are not cut at a crossing.
 
-`litMaterial(rig, opts)` draws Geo geometry: `bend` (a frame), `side: 'double'`, `emit` (multiplies every vertex's glow), `soft` (how far tinted faces are lit as if they faced up, default 0.7: leaves and clothes), `walk`, `drift`, `transparent`, `opacity`, `additive`.
+`litMaterial(rig, opts)` draws Geo geometry: `bend` (a frame), `side: 'double'`, `emit` (multiplies every vertex's glow), `soft` (how far tinted faces are lit as if they faced up, default 0.7: leaves and clothes), `walk`, `drift`, `stride` (with `drift`: a small bob at each step, for people walking a line), `transparent`, `opacity`, `additive`.
 
 A rig says how surfaces are lit:
 
 - `hollowRig({ sun, sunPower, sunFar, sunFarPower, sunAngle, sunSharp, amb, ambPower, bounce, bouncePower, ground, groundPower, air, airDensity })`: the sunline (lit from 450 m short of each wall), the Hollow's own glow (`amb`), light thrown up off the land (`bounce`), warm light near the floor at night (`ground`), and the faint haze of distance (`air`). `sun` is the line seen from the side at angle `sunAngle`, `sunFar` from the opposite side: a painted dawn can gild one bank and leave the other dark. `rig.set({...})` changes them while flying. `buildHollow` makes this rig for you (`hollow.rig`).
-- `lampRig({ ambUp, ambDown, lattices, zones, haze, hazeDensity })`: indoors. A lattice is a regular grid of lamps `{ origin:[x,y,z], spacing:[sx,sz], count:[nx,nz], color, power, reach }` (flat coordinates); a zone is a box lit from above `{ min, max, color, power, soft }`, for a bright court. Up to four of each.
+- `lampRig({ ambUp, ambDown, lattices, zones, haze, hazeDensity, maxLattices, maxZones })`: indoors. A lattice is a regular grid of lamps `{ origin:[x,y,z], spacing:[sx,sz], count:[nx,nz], color, power, reach }` (flat coordinates); its light falls off with distance, beyond the grid's edge too. With `drop` it reaches only that far below the lamps and not through the ceiling above them; with `storeys` and `rise` the same grid lights several decks, each surface taking its own storey's lamps. A zone is a box lit from above `{ min, max, color, power, soft }`, for a bright court; `flare` widens it with height, `side` and `under` set what upright and downward faces get. Four of each, or up to eight with `maxLattices` / `maxZones`; `rig.setLattice(i, lattice)`, `rig.setZone(i, zone)` and `rig.set({...})` change them later. `makeDeck` makes this rig for you (`deck.rig`).
 - `plainRig({ dir, color, power, amb, haze, hazeDensity })`: one direction of light and an ambient, for things in open space.
 
 `glowPoints(points, { bend, minPx, maxPx, soft })` draws any number of small lights in one call: `{ p:[x,y,z], color, power, size (metres), move:[vx,vy,vz], loop (seconds), twinkle, phase }`. A light too far off to fill a pixel dims instead of shrinking, so a row of lamps runs off to a vanishing point properly.
@@ -178,9 +179,9 @@ The plan has three layers painted together. `fill` and `stroke` take: `color` (w
 
 - `light`: the hollowRig options. `sunline: { power }`: how bright the rod itself is (60 at noon, 0 for a dark cable).
 - `ground`: `canopy`, `blossom`, `fruit`, `rows:[sx,sz]`, `lamp` (0..1), `lampColor`, `people`, `wave`, `swell`, `sunRod` (the line's brightness in water: match `sunline.power`), `stripes`.
-- `front`, `back` (the end walls): `lit` (share of windows lit), `crowd`, `garden`, `stone`, `stone2`, `houses` (six colours), `houseMix`, `winA`, `winB`, `winPower`, `tiers: { 9: { crowd, garden, lit } }`, `depths`.
+- `front`, `back` (the end walls): `lit` (share of windows lit), `crowd`, `garden`, `stone`, `stone2`, `houses` (six colours), `houseMix`, `chart` (0 to 1: the wall painted as a colour chart, each house one swatch, the hue going once round the wall through twelve pigments, shades at the foot and tints toward the axis; `chartColors` gives your own twelve), `winA`, `winB`, `winPower`, `tiers: { 9: { crowd, garden, lit } }`, `depths`.
 
-The Hollow it returns: `group`, `frame`, `rig`, `plan`, `lit` / `litDouble` / `walk` (materials bent to the floor), `plain` (unbent), `at(x, z)` (read the plan), `glow(points)`, `add(mesh)`, `lampPosts({ near, power })`, `terrace(side, tier, deg)`, and for light that changes as you fly: `rig.set({ sun, sunPower, sunFar, sunFarPower, sunAngle, sunSharp, amb, ambPower, ground, groundPower, air, airDensity })`, `setRod(power)`, `setLine(z1, z2)` (shorten the lit line), `setNight(lamp, lit)` (walk lamps; share of windows lit), `setWindows(side, tier, share)`.
+The Hollow it returns: `group`, `frame`, `rig`, `plan`, `lit` / `litDouble` / `walk` (materials bent to the floor), `plain` (unbent), `at(x, z)` (read the plan: it was read back once while the Hollow was built, so this costs nothing), `glow(points)`, `add(mesh)`, `lampPosts({ near, power })`, `terrace(side, tier, deg)`, and for light that changes as you fly: `rig.set({ sun, sunPower, sunFar, sunFarPower, sunAngle, sunSharp, amb, ambPower, ground, groundPower, air, airDensity })`, `setRod(power)`, `setLine(z1, z2)` (shorten the lit line), `setNight(lamp, lit)` (walk lamps; share of windows lit), `setWindows(side, tier, share)`.
 
 **End walls.** Thirty tiers of 47.5 m each climb from the floor to the flying hall 75 m from the axis. Each riser is an arcade, nine floors of flats with balconies, and a garden hanging over its top; each terrace is a rail, a walk and beds. `TIERS` names the docs' four: `third` (tier 9, a third of a g), `quarter` (14), `tenth` (24), `twentieth` (27). `hollow.terrace(side, tier, deg)` gives a frame and materials for building on one: x in true metres round it, y above its floor, z = 0 at the rail, the houses at `z = toWall * depth`.
 
@@ -227,7 +228,11 @@ Words: an avenue (axis `'x'`, spinward, curving up ahead) has a `front` side (-z
 
 **What a deck does not have, by canon:** windows in homes (only flats on a court's terraces and on the Hollow's end walls have them); daylight (a court is lit by its ceiling: "overcast-day brightness" on the floor, a grey quarter of that on the terraces in Ashgrove); soil (tubs and troughs); animals; anything that burns. Things are old, mended and inherited: chairs do not match, awnings have a stripe that was replaced. A deck's light comes from above and casts no shadows, so mood comes from the pools under the lamps, lit windows, and the jump in brightness between a street and a court.
 
-**Budget on a deck.** Ashgrove (two arcades, two streets, four side streets, a six-storey court, two halls, a lobby) is about 400,000 triangles and 200 to 330 draw calls in a picture, and builds in about half a second. What costs: fronts modelled in full (keep `detail` near 48), planting on terraces (two thousand bushes), and people. Lettering is drawn on one canvas of at most 2048 x 4096.
+**Budget on a deck.** Ashgrove (two stretches of arcade, two of street, four side streets, a six-storey court, two bridges, two halls, a lobby) is 260,000 to 650,000 triangles and 150 to 390 draw calls in a picture, and builds in about 450 ms of work. What costs: fronts modelled in full (keep `detail` near 48), planting on terraces (two thousand bushes), and people. Lettering is drawn on one canvas, 2048 square if it fits and 2048 x 4096 if not; signs far from the flight are lettered small.
+
+---
+
+Two lines elsewhere in ARCHITECTURE.md want changing to match what this work did to `kit/mats.js`.
 
 ## Tools
 
