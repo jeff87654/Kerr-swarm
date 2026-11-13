@@ -3,15 +3,18 @@
 // The order is Marit Vell's wander year (docs/wander-year.md): out from Herb Row to the far side of the raft and home
 // again, so the light delay on the cards climbs to 36.9 seconds and falls back to none. Herb Row comes first and at
 // more length, because its drums are a free glide apart and are the ones the docs know best. Within that, Hollows,
-// rooms and the outside take turns, and no two neighbours share an hour or a colour.
+// rooms and the outside take turns, and no two neighbours share an hour or a colour. Some ways out were made to meet
+// the next way in: Ashgrove's cab doors open where the lake's flight comes up through the ground; the train leaving
+// Rue's station goes through its lock into the glide's tunnel; the Long Flight ends the night that Chervil's dawn begins.
 import { chervilDawn } from './chervil_dawn.js';
 import { sorrelAshgrove } from './sorrel_ashgrove.js';
 import { sorrelLake } from './sorrel_lake.js';
-import { sorrelOrgan } from './sorrel_organ.js';
-import { yarrowKites } from './yarrow_kites.js';
-import { borageFountains } from './borage_fountains.js';
 import { tansyHens } from './tansy_hens.js';
+import { yarrowKites } from './yarrow_kites.js';
+import { sorrelOrgan } from './sorrel_organ.js';
+import { borageFountains } from './borage_fountains.js';
 import { sorrelSleepers } from './sorrel_sleepers.js';
+import { rueCount } from './rue_count.js';
 import { theGlide } from './the_glide.js';
 import { lovageNoon } from './lovage_noon.js';
 import { sloeWood } from './sloe_wood.js';
@@ -24,19 +27,20 @@ import { madderGardens } from './madder_gardens.js';
 import { ochreChart } from './ochre_chart.js';
 import { ochreBackcrew } from './ochre_backcrew.js';
 import { speltLoaf } from './spelt_loaf.js';
-import { chervilFlight } from './chervil_flight.js';
 import { chervilHall } from './chervil_hall.js';
+import { chervilFlight } from './chervil_flight.js';
 
 export const WORLDS = [
   // Herb Row: home, and the neighbours
   chervilDawn,            // the dawn painted for the day she left
   sorrelAshgrove,
   sorrelLake,
-  sorrelOrgan,
-  yarrowKites,
-  borageFountains,
   tansyHens,
-  sorrelSleepers,
+  yarrowKites,
+  sorrelOrgan,            // an evening recital
+  borageFountains,        // night
+  sorrelSleepers,         // half past four
+  rueCount,               // the morning rush
   theGlide,               // Sorrel to Lovage
   lovageNoon,
   // Hedge Row, Gull Row, Weather Row, Bell Row
@@ -51,7 +55,7 @@ export const WORLDS = [
   ochreChart,
   ochreBackcrew,
   speltLoaf,
-  // Herb Row again
-  chervilFlight,
+  // Herb Row again: home, her table, and Booking night
   chervilHall,
+  chervilFlight,
 ];
