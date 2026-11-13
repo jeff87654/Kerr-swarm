@@ -20,6 +20,7 @@ import { squallSwell } from './squall_swell.js';
 import { carillonChoirs } from './carillon_choirs.js';
 import { dulseNoodle } from './dulse_noodle.js';
 import { madderGardens } from './madder_gardens.js';
+import { ochreChart } from './ochre_chart.js';
 import { ochreBackcrew } from './ochre_backcrew.js';
 import { speltLoaf } from './spelt_loaf.js';
 import { chervilFlight } from './chervil_flight.js';
@@ -45,6 +46,7 @@ export const WORLDS = [
   // Kelp Row, the far side; then Pigment Row and Grain Row on the way back
   dulseNoodle,
   madderGardens,
+  ochreChart,
   ochreBackcrew,
   speltLoaf,
   // Herb Row again
