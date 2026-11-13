@@ -640,6 +640,7 @@ function* buildSigns(D) {
     if (next < 0.7 && limit < maxTex) { limit = maxTex; scale = 1; } else scale = next;
   }
   const H = Math.min(maxTex, Math.pow(2, Math.ceil(Math.log2(Math.max(64, used)))));
+  yield 'deck: signs laid out';
   const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const cx = cv.getContext('2d', { willReadFrequently: true });
   const fams = [...new Set(all.flatMap((e) => [e.font, e.font2 || e.font]))];
@@ -653,6 +654,7 @@ function* buildSigns(D) {
     tex.needsUpdate = true;
   }
   yield* paint();
+  yield 'deck: lettering';
   // the page's own type may not have arrived yet: letter the signs again when it has
   if (document.fonts && document.fonts.load) {
     const missing = fams.filter((f) => { try { return !document.fonts.check(FONTS[f](40)); } catch (err) { return false; } });

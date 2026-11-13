@@ -14,6 +14,7 @@ import { carillonChoirs } from './carillon_choirs.js';
 import { speltLoaf } from './spelt_loaf.js';
 import { yarrowKites } from './yarrow_kites.js';
 import { chervilHall } from './chervil_hall.js';
+import { sorrelOrgan } from './sorrel_organ.js';
 import { sorrelAshgrove } from './sorrel_ashgrove.js';
 
 export const WORLDS = [
@@ -21,6 +22,7 @@ export const WORLDS = [
   sorrelAshgrove,
   lovageNoon,
   yarrowKites,
+  sorrelOrgan,
   chervilDawn,
   sloeWood,
   kittiwakeCrosswise,

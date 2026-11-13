@@ -177,13 +177,18 @@ void main() {
     float rr = max(dot(R.xy, R.xy), 1e-5);
     float tt = -2.0 * dot(vW.xy, R.xy) / rr;
     vec3 H = vW + R * tt;
-    vec3 refl;
-    if (tt > 0.0 && H.z > 0.0 && H.z < uSize.y) {
-      vec2 huv = vec2(fract(atan(H.y, H.x) / 6.2831853 - uBend.x / 6.2831853), H.z / uSize.y);
-      vec3 ha = textureLod(tAlb, huv, 3.0).rgb;
-      ha = mix(ha, textureLod(tAlb, huv, 9.0).rgb, textureLod(tMask, huv, 3.0).r * 0.85);
-      refl = ha * (kSunColor(H.xy) * kSunE(H, vec3(-normalize(H.xy), 0.0)) + uAmb);
-    } else refl = uWallTint * (uAmb * 2.2 + kSunColor(vW.xy) * 0.25);
+    // where the mirrored ray leaves by an end wall it shows the wall: its stone, and at lamp hours the glow of its windows
+    float rz = abs(R.z) < 1e-4 ? 1e-4 : R.z;
+    vec3 Pw = vW + R * ((rz > 0.0 ? uSize.y - vW.z : -vW.z) / rz);
+    vec3 refl = uWallTint * (uAmb * 2.2 + kSunColor(vW.xy) * 0.25) + uLampCol * uLamp * (0.45 + 0.55 * kNoise(Pw.xy * 0.12)) * 0.3;
+    float inside = tt > 0.0 ? smoothstep(-40.0, 110.0, min(H.z, uSize.y - H.z)) : 0.0;
+    if (inside > 0.0) {
+      vec2 huv = vec2(fract(atan(H.y, H.x) / 6.2831853 - uBend.x / 6.2831853), clamp(H.z / uSize.y, 0.0, 1.0));
+      vec3 ha = textureLod(tAlb, huv, 5.0).rgb;
+      ha = mix(ha, textureLod(tAlb, huv, 9.0).rgb, smoothstep(0.0, 0.5, textureLod(tMask, huv, 6.0).r) * 0.95);
+      vec3 nH = vec3(-normalize(H.xy), 0.0);
+      refl = mix(refl, ha * kLight(H, nH, H, nH), inside);      // lit as the land itself is, dim ends and lamp glow included
+    }
     vec3 Mid = vW + R * (tt * 0.5);
     float dm = length(Mid.xy);
     float inLine = smoothstep(uSunZ.x - 40.0, uSunZ.x + 40.0, Mid.z) * smoothstep(uSunZ.y + 40.0, uSunZ.y - 40.0, Mid.z) * step(0.0, tt);
