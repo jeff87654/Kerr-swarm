@@ -37,13 +37,15 @@ export class Plan {
    * Draw on one layer in metres. fn(ctx) is called three times, shifted by one turn each way, so shapes may cross the seam.
    * Nothing is drawn yet: the call is kept, in order, and done by settle() (buildHollow does that, a little each frame).
    */
-  layer(name, fn) { this.queue.push([name, fn]); }
+  layer(name, fn, span, weight) { this.queue.push([name, fn, span, weight || 1]); }
   /** The same, but fn(ctx) is called once only, unshifted: for drawing of your own that already handles the seam (or does not reach it). */
-  once(name, fn) { this.queue.push([name, (cx, k) => { if (k === 0) fn(cx); }]); }
-  _draw(name, fn) {
+  once(name, fn) { this.queue.push([name, (cx, k) => { if (k === 0) fn(cx); }, undefined, 1]); }
+  // span: [x0, x1], how far round the floor the drawing reaches (metres). A copy that cannot touch the picture is skipped.
+  _draw(name, fn, span) {
     const cx = this.cx[name], cv = this.cv[name];
     const sx = cv.width / this.C, sz = cv.height / this.L;
     for (const k of [-1, 0, 1]) {
+      if (span && (span[1] + k * this.C < -12 || span[0] + k * this.C > this.C + 12)) continue;
       cx.save();
       cx.setTransform(sx, 0, 0, sz, k * cv.width, 0);
       fn(cx, k);
@@ -51,7 +53,7 @@ export class Plan {
     }
   }
   // make the canvases actually draw what they have been told to (they put it off until someone reads them)
-  _flush() { for (const k of ['alb', 'mask', 'kind']) this.cx[k].getImageData(0, 0, 1, 1); }
+  _flush(names = ['alb', 'mask', 'kind']) { for (const k of names) this.cx[k].getImageData(0, 0, 1, 1); }
   /** Do the painting asked for so far, a few milliseconds at a time: `yield* plan.settle()`. */
   *settle() {
     // draw a batch, make the canvases really do it, see how long that took, and size the next batch to suit
@@ -59,30 +61,36 @@ export class Plan {
     if (!this.queue.length) return;
     // what asking costs when there is nothing to paint (a round trip to the graphics process, long on a busy machine):
     // taken off every reading below, or a slow round trip is mistaken for slow painting and the batches never grow
-    const b0 = performance.now(); this._flush(); let base = performance.now() - b0;
+    // (one layer's worth: only the layers a batch drew on are asked, since each asking is a round trip of its own)
+    const b0 = performance.now(); this._flush(['alb']); let base = performance.now() - b0;
+    // A batch is so much weight, not so many items: a soft-edged fill or a path of a thousand dots weighs more than a
+    // plain one (see fill, dots, mottle), so one heavy thing does not arrive hidden in a batch sized for light ones.
     let n = 1;
+    const used = new Set();
     while (this.queue.length) {
       const f0 = performance.now();
-      for (let i = 0; i < n && this.queue.length; i++) { const [name, fn] = this.queue.shift(); this._draw(name, fn); }
-      this._flush(); const fd = performance.now() - f0, work = fd - base;
-      if (fd < base) base = fd;
-      if (work < 4) n = Math.min(128, n * 2); else if (work > 10) n = Math.max(1, n >> 1);
+      used.clear();
+      for (let w = 0; w < n && this.queue.length;) { const [name, fn, span, weight] = this.queue.shift(); w += weight; used.add(name); this._draw(name, fn, span); }
+      this._flush([...used]); const fd = performance.now() - f0, work = fd - base * used.size;
+      if (fd / used.size < base) base = fd / used.size;
+      if (work < 3) n = Math.min(24, Math.ceil(n * 1.5)); else if (work > 8) n = Math.max(1, n >> 1);
       yield 'plan: painting';
     }
   }
   /** The same all at once (used if a plan is read before it has been settled). */
-  settleNow() { while (this.queue.length) { const [name, fn] = this.queue.shift(); this._draw(name, fn); } }
+  settleNow() { while (this.queue.length) { const [name, fn, span] = this.queue.shift(); this._draw(name, fn, span); } }
 
-  // ---- shapes (Path2D in metres)
+  // ---- shapes (Path2D in metres). Each remembers how far round the floor it reaches, in _x: see _draw().
   rect(x0, z0, x1, z1, r = 0) {
     const p = new Path2D();
     if (r > 0 && p.roundRect) p.roundRect(x0, z0, x1 - x0, z1 - z0, r); else p.rect(x0, z0, x1 - x0, z1 - z0);
+    p._x = [Math.min(x0, x1), Math.max(x0, x1)];
     return p;
   }
   band(z0, z1) { return this.rect(-this.C, z0, 2 * this.C, z1); }
-  ellipse(cx, cz, rx, rz, rot = 0) { const p = new Path2D(); p.ellipse(cx, cz, rx, rz, rot, 0, Math.PI * 2); return p; }
-  poly(points) { const p = new Path2D(); points.forEach((q, i) => (i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]))); p.closePath(); return p; }
-  line(points) { const p = new Path2D(); points.forEach((q, i) => (i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]))); return p; }
+  ellipse(cx, cz, rx, rz, rot = 0) { const p = new Path2D(); p.ellipse(cx, cz, rx, rz, rot, 0, Math.PI * 2); const m = Math.max(Math.abs(rx), Math.abs(rz)); p._x = [cx - m, cx + m]; return p; }
+  poly(points) { const p = new Path2D(); points.forEach((q, i) => (i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]))); p.closePath(); p._x = reach(points); return p; }
+  line(points) { const p = new Path2D(); points.forEach((q, i) => (i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]))); p._x = reach(points); return p; }
   /** an organic closed shape: centre, radii, opts { wobble 0..0.6, lobes (how many bumps), seed, n (points) } */
   blob(cx, cz, rx, rz, opts = {}) {
     const n = opts.n || 96, wob = opts.wobble === undefined ? 0.25 : opts.wobble, lobes = opts.lobes || 5, seed = opts.seed || 1;
@@ -99,6 +107,7 @@ export class Plan {
       if (i === 0) p.moveTo(mx, mz); else p.quadraticCurveTo(a[0], a[1], mx, mz);
     }
     p.closePath();
+    p._x = reach(pts);
     return p;
   }
   /** a smooth open curve through points, as a Path2D for stroke() */
@@ -107,6 +116,7 @@ export class Plan {
     p.moveTo(points[0][0], points[0][1]);
     for (let i = 1; i < n - 1; i++) { const mx = (points[i][0] + points[i + 1][0]) / 2, mz = (points[i][1] + points[i + 1][1]) / 2; p.quadraticCurveTo(points[i][0], points[i][1], mx, mz); }
     p.lineTo(points[n - 1][0], points[n - 1][1]);
+    p._x = reach(points);
     return p;
   }
 
@@ -120,18 +130,23 @@ export class Plan {
    */
   fill(shape, opts = {}) {
     const f = opts.feather || 0;
-    const run = (name, style, op) => this.layer(name, (cx) => {
-      cx.globalCompositeOperation = op || 'source-over';
-      cx.fillStyle = style;
-      cx.fill(shape, opts.rule || 'nonzero');
-      if (f > 0) {
-        // a soft edge: the outline stroked several times, wider and fainter each time (no blur filter: that is very slow here)
+    const span = shape._x ? [shape._x[0] - f - 2, shape._x[1] + f + 2] : undefined;
+    const weight = 1 + (shape._n || 0) / 250;
+    const run = (name, style, op) => {
+      this.layer(name, (cx) => {
+        cx.globalCompositeOperation = op || 'source-over';
+        cx.fillStyle = style;
+        cx.fill(shape, opts.rule || 'nonzero');
+      }, span, weight);
+      // a soft edge: the outline stroked several times, wider and fainter each time (no blur filter: that is very slow
+      // here). Each stroke is queued on its own, so a big soft-edged shape is painted over several steps, not in one.
+      const n = 6;
+      if (f > 0 && op !== 'multiply') for (let i = n; i >= 1; i--) this.layer(name, (cx) => {
+        cx.globalCompositeOperation = op || 'source-over';
         cx.strokeStyle = style; cx.lineJoin = 'round';
-        const n = 6, a0 = cx.globalAlpha;
-        if (op !== 'multiply') for (let i = n; i >= 1; i--) { cx.globalAlpha = a0 / n; cx.lineWidth = 2 * f * (i / n); cx.stroke(shape); }
-        cx.globalAlpha = a0;
-      }
-    });
+        cx.globalAlpha = cx.globalAlpha / n; cx.lineWidth = 2 * f * (i / n); cx.stroke(shape);
+      }, span, weight);
+    };
     this._clear(opts, (name, style) => run(name, style, 'multiply'));
     if (opts.color) run('alb', withAlpha(opts.color, opts.alpha));
     const m = chan(opts.water, opts.wood, opts.lamp); if (m) run('mask', m, 'lighter');
@@ -141,13 +156,14 @@ export class Plan {
   /** Stroke a line or curve (a Path2D from line()/curve(), or a list of points). width in metres. opts as fill(), plus cap, dash:[on, off] */
   stroke(shape, width, opts = {}) {
     if (Array.isArray(shape)) shape = this.curve(shape);
+    const span = shape._x ? [shape._x[0] - width / 2 - 2, shape._x[1] + width / 2 + 2] : undefined;
     const run = (name, style, op) => this.layer(name, (cx) => {
       cx.globalCompositeOperation = op || 'source-over';
       cx.lineWidth = width; cx.lineCap = opts.cap || 'round'; cx.lineJoin = 'round';
       if (opts.dash) cx.setLineDash(opts.dash);
       cx.strokeStyle = style;
       cx.stroke(shape);
-    });
+    }, span, opts.dash ? 3 : 1);
     this._clear(opts, (name, style) => run(name, style, 'multiply'));
     if (opts.color) run('alb', withAlpha(opts.color, opts.alpha));
     const m = chan(opts.water, opts.wood, opts.lamp); if (m) run('mask', m, 'lighter');
@@ -166,6 +182,8 @@ export class Plan {
   dots(points, radius, opts = {}) {
     const p = new Path2D();
     for (const q of points) { p.moveTo(q[0] + radius, q[1]); p.arc(q[0], q[1], radius, 0, Math.PI * 2); }
+    if (points.length) { const r = reach(points); p._x = [r[0] - radius, r[1] + radius]; }
+    p._n = points.length;
     return this.fill(p, opts);
   }
   /** Lamps every `spacing` metres along a list of points (and remembered, so the kit can stand real lamps near the camera). */
@@ -238,9 +256,9 @@ export class Plan {
       const s = size * rng.f(0.5, 1.5);
       list.push({ x: rng.f(opts.x0 || 0, opts.x1 || this.C), z: rng.f(opts.z0 || 0, opts.z1 || this.L), rx: s, rz: s * rng.f(0.5, 1.2), rot: rng.f(0, 3.14), a: (opts.alpha || 0.35) * rng.f(0.4, 1), c: rng.pick(colors) });
     }
-    for (let i0 = 0; i0 < list.length; i0 += 20) this.layer('alb', (cx, k) => {
+    for (let i0 = 0; i0 < list.length; i0 += 10) this.layer('alb', (cx, k) => {
       if (opts.clip) cx.clip(opts.clip);
-      for (const q of list.slice(i0, i0 + 20)) {
+      for (const q of list.slice(i0, i0 + 10)) {
         if (q.x + k * this.C < -q.rx * 1.3 || q.x + k * this.C > this.C + q.rx * 1.3) continue;        // this copy of it is off the floor
         // a patch that fades out from its middle (a gradient, not a blur)
         cx.save();
@@ -251,7 +269,7 @@ export class Plan {
         cx.beginPath(); cx.arc(0, 0, q.rx * 1.25, 0, Math.PI * 2); cx.fill();
         cx.restore();
       }
-    });
+    }, undefined, 3);
     return this;
   }
 
@@ -305,6 +323,12 @@ export class Plan {
   }
 }
 
+// how far round the floor a list of points reaches: [least x, greatest x]
+function reach(points) {
+  let a = Infinity, b = -Infinity;
+  for (const q of points) { if (q[0] < a) a = q[0]; if (q[0] > b) b = q[0]; }
+  return [a, b];
+}
 function chan(r, g, b) {
   if (!r && !g && !b) return null;
   const f = (v) => Math.round(255 * Math.min(1, Math.max(0, v || 0)));

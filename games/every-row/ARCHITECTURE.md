@@ -174,7 +174,7 @@ yield* scatterTrees(hollow, { near: path.points() });
 yield* scatterPeople(hollow, { near: path.points() });
 ```
 
-The plan has three layers painted together. `fill` and `stroke` take: `color` (what the land looks like from far off), `water`, `wood` (tree cover: the ground draws a crown in every 7.5 m cell, standing up off the land), `lamp` (glows when `ground.lamp` > 0), `paved`, `rows` (an orchard: a tree on every point of a lattice, in blossom, leaf or fruit by section), `life` (people), `clear: [...]` and `feather`. Helpers: `rect`, `band`, `ellipse`, `blob`, `poly`, `curve`, `dots`, `lamps`, `avenue`, `clumps`, `garden`, `mottle`; `layer(name, fn)` and `once(name, fn)` for canvas drawing of your own. Painting is queued and done by `buildHollow` a little each frame, so read the plan (`hollow.at`, `plan.sampler()`) only after it. Shapes may cross the seam at x = 0 / C. Paint richly: land seen from a kilometre off is only as interesting as its plan. `worlds/sorrel_lake.js` and `worlds/chervil_flight.js` are worked examples by day and by night.
+The plan has three layers painted together. `fill` and `stroke` take: `color` (what the land looks like from far off), `water`, `wood` (tree cover: the ground draws a crown in every 7.5 m cell, standing up off the land), `lamp` (glows when `ground.lamp` > 0), `paved`, `rows` (an orchard: a tree on every point of a lattice, in blossom, leaf or fruit by section), `life` (people), `clear: [...]` and `feather`. Helpers: `rect`, `band`, `ellipse`, `blob`, `poly`, `curve`, `dots`, `lamps`, `avenue`, `clumps`, `garden`, `mottle`; `layer(name, fn)` and `once(name, fn)` for canvas drawing of your own. Painting is queued and done by `buildHollow` a little each frame, so read the plan (`hollow.at`, `plan.sampler()`) only after it. A drawing is made three times, a turn apart, so that it may cross the seam; a shape from the plan's own helpers knows how far round it reaches and is drawn only where it can show. Give a `Path2D` of your own `_x = [least x, greatest x]` for the same saving, and put thousands of small shapes into a few paths, not a call each. Shapes may cross the seam at x = 0 / C. Paint richly: land seen from a kilometre off is only as interesting as its plan. `worlds/sorrel_lake.js` and `worlds/chervil_flight.js` are worked examples by day and by night.
 
 `buildHollow` spec, in brief (the comment above it in `kit/hollow.js` is complete):
 
@@ -295,6 +295,9 @@ node tools/shot.mjs --file squall_swell --live --every 2 --count 8 --q "t=40" --
 python tools/sheet.py out/<you>/s- out/<you>/sheet.png --cols 2                     # many pictures on one sheet
 python tools/build.py --file src/worlds/squall_swell.js   # module rules, syntax and writing rules for one file
 python tools/build.py --check                           # the same for everything listed in worlds/index.js
+node tools/flow.mjs                                     # the whole journey as a visitor skipping ahead: every crossing, build times, memory
+node tools/planhash.mjs --save out/plans/a              # after a change to kit/plan.js: save every painted plan, then again as b,
+python tools/plandiff.py out/plans/a out/plans/b        #   and compare (unchanged code differs by a few pixels at most)
 ```
 
 `shot.mjs` prints frames a second, draw calls, triangles and the milliseconds of work your build took, then any console errors (shader errors are printed in full). Look at your pictures: read the PNGs.
