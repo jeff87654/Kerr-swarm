@@ -60,7 +60,8 @@ export const PALETTES = {
     doors: ['#5d7a62', '#3f6f73', '#7e3f33', '#b98a3a', '#51627a', '#2f6f9a', '#6a5a7a', '#8a5a3a'],
     awnings: [['#b5553f', '#e3d6bd'], ['#3f6f73', '#e3d6bd'], ['#b98a3a', '#e8dcc2'], ['#51627a', '#d9cfba'], ['#6f8a5a', '#e6dcc4']],
     signs: [['#2f3b34', '#ead9b0'], ['#4a2f26', '#f0dcb4'], ['#27394a', '#e6dcc6'], ['#e7dcc0', '#3a2c22'], ['#3b3530', '#e9c877'], ['#5a3a2a', '#f1e3c4']],
-    floor: '#b1a38c', strip: '#8d7c69', court: '#c9bda6', ceiling: '#bfb39c', rib: '#c9b99c',
+    floor: '#8f8c7e', strip: '#6c675c', court: '#b9b09c', ceiling: '#8c7a64', rib: '#d6c6a6',
+    rooms: ['#c9a36a', '#a9b08a', '#b98a6a', '#9aa6a0', '#d0b890', '#b7a088', '#c4b26e'],
     metal: '#6d6c68', brass: '#b08d4a', glass: '#b9d0d4',
     leaf: ['#7f9b63', '#6f8f5c', '#8aa466', '#94a875', '#5f7f55', '#86a06a'],
     bloom: ['#f1e6da', '#e9c9a0', '#e3a79a', '#f0dc9a', '#d9b6d0'],
@@ -76,7 +77,8 @@ export const PALETTES = {
     doors: ['#2f8f8a', '#d9603f', '#e0a52e', '#3f6fae', '#7a4f9a', '#3f9a5a', '#d05a7a', '#2f3b45'],
     awnings: [['#d9603f', '#fff6e6'], ['#2f8f8a', '#fff6e6'], ['#e0a52e', '#fffaf0'], ['#3f6fae', '#f6f1e6'], ['#d05a7a', '#fff1ea']],
     signs: [['#1f2a33', '#ffe9b0'], ['#f6efe0', '#1f2a33'], ['#d9603f', '#fff6e6'], ['#2f8f8a', '#fff6e6'], ['#27304a', '#ffd27a'], ['#fff6e6', '#b5402a']],
-    floor: '#d6cdbb', strip: '#a99f8e', court: '#e6ddca', ceiling: '#ded6c6', rib: '#e6dccb',
+    floor: '#c6c0b2', strip: '#9a9488', court: '#d9d1c0', ceiling: '#cfc6b4', rib: '#f1e9d8',
+    rooms: ['#f0d9a8', '#d6e0c0', '#f0c8a8', '#cfe0e0', '#f6e6c0', '#e6d0c0', '#e9e0a8'],
     metal: '#8e8f8c', brass: '#d0a85a', glass: '#c9e2e6',
     leaf: ['#7fae5c', '#6fa060', '#93b86a', '#86b070', '#5f9058', '#9cbf74'],
     bloom: ['#fff1e6', '#ffd08a', '#ff9f8a', '#ffe680', '#e6a6e0'],
@@ -92,7 +94,8 @@ export const PALETTES = {
     doors: ['#3f5a48', '#2f4a4f', '#5a3a30', '#6a5a36', '#3a4458', '#4a3f52', '#4f4a3a', '#2f3a34'],
     awnings: [['#4f5a48', '#8f8a78'], ['#5a3a30', '#8a8474'], ['#3a4458', '#868474'], ['#6a5a36', '#8f8874'], ['#3f4a4f', '#7f8478']],
     signs: [['#22261f', '#bfb48f'], ['#2a221c', '#c9b98f'], ['#1f2a2f', '#b9bfae'], ['#8f8a78', '#22261f'], ['#262220', '#b79a5a'], ['#2f2a24', '#c9c0a0']],
-    floor: '#6f6a5c', strip: '#55514a', court: '#7f7c6c', ceiling: '#5f5a50', rib: '#6a6458',
+    floor: '#5f5d54', strip: '#4a4842', court: '#77746a', ceiling: '#4a453d', rib: '#7a7364',
+    rooms: ['#8a6f48', '#6f7a60', '#7f5f4a', '#66706c', '#8f7c5a', '#7a6a5a', '#80764a'],
     metal: '#4a4b48', brass: '#8a7240', glass: '#8fa6a8',
     leaf: ['#4f7048', '#456a4a', '#5a7a50', '#3f6045', '#557552', '#4a6f58'],
     bloom: ['#cfc9b9', '#b9a57a', '#a5837a', '#bfb27a', '#9a8aa5'],
@@ -292,7 +295,7 @@ void main() {
       vec2 gi = clamp(floor((H - A.xz) / B.xy + 0.5), vec2(0.0), max(B.zw - 1.0, vec2(0.0)));
       vec2 d = H - (A.xz + gi * B.xy);
       float sig = 0.3 + uRough * t;
-      float da = dot(d, al) / (sig * 4.0), dc = dot(d, ac) / sig;
+      float da = dot(d, al) / (sig * 3.2), dc = dot(d, ac) / sig;
       spec += C.rgb * exp(-da * da - dc * dc) * min(0.5 / sig, 1.0);
     }
     spec *= uLampGlow;
@@ -399,7 +402,7 @@ const PROTOS = {
     g.tint(0.3).box(-1.25, 0.34, -0.2, 1.25, 0.76, 0.2, WOOD, { skip: 'b' }).box(-1.25, 0.76, -0.035, 1.25, 1.24, 0.035, WOOD, { skip: 'b' });
     g.box(-1.25, 0.72, -0.44, 1.25, 0.76, -0.2, '#b89f7c').box(-1.25, 0.72, 0.2, 1.25, 0.76, 0.44, '#b89f7c');
     g.tint(0.1); for (const x of [-1.69, 1.69]) for (const z of [-0.6, 0.6]) g.box(x - 0.025, 0.34, z - 0.025, x + 0.025, 2.1, z + 0.025, '#4a4b4c', { skip: 'tb' });
-    g.tint(0.7).box(-1.85, 2.1, -0.74, 1.85, 2.16, 0.74, '#efe6d2');
+    g.tint(0.7).box(-1.85, 2.1, -0.74, 1.85, 2.16, 0.74, '#efe6d2', { skip: 'b' }).floor(-1.85, -0.74, 1.85, 0.74, 2.1, '#d9cfb8', { down: true, emit: 0.35 });
     for (const z of [-0.74, 0.74]) both(g, [-1.85, 1.96, z], [1.85, 1.96, z], [1.85, 2.1, z], [-1.85, 2.1, z], '#e3d9c2');
     g.tint(0); for (const x of [-1.76, 1.76]) g.cube(x, 0.72, 0, 0.05, 0.16, 0.16, '#fff0c8', { emit: 4 });
     for (const x of [-1.15, 1.15]) for (const z of [-0.5, 0.5]) g.rot('x', Math.PI / 2).cyl(x, z - 0.04, -0.12, 0.13, 0.13, 0.08, 8, '#2f2f30', { base: true }).pop();
@@ -437,7 +440,7 @@ export function makeDeck(ctx, spec = {}) {
     uniforms: {
       ...rig.uniforms, uClip: G.uClip, uBend: bendU(), uSlab: { value: new Vector2(fl.slab ? fl.slab[0] : 0.6, fl.slab ? fl.slab[1] : 0.6) },
       uWear: { value: fl.wear === undefined ? 0.8 : fl.wear }, uShine: { value: fl.shine === undefined ? 1 : fl.shine }, uRough: { value: fl.rough === undefined ? 0.035 : fl.rough },
-      uLampGlow: { value: (fl.lampGlow === undefined ? 2.6 : fl.lampGlow) }, uSkyA: { value: sky.A }, uSkyB: { value: sky.B }, uSkyC: { value: sky.C },
+      uLampGlow: { value: (fl.lampGlow === undefined ? 1.5 : fl.lampGlow) }, uSkyA: { value: sky.A }, uSkyB: { value: sky.B }, uSkyC: { value: sky.C },
     },
     defines: { LATTICES: rig.lattices }, vertexShader: FLOOR_VERT, fragmentShader: floorFrag(rig), side: FrontSide,
   });
@@ -496,7 +499,7 @@ export function makeDeck(ctx, spec = {}) {
       const lines = Array.isArray(text) ? text.slice() : [String(text)];
       const style = o.style || 'board', font = o.font || (style === 'chalk' ? 'hand' : style === 'plate' || style === 'paper' ? 'cond' : 'serif');
       const h = o.h || 0.4, longest = lines.reduce((a, b) => Math.max(a, b.length), 1);
-      const w = o.w || Math.max(h, (h / lines.length) * 0.8 * WIDE[font] * (longest + 2.5) * (o.track ? 1 + o.track : 1));
+      const w = Math.min(o.maxW || 1e9, o.w || Math.max(h, (h / lines.length) * 0.8 * WIDE[font] * (longest + 2.5) * (o.track ? 1 + o.track : 1)));
       let r, top, n;
       if (o.up !== undefined) { top = [Math.sin(o.up), 0, Math.cos(o.up)]; r = [-top[2], 0, top[0]]; n = [0, 1, 0]; }
       else {
@@ -585,9 +588,9 @@ function* buildSigns(D) {
   const entries = new Map();
   for (const s of list) {
     const d = D.dist(s.C[0], s.C[1], s.C[2]);
-    const ppm = d < 12 ? 340 : d < 30 ? 220 : d < 70 ? 120 : 64;
-    let ph = Math.round(Math.min(420, Math.max(18, s.h * ppm))), pw = Math.round(ph * s.w / s.h);
-    if (pw > 1300) { ph = Math.round(ph * 1300 / pw); pw = 1300; }
+    const ppm = d < 12 ? 300 : d < 30 ? 190 : d < 70 ? 100 : 52;
+    let ph = Math.round(Math.min(360, Math.max(16, s.h * ppm))), pw = Math.round(ph * s.w / s.h);
+    if (pw > 1000) { ph = Math.round(ph * 1000 / pw); pw = 1000; }
     const key = [s.lines.join('|'), s.style, s.font, s.font2 || '', s.ground, s.ink, s.upper ? 1 : 0, s.track, s.head ? 1 : 0, (s.w / s.h).toFixed(2)].join('~');
     let e = entries.get(key);
     if (!e) entries.set(key, e = { key, lines: s.lines, style: s.style, font: s.font, font2: s.font2, ground: s.ground, ink: s.ink, upper: s.upper, track: s.track, head: s.head, pw, ph });
@@ -789,17 +792,20 @@ const FRONTS = {
     g.floor(u0 + 0.12, 0.26, u1 - 0.12, dep, hi, shade(b.inside, 0.85), { down: true, emit: em * 0.5 });
     g.floor((u0 + u1) / 2 - 0.5, dep * 0.4, (u0 + u1) / 2 + 0.5, dep * 0.4 + 0.3, hi - 0.01, '#fff0d0', { down: true, emit: 3.5 * D.glowK });
     if (!b.frosted) {
-      // shelves along the back wall, a counter, and the window's own show
+      // shelves along the back wall, a counter, and the window's own show on a step with a painted screen behind it
       for (let k = 0; k < 3; k++) {
-        const y = 0.85 + k * 0.48; g.box(u0 + 0.3, y, dep - 0.3, u1 - 0.3, y + 0.03, dep, b.trim, { skip: 's' });
-        for (let x = u0 + 0.4; x < u1 - 0.55; x += 0.3 + 0.25 * rng()) { if (rng() < 0.2) continue; const w = 0.14 + 0.12 * rng(); g.box(x, y + 0.03, dep - 0.24, x + w, y + 0.12 + 0.2 * rng(), dep - 0.05, hue(rng(), 0.4 * pal.goods, 0.3 + 0.3 * rng()), { skip: 'bs', emit: 0.25 }); }
+        const y = 1.0 + k * 0.46; g.box(u0 + 0.3, y, dep - 0.32, u1 - 0.3, y + 0.035, dep, b.trim, { skip: 's' });
+        for (let x = u0 + 0.4; x < u1 - 0.55; x += 0.34 + 0.2 * rng()) { if (rng() < 0.15) continue; const w = 0.2 + 0.12 * rng(); g.box(x, y + 0.035, dep - 0.27, x + w, y + 0.16 + 0.2 * rng(), dep - 0.05, hue(rng(), 0.55 * pal.goods, 0.3 + 0.25 * rng()), { skip: 'bs', emit: 0.3 }); }
       }
       const cu = ds ? w0 + 0.3 : w1 - 1.7; g.box(cu, 0, dep - 1.5, cu + 1.4, 0.92, dep - 0.95, b.dado, { skip: 'b', top: shade(b.trim, 1.5) });
+      if (b.goods && b.goods !== 'none' && b.goods !== 'drawings') { const sc = shade(b.door, 0.85); g.box(w0, 0.2, 0.9, w1, sill + 0.5, 0.94, sc, { skip: 'b', emit: 0.12 }); g.floor(w0, 0.1, w1, 0.9, sill + 0.058, shade(b.trim, 1.7)); }
       (GOODS[b.goods] || GOODS.none)(D, P, run, w0 + 0.08, w1 - 0.08, sill + 0.06, 0.1, 0.85, rng, pal.goods);
     }
+    // a small lamp on each pier
+    for (const pu of [u0 + pier / 2, u1 - pier / 2]) { g.box(pu - 0.045, 2.02, -0.16, pu + 0.045, 2.16, -0.07, '#ffe9c0', { emit: 3 * D.glowK, skip: 's' }).box(pu - 0.06, 2.16, -0.17, pu + 0.06, 2.19, -0.07, '#3f3f40'); D.glows.push({ p: run.pt(pu, 2.09, -0.18), color: pal.lamp, power: 1.1 * D.glowK, size: 0.42 }); }
     // its name: on the board, and on a sign hung out over the street
     const mid = (u0 + u1) / 2, sg = b.sign || {};
-    if (b.name) D.sign(b.name, { run, at: run.pt(mid, (fas0 + fas1) / 2, -0.056), w: u1 - u0 - 2 * pier - 0.08, h: fas1 - fas0 - 0.05, style: sg.style || 'board', font: sg.font || b.font, ground: b.ground, ink: b.ink, glow: sg.glow || 0, upper: sg.upper, track: sg.track });
+    if (b.name) D.sign(b.name, { run, at: run.pt(mid, (fas0 + fas1) / 2, -0.056), maxW: u1 - u0 - 2 * pier - 0.08, h: fas1 - fas0 - 0.07, style: sg.style || 'board', font: sg.font || b.font, ground: b.ground, ink: b.ink, glow: sg.glow || 0, upper: sg.upper, track: sg.track });
     const jut = D.clear(...run.pt(mid, 2.1, -0.7), 1.25);
     if (b.awning && jut) awning(P, u0 + pier - 0.1, u1 - pier + 0.1, fas0 + 0.04, head - 0.18, 1.15, b.awning, rng, pal.goods < 0.9);
     else if (b.blade && jut) {
@@ -827,7 +833,7 @@ const FRONTS = {
     for (let k = 0; k < 3; k++) { const y = 1.0 + k * 0.45; g.box(u0 + 0.3, y, dep - 0.3, u1 - 0.3, y + 0.03, dep, b.trim, { skip: 's' }); for (let x = u0 + 0.4; x < u1 - 0.5; x += 0.32 + 0.2 * rng()) g.box(x, y + 0.03, dep - 0.24, x + 0.18, y + 0.14 + 0.18 * rng(), dep - 0.05, hue(rng(), 0.4 * pal.goods, 0.3 + 0.3 * rng()), { skip: 'bs', emit: 0.25 }); }
     (GOODS[b.goods] || GOODS.none)(D, P, run, u0 + pier + 0.05, u1 - pier - 0.05, 0.95, -0.3, 0.3, rng, pal.goods);
     const mid = (u0 + u1) / 2;
-    if (b.name) D.sign(b.name, { run, at: run.pt(mid, (head + fas1) / 2, -0.046), w: u1 - u0 - 2 * pier - 0.08, h: fas1 - head - 0.06, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
+    if (b.name) D.sign(b.name, { run, at: run.pt(mid, (head + fas1) / 2, -0.046), maxW: u1 - u0 - 2 * pier - 0.08, h: fas1 - head - 0.08, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
     if (b.awning && D.clear(...run.pt(mid, 2.1, -0.7), 1.25)) awning(P, u0 + pier - 0.1, u1 - pier + 0.1, head - 0.02, head - 0.3, 1.1, b.awning, rng, pal.goods < 0.9);
     D.glows.push({ p: run.pt(mid, head - 0.2, 0.3), color: pal.shop, power: 1.4 * b.lit * D.glowK, size: 1.4 });
     if (rng() < 0.7) D.spots.push({ p: run.pt(mid + rng.f(-0.6, 0.6), 0, 1.0), yaw: run.yaw + Math.PI });
@@ -987,7 +993,7 @@ export function* frontage(D, run, spec) {
     if (b.door === undefined) b.door = vary(pick(rng, pal.doors), rng, 0.08);
     if (b.ground === undefined) { b.ground = sg[0]; if (b.ink === undefined) b.ink = sg[1]; } else if (b.ink === undefined) b.ink = '#efe6cf';
     if (b.font === undefined) b.font = pick(rng, ['serif', 'serif', 'serif', 'italic', 'cond', 'sans']);
-    if (b.inside === undefined) b.inside = mixc(pal.shop, pick(rng, pal.walls), 0.35 + 0.3 * rng());
+    if (b.inside === undefined) b.inside = vary(pick(rng, pal.rooms), rng, 0.08);
     if (b.floorIn === undefined) b.floorIn = vary(pal.strip, rng, 0.1);
     if (b.lit === undefined) b.lit = rng() < litK ? 0.6 + 0.4 * rng() : 0.12;
     if (b.doorSide === undefined) b.doorSide = rng() < 0.5 ? 0 : 1;
@@ -996,8 +1002,9 @@ export function* frontage(D, run, spec) {
     if (b.blade === undefined) b.blade = !b.awning && rng() < (fill && fill.blades !== undefined ? fill.blades : 0.5) && b.name && b.name.length <= 11;
     if ((b.kind === 'home' || b.kind === 'flat') && b.number === undefined && number) { b.number = number; number += 1 + Math.floor(rng() * 2); }
     b.at = (t, y = 0, v = 0) => run.pt(lerp(b.u0, b.u1, t), y, v);
-    const draw = FRONTS[b.kind];
+    const draw = FRONTS[b.kind], tt0 = performance.now();
     if (draw) { const P = D.pen(run, mid, spec.part || ''); draw(D, P, run, b, H); P.done(); }
+    if (performance.now() - tt0 > 12) console.log('[deck-time] front ' + b.kind + ' ' + (b.name || '') + ' w=' + (b.u1 - b.u0).toFixed(1) + ' fine=' + b.fine + ' ' + (performance.now() - tt0).toFixed(0) + ' ms');
     // something stood outside, and someone looking in
     if (b.fine && (b.kind === 'shop' || b.kind === 'stall') && b.props !== false) {
       const q = b.rnd[2], pu = lerp(b.u0 + 0.5, b.u1 - 0.5, b.rnd[1]), pp = run.pt(pu, 0, -0.5);
@@ -1056,6 +1063,8 @@ export function* street(D, spec) {
     } else P.f.floor(u0, -w / 2 - 0.3, u1, w / 2 + 0.3, 0, floorCol, { emit: shine });
     P.f.tint(0);
     P.g.floor(u0, -w / 2, u1, w / 2, H, pal.ceiling, { down: true });
+    // two pipes along the ceiling, as every street has: one of them the warm loop
+    if (spec.pipes !== false && w > 5) { P.g.box(u0, H - 0.2, -w / 2 + 0.42, u1, H - 0.07, -w / 2 + 0.55, '#a8553a', { skip: 't' }).box(u0, H - 0.17, -w / 2 + 0.66, u1, H - 0.08, -w / 2 + 0.75, pal.metal, { skip: 't' }).box(u0, H - 0.18, w / 2 - 0.58, u1, H - 0.07, w / 2 - 0.47, shade(pal.rib, 0.8), { skip: 't' }); }
     P.done();
     if (D.clk.due()) { yield 'deck: street'; D.clk.go(); }
   }
@@ -1253,7 +1262,8 @@ export function* atrium(D, spec) {
       if (below !== null && below > r) g.floor(sf[0], r, sf[1], below, -1.0, soffit, { down: true });
       // a lamp under the slab every few metres, where the walk below is under cover
       if (below !== null && below > r + 1) for (let u = si[0] + 3; u < si[1] - 2; u += 6) { const v = (r + below) / 2 + 0.6; g.floor(u - 0.45, v - 0.15, u + 0.45, v + 0.15, -1.02, '#fff0d6', { down: true, emit: 3.2 * D.glowK }); D.glows.push({ p: sr.pt(u, -1.08, v), color: pal.lamp, power: 1.6 * D.glowK, size: 0.6 }); }
-      if (!last) for (let u = si[0] + 0.4, nn = Math.max(1, Math.round((si[1] - si[0] - 0.8) / 6)), i = 0; i <= nn; i++, u = lerp(si[0] + 0.4, si[1] - 0.4, i / nn)) g.box(u - 0.1, 0, r + step + 0.08, u + 0.1, ROOM, r + step + 0.28, shade(fascia, 0.94), { skip: 'tb' });
+      const ways = mouths.filter((m) => m.side === s && m.storey === k).map((m) => { const c = sr.u(m.at); return [c - m.width / 2 - 0.4, c + m.width / 2 + 0.4]; });
+      if (!last) for (let u = si[0] + 0.4, nn = Math.max(1, Math.round((si[1] - si[0] - 0.8) / 6)), i = 0; i <= nn; i++, u = lerp(si[0] + 0.4, si[1] - 0.4, i / nn)) { if (!ways.some((q) => u > q[0] && u < q[1])) g.box(u - 0.1, 0, r + step + 0.08, u + 0.1, ROOM, r + step + 0.28, shade(fascia, 0.94), { skip: 'tb' }); }
       else wallN(g, sf[0], sf[1], ROOM, DECK_RISE, r + depth, fascia);
       // the rail: a trough of plants for most of its length, a glass rail for the rest, nothing where a bridge lands
       const gaps = mouths.filter((m) => m.side === s && m.storey === k && m.bridge).map((m) => { const c = sr.u(m.at), gw = m.bridge === true ? m.width : m.bridge; return [c - gw / 2 - 0.1, c + gw / 2 + 0.1]; });
@@ -1291,7 +1301,7 @@ export function* atrium(D, spec) {
     }
   }
   // the ceiling: a field of lamps as bright as an overcast sky
-  const kt = n - 1, cz = spec.ceiling || {}, pan = cz.panel || 5, emit = (cz.emit === undefined ? 5 : cz.emit), cc = cz.color || '#fbf7ee';
+  const kt = n - 1, cz = spec.ceiling || {}, pan = cz.panel || 5, emit = (cz.emit === undefined ? 2.6 : cz.emit), cc = cz.color || '#fbf7ee';
   const TX0 = x0 - outer('anti', kt), TX1 = x1 + outer('spin', kt), TZ0 = z0 - outer('front', kt), TZ1 = z1 + outer('back', kt);
   const VX0 = x0 - (rail('anti', kt) || 0) - step, VX1 = x1 + (rail('spin', kt) || 0) + step, VZ0 = z0 - (rail('front', kt) || 0) - step, VZ1 = z1 + (rail('back', kt) || 0) + step;
   {
@@ -1308,11 +1318,11 @@ export function* atrium(D, spec) {
   }
   // light: the court's floor has the most of it; the terraces a grey share, where they stand open to the ceiling
   // (the box of that light widens as they step back); and there are soft lamps under every slab
-  const pw = lt.power === undefined ? 2.2 : lt.power, sf = lt.soft || 1.5, tq = lt.terraces === undefined ? 0.27 : lt.terraces;
+  const pw = lt.power === undefined ? 1.2 : lt.power, sf = lt.soft || 1.5, tq = lt.terraces === undefined ? 0.3 : lt.terraces;
   D.zone({ min: [x0 - sf, y0 - 0.5, z0 - sf], max: [x1 + sf, top + 1, z1 + sf], soft: sf, color: lt.color || '#f6f2e8', power: pw * (1 - tq), side: 0.36, under: 0.5 });
   D.zone({ min: [x0 - 3, y0 - 0.5, z0 - 3], max: [x1 + 3, top + 1, z1 + 3], soft: 3, flare: step / DECK_RISE, color: lt.terraceColor || '#e3e8ea', power: pw * tq, side: 0.55, under: 0.5 });
   D.lattice({ origin: [TX0 + 1.5, y0 + DECK_RISE + ROOM - 0.1, TZ0 + 1.5], spacing: [3, 3], count: [Math.ceil((TX1 - TX0) / 3), Math.ceil((TZ1 - TZ0) / 3)], storeys: n - 1, rise: DECK_RISE, power: lt.walks === undefined ? 0.13 : lt.walks, reach: 3.2 });
-  D.sky({ x0: VX0, z0: VZ0, x1: VX1, z1: VZ1, y: top, floor: y0, color: cc, power: lt.gloss === undefined ? 1.6 : lt.gloss });
+  D.sky({ x0: VX0, z0: VZ0, x1: VX1, z1: VZ1, y: top, floor: y0, color: cc, power: lt.gloss === undefined ? 0.5 : lt.gloss });
   // people on the court's floor
   const area = (x1 - x0) * (z1 - z0);
   for (let i = 0, m = Math.round(fk.floor * area / 100 * D.density / 2.2); i < m; i++) {

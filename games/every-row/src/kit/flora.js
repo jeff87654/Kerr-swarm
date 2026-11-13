@@ -96,7 +96,7 @@ export function* scatterTrees(hollow, opts = {}) {
       const r = cellRand(gx, gz);
       const x = (gx + 0.15 + 0.7 * r[0]) * S, z = (gz + 0.15 + 0.7 * r[1]) * S;
       const s = hollow.at(x, z);
-      if (r[2] >= s.wood + 0.02 || s.water > 0.2) continue;
+      if (s.wood < 0.05 || r[2] >= s.wood + 0.02 || s.water > 0.2) continue;
       const d = nearPath(coarse, x, z, C);
       if (d > R2) continue;
       if (d > R && hash2(gx, gz, 37) > 1 - (d - R) / (R2 - R)) continue;
