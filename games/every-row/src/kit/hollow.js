@@ -510,18 +510,30 @@ export function* buildHollow(ctx, spec) {
   const pav = [];
   const sum = (w) => (w && w.depths ? w.depths : tierDepths()).reduce((a, b) => a + b, 0);
   const frontD = sum(spec.front), backD = sum(spec.back);
-  yield* plan.settle();
+  // the plan is read back once (a layer a step): the reading places the pavilions here and answers hollow.at() ever after
+  const sampler = yield* plan.reader();
   if (spec.pavilions !== false) {
     const rng = makeRng((spec.seed || 'hollow') + 'pav');
-    const early = plan.sampler(512, 256);
     for (let z = frontD + 60; z < L - backD - 40; z += 170) for (let x = 0; x < C - 80; x += C / Math.round(C / 170)) {
-      const px = x + rng.f(-28, 28), pz = z + rng.f(-28, 28), s = early(px, pz);
+      const px = x + rng.f(-28, 28), pz = z + rng.f(-28, 28), s = sampler(px, pz);
       if (s.water > 0.2) continue;
       pav.push([px, pz]);
     }
     plan.dots(pav, 9, { color: '#b9b29c', alpha: 0.8, paved: 1, clear: ['wood', 'rows'] });
     plan.dots(pav, 2.0, { lamp: 0.9 });
     for (const q of pav) plan.features.push({ type: 'pavilion', x: q[0], z: q[1] });
+    // the pavilions are painted after the reading: mark their paving in it by hand (no trees or rows where one stands)
+    const d = sampler.data, sx = C / d.w, sz = L / d.h;
+    for (const q of pav) {
+      const cx = Math.floor(q[0] / sx), cz = Math.floor(q[1] / sz);
+      for (let iz = cz - 2; iz <= cz + 2; iz++) for (let ix = cx - 1; ix <= cx + 1; ix++) {
+        if (iz < 0 || iz >= d.h) continue;
+        const ddx = (ix + 0.5) * sx - q[0], ddz = (iz + 0.5) * sz - q[1];
+        if ((ix !== cx || iz !== cz) && ddx * ddx + ddz * ddz > 81) continue;
+        const i = (iz * d.w + ((ix % d.w) + d.w) % d.w) * 4;
+        d.M[i + 1] = 0; d.K[i] = 255; d.K[i + 1] = 0;
+      }
+    }
   }
   yield* plan.settle();
   yield 'hollow: pavilions';
@@ -569,13 +581,12 @@ export function* buildHollow(ctx, spec) {
   }
   yield 'hollow: walls';
 
-  let sampler = null;
   const H = {
     group, rig, frame, plan, tex, ground, walls: [wf, wb], lit, litDouble, plain, pavilions: pav, rod, halo,
     walk: litMaterial(rig, { bend: frame, walk: true }),
     wallDepths: [wf.userData.depths, wb.userData.depths], wallTotal: [wf.userData.total, wb.userData.total],
     /** read the plan at (x, z): { water, wood, lamp, paved, rows, life, r, g, b } */
-    at(x, z) { if (!sampler) sampler = plan.sampler(); return sampler(x, z); },
+    at(x, z) { return sampler(x, z); },
     /** flat (x, y, z) -> a point on the drum */
     point(x, y, z, out) { return frame.point(x, y, z, out); },
     /** night lamp strength and the share of windows lit: for worlds that change light as they go */

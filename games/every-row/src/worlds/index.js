@@ -8,6 +8,9 @@ import { squallSwell } from './squall_swell.js';
 import { gloamingDusk } from './gloaming_dusk.js';
 import { chervilFlight } from './chervil_flight.js';
 import { madderGardens } from './madder_gardens.js';
+import { dulseNoodle } from './dulse_noodle.js';
+import { borageFountains } from './borage_fountains.js';
+import { carillonChoirs } from './carillon_choirs.js';
 
 export const WORLDS = [
   sorrelLake,
@@ -18,5 +21,8 @@ export const WORLDS = [
   squallSwell,
   gloamingDusk,
   madderGardens,
+  dulseNoodle,
+  borageFountains,
+  carillonChoirs,
   chervilFlight,
 ];

@@ -273,10 +273,20 @@ export class Plan {
    */
   sampler(w = 1024, h = 512) {
     this.settleNow();
-    const grab = (cv) => { const c = canvas(w, h), cx = c.getContext('2d', { willReadFrequently: true }); cx.drawImage(cv, 0, 0, w, h); return cx.getImageData(0, 0, w, h).data; };
-    const A = grab(this.cv.alb), M = grab(this.cv.mask), K = grab(this.cv.kind);
+    return this._reader(this._grab(this.cv.alb, w, h), this._grab(this.cv.mask, w, h), this._grab(this.cv.kind, w, h), w, h);
+  }
+  /** The same reader made a layer a step, `const at = yield* plan.reader()`: reading one layer back takes tens of milliseconds. */
+  *reader(w = 1024, h = 512) {
+    yield* this.settle();
+    const A = this._grab(this.cv.alb, w, h); yield 'plan: reading';
+    const M = this._grab(this.cv.mask, w, h); yield 'plan: reading';
+    const K = this._grab(this.cv.kind, w, h); yield 'plan: reading';
+    return this._reader(A, M, K, w, h);
+  }
+  _grab(cv, w, h) { const c = canvas(w, h), cx = c.getContext('2d', { willReadFrequently: true }); cx.drawImage(cv, 0, 0, w, h); return cx.getImageData(0, 0, w, h).data; }
+  _reader(A, M, K, w, h) {
     const Cc = this.C, Ll = this.L, out = { water: 0, wood: 0, lamp: 0, paved: 0, rows: 0, life: 0, r: 0, g: 0, b: 0 };
-    return (x, z) => {
+    const at = (x, z) => {
       let ix = Math.floor((((x % Cc) + Cc) % Cc) / Cc * w); if (ix >= w) ix = w - 1;
       let iz = Math.floor(z / Ll * h); iz = iz < 0 ? 0 : iz >= h ? h - 1 : iz;
       const i = (iz * w + ix) * 4;
@@ -285,6 +295,8 @@ export class Plan {
       out.r = A[i] / 255; out.g = A[i + 1] / 255; out.b = A[i + 2] / 255;
       return out;
     };
+    at.data = { A, M, K, w, h };      // the pixels themselves (rgba bytes), for whoever paints after the reading and must keep it true
+    return at;
   }
 }
 
