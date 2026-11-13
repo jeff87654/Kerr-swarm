@@ -22,7 +22,10 @@ def field(text, name):
 
 def journey():
     index = (WORLDS / "index.js").read_text(encoding="utf-8")
-    files = dict(re.findall(r"import \{ (\w+) \} from '\./(\w+)\.js';", index))
+    files = {}
+    for names, f in re.findall(r"import \{ ([\w, ]+) \} from '\./(\w+)\.js';", index):
+        for name in names.split(","):
+            files[name.strip()] = f
     order = re.search(r"export const WORLDS = \[(.*?)\];", index, re.S).group(1)
     out = []
     for name in re.findall(r"\b(\w+)\b", order):
@@ -30,7 +33,8 @@ def journey():
             continue
         text = (WORLDS / (files[name] + ".js")).read_text(encoding="utf-8")
         card = text[text.index("export const " + name):]
-        out.append({k: field(card, k) for k in ("id", "title", "drum", "row", "kind", "line")})
+        # a file that makes two worlds from one builder keeps what they share (the drum, the kind) outside the card
+        out.append({k: field(card, k) or field(text, k) for k in ("id", "title", "drum", "row", "kind", "line")})
     return out
 
 
