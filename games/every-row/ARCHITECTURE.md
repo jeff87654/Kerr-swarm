@@ -8,7 +8,7 @@ This file is the contract between the parts. A world file that follows it can be
 
 ```
 index.html            the page, for development (python tools/serve.py, then http://localhost:5210/)
-dev.html              one world alone: dev.html?file=<name of a file in src/worlds, without .js>
+dev.html              one world alone: dev.html?file=<name of a file in src/worlds, without .js>; or several in order, file=a,b
 src/main.js           entry: the list of worlds, handed to boot()
 src/boot.js           starts the engine, the interface and the sound
 src/dev.js            entry for dev.html (not part of the release)
@@ -30,7 +30,11 @@ src/worlds/*.js       one file per world; index.js lists them in the journey's o
 src/ui/               the interface and its stylesheet
 tools/serve.py        dev server            tools/shot.mjs   pictures and smoke tests in headless Chrome
 tools/sheet.py        contact sheets        tools/build.py   the release bundler (one HTML file)
+tools/flow.mjs        the whole journey, every crossing      tools/hitch.mjs   slow frames in a live run
+tools/gaze.mjs        how fast the camera turns in a flight  tools/worlds.py   the list of worlds for the README
+tools/cross.mjs       one crossing, looked at closely: the approach, the way through, the arrival
 content/brief.md      what a world should be, and what the docs allow
+content/brief-rooms.md   the same for a place indoors: what a room needs, kit notes, what makes the flight stutter
 ```
 
 ## Rules for every source file
@@ -40,6 +44,8 @@ The release bundler (`tools/build.py`) reads a strict subset of module syntax. B
 - Imports are static, named and relative, and end in `.js`: `import { a, b } from '../kit/geo.js';`. From three: `import { Vector3, Mesh } from 'three';`.
 - Exports are `export function`, `export function*`, `export class` or `export const`, starting at column 0. No default exports, no `export { a, b }`, no re-exports.
 - No top-level `await`, no dynamic `import()`, no side-effect imports.
+- No top-level name `THREE`, `__mods` or `__req` in a module: the bundle keeps three.js and its modules under those names, and a module's own would hide them (a constant `THREE` holding the strokes of a figure 3 once did: the dev page ran and the built page did not start).
+- The built page is the release: after `python tools/build.py`, load it (`node tools/shot.mjs --page dist/index.html ...`, `node tools/flow.mjs --page dist/index.html`) before calling anything done.
 - Run `python tools/build.py --check` before you call a file done. It also checks the writing rules below.
 - Windows notes: write files with LF line endings; do not paste long scripts into the shell (they arrive cut off or with backslashes eaten): write a script file and run it.
 
@@ -93,6 +99,7 @@ What `build` returns:
 | `look` | `{ exposure, bloom, threshold, spread, vignette, grain, saturation, contrast, lift:[r,g,b], gain:[r,g,b] }`, any subset. Keep hold of the object: `update()` may change its numbers as the light changes. Defaults: 1, 0.15 (use 0.1 to 0.35), 1, 1, 0.45, 0.03, 1.05, 1.03 |
 | `update(t, dt, camera, engine)` | called each frame with the seconds into the flight. Also called while this world is only seen through the last world's opening, with t = 0. Keep it cheap |
 | `portal` | options for the opening at the end: `{ shape: 'rect', width, height }` for a doorway instead of a disc; `rim: false` to leave off the glowing ring; `rimPower`; `mist` (colour); `openFor` (seconds before the crossing that the next world is drawn through it, default 16: until then it holds mist) |
+| `onPortal(mesh, rim)` | called once, when the engine has made the opening, with its mesh and its rim's (or null). For a world that must hold back or move its own opening: `carillon_peal.js` keeps it hidden until the tenor bell is standing and turns it with the bell's mouth |
 | `dispose()` | free anything the engine cannot find by walking the scene (it disposes geometries, materials and their textures itself) |
 
 Yield after every big step, and inside long loops by the clock: `if (performance.now() - t0 > 4) { yield 'trees'; t0 = performance.now(); }`. A `yield` may carry a few words saying what was just done; with `?debug` the engine logs any single step over 40 ms by that name (shot.mjs prints it as "steps over 40 ms"), and one long step is a visible stall in the world on screen. Kit builders that are generators are called with `yield*`.
@@ -214,7 +221,7 @@ scene.add(deck.group);
 Words: an avenue (axis `'x'`, spinward, curving up ahead) has a `front` side (-z) and a `back` side; a street (axis `'z'`, dead straight) has an `anti` side (-x) and a `spin` side. A court's four sides take the same names. Places along a street or a side are given as plain deck co-ordinates (an x or a z).
 
 - `makeDeck(ctx, { frame, near, palette, light: { level }, floor, seed, clock })` opens the place. `PALETTES.warm`, `.bright` and `.dim` are three paints (walls, dado, trim, doors, awnings, sign boards, floors, leaves, lamp and window colours): spread one and change what differs. `light.level` scales every lamp and lit window: 0.5 is hushed, 0.85 a plain warm drum, 1.5 a drum that spends on its lamps. The deck it returns has the materials (`lit`, `litDouble`, `prop`, `walk`, `drift`, `plain`), `bucket(x, z)` and `pen(run)` for drawing your own geometry into its meshes, and the calls below.
-- `street(deck, spec)` (a generator): floor with a trolley's rails, ceiling with flat arched ribs and pipes, a row of lamps (panels or hanging globes) and their light, both rows of fronts, name plates hung across, people, flags. `fronts` places the ones you care about; `fill` makes the rest from a mix of kinds and a list of trades. Two stretches of one street either side of a court share one rhythm of lamps with `lamps.grid`, and one lattice of light with `lamps.lattice`.
+- `street(deck, spec)` (a generator): floor with a trolley's rails, ceiling with flat arched ribs and pipes, a row of lamps (panels or hanging globes) and their light, both rows of fronts, name plates hung across, people, flags. `fronts` places the ones you care about; `fill` makes the rest from a mix of kinds and a list of trades. Two stretches of one street either side of a court share one rhythm of lamps with `lamps.grid`, and one lattice of light with `lamps.lattice`. The ribs spring above the lettering of the shop boards (a rib that springs lower stands in front of the names, seen along the street). They are drawn last, by `finish()`, when every sign on the deck is known: a rib that would stand in front of a sign set higher than that (a hall's name on its beam, a stair's plate, a name over the window of a front of your own) is moved along to the nearest clear place, or left out. If you draw beams or ribs of your own, keep them clear of lettering in the same way.
 - **Fronts** (`frontage(deck, run, spec)` is the row on its own). Kinds: `shop` (door, window with `goods` in it, name on a board, an awning or a hanging sign, a card in the window), `stall` (an open counter), `home` (a door in a wall: homes have no windows), `flat` (a home on a court's terrace, with windows), `hall` (piers and a beam: the open side of a hall), `stair`, `wall` (with a `notice` or a bench), `gap` (a way through), `custom` (`draw(P, bay, run, H)` draws it in the row's own co-ordinates). `goods`: bread, greens, cloth, pots, books, lamps, toys, shoes, flutes, jars, tea, noodles, bottles, paper, drawings. The row returns its bays; `row.find(id).at(t, y, v)` is a point of one, for standing your own things in a shop.
 - `atrium(deck, spec)` (a generator): a court. Its terraces step back as they rise, so each ring of planting stands in the light. It makes the floor (with paving bands), each storey's terrace, rail of planted troughs and glass, posts, flats with lit windows, lamps under the slabs, people at the rails, and a ceiling of lamps; and it sets the light: the floor brightest, the terraces a share of it (`light.terraces`, 0.3). `sides.spin.wall: 2` leaves a sheer wall two storeys tall on that side. `mouths` are where streets come out. It returns `rail(side, storey)`, `wall(side, storey)`, `y(storey)` and `sideRun(side, storey)`.
 - `bridge(deck, spec)`: a way across a court, hung on rods from its ceiling. `trolley(deck, spec)`: slow cars with riders along a line (a street calls it for its own; call it yourself for a line that runs on over a bridge). Things that travel keep the page's clock, so where a trolley is when the camera comes by is chance. To choose, open the deck with `clock: 'flight'`, give `trolley` its `cars: [places at the flight's start]`, and call `deck.tick(t)` from the world's `update(t)`: Ashgrove overtakes one car by the stair and follows another out over the Court.

@@ -919,6 +919,9 @@ export const ochreChart = {
     const up0 = [0, 1, 0], upR = (deg) => [-Math.sin((deg * Math.PI) / 180), Math.cos((deg * Math.PI) / 180), 0];
     // a cab's height a moment after it leaves, for looking at it
     const cabY = (t) => gw.at(heroS(t)).y;
+    // a key with its look point k times as far off along the same line of sight: the picture at the key is the same,
+    // and the point no longer passes close by the camera on its way to the next key's, which swings the view round
+    const past = (key, k) => ({ ...key, look: key.look.map((v, i) => key.p[i] + (v - key.p[i]) * k) });
     const path = makePath([
       // the wheel: the whole wall ahead, a kilometre and more off, rising toward it over the works
       { t: 0, p: [40, 60, 1650], up: up0, fov: 76 },
@@ -928,21 +931,54 @@ export const ochreChart = {
       { t: 11, p: [14, 62, 830], look: [6, 3, 470], up: up0, fov: 62 },
       { t: 13, p: [10, 28, 545], look: [5, 2, 440], up: up0, fov: 60 },
       { t: 14.8, p: [8, 3.8, WALL_FOOT + 104], up: up0 },
-      { t: 16.5, p: [1.6, 2.7, MARIT.z + 6], look: [MARIT.x - 1.3, 1.25, MARIT.z - 0.6], up: up0 },
+      past({ t: 16.5, p: [1.6, 2.7, MARIT.z + 6], look: [MARIT.x - 1.3, 1.25, MARIT.z - 0.6], up: up0 }, 2),
       { t: 19, p: [7, 4.4, GW_Z0 + 17], look: [2.3, 1.6, GW_Z0], up: up0 },
       // up beside the cab, then the climb
-      { t: 21.5, p: camF(15, 8, gz(8) + 16), look: camF(1, cabY(21.5) + 14, gz(cabY(21.5) + 14)), up: up0 },
+      past({ t: 21.5, p: camF(15, 8, gz(8) + 16), look: camF(1, cabY(21.5) + 14, gz(cabY(21.5) + 14)), up: up0 }, 1.25),
       { t: 24, p: camF(10, 40, gz(40) + 9), look: camF(1, 140, gz(140)), up: up0 },
-      { t: 28, p: camF(30, 280, gz(280) + 50), look: camF(-40, 400, gz(400) - 30), up: up0 },
-      { t: 32, p: camF(60, 560, gz(560) + 120), look: [600, 0, 1000], up: up0, fov: 68 },
-      { t: 35.5, p: camF(24, 880, gz(880) + 50), look: camF(-12, 980, gz(980) - 20), up: up0 },
+      // From here to the hub the view makes four long turns: wall to works, works to wall, the leaning wall to the look
+      // out over the Hollow, and on round to the hub. Keyed only at their ends they each happened in half a second,
+      // the look point passing close by the camera on its way from one key's target to the next. So each is keyed
+      // every 30 degrees or so and takes about four seconds, at an even 40 degrees a second. The keys between the
+      // old ones have their cameras on the track the flight had without them (fitted, since every key bends the
+      // track a little) and their look points 30 to 150 m off along the view; where the picture is rolled, a key's
+      // up may lean toward its line of sight, so that neighbouring ups agree and the roll does not stop at each key.
+      // out from the wall to the works below: a level pan
+      { t: 27, p: [26.93, 210.86, 379.11], look: [-42, 317.4, 288], up: up0 },
+      { t: 27.5, p: [31.76, 246.81, 377.43], look: [-35.4, 347.9, 280.5], up: up0 },
+      { t: 28, p: camF(30, 280, gz(280) + 50), look: [3.3, 367.6, 256.8], up: up0 },
+      { t: 28.67, p: [46.09, 323.5, 375.34], look: [88.8, 386.2, 243], up: up0, fov: 58.7 },
+      { t: 29.33, p: [58.09, 366.77, 377.64], look: [182.1, 399.4, 264], up: up0, fov: 60.6 },
+      { t: 30, p: [71.09, 411.79, 379.89], look: [257.4, 411.4, 314.6], up: up0, fov: 63 },
+      { t: 30.67, p: [83.04, 458.65, 379.7], look: [291.5, 427.6, 379], up: up0, fov: 65.4 },
+      { t: 31.33, p: [91.82, 507.34, 374.62], look: [276.6, 451.1, 434.3], up: up0, fov: 67.3 },
+      { t: 32, p: camF(60, 560, gz(560) + 120), look: [224.6, 483.7, 460.2], up: up0, fov: 68 },
+      // the works held, then round to the wall again, the lean coming on as it returns
+      { t: 33, p: [89.77, 646.35, 325.48], look: [201.7, 561.8, 429.9], up: up0, fov: 66 },
+      { t: 34.25, p: [71.18, 763.5, 261.65], look: [313.2, 709.6, 328.5], up: up0, fov: 60.9 },
+      { t: 35.5, p: camF(24, 880, gz(880) + 50), look: [412.9, 878.3, 172.6], up: up0 },
+      { t: 36.5, p: [57.14, 973.61, 171.54], look: [366.8, 1025.3, 75.5], up: [-0.263, 0.962, -0.078] },
+      { t: 37.5, p: [59.9, 1068.29, 143.36], look: [174.2, 1168.9, 35.9], up: [-0.443, 0.893, -0.081] },
       // the lean: down swings sideways, then toward the axis
       { t: 38.5, p: camF(15, 1150, gz(1150) + 26), look: camF(-6, 1260, gz(1260) - 10), up: upR(30) },
-      { t: 41.5, p: camF(10, 1320, gz(1320) + 16), look: camF(-30, 1350, gz(1350) - 12), up: upR(75) },
-      { t: 44, p: camF(7, 1400, gz(1400) + 12), look: camF(-10, 1380, gz(1380) - 6), up: upR(140) },
-      // through the hall, then back and back from the wall until it is a whole wheel again
-      { t: 46.5, p: [0, 1445, 90], look: [700, 1300, 260], up: upR(180), fov: 66 },
-      { t: 50, p: [0, 1360, 480], look: [0, 1500, 0], up: upR(230), fov: 72 },
+      // from the leaning wall round by the length of the Hollow to the look out over it from the hall, down now toward
+      // the axis
+      { t: 41.5, p: camF(10, 1320, gz(1320) + 16), look: [-379.33, 1355.93, 23.21], up: upR(75) },
+      { t: 42.2, p: [90.59, 1348.23, 51.15], look: [-472.02, 1383.13, 44.9], up: [-0.876, 0.09, 0.474] },
+      { t: 42.9, p: [104.42, 1370.09, 40.22], look: [-393.29, 1398.81, 61.07], up: [-0.663, -0.188, 0.725] },
+      { t: 43.45, p: [108.4, 1385.87, 35.58], look: [-243.54, 1405.43, 68.94], up: [-0.461, -0.469, 0.753] },
+      { t: 44, p: camF(7, 1400, gz(1400) + 12), look: [-67.39, 1408.13, 73.32], up: [-0.285, -0.694, 0.661] },
+      { t: 44.7, p: [82.63, 1417.56, 40.12], look: [114.58, 1411.68, 72.49], up: [-0.089, -0.85, 0.519], fov: 59.5 },
+      { t: 45.4, p: [46.59, 1433.2, 48.66], look: [233.42, 1417.44, 72.46], up: [0.099, -0.94, 0.326], fov: 62.7 },
+      // through the hall and on round, by the wall's top terraces, to the hub; then back and back from the wall until
+      // it is a whole wheel again
+      { t: 46.5, p: [0, 1445, 90], look: [568.35, 1432.85, 105.12], up: [0.297, -0.95, 0.1], fov: 66 },
+      { t: 47.1, p: [-9.96, 1440.66, 132.28], look: [701.08, 1433.34, 137.73], up: [0.374, -0.927, 0.042], fov: 66.5 },
+      { t: 47.7, p: [-12.77, 1428.67, 186.88], look: [747.98, 1427.14, 179.19], up: [0.45, -0.893, 0.02], fov: 67.6 },
+      { t: 48.3, p: [-10.24, 1411.7, 252.3], look: [745.12, 1418.83, 222.54], up: [0.539, -0.843, 0.008], fov: 69.1 },
+      { t: 48.9, p: [-6.12, 1392.84, 326.32], look: [549.63, 1413.62, 262.42], up: [0.63, -0.777, 0.005], fov: 70.6 },
+      { t: 49.5, p: [-0.12, 1372.37, 408.8], look: [95.9, 1402.8, 306.5], up: [0.725, -0.689, 0.02], fov: 71.7 },
+      { t: 50, p: [0, 1360, 480], look: [0, 1398.6, 347.8], up: upR(230), fov: 72 },
       { t: 54.5, p: [0, 1250, 1350], look: [0, 1500, 0], up: upR(270), fov: 86 },
       { t: 58.5, p: [0, 830, 1880], look: [0, 1450, 0], up: upR(270), fov: 94 },
       { t: 65, p: [0, 870, 1740], up: upR(270), fov: 94 },

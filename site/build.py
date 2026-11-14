@@ -720,7 +720,7 @@ def build(out, fragment_index=False):
     if rows:
         extra_links.append('<li><a class="card" href="every-row/"><span class="card-title">A Card from Every Row</span>'
                            '<span class="card-blurb">An endless flight through the drums of Merrow, drawn as it flies: Hollows by dawn, noon, dusk and lamp-night, '
-                           'courts and long tables, the glide between drums and the River behind the raft. Nothing to steer</span>'
+                           'the rooms where each drum works, lives and plays, the glide between drums and the River behind the raft. Nothing to steer</span>'
                            '<span class="card-meta">watch</span></a></li>')
     if game:
         extra_links.append('<li><a class="card" href="three-nights/"><span class="card-title">Three Nights Anywhere</span>'

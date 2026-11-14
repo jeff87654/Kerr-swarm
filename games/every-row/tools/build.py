@@ -167,6 +167,14 @@ class Bundle:
         body = EXPORT_DECL_RE.sub(do_export, body)
         if re.search(r"^\s*await\s", "\n".join(l for l in body.split("\n") if not l.startswith((" ", "\t"))), re.M):
             self.warn(f"{rel(path)}: top-level await is not allowed")
+        # In the built page a module is a function inside the bundle, and its imports from three are read out of the
+        # bundle's THREE. A module that declares a THREE of its own at its top level (the stroke of a figure 3, say)
+        # hides that one for the whole module: the page works in development and stops dead when built.
+        for mo in re.finditer(r"^(?:const|let|var|function\*?|class)\s+([A-Za-z_$][\w$]*)", body, re.M):
+            names = [mo.group(1)] + (more_declarators(body, mo.end()) if mo.group(0).split()[0] in ("const", "let", "var") else [])
+            for nm in names:
+                if nm in ("THREE", "__mods", "__req"):
+                    self.warn(f"{rel(path)}: a top-level `{nm}` hides the bundle's own `{nm}` from this module, and the built page fails where the dev page works: rename it")
         m["body"] = body
         for dep in m["deps"]:
             self.load(dep, stack + (path,))

@@ -569,6 +569,7 @@ export function makeDeck(ctx, spec = {}) {
     sky(s) { if (nSky >= 2) return; const c = vec3col(s.color || '#ffffff', s.power === undefined ? 1 : s.power); sky.A[nSky].set(s.x0, s.z0, s.x1, s.z1); sky.B[nSky].set(s.y, s.floor === undefined ? -1e4 : s.floor, 0, 1); sky.C[nSky].set(c.x, c.y, c.z, 1); nSky++; },
   };
   for (const k in PROTOS) D.protos.set(k, { fn: PROTOS[k], leafy: LEAFY.has(k), geo: null });
+  D.ribs = [];      // every street's ribs, for finish() to draw
   return D;
 }
 
@@ -580,6 +581,7 @@ export function makeDeck(ctx, spec = {}) {
 export function* finish(D) {
   const { frame, group, clk } = D;
   clk.go();
+  yield* buildRibs(D);
   for (const b of D.chunks.values()) {
     for (const [geo, mat, order] of [[b.g, D.lit, 0], [b.f, D.floorMat, -1], [b.c, D.litDouble, 0], [b.gl, D.glassMat, 4]]) {
       if (!geo.tris) continue;
@@ -611,6 +613,52 @@ export function* finish(D) {
   yield 'deck: lights';
   yield* buildSigns(D);
   return D;
+}
+
+// The ribs of every street, drawn when every sign on the deck is known. A rib comes down the wall wherever the
+// rhythm puts it. A sign set higher than the ribs spring (a hall's name on its beam, a stair's plate, a studio's name
+// over its window in a world's own front) would have that rib across its lettering, or just in front of it as you
+// come along the street. Such a rib moves along to the nearest clear place, keeping off the lamps and its neighbours;
+// if there is none it is left out. A shop's board is lower than the ribs spring and never moves one.
+function* buildRibs(D) {
+  const T = 0.16, CLEAR = 1.0, S = 10;
+  for (const R of D.ribs) {
+    const { run, w, H } = R, sp = R.spring, rise = H - R.crown - sp, along = run.dir(1, 0);
+    const soffit = (v) => sp + rise * Math.sqrt(Math.max(0, 1 - (2 * Math.min(Math.abs(v), w / 2) / w) ** 2));
+    const keep = [];      // stretches of the street a rib keeps out of: [from, to]
+    for (const s of D.signs) {
+      if (Math.abs(s.n[1]) > 0.5) continue;                                      // lettered on a floor
+      const q = run.inv(s.C[0], s.C[2]), y = s.C[1] - run.oy, top = y + 0.36 * s.h;      // the top of its lettering
+      if (q[0] < R.a - 3 || q[0] > R.z + 3 || Math.abs(q[1]) > w / 2 + 0.6 || y - s.h / 2 > H || top < sp) continue;
+      if (Math.abs(s.n[0] * along[0] + s.n[2] * along[1]) < 0.5) { if (top > soffit(q[1])) keep.push([q[0] - s.w / 2 - T - CLEAR, q[0] + s.w / 2 + T + CLEAR]); }      // on a wall
+      else if (top > soffit(Math.abs(q[1]) + s.w / 2)) keep.push([q[0] - T - 0.3, q[0] + T + 0.3]);                                                                 // hung across
+    }
+    const clear = (u) => !keep.some((k) => u > k[0] && u < k[1]);
+    const placed = [];
+    const fits = (u, i) => u >= R.a - 0.01 && u <= R.z + 0.01 && clear(u) && !R.lamps.some((l) => Math.abs(l - u) < 0.85)
+      && (!placed.length || u - placed[placed.length - 1] > 2.2) && (i + 1 >= R.at.length || R.at[i + 1] - u > 2.2);
+    for (let i = 0; i < R.at.length; i++) {
+      let u = R.at[i];
+      if (!clear(u)) {
+        u = null;
+        for (let d = 0.25; d <= R.every / 2 - 0.5 && u === null; d += 0.25) for (const c of [R.at[i] - d, R.at[i] + d]) if (fits(c, i)) { u = c; break; }
+        if (typeof window !== 'undefined' && window.__ribs) window.__ribs.push({ part: R.part, was: R.at[i], now: u, from: run.pt(R.at[i] - 9, 1.7, 0), to: run.pt(R.at[i] + 9, 1.7, 0), at: run.pt(R.at[i], 2.5, 0) });      // (a tool that wants to hear of it sets window.__ribs = [])
+        if (u === null) continue;
+      }
+      placed.push(u);
+      const p0 = run.pt(u, H - 0.4, 0);
+      const seg = D.fine(p0[0], p0[1], p0[2], 3) ? S : 4, P = D.pen(run, Math.min(R.z - 0.1, Math.max(R.a + 0.1, u)), R.part), g = P.g;
+      for (let k = 0; k < seg; k++) {
+        const va = lerp(-w / 2, w / 2, k / seg), vb = lerp(-w / 2, w / 2, (k + 1) / seg), ya = soffit(va), yb = soffit(vb);
+        g.quad([u - T, ya, va], [u + T, ya, va], [u + T, yb, vb], [u - T, yb, vb], R.color);                                   // the soffit
+        g.quad([u - T, ya, va], [u - T, yb, vb], [u - T, H, vb], [u - T, H, va], shade(R.color, 0.93));                      // its two faces
+        g.quad([u + T, yb, vb], [u + T, ya, va], [u + T, H, va], [u + T, H, vb], shade(R.color, 0.93));
+      }
+      P.done();
+      if (D.clk.due()) { yield 'deck: ribs'; D.clk.go(); }
+    }
+  }
+  yield 'deck: ribs';
 }
 
 function* buildSigns(D) {
@@ -860,7 +908,7 @@ const FRONTS = {
     else if (b.blade && jut) {
       const bu = ds ? u0 + pier * 0.5 : u1 - pier * 0.5, word = typeof b.blade === 'string' ? b.blade : b.name;
       g.box(bu - 0.02, fas1 - 0.1, -0.98, bu + 0.02, fas1 - 0.06, -0.05, '#4a4b4c').box(bu - 0.025, fas0 - 0.36, -0.95, bu + 0.025, fas1 - 0.14, -0.25, b.ground);
-      if (word) for (const sd of [1, -1]) D.sign(word, { run, side: sd, at: run.pt(bu + sd * 0.027, (fas0 - 0.36 + fas1 - 0.14) / 2, -0.6), w: 0.66, h: fas1 - fas0 + 0.18, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
+      if (word) for (const sd of [1, -1]) D.sign(word, { run, side: sd, at: run.pt(bu + sd * 0.034, (fas0 - 0.36 + fas1 - 0.14) / 2, -0.6), w: 0.66, h: fas1 - fas0 + 0.18, style: 'board', font: b.font, ground: b.ground, ink: b.ink });
     }
     if (b.sub) D.sign(b.sub, { run, at: run.pt(ds ? w1 - 0.5 : w0 + 0.5, head - 0.3, 0.04), h: Array.isArray(b.sub) ? 0.4 : 0.24, w: 0.82, style: 'card', font: 'cond' });
     if (b.lit > 0.3) D.glows.push({ p: run.pt(mid, head - 0.2, 0.9), color: pal.shop, power: 0.4 * b.lit * D.glowK, size: 1.3 });
@@ -1006,6 +1054,9 @@ const FRONTS = {
  *                trades: [[name, goods], ...], lit: 0.8, awnings: 0.4, blades: 0.4, numbers: 100 (first door number) } or false
  *   paint        { wall, dado, trim }: one paint for the whole row, where a front does not give its own
  *   part         a name: keeps this row's geometry in meshes of its own
+ *   ribs         { at: [u, ...], spring }: where a street's ribs are due to come down on this row, in the run's own u
+ *                (street() gives it). A bay's clearOfRibs(u, half, lo, hi) uses it, for a world that would rather move a
+ *                sign of its own than have finish() move the rib
  * A front: { kind: 'shop' | 'stall' | 'home' | 'flat' | 'wall' | 'hall' | 'stair' | 'gap' | 'custom', id, and any of
  *   name (on its board), sub (a card by the door), goods ('bread', 'greens', 'cloth', 'pots', 'books', 'lamps', 'toys', 'shoes',
  *   'flutes', 'jars', 'tea', 'noodles', 'bottles', 'paper', 'drawings', 'none'), awning (true or two colours), blade (true or a word),
@@ -1032,6 +1083,20 @@ export function* frontage(D, run, spec) {
       if (kind === 'shop' || kind === 'stall') { const t = trades[ti++ % trades.length]; f.name = t[0]; f.goods = t[1]; }
       bays.push(f);
     }
+  };
+  // A sign up under the ceiling would have a rib across it wherever one came down. finish() moves such a rib (see
+  // buildRibs). A world that would rather move the sign asks clearOfRibs(u, half, lo, hi): the place nearest u, between
+  // lo and hi, where a sign that wide has no rib due
+  const ribsAt = spec.ribs && spec.ribs.at ? spec.ribs.at : [], RIB = 0.16 + 0.22;
+  const under = (u, half) => ribsAt.some((r) => Math.abs(r - u) < half + RIB);
+  const clearOfRibs = (u, half, lo, hi) => {
+    if (!under(u, half)) return u;
+    let best = u, bd = 1e9;
+    for (const r of ribsAt) for (const c of [r - RIB - half - 0.01, r + RIB + half + 0.01]) {
+      if (c - half < lo || c + half > hi || under(c, half)) continue;
+      if (Math.abs(c - u) < bd) { bd = Math.abs(c - u); best = c; }
+    }
+    return best;
   };
   let at = a;
   for (const f of given) { stretch(at, f.u0); bays.push(f); at = Math.max(at, f.u1); }
@@ -1060,6 +1125,7 @@ export function* frontage(D, run, spec) {
     if (b.blade === undefined) b.blade = !b.awning && rng() < (fill && fill.blades !== undefined ? fill.blades : 0.5) && b.name && b.name.length <= 11;
     if ((b.kind === 'home' || b.kind === 'flat') && b.number === undefined && number) { b.number = number; number += 1 + Math.floor(rng() * 2); }
     b.at = (t, y = 0, v = 0) => run.pt(lerp(b.u0, b.u1, t), y, v);
+    b.clearOfRibs = clearOfRibs;
     const draw = FRONTS[b.kind];
     if (draw) { const P = D.pen(run, mid, spec.part || ''); draw(D, P, run, b, H); P.done(); }
     // something stood outside, and someone looking in
@@ -1090,7 +1156,9 @@ export function* frontage(D, run, spec) {
  *   lamps      { every: 6, rows: 1, kind: 'panel' | 'globe', power: 1, color, reach: 4.2 }, or false. Also grid (lamps stand
  *              at grid + k x every: give two stretches of one street the same) and lattice (false: no light of its own,
  *              another stretch's covers it; { from, to }: its light covers that much of the grid)
- *   ribs       { every: 6, spring: 2.3 }: flat arches across, or false for a plain ceiling
+ *   ribs       { every: 6, spring, crown: 0.1 }: flat arches across, or false for a plain ceiling. They spring above
+ *              the lettering of the shop boards (2.67 m under a 3 m ceiling), so that no rib stands in front of a name,
+ *              and finish() moves or leaves out any that would stand in front of a sign set higher than that
  *   trolley    { every: 70 (metres between cars), speed: 1.5, dir: 1 or -1, color }: a slow trolley down the middle
  *   folk       people to each 100 m: { stand: 5, stroll: 4, walk: 5, kids: 0 (children running, anti on an avenue) }
  *   cloth      0..1: flags and banners hung across
@@ -1107,7 +1175,14 @@ export function* street(D, spec) {
   const run = X ? new Run(0, y, at, 0) : new Run(at, y, 0, 3);
   const fl = spec.floor || {}, floorCol = fl.color || pal.floor, stripCol = fl.strip || pal.strip, shine = fl.shine === undefined ? 0.8 : fl.shine;
   const lampO = spec.lamps === false ? null : { every: 6, rows: 1, kind: 'panel', power: 1, reach: 4.2, ...(spec.lamps || {}) };
-  const ribO = spec.ribs === false ? null : { every: lampO ? lampO.every : 6, spring: Math.min(2.3, H - 0.7), ...(spec.ribs || {}) };
+  // A rib comes down the wall where it likes, and a shop's board runs the width of its front, so a rib that sprang
+  // lower than the lettering stood in front of the names (seen along the street, the haunch hid a metre and more of
+  // the board beyond it). The board tops out at `board` (FRONTS.shop); the rib leaves the wall 13 cm under that,
+  // above the tallest letter, or clear above the board altogether where the ceiling is high enough to let it.
+  const board = Math.min(H - 0.2, Math.min(2.2, H - 0.8) + 0.6);
+  const ribO = spec.ribs === false ? null : { every: lampO ? lampO.every : 6, spring: Math.max(board - 0.13, Math.min(board + 0.09, H - 0.4)), crown: 0.1, ...(spec.ribs || {}) };
+  const ribU = [];
+  if (ribO) for (let i = 0, n = Math.floor(len / ribO.every); i <= n; i++) { const u = a + i * ribO.every; if (u > z + 0.01) break; ribU.push(u); }
   const tr = spec.trolley ? { ...spec.trolley } : null, railed = !!tr || !!spec.rails;
   // floor, ceiling and ribs, a stretch at a time
   for (let u0 = a; u0 < z - 0.01; u0 += 8) {
@@ -1125,25 +1200,9 @@ export function* street(D, spec) {
     P.done();
     if (D.clk.due()) { yield 'deck: street'; D.clk.go(); }
   }
-  if (ribO) {
-    const n = Math.floor(len / ribO.every), sp = ribO.spring, rise = H - 0.04 - sp, S = 10;
-    for (let i = 0; i <= n; i++) {
-      const u = a + i * ribO.every, p0 = run.pt(u, H - 0.4, 0);
-      if (u > z + 0.01) break;
-      const fine = D.fine(p0[0], p0[1], p0[2], 3), seg = fine ? S : 4, P = D.pen(run, Math.min(z - 0.1, Math.max(a + 0.1, u)), part), g = P.g, t = 0.16;
-      for (let k = 0; k < seg; k++) {
-        const va = lerp(-w / 2, w / 2, k / seg), vb = lerp(-w / 2, w / 2, (k + 1) / seg);
-        const ya = sp + rise * Math.sqrt(Math.max(0, 1 - (2 * va / w) ** 2)), yb = sp + rise * Math.sqrt(Math.max(0, 1 - (2 * vb / w) ** 2));
-        g.quad([u - t, ya, va], [u + t, ya, va], [u + t, yb, vb], [u - t, yb, vb], pal.rib);                                   // the soffit
-        g.quad([u - t, ya, va], [u - t, yb, vb], [u - t, H, vb], [u - t, H, va], shade(pal.rib, 0.93));                      // its two faces
-        g.quad([u + t, yb, vb], [u + t, ya, va], [u + t, H, va], [u + t, H, vb], shade(pal.rib, 0.93));
-      }
-      P.done();
-      if (D.clk.due()) { yield 'deck: ribs'; D.clk.go(); }
-    }
-  }
+  // (the ribs themselves are drawn last of all, by finish(), when every sign on the deck is known: see buildRibs)
   // lamps: a row or two down the ceiling, and the light they give
-  const lamps = [];
+  const lamps = [], lampU = [];
   if (lampO) {
     // lamps stand evenly along the street; or, given lamps.grid, at grid + k x every, so that two stretches of one
     // street (either side of a court) keep one rhythm and can share one lattice of light
@@ -1153,7 +1212,7 @@ export function* street(D, spec) {
     const vs = rows === 1 ? [0] : [-w / 4, w / 4], ly = H - (lampO.kind === 'globe' ? 0.62 : 0.1);
     for (let i = 0; i < n; i++) for (const v of vs) {
       const u = u0 + i * lampO.every, p = run.pt(u, ly, v);
-      lamps.push(p);
+      lamps.push(p); lampU.push(u);
       D.glows.push({ p: [p[0], p[1] - 0.04, p[2]], color: col, power: 2.3 * D.glowK, size: 0.75 });
       if (lampO.kind === 'globe') D.put('pendant', { p: run.pt(u, H, v), yaw: 0 });
       else { const P = D.pen(run, u, part); P.g.floor(u - 0.55, v - 0.19, u + 0.55, v + 0.19, H - 0.02, '#fff3dc', { down: true, emit: 4.2 * D.glowK }); P.g.box(u - 0.62, H - 0.05, v - 0.26, u + 0.62, H, v + 0.26, pal.metal, { skip: 't' }); P.done(); }
@@ -1168,12 +1227,13 @@ export function* street(D, spec) {
     }
     yield 'deck: lamps';
   }
+  if (ribO) D.ribs.push({ run, at: ribU, a, z, w, H, spring: ribO.spring, crown: ribO.crown, every: ribO.every, part, lamps: lampU, color: pal.rib });
   // the two rows of fronts
   const names = X ? ['back', 'front'] : ['anti', 'spin'], sides = {};
   for (let s = 0; s < 2; s++) {
     const nm = names[s], sr = s === 0 ? (X ? new Run(0, y, at + w / 2, 0) : new Run(at - w / 2, y, 0, 3)) : (X ? new Run(0, y, at - w / 2, 2) : new Run(at + w / 2, y, 0, 1));
     const fill = spec.fill === false ? false : (spec.fill && (spec.fill[nm] !== undefined) ? spec.fill[nm] : spec.fill);
-    sides[nm] = yield* frontage(D, sr, { from: sr.u(a), to: sr.u(z), height: H, fronts: (spec.fronts && spec.fronts[nm]) || [], fill, part });
+    sides[nm] = yield* frontage(D, sr, { from: sr.u(a), to: sr.u(z), height: H, fronts: (spec.fronts && spec.fronts[nm]) || [], fill, part, ribs: ribO ? { at: ribU.map((u) => sr.u(u)), spring: ribO.spring } : null });
   }
   // ends
   const ends = spec.ends || ['open', 'open'];
@@ -1184,7 +1244,9 @@ export function* street(D, spec) {
     P.g.box(u - 0.035, H - 0.12 - hh - 0.06, -ww / 2 - 0.05, u + 0.035, H - 0.12, ww / 2 + 0.05, pal.trim[0]);
     for (const v of [-ww / 2 + 0.2, ww / 2 - 0.2]) P.g.box(u - 0.012, H - 0.12, v - 0.012, u + 0.012, H, v + 0.012, pal.metal, { skip: 'tb' });
     P.done();
-    for (const sd of [1, -1]) D.sign(lines, { run, side: sd, at: run.pt(u + sd * 0.037, H - 0.15 - hh / 2, 0), w: ww, h: hh, style: 'plate', font: 'cond', font2: 'serif', head: true });
+    // (the lettering stands a centimetre proud of its board: on a drum 2 km from the origin a vertex is good to about
+    // half a millimetre, and two faces 2 mm apart crossed each other and flickered)
+    for (const sd of [1, -1]) D.sign(lines, { run, side: sd, at: run.pt(u + sd * 0.045, H - 0.15 - hh / 2, 0), w: ww, h: hh, style: 'plate', font: 'cond', font2: 'serif', head: true });
   }
   // the trolley and the people aboard
   if (tr) trolley(D, { ...tr, axis: spec.axis, from: a, to: z, at, y, rng });

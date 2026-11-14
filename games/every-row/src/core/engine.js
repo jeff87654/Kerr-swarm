@@ -57,6 +57,9 @@ export class Engine {
     this.canvas = canvas; this.defs = defs; this.opts = opts;
     const r = this.renderer = new WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance', stencil: false, depth: false });
     r.autoClear = true; r.setClearColor(0x000000, 1); r.debug.checkShaderErrors = !!opts.debug; r.info.autoReset = false;
+    // asking the card a question waits for everything it has been sent: ask this one now, while nothing has been
+    // (three keeps the answer), and not in the middle of the first world that letters a sign or paints a plan
+    r.capabilities.getMaxAnisotropy();
     this.post = new Post(r);
     this.cam = new PerspectiveCamera(58, 16 / 9, 0.5, 20000);
     this.vcam = new PerspectiveCamera(58, 16 / 9, 0.5, 20000);
@@ -212,6 +215,8 @@ export class Engine {
       inst.scene.add(rim); inst.rim = rim;
     }
     inst.scene.updateMatrixWorld(true);
+    // a world that must hold back or move its own opening (the mouth of a bell that is still swinging) is handed it
+    if (typeof w.onPortal === 'function') w.onPortal(portal, inst.rim || null);
     return inst;
   }
 
