@@ -33,6 +33,7 @@ tools/sheet.py        contact sheets        tools/build.py   the release bundler
 tools/flow.mjs        the whole journey, every crossing      tools/hitch.mjs   slow frames in a live run
 tools/gaze.mjs        how fast the camera turns in a flight  tools/worlds.py   the list of worlds for the README
 tools/cross.mjs       one crossing, looked at closely: the approach, the way through, the arrival
+tools/jitter.mjs      does a surface shake as the camera moves? frames a hair apart, and how much they differ
 content/brief.md      what a world should be, and what the docs allow
 content/brief-rooms.md   the same for a place indoors: what a room needs, kit notes, what makes the flight stutter
 ```
@@ -61,6 +62,7 @@ A frame is `makeFrame(a0, z0, floorR)` from `kit/drum.js`: the angle its x = 0 s
 - Long faces must be cut into short pieces to bend: `new Geo({ maxSeg: 8 })` splits any triangle wider than 8 m in x. Use about 8 on decks, 16 in the Hollow.
 - A bent mesh is culled by where it really is only if told: `geo.mesh(material, frame)` and `instances(..., { frame })` do it for you.
 - Things in open space (the raft, the sky behind it) are not bent: build them in plain world coordinates with a material that has no `bend`.
+- A pattern worked out in the fragment shader from where the pixel lies (rails, fins, tiles) is only as steady as that position, and the position is carried across each triangle from its corners. Never draw such a surface as one huge triangle pair: across a quad thousands of kilometres wide the position is good to decimetres, differently in every frame, and the pattern shakes as the camera moves (the radiator plain did). Cut it into a grid that is fine near the camera (`sheetMesh` in `kit/outside.js`), and check with `node tools/jitter.mjs`.
 
 ## A world file
 

@@ -233,10 +233,24 @@ void main() {
   gl_FragColor = vec4(c, 1.0);
 }`;
 
-function sheetMesh(y, down, uniforms, frag) {
-  const s = 2.6e6, g = new BufferGeometry();
-  g.setAttribute('position', new Float32BufferAttribute([-s, y, -s, s, y, -s, s, y, s, -s, y, s], 3));
-  g.setIndex(down ? [0, 1, 2, 0, 2, 3] : [0, 2, 1, 0, 3, 2]);
+// A sheet as far as the eye can see, at height y, facing up or down. It is one plane but not one quad. What is drawn
+// on it (rails 16 cm wide, fins, a panel's frame) is worked out from where each pixel lies, and that is carried across
+// each triangle from its corners: across a quad 5,200 km wide it is good to a few decimetres, and differently so in
+// every frame, so the radiators shook as the camera moved. So the sheet is a grid whose lines double their spacing
+// away from `centre` (x, z: the place the camera stays near): a cell under the camera is a few hundred metres, its
+// corners are a few kilometres from the origin at most, and a pixel's place is good to a millimetre or two.
+function sheetMesh(y, down, uniforms, frag, centre = [0, 0]) {
+  const s = 2.6e6, g = new BufferGeometry(), half = [0];
+  for (let d = 250; d < s; d *= 2) half.push(d);
+  half.push(s);
+  const line = [...half.slice(1).reverse().map((d) => -d), ...half], n = line.length, pos = [], idx = [];
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) pos.push(centre[0] + line[i], y, centre[1] + line[j]);
+  for (let j = 0; j < n - 1; j++) for (let i = 0; i < n - 1; i++) {
+    const a = j * n + i, b = a + 1, c = a + n + 1, d = a + n;
+    if (down) idx.push(a, b, c, a, c, d); else idx.push(a, c, b, a, d, c);
+  }
+  g.setAttribute('position', new Float32BufferAttribute(pos, 3));
+  g.setIndex(idx);
   g.boundingSphere = new Sphere(new Vector3(0, y, 0), 1e9);
   const m = new Mesh(g, new ShaderMaterial({ uniforms, vertexShader: SHEET_VERT, fragmentShader: frag || LAYER_FRAG, side: FrontSide }));
   m.frustumCulled = false; m.renderOrder = -6;
@@ -539,8 +553,8 @@ export function* buildHall(ctx, opts = {}) {
   let no = 0; for (const k in tints) if (no < 4) { const q = k.split(',').map(Number); over[no++].set(q[0], q[1], tints[k], 1); }
   const tintU = { uTints: { value: QUAY_TINTS.map((c) => vec3col(c)) }, uOver: { value: over } };
   const layerU = (o) => ({ uClip: G.uClip, ...tintU, uBase: { value: vec3col(o.base) }, uTruss: { value: vec3col(o.truss) }, uSheen: { value: vec3col(o.sheen) }, uCollar: { value: o.collar }, uRingOff: { value: D / 18 }, uCell: { value: C } });
-  const ceiling = sheetMesh(D, true, layerU({ base: '#080a0f', truss: '#0d1016', sheen: '#5a4226', collar: 0.1 }));
-  const floor = sheetMesh(0, false, layerU({ base: '#070709', truss: '#0e0c0a', sheen: '#4c3922', collar: 0.08 }));
+  const ceiling = sheetMesh(D, true, layerU({ base: '#080a0f', truss: '#0d1016', sheen: '#5a4226', collar: 0.1 }), null, [fx * C, fz * C]);
+  const floor = sheetMesh(0, false, layerU({ base: '#070709', truss: '#0e0c0a', sheen: '#4c3922', collar: 0.08 }), null, [fx * C, fz * C]);
   group.add(ceiling, floor);
   yield 'layers';
 
@@ -1193,7 +1207,7 @@ export function* buildBack(ctx, opts = {}) {
   const plain = sheetMesh(Y, false, {
     uClip: G.uClip, ...rig.uniforms, ...opts.sky.uniforms, uCell: { value: C }, uShine: { value: opts.shine === undefined ? 3 : opts.shine }, uHub: { value: opts.hub === undefined ? 1 : opts.hub },
     uPanel: { value: vec3col(opts.panel || '#101114') }, uTrack: { value: vec3col('#2e2f33') }, uPipe: { value: vec3col('#3a3c42') }, uHubCol: { value: vec3col('#ffd0a0', 0.5) },
-  }, plainFrag(rig));
+  }, plainFrag(rig), [fx * C, fz * C]);
   group.add(plain);
   yield 'plain';
   const lights = farLights({ minPx: 1.3, maxPx: 48, spin: 0, reach: 9e5, pull: [0.003, 300], moving: true, capacity: 16384 }), rng = makeRng('back-crews');
