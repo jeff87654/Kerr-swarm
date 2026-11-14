@@ -638,8 +638,30 @@ export const lovageNoon = {
       { t: 17, p: [XG + 22, 52, 790], look: [XG + 150, 0, 1150] },
       { t: 22, p: [XG + 70, 80, 1120], look: [XG + 700, 450, 1500] },
       { t: 28, p: [XG + 130, 150, 1640], look: [XG + 200, 0, 2000], fov: 66 },
+      // (this key holds the view over the lake as it was before the keys after 34 s were added)
+      { t: 32.5, p: [XG + 171.04, 220.42, 1989.5], look: [XG + 68.6, -93.4, 2161.7], fov: 71.1 },
       { t: 34, p: [XG + 190, 240, 2110], look: [XG + 200, 0, 2260], fov: 72 },
-      { t: 39, p: [XG + 290, 270, 2560], look: [XG + 1500, 900, 2900], fov: 64 },
+      // Two long changes of view follow: up from the water to the back wall's hub, then round across the wall to look
+      // along its foot toward the wedding. Keyed only at their ends, the first took a second and a half, and the
+      // second went over the top: the view passed 7 degrees from straight up and the picture spun round. So each is
+      // keyed every 25 to 30 degrees and turns evenly, a tilt at 36 degrees a second and a level pan at 40, with the
+      // hub held between. The keys between the old ones have their cameras on the track the flight had without them
+      // (fitted, since every key bends the track a little); their look points lie 300 to 900 m off along the view,
+      // growing from the distance of the old look point at 34 s to that of the one at 44 s.
+      { t: 34.65, p: [XG + 200.96, 245.49, 2165.82], look: [XG + 265.7, 59.2, 2399.7], fov: 71.6 },
+      { t: 35.3, p: [XG + 212.99, 249.73, 2221.92], look: [XG + 365.6, 147.7, 2504], fov: 70.7 },
+      { t: 35.95, p: [XG + 226.17, 252.8, 2279.35], look: [XG + 483.5, 257.3, 2560.4], fov: 69.3 },
+      { t: 36.6, p: [XG + 239.93, 255.46, 2337.58], look: [XG + 588.8, 381.2, 2568.8], fov: 67.8 },
+      { t: 37.25, p: [XG + 253.91, 258.18, 2396.68], look: [XG + 637.1, 502.3, 2561.2], fov: 66.3 },
+      { t: 38.1, p: [XG + 272.05, 262.7, 2475.32], look: [XG + 648.6, 586.4, 2639.3], fov: 64.7 },
+      // (the hub, as before: the look point is on the old line of sight, half as far off)
+      { t: 39, p: [XG + 290, 270, 2560], look: [XG + 676.2, 649.4, 2730], fov: 64 },
+      { t: 39.7, p: [XG + 303.94, 277.62, 2628.39], look: [XG + 632.2, 677.2, 2907.1], fov: 63.7 },
+      { t: 40.45, p: [XG + 319.93, 286.95, 2705.03], look: [XG + 366.8, 696.7, 3119.5], fov: 62.8 },
+      { t: 41.2, p: [XG + 335.88, 297.28, 2783.18], look: [XG - 59.3, 657.2, 3238.5], fov: 61.5 },
+      { t: 41.95, p: [XG + 351, 308.32, 2861.35], look: [XG - 444.7, 528.9, 3206.2], fov: 60.2 },
+      { t: 42.7, p: [XG + 364.12, 319.78, 2937.34], look: [XG - 641, 381.1, 3008.7], fov: 59 },
+      { t: 43.45, p: [XG + 375.06, 331.59, 3010.84], look: [XG - 651.4, 313.8, 2750.1], fov: 58.2 },
       { t: 44, p: [XA + 180, 340, 3060], look: [XA - 900, 300, 2750] },
       { t: 48.5, p: th(118, -60, -70), look: th(-80, 30, -30) },
       { t: 52, p: th(94, 13, -2), look: th(55, 0, 15) },
