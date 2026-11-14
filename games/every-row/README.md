@@ -78,6 +78,7 @@ python tools/sheet.py out/x/s- out/x/sheet.png                         # a conta
 node tools/flow.mjs                                                    # the whole journey, skipping ahead: every crossing, build times, errors
 node tools/cross.mjs --w sloe-hush --out out/x/c                       # one crossing, looked at closely: the approach, the way through, the arrival
 node tools/gaze.mjs --all                                              # how fast the camera turns in each flight, and where it swings
+node tools/jitter.mjs --w ochre-backcrew --t 9,24 --dt 0.0002          # does a surface shake as the camera moves: frames a hair apart, compared
 ```
 
 The page needs no install. The picture tools need `npm install` here once (puppeteer-core) and Chrome or Edge.
