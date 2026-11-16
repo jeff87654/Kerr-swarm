@@ -26,6 +26,7 @@ src/kit/flora.js      trees and scattering them
 src/kit/deck.js       decks: streets, arcades, courts, halls, lobbies; signs with real lettering
 src/kit/outside.js    outside: the hall between the layers, a drum from outside, quays and trains; the sky behind the raft
 src/kit/folk.js       people and crowds
+src/kit/human.js      the people themselves: eight to cast a crowd from, at four levels of detail, and how they walk
 src/worlds/*.js       one file per world; index.js lists them in the journey's order
 src/ui/               the interface and its stylesheet
 tools/serve.py        dev server            tools/shot.mjs   pictures and smoke tests in headless Chrome
@@ -199,7 +200,11 @@ The Hollow it returns: `group`, `frame`, `rig`, `plan`, `lit` / `litDouble` / `w
 
 ### Trees and people
 
-`treeGeo(kind)`: 'round', 'apple', 'pear', 'yew', 'pine', 'birch', 'poplar', 'bush'. `scatterTrees(hollow, { near, radius, wood: [{ kind, weight, tint }], orchard: { kind } })` stands real trees within about 170 m of the flight, exactly where the ground draws crowns. `figureGeo(skin, pose)`: 'stand', 'sit', 'child', 'fly'. `crowd(spots, material, { frame })` makes people from `{ p, walk, sit, child, yaw, color }`; `scatterPeople(hollow, { near, radius, density })` puts them where the plan has life. People are small: they are how a picture gets its scale.
+`treeGeo(kind)`: 'round', 'apple', 'pear', 'yew', 'pine', 'birch', 'poplar', 'bush'. `scatterTrees(hollow, { near, radius, wood: [{ kind, weight, tint }], orchard: { kind } })` stands real trees within about 170 m of the flight, exactly where the ground draws crowns. `crowd(spots, material, { frame })` makes people from `{ p, walk, sit, child, yaw, color }`; `scatterPeople(hollow, { near, radius, density })` puts them where the plan has life; `drifters(items, material, { frame })` makes the people who walk a line or ride (items as for `instances()` with drift; the material made with `drift: true`). People are small: they are how a picture gets its scale.
+
+The people are made in `kit/human.js` (no pictures or models are loaded: a person is lofted from a few dozen rings): eight to cast a crowd from (two builds of adult and a child, with their hair and clothes), each at four levels of detail from about 900 facets (a face, hands, shoes) down to about 50, standing or sitting. A crowd picks each person's cast, skin, hair and trousers; the `color` you give is their top. Someone who sits at a height of 0 to 0.2 sits on the ground with legs crossed; higher, on a seat with their feet down (the origin is the seat). The vertex shader (`USE_FOLK` in `kit/mats.js`: `instances()` asks `folkMaterial()` for that variant of your lit material, which shares its uniforms) walks legs and arms in step with the ground covered, so feet do not slide, turns heads, and draws each level only over its own distances (`FOLK_LOD`: 5, 16 and 45 m). The far level is every person; the nearer ones are made and shown only around the camera, so a crowd of thousands costs a few dozen extra facets a head.
+
+`figureGeo(skin, pose)` ('stand', 'sit', 'child', 'fly') is one figure to instance yourself, at the middle level and always drawn: use it for a few figures with a material or motion of your own, and `crowd()` or `drifters()` for anyone the camera comes close to.
 
 ### Decks: the indoor city
 

@@ -48,7 +48,7 @@ import { makePath } from '../core/path.js';
 import { makeFrame, deckRadius, DRUM, DEG } from '../kit/drum.js';
 import { G, BEND_PARS, CLIP_PARS, CLIP_FRAG, lampRig, litMaterial, glowPoints } from '../kit/mats.js';
 import { Geo, instances, shade, mixc, fitBounds } from '../kit/geo.js';
-import { crowd, figureGeo, SKIN, CLOTH } from '../kit/folk.js';
+import { crowd, drifters, SKIN, CLOTH } from '../kit/folk.js';
 import { makeDeck, finish, frontage, Run, PALETTES } from '../kit/deck.js';
 import { makeRng, smoothstep } from '../core/rng.js';
 
@@ -637,10 +637,8 @@ function* rush(deck, ctx, folk, rng) {
   for (const k of [-1, 0]) hatchesOf(berthX(k, 0)).forEach((hx, i) => { if (k < 0 || i % 2 === 0) flow(hx, 0, ZG + 4.6, ZG - 1.0, Math.round(8 * dens)); else flow(hx, 0, ZG - 1.0, ZG + 4.6, Math.round(8 * dens)); });
   for (const k of [-1, 0, 1]) for (let L = 1; L <= 3; L++) for (let i = 0; i < 72; i++) if ((i * 7 + L * 3) % 5 === 0) flow(k * P + (i + 0.5) * DOORP, L * 4, ZW - 0.2, ZW - 3.4, 2);
   yield 'rue: lanes';
-  for (let i = 0; i < lanes.length; i++) {
-    for (const m of instances(i < 3 ? plainFigure(SKIN[i * 2]) : i === 3 ? farFigure() : figureGeo(SKIN[(i - 4) * 2 + 1], 'stand'), deck.drift, lanes[i], { frame: deck.frame, cell: 100000, drift: true })) deck.group.add(m);
-    yield 'rue: lanes';
-  }
+  for (const m of drifters(lanes.flat(), deck.drift, { frame: deck.frame, cell: 100000, seed: 'rue-lanes' })) deck.group.add(m);
+  yield 'rue: lanes';
   // under the boards: most of them looking up at the nearest one
   for (let i = 0, n = Math.round(800 * dens); i < n; i++) {
     const x = rng.f(-340, 660), z = rng.f(-6.9, 2.9);

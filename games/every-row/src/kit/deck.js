@@ -50,7 +50,7 @@ import {
 import { DRUM, deckRadius, makeFrame } from './drum.js';
 import { G, BEND_PARS, CLIP_PARS, CLIP_FRAG, NOISE_GLSL, lampRig, litMaterial, glowPoints, vec3col } from './mats.js';
 import { Geo, instances, mixc, shade, fitBounds } from './geo.js';
-import { crowd, figureGeo, SKIN, CLOTH } from './folk.js';
+import { crowd, drifters, SKIN, CLOTH } from './folk.js';
 import { makeRng } from '../core/rng.js';
 
 export const DECK_RISE = DRUM.DECK;       // floor to floor, metres
@@ -602,10 +602,8 @@ export function* finish(D) {
   // people: those who stand, sit and stroll; those who walk a line; those who ride
   if (D.spots.length) for (const m of crowd(D.spots, D.walk, { frame, bob: 0.045, speed: 0.75, cell: 300, seed: D.seed + 'folk' })) group.add(m);
   yield 'deck: people';
-  for (const [list, mat] of [[D.walkers, D.drift], [D.pacers, D.pace], [D.riders, D.ride]]) {
-    const lines = new Map();
-    for (const w of list) { const k = w.skin + '|' + (w.pose || (w.child ? 'child' : 'stand')); let a = lines.get(k); if (!a) lines.set(k, a = { skin: w.skin, pose: w.pose || (w.child ? 'child' : 'stand'), items: [] }); a.items.push(w); }
-    for (const l of lines.values()) for (const m of instances(figureGeo(l.skin, l.pose), mat, l.items, { frame, cell: 4000, drift: true })) group.add(m);
+  for (const [list, mat, who] of [[D.walkers, D.drift, 'walk'], [D.pacers, D.pace, 'pace'], [D.riders, D.ride, 'ride']]) {
+    if (list.length) for (const m of drifters(list, mat, { frame, cell: 4000, seed: D.seed + who })) group.add(m);
   }
   yield 'deck: walkers';
   if (D.glows.length) group.add(glowPoints(D.glows, { bend: frame, minPx: 1.4, maxPx: 150, soft: 1.9 }));

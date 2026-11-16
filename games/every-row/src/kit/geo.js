@@ -1,6 +1,7 @@
 // A small geometry builder. Worlds model things flat, in metres, out of coloured facets: boxes, prisms, tubes, lathes.
 // Every vertex carries a colour, a tint weight (how far an instance colour repaints it) and a glow.
 import { BufferGeometry, Float32BufferAttribute, Uint8BufferAttribute, Matrix4, Vector3, Color, InstancedMesh, InstancedBufferAttribute, Mesh, Sphere, Quaternion } from 'three';
+import { folkMaterial } from './mats.js';
 
 const _c = new Color();
 const cache = new Map();
@@ -232,9 +233,18 @@ export function fitBounds(mesh, frame) {
 }
 
 const _q = new Quaternion(), _s = new Vector3(), _p = new Vector3(), _m4 = new Matrix4(), _y = new Vector3(0, 1, 0);
+// The same vertices under a new geometry, so that a mesh can carry attributes of its own (one value per copy) without
+// a copy of the model. Disposing it lets go of its own attributes only: the model's stay for whoever else shares them.
+export function share(g) {
+  const s = new BufferGeometry();
+  for (const k in g.attributes) s.setAttribute(k, g.attributes[k]);
+  s.setIndex(g.index); s.boundingSphere = g.boundingSphere; s.boundingBox = g.boundingBox;
+  s.dispose = function () { for (const k in g.attributes) delete this.attributes[k]; this.index = null; BufferGeometry.prototype.dispose.call(this); };
+  return s;
+}
 /**
  * Many copies of one geometry. items: [{ p:[x,y,z], yaw, scale (number or [x,y,z]), color, walk:[radius, speed, phase, bob],
- * drift:[vx,vy,vz,seconds], phase }]. opts.walk / opts.drift must match the material's.
+ * drift:[vx,vy,vz,seconds], phase, look:[skin, hair, legs] (people: see kit/folk.js) }]. opts.walk / opts.drift must match the material's.
  * Positions are flat if the material bends: pass the frame as opts.frame and the copies are grouped into cells
  * (opts.cell metres, default 600) so that what is behind the camera is not drawn.
  * Returns an array of InstancedMesh.
@@ -244,12 +254,14 @@ export function instances(geometry, material, items, opts = {}) {
   if (frame) for (const it of items) { const k = Math.floor(it.p[0] / cell) + '_' + Math.floor(it.p[2] / cell); let a = groups.get(k); if (!a) groups.set(k, a = []); a.push(it); }
   else groups.set('all', items);
   const out = [], c = new Color();
+  if (geometry.userData.shared) material = folkMaterial(material);       // people: the material's variant that poses them
   const gr = geometry.boundingSphere ? geometry.boundingSphere.radius : 10;
   for (const list of groups.values()) {
     if (!list.length) continue;
     const mesh = new InstancedMesh(geometry, material, list.length);
     const walk = opts.walk ? new Float32Array(list.length * 4) : null;
     const drift = opts.drift ? new Float32Array(list.length * 4) : null, phase = opts.drift ? new Float32Array(list.length) : null;
+    const look = list[0].look ? new Float32Array(list.length * 4) : null;
     let anyColor = false, maxS = 1;
     const pts = [];
     for (let i = 0; i < list.length; i++) {
@@ -263,9 +275,11 @@ export function instances(geometry, material, items, opts = {}) {
       else if (anyColor || opts.colors) { c.setRGB(1, 1, 1); mesh.setColorAt(i, c); }
       if (walk) { const w = it.walk || [0, 0, 0, 0]; walk[i * 4] = w[0]; walk[i * 4 + 1] = w[1]; walk[i * 4 + 2] = w[2]; walk[i * 4 + 3] = w[3]; }
       if (drift) { const d = it.drift || [0, 0, 0, 1]; drift[i * 4] = d[0]; drift[i * 4 + 1] = d[1]; drift[i * 4 + 2] = d[2]; drift[i * 4 + 3] = d[3] || 1; phase[i] = it.phase === undefined ? (i * 0.61803398875) % 1 : it.phase; }
+      if (look) { const l = it.look || [1, 1, 0]; look[i * 4] = l[0]; look[i * 4 + 1] = l[1]; look[i * 4 + 2] = l[2]; look[i * 4 + 3] = it.look ? 0 : 1; }
       if (frame) pts.push(frame.point(it.p[0], it.p[1], it.p[2])); else pts.push(new Vector3(it.p[0], it.p[1], it.p[2]));
     }
-    if (walk || drift) mesh.geometry = geometry.clone();
+    if (walk || drift || look) mesh.geometry = geometry.userData.shared ? share(geometry) : geometry.clone();
+    if (look) mesh.geometry.setAttribute('aLook', new InstancedBufferAttribute(look, 4));
     if (walk) mesh.geometry.setAttribute('aWalk', new InstancedBufferAttribute(walk, 4));
     if (drift) { mesh.geometry.setAttribute('aDrift', new InstancedBufferAttribute(drift, 4)); mesh.geometry.setAttribute('aPhase', new InstancedBufferAttribute(phase, 1)); mesh.frustumCulled = false; }
     mesh.instanceMatrix.needsUpdate = true;
