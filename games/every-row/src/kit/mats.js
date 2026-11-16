@@ -10,6 +10,12 @@ import {
   InstancedBufferGeometry, InstancedBufferAttribute, Float32BufferAttribute, Mesh, Sphere,
 } from 'three';
 import { DRUM } from './drum.js';
+import { makeFolkKit } from './human.js';
+
+// People (kit/human.js, kit/folk.js) are drawn at four levels of detail: these are the distances, in metres, at which
+// one hands over to the next. The vertex shader drops every figure that is outside its level's range.
+export const FOLK_LOD = [5, 16, 45];
+const FOLK_GLSL = makeFolkKit().glsl(FOLK_LOD);
 
 // Uniforms shared by every material in every world. The engine owns their values.
 export const G = {
@@ -251,6 +257,13 @@ attribute vec4 aCol;      // rgb, and how far an instance colour tints it
 attribute float aEmit;    // glow, in multiples of the surface colour
 ${BEND_PARS}
 uniform float uTime;
+#ifdef USE_FOLK
+// people (kit/human.js, kit/folk.js): only the variant of a material that folkMaterial() makes carries this
+attribute vec4 aRig;      // half the figure's scale, chain (which limb), upper weight, lower weight
+attribute vec3 aPart;     // which part (skin, hair, ...), its baked shade, the level of detail
+attribute vec4 aLook;     // per person: skin, hair and legs out of the palettes; w = 0 when a look is given
+${FOLK_GLSL}
+#endif
 #ifdef USE_WALK
 attribute vec4 aWalk;     // radius of stroll (m), speed (m/s), phase, bob height
 #endif
@@ -263,15 +276,45 @@ varying vec3 vW; varying vec3 vN; varying vec3 vF; varying vec3 vFN; varying vec
 void main() {
   vec3 p = position, n = normal;
   vSoft = aCol.a;
+  vec3 c = aCol.rgb; float tint = aCol.a;
   #ifdef USE_INSTANCING
+    // a person: fk is the figure's scale (0 for anything else), fG its gait (pi a step), fMv whether it is walking
+    float fk = 0.0, fG = 0.0, fMv = 0.0;
+    #ifdef USE_FOLK
+      fk = aRig.x * 2.0;
+      vec3 fAt = instanceMatrix[3].xyz;
+    #endif
     #ifdef USE_WALK
       // each figure strolls a small circle (or stands, radius 0), facing the way it walks, with a low-g bob
       float ph = aWalk.z + uTime * aWalk.y / max(aWalk.x, 0.5);
       float cs = cos(ph), sn = sin(ph);
+      #ifdef USE_FOLK
+        if (fk > 0.0 && aWalk.x > 0.01) { fMv = 1.0; fG = uTime * abs(aWalk.y) * 4.8 / fk + aWalk.z * 7.0; fAt += vec3(cs, 0.0, sn) * aWalk.x; }
+      #endif
+    #endif
+    #ifdef USE_DRIFT
+      float du = fract(uTime / aDrift.w + aPhase);
+      #ifdef USE_FOLK
+        if (fk > 0.0) { float sp = length(aDrift.xyz); fMv = step(0.05, sp); fG = uTime * sp * 4.8 / fk + aPhase * 57.0; fAt += aDrift.xyz * (du * aDrift.w); }
+      #endif
+    #endif
+    #ifdef USE_FOLK
+    if (fk > 0.0) {
+      // each level of detail is drawn only over its own range of distances: outside it the figure is thrown away here
+      vec3 fo = fAt, fn = vec3(0.0, 1.0, 0.0);
+      kBend(fo, fn);
+      if (!kFolkShown(aPart.z, distance((modelMatrix * vec4(fo, 1.0)).xyz, cameraPosition))) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); return; }
+      // legs and arms in step with the ground covered; standing, the head looks about
+      kFolk(p, n, aRig, fG, fMv, uTime + dot(instanceMatrix[3].xyz, vec3(1.7, 0.9, 2.3)));
+      c = kFolkColour(c, aPart, aLook, tint);
+    }
+    #endif
+    #ifdef USE_WALK
       p = (instanceMatrix * vec4(p, 1.0)).xyz - instanceMatrix[3].xyz; n = mat3(instanceMatrix) * n;
       if (aWalk.x > 0.01) {
+        if (fk > 0.0 && aWalk.y < 0.0) { p.xz = -p.xz; n.xz = -n.xz; }        // a person faces the way they walk
         p = vec3(p.x * cs - p.z * sn, p.y, p.x * sn + p.z * cs); n = vec3(n.x * cs - n.z * sn, n.y, n.x * sn + n.z * cs);
-        p.y += aWalk.w * abs(sin(uTime * aWalk.y * 2.4 + aWalk.z * 7.0));
+        p.y += aWalk.w * abs(sin(fk > 0.0 ? fG : uTime * aWalk.y * 2.4 + aWalk.z * 7.0));
         p += vec3(cs, 0.0, sn) * aWalk.x;
       }
       p += instanceMatrix[3].xyz;
@@ -280,12 +323,11 @@ void main() {
     #endif
     #ifdef USE_DRIFT
       // things that travel: along a line, shrinking to nothing where the loop joins
-      float du = fract(uTime / aDrift.w + aPhase);
       float ds = smoothstep(0.0, 0.05, du) * smoothstep(1.0, 0.95, du);
       p = instanceMatrix[3].xyz + (p - instanceMatrix[3].xyz) * ds + aDrift.xyz * (du * aDrift.w);
       #ifdef USE_STRIDE
         // people walking a line: a small bob in step, each out of time with the next
-        p.y += uStride * ds * abs(sin(uTime * 5.6 + aPhase * 57.0));
+        p.y += uStride * ds * abs(sin(fk > 0.0 ? fG : uTime * 5.6 + aPhase * 57.0));
       #endif
     #endif
   #endif
@@ -294,9 +336,8 @@ void main() {
   kBend(p, n);
   vec4 wp = modelMatrix * vec4(p, 1.0);
   vW = wp.xyz; vN = normalize(mat3(modelMatrix) * n);
-  vec3 c = aCol.rgb;
   #ifdef USE_INSTANCING_COLOR
-    c = mix(c, c * instanceColor, aCol.a);
+    c = mix(c, c * instanceColor, tint);
   #endif
   vCol = c; vEmit = aEmit;
   gl_Position = projectionMatrix * viewMatrix * wp;
@@ -330,6 +371,26 @@ void main() {
  *   soft   how far tinted surfaces (leaves, clothes) are lit as if they faced up: 0 = hard facets, default 0.7
  *   opacity, transparent, additive, depthWrite, tint
  */
+const folkOf = new WeakMap();
+/**
+ * The variant of a lit material that draws people (kit/folk.js): the same uniforms, the very same objects, so whatever
+ * a world does to the one it does to the other; its vertex shader also poses and colours figures. Anything that is
+ * not a lit material comes back as it is (its figures then stand still in the colours baked into them).
+ */
+export function folkMaterial(material) {
+  if (!material || !material.userData.lit || material.defines.USE_FOLK) return material;
+  let m = folkOf.get(material);
+  if (!m) {
+    m = new ShaderMaterial({
+      uniforms: material.uniforms, defines: { ...material.defines, USE_FOLK: 1 }, vertexShader: material.vertexShader, fragmentShader: material.fragmentShader,
+      side: material.side, transparent: material.transparent, depthWrite: material.depthWrite, depthTest: material.depthTest, blending: material.blending,
+    });
+    m.userData.lit = true;
+    folkOf.set(material, m);
+  }
+  return m;
+}
+
 export function litMaterial(rig, opts = {}) {
   const uniforms = {
     ...rig.uniforms, uClip: G.uClip, uTime: G.uTime,
@@ -341,12 +402,14 @@ export function litMaterial(rig, opts = {}) {
   if (opts.walk) defines.USE_WALK = 1;
   if (opts.drift) defines.USE_DRIFT = 1;
   if (opts.drift && opts.stride) { defines.USE_STRIDE = 1; uniforms.uStride = { value: opts.stride }; }
+  if (opts.folk) defines.USE_FOLK = 1;
   const m = new ShaderMaterial({
     uniforms, defines, vertexShader: LIT_VERT, fragmentShader: litFrag(rig),
     side: opts.side === 'double' ? DoubleSide : opts.side === 'back' ? BackSide : FrontSide,
     transparent: !!opts.transparent || !!opts.additive, depthWrite: opts.depthWrite === undefined ? !(opts.transparent || opts.additive) : opts.depthWrite,
     blending: opts.additive ? AdditiveBlending : NormalBlending,
   });
+  m.userData.lit = true;
   return m;
 }
 
