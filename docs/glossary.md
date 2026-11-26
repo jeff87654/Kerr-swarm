@@ -112,7 +112,7 @@ Matches: sunline
 
 ### The Spindle
 
-The drum's axis, where within ~75 m you weigh under 3% of a g: flying country. By day people fly only in the flying halls at its ends; the rest opens in the lamp-night. See raft-habitat.md.
+The drum's axis, where within ~75 m you weigh under 3% of a g: flying country. Flying lengthwise takes lift; flying anti at the speed its air turns, you hold still while the drum turns round you and need none. By day people fly only in the flying halls at its ends; the rest opens in the lamp-night, inside a net 150 m out, and beyond 75 m everyone flies anti. See raft-habitat.md.
 
 Matches: Spindle
 

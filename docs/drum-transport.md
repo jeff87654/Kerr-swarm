@@ -83,6 +83,7 @@
 ### The Hollow and the Spindle
 - **One core in four rises through the Hollow's floor as a pavilion,** ~1,300 in all, about one per 3 ha of park. No vehicles run on the floor itself.
 - **Spindle lifts** climb the terraced end walls to the axis, 1.5 km in a little over 2 minutes at 12 m/s, and arrive in the flying halls at the Spindle's ends, clear of the sunline (raft-habitat.md). In the last ~400 m the Coriolis push outweighs what's left of the spin's pull, so the cabin swings until "down" points sideways. In the last ~50 m, braking takes over and "down" swings toward the axis, then fades to nothing.
+  - The lifts set how many fly the Long Flight (raft-habitat.md § Flying). Full six-seat platoons carry ~13 riders a second a channel. ~35 channels at each end wall (about four ten-channel cores) carry ~13 M up the front wall and down the back through the night; turning the full Spindle (~2.7 M under its 150 m net) over every 25-minute Length would take ~140, fourteen cores a wall.
 
 ### Streets
 - Avenues and streets on every deck are for walking and cycling. Avenue trams are no longer needed for range; some decks may keep slow trolleys for short hops.
@@ -366,6 +367,7 @@ Each of the nine rings, at the peak of a design (or big) day:
 - Whether arriving riders share cabs by neighbourhood, which would cut the cab traffic at the station rings by about a quarter.
 - How much air leaks into the Lattice's helium at its berths, and what freezing it out costs (sorrel.md has the plant).
 - World drums: radial cabs at ~45 m/s need pressure-controlled cabins, since pressure differs 16% across their decks.
+- How many Spindle lifts each end wall carries, and how its berths load a full platoon of flyers: ~35 channels a wall fly ~13 M on Long Flight night, ~140 would fly ~50 M (raft-habitat.md § Flying).
 
 ## Method
 - Drum: R = 3,000 m, ω = 0.0572 rad/s, L = 3,750 m; deck n at r = 3,000 − 4(n − 1) m. Residents in proportion to floor (2πrL) on decks 16–375; destinations in proportion to floor on decks 1–376. The 2 km figures use the same model with R = 2,000 m, L = 2,500 m, decks 11–250 and 1–251; town and world drums in raft-habitat.md use it with radial cabs at 10 and 45 m/s.

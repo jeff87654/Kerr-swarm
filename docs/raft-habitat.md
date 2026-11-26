@@ -1,6 +1,6 @@
 # Raft habitat: a nation drum in the Shade
 
-*Design proposal from a working session, Oct 2026. The drum as a place once it stands in a raft: how big to build it, how it sits in its cell, its districts, and getting around inside it (in full: drum-transport.md). Builds on habitat-design.md (the drum), full-swarm.md (the Shade), raft-transport.md (travel between drums: the Glide, tubes and cyclers) and daily-life.md (the 2 kWe budget, prices and a day on the meter). Power figures use daily-life.md's 2 kWe split, compute included. The names (the Keel, the station rings, the Quaysides, the Spindle, the flying halls) are proposals. Revised Oct 2026: the drum's water is its X-ray shield (habitat-design.md's moat), which sets the smallest drum that works (~2 km); getting around inside now follows drum-transport.md; and the sunline stops short of the end walls, so the Spindle can be flown by day. Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (Drum size on a raft); figures are for that drum unless marked. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026: the 2 kWe life is now the baseline everywhere (full-swarm.md: ~1.95 × 10³³ people); the inner edge's glow, ~15–40% of the hull's load, is counted on the hull's panels only, so inner rafts take ~3.3–3.8 m² a head; the hull's heat leaves by a split loop, since a 295 K cabin can't reject into 300 K panels without a heat pump; the common budget's back is ~3.3–4.2 m²; and each drum now banks ~12 Mt of survival oxygen beside a tank farm that keeps its own liquid oxygen. Revised 2 Nov 2026 (radiation decisions, Jeff): the front cap carries ~100 m more hydrogen against an MeV tail in the corona's leak (shields ~3.2 t a person); data-hall vaults are ~4.5 t/m²; car windows are ~1.3 m of water; and the Middle decks, not the High, get the lowest dose. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute runs on the Lantern (full-swarm.md), so the data halls carry all 0.80 kWe a head, interactive and batch, and run their panels at ~400 K to keep the raft at ~3 m² a person; the rectenna is ~2.3 m²; the cell draws ~400 GW.*
+*Design proposal from a working session, Oct 2026. The drum as a place once it stands in a raft: how big to build it, how it sits in its cell, its districts, and getting around inside it (in full: drum-transport.md). Builds on habitat-design.md (the drum), full-swarm.md (the Shade), raft-transport.md (travel between drums: the Glide, tubes and cyclers) and daily-life.md (the 2 kWe budget, prices and a day on the meter). Power figures use daily-life.md's 2 kWe split, compute included. The names (the Keel, the station rings, the Quaysides, the Spindle, the flying halls) are proposals. Revised Oct 2026: the drum's water is its X-ray shield (habitat-design.md's moat), which sets the smallest drum that works (~2 km); getting around inside now follows drum-transport.md; and the sunline stops short of the end walls, so the Spindle can be flown by day. Revised again Oct 2026: the nation drum is now 3 km in radius and ~200 M people (Drum size on a raft); figures are for that drum unless marked. Revised Oct 29, 2026 after a consistency audit. Revised 1 Nov 2026: the 2 kWe life is now the baseline everywhere (full-swarm.md: ~1.95 × 10³³ people); the inner edge's glow, ~15–40% of the hull's load, is counted on the hull's panels only, so inner rafts take ~3.3–3.8 m² a head; the hull's heat leaves by a split loop, since a 295 K cabin can't reject into 300 K panels without a heat pump; the common budget's back is ~3.3–4.2 m²; and each drum now banks ~12 Mt of survival oxygen beside a tank farm that keeps its own liquid oxygen. Revised 2 Nov 2026 (radiation decisions, Jeff): the front cap carries ~100 m more hydrogen against an MeV tail in the corona's leak (shields ~3.2 t a person); data-hall vaults are ~4.5 t/m²; car windows are ~1.3 m of water; and the Middle decks, not the High, get the lowest dose. Revised 6 Nov 2026 (world audit, Jeff's decisions): no compute runs on the Lantern (full-swarm.md), so the data halls carry all 0.80 kWe a head, interactive and batch, and run their panels at ~400 K to keep the raft at ~3 m² a person; the rectenna is ~2.3 m²; the cell draws ~400 GW. Revised 26 Nov 2026 (flying, proposal): how flight works in the Spindle's heliox, how many can fly it at once, the net that runs its length 150 m out at night, and the Spindle opening from the outside in as the line dims (Flying; The sunline and the Spindle).*
 
 ## Summary
 - **The nation drum is 3 km in radius, 3.75 km long, ~200 M people.** It was 2 km and ~60 M until Oct 2026.
@@ -125,7 +125,7 @@ At 2 kW and 3 m² per person:
   - The far bank hangs 3 km overhead and looks sharp: filtered heliox carries no dust and scatters very little.
   - Terraced end walls climb toward weightlessness.
   - A lake needn't draw on the moat. One over a tenth of the floor, 2 m deep, takes ~0.035 t per person (~7 Mt), a quarter of the water the drum keeps inside.
-- **The Spindle.** The axis itself. Within ~75 m of it you weigh under 3% of a g: flying country, though by day only in the flying halls at its two ends, since the sunline runs down its middle. Flight along the axis is easy; crossing it, Coriolis bends your path. The axles at its two ends are plant: power in at the front, coolant out at the back.
+- **The Spindle.** The axis itself. Within ~75 m of it you weigh under 3% of a g: flying country, though by day only in the flying halls at its two ends, since the sunline runs down its middle. At night a net 150 m out lets people fly to there, anti. Flight along the axis is easy near it; farther out the easy way is anti, holding still while the drum turns round you (see Flying). Crossing the axis, Coriolis bends your path. The axles at its two ends are plant: power in at the front, coolant out at the back.
 
 ### The sunline and the Spindle
 - **A full-sun line is too bright to fly beside.** The floor's 100,000 lux, 1.5 km from the axis, is ~330 W/m² of light: as bright as noon on Earth but a third of the power, since lamps send no infrared. A line's light falls off only as 1/distance:
@@ -139,7 +139,7 @@ At 2 kW and 3 m² per person:
 
 - **So the lit line stops ~450 m short of each end wall.** It hangs on a tensioned spar from axle to axle, and the last ~450 m at each end are bare spar.
   - **The flying halls** fill the Spindle's ends: within 75 m of the axis, from each end wall out to ~300 m, netted off ~150 m short of the line's end. A surface there facing the line's end gets at most ~0.45 kW/m², a bright morning, and less near the axis, since a line barely shines along itself. The rest is the Hollow's own glow, ~50–80 W/m² (15,000–25,000 lux) if the floor and walls reflect 15–25%: a bright overcast day.
-  - **The middle of the Spindle opens** when the line is under ~14% of full brightness (≤1 kW/m² at 75 m): the last ~25 minutes of dusk, the lamp-night and the first ~25 minutes of dawn, about 13 hours a day on daily-life.md's schedule. Flying its whole length is a night thing.
+  - **The middle of the Spindle opens from the outside in** as the line dims. Its light falls off only as 1/distance, so at a seventh of full brightness it gives ~1 kW/m² at the 75 m edge but ~1.6 kW/m² at 50 m and ~8 kW/m² ten metres from the spar. From a seventh, the band from 50 m out to the night net at 150 m opens (~0.5 kW/m² at the net, a little harder than Earth's noon at 50 m), with wardens keeping flyers off the line; the core opens below ~2%, about 3 minutes before the line goes out. That's the last ~25 minutes of dusk for the band, the lamp-night and the first ~25 minutes of dawn: about 13 hours a day on daily-life.md's schedule, all but ~45 minutes of it for the whole Spindle. Flying its whole length is a night thing.
   - **Spindle lifts** (drum-transport.md) climb the end walls to the axis and arrive in the flying halls, clear of the line.
 - **What it changes:**
 
@@ -158,6 +158,60 @@ At 2 kW and 3 m² per person:
 - **Alternatives:**
   - Fly the Spindle only in the dim hours, with no flying halls by day. Simplest.
   - A fat light tube instead of a line. To keep its surface under Earth's noon sunshine it would need a radius of ~500 m, filling the middle of the sky and hiding much of the far bank.
+
+### Flying
+*Added 26 Nov 2026 (proposal; the net at 150 m is Jeff's decision). A 72 kg flyer in wing-sleeves (~1.2 m² of lifting surface with the body, 1.8 m span) in the Hollow's heliox. Figures from `models/flight.py` (output in `models/out/flight.txt`).*
+
+- **Heliox gives a flyer almost no grip.** It's a third as dense as Earth's air, so at 5 m/s sleeves can push sideways or brake at only ~0.1 m/s², a hundredth of a g, and flapping hard does no better.
+  - The tightest banked turn has a radius of ~250 m at any speed, wider than the Spindle, so flyers turn round at a net, as a swimmer turns at the wall.
+  - Slowing from 5 m/s to 1 takes ~500 m, and a 1 m sidestep ~5 s. Nobody dodges late or stops short.
+- **Which way is easy.** Flying lengthwise, you need lift to hold your distance from the axis, and lift costs speed. Flying anti at the speed the air turns (ωr: 4.3 m/s at the edge), you hold still while the drum turns round you, and need no lift at all.
+
+| From the axis | Weight | Lengthwise: speed, muscle | Anti, drifting 2.5 m/s along: airspeed, muscle |
+|---|---|---|---|
+| 10 m | 0.3% g | 2.9 m/s, ~4 W | 2.6 m/s, ~1 W |
+| 30 m | 1% g | 5.0 m/s, ~22 W | 3.0 m/s, ~2 W |
+| 50 m | 1.7% g | 6.4 m/s, ~47 W | 3.8 m/s, ~5 W |
+| 75 m (the edge) | 2.5% g | 7.9 m/s, ~90 W | 5.0 m/s, ~10 W |
+| 110 m | 3.7% g | 9.5 m/s, ~150 W | 6.8 m/s, ~26 W |
+| 150 m | 5% g | 11.1 m/s, ~250 W | 8.9 m/s, ~60 W |
+
+  - Lengthwise at the edge is an athlete's pace, ~90 W from the arms, which fits flying country ending near 75 m for people who fly as Sorrel teaches.
+  - Spinward is out of reach more than a few metres from the axis: at the edge you'd need 25–65 N of lift, and sleeves give a few.
+  - So away from the core people fly anti and drift along the axis, a slow helix, with the Hollow's lights wheeling past once every 110 s.
+- **Nets make falls safe.** A flyer who stops flying drifts out slowly, then faster.
+  - With no net, it's ~3 minutes to the Hollow floor, landing at ~38–42 m/s, like a 70–90 m fall on Earth.
+  - So whenever the middle of the Spindle is open, a net runs its whole length 150 m from the axis (open-questions.md P6), level with the end walls' top terraces: ~3.5 km² and ~110–180 t, unrolled at dusk and stowed by day. By day the flying halls keep their 75 m sock, since the sunline's light rules out more.
+  - A drifter reaches it at ~6–7 m/s at most, ~30 s from 75 m or ~45 s after stopping while circling anti at 140 m: an ordinary catch for a safety net. A net at 75 m would catch at ~3.5 m/s but hold a quarter of the flyers.
+- **Nets don't make collisions safe; low closing speeds do.** The energy two flyers share:
+
+| Closing speed | Energy | Like |
+|---|---|---|
+| 1 m/s | ~20 J | Brushing past someone in a crowd |
+| 2 m/s | ~70 J | Walking into someone |
+| 4 m/s | ~290 J | Jogging into someone: bruises, the odd broken finger |
+| 8 m/s | ~1.2 kJ | Being hit by a cyclist |
+| 16 m/s | ~4.6 kJ | Two lengthwise flyers meeting head on near 75 m: skull-fracture territory |
+
+- **So a crowd can be dense if it goes one way.** Neighbours circling anti 4 m apart in radius differ by ~0.2 m/s, so bumps come at walking pace or less. Flying any which way is another matter: crossings at 4–5 m/s need ~30 m of warning, and at 2,000 m³ each a flyer would meet ~60 would-be collisions an hour.
+
+| When and where | Volume | How people fly | Each | At once |
+|---|---|---|---|---|
+| Day: both flying halls (to 75 m) | 1.1 × 10⁷ m³ | Laps, one way | 100–200 m³ | 50,000–100,000 |
+| Day: both flying halls | | Any direction, crosswise | 10,000–20,000 m³ | 500–1,000 |
+| Dusk and dawn: the band 50–150 m | 2.4 × 10⁸ m³ | One way | 100 m³ | ~2.4 M |
+| Lamp-night: the Spindle to 150 m | 2.7 × 10⁸ m³ | One way; anti beyond 75 m | 100 m³ | ~2.7 M (~1.4 M within an easy 110 m) |
+| Lamp-night, packed for a festival | | One way | 50 m³ | ~5 M |
+| *For comparison:* the Spindle to 75 m | 6.6 × 10⁷ m³ | One way | 100 m³ | ~660,000 |
+
+  - 100 m³ is 4.6 m between flyers, ~3 m of clear air between fingertips: busy but orderly. 50 m³ (3.7 m) is a jostling crowd, harmless at its closing speeds with soft helmets.
+  - Beyond ~110 m it takes a fit flyer (~26–60 W), so the outer band is the strong's and the young's, and the room there fills last.
+  - The crosswise clubs stay small.
+- **Beyond 75 m everyone flies anti, one way along the axis at a time.** Lengthwise flight out there takes 90–250 W and spinward is impossible, so the band is anti by physics; what it needs is one direction along the axis, set for the night or the hour, so no two flyers there meet head on. Inside 75 m, which way along the axis is each drum's rule. Anti circlers don't turn with the drum, so they pass every side of the spar once a turn: a rule that splits the core by side, as Sorrel's does (back on the spin side, front on the anti; the Sorrel Atlas), works for lengthwise flyers and leaves the circlers to the band. The Long Flight goes one way throughout.
+- **Who gets to fly.** If everyone wanted to, the halls by day (11 hours at ~70,000) and the Spindle by night (13 hours at ~2.7 M) give ~35 M flyer-hours a day: ~75 minutes a week for each resident, ~64 hours a year, against the Hollow's ~45 minutes a week (economy.md). The evenings, 18:00–23:00, give each resident an hour about every two weeks. Spindle turns are still rationed, as Hollow hours are, and sleeves are hired by the turn (sorrel.md).
+- **The Long Flight** (open-drums.md). One Length, front wall to back at ~2.5 m/s along the axis, takes ~25 minutes. A full Spindle turning over every Length would fly ~50 M through the night, one resident in four.
+- **The lifts set how many fly it.** That turnover would take ~1,770 riders a second up the front wall and down the back. Full six-seat platoons at 12 m/s carry ~13 a second a channel, so it needs ~140 channels at each end wall, fourteen of the Lattice's ten-channel cores (drum-transport.md). At ~35 channels a wall, ~13 M fly it (one in sixteen) for ~100 minutes each, four Lengths or there and back twice; at ~70, ~25 M (one in eight) for ~50 minutes. A block's place on the Long Flight is a real allotment either way.
+- **A full Spindle drags its own air.** 2.7 M flyers circling anti drag its air against the drum's turn; alone, they'd stop it turning in ~2 minutes. Mixing with the Hollow's air at the net probably holds it at roughly two-thirds to three-quarters slower than the drum, with ~6–7 m/s of anti wind past the net, a stiff breeze in the turbulent layer just outside it. The crowd drafts itself: a full Spindle is easier to fly than an empty one. This is a rough estimate (Open questions).
 
 ## A deck up close
 - Deck 201, mid-drum at 0.73 g, is 13.8 km around and 3.75 km end to end, with ~520,000 people. The rim deck is 18.8 km around, the innermost 9.4 km.
@@ -198,6 +252,7 @@ At 2 kW and 3 m² per person:
   - habitat-design.md: its zero-g axis "for docks and industry" now means the axle halls at the two ends; the middle of the axis is the sunline's.
   - ashgrove.md already uses this layout.
 - **drum-transport.md:** Oct 2026, replaces this doc's lifts and trams with cabs; the drum-size table and the big-drum bullets use its cab speeds. Later sized for capacity: ten channels per core, line decks two decks deep. Revised again for the 3 km drum: ~7–12 W per person.
+- **Flying (26 Nov 2026):** sorrel.md's night-flying question now points here, and its Spindle by night (with the Sorrel Atlas) opens from the outside in under a net 150 m out; drum-transport.md sizes the Spindle lifts for the Long Flight; open-drums.md's Long Flight runs in ~25-minute turns; economy.md counts Spindle hours beside Hollow hours; glossary.md's Spindle flies anti; open-questions.md's P6 net at 150 m is adopted here.
 - **The 3 km baseline (Oct 2026):** habitat-design.md, drum-transport.md, raft-transport.md, full-swarm.md, energy-budget.md, daily-life.md, economy.md, governance.md, element-cycles.md, sgr-a-scope.md, swarm-rings.md, xray-power.md, matter-delivery.md and ashgrove.md now use the 3 km drum.
 
 ## Open questions
@@ -207,6 +262,9 @@ At 2 kW and 3 m² per person:
 - **Who gets the Hollow:** answered in economy.md § The Hollow and the high decks: rationed by deck or auctioned, as each drum chooses.
 - How big the Hollow's lake is: its share of the drum's inside water (habitat-design.md § The moat).
 - How much of daily life stays inside a drum of 200 M. Cabs are sized for random destinations, the worst case.
+- How many Spindle lift channels each end wall gets: ~35 fly ~13 M on Long Flight night, ~140 would fly ~50 M (drum-transport.md).
+- How a drum splits its flyers by direction along the axis: by side, by distance from the axis, or by the hour. (deliberately open)
+- How much a full Spindle slows its own air, and what ~6–7 m/s of shear at the net does to the net and the flyers beside it. Flying's figure is a rough estimate; it needs a flow model.
 
 ## Method
 - Drum: rim 3,000 m at 1 g (ω = 0.0572 rad/s), length 3,750 m, decks every 4 m from 3,000 m to 1,500 m (376 decks), 100 m² per person: ~199 M (200 M nominal). Deck floor = 2πrL. Bands by deck number from the rim; residents in proportion to floor, the Keel (decks 1–15, ~5 m² a person) excluded. Other sizes keep length = 1.25 R; the 2 km drum is R = 2,000 m, L = 2,500 m, ~59 M.
@@ -222,6 +280,8 @@ At 2 kW and 3 m² per person:
 - Hollow per person: 2π(R/2)L ÷ people, ∝ 1/R.
 - Lifts: cabs at tan 30° × rim speed ÷ 4 (10 / 20 / 45 m/s in town, 2 km and world drums) and 1.5 m/s², per drum-transport.md. The 3 km drum's cabs run at 20 m/s rather than the 25 that allows, since 25 saves only ~3 s on an average ride. A fixed-floor lift would be capped at 0.07 g ÷ 2ω (6.0 m/s in the 3 km drum, 4.9 in a 2 km one). Weight on a deck at speed v: × (1 ± v ÷ ωr)².
 - Sunline: a thin line on the axis, shining like a diffuse cylinder. 100,000 lux on the floor is ~333 W/m² of light at ~300 lumens per watt of light; beside the line, light ∝ 1/distance (~7.3 kW/m² at 75 m with the shortened line's ~10% more per metre). From a line between z₁ and z₂, light at radius ρ and axial position z, relative to an infinite line's at the floor (π/(2 × 1,500 m)): on surfaces facing the axis ∝ ρ²∫dz′ ÷ (ρ² + (z′ − z)²)²; on surfaces facing the line's end ∝ (ρ/2)[1/(ρ² + (z₁ − z)²) − 1/(ρ² + (z₂ − z)²)]. A full-length line sends ~76% of its light to the floor and gives its middle ~88% of an infinite line's brightness; daily-life.md's lumens-over-area figure leaves out the end walls. Ramps as daily-life.md, taken as linear. Light scales with the drum: at matching points (all distances × 1.5) it's the same as in a 2 km drum.
+- The dimming line (26 Nov 2026): ~7.3 kW/m² at 75 m at full sun, ∝ 1/distance, ramping linearly over 3 hours. At a seventh, ~0.52 kW/m² at 150 m, ~1.04 at 75 m, ~1.56 at 50 m, ~7.8 at 10 m; ≤1 kW/m² at 10 m below 10 ÷ (7.3 × 75) ≈ 1.8%, ~3 minutes before the line is out. The band-only time is 2 × (26 − 3) ≈ 45 minutes a day.
+- Flying (`models/flight.py`): flyer 72 kg; sleeves 1.2 m² at C_L ≤ 1.2, span 1.8 m, span efficiency 0.7; drag area 0.25 m² lengthwise, 1.2 m² spread broadside, 0.5–0.7 m² tumbling; heliox 0.398 kg/m³. Lengthwise: lift mω²r, power (0.25 m² × q + lift² ÷ (q π b² e)) × v at the best speed. Anti: no lift at airspeed ωr, plus 2.5 m/s along the axis. Muscle = aerodynamic power ÷ 0.6 for flapping. Spinward: lift m(ωr + u)² ÷ r. Turn radius 2m ÷ (ρ S C_L). Drifts integrated in the drum's turning frame, with drag against air that turns with the drum. Collision energy ¼ m v². Free-flight conflicts n × π (1.5 m)² × 4.7 m/s. Volumes π r² × 3,750 m (night net at 150 m); halls 2 × π × 75² × 300 m. Flyer-hours 13 h × 2.65 M + 11 h × 70,000. Long Flight: 3,750 m ÷ 2.5 m/s, 22:00 to 06:00; flyers a night = lift channels × 12.6 a second × 8 h. Lifts: platoons of 40 six-seat cabs, 4.5 m apart, 48 m between platoons, at 12 m/s (~12.6 riders a second a channel). Air: the crowd's torque ∫ n ½ρ × 0.25 m² × (ωr)² × r dV against turbulent shear ρ C_f Δu² over the net's area, C_f 0.003–0.01.
 - Spar: a line held on the axis by tension stays there if the tension per kg of line exceeds ω²(L/π)², ~4.7 kJ/kg, trivial for nanocarbon.
 - Light tube: surface flux = 333 W/m² × 1,500 m ÷ tube radius.
 - Hollow lighting: 100,000 lux over 35.3 km² at 250 lm/W.
