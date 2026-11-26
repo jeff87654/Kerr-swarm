@@ -54,7 +54,7 @@ Spin 0.0572 rad/s (a turn in 110 s); weight at the 75 m net 2.5% of a g; the air
 
 5. HOW MANY AT ONCE
    Spindle to 75 m: 6.63e+07 m³; to 110 m: 1.43e+08; to 150 m: 2.65e+08
-   both flying halls: 1.06e+07 m³; the band 50–75 m: 3.68e+07 m³ (56%)
+   both flying halls: 1.06e+07 m³; the band 50–75 m: 3.68e+07 m³ (56%); 50–150 m: 2.36e+08 m³ (2,356,194 at 100 m³)
     50 m³ each (3.7 m between centres): Spindle  1,325,359   halls  212,058   band  736,311   to 110 m  2,850,995   to 150 m  5,301,438
    100 m³ each (4.6 m between centres): Spindle    662,680   halls  106,029   band  368,155   to 110 m  1,425,498   to 150 m  2,650,719
    200 m³ each (5.8 m between centres): Spindle    331,340   halls   53,014   band  184,078   to 110 m    712,749   to 150 m  1,325,359
@@ -64,22 +64,31 @@ Spin 0.0572 rad/s (a turn in 110 s); weight at the 75 m net 2.5% of a g; the air
      20,000 m³ each:   5.9 would-be collisions an hour a flyer; halls hold 530
    neighbours circling anti 4 m apart in radius differ by 0.23 m/s
 
-6. WHO GETS TO FLY
-   lamp-night 13 h × 662,680 + day 11 h × 70,000 = 9.4 M flyer-hours a day
-   per resident: 20 min a week, 17 h a year
-   18:00–23:00 only: 7.0 min a week, an hour every 9 weeks
-   the Long Flight: one Length at 2.5 m/s takes 25 min; 22:00 to lamp-dawn is 8 h
-     100 m³ each: 12.7 M fly, one resident in 16
-      50 m³ each: 25.4 M fly, one resident in 8
-     100 m³ each: 442 riders a second in at the front wall and out at the back; at 12.6 a channel, 35 channels a wall
-      50 m³ each: 884 riders a second in at the front wall and out at the back; at 12.6 a channel, 70 channels a wall
+6. WHO GETS TO FLY (night net at 75 m, then at 150 m; halls by day at 75 m)
+   net at 75 m: lamp-night 13 h × 662,680 + day 11 h × 70,000 = 9.4 M flyer-hours a day
+     per resident: 20 min a week, 17 h a year
+     18:00–23:00 only: 7.0 min a week, an hour every 8.6 weeks
+     the Long Flight, one Length at 2.5 m/s = 25 min, 22:00 to lamp-dawn (8 h):
+       100 m³ each: 12.7 M fly (one resident in 15.7); 442 riders a second each way, 35 channels a wall at 12.6 a channel
+        50 m³ each: 25.4 M fly (one resident in 7.9); 884 riders a second each way, 70 channels a wall at 12.6 a channel
+   net at 150 m: lamp-night 13 h × 2,650,719 + day 11 h × 70,000 = 35.2 M flyer-hours a day
+     per resident: 74 min a week, 64 h a year
+     18:00–23:00 only: 27.8 min a week, an hour every 2.2 weeks
+     the Long Flight, one Length at 2.5 m/s = 25 min, 22:00 to lamp-dawn (8 h):
+       100 m³ each: 50.9 M fly (one resident in 3.9); 1767 riders a second each way, 140 channels a wall at 12.6 a channel
+        50 m³ each: 101.8 M fly (one resident in 2.0); 3534 riders a second each way, 280 channels a wall at 12.6 a channel
+   lift-limited: 35 channels a wall carry 442 a second, 12.7 M a night; a full 150 m Spindle then turns over every 100 min
+   lift-limited: 70 channels a wall carry 884 a second, 25.5 M a night; a full 150 m Spindle then turns over every 50 min
 
 7. THE DUSK: the line dims linearly over 3 h; 7.3 kW/m² at 75 m at full sun, ∝ 1/distance
    at a seventh: kW/m² at 10 m 7.82, 50 m 1.56, 75 m 1.04
    at 2%: kW/m² at 10 m 1.09, 50 m 0.22, 75 m 0.15
    ≤1 kW/m² at 10 m from the spar below 1.8%: 3 min before the line is out (a seventh: 26 min)
 
-8. A FULL SPINDLE DRAGS ITS AIR (everyone circling anti at ωr)
-   crowd torque 1.82e+07 N m; alone it would stop the column turning in 233 s
-   mixing at the net, C_f = 0.003: the column turns 71% slower than the drum; 3.1 m/s of anti wind at the net
-   mixing at the net, C_f = 0.01: the column turns 58% slower than the drum; 2.5 m/s of anti wind at the net
+8. A FULL SPINDLE DRAGS ITS AIR (everyone circling anti at ωr, 100 m³ each)
+   net at 75 m: crowd torque 1.82e+07 N m; alone it would stop the column turning in 233 s
+     mixing at the net, C_f = 0.003: the column turns 71% slower than the drum; 3.1 m/s of anti wind at the net
+     mixing at the net, C_f = 0.01: the column turns 58% slower than the drum; 2.5 m/s of anti wind at the net
+   net at 150 m: crowd torque 5.82e+08 N m; alone it would stop the column turning in 117 s
+     mixing at the net, C_f = 0.003: the column turns 78% slower than the drum; 6.7 m/s of anti wind at the net
+     mixing at the net, C_f = 0.01: the column turns 66% slower than the drum; 5.7 m/s of anti wind at the net

@@ -297,7 +297,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 - **The Twentieth** (back wall, Ring Nine, Fox). The back wall's top garden at a twentieth of a g, where a child can jump the height of a house and comes down in somebody's beans.
 
 ### The Spindle
-- **The Spindle by night** (middle of the Spindle, Ring Five). When the sunline falls below a seventh, a net unrolls down the whole length and the axis opens from the outside in: 3.75 km of flying in the dark.
+- **The Spindle by night** (middle of the Spindle, Ring Five). When the sunline falls below a seventh, a net unrolls down the whole length 150 m out and the axis opens from the outside in: 3.75 km of flying in the dark.
 - **The Spindle lifts** (back of the Spindle, Ring Nine). From the foot of each end wall to the axis: 1.5 km in a little over two minutes, while down goes sideways and then away.
 - **The Length** (front of the Spindle, Ring One). Sorrel's Booking-night flight: front wall to back, the way the power goes, behind the oldest flyer's lamp.
 - **The wing-sleeve hire** (back of the Spindle, Ring Nine). At the back gate: fabric fins from wrist to hip, hired by the turn, with your shoes kept as the deposit. *In ashgrove.md.*
@@ -332,7 +332,7 @@ Every landmark in the atlas, outside in, with where it is (deck, Ring and Hour).
 
 ## Open questions
 - **A gentler catch** for the frail (ashgrove.md): still open.
-- **Night flying:** answered in raft-habitat.md § Flying: a net runs the whole length whenever the middle of the Spindle is open, since a flyer who drifts off the axis lands ~3 minutes later at ~40 m/s (not ~85, the vacuum figure). Where it hangs, at 75 m or 150 m, is raft-habitat.md's open question.
+- **Night flying:** answered in raft-habitat.md § Flying: a net runs the whole length whenever the middle of the Spindle is open, since a flyer who drifts off the axis lands ~3 minutes later at ~40 m/s (not ~85, the vacuum figure). It hangs 150 m out, level with the top terraces, and everyone beyond 75 m flies anti.
 - **How the Hours began:** a founders' custom, but nobody in the atlas says why animals. (deliberately open)
 
 ## Method

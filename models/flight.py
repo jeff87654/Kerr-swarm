@@ -154,8 +154,10 @@ def main():
     v_easy = pi * 110.0 ** 2 * L
     v_halls = 2 * pi * R_NET ** 2 * 300.0
     v_band = v_sp * (1 - (50 / R_NET) ** 2)
+    v_band_wide = pi * (R_WIDE ** 2 - 50 ** 2) * L
     print(f"   Spindle to {R_NET:.0f} m: {v_sp:.3g} m³; to 110 m: {v_easy:.3g}; to {R_WIDE:.0f} m: {v_wide:.3g}")
-    print(f"   both flying halls: {v_halls:.3g} m³; the band 50–75 m: {v_band:.3g} m³ ({1 - (50 / R_NET) ** 2:.0%})")
+    print(f"   both flying halls: {v_halls:.3g} m³; the band 50–75 m: {v_band:.3g} m³ ({1 - (50 / R_NET) ** 2:.0%});"
+          f" 50–150 m: {v_band_wide:.3g} m³ ({v_band_wide / 100:,.0f} at 100 m³)")
     for per in (50, 100, 200):
         print(f"   {per:3d} m³ each ({per ** (1 / 3):.1f} m between centres): Spindle {v_sp / per:>10,.0f}   "
               f"halls {v_halls / per:>8,.0f}   band {v_band / per:>8,.0f}   to 110 m {v_easy / per:>10,.0f}   "
@@ -168,25 +170,28 @@ def main():
               f" halls hold {v_halls / per:,.0f}")
     print(f"   neighbours circling anti 4 m apart in radius differ by {W * 4:.2f} m/s")
 
-    print("\n6. WHO GETS TO FLY")
-    night = 13 * v_sp / 100
-    day = 11 * 70000
-    print(f"   lamp-night 13 h × {v_sp / 100:,.0f} + day 11 h × 70,000 = {(night + day) / 1e6:.1f} M flyer-hours a day")
-    print(f"   per resident: {(night + day) / POP * 60 * 7:.0f} min a week, {(night + day) / POP * 365:.0f} h a year")
-    prime = 5 * v_sp / 100 / POP * 60 * 7
-    print(f"   18:00–23:00 only: {prime:.1f} min a week, an hour every {60 / prime:.0f} weeks")
+    print("\n6. WHO GETS TO FLY (night net at 75 m, then at 150 m; halls by day at 75 m)")
     turn = L / DRIFT / 60
-    print(f"   the Long Flight: one Length at {DRIFT} m/s takes {turn:.0f} min; 22:00 to lamp-dawn is 8 h")
-    for per in (100, 50):
-        n = v_sp / per * 8 * 60 / turn
-        print(f"     {per:3d} m³ each: {n / 1e6:.1f} M fly, one resident in {POP / n:.0f}")
     platoon = 40 * 4.5
     chan = 40 * 6 / ((platoon + 48.0) / 12.0)
-    for per in (100, 50):
-        rate = v_sp / per / (turn * 60)
-        print(f"     {per:3d} m³ each: {rate:.0f} riders a second in at the front wall and out at the back;"
-              f" at {chan:.1f} a channel, {rate / chan:.0f} channels a wall")
-
+    for rn, vol in ((R_NET, v_sp), (R_WIDE, v_wide)):
+        night = 13 * vol / 100
+        day = 11 * 70000
+        print(f"   net at {rn:.0f} m: lamp-night 13 h × {vol / 100:,.0f} + day 11 h × 70,000 = {(night + day) / 1e6:.1f} M flyer-hours a day")
+        print(f"     per resident: {(night + day) / POP * 60 * 7:.0f} min a week, {(night + day) / POP * 365:.0f} h a year")
+        prime = 5 * vol / 100 / POP * 60 * 7
+        print(f"     18:00–23:00 only: {prime:.1f} min a week, an hour every {60 / prime:.1f} weeks")
+        print(f"     the Long Flight, one Length at {DRIFT} m/s = {turn:.0f} min, 22:00 to lamp-dawn (8 h):")
+        for per in (100, 50):
+            n = vol / per * 8 * 60 / turn
+            rate = vol / per / (turn * 60)
+            print(f"       {per:3d} m³ each: {n / 1e6:.1f} M fly (one resident in {POP / n:.1f}); {rate:.0f} riders a second"
+                  f" each way, {rate / chan:.0f} channels a wall at {chan:.1f} a channel")
+    for chans in (35, 70):
+        rate = chans * chan
+        n = rate * 8 * 3600
+        print(f"   lift-limited: {chans} channels a wall carry {rate:.0f} a second, {n / 1e6:.1f} M a night;"
+              f" a full 150 m Spindle then turns over every {v_wide / 100 / rate / 60:.0f} min")
     print("\n7. THE DUSK: the line dims linearly over 3 h; 7.3 kW/m² at 75 m at full sun, ∝ 1/distance")
     for frac, name in ((1 / 7, "a seventh"), (0.02, "2%")):
         row = ", ".join(f"{r} m {7.3 * 75 / r * frac:.2f}" for r in (10, 50, 75))
@@ -195,22 +200,24 @@ def main():
     print(f"   ≤1 kW/m² at 10 m from the spar below {f_core:.1%}: {f_core * 180:.0f} min before the line is out"
           f" (a seventh: {180 / 7:.0f} min)")
 
-    print("\n8. A FULL SPINDLE DRAGS ITS AIR (everyone circling anti at ωr)")
+    print("\n8. A FULL SPINDLE DRAGS ITS AIR (everyone circling anti at ωr, 100 m³ each)")
     n = 1 / 100
-    torque = n * 0.5 * RHO * F_LEN * W * W * L * 2 * pi * R_NET ** 5 / 5
-    inertia = 0.5 * RHO * v_sp * R_NET ** 2
-    print(f"   crowd torque {torque:.3g} N m; alone it would stop the column turning in {W * inertia / torque:.0f} s")
-    area = 2 * pi * R_NET * L
-    for cf in (0.003, 0.01):
-        lo, hi = 0.0, 1.0
-        for _ in range(60):
-            x = 0.5 * (lo + hi)
-            if torque * (1 - x) ** 2 > RHO * cf * (x * W * R_NET) ** 2 * area * R_NET:
-                lo = x
-            else:
-                hi = x
-        print(f"   mixing at the net, C_f = {cf}: the column turns {x:.0%} slower than the drum;"
-              f" {x * W * R_NET:.1f} m/s of anti wind at the net")
+    for rn in (R_NET, R_WIDE):
+        vol = pi * rn ** 2 * L
+        torque = n * 0.5 * RHO * F_LEN * W * W * L * 2 * pi * rn ** 5 / 5
+        inertia = 0.5 * RHO * vol * rn ** 2
+        print(f"   net at {rn:.0f} m: crowd torque {torque:.3g} N m; alone it would stop the column turning in {W * inertia / torque:.0f} s")
+        area = 2 * pi * rn * L
+        for cf in (0.003, 0.01):
+            lo, hi = 0.0, 1.0
+            for _ in range(60):
+                x = 0.5 * (lo + hi)
+                if torque * (1 - x) ** 2 > RHO * cf * (x * W * rn) ** 2 * area * rn:
+                    lo = x
+                else:
+                    hi = x
+            print(f"     mixing at the net, C_f = {cf}: the column turns {x:.0%} slower than the drum;"
+                  f" {x * W * rn:.1f} m/s of anti wind at the net")
 
 
 if __name__ == "__main__":
