@@ -178,6 +178,7 @@ A drum becomes open if it goes ~500 years without a serious shock and chooses to
 - How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. (deliberately open)
 - What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
 - How a block gives its leave (by turn, by need, by lot or by a vote), and whether a block ever comes to count its own (families.md § How leave is given).
+- Who flies the Long Flight. A full Spindle takes about one resident in fifteen through the night, one in eight packed (raft-habitat.md § Flying), so a block's place on it comes round by turn, goes to a share of each block every year, or is the court's to give. (deliberately open)
 
 ## Method
 - Chervil: 200 M shares, 3% Margin → 194.06 M people; 90 M places, 5.94 M ÷ 2.22 ≈ 2.673 M of them held by the drum. Beam per head 2.0 × 200 ÷ 194.06 ≈ 2.06 kWe. Deaths 194.06 M ÷ 120 yr ≈ 1.62 M a year.
@@ -189,7 +190,7 @@ A drum becomes open if it goes ~500 years without a serious shock and chooses to
 - Cycler fare at 2 km/s ≈ 1.1 kWh a trip at any distance (daily-life.md). 0.1 AU ≈ 1.5 × 10⁷ km ÷ 2 km/s ≈ 87 days. Twelve legs ≈ 13 kWh.
 - Guests: if each drum's ~1.6 M twenty-year-olds spend ~90 guest-nights on a wander year, on average (not everyone goes, and many go for less than a year; Marit's ~182 nights on guest-right in wander-year.md are a long year), each drum hosts ~1.4 × 10⁸ guest-nights a year, ~400,000 a night. Against the ~1.6–2.1 M places left after the couples' loans, that's a fifth to a quarter of them at one guest a place, with the rest for refuge, studios and placeless couples.
 - The Quiet: 9.6 kWh × 194.06 M ≈ 1.9 × 10⁹ kWh (1.9 TWh, ~6.7 × 10¹⁵ J). Against the hull's 0.8 kW (19.2 kWh a head a day), food made in one day would add 50%. With the radiators full, it would stay in the ~27 Mt of inside water (~0.14 t a head; habitat-design.md): ΔT ≈ 6.7 × 10¹⁵ ÷ (2.7 × 10¹⁰ kg × 4,186 J/kg·K) ≈ 59 K. Shedding it on the day instead would take radiators 1.5^¼ − 1 ≈ 11% hotter, ~32 K at 300 K. Spread over ~6 weeks (cheese, wine and apples take longer, which only helps): 9.6 kWh ÷ 42 days ≈ 0.23 kWh a day, ~10 W a head, ~1.2% of the hull's heat. Radiators shed T⁴, so ΔT/T = ¼ ΔP/P: at 300 K they run ~0.9 K warmer. On the day, cooking at an assumed ≤0.3 kWh a head is ≤58 GWh (2.1 × 10¹⁴ J), ~1.6% of a day's hull heat: ~1.2 K warmer radiators, or ~1.9 K in the inside water if none of it were shed. The beam balances across the raft: the Yards, whose heat leaves from hotter panels outside the hull, run a little slower in the weeks before and take up the Quiet's idle data-hall beam on the day.
-- Long Flight: Spindle volume π × 75² × 3,750 m ≈ 6.6 × 10⁷ m³; at ~100 m³ a flyer, ~660,000 at once.
+- Long Flight: Spindle volume π × 75² × 3,750 m ≈ 6.6 × 10⁷ m³; at ~100 m³ a flyer, ~660,000 at once. One Length at ~2.5 m/s along the axis takes ~25 minutes, so 22:00 to lamp-dawn holds ~19 turns: ~13 M flyers, about one of Chervil's people in fifteen, or ~25 M packed at ~50 m³ (raft-habitat.md § Flying).
 - Prevalence: share ≈ e^(−500 yr × shock rate) × share that keep a Margin. Canon: e^(−0.5) × 0.4 ≈ 0.24.
 
 ## Sources

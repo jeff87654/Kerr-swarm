@@ -133,6 +133,7 @@ Paying for someone's time moves claims; it doesn't use energy. A claim paid to a
 - **The Hollow gives everyone about three-quarters of an hour a week.** Its ~35 km² floor holds ~1.4 M people at a crowded beach's ~25 m² each, ~0.7% of the drum. Open 16 hours a day, that's ~7 minutes per resident per day; at park density, ~12 minutes a week. (A 2 km drum's Hollow gave about an hour a week.)
   - So Hollow hours are rationed by deck or auctioned, and traded. A Hollow hour is the classic gift.
   - daily-life.md's resident spends an hour there every day, ~9× an equal share: a high-decker's privilege, or hours bought from others.
+- **The Spindle adds about 20 minutes a week** (raft-habitat.md § Flying). ~660,000 can fly it at once through the lamp-night and ~70,000 in the flying halls by day. Its evenings give each resident an hour about every nine weeks, so Spindle turns are rationed as Hollow hours are.
 - **High decks** hold ~30 M of a drum's ~200 M (raft-habitat.md): a low dose, the lightest step, the Hollow at the door.
 - **Who collects the rents decides the society.** Proposal: the drum owns fixed goods, auctions their use, and returns the rents through the commons or the dividend. That's Henry George's single tax, with metal for land.
 

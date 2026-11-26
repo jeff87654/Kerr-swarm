@@ -14,9 +14,9 @@
 
 | | Questions |
 |---|---|
-| Open | 105 |
-| Deliberately open (story space) | 23 |
-| Answered elsewhere, with a pointer left in the doc | 35 |
+| Open | 107 |
+| Deliberately open (story space) | 25 |
+| Answered elsewhere, with a pointer left in the doc | 36 |
 | Docs with questions still open | 25 |
 
 ## The questions by theme
@@ -52,6 +52,9 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [raft-habitat.md](raft-habitat.md#open-questions): How much gravity children need.
 - [raft-habitat.md](raft-habitat.md#open-questions): How big the Hollow's lake is: its share of the drum's inside water (habitat-design.md § The moat).
 - [raft-habitat.md](raft-habitat.md#open-questions): How much of daily life stays inside a drum of 200 M. Cabs are sized for random destinations, the worst case.
+- [raft-habitat.md](raft-habitat.md#open-questions): Where the Spindle's night net hangs: at 75 m, round flying country (~660,000 at once), or at 150 m (open-questions.md P6), level with the end walls' top terraces, where strong flyers can use four times the volume flying anti (~2.7 M at once).
+- [raft-habitat.md](raft-habitat.md#open-questions): How a drum splits its flyers by direction along the axis: by side, by distance from the axis, or by the hour. *(deliberately open)*
+- [raft-habitat.md](raft-habitat.md#open-questions): How much a full Spindle slows its own air, and what the shear at the net does to the flyers beside it. Flying's figure is a rough estimate; it needs a flow model.
 - [element-cycles.md](element-cycles.md#open-questions): **Ammonia or propylene** in the exposed panels: ammonia must lose under ~5 × 10⁻⁸ a year, since its nitrogen comes only from the living stars; propylene's losses cost only energy, but it needs ~4× the liquid flow. Both need radiolysis traps; radiolysis itself doesn't decide it (re-fixing ammonia's lost nitrogen costs ~0.03 W a person at most).
 - [element-cycles.md](element-cycles.md#open-questions): **Whether leaked gas comes back** (swept up by rafts) or boils out of the Shade (Compton-heated).
 - [element-cycles.md](element-cycles.md#open-questions): **The Shade's debris,** which sets puncture rates for the moat, panels, shields and cabins.
@@ -72,6 +75,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [drum-transport.md](drum-transport.md#open-questions): Whether arriving riders share cabs by neighbourhood, which would cut the cab traffic at the station rings by about a quarter.
 - [drum-transport.md](drum-transport.md#open-questions): How much air leaks into the Lattice's helium at its berths, and what freezing it out costs (sorrel.md has the plant).
 - [drum-transport.md](drum-transport.md#open-questions): World drums: radial cabs at ~45 m/s need pressure-controlled cabins, since pressure differs 16% across their decks.
+- [drum-transport.md](drum-transport.md#open-questions): How many Spindle lifts each end wall carries, and how its berths load a full platoon of flyers: ~35 channels a wall for the Long Flight's turnover (raft-habitat.md § Flying).
 - [raft-transport.md](raft-transport.md#open-questions): Whether glide catches can be made gentle enough for everyone: a 1 g onset over a second or two, now for ~13,000 t trains.
 - [raft-transport.md](raft-transport.md#open-questions): Cycler speeds: cheap slow lines against a deep reserve for the Dark.
 - [raft-transport.md](raft-transport.md#open-questions): How districts of different drum sizes connect, since they can't glide to each other (raft-habitat.md § Life inside: a raft picks one size to glide).
@@ -141,6 +145,7 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [open-drums.md](open-drums.md#open-questions): How a Margin is shared out after a raft-wide Dark: to the drum's own households, to refugees, or to neighbours. *(deliberately open)*
 - [open-drums.md](open-drums.md#open-questions): What the Lantern's beam-by-share rule makes of a drum's unused shares over very long times.
 - [open-drums.md](open-drums.md#open-questions): How a block gives its leave (by turn, by need, by lot or by a vote), and whether a block ever comes to count its own (families.md § How leave is given).
+- [open-drums.md](open-drums.md#open-questions): Who flies the Long Flight. A full Spindle takes about one resident in fifteen through the night, one in eight packed (raft-habitat.md § Flying), so a block's place on it comes round by turn, goes to a share of each block every year, or is the court's to give. *(deliberately open)*
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Glide catches and the frail.** Hedda doesn't glide. Is there a gentler catch lane, or do the old and the ill simply stay home? (raft-transport.md)
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Spirits across the quay.** Sorrel's cheap gin, carried over in visitors' bags, may be part of what keeps Lovage's methanol deaths as low as they are. *(deliberately open)*
 - [ashgrove.md](ashgrove.md#questions-it-raises): **Hollow time by age** gives Sorrel's elders several times an equal share: economy.md's "allotted by age or service" column at work. How much do Low-deck families mind? *(deliberately open)*
@@ -150,7 +155,6 @@ Each links to its doc's own list, which is the source. Answered questions are le
 - [third-chair.md](third-chair.md#questions-it-raises): **The other sixteen.** Nell is elected to a house, marries late and is never drawn. What the same life looks like for a third chair whose parents cut, in a block that knows it. *(deliberately open)*
 - [third-chair.md](third-chair.md#questions-it-raises): **The quarter by Ring 7.** What Mugwort does when its line outside is a tenth of its births. *(deliberately open)*
 - [sorrel.md](sorrel.md#open-questions): **A gentler catch** for the frail (ashgrove.md): still open.
-- [sorrel.md](sorrel.md#open-questions): **Night flying** has wardens with red lamps at the Spindle's 75 m edge, since a flyer who drifts off the axis falls for minutes and lands at ~85 m/s. Should the netting run the whole length?
 - [sorrel.md](sorrel.md#open-questions): **How the Hours began:** a founders' custom, but nobody in the atlas says why animals. *(deliberately open)*
 - [eating-out.md](eating-out.md#open-questions): Restaurants on rafts with dearer or cheaper hours: how far does a cook's wage change a drum's food culture? *(deliberately open)*
 - [eating-out.md](eating-out.md#open-questions): Whether other rows of Merrow have guides of their own, and how the Row's guide is judged. *(deliberately open)*
@@ -193,6 +197,7 @@ Each is a proposal, not canon, with its numbers shown and its formulas in Method
 ### P6. Net the whole Spindle at night (sorrel.md)
 - **The fall is slower than sorrel.md says, and still lethal.** Its ~85 m/s is the vacuum figure. In the Hollow's heliox (~0.4 kg/m³) drag holds a drifting flyer to ~30–40 m/s at the floor, after about three minutes.
 - **There's time to catch them.** Felt weight passes 0.1 g about 300 m out, ~75 s after the drift begins. A light net ~150 m from the axis (0.05 g, still climbable) covers the full 3.75 km in ~3.5 km², ~100–200 t at 30–50 g/m², rolled out for the lamp-night and stowed by day.
+- **Taken up 26 Nov 2026** in raft-habitat.md § Flying: a net runs the whole length whenever the middle is open. Whether it hangs here at 150 m, where strong flyers can use the band beyond 75 m flying anti, or at 75 m round flying country, is raft-habitat.md's open question.
 
 ### P7. Sails deploy in days (governance.md)
 - **The film is big but easy to lay.** Outside the belt a person needs 3–22 m² of sail and 4–20 m² of radiator, ~1,400–8,000 km² of film for a drum of 200 M against its 600 km² cell. A hundred booms each laying a 10 m strip at 5 m/s (~18 km² an hour) lay it in ~3–19 days.
